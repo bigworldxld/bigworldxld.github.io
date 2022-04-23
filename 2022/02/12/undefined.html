@@ -522,12 +522,12 @@
                                 <span class="chip bg-color">Azkaban</span>
                             </a>
                         
-                            <a href="/tags/hadoop/">
-                                <span class="chip bg-color">hadoop</span>
-                            </a>
-                        
                             <a href="/tags/kafka/">
                                 <span class="chip bg-color">kafka</span>
+                            </a>
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
                             </a>
                         
                             <a href="/tags/spark/">
@@ -821,7 +821,7 @@ klist: No credentials cache found (ticket cache FILE:/tmp/krb5cc_0)
 [root@hadoop104 ~]# useradd mapred -g hadoop
 [root@hadoop104 ~]# echo mapred | passwd --stdin mapred
 </code></pre>
-<h1 id="第3章-Hadoop-Kerberos配置"><a href="#第3章-Hadoop-Kerberos配置" class="headerlink" title="第3章 Hadoop Kerberos配置"></a>第3章 Hadoop Kerberos配置</h1><h2 id="3-1-为Hadoop各服务创建Kerberos主体（Principal）"><a href="#3-1-为Hadoop各服务创建Kerberos主体（Principal）" class="headerlink" title="3.1 为Hadoop各服务创建Kerberos主体（Principal）"></a>3.1 为Hadoop各服务创建Kerberos主体（Principal）</h2><p>主体格式如下：ServiceName/HostName@REALM，例如 dn/<a href="mailto:&#104;&#97;&#100;&#111;&#x6f;&#x70;&#x31;&#x30;&#x32;&#x40;&#69;&#88;&#x41;&#77;&#x50;&#76;&#69;&#46;&#67;&#79;&#x4d;">&#104;&#97;&#100;&#111;&#x6f;&#x70;&#x31;&#x30;&#x32;&#x40;&#69;&#88;&#x41;&#77;&#x50;&#76;&#69;&#46;&#67;&#79;&#x4d;</a><br>1.各服务所需主体如下<br>环境：3台节点，主机名分别为hadoop102，hadoop103，hadoop104</p>
+<h1 id="第3章-Hadoop-Kerberos配置"><a href="#第3章-Hadoop-Kerberos配置" class="headerlink" title="第3章 Hadoop Kerberos配置"></a>第3章 Hadoop Kerberos配置</h1><h2 id="3-1-为Hadoop各服务创建Kerberos主体（Principal）"><a href="#3-1-为Hadoop各服务创建Kerberos主体（Principal）" class="headerlink" title="3.1 为Hadoop各服务创建Kerberos主体（Principal）"></a>3.1 为Hadoop各服务创建Kerberos主体（Principal）</h2><p>主体格式如下：ServiceName/HostName@REALM，例如 dn/<a href="mailto:&#x68;&#x61;&#x64;&#111;&#111;&#x70;&#x31;&#x30;&#x32;&#x40;&#69;&#88;&#x41;&#x4d;&#80;&#76;&#x45;&#x2e;&#x43;&#x4f;&#77;">&#x68;&#x61;&#x64;&#111;&#111;&#x70;&#x31;&#x30;&#x32;&#x40;&#69;&#88;&#x41;&#x4d;&#80;&#76;&#x45;&#x2e;&#x43;&#x4f;&#77;</a><br>1.各服务所需主体如下<br>环境：3台节点，主机名分别为hadoop102，hadoop103，hadoop104</p>
 <table>
 <thead>
 <tr>
@@ -1702,7 +1702,7 @@ YARN_NODEMANAGER_USER=yarn
 </code></pre>
 <p>使用如下url进行连接</p>
 <blockquote>
-<p>!connect jdbc:hive2://hadoop102:10000/;principal=hive/<a href="mailto:&#104;&#x61;&#100;&#x6f;&#111;&#x70;&#x31;&#x30;&#50;&#64;&#x45;&#88;&#65;&#x4d;&#x50;&#76;&#69;&#x2e;&#x43;&#x4f;&#x4d;">&#104;&#x61;&#100;&#x6f;&#111;&#x70;&#x31;&#x30;&#50;&#64;&#x45;&#88;&#65;&#x4d;&#x50;&#76;&#69;&#x2e;&#x43;&#x4f;&#x4d;</a></p>
+<p>!connect jdbc:hive2://hadoop102:10000/;principal=hive/<a href="mailto:&#x68;&#x61;&#100;&#111;&#x6f;&#x70;&#x31;&#x30;&#50;&#x40;&#x45;&#x58;&#x41;&#x4d;&#x50;&#76;&#69;&#46;&#x43;&#x4f;&#x4d;">&#x68;&#x61;&#100;&#111;&#x6f;&#x70;&#x31;&#x30;&#50;&#x40;&#x45;&#x58;&#x41;&#x4d;&#x50;&#76;&#69;&#46;&#x43;&#x4f;&#x4d;</a></p>
 </blockquote>
 <p>3.测试查询</p>
 <h2 id="7-2-DataGrip客户端"><a href="#7-2-DataGrip客户端" class="headerlink" title="7.2 DataGrip客户端"></a>7.2 DataGrip客户端</h2><h3 id="7-2-1-新建Driver"><a href="#7-2-1-新建Driver" class="headerlink" title="7.2.1 新建Driver"></a>7.2.1 新建Driver</h3><p>1.创建Driver</p>
@@ -1718,7 +1718,7 @@ YARN_NODEMANAGER_USER=yarn
 <p>2.配置连接<br>1）基础配置</p>
 <img src="/2022/02/12/undefined/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" class title="This is an example image">
 
-<p>注：<br>url：jdbc:hive2://hadoop102:10000/;principal=hive/<a href="mailto:&#104;&#97;&#100;&#x6f;&#111;&#112;&#x31;&#x30;&#x32;&#x40;&#x45;&#88;&#65;&#77;&#x50;&#76;&#69;&#46;&#x43;&#x4f;&#x4d;">&#104;&#97;&#100;&#x6f;&#111;&#112;&#x31;&#x30;&#x32;&#x40;&#x45;&#88;&#65;&#77;&#x50;&#76;&#69;&#46;&#x43;&#x4f;&#x4d;</a><br>2）高级配置</p>
+<p>注：<br>url：jdbc:hive2://hadoop102:10000/;principal=hive/<a href="mailto:&#104;&#x61;&#100;&#111;&#111;&#112;&#49;&#x30;&#50;&#64;&#x45;&#x58;&#x41;&#77;&#x50;&#76;&#x45;&#46;&#x43;&#79;&#77;">&#104;&#x61;&#100;&#111;&#111;&#112;&#49;&#x30;&#50;&#64;&#x45;&#x58;&#x41;&#77;&#x50;&#76;&#x45;&#46;&#x43;&#79;&#77;</a><br>2）高级配置</p>
 <img src="/2022/02/12/undefined/%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE.png" class title="This is an example image">
 
 <p>注：<br>配置参数：<br>-Djava.security.krb5.conf=”C:\ProgramData\MIT\Kerberos5\krb5.ini”<br>-Djava.security.auth.login.config=”C:\ProgramData\MIT\Kerberos5\atguigu.conf”<br>-Djavax.security.auth.useSubjectCredsOnly=false<br>3）编写JAAS（Java认证授权服务）配置文件，内容如下，文件名和路径须和上图中java.security.auth.login.config参数的值保持一致。</p>
@@ -1805,12 +1805,12 @@ YARN_NODEMANAGER_USER=yarn
                                     <span class="chip bg-color">Azkaban</span>
                                 </a>
                             
-                                <a href="/tags/hadoop/">
-                                    <span class="chip bg-color">hadoop</span>
-                                </a>
-                            
                                 <a href="/tags/kafka/">
                                     <span class="chip bg-color">kafka</span>
+                                </a>
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
                                 </a>
                             
                                 <a href="/tags/spark/">
@@ -2078,12 +2078,12 @@ YARN_NODEMANAGER_USER=yarn
                         <span class="chip bg-color">Azkaban</span>
                     </a>
                     
-                    <a href="/tags/hadoop/">
-                        <span class="chip bg-color">hadoop</span>
-                    </a>
-                    
                     <a href="/tags/kafka/">
                         <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                     <a href="/tags/spark/">
@@ -2187,12 +2187,12 @@ YARN_NODEMANAGER_USER=yarn
                         <span class="chip bg-color">Azkaban</span>
                     </a>
                     
-                    <a href="/tags/hadoop/">
-                        <span class="chip bg-color">hadoop</span>
-                    </a>
-                    
                     <a href="/tags/kafka/">
                         <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                     <a href="/tags/spark/">
