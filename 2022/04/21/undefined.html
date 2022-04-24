@@ -2143,7 +2143,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     <span class="token function">sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>实现接口含义为：实现了这个接口的所有方法</p>
+<p><strong>实现接口含义为：实现了这个接口的所有方法</strong></p>
 <p>然后定义两个结构体，来实现ICalculate</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> B <span class="token keyword">struct</span> <span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
@@ -2165,13 +2165,10 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </code></pre>
 <p>再定义一个结构体，为其绑定一个方法，传入接口对象</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> E <span class="token keyword">struct</span> <span class="token punctuation">{</span>
- 
 <span class="token punctuation">}</span>
- 
 <span class="token keyword">func</span> <span class="token punctuation">(</span>e <span class="token operator">*</span>E<span class="token punctuation">)</span> <span class="token function">add</span><span class="token punctuation">(</span>ic ICalculate<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 接口是引用类型，所以这里传递的是变量的引用</span>
     ic<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
- 
 <span class="token keyword">func</span> <span class="token punctuation">(</span>e <span class="token operator">*</span>E<span class="token punctuation">)</span> <span class="token function">sub</span><span class="token punctuation">(</span>ic ICalculate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ic<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
@@ -2197,7 +2194,6 @@ ic<span class="token punctuation">.</span><span class="token function">add</span
 </code></pre>
 <p>不止结构体，自定义类型都可以实现接口</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> integer0 <span class="token builtin">int</span>
-
 <span class="token keyword">func</span> <span class="token punctuation">(</span>i integer0<span class="token punctuation">)</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"integer..add"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
@@ -2221,10 +2217,8 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     Sex <span class="token builtin">string</span>
     Score <span class="token builtin">int</span>
 <span class="token punctuation">}</span>
-
 <span class="token comment" spellcheck="true">// StuSlice 2、声明一个结构体切片</span>
 <span class="token keyword">type</span> StuSlice <span class="token punctuation">[</span><span class="token punctuation">]</span>Student
-
 
 <span class="token comment" spellcheck="true">// 3、实现Len()、Less()、Swap()三个接口</span>
 <span class="token keyword">func</span> <span class="token punctuation">(</span>stu StuSlice<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span class="token punctuation">{</span>
@@ -2243,10 +2237,8 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     <span class="token comment" spellcheck="true">// 上面三行等价于</span>
     stu<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">,</span> stu<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> stu<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">,</span> stu<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> stuSlice StuSlice
-
     <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
         stu <span class="token operator">:=</span> Student<span class="token punctuation">{</span>fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"学生%d"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"男"</span><span class="token punctuation">,</span>rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
         stuSlice <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>stuSlice<span class="token punctuation">,</span> stu<span class="token punctuation">)</span>
@@ -2254,7 +2246,6 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"排序前数据：%v \n"</span><span class="token punctuation">,</span>stuSlice<span class="token punctuation">)</span>
     sort<span class="token punctuation">.</span><span class="token function">Sort</span><span class="token punctuation">(</span>stuSlice<span class="token punctuation">)</span>
     fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"排序后数据：%v \n"</span><span class="token punctuation">,</span>stuSlice<span class="token punctuation">)</span>
-
 <span class="token punctuation">}</span>
 </code></pre>
 <p>输出如下</p>
@@ -2304,9 +2295,7 @@ c1<span class="token punctuation">,</span> succeed <span class="token operator">
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"open file error = "</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
     <span class="token keyword">return</span>
 <span class="token punctuation">}</span>
- 
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"file = "</span><span class="token punctuation">,</span> <span class="token operator">*</span>file<span class="token punctuation">)</span>
-
 err <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"close file error = "</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
@@ -2367,18 +2356,14 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Open file error: "</span> <span class="token punctuation">,</span> err<span class="token punctuation">)</span>
         <span class="token keyword">return</span>
     <span class="token punctuation">}</span>
- 
     <span class="token keyword">defer</span> file<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
- 
     writer <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewWriter</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
     <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
         writer<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span><span class="token string">"New content"</span> <span class="token operator">+</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 写入一行数据</span>
     <span class="token punctuation">}</span>
- 
     writer<span class="token punctuation">.</span><span class="token function">Flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 把缓存数据刷入文件中</span>
 </code></pre>
 <p>打开模式：</p>
-<p>none</p>
 <pre class=" language-none"><code class="language-none">const (
     O_RDONLY int = syscall.O_RDONLY // 只读模式打开文件
     O_WRONLY int = syscall.O_WRONLY // 只写模式打开文件
@@ -2391,22 +2376,6 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 )
 </code></pre>
 <p>如果打开已存在的文件，覆写新内容，就要把模式换成os.O_TRUNC</p>
-<pre class=" language-go"><code class="language-go">file_path <span class="token operator">:=</span> <span class="token string">"D:/out_go.txt"</span>
-file<span class="token punctuation">,</span> err <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">OpenFile</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> os<span class="token punctuation">.</span>O_WRONLY <span class="token operator">|</span> os<span class="token punctuation">.</span>O_TRUNC<span class="token punctuation">,</span> <span class="token number">0777</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
-    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Open file error: "</span> <span class="token punctuation">,</span> err<span class="token punctuation">)</span>
-    <span class="token keyword">return</span>
-<span class="token punctuation">}</span>
- 
-<span class="token keyword">defer</span> file<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
- 
-writer <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewWriter</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-    writer<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span><span class="token string">"New content "</span> <span class="token operator">+</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ....\n"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-writer<span class="token punctuation">.</span><span class="token function">Flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
 <p>判断文件或文件夹是否存在使用os.Stat()返回错误值进行判断：</p>
 <ol>
 <li>如果返回错误为nil说明文件或文件夹存在</li>
@@ -2437,9 +2406,7 @@ writer<span class="token punctuation">.</span><span class="token function">Flush
 flag<span class="token punctuation">.</span><span class="token function">StringVar</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s0<span class="token punctuation">,</span> <span class="token string">"u"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"字符串参数1"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 接收字符串参数，参数列表：参数接收地址，参数名，默认值， 参数说明</span>
 flag<span class="token punctuation">.</span><span class="token function">StringVar</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s1<span class="token punctuation">,</span> <span class="token string">"p"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"字符串参数2"</span><span class="token punctuation">)</span>
 flag<span class="token punctuation">.</span><span class="token function">IntVar</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>i0<span class="token punctuation">,</span> <span class="token string">"i"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"整型参数1"</span><span class="token punctuation">)</span>
- 
 flag<span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 开始解析必须调用</span>
- 
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"s0 = "</span><span class="token punctuation">,</span> s0<span class="token punctuation">,</span> <span class="token string">", s1 = "</span><span class="token punctuation">,</span> s1<span class="token punctuation">,</span> <span class="token string">", i0 = "</span><span class="token punctuation">,</span> i0<span class="token punctuation">)</span>
 </code></pre>
 <p>导包如下</p>
@@ -2480,7 +2447,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 <span class="token punctuation">}</span>
 </code></pre>
 <p>json.Marshal函数也可以对映射进行序列化</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> a <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 键是空接口，表示能接收任意类型</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> a <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 值是空接口，表示能接收任意类型</span>
 a <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
  
 a<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"szc"</span>
@@ -2520,27 +2487,22 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </code></pre>
 <p>甚至对普通数据类型也能序列化，只是只有值，没有键</p>
 <pre class=" language-go"><code class="language-go">i <span class="token operator">:=</span> <span class="token number">1</span>
- 
 bytes<span class="token punctuation">,</span> error_ <span class="token operator">:=</span> json<span class="token punctuation">.</span><span class="token function">Marshal</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>i<span class="token punctuation">)</span>
 <span class="token keyword">if</span> error_ <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Json error:"</span><span class="token punctuation">,</span> error_<span class="token punctuation">)</span>
     <span class="token keyword">return</span>
 <span class="token punctuation">}</span>
- 
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">// 1</span>
 </code></pre>
 <h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p>反序列化时，要调用Unmarshal函数，传入待解析字符串的bytes，以及接收结果的对象指针</p>
 <pre class=" language-go"><code class="language-go">str <span class="token operator">:=</span> <span class="token string">"{\"Name\":\"szc\",\"Age\":23}"</span>
 <span class="token keyword">var</span> p0 Person_ser
- 
 err <span class="token operator">:=</span> json<span class="token punctuation">.</span><span class="token function">Unmarshal</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p0<span class="token punctuation">)</span>
- 
 <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Json error:"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
     <span class="token keyword">return</span>
 <span class="token punctuation">}</span>
- 
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>p0<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">// {szc 23}</span>
 </code></pre>
@@ -2627,7 +2589,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </blockquote>
 <p>如果测试单个函数的话，使用-test.run TestXxxx选项即可</p>
 <blockquote>
-<p>λ go test -v -test.run TestAddUpper<br>init variable_advanced..<br>=== RUN TestAddUpper<br>TestAddUpper: first_test.go:14: AddUpper(10)执行正确<br>— PASS: TestAddUpper (0.00s)<br>PASS<br>ok go_code/project01/main 0.410s</p>
+<p> go test -v -test.run TestAddUpper<br>init variable_advanced..<br>=== RUN TestAddUpper<br>TestAddUpper: first_test.go:14: AddUpper(10)执行正确<br>— PASS: TestAddUpper (0.00s)<br>PASS<br>ok go_code/project01/main 0.410s</p>
 </blockquote>
 <p>如果要在测试前统一进行一些操作，可以覆写TestMain函数</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">TestMain</span><span class="token punctuation">(</span>m <span class="token operator">*</span>testing<span class="token punctuation">.</span>M<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2637,7 +2599,19 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 <span class="token punctuation">}</span>
 </code></pre>
 <p>如果要在测试时执行另一个测试函数，可以执行t.Run()函数</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">TestAddSale</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> Sale <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    Widget_id <span class="token builtin">int</span>
+    Qty       <span class="token builtin">int</span>
+    Street    <span class="token builtin">string</span>
+    City      <span class="token builtin">string</span>
+    State     <span class="token builtin">string</span>
+    Zip       <span class="token builtin">int</span>
+    Sale_date <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>Sale<span class="token punctuation">)</span> <span class="token function">AddSale</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"添加了一个销售信息"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">TestAddSale</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     sale <span class="token operator">:=</span> <span class="token operator">&amp;</span>Sale<span class="token punctuation">{</span>Widget_id<span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">,</span> Qty<span class="token punctuation">:</span> <span class="token number">80</span><span class="token punctuation">,</span> Street<span class="token punctuation">:</span> <span class="token string">"Huanghe South Road"</span><span class="token punctuation">,</span> City<span class="token punctuation">:</span> <span class="token string">"Anyang Henan"</span><span class="token punctuation">,</span> State<span class="token punctuation">:</span> <span class="token string">"China"</span><span class="token punctuation">,</span> Zip<span class="token punctuation">:</span> <span class="token number">455000</span><span class="token punctuation">,</span> Sale_date<span class="token punctuation">:</span> <span class="token string">"2020-03-24"</span><span class="token punctuation">}</span>
     sale<span class="token punctuation">.</span><span class="token function">AddSale</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     t<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">"fun"</span><span class="token punctuation">,</span> fun_test<span class="token punctuation">)</span>
@@ -2649,8 +2623,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </code></pre>
 <p>测试输出如下</p>
 <blockquote>
-<p>PS D:\develop\Go\workspace\src\go_code\go_web\src\main&gt; go test</p>
-<p>testing start<br>fun_test<br>PASS<br>ok go_code/go_web/src/main 0.987s</p>
+<p>D:\GoProject\src\test\main10&gt;go test -v<br>testing start<br>=== RUN   TestAddUpper<br>    first_test.go:30: AddUpper(10)执行正确<br>— PASS: TestAddUpper (0.00s)<br>=== RUN   TestSub<br>    first_test.go:39: sub执行正确<br>— PASS: TestSub (0.00s)<br>=== RUN   TestAddSale<br>添加了一个销售信息<br>=== RUN   TestAddSale/fun<br>fun_test<br>— PASS: TestAddSale (0.00s)<br>    — PASS: TestAddSale/fun (0.00s)<br>PASS<br>ok      test/main10     0.259s</p>
 </blockquote>
 <h2 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h2><h3 id="协程goroutine"><a href="#协程goroutine" class="headerlink" title="协程goroutine"></a>协程goroutine</h3><p>协程从主线程开启是轻量级线程，是逻辑态的，特点：</p>
 <ul>
