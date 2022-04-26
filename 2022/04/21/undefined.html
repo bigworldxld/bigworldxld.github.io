@@ -2708,6 +2708,7 @@ runtime<span class="token punctuation">.</span><span class="token function">GOMA
 <p><img src="https://img2.baidu.com/it/u=3053497369,948986322&fm=15&fmt=auto" alt="img"></p>
 <p>假设主线程M1的G1协程阻塞，如果协程队列里有别的协程，那么就会新启一个M2主线程，把协程队列里的其他协程挂在到M2上执行，这就是MPG模式</p>
 <h3 id="全局互斥锁"><a href="#全局互斥锁" class="headerlink" title="全局互斥锁"></a>全局互斥锁</h3><p>当涉及多个协程对同一个引用类型的对象进行读写操作时，就需要全局锁来帮助同步。</p>
+<p>案例一：</p>
 <p>先导包</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
     <span class="token string">"math"</span>
@@ -2769,8 +2770,51 @@ runtime<span class="token punctuation">.</span><span class="token function">GOMA
 <blockquote>
 <p>2<br>3<br>5<br>7<br>11<br>13<br>17<br>19<br>23<br>…<br>1987<br>1993<br>1997<br>1999</p>
 </blockquote>
+<p>案例二：</p>
+<p>计算 1-200 的各个数的阶乘，并且把各个数的阶乘放入到 map 中。最后显示出来。要求使用 goroutine 完成</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main <span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"time"</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">var</span> <span class="token punctuation">(</span>
+    result <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>　<span class="token comment" spellcheck="true">// 素数切片</span>
+    lock sync<span class="token punctuation">.</span>Mutex <span class="token comment" spellcheck="true">// 全局锁</span>
+<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// test 函数就是计算 n!, 让将这个结果放入到 myMap </span>
+<span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res <span class="token operator">:=</span> <span class="token number">1</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        res <span class="token operator">*=</span> i
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//这里我们将 res 放入到 </span>
+    lock<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    myMap myMap<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> res 
+    lock<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 我们这里开启多个协程完成这个任务[200 个] </span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">200</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        <span class="token keyword">go</span> <span class="token function">test</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//休眠 10 秒钟【第二个问题 】</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">//这里我们输出结果,变量这个结果</span>
+    lock<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token operator">:=</span> <span class="token keyword">range</span> myMap <span class="token punctuation">{</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"map[%d]=%d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    lock<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>管道(channel)为引用类型，必须先初始化才能使用；本质是一个队列，有类型，而且线程安全，</p>
 <p>管道的定义： var 变量名 chan 数据类型</p>
+<ol>
+<li>ch &lt;- v  // 发送值v到Channel ch中 </li>
+<li>v := &lt;-ch // 从Channel ch中接收数据，并将数据赋值给v </li>
+</ol>
 <p>以下为实例：一个写协程，一个读协程，主线程等待两者完成后退出</p>
 <p>先构造两个协程，一个存储数据，一个表示是否读写完成</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> <span class="token punctuation">(</span>
@@ -2874,7 +2918,6 @@ runtime<span class="token punctuation">.</span><span class="token function">GOMA
             <span class="token keyword">if</span> over_num <span class="token operator">==</span> <span class="token number">4</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span>
             <span class="token punctuation">}</span>
-    
             status<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token operator">&lt;-</span>over_chan
             <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
                 <span class="token keyword">break</span>
@@ -2912,7 +2955,6 @@ runtime<span class="token punctuation">.</span><span class="token function">GOMA
                 over_num <span class="token operator">+=</span> <span class="token number">1</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
- 
         <span class="token function">close</span><span class="token punctuation">(</span>prime_chan<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -2954,7 +2996,6 @@ int_chan2 <span class="token operator">&lt;-</span> <span class="token keyword">
 <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
     int_chan_3 <span class="token operator">&lt;-</span> i
 <span class="token punctuation">}</span>
- 
 string_chan <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
     string_chan <span class="token operator">&lt;-</span> <span class="token string">"string "</span> <span class="token operator">+</span> strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
@@ -2965,12 +3006,17 @@ string_chan <span class="token operator">:=</span> <span class="token function">
 <p>PS D:\develop\Microsoft VS Code\workspace\src\go_code\project01\main&gt; go run .\go_routine.go<br>data from string chan: string 0<br>data from int chan: 0<br>data from int chan: 1<br>data from string chan: string 1<br>data from string chan: string 2<br>data from string chan: string 3<br>data from string chan: string 4<br>data from int chan: 2<br>data from int chan: 3<br>data from int chan: 4<br>data from int chan: 5<br>data from int chan: 6<br>data from int chan: 7<br>data from int chan: 8<br>data from int chan: 9</p>
 </blockquote>
 <h4 id="定时器（Timer）"><a href="#定时器（Timer）" class="headerlink" title="定时器（Timer）"></a>定时器（Timer）</h4><p>Timer顾名思义，就是定时器的意思，可以实现一些定时操作，内部也是通过channel来实现的。Timer只执行一次</p>
+<p>定时器实质是单向通道，time.Timer结构体类型中有一个time.Time类型的单向chan</p>
+<p>Timer只有两个成员：</p>
+<ul>
+<li>C: 管道，上层应用根据此管道接收事件；</li>
+<li>r: runtime定时器，该定时器即系统管理的定时器，对上层应用不可见；</li>
+</ul>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
 <span class="token keyword">import</span> <span class="token punctuation">(</span>
     <span class="token string">"fmt"</span>
     <span class="token string">"time"</span>
 <span class="token punctuation">)</span>
-
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     timer1 <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">NewTimer</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
     t1 <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -3009,12 +3055,13 @@ string_chan <span class="token operator">:=</span> <span class="token function">
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"after"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="Ticker"><a href="#Ticker" class="headerlink" title="Ticker"></a>Ticker</h4><p>Timer只执行一次，Ticker可以周期的执行。</p>
+<h4 id="Ticker"><a href="#Ticker" class="headerlink" title="Ticker"></a>Ticker</h4><p>Ticker是周期性定时器，即周期性的触发一个事件，通过Ticker本身提供的管道将事件传递出去。</p>
+<p>Ticker的数据结构与Timer完全一致。</p>
+<p>Timer只执行一次，Ticker可以周期的执行。</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
     <span class="token string">"fmt"</span>
     <span class="token string">"time"</span>
 <span class="token punctuation">)</span>
-
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ticker <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">NewTicker</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
     counter <span class="token operator">:=</span> <span class="token number">1</span>
@@ -3028,7 +3075,8 @@ string_chan <span class="token operator">:=</span> <span class="token function">
     ticker<span class="token punctuation">.</span><span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//停止</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h3><p>atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。</p>
+<h3 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h3><p> sync/atomic包提供了原子操作的能力，直接有底层CPU硬件支持，因而一般要比基于操作系统API的锁方式效率高些。</p>
+<p>atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。</p>
 <p>atomic常见操作有：</p>
 <ul>
 <li>增减</li>
@@ -3045,7 +3093,14 @@ string_chan <span class="token operator">:=</span> <span class="token function">
 <span class="token operator">-</span> <span class="token keyword">func</span> <span class="token function">AddUint64</span><span class="token punctuation">(</span>addr <span class="token operator">*</span><span class="token builtin">uint64</span><span class="token punctuation">,</span> delta <span class="token builtin">uint64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">new</span> <span class="token builtin">uint64</span><span class="token punctuation">)</span>
 <span class="token operator">-</span> <span class="token keyword">func</span> <span class="token function">AddUintptr</span><span class="token punctuation">(</span>addr <span class="token operator">*</span><span class="token builtin">uintptr</span><span class="token punctuation">,</span> delta <span class="token builtin">uintptr</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">new</span> <span class="token builtin">uintptr</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="载入操作"><a href="#载入操作" class="headerlink" title="载入操作"></a>载入操作</h4><p>atomic 包中提供了如下以Load为前缀的增减操作:</p>
+<h4 id="载入操作"><a href="#载入操作" class="headerlink" title="载入操作"></a>载入操作</h4><p>unsafe 是类型安全的操作，指向不同类型数据的指针，是无法直接相互转换的，必须借助unsafe.Pointer(类似于C的 void指针)代理一下再转换。pointer是任意类型的指针，可以指向任意类型数据。</p>
+<ol>
+<li>任何类型的指针都可以被转化为Pointer</li>
+<li>Pointer可以被转化为任何类型的指针</li>
+<li>uintptr可以被转化为Pointer</li>
+<li>Pointer可以被转化为uintptr</li>
+</ol>
+<p>atomic 包中提供了如下以Load为前缀的增减操作:</p>
 <pre class=" language-go"><code class="language-go"><span class="token operator">-</span> <span class="token keyword">func</span> <span class="token function">LoadInt32</span><span class="token punctuation">(</span>addr <span class="token operator">*</span><span class="token builtin">int32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>val <span class="token builtin">int32</span><span class="token punctuation">)</span>
 <span class="token operator">-</span> <span class="token keyword">func</span> <span class="token function">LoadInt64</span><span class="token punctuation">(</span>addr <span class="token operator">*</span><span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>val <span class="token builtin">int64</span><span class="token punctuation">)</span>
 <span class="token operator">-</span> <span class="token keyword">func</span> <span class="token function">LoadPointer</span><span class="token punctuation">(</span>addr <span class="token operator">*</span>unsafe<span class="token punctuation">.</span>Pointer<span class="token punctuation">)</span> <span class="token punctuation">(</span>val unsafe<span class="token punctuation">.</span>Pointer<span class="token punctuation">)</span>
@@ -3110,10 +3165,8 @@ string_chan <span class="token operator">:=</span> <span class="token function">
 </code></pre>
 <p>最后在main函数里测试</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
- 
     <span class="token keyword">go</span> <span class="token function">test_r</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">go</span> <span class="token function">test_r_0</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
- 
     time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -3130,11 +3183,10 @@ string_chan <span class="token operator">:=</span> <span class="token function">
 <pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
     <span class="token string">"reflect"</span>
 <span class="token punctuation">)</span>
-
 <span class="token keyword">func</span> <span class="token function">reflect_base</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     rTyp <span class="token operator">:=</span> reflect<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取反射类型</span>
     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"rType = "</span><span class="token punctuation">,</span> rTyp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// int</span>
-    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"rType`s name = "</span><span class="token punctuation">,</span> rTyp<span class="token punctuation">.</span><span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// int</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"rType`s name = "</span><span class="token punctuation">,</span> rTyp<span class="token punctuation">.</span><span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//int</span>
     
     rVal <span class="token operator">:=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取反射值</span>
     fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"rValue = %v, rValue`s type = %T\n"</span><span class="token punctuation">,</span> rVal<span class="token punctuation">,</span> rVal<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 100, reflect.Value</span>
@@ -3276,7 +3328,6 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     Name<span class="token punctuation">:</span> <span class="token string">"szc"</span><span class="token punctuation">,</span>
     Age<span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
- 
 rValue <span class="token operator">:=</span> reflect<span class="token punctuation">.</span><span class="token function">ValueOf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span>
 rValue<span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">"szc"</span><span class="token punctuation">)</span>
 rValue<span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Field</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetInt</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span>
@@ -3293,19 +3344,13 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
     rType reflect<span class="token punctuation">.</span>Type
     rValue reflect<span class="token punctuation">.</span>Value
 <span class="token punctuation">)</span>
- 
 ptr <span class="token operator">=</span> <span class="token operator">&amp;</span>Student_rf<span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 结构体指针</span>
 rType <span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>ptr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 结构体反射类型</span>
- 
 rValue <span class="token operator">=</span> reflect<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span>rType<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 由结构体反射类型，获取新结构体指针反射值</span>
- 
 ptr <span class="token operator">=</span> rValue<span class="token punctuation">.</span><span class="token function">Interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>Student_rf<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 把指针反射值转成空接口，并进行类型断言</span>
- 
 rValue <span class="token operator">=</span> rValue<span class="token punctuation">.</span><span class="token function">Elem</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 由结构体指针反射值获取结构体反射值</span>
- 
 rValue<span class="token punctuation">.</span><span class="token function">FieldByName</span><span class="token punctuation">(</span><span class="token string">"Name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetString</span><span class="token punctuation">(</span><span class="token string">"szc"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 根据属性名，对结构体反射值设置值</span>
 rValue<span class="token punctuation">.</span><span class="token function">FieldByName</span><span class="token punctuation">(</span><span class="token string">"Age"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">SetInt</span><span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span>
- 
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token operator">*</span>ptr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 输出结果</span>
 </code></pre>
 <p>结果如下</p>
