@@ -834,9 +834,9 @@ selet <span class="token operator">*</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 老师id
 </code></pre>
 <p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ragqy4qaaw.png" alt="Image Name"></p>
-<p>2.现求出每个续费学员在续费前的最后一节课的时间，以及对应的上课老师。</p>
+<p>2.现求出每个续费学员在续费前的最后一节课的时间，以及对应的学员。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#第二问</span>
-<span class="token keyword">SELECT</span> <span class="token number">a</span><span class="token punctuation">.</span>学员id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>上课时间<span class="token punctuation">)</span> <span class="token keyword">AS</span> 续费前最后一节课的时间Mysql
+<span class="token keyword">SELECT</span> <span class="token number">a</span><span class="token punctuation">.</span>学员id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>上课时间<span class="token punctuation">)</span> <span class="token keyword">AS</span> 续费前最后一节课的时间
 <span class="token keyword">FROM</span> 
 <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 续费时间<span class="token punctuation">,</span>学员id
 <span class="token keyword">FROM</span> 购买表
@@ -846,7 +846,22 @@ selet <span class="token operator">*</span>
 <span class="token keyword">WHERE</span> 上课时间<span class="token operator">&lt;</span>续费时间
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">a</span><span class="token punctuation">.</span>学员id
 </code></pre>
-<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ragr0logzr.png?imageView2/0/w/960/h/960" alt="Image Name"></p>
+<p>结果如下：-<br><img src="https://cdn.kesci.com/upload/image/ragr0logzr.png?imageView2/0/w/960/h/960" alt="Image Name"></p>
+<h2 id="各岗位编号中位数所在位置"><a href="#各岗位编号中位数所在位置" class="headerlink" title="各岗位编号中位数所在位置"></a>各岗位编号中位数所在位置</h2><p>学校每次考试完，都会有一个考试成绩表。例如，表中第1行表示编号为1的用户选择了C++岗位，该科目考了11001分。<br><img src="https://cdn.kesci.com/upload/image/ragnj11je1.png" alt="Image Name"><br>问题：写一个sql语句查询每个岗位编号的中位数位置的范围，并且按岗位升序排序。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 岗位，
+floor<span class="token punctuation">(</span><span class="token punctuation">(</span>成绩个数<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 起始位置，
+ceil<span class="token punctuation">(</span><span class="token punctuation">(</span>成绩个数<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 结束位置
+<span class="token keyword">from</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> 岗位<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 成绩个数
+ <span class="token keyword">from</span> 考试成绩表
+ <span class="token keyword">group</span> <span class="token keyword">by</span> 岗位<span class="token punctuation">)</span> <span class="token number">a</span>
+ <span class="token keyword">order</span> <span class="token keyword">by</span> 岗位 <span class="token keyword">asc</span>
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ragnpxfoj1.png" alt="Image Name"></p>
+<h2 id="银行数据分析实战"><a href="#银行数据分析实战" class="headerlink" title="银行数据分析实战"></a>银行数据分析实战</h2><p>某理财银行有下面3个表。<br>交易表记录了每天交易的客户交易时间、客户号、消费类型和消费金额。其中，交易类型有两种值：消费和转账。<br><img src="https://cdn.kesci.com/upload/image/rafpubcf42.png" alt="Image Name"><br>客户表记录了客户信息，包括客户号，客户名称和客户所属的银行分行号。<br><img src="https://cdn.kesci.com/upload/image/rafpuw55a6.png" alt="Image Name"><br>银行分行记录表记录每个分行的信息，包括分行号、分行名称及对应上级分行。<br><img src="https://cdn.kesci.com/upload/image/rafpw0cgss.png" alt="Image Name"></p>
+<p>该理财银行要求对客户及销售额分析报告，要求如下：<br>1.计算2016年1-3月的消费总金额，生成如下格式的查询结果：<br><img src="https://cdn.kesci.com/upload/image/rafpxkvt99.png" alt="Image Name"><br>2.提取2016年3月消费金额大于等于1288的客户名单，并给出这些客户信息：<br><img src="https://cdn.kesci.com/upload/image/rafpyxsw5v.png" alt="Image Name"><br>3.汇总各省分行（省分行下属支行也需要汇总至省分行）的2016年3月的总消费金额。</p>
+<pre class=" language-sql"><code class="language-sql">
+</code></pre>
 
                 
             </div>
