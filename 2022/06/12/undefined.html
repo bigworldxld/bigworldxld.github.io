@@ -961,6 +961,75 @@ selct <span class="token number">a</span><span class="token punctuation">.</span
 <span class="token punctuation">)</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t5
 </code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/rafq9l8tie.png" alt="Image Name"></p>
+<h2 id="交易记录分析实战"><a href="#交易记录分析实战" class="headerlink" title="交易记录分析实战"></a>交易记录分析实战</h2><p>某商场为了分析用户购买渠道。表1是用户交易记录表，记录了用户id、交易日期、交易类型和交易金额。<br><img src="https://cdn.kesci.com/upload/image/raf9rdxcdh.png" alt="Image Name"><br>表2是用户类型表，记录了用户支付类型（比如微信、支付宝、信用卡等），分别有type1、type2。<br><img src="https://cdn.kesci.com/upload/image/raf9rqrjp6.png" alt="Image Name"></p>
+<p>问题：<br>1.请在 type1的用户类型中，找出总交易金额最大的用户。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 用户类型<span class="token punctuation">,</span>用户id<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>交易金额<span class="token punctuation">)</span> <span class="token keyword">as</span> 总易金额
+<span class="token keyword">from</span> 用户交易记录表
+<span class="token keyword">join</span> 用户类型表  <span class="token keyword">using</span> <span class="token punctuation">(</span>用户id<span class="token punctuation">)</span>
+<span class="token keyword">where</span> 用户类型<span class="token operator">=</span><span class="token string">'type1'</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 用户id
+<span class="token keyword">having</span> <span class="token function">sum</span><span class="token punctuation">(</span>交易金额<span class="token punctuation">)</span> <span class="token operator">>=</span><span class="token keyword">all</span>
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/raf9ww5jpq.png" alt="Image Name"></p>
+<p>2.筛选每个用户的第2笔交易记录。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> 用户id <span class="token keyword">order</span> <span class="token keyword">by</span> 交易日期<span class="token punctuation">)</span> <span class="token keyword">as</span> 第几笔交易记录
+<span class="token keyword">from</span> 用户交易记录表    
+<span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token keyword">where</span> 第几笔交易记录<span class="token operator">=</span><span class="token number">2</span>
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/raf9ywct9s.png" alt="Image Name"></p>
+<p>3.如何实现如下表的数据格式？**<br><img src="https://cdn.kesci.com/upload/image/raf9utarma.png" alt="Image Name"></p>
+<p>将group by产生的同一个分组中的值连接起来，返回一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E7%AC%A6%E4%B8%B2&spm=1001.2101.3001.7020">字符串</a>结果。</p>
+<p>group_concat( [DISTINCT] 要连接的字段 [Order BY 排序字段 ASC/DESC] [Separator ‘分隔符’] )</p>
+<p>group_concat([distinct] 字段名 [order by 排序字段 asc/desc] [separator ‘分隔符’])</p>
+<p>说明：</p>
+<p>(1)使用distinct可以排除重复值；</p>
+<p>(2)如果需要对结果中的值进行排序，可以使用order by子句；</p>
+<p>(3)separator是一个字符串值，默认为逗号。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> id<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>交易日期<span class="token punctuation">)</span> <span class="token keyword">as</span> 交易日期<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>交易类型<span class="token punctuation">)</span> <span class="token keyword">as</span> 交易类型
+<span class="token keyword">from</span> 用户交易记录表
+<span class="token keyword">group</span> <span class="token keyword">by</span> 用户id
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/rafa151k40.png" alt="Image Name"></p>
+<h2 id="房产订单分析"><a href="#房产订单分析" class="headerlink" title="房产订单分析"></a>房产订单分析</h2><p>“成交订单表”里记录了某房产平台（类似链家、贝壳等）每日房屋成交的明细。（贝壳面试题）<br><img src="https://cdn.kesci.com/upload/image/raeysslash.png" alt="Image Name"><br>字段“成交客源渠道”中的值是“客源角色人”、“业主线上委托”、“null”表示线下渠道，其余的成交客源渠道是线上。<br>要求：<br>1．当月截止昨天二手线上成交单量占比（含车位）&gt;=50%的门店可获奖；</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span> <span class="token punctuation">(</span> <span class="token comment" spellcheck="true">-- 求出是否线上</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">case</span> <span class="token keyword">when</span> 成交客源渠道 <span class="token operator">in</span><span class="token punctuation">(</span><span class="token string">'客源角色人'</span><span class="token punctuation">,</span><span class="token string">'业主线上委托'</span><span class="token punctuation">)</span> <span class="token operator">or</span> 成交客源渠道 <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token keyword">then</span> <span class="token string">'否'</span> <span class="token keyword">else</span> <span class="token string">'是'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 是否线上
+    <span class="token keyword">from</span> 成交订单表
+<span class="token punctuation">)</span>，
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span> <span class="token comment" spellcheck="true">-- 求出各门店的线上成交占比</span>
+    <span class="token keyword">select</span> 签约经纪人门店，<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> 是否线上<span class="token operator">=</span><span class="token string">'是'</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 经纪人门店的线上成交占比
+<span class="token keyword">from</span> t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 签约经纪人门店
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre>
+<p>（线上成交占比=线上成交单量/总成交单量）<br>2．符合获奖条件的门店的第1单线上成交可获得200贝壳币（可以用于兑换奖金），第2单可获400贝壳币，第3单及以上可获800贝壳币，但车库不奖励（字段“房屋用途”中的值是”车位”、”车库”认为是车库）；</p>
+<pre class=" language-sql"><code class="language-sql">t3 <span class="token keyword">as</span><span class="token punctuation">(</span> <span class="token comment" spellcheck="true">-- 得出原表加上前面所求2个字段,并添加一个线上订单排序</span>
+<span class="token keyword">select</span> t1<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>t2<span class="token punctuation">.</span>经纪人门店的线上成交占比<span class="token punctuation">,</span>row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 签约经纪人门店 <span class="token keyword">order</span> <span class="token keyword">by</span> 签约时间<span class="token punctuation">)</span> <span class="token keyword">as</span>  订单顺序
+    <span class="token keyword">from</span> t1
+    <span class="token keyword">join</span> t2
+    <span class="token keyword">on</span> t1<span class="token punctuation">.</span>签约经纪人门店<span class="token operator">=</span>t2<span class="token punctuation">.</span>签约经纪人门店
+    <span class="token keyword">where</span> 是否线上<span class="token operator">=</span><span class="token string">'是'</span>
+    <span class="token operator">and</span> 经纪人门店的线上成交占比<span class="token operator">>=</span><span class="token number">0.5</span>
+    <span class="token operator">and</span> 房屋用途 <span class="token operator">is</span> <span class="token boolean">null</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">case</span> <span class="token keyword">when</span> 订单顺序<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">then</span> <span class="token string">'200'</span> <span class="token keyword">when</span> 订单顺序<span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">then</span> <span class="token string">'400'</span> <span class="token keyword">when</span> 订单顺序<span class="token operator">>=</span><span class="token number">3</span> <span class="token keyword">then</span> <span class="token string">'800'</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 订单可获贝壳币
+    <span class="token keyword">from</span> t3
+<span class="token punctuation">)</span>
+</code></pre>
+<p>3.在一个连续的SQL中实现以上需求，不能拆分成多个SQL，必须输出表格字段如下（可增加）；**<br><img src="https://cdn.kesci.com/upload/image/raez0d965r.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> t1<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>t2<span class="token punctuation">.</span>经纪人门店的线上成交占比<span class="token punctuation">,</span>ifnull<span class="token punctuation">(</span>t4<span class="token punctuation">.</span>订单可获贝壳币<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 订单可获贝壳币
+<span class="token keyword">from</span> t1
+<span class="token keyword">left</span> <span class="token keyword">join</span> t2
+<span class="token keyword">on</span> 签约经纪人门店<span class="token operator">=</span>t2<span class="token punctuation">.</span>签约经纪人门店
+<span class="token keyword">left</span> <span class="token keyword">join</span> t4
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>协议id<span class="token operator">=</span>t4<span class="token punctuation">.</span>协议id
+<span class="token keyword">order</span> <span class="token keyword">by</span> 签约经纪人门店<span class="token punctuation">,</span>签约时间
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/raeyxaq041.png" alt="Image Name"></p>
 
                 
             </div>
