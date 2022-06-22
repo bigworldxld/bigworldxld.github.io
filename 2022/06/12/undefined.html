@@ -1030,6 +1030,102 @@ t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> 签约经纪人门店<span class="token punctuation">,</span>签约时间
 </code></pre>
 <p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/raeyxaq041.png" alt="Image Name"></p>
+<h2 id="电影"><a href="#电影" class="headerlink" title="电影"></a>电影</h2><p>某电影平台（类似豆瓣、猫眼电影）用3个表来记录电影信息。<br>“电影表”中是电影编号、电影名称、电影描述信息。<br><img src="https://cdn.kesci.com/upload/image/raev4iwaud.png" alt="Image Name"><br>“类别表”是电影分类信息，类别包括：犯罪电影、爱情电影、科幻电影。<br><img src="https://cdn.kesci.com/upload/image/raev51o9q9.png" alt="Image Name"><br>“电影类别表”是对应电影（电影表中的电影编号）属于哪一类（类别表中的电影类别编号）<br><img src="https://cdn.kesci.com/upload/image/raev5jaoll.png" alt="Image Name"><br><strong>查找“电影表”电影描述信息包含“机器人”的电影，求出对应的电影类别名称和电影数目,还需该电影类别名称对应电影数量&gt;=5部。</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 电影类别名称，<span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 电影数目
+<span class="token keyword">from</span> 电影表
+<span class="token keyword">left</span> <span class="token keyword">join</span> 电影类别表 <span class="token keyword">using</span><span class="token punctuation">(</span>电影编号<span class="token punctuation">)</span>
+<span class="token keyword">left</span> <span class="token keyword">join</span> 类别表 <span class="token keyword">using</span><span class="token punctuation">(</span>电影类别编号<span class="token punctuation">)</span>
+<span class="token keyword">where</span> 电影描述信息 <span class="token operator">like</span> <span class="token string">'%机器人%'</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 电影类别名称
+<span class="token keyword">having</span> 电影类别名称 <span class="token operator">in</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> 电影类别名称
+<span class="token keyword">from</span> 电影类别表
+<span class="token keyword">join</span> 类别表 <span class="token keyword">using</span><span class="token punctuation">(</span>电影类别编号<span class="token punctuation">)</span>
+ <span class="token keyword">group</span> <span class="token keyword">by</span> 电影类别名称
+ <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">5</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="通讯运营商指标分析"><a href="#通讯运营商指标分析" class="headerlink" title="通讯运营商指标分析"></a>通讯运营商指标分析</h2><p>现有表一：各城市用户ARPU值<br><img src="https://cdn.kesci.com/upload/image/rad1h8z6eb.png" alt="Image Name"><br>表二：用户套餐费用表<br><img src="https://cdn.kesci.com/upload/image/rad1i0mmxq.png" alt="Image Name"></p>
+<p>业务要求：</p>
+<p>1.各城市用户数、总费用（ARPU之和）是多少？</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 城市，<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户id<span class="token punctuation">)</span> <span class="token keyword">as</span> 各城市用户数<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>ARPU<span class="token punctuation">)</span> <span class="token keyword">as</span> 总费用
+<span class="token keyword">from</span> 各城市用户ARPU值
+<span class="token keyword">group</span> <span class="token keyword">by</span> 城市
+</code></pre>
+<p>2.各城市用户arpu值表中各城市ARPU(0,30)，[30,50)，[50-80)，[80以上)用户数分别是多少？</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span>chase <span class="token keyword">when</span> ARPU值<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> ARPU值<span class="token operator">&lt;</span><span class="token number">30</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">'[0,30)用户数'</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>chase <span class="token keyword">when</span> ARPU值<span class="token operator">>=</span><span class="token number">30</span> <span class="token operator">and</span> ARPU值<span class="token operator">&lt;</span><span class="token number">50</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">'[30,50)用户数'</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>chase <span class="token keyword">when</span> ARPU值<span class="token operator">>=</span><span class="token number">50</span> <span class="token operator">and</span> ARPU值<span class="token operator">&lt;</span><span class="token number">80</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">'[50,80)用户数'</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>chase <span class="token keyword">when</span> ARPU值<span class="token operator">>=</span><span class="token number">80</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">'80以上)用户数'</span><span class="token punctuation">,</span>
+<span class="token keyword">from</span> 各城市用户ARPU值
+<span class="token keyword">group</span> <span class="token keyword">by</span> 城市
+</code></pre>
+<p>3.用户套餐费用表中用户有重复的记录，找出重复的用户</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 用户id
+<span class="token keyword">from</span> 用户套餐费用表
+<span class="token keyword">group</span> <span class="token keyword">by</span> 用户id
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>用户id<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span>
+</code></pre>
+<h2 id="打车业务分析"><a href="#打车业务分析" class="headerlink" title="打车业务分析"></a>打车业务分析</h2><p>“订单信息表”里记录了巴西乘客使用打车软件的信息，包括订单呼叫、应答、取消、完单时间。（滴滴2020年笔试题）<br><img src="https://cdn.kesci.com/upload/image/rabcwmga3.png" alt="Image Name"><br>字段释义：<br>订单id；呼叫订单识别号<br>乘客id：乘客识别号<br>呼叫时间：乘客从应用发起需要用车请求的时间（北京时间）<br>应答时间:司机点击接单的时间（北京时间）<br>取消时间：司机或乘客取消订单的时间（北京时间）<br>完单时间：司机点击到达目的地的时间（北京时间）</p>
+<p><strong>注意：<br>（1）表中的时间是北京时间，巴西比中国慢11小时。<br>（2）应答时间列的数据值如果是“1970”年（巴西时间），表示该订单没有司机应答，属于无效订单。</strong></p>
+<p>语法：date_sub(date,interval expr type)，函数从日期减去指定的时间间隔，</p>
+<p>举例：Orders 表中 OrderDate 字段减去 2 天：</p>
+<p>select OrderId,date_sub(OrderDate,interval 2 day) as OrderPayDate</p>
+<p>from Orders</p>
+<p>date_sub(‘2019-07-27’, interval 30 day)表示往前推30天</p>
+<p>订单的应答率，完单率分别是多少？</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> year<span class="token punctuation">(</span>date_sub<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>应答时间<span class="token punctuation">,</span>interval <span class="token number">11</span> hour<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;></span><span class="token number">1970</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>订单id <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 应答率<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> year<span class="token punctuation">(</span>date_sub<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>完单时间<span class="token punctuation">,</span>interval <span class="token number">11</span> hour<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;></span><span class="token number">1970</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>订单id <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 完单率
+<span class="token punctuation">)</span>
+<span class="token keyword">from</span> 订单信息表 t1<span class="token punctuation">;</span>
+</code></pre>
+<p>呼叫应答平均时间有多长？</p>
+<p>MySQL</p>
+<p>  语法：  timestampdiff（unit，begin，end）<br>   begin和end可以为DATE或DATETIME类型，并且可允许参数为混合类型。</p>
+<p>DB2</p>
+<p>  语法：timestampdiff（unit，char（begin-end））</p>
+<p>begin和end需要为时间戳格式。若非时间戳类型，用timestamp（）函数转换。</p>
+<p>   timestampdiff（unit，char（timestamp（begin）-timestamp（end）））</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>timestampdiff<span class="token punctuation">(</span>minute<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>呼叫时间<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>应答时间<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"呼叫应答平均时间(min)"</span>
+<span class="token keyword">from</span> 订单信息表 t1
+<span class="token keyword">where</span> year<span class="token punctuation">(</span>date_sub<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>应答时间<span class="token punctuation">,</span>interval <span class="token number">11</span> hour<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;></span><span class="token number">1970</span><span class="token punctuation">;</span>
+</code></pre>
+<p>从这一周的数据来看，呼叫量最高的是哪一个小时（当地时间）？呼叫量最少的是哪一个小时（当地时间）？</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--呼叫量最高:</span>
+<span class="token keyword">with</span> <span class="token keyword">as</span> t1<span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span> 
+    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 呼叫量 
+  <span class="token keyword">FROM</span>
+    订单信息表 
+  <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> HOUR<span class="token punctuation">(</span>
+      DATE_SUB<span class="token punctuation">(</span>呼叫时间<span class="token punctuation">,</span> INTERVAL <span class="token number">11</span> HOUR<span class="token punctuation">)</span> 
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> 
+  HOUR<span class="token punctuation">(</span>
+    DATE_SUB<span class="token punctuation">(</span>呼叫时间<span class="token punctuation">,</span> INTERVAL <span class="token number">11</span> HOUR<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> <span class="token keyword">AS</span> 当地小时<span class="token punctuation">,</span>
+  <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 呼叫量 
+<span class="token keyword">FROM</span> 订单信息表
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> HOUR<span class="token punctuation">(</span>
+    DATE_SUB<span class="token punctuation">(</span>呼叫时间<span class="token punctuation">,</span> INTERVAL <span class="token number">11</span> HOUR<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> 
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token keyword">ALL</span> 
+ <span class="token punctuation">(</span>t1<span class="token punctuation">)</span>   
+<span class="token comment" spellcheck="true">--呼叫量最低:</span>
+<span class="token keyword">SELECT</span> 
+  HOUR<span class="token punctuation">(</span>
+    DATE_SUB<span class="token punctuation">(</span>呼叫时间<span class="token punctuation">,</span> INTERVAL <span class="token number">11</span> HOUR<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> <span class="token keyword">AS</span> 当地小时<span class="token punctuation">,</span>
+  <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 呼叫量 
+<span class="token keyword">FROM</span>
+  订单信息表 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> HOUR<span class="token punctuation">(</span>
+    DATE_SUB<span class="token punctuation">(</span>呼叫时间<span class="token punctuation">,</span> INTERVAL <span class="token number">11</span> HOUR<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> 
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token keyword">ALL</span> 
+    <span class="token punctuation">(</span>t1<span class="token punctuation">)</span>
+</code></pre>
+<p>最高如下：<br><img src="https://cdn.kesci.com/upload/image/rabdfesude.png" alt="Image Name"><br>最低如下：<br><img src="https://cdn.kesci.com/upload/image/rabdfsazr3.png" alt="Image Name"></p>
 
                 
             </div>
