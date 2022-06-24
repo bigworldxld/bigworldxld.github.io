@@ -1239,6 +1239,19 @@ lead<span class="token punctuation">(</span>球员姓名<span class="token punct
 <span class="token operator">and</span> 球员姓名<span class="token operator">=</span>三次得分球员
 </code></pre>
 <p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra6jh5ddhn.png" alt="Image Name"></p>
+<h2 id="选出当日浏览房源10套以上并且注册超过一年的用户"><a href="#选出当日浏览房源10套以上并且注册超过一年的用户" class="headerlink" title="选出当日浏览房源10套以上并且注册超过一年的用户"></a>选出当日浏览房源10套以上并且注册超过一年的用户</h2><p>某房源平台有两张表来记录用户信息、和用户查看房源信息。<br>用户表（用户号、用户注册时间）。<br><img src="https://cdn.kesci.com/upload/image/ra44ukgy0t.png" alt="Image Name"><br>浏览表，字段有日志号，用户号，房源号，浏览日期。<br><img src="https://cdn.kesci.com/upload/image/ra44uvfyxm.png?imageView2/0/w/960/h/960" alt="Image Name"></p>
+<p>问题：选出当日浏览房源10套以上并且注册超过一年的用户。</p>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra44xiytmy.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+浏览日期<span class="token punctuation">,</span>
+用户号<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span>房源号<span class="token punctuation">)</span> <span class="token keyword">as</span> 房源数
+<span class="token keyword">from</span> 浏览表 <span class="token number">a</span>
+<span class="token keyword">join</span> 用户表 <span class="token number">b</span> <span class="token keyword">using</span><span class="token punctuation">(</span>用户号<span class="token punctuation">)</span>
+<span class="token keyword">where</span> data_sub<span class="token punctuation">(</span>浏览日期<span class="token punctuation">,</span>interval <span class="token number">1</span> year<span class="token punctuation">)</span> <span class="token operator">></span>注册时间
+<span class="token keyword">group</span> <span class="token keyword">by</span> 浏览日期，用户号
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>房源号<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">10</span>
+</code></pre>
 
                 
             </div>
