@@ -1252,6 +1252,116 @@ lead<span class="token punctuation">(</span>球员姓名<span class="token punct
 <span class="token keyword">group</span> <span class="token keyword">by</span> 浏览日期，用户号
 <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>房源号<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">10</span>
 </code></pre>
+<h2 id="贷款逾期"><a href="#贷款逾期" class="headerlink" title="贷款逾期"></a>贷款逾期</h2><p>一家金融贷款公司，需要了解用户贷款逾期未还的情况。该公司数据库中有一张用户”贷款逾期天数”表。<br><img src="https://cdn.kesci.com/upload/image/ra1zox7pi3.png" alt="Image Name"></p>
+<p>当逾期天数=0时，记为M0,</p>
+<p>逾期天数在[1,30]区间时，记为M1,</p>
+<p>逾期天数在[31,60]区间时, 记为M2,</p>
+<p>逾期天数在[61,90]区间时，记为M3，</p>
+<p>其他更高的逾期天数记为M4+，</p>
+<p>现在需要在数据库中分析出每种逾期时段（M0、M1、M2、M3、M4+）的订单个数，如果是你，会如何分析呢？</p>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra1zz6agzk.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> 逾期天数<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> M0<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 逾期天数<span class="token operator">>=</span><span class="token number">1</span> <span class="token operator">and</span> 逾期天数<span class="token operator">&lt;=</span><span class="token number">30</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> M1<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 逾期天数<span class="token operator">>=</span><span class="token number">31</span> <span class="token operator">and</span> 逾期天数<span class="token operator">&lt;=</span><span class="token number">60</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> M2<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 逾期天数<span class="token operator">>=</span><span class="token number">61</span> <span class="token operator">and</span> 逾期天数<span class="token operator">&lt;=</span><span class="token number">90</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> M3<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 逾期天数<span class="token operator">>=</span><span class="token number">91</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> M4
+    <span class="token keyword">from</span> 贷款逾期天数
+</code></pre>
+<h2 id="视频数据分析实战"><a href="#视频数据分析实战" class="headerlink" title="视频数据分析实战"></a>视频数据分析实战</h2><p>“用户操作记录表”里记录着每天某短视频平台的用户点击访问情况，以便帮助公司内部分析师了解用户对于当前页面的点击偏好。</p>
+<p>表包字段有：用户名、操作记录、操作时间。<br><img src="https://cdn.kesci.com/upload/image/ra1x3y3hnz.png" alt="Image Name"></p>
+<p>其中表内各字段含义如下：<br>用户名——表示用户在该短视频平台注册的唯一用户名。</p>
+<p>操作记录——表示用户在该短视频平台点击的按钮名称。A表示用户点击“短视频”播放入口，B表示用户点击“长视频”播放入口。</p>
+<p>操作时间——表示用户点击时候的时间，精确到秒。</p>
+<p>现在运营人员找到作为数据分析师的你，想让你帮忙看看用SQL取两个数据，具体如下：</p>
+<p>1.分析每天的访客数和他们的平均操作次数；<br>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra1x8c9ghz.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">date</span><span class="token punctuation">(</span>操作时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 日期，
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户名<span class="token punctuation">)</span> <span class="token keyword">as</span> 每天访客数，
+<span class="token function">count</span><span class="token punctuation">(</span>操作记录<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户名<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均操作次数
+<span class="token keyword">from</span> 用户操作记录表
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token keyword">date</span><span class="token punctuation">(</span>操作时间<span class="token punctuation">)</span>
+</code></pre>
+<p>2.统计每天符合以下条件的用户数：A操作之后是B操作，AB操作必须相邻；<br>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra1xayhxjp.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+lead<span class="token punctuation">(</span>操作记录<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partiton <span class="token keyword">by</span> 用户名<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">(</span>操作时间<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> 操作时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 下次操作记录
+ <span class="token keyword">from</span> 用户操作记录表
+<span class="token punctuation">)</span>
+
+<span class="token keyword">select</span> <span class="token keyword">date</span><span class="token punctuation">(</span>操作时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 日期<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> 操作记录<span class="token operator">=</span><span class="token string">'A'</span> <span class="token operator">and</span> 下次操作记录<span class="token operator">=</span><span class="token string">'B'</span> <span class="token keyword">then</span> 用户名 <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 用户数
+<span class="token keyword">from</span> t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token keyword">date</span><span class="token punctuation">(</span>操作时间<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="选出每个月有连续登录2天的用户名单"><a href="#选出每个月有连续登录2天的用户名单" class="headerlink" title="选出每个月有连续登录2天的用户名单"></a>选出每个月有连续登录2天的用户名单</h2><p>有一张“用户登陆记录表”，包含两个字段：用户id、日期。<br><img src="https://cdn.kesci.com/upload/image/ra1vnz2026.png" alt="Image Name"></p>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra1vrfcu3o.png" alt="Image Name"></p>
+<p>查询2021年每个月，连续2天都有登陆的用户名单。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>lead<span class="token punctuation">(</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partiton <span class="token keyword">by</span> 用户id<span class="token punctuation">,</span>month<span class="token punctuation">(</span>日期<span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> 日期<span class="token punctuation">)</span> <span class="token keyword">as</span> 本月第二次登录
+<span class="token keyword">from</span> 用户登陆记录表
+<span class="token keyword">where</span> year<span class="token punctuation">(</span>日期<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">2021</span>        
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> month<span class="token punctuation">(</span>日期<span class="token punctuation">)</span> <span class="token keyword">as</span> 月<span class="token punctuation">,</span>
+用户id
+<span class="token keyword">from</span> t1
+<span class="token keyword">where</span> datediff<span class="token punctuation">(</span>本月第二次登录<span class="token punctuation">,</span>日期<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> 月
+</code></pre>
+<h2 id="经营分析实战"><a href="#经营分析实战" class="headerlink" title="经营分析实战"></a>经营分析实战</h2><p>某公司数据库里有3张表，销售订单表、产品明细表、销售网点表。</p>
+<p>”销售订单表”记录了销售情况，每一张数据表示哪位顾客、在哪一天、哪个网点购买了什么产品，购买的数量是多少，以及对应产品的零售价。<br><img src="https://cdn.kesci.com/upload/image/ra0x5m5lle.png" alt="Image Name"></p>
+<p>“产品明细表”记录了公司产品的详细信息。<br><img src="https://cdn.kesci.com/upload/image/ra0x6m7hg8.png" alt="Image Name"></p>
+<p>“销售网点表”记录了公司的销售网点。<br><img src="https://cdn.kesci.com/upload/image/ra0x791h7e.png" alt="Image Name"></p>
+<p><strong>销售订单表和产品明细表通过“产品”字段关联，销售订单表和销售网点通过“交易网点”关联。</strong></p>
+<p>分析在2020年度第一季度的购买人数，销售金额，客单价，客单件，人均购买频次</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 购买人数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token operator">*</span>零售价<span class="token punctuation">)</span> <span class="token keyword">as</span> 销售金额<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token operator">*</span>零售价<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 客单价<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 客单件<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 订单号<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span>  <span class="token keyword">as</span> 人均购买频次
+<span class="token keyword">from</span> 销售订单表
+<span class="token keyword">where</span> 交易日期 <span class="token operator">between</span> <span class="token string">'2020-01-01'</span> <span class="token operator">and</span> <span class="token string">'2020-03-31'</span>
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/ra0xb671u2.png" alt="Image Name"></p>
+<p>分析品牌在2019.5-2020.4期间的复购率（复购率：在这期间下订单&gt;1的人数/总购买人数）</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 顾客ID<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 订单号<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 复购率
+<span class="token keyword">from</span> 销售订单表
+<span class="token keyword">where</span> 交易日期 <span class="token operator">between</span> <span class="token string">'2019-05-01'</span> <span class="token operator">and</span> <span class="token string">'2020-04-31'</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 顾客ID
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">SELECT</span> 
+  <span class="token function">SUM</span><span class="token punctuation">(</span>
+    <span class="token keyword">CASE</span>
+      <span class="token keyword">WHEN</span> 每个顾客下单数 <span class="token operator">></span> <span class="token number">1</span> 
+      <span class="token keyword">THEN</span> <span class="token number">1</span> 
+      <span class="token keyword">ELSE</span> <span class="token number">0</span> 
+    <span class="token keyword">END</span>
+  <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 复购率 
+<span class="token keyword">FROM</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+    顾客ID<span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> 订单号<span class="token punctuation">)</span> <span class="token keyword">AS</span> 每个顾客下单数 
+  <span class="token keyword">FROM</span>
+    销售订单表 
+  <span class="token keyword">WHERE</span> 交易日期 <span class="token operator">BETWEEN</span> <span class="token string">'2019-05-01'</span> 
+    <span class="token operator">AND</span> <span class="token string">'2020-04-30'</span> 
+  <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 顾客ID<span class="token punctuation">)</span> <span class="token number">a</span> 
+</code></pre>
+<p>查找既购买过ProductA又购买过ProductB，但没有购买ProductC的顾客人数，并计算平均客单价</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+    <span class="token keyword">select</span> 顾客ID<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span><span class="token keyword">distinct</span> 产品<span class="token punctuation">)</span> <span class="token keyword">as</span> 产品组合
+<span class="token keyword">from</span> 销售订单表
+<span class="token keyword">group</span> <span class="token keyword">by</span> 顾客ID
+    <span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 顾客人数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token operator">*</span>零售价<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 顾客ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 平均客单价
+<span class="token keyword">from</span> 销售订单表
+<span class="token keyword">where</span> 顾客ID <span class="token operator">in</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> 顾客ID
+    <span class="token keyword">from</span> t1
+    <span class="token keyword">where</span> 产品组合 <span class="token operator">like</span> <span class="token string">'%ProductA%'</span>
+    <span class="token operator">and</span> 产品组合 <span class="token operator">like</span> <span class="token string">'%ProductB%'</span>
+    <span class="token operator">and</span> 产品组合 <span class="token operator">not</span> <span class="token operator">like</span> <span class="token string">'%ProductC%'</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 顾客ID
+</code></pre>
 
                 
             </div>
