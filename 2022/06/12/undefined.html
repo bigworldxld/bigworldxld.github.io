@@ -1092,7 +1092,7 @@ t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
 </code></pre>
 <p>从这一周的数据来看，呼叫量最高的是哪一个小时（当地时间）？呼叫量最少的是哪一个小时（当地时间）？</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--呼叫量最高:</span>
-<span class="token keyword">with</span> <span class="token keyword">as</span> t1<span class="token punctuation">(</span>
+<span class="token keyword">with</span>  t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
 <span class="token keyword">SELECT</span> 
     <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 呼叫量 
   <span class="token keyword">FROM</span>
@@ -1126,6 +1126,119 @@ t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
     <span class="token punctuation">(</span>t1<span class="token punctuation">)</span>
 </code></pre>
 <p>最高如下：<br><img src="https://cdn.kesci.com/upload/image/rabdfesude.png" alt="Image Name"><br>最低如下：<br><img src="https://cdn.kesci.com/upload/image/rabdfsazr3.png" alt="Image Name"></p>
+<p>呼叫订单第二天继续呼叫的比例有多少？</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> t1<span class="token punctuation">.</span>乘客id，day<span class="token punctuation">(</span>data_sub<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>呼叫时间 interval <span class="token number">11</span> hour<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> day
+    <span class="token keyword">from</span> 订单信息表 t1
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t3<span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    lead<span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span>partiton <span class="token keyword">by</span> 乘客id <span class="token keyword">order</span> <span class="token keyword">by</span> day<span class="token punctuation">)</span> <span class="token keyword">as</span> next_day
+    <span class="token keyword">from</span> t2
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> next_day<span class="token operator">-</span>day<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 次日呼叫比例
+<span class="token keyword">from</span>
+<span class="token punctuation">(</span>t3<span class="token punctuation">)</span>
+</code></pre>
+<p> 1.lag()</p>
+<p>  lag(expr,N,default)</p>
+<p>expr:它可以是列或任何内置函数。<br>N:它是一个正值，它确定当前行之前的行数。如果在查询中将其省略，则其默认值为1<br>default:如果在当前行之前没有行N行的情况下，它是函数返回的默认值。如果缺少，则默认为NULL。</p>
+<p><strong>2.lead（）</strong></p>
+<p>lead(expr,N,default)</p>
+<p>expr:它可以是列或任何内置函数。</p>
+<p>N:它是一个正值，它确定当前行之后的行数。如果在查询中将其省略，则其默认值为1</p>
+<p>default:如果在当前行之后没有行N行的情况下，它是函数返回的默认值。如果缺少，则默认为NULL。</p>
+<h2 id="常见的分组比较"><a href="#常见的分组比较" class="headerlink" title="常见的分组比较"></a>常见的分组比较</h2><p>现在有三个表，“学生表”，“课程表”，“成绩表”。<br>“学生表”记录了学生的基本信息，有“学号”、“姓名”、“出生日期”、“性别”。<br><img src="https://cdn.kesci.com/upload/image/ra80zbb9z4.png" alt="Image Name"><br>“成绩表”记录了学生选修课程的成绩，包括“学号”，选修的“课程号”以及对应课程的“成绩”。<br><img src="https://cdn.kesci.com/upload/image/ra80zwxolw.png" alt="Image Name"><br>“课程表”记录了学生选修的课程信息，包括课程号、课程名称及其对应的“教师号”<br><img src="https://cdn.kesci.com/upload/image/ra810x8qst.png" alt="Image Name"></p>
+<p><strong>现在要查找出每门课程中成绩最好的学生的姓名和该学生的课程及成绩。<br>需要注意：可能出现并列第一的情况。</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--解法一：</span>
+<span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>dense_rank<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partiton <span class="token keyword">by</span> 课程号 <span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 decs<span class="token punctuation">)</span> <span class="token keyword">as</span> 排名
+    <span class="token keyword">from</span> 成绩表
+    <span class="token keyword">join</span> 课程表
+    <span class="token keyword">using</span><span class="token punctuation">(</span>课程号<span class="token punctuation">)</span>
+    <span class="token keyword">join</span> 学生表
+    <span class="token keyword">using</span><span class="token punctuation">(</span>学号<span class="token punctuation">)</span>   
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 姓名<span class="token punctuation">,</span>课程名称<span class="token punctuation">,</span>成绩
+<span class="token keyword">from</span> t1
+    <span class="token keyword">where</span> 排名<span class="token operator">=</span><span class="token number">1</span>
+    <span class="token keyword">order</span> <span class="token keyword">by</span> 课程名称
+<span class="token comment" spellcheck="true">--解法二：</span>
+<span class="token keyword">select</span> 姓名<span class="token punctuation">,</span>课程名称<span class="token punctuation">,</span>成绩
+<span class="token keyword">from</span> 成绩表
+<span class="token keyword">join</span> 课程表
+<span class="token keyword">using</span><span class="token punctuation">(</span>课程号<span class="token punctuation">)</span>
+<span class="token keyword">join</span> 学生表
+<span class="token keyword">using</span><span class="token punctuation">(</span>学号<span class="token punctuation">)</span>
+<span class="token keyword">where</span> <span class="token punctuation">(</span>课程号<span class="token punctuation">,</span>成绩<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> 课程号<span class="token punctuation">,</span><span class="token function">max</span><span class="token punctuation">(</span>成绩<span class="token punctuation">)</span> <span class="token keyword">from</span> 成绩表 <span class="token keyword">group</span> <span class="token keyword">by</span> 课程号<span class="token punctuation">)</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> 课程名称
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra815zvesp.png" alt="Image Name"></p>
+<h2 id="行列互换"><a href="#行列互换" class="headerlink" title="行列互换"></a>行列互换</h2><p>表名：cook<br><img src="https://cdn.kesci.com/upload/image/ra7xpmgpo7.png" alt="Image Name"></p>
+<p>要求查询结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra7xrgqj0o.png?imageView2/0/w/960/h/960" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 年<span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 月<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">then</span> 值 <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> m1<span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 月<span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">then</span> 值 <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> m2<span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 月<span class="token operator">=</span><span class="token number">3</span> <span class="token keyword">then</span> 值 <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> m3<span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">where</span> 月<span class="token operator">=</span><span class="token number">4</span> <span class="token keyword">then</span> 值 <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> m4<span class="token punctuation">,</span>
+<span class="token keyword">from</span> cook
+<span class="token keyword">group</span> <span class="token keyword">by</span> 年
+</code></pre>
+<h2 id="球赛分析"><a href="#球赛分析" class="headerlink" title="球赛分析"></a>球赛分析</h2><p>两只篮球队进行了激烈的比赛，比分交替上升。比赛结束后，你有一张两队分数的明细表：<br><img src="https://cdn.kesci.com/upload/image/ra5ziz7z05.png" alt="Image Name"><br>该表记录了球队、球员号码、球员姓名、得分分数以及得分时间。现在球队要对比赛中表现突出的球员做出奖励。</p>
+<p>问题：<br><strong>（1）请你写一个sql语句统计出：比赛中帮助各自球队反超比分的球员姓名以及对应时间</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token keyword">case</span> <span class="token keyword">when</span> 球队<span class="token operator">=</span><span class="token string">'A'</span> <span class="token keyword">then</span> 得分分数 <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token keyword">as</span> A队分数<span class="token punctuation">,</span>
+    <span class="token keyword">case</span> <span class="token keyword">when</span> 球队<span class="token operator">=</span><span class="token string">'B'</span> <span class="token keyword">then</span> 得分分数 <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token keyword">as</span> B队分数
+    <span class="token keyword">from</span> 分数表
+    <span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间
+<span class="token punctuation">)</span>
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>A队分数<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> A队累计<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>B队分数<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> B队累计<span class="token punctuation">,</span>
+    <span class="token keyword">from</span>
+    t1
+<span class="token punctuation">)</span>
+t3 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token keyword">case</span> <span class="token keyword">when</span> A队累计<span class="token operator">></span>B队累计 <span class="token keyword">then</span> <span class="token string">'A'</span>
+    <span class="token keyword">when</span> A队累计<span class="token operator">&lt;</span>B队累计 <span class="token keyword">then</span> <span class="token string">'B'</span>
+    <span class="token keyword">else</span> <span class="token string">'平'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 结果
+<span class="token keyword">from</span> t2
+<span class="token punctuation">)</span>
+t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    lag<span class="token punctuation">(</span>结果<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 上次结果
+    lag<span class="token punctuation">(</span>结果<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 前次结果
+    <span class="token keyword">from</span>
+    t3
+<span class="token punctuation">)</span>
+t5 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token keyword">case</span> <span class="token keyword">when</span> 结果<span class="token operator">&lt;></span><span class="token string">'平'</span> <span class="token operator">and</span> 上次结果<span class="token operator">&lt;></span><span class="token string">'平'</span> <span class="token operator">and</span> 结果<span class="token operator">&lt;></span>上次结果 <span class="token keyword">then</span> <span class="token number">1</span>
+    <span class="token keyword">when</span> 结果<span class="token operator">&lt;></span><span class="token string">'平'</span> <span class="token operator">AND</span> 上次结果<span class="token operator">=</span><span class="token string">'平'</span> <span class="token operator">AND</span> 结果<span class="token operator">&lt;></span>前次结果 <span class="token keyword">THEN</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 判断
+    <span class="token keyword">from</span>
+    t4
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 球员姓名<span class="token punctuation">,</span>得分时间
+<span class="token keyword">from</span> 
+t5
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra5zs2nqm2.png" alt="Image Name"></p>
+<p><strong>（2）请你写一个sql语句统计出：连续三次（及以上）为球队得分的球员名单</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">distinct</span> 球队<span class="token punctuation">,</span>球员姓名
+<span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+lead<span class="token punctuation">(</span>球员姓名<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partion <span class="token keyword">by</span> 球队 <span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 二次得分球员<span class="token punctuation">,</span>
+lead<span class="token punctuation">(</span>球员姓名<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partion <span class="token keyword">by</span> 球队 <span class="token keyword">order</span> <span class="token keyword">by</span> 得分时间<span class="token punctuation">)</span> <span class="token keyword">as</span> 三次得分球员
+ <span class="token keyword">from</span> 分数表
+<span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token keyword">where</span> 球员姓名<span class="token operator">=</span>二次得分球员
+<span class="token operator">and</span> 球员姓名<span class="token operator">=</span>三次得分球员
+</code></pre>
+<p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/ra6jh5ddhn.png" alt="Image Name"></p>
 
                 
             </div>
