@@ -1500,8 +1500,8 @@ temp1<span class="token punctuation">.</span>成绩<span class="token punctuatio
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> temp2
 <span class="token keyword">where</span> type_ABC <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>unbounded：无界限<br>preceding：从分区第一行头开始，则为 unbounded。 N为：相对当前行向前的偏移量<br>following ：与preceding相反,到该分区结束，则为 unbounded。N为：相对当前行向后的偏移量<br>current row：顾名思义，当前行，偏移量为0除去部门最高&amp;最低工资后的部门平均工资</p>
-<p>薪水表中记录了员工的编号，所在部门编号，和薪水：<br><img src="https://cdn.kesci.com/upload/image/r9y5thg6u8.png" alt="Image Name"><br>结果如下图：<br><img src="https://cdn.kesci.com/upload/image/r9y5w04xle.png" alt="Image Name"></p>
+<p>unbounded：无界限<br>preceding：从分区第一行头开始，则为 unbounded。 N为：相对当前行向前的偏移量<br>following ：与preceding相反,到该分区结束，则为 unbounded。N为：相对当前行向后的偏移量<br>current row：顾名思义，当前行，偏移量为0</p>
+<h2 id="除去部门最高-amp-最低工资后的部门平均工资"><a href="#除去部门最高-amp-最低工资后的部门平均工资" class="headerlink" title="除去部门最高&amp;最低工资后的部门平均工资"></a>除去部门最高&amp;最低工资后的部门平均工资</h2><p>薪水表中记录了员工的编号，所在部门编号，和薪水：<br><img src="https://cdn.kesci.com/upload/image/r9y5thg6u8.png" alt="Image Name"><br>结果如下图：<br><img src="https://cdn.kesci.com/upload/image/r9y5w04xle.png" alt="Image Name"></p>
 <p>#查询出每个部门除去最高、最低薪水后的平均薪水，并保留整数。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
 <span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
@@ -1528,6 +1528,28 @@ temp1<span class="token punctuation">.</span>成绩<span class="token punctuatio
   <span class="token operator">AND</span> 薪水 <span class="token operator">&lt;></span> 部门最低薪水 
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 部门编号
 </code></pre>
+<h2 id="分析红包领取情况"><a href="#分析红包领取情况" class="headerlink" title="分析红包领取情况"></a>分析红包领取情况</h2><p>活跃用户表：<br><img src="https://cdn.kesci.com/upload/image/r9x9kk1uhg.png" alt="Image Name"></p>
+<p>领取红包表：</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9x9ngn9ji.png" alt="Image Name"></p>
+<p>1.计算2019年6月1日至今，每日DAU（活跃用户是指有登陆的用户）</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 登录日期<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户id<span class="token punctuation">)</span> <span class="token keyword">as</span> DAU
+<span class="token keyword">from</span> 活跃用户表
+<span class="token keyword">where</span> 登录日期<span class="token operator">>=</span><span class="token string">'20190601'</span> 
+<span class="token keyword">group</span> <span class="token keyword">by</span> 登录日期
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/r9x9qfk7um.png" alt="Image Name"></p>
+<p>2.分析每天领取红包的用户数、人均领取金额、人均领取次数，要考虑用户属性及领取红包未登录情况。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>是新用户<span class="token operator">=</span><span class="token string">"1"</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>用户id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 新用户数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>是新用户<span class="token operator">=</span><span class="token string">"0"</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>用户id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 旧用户数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>金额<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取金额<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取次数
+<span class="token keyword">from</span> 领红包表 t1
+<span class="token keyword">left</span> <span class="token keyword">join</span> 活跃用户表 t2
+<span class="token keyword">using</span><span class="token punctuation">(</span>用户ID<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>抢红包日期
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/r9x9ut4nqg.png" alt="Image Name"></p>
 
                 
             </div>
