@@ -983,7 +983,6 @@ selct <span class="token number">a</span><span class="token punctuation">.</span
 <p>结果如下：<br><img src="https://cdn.kesci.com/upload/image/raf9ywct9s.png" alt="Image Name"></p>
 <p>3.如何实现如下表的数据格式？**<br><img src="https://cdn.kesci.com/upload/image/raf9utarma.png" alt="Image Name"></p>
 <p>将group by产生的同一个分组中的值连接起来，返回一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E7%AC%A6%E4%B8%B2&spm=1001.2101.3001.7020">字符串</a>结果。</p>
-<p>group_concat( [DISTINCT] 要连接的字段 [Order BY 排序字段 ASC/DESC] [Separator ‘分隔符’] )</p>
 <p>group_concat([distinct] 字段名 [order by 排序字段 asc/desc] [separator ‘分隔符’])</p>
 <p>说明：</p>
 <p>(1)使用distinct可以排除重复值；</p>
@@ -1307,7 +1306,6 @@ lead<span class="token punctuation">(</span>操作记录<span class="token punct
 </code></pre>
 <h2 id="经营分析实战"><a href="#经营分析实战" class="headerlink" title="经营分析实战"></a>经营分析实战</h2><p>某公司数据库里有3张表，销售订单表、产品明细表、销售网点表。</p>
 <p>”销售订单表”记录了销售情况，每一张数据表示哪位顾客、在哪一天、哪个网点购买了什么产品，购买的数量是多少，以及对应产品的零售价。<br><img src="https://cdn.kesci.com/upload/image/ra0x5m5lle.png" alt="Image Name"></p>
-<p>“产品明细表”记录了公司产品的详细信息。<br><img src="https://cdn.kesci.com/upload/image/ra0x6m7hg8.png" alt="Image Name"></p>
 <p>“销售网点表”记录了公司的销售网点。<br><img src="https://cdn.kesci.com/upload/image/ra0x791h7e.png" alt="Image Name"></p>
 <p><strong>销售订单表和产品明细表通过“产品”字段关联，销售订单表和销售网点通过“交易网点”关联。</strong></p>
 <p>分析在2020年度第一季度的购买人数，销售金额，客单价，客单件，人均购买频次</p>
@@ -1362,6 +1360,56 @@ lead<span class="token punctuation">(</span>操作记录<span class="token punct
 <span class="token punctuation">)</span>
 <span class="token keyword">group</span> <span class="token keyword">by</span> 顾客ID
 </code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/ra0zh24pzw.png" alt="Image Name"></p>
+<p>查找每个城市购买金额排名第二的客人，列出其购买城市、顾客ID、购买金额</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">a</span><span class="token punctuation">.</span>销售数量<span class="token operator">*</span><span class="token number">a</span><span class="token punctuation">.</span>零售价<span class="token punctuation">)</span> <span class="token keyword">as</span> 购买金额
+    dense_rank<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span>partiton <span class="token keyword">by</span> <span class="token number">b</span><span class="token punctuation">.</span>城市 <span class="token keyword">order</span> <span class="token keyword">by</span> 购买金额 decs<span class="token punctuation">)</span> <span class="token keyword">as</span> 购买金额排名
+    <span class="token keyword">from</span> 销售订单表 <span class="token number">a</span>
+    <span class="token keyword">join</span> 销售网点表 <span class="token number">b</span>
+    <span class="token keyword">using</span><span class="token punctuation">(</span>交易网点<span class="token punctuation">)</span>  
+    <span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">b</span><span class="token punctuation">.</span>城市<span class="token punctuation">,</span><span class="token number">a</span><span class="token punctuation">.</span>顾客ID
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 城市 <span class="token keyword">as</span> 购买城市<span class="token punctuation">,</span>
+顾客ID<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token operator">*</span>零售价<span class="token punctuation">)</span> <span class="token keyword">as</span> 购买金额
+<span class="token keyword">from</span> t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 购买城市
+<span class="token keyword">where</span> 购买金额排名<span class="token operator">=</span><span class="token number">2</span>
+<span class="token comment" spellcheck="true">--解法2</span>
+<span class="token keyword">SELECT</span> 
+  <span class="token operator">*</span> 
+<span class="token keyword">FROM</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+    <span class="token operator">*</span><span class="token punctuation">,</span>
+    dense_rank <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span>
+      <span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> 城市 
+  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 购买金额 <span class="token keyword">DESC</span>
+  <span class="token punctuation">)</span> <span class="token keyword">AS</span> 排名 
+  <span class="token keyword">FROM</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+      <span class="token number">b</span><span class="token punctuation">.</span>城市<span class="token punctuation">,</span>
+      <span class="token number">a</span><span class="token punctuation">.</span>顾客ID<span class="token punctuation">,</span>
+      <span class="token function">SUM</span><span class="token punctuation">(</span>销售数量 <span class="token operator">*</span> 零售价<span class="token punctuation">)</span> <span class="token keyword">AS</span> 购买金额 
+    <span class="token keyword">FROM</span>
+      销售订单表 <span class="token number">a</span> 
+      <span class="token keyword">JOIN</span> 销售网点表 <span class="token number">b</span> 
+        <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>交易网点 <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>交易网点 
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">b</span><span class="token punctuation">.</span>城市<span class="token punctuation">,</span>
+      <span class="token number">a</span><span class="token punctuation">.</span>顾客ID<span class="token punctuation">)</span> <span class="token number">a</span><span class="token punctuation">)</span> <span class="token number">b</span> 
+<span class="token keyword">WHERE</span> 排名 <span class="token operator">=</span> <span class="token number">2</span>
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/ra0zz8cb5l.png" alt="Image Name"></p>
+<p>计算每个城市的店铺数量及各个城市的生意汇总，输出包含无购买记录的城市</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 城市<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 交易网点<span class="token punctuation">)</span> <span class="token keyword">as</span> 城市店铺数量<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>销售数量<span class="token operator">*</span>零售价<span class="token punctuation">)</span> <span class="token keyword">as</span> 生意汇总
+<span class="token keyword">from</span> 销售网点表
+<span class="token keyword">left</span> <span class="token keyword">join</span> 销售订单表 <span class="token keyword">using</span><span class="token punctuation">(</span>交易网点<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 城市
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/ra10eawfgg.png" alt="Image Name"></p>
 
                 
             </div>
