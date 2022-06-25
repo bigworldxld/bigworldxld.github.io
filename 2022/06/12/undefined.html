@@ -1410,6 +1410,124 @@ lead<span class="token punctuation">(</span>操作记录<span class="token punct
 <span class="token keyword">group</span> <span class="token keyword">by</span> 城市
 </code></pre>
 <p><img src="https://cdn.kesci.com/upload/image/ra10eawfgg.png" alt="Image Name"></p>
+<h2 id="窗口函数运用"><a href="#窗口函数运用" class="headerlink" title="窗口函数运用"></a>窗口函数运用</h2><p>有一张“学生成绩表”，包含4个字段：班级id、学生id、课程id、成绩。<br><img src="https://cdn.kesci.com/upload/image/ra0vlkla5p.png" alt="Image Name"></p>
+<p>问题1：求出每个学生成绩最高的三条记录；</p>
+<p><img src="https://cdn.kesci.com/upload/image/ra0vq76ebg.png" alt="Image Name"></p>
+<ul>
+<li>rank()：是并列排序，会跳过重复序号</li>
+<li>dense_rank()：是并列排序，不会跳过重复序号</li>
+<li>row_number()：是顺序排序，不跳过任何一个序号，就是行号</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 学生id <span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 decs<span class="token punctuation">)</span> <span class="token keyword">as</span> 学生成绩排名
+<span class="token keyword">from</span> 学生成绩表
+<span class="token keyword">where</span> 学生成绩排名<span class="token operator">&lt;=</span><span class="token number">3</span>
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">SELECT</span> 
+  <span class="token operator">*</span> 
+<span class="token keyword">FROM</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+    <span class="token operator">*</span><span class="token punctuation">,</span>
+    row_number <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span>
+      <span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> 学生id 
+  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 成绩 <span class="token keyword">DESC</span>
+  <span class="token punctuation">)</span> <span class="token keyword">AS</span> 学生成绩排名 
+  <span class="token keyword">FROM</span>
+    学生成绩表<span class="token punctuation">)</span> <span class="token number">a</span> 
+<span class="token keyword">WHERE</span> 学生成绩排名 <span class="token operator">&lt;=</span> <span class="token number">3</span> 
+</code></pre>
+<p>问题2：找出每门课程都高于班级课程平均分的学生；<br><img src="https://cdn.kesci.com/upload/image/ra0vum9yqi.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token function">avg</span><span class="token punctuation">(</span>成绩<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 课程id<span class="token punctuation">)</span> <span class="token keyword">as</span> 班级课程平均分<span class="token punctuation">,</span>
+    <span class="token keyword">case</span> <span class="token keyword">when</span> 成绩<span class="token operator">></span>班级课程平均分 <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 是否高于平均分
+    <span class="token keyword">from</span> 学生成绩表
+    <span class="token keyword">where</span> 是否高于平均分<span class="token operator">=</span><span class="token number">1</span>
+    <span class="token keyword">group</span> <span class="token keyword">by</span> 课程id<span class="token punctuation">,</span>学生id
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 班级id<span class="token punctuation">,</span>学生id
+<span class="token keyword">from</span>
+t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 课程id<span class="token punctuation">,</span>学生id
+</code></pre>
+<h2 id="帕累托分析"><a href="#帕累托分析" class="headerlink" title="帕累托分析"></a>帕累托分析</h2><p><strong>什么是二八定律？</strong></p>
+<p>二八定律是说在任何一组东西中，最重要的只占一小部分，约20%。比如家店铺，卖的最多的商品数只占20%</p>
+<p><strong>什么是ABC分类法？</strong></p>
+<p>ABC分类方法是二八定律衍生出来的一种分类方法，由于它把对象分成A、B、C三类，所以叫做ABC分类法，也叫<strong>帕累托分析</strong></p>
+<p>ABC分类法计算步骤：</p>
+<p>1）将分析对象由大到小排序</p>
+<p>2）计算每一个对象及排在该对象之前的累计占比</p>
+<p>3）将累计占比为0<del>60%的记为A类，60%</del>85%记为B类，85%以上记为C类</p>
+<p>有一张“学生成绩表”，包含3个字段：学号、课程、成绩。<br><img src="https://cdn.kesci.com/upload/image/ra05zij3mf.png" alt="Image Name"><br><strong>问题：<br>找出每门课程A类和B类的学生，判断标准是累计占比，0<del>60%的记为A类，60%</del>85%记为B类。</strong></p>
+<p>累计占比:</p>
+<p>比如课程A的累计占比=课程A的累计成绩/课程A的总成绩</p>
+<p>课程A的累计成绩：<br>对课程A的学生成绩由大到小排序，累计成绩就是该学生的成绩加上排在他前面所有学生的成绩的总和；</p>
+<p>课程A的总成绩：<br>所有学生课程A的成绩总和。</p>
+<p>结果如图：</p>
+<p><img src="https://cdn.kesci.com/upload/image/ra0657xlao.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token keyword">from</span> 学生成绩表
+<span class="token keyword">group</span> <span class="token keyword">by</span> 学号<span class="token punctuation">,</span>课程
+<span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 decs
+<span class="token punctuation">)</span>
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>成绩<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 课程 <span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 decs <span class="token keyword">rows</span> <span class="token operator">between</span> <span class="token keyword">unbounded</span> <span class="token keyword">preceding</span> <span class="token operator">and</span> <span class="token keyword">current</span> <span class="token keyword">row</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 累计成绩<span class="token punctuation">,</span>    
+<span class="token function">sum</span><span class="token punctuation">(</span>成绩<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 课程<span class="token punctuation">)</span> <span class="token keyword">as</span> 科目总成绩
+<span class="token keyword">case</span> <span class="token keyword">when</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.6</span>  <span class="token keyword">then</span> <span class="token string">"A"</span>
+    <span class="token keyword">when</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0.6</span> <span class="token operator">and</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.85</span> <span class="token keyword">then</span> <span class="token string">"B"</span> <span class="token keyword">else</span> <span class="token string">"C"</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 类别
+<span class="token keyword">from</span> t1    
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> t2
+<span class="token keyword">where</span> 类别 <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">with</span> temp1 <span class="token keyword">as</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>成绩<span class="token punctuation">)</span><span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>课程 <span class="token keyword">order</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>成绩 <span class="token keyword">desc</span> <span class="token keyword">rows</span> <span class="token operator">between</span> <span class="token keyword">unbounded</span> <span class="token keyword">preceding</span> <span class="token operator">and</span> <span class="token keyword">current</span> <span class="token keyword">row</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 累计成绩<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>成绩<span class="token punctuation">)</span><span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>课程<span class="token punctuation">)</span> <span class="token keyword">as</span> 科目总成绩
+<span class="token keyword">from</span> 学生成绩表 t1
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+temp2 <span class="token keyword">as</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> temp1<span class="token punctuation">.</span>学号<span class="token punctuation">,</span>
+temp1<span class="token punctuation">.</span>课程<span class="token punctuation">,</span>
+temp1<span class="token punctuation">.</span>成绩<span class="token punctuation">,</span>
+<span class="token keyword">case</span> <span class="token keyword">when</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.6</span> <span class="token keyword">then</span> <span class="token string">"A"</span>
+<span class="token keyword">when</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0.6</span> <span class="token operator">and</span> <span class="token punctuation">(</span>累计成绩<span class="token operator">/</span>科目总成绩<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.85</span> <span class="token keyword">then</span> <span class="token string">"B"</span>
+<span class="token keyword">else</span> <span class="token string">"C"</span> <span class="token keyword">end</span> <span class="token keyword">as</span> type_ABC
+<span class="token keyword">from</span> temp1
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> temp2
+<span class="token keyword">where</span> type_ABC <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>unbounded：无界限<br>preceding：从分区第一行头开始，则为 unbounded。 N为：相对当前行向前的偏移量<br>following ：与preceding相反,到该分区结束，则为 unbounded。N为：相对当前行向后的偏移量<br>current row：顾名思义，当前行，偏移量为0除去部门最高&amp;最低工资后的部门平均工资</p>
+<p>薪水表中记录了员工的编号，所在部门编号，和薪水：<br><img src="https://cdn.kesci.com/upload/image/r9y5thg6u8.png" alt="Image Name"><br>结果如下图：<br><img src="https://cdn.kesci.com/upload/image/r9y5w04xle.png" alt="Image Name"></p>
+<p>#查询出每个部门除去最高、最低薪水后的平均薪水，并保留整数。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 部门编号<span class="token punctuation">)</span> <span class="token keyword">as</span> 最高薪水<span class="token punctuation">,</span>
+<span class="token function">min</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 部门编号<span class="token punctuation">)</span> <span class="token keyword">as</span> 最低薪水，
+<span class="token keyword">from</span> 薪水表      
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 部门编号<span class="token punctuation">,</span>
+<span class="token keyword">case</span> <span class="token keyword">when</span> 薪水<span class="token operator">&lt;></span>最高薪水 <span class="token operator">and</span> 薪水<span class="token operator">&lt;></span>最低薪水 <span class="token keyword">then</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">avg</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span> <span class="token keyword">as</span> 平均薪水
+<span class="token keyword">from</span> t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 部门编号
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">SELECT</span> 
+  部门编号<span class="token punctuation">,</span>
+  <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> 平均薪水 
+<span class="token keyword">FROM</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+    <span class="token operator">*</span><span class="token punctuation">,</span>
+    <span class="token function">MAX</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> 部门编号<span class="token punctuation">)</span> 部门最高薪水<span class="token punctuation">,</span>
+    <span class="token function">MIN</span><span class="token punctuation">(</span>薪水<span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> 部门编号<span class="token punctuation">)</span> 部门最低薪水 
+  <span class="token keyword">FROM</span>
+    薪水表<span class="token punctuation">)</span> <span class="token number">a</span> 
+<span class="token keyword">WHERE</span> 薪水 <span class="token operator">&lt;></span> 部门最高薪水 
+  <span class="token operator">AND</span> 薪水 <span class="token operator">&lt;></span> 部门最低薪水 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> 部门编号
+</code></pre>
 
                 
             </div>
