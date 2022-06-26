@@ -1764,10 +1764,150 @@ ceil<span class="token punctuation">(</span><span class="token punctuation">(</s
 <ol>
 <li>提取2020年8月各城市每天的快车司机数、快车订单量和快车流水数据。</li>
 </ol>
-<ol>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> t1<span class="token punctuation">.</span>日期，
+t3<span class="token punctuation">.</span>城市名称<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>司机id<span class="token punctuation">)</span>  <span class="token keyword">as</span> 每天快车司机数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 快车订单量<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>流水<span class="token punctuation">)</span> <span class="token keyword">as</span> 快车流水
+<span class="token keyword">from</span> 司机数据 t1
+<span class="token keyword">left</span> <span class="token keyword">join</span> 订单数据 t2
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id<span class="token operator">=</span>t2<span class="token punctuation">.</span>司机id
+<span class="token keyword">left</span> <span class="token keyword">join</span> 城市匹配数据 t3
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>城市id<span class="token operator">=</span>t2<span class="token punctuation">.</span>城市id
+<span class="token keyword">where</span> 日期 <span class="token operator">between</span> <span class="token string">"2020-08-01"</span> <span class="token operator">and</span> <span class="token string">"2020-08-31"</span> <span class="token operator">and</span> t2<span class="token punctuation">.</span>产品线id<span class="token operator">=</span><span class="token number">3</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>日期<span class="token punctuation">;</span>
+</code></pre>
+<p>第一问结果如图：<br><img src="https://cdn.kesci.com/upload/image/raqd2numvv.png" alt="Image Name"></p>
+<ol start="2">
 <li>提取2020年8月和9月，每个月的北京市新老司机（首单日期在当月为新司机）的司机数、在线时<br>长和TPH（订单量/在线时长）数据。</li>
+</ol>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+data_format<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token string">'%Y%m'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 日期年月<span class="token punctuation">,</span>
+data_format<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>首次完成订单时间<span class="token punctuation">,</span><span class="token string">'%Y%m'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 首次完成订单年月<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t1<span class="token punctuation">.</span>首次完成订单年月<span class="token operator">=</span>t1<span class="token punctuation">.</span>日期年月 <span class="token keyword">then</span> 司机id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 新司机数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t1<span class="token punctuation">.</span>首次完成订单年月<span class="token operator">&lt;></span>t1<span class="token punctuation">.</span>日期年月 <span class="token keyword">then</span> 司机id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 老司机数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>t4<span class="token punctuation">.</span>在线时长<span class="token punctuation">)</span> <span class="token keyword">as</span> 在线时长<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span><span class="token operator">/</span>t4<span class="token punctuation">.</span>在线时长 <span class="token keyword">as</span> TPH
+<span class="token keyword">from</span> 司机数据 t1
+<span class="token keyword">join</span> 订单数据 t2
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id<span class="token operator">=</span>t2<span class="token punctuation">.</span>司机id
+<span class="token keyword">join</span> 城市匹配数据 t3
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>城市id<span class="token operator">=</span>t2<span class="token punctuation">.</span>城市id
+<span class="token keyword">join</span> 在线时长数据 t4
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id<span class="token operator">=</span>t4<span class="token punctuation">.</span>司机id
+<span class="token keyword">where</span> 日期年月<span class="token operator">=</span><span class="token string">"2020-08"</span> <span class="token operator">and</span> 日期年月<span class="token operator">=</span><span class="token string">"2020-09"</span> <span class="token operator">and</span> t3<span class="token punctuation">.</span>城市名称<span class="token operator">=</span><span class="token string">"北京"</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> 日期年月
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> substr<span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 年月<span class="token punctuation">,</span>
+<span class="token number">d</span><span class="token punctuation">.</span>司机id，
+<span class="token keyword">case</span> <span class="token keyword">when</span> substr<span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token operator">=</span>substr<span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>首次完成订单时间<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">then</span> <span class="token string">"新司机"</span> <span class="token keyword">else</span> <span class="token string">"老司机"</span> <span class="token keyword">end</span> <span class="token keyword">as</span> <span class="token string">"driver_state"</span>   
+<span class="token keyword">from</span> 司机数据 <span class="token number">d</span>
+    <span class="token keyword">where</span> month<span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>日期<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+    <span class="token operator">and</span> <span class="token number">d</span><span class="token punctuation">.</span>城市id <span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>城市id <span class="token keyword">from</span> 城市匹配数据 <span class="token number">c</span> <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>城市名称<span class="token operator">=</span><span class="token string">"北京"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> 年月<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> driver_state<span class="token operator">=</span><span class="token string">"新司机"</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"新司机数"</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> driver_state<span class="token operator">=</span><span class="token string">"老司机"</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"老司机数"</span>
+<span class="token keyword">from</span> t1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 年月
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t3 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> substr<span class="token punctuation">(</span>t<span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"年月"</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>在线时长<span class="token punctuation">)</span> <span class="token keyword">as</span> 在线时长 
+<span class="token keyword">from</span> 在线时长数据 t
+<span class="token keyword">left</span> <span class="token keyword">join</span> t1
+<span class="token keyword">on</span> t<span class="token punctuation">.</span>司机id <span class="token operator">=</span>t1<span class="token punctuation">.</span>司机id
+<span class="token keyword">where</span> month<span class="token punctuation">(</span>t<span class="token punctuation">.</span>日期<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token operator">and</span> t<span class="token punctuation">.</span>司机id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> t1<span class="token punctuation">.</span>司机id <span class="token keyword">from</span> t1<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> substr<span class="token punctuation">(</span>t<span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t4 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> substr<span class="token punctuation">(</span>o<span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"年月"</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 订单量
+<span class="token keyword">from</span> 订单数据 o
+<span class="token keyword">where</span> month<span class="token punctuation">(</span>o<span class="token punctuation">.</span>日期<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token operator">and</span> o<span class="token punctuation">.</span>司机id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> t1<span class="token punctuation">.</span>司机id <span class="token keyword">from</span> t1<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> substr<span class="token punctuation">(</span>o<span class="token punctuation">.</span>日期<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> t2<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>t3<span class="token punctuation">.</span>在线时长<span class="token punctuation">,</span>t4<span class="token punctuation">.</span>订单量<span class="token operator">/</span>t3<span class="token punctuation">.</span>在线时长 <span class="token keyword">as</span> <span class="token string">"TPH"</span>
+<span class="token keyword">from</span> t2<span class="token punctuation">,</span>t3<span class="token punctuation">,</span>t4
+<span class="token keyword">where</span> t2<span class="token punctuation">.</span>年月<span class="token operator">=</span>t3<span class="token punctuation">.</span>年月
+<span class="token operator">and</span> t3<span class="token punctuation">.</span>年月<span class="token operator">=</span>t4<span class="token punctuation">.</span>年月<span class="token punctuation">;</span>
+</code></pre>
+<p>第二问结果如图：<br><img src="https://cdn.kesci.com/upload/image/r9wfrzex2k.png" alt="Image Name"></p>
+<ol start="3">
 <li>分别提取司机数大于20，司机总在线时长大于2小时，订单量大于1的城市名称数据。</li>
 </ol>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 司机id<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 城市id<span class="token punctuation">)</span> <span class="token keyword">as</span> 司机数    
+<span class="token keyword">from</span> 司机数据 
+<span class="token keyword">group</span> <span class="token keyword">by</span> 城市id   
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>在线时长<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">partition</span> <span class="token keyword">by</span> 司机id<span class="token punctuation">)</span> <span class="token keyword">as</span> 总在线时长<span class="token punctuation">,</span>
+<span class="token keyword">from</span> 在线时长数据    
+<span class="token keyword">join</span> t1 
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id<span class="token operator">=</span>在线时长数据<span class="token punctuation">.</span>司机id 
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t3 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 订单量  
+<span class="token keyword">from</span> 订单数据
+<span class="token keyword">join</span> t2
+<span class="token keyword">on</span> t2<span class="token punctuation">.</span>司机id<span class="token operator">=</span>司机id    
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">select</span>
+城市名称<span class="token punctuation">,</span>司机id<span class="token punctuation">,</span>司机数<span class="token punctuation">,</span>总在线时长<span class="token punctuation">,</span>订单量
+<span class="token keyword">from</span> 城市匹配数据
+<span class="token keyword">join</span> t3
+<span class="token keyword">on</span> t3<span class="token punctuation">.</span>城市id<span class="token operator">=</span>城市id
+<span class="token keyword">group</span> <span class="token keyword">by</span> 城市名称
+<span class="token keyword">having</span> 司机数<span class="token operator">></span><span class="token number">20</span> <span class="token operator">and</span> 总在线时长<span class="token operator">></span><span class="token number">2</span> <span class="token operator">and</span> 订单量<span class="token operator">></span><span class="token number">1</span>
+</code></pre>
+<p>解法二：</p>
+<p>（3.1）提取司机数大于20的城市名称数据</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>城市名称 <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>司机id<span class="token punctuation">)</span> <span class="token keyword">as</span> 司机数
+<span class="token keyword">from</span> 司机数据 <span class="token number">d</span>
+<span class="token keyword">join</span> 城市匹配数据 <span class="token number">c</span>
+<span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span>城市id <span class="token operator">=</span><span class="token number">c</span><span class="token punctuation">.</span>城市id
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">c</span><span class="token punctuation">.</span>城市名称 
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">d</span><span class="token punctuation">.</span>司机id<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/r9wg2e610r.png" alt="Image Name"></p>
+<p>3.2）提取司机总在线时长大于2小时的城市名称数据</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>城市名称 <span class="token punctuation">,</span>t1<span class="token punctuation">.</span><span class="token operator">*</span>
+<span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> t<span class="token punctuation">.</span>司机id <span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>在线时长<span class="token punctuation">)</span> <span class="token keyword">as</span> 总在线时长
+<span class="token keyword">from</span> 在线时长数据 t
+<span class="token keyword">group</span> <span class="token keyword">by</span> t<span class="token punctuation">.</span>司机id
+<span class="token keyword">having</span> <span class="token function">sum</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>在线时长<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">2</span><span class="token punctuation">)</span> t1
+<span class="token keyword">left</span> <span class="token keyword">join</span> 司机数据 <span class="token number">d</span>
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id <span class="token operator">=</span><span class="token number">d</span><span class="token punctuation">.</span>司机id
+<span class="token keyword">left</span> <span class="token keyword">join</span> 城市匹配数据 <span class="token number">c</span>
+<span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span>城市id <span class="token operator">=</span><span class="token number">c</span><span class="token punctuation">.</span>城市id<span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/r9wgg525ch.png" alt="Image Name"></p>
+<p>（3.3）提取司机订单量大于1的城市名称数据</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>城市名称 <span class="token punctuation">,</span>t1<span class="token punctuation">.</span><span class="token operator">*</span>
+<span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> o<span class="token punctuation">.</span>司机id <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span> <span class="token keyword">as</span> 司机订单量
+<span class="token keyword">from</span> 订单数据 o
+<span class="token keyword">group</span> <span class="token keyword">by</span> o<span class="token punctuation">.</span>司机id
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>订单id<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span>t1
+<span class="token keyword">left</span> <span class="token keyword">join</span> 司机数据 <span class="token number">d</span>
+<span class="token keyword">on</span> t1<span class="token punctuation">.</span>司机id <span class="token operator">=</span><span class="token number">d</span><span class="token punctuation">.</span>司机id
+<span class="token keyword">left</span> <span class="token keyword">join</span> 城市匹配数据 <span class="token number">c</span>
+<span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span>城市id <span class="token operator">=</span><span class="token number">c</span><span class="token punctuation">.</span>城市id<span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://cdn.kesci.com/upload/image/r9wgyll82h.png" alt="Image Name"></p>
+<h2 id="连续打卡天数"><a href="#连续打卡天数" class="headerlink" title="连续打卡天数"></a>连续打卡天数</h2><p>现在有一张表t，这张表存储了每个员工每天的打卡情况<br>现在需要统计截止目前每个员工的连续打卡天数，表t如下表所示：</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9vgwmrzqk.png" alt="Image Name"></p>
+<p>结果如下：</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9vhwmudll.png" alt="Image Name"></p>
 
                 
             </div>
