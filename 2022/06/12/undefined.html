@@ -1536,20 +1536,186 @@ temp1<span class="token punctuation">.</span>成绩<span class="token punctuatio
 <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户id<span class="token punctuation">)</span> <span class="token keyword">as</span> DAU
 <span class="token keyword">from</span> 活跃用户表
 <span class="token keyword">where</span> 登录日期<span class="token operator">>=</span><span class="token string">'20190601'</span> 
-<span class="token keyword">group</span> <span class="token keyword">by</span> 登录日期
+<span class="token keyword">group</span> <span class="token keyword">by</span> 登录日期<span class="token punctuation">;</span>
 </code></pre>
 <p><img src="https://cdn.kesci.com/upload/image/r9x9qfk7um.png" alt="Image Name"></p>
 <p>2.分析每天领取红包的用户数、人均领取金额、人均领取次数，要考虑用户属性及领取红包未登录情况。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>是新用户<span class="token operator">=</span><span class="token string">"1"</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>用户id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 新用户数<span class="token punctuation">,</span>
 <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>是新用户<span class="token operator">=</span><span class="token string">"0"</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>用户id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 旧用户数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>是新用户 <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>用户id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 未登录用户数<span class="token punctuation">,</span>
 <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>金额<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取金额<span class="token punctuation">,</span>
 <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取次数
 <span class="token keyword">from</span> 领红包表 t1
 <span class="token keyword">left</span> <span class="token keyword">join</span> 活跃用户表 t2
-<span class="token keyword">using</span><span class="token punctuation">(</span>用户ID<span class="token punctuation">)</span>
-<span class="token keyword">group</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>抢红包日期
+<span class="token keyword">using</span><span class="token punctuation">(</span>用户ID<span class="token punctuation">)</span> <span class="token operator">and</span> t1<span class="token punctuation">.</span>抢红包日期<span class="token operator">=</span>t2<span class="token punctuation">.</span>登录日期
+<span class="token keyword">group</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>抢红包日期<span class="token punctuation">;</span>
 </code></pre>
 <p><img src="https://cdn.kesci.com/upload/image/r9x9ut4nqg.png" alt="Image Name"></p>
+<p>3.分析每个月红包领取天数、每个月领取红包的用户数、人均领取金额、人均领取次数。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+data_format<span class="token punctuation">(</span>抢红包日期<span class="token punctuation">,</span><span class="token string">'%Y%m'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 年月
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 抢红包日期<span class="token punctuation">)</span> <span class="token keyword">as</span> 每个月红包领取天数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户id<span class="token punctuation">)</span> <span class="token keyword">as</span> 每个月领取红包的用户数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span>金额<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取金额<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> 用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 人均领取次数
+<span class="token keyword">from</span> 领红包表
+<span class="token keyword">group</span> <span class="token keyword">by</span> data_format<span class="token punctuation">(</span>抢红包日期<span class="token punctuation">,</span><span class="token string">'%Y%m'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>4.分析每个月领过红包用户和未领红包用户的数量</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> m1 <span class="token keyword">as</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> 
+data_format<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>登录日期<span class="token punctuation">,</span><span class="token string">'%Y%m'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 年月<span class="token punctuation">,</span>
+    t1<span class="token punctuation">.</span>用户ID<span class="token punctuation">,</span>
+    t2<span class="token punctuation">.</span>抢红包日期<span class="token punctuation">,</span>
+    <span class="token function">min</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>抢红包日期<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> date_format<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>登录日期<span class="token punctuation">)</span><span class="token punctuation">,</span>用户ID<span class="token punctuation">)</span> <span class="token keyword">as</span> 各用户每月首次抢到红包日期
+<span class="token keyword">from</span> 活跃用户表 t1
+    <span class="token keyword">left</span> <span class="token keyword">join</span> 领取红包表 t2
+    <span class="token keyword">on</span> t1<span class="token punctuation">.</span>登录日期 <span class="token operator">=</span>t2<span class="token punctuation">.</span>抢红包日期 
+    <span class="token operator">and</span> t1<span class="token punctuation">.</span>用户ID <span class="token operator">=</span>t2<span class="token punctuation">.</span>用户ID
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> 年月<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> 各用户每月首次抢到红包日期 <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">then</span> 用户ID <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 领过红包用户数<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> 各用户每月首次抢到红包日期 <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token keyword">then</span> 用户ID <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 未领过红包用户数
+<span class="token keyword">from</span> m1
+<span class="token keyword">group</span> <span class="token keyword">by</span> 年月<span class="token punctuation">;</span>
+</code></pre>
+<p>DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre><code>DATE_FORMAT(date,format)
+</code></pre>
+<p><em>date</em> 参数是合法的日期。<em>format</em> 规定日期/时间的输出格式。</p>
+<p>可以使用的格式有：</p>
+<table>
+<thead>
+<tr>
+<th align="left">格式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%a</td>
+<td align="left">缩写星期名</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">缩写月名</td>
+</tr>
+<tr>
+<td align="left">%c</td>
+<td align="left">月，数值</td>
+</tr>
+<tr>
+<td align="left">%D</td>
+<td align="left">带有英文前缀的月中的天</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">月的天，数值(00-31)</td>
+</tr>
+<tr>
+<td align="left">%e</td>
+<td align="left">月的天，数值(0-31)</td>
+</tr>
+<tr>
+<td align="left">%f</td>
+<td align="left">微秒</td>
+</tr>
+<tr>
+<td align="left">%H</td>
+<td align="left">小时 (00-23)</td>
+</tr>
+<tr>
+<td align="left">%h</td>
+<td align="left">小时 (01-12)</td>
+</tr>
+<tr>
+<td align="left">%I</td>
+<td align="left">小时 (01-12)</td>
+</tr>
+<tr>
+<td align="left">%i</td>
+<td align="left">分钟，数值(00-59)</td>
+</tr>
+<tr>
+<td align="left">%j</td>
+<td align="left">年的天 (001-366)</td>
+</tr>
+<tr>
+<td align="left">%k</td>
+<td align="left">小时 (0-23)</td>
+</tr>
+<tr>
+<td align="left">%l</td>
+<td align="left">小时 (1-12)</td>
+</tr>
+<tr>
+<td align="left">%M</td>
+<td align="left">月名</td>
+</tr>
+<tr>
+<td align="left">%m</td>
+<td align="left">月，数值(00-12)</td>
+</tr>
+<tr>
+<td align="left">%p</td>
+<td align="left">AM 或 PM</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">时间，12-小时（hh:mm:ss AM 或 PM）</td>
+</tr>
+<tr>
+<td align="left">%S</td>
+<td align="left">秒(00-59)</td>
+</tr>
+<tr>
+<td align="left">%s</td>
+<td align="left">秒(00-59)</td>
+</tr>
+<tr>
+<td align="left">%T</td>
+<td align="left">时间, 24-小时 (hh:mm:ss)</td>
+</tr>
+<tr>
+<td align="left">%U</td>
+<td align="left">周 (00-53) 星期日是一周的第一天</td>
+</tr>
+<tr>
+<td align="left">%u</td>
+<td align="left">周 (00-53) 星期一是一周的第一天</td>
+</tr>
+<tr>
+<td align="left">%V</td>
+<td align="left">周 (01-53) 星期日是一周的第一天，与 %X 使用</td>
+</tr>
+<tr>
+<td align="left">%v</td>
+<td align="left">周 (01-53) 星期一是一周的第一天，与 %x 使用</td>
+</tr>
+<tr>
+<td align="left">%W</td>
+<td align="left">星期名</td>
+</tr>
+<tr>
+<td align="left">%w</td>
+<td align="left">周的天 （0=星期日, 6=星期六）</td>
+</tr>
+<tr>
+<td align="left">%X</td>
+<td align="left">年，其中的星期日是周的第一天，4 位，与 %V 使用</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">年，其中的星期一是周的第一天，4 位，与 %v 使用</td>
+</tr>
+<tr>
+<td align="left">%Y</td>
+<td align="left">年，4 位</td>
+</tr>
+<tr>
+<td align="left">%y</td>
+<td align="left">年，2 位</td>
+</tr>
+</tbody></table>
 
                 
             </div>
