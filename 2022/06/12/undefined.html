@@ -1580,7 +1580,8 @@ data_format<span class="token punctuation">(</span>t1<span class="token punctuat
 <span class="token keyword">group</span> <span class="token keyword">by</span> 年月<span class="token punctuation">;</span>
 </code></pre>
 <p>DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre><code>DATE_FORMAT(date,format)
+<p>语法</p>
+<pre><code>DATE_FORMAT(date,format)
 </code></pre>
 <p><em>date</em> 参数是合法的日期。<em>format</em> 规定日期/时间的输出格式。</p>
 <p>可以使用的格式有：</p>
@@ -1716,6 +1717,57 @@ data_format<span class="token punctuation">(</span>t1<span class="token punctuat
 <td align="left">年，2 位</td>
 </tr>
 </tbody></table>
+<h2 id="工资的众数、中位数"><a href="#工资的众数、中位数" class="headerlink" title="工资的众数、中位数"></a>工资的众数、中位数</h2><p>emp_salary表：<br><img src="https://cdn.kesci.com/upload/image/r9wq47jgbv.png" alt="Image Name"></p>
+<p>求员工工资的众数（众数是一组数据中出现次数最多的数值，有时众数在一组数中有好几个。）</p>
+<p>having字句可以让我们筛选分组之后的各种数据，where字句在聚合前先筛选记录，也就是说作用在group by和having字句前。and字句在聚合前先筛选记录，也就是说and字句要在group by和having字句前使用。</p>
+<p>any,all关键字必须与一个比较操作符一起使用。any关键词可以理解为“对于子查询返回的列中的任一数值，如果比较结果为true，则返回true”。all的意思是“对于子查询返回的列中的所有值，如果比较结果为true，则返回true”</p>
+<p>any 可以与=、&gt;、&gt;=、结合起来使用，分别表示等于、大于、大于等于、小于、小于等于、不等于其中的任何一个数据。</p>
+<p>all可以与=、&gt;、&gt;=、结合是来使用，分别表示等于、大于、大于等于、小于、小于等于、不等于其中的其中的所有数据。</p>
+<p>举个例子：</p>
+<p>select s1 from t1 where s1 &gt; any (select s1 from t2);</p>
+<p>假设any后面的s1返回了三个值，那其实就等价于</p>
+<p>select s1 from t1 where s1 &gt; result1 or s1 &gt; result2 or s2 &gt; result3</p>
+<p>而all的用法相当于把上述语句的‘or’缓冲‘and’</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+emp_salary
+<span class="token keyword">from</span> emp_salary表
+<span class="token keyword">group</span> <span class="token keyword">by</span> emp_salary
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>emp_salary<span class="token punctuation">)</span><span class="token operator">>=</span><span class="token keyword">ALL</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> 
+<span class="token function">count</span><span class="token punctuation">(</span>emp_salary<span class="token punctuation">)</span>
+<span class="token keyword">from</span> emp_salary表
+<span class="token keyword">group</span> <span class="token keyword">by</span> emp_salary
+<span class="token punctuation">)</span>
+</code></pre>
+<p>求员工工资的中位数（把所有观察值高低排序后找出正中间的一个作为中位数。如果观察值有偶数个，通常取最中间的两个数值的平均数作为中位数。）</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>emp_salary<span class="token punctuation">)</span> <span class="token keyword">as</span> 工资中位数
+<span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> emp_salary<span class="token punctuation">)</span> 序号<span class="token punctuation">,</span>
+ <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 最大序号
+ <span class="token keyword">from</span> emp_salary表
+<span class="token punctuation">)</span>
+<span class="token keyword">where</span> 序号 <span class="token operator">in</span><span class="token punctuation">(</span>
+floor<span class="token punctuation">(</span><span class="token punctuation">(</span>最大序号<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ceil<span class="token punctuation">(</span><span class="token punctuation">(</span>最大序号<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="滴滴数据分析笔试题"><a href="#滴滴数据分析笔试题" class="headerlink" title="滴滴数据分析笔试题"></a>滴滴数据分析笔试题</h2><p>现有四张表，分别是“司机数据”表，“订单数据”表，“在线时长数据”表，“城市匹配数据”表。<br>1、“司机数据”表，记录了日期、司机id、城市id、首次完成订单时间</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9w9tc7get.png" alt="Image Name"></p>
+<p>2、“订单数据”表，记录了日期、订单id、司机id、乘客id、产品线id、流水<br>产品线id: 1是表示专车，2表示企业，3表示快车，4表示企业快车</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9w9xqnlm6.png" alt="Image Name"></p>
+<p>3、“在线时长数据”表，记录了日期、司机id、在线时长</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9wa0kr64m.png" alt="Image Name"></p>
+<p>4、“城市匹配数据”表，记录了城市id、城市名称</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9wa2r3rmk.png" alt="Image Name"></p>
+<p>问题：</p>
+<ol>
+<li>提取2020年8月各城市每天的快车司机数、快车订单量和快车流水数据。</li>
+</ol>
+<ol>
+<li>提取2020年8月和9月，每个月的北京市新老司机（首单日期在当月为新司机）的司机数、在线时<br>长和TPH（订单量/在线时长）数据。</li>
+<li>分别提取司机数大于20，司机总在线时长大于2小时，订单量大于1的城市名称数据。</li>
+</ol>
 
                 
             </div>
