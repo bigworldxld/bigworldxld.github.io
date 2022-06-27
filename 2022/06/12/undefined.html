@@ -2047,6 +2047,62 @@ CONCAT<span class="token punctuation">(</span><span class="token function">ROUND
 <span class="token keyword">from</span> t1
 <span class="token keyword">group</span> <span class="token keyword">by</span> 日期   
 </code></pre>
+<h2 id="所有学生参加所有科目测试的次数"><a href="#所有学生参加所有科目测试的次数" class="headerlink" title="所有学生参加所有科目测试的次数"></a>所有学生参加所有科目测试的次数</h2><p>学生表: Students</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uzpxfhcc.png" alt="Image Name"></p>
+<p>科目表: Subjects</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uzqgh0y.png" alt="Image Name"></p>
+<p>考试表: Examinations</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uzqy1ppr.png" alt="Image Name"></p>
+<p>考试表的每一行记录就表示学生表里的某个学生参加了一次科目表里某门科目测试。<br>要求写一段 SQL 语句，查询出每个学生参加每一门科目测试的次数，结果按 student_id 和subject_name 排序。<br>结果表需包含所有学生和所有科目（<strong>即便测试次数为0</strong>）</p>
+<p>结果如下：</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9v0kp9yq8.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span><span class="token number">a</span><span class="token punctuation">.</span>student_name<span class="token punctuation">,</span><span class="token number">c</span><span class="token punctuation">.</span>subject_name<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>student_id<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> subject_name<span class="token punctuation">)</span> <span class="token keyword">as</span> attended_exams
+<span class="token keyword">from</span> Students <span class="token number">a</span>
+<span class="token keyword">left</span> <span class="token keyword">join</span> Examinations <span class="token number">b</span>
+<span class="token keyword">using</span><span class="token punctuation">(</span>student_id<span class="token punctuation">)</span>
+<span class="token keyword">join</span> Subjects <span class="token number">c</span>
+<span class="token keyword">using</span><span class="token punctuation">(</span>subject_name<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span><span class="token number">a</span><span class="token punctuation">.</span>student_name<span class="token punctuation">,</span><span class="token number">c</span><span class="token punctuation">.</span>subject_name
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span><span class="token number">c</span><span class="token punctuation">.</span>subject_name
+<span class="token comment" spellcheck="true">--解法二</span>
+<span class="token keyword">SELECT</span> 
+  <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span>
+  <span class="token number">a</span><span class="token punctuation">.</span>student_name<span class="token punctuation">,</span>
+  <span class="token number">a</span><span class="token punctuation">.</span>subject_name<span class="token punctuation">,</span>
+  <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">e</span><span class="token punctuation">.</span>subject_name<span class="token punctuation">)</span> <span class="token keyword">AS</span> attended_exams 
+<span class="token keyword">FROM</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> 
+    <span class="token operator">*</span> 
+  <span class="token keyword">FROM</span>
+    students 
+    <span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> subjects<span class="token punctuation">)</span> <span class="token number">a</span> <span class="token comment" spellcheck="true">--cross join：笛卡尔积</span>
+  <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> examinations <span class="token number">e</span> 
+    <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id <span class="token operator">=</span> <span class="token number">e</span><span class="token punctuation">.</span>student_id
+    <span class="token operator">AND</span> <span class="token number">a</span><span class="token punctuation">.</span>subject_name <span class="token operator">=</span> <span class="token number">e</span><span class="token punctuation">.</span>subject_name 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span>
+  <span class="token number">a</span><span class="token punctuation">.</span>student_name<span class="token punctuation">,</span>
+  <span class="token number">a</span><span class="token punctuation">.</span>subject_name 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">a</span><span class="token punctuation">.</span>student_id<span class="token punctuation">,</span>
+  <span class="token number">a</span><span class="token punctuation">.</span>subject_name 
+</code></pre>
+<h2 id="7天内是否玩过游戏"><a href="#7天内是否玩过游戏" class="headerlink" title="7天内是否玩过游戏"></a>7天内是否玩过游戏</h2><p><img src="https://cdn.kesci.com/upload/image/r9uyu8xws8.png" alt="Image Name"></p>
+<p>请查询出以下表。”&lt;7 days” 表示此玩家每一行日期的前7天之内玩过游戏(不是今天之前的前7天，是玩家玩游戏日期的前7天）</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uywicozg.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+lag<span class="token punctuation">(</span>play_date<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> player_name <span class="token keyword">order</span> <span class="token keyword">by</span> play_date<span class="token punctuation">)</span> <span class="token keyword">as</span> 上次游戏时间
+<span class="token keyword">from</span> play_time
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">select</span>
+<span class="token operator">*</span><span class="token punctuation">,</span>
+<span class="token keyword">case</span> <span class="token keyword">when</span> datediff<span class="token punctuation">(</span>play_date<span class="token punctuation">,</span>上次游戏时间<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">7</span> <span class="token keyword">then</span> <span class="token string">'yes'</span> <span class="token keyword">else</span> <span class="token string">'no'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> <span class="token string">"&lt;7 days"</span>
+<span class="token keyword">from</span> t1
+<span class="token keyword">order</span> play_date<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="用户复购率"><a href="#用户复购率" class="headerlink" title="用户复购率"></a>用户复购率</h2><p>现在数据库中有一张用户交易表 netease_order，其中有orderid（订单ID）、userid（用户ID）、<br>amount（消费金额）、paytime（支付时间）<br>请写出对应的SQL语句，查出每个月的新客数（新客指在严选首次支付的用户），当月有复购的新客数，新客当月复购率（当月有复购的新客数/月总新客数）。</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uwtyrw63.png" alt="Image Name"></p>
+<p>得到结果如下图：</p>
+<p><img src="https://cdn.kesci.com/upload/image/r9uxsxq96w.png" alt="Image Name"></p>
 
                 
             </div>
