@@ -2103,6 +2103,23 @@ lag<span class="token punctuation">(</span>play_date<span class="token punctuati
 <p><img src="https://cdn.kesci.com/upload/image/r9uwtyrw63.png" alt="Image Name"></p>
 <p>得到结果如下图：</p>
 <p><img src="https://cdn.kesci.com/upload/image/r9uxsxq96w.png" alt="Image Name"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">with</span> t1 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    substr<span class="token punctuation">(</span>paytime<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 年月<span class="token punctuation">,</span>
+    <span class="token function">min</span><span class="token punctuation">(</span>paytime<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> userid<span class="token punctuation">)</span> 首次支付时间<span class="token punctuation">,</span>
+    lead<span class="token punctuation">(</span>paytime<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> user_id <span class="token keyword">order</span> <span class="token keyword">by</span> paytime<span class="token punctuation">)</span> <span class="token keyword">as</span> 下次支付时间
+<span class="token keyword">from</span> <span class="token keyword">distinct</span> userid
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+t2 <span class="token keyword">as</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> 年月<span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> userid<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> 年月<span class="token punctuation">)</span> 月总新客数<span class="token punctuation">,</span>   
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> date_format<span class="token punctuation">(</span>首次支付时间<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span><span class="token operator">=</span>date_format<span class="token punctuation">(</span>下次支付时间<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token keyword">as</span> 当月有复购的新客数<span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> date_format<span class="token punctuation">(</span>首次支付时间<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span><span class="token operator">=</span>date_format<span class="token punctuation">(</span>下次支付时间<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>userid<span class="token punctuation">)</span> <span class="token keyword">as</span> 当月有复购的新客数<span class="token punctuation">,</span>    
+<span class="token keyword">from</span> t1
+<span class="token keyword">where</span> paytime<span class="token operator">=</span>首次支付时间
+<span class="token keyword">group</span> <span class="token keyword">by</span> 年月    
+<span class="token punctuation">)</span>
+</code></pre>
 
                 
             </div>
