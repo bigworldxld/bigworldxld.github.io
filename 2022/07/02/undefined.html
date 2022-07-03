@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python数据清洗方法, bigworldxld">
-    <meta name="description" content="01 重复值处理数据录入过程、数据整合过程都可能会产生重复数据，直接删除是重复数据处理的主要方法。pandas提供查看、处理重复数据的方法duplicated和drop_duplicates。以如下数据为例:
-import numpy as">
+    <meta name="keywords" content="Pandas数据分析, bigworldxld">
+    <meta name="description" content="Pandas提升性能的方法（eval()、query()）pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；
+一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ import numpy as">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python数据清洗方法 | bigworldxld</title>
+    <title>Pandas数据分析 | bigworldxld</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -376,12 +376,12 @@ import numpy as">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/python.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/pandas.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python数据清洗方法</h1>
+                    <h1 class="description center-align post-title">Pandas数据分析</h1>
                 </div>
             </div>
         </div>
@@ -497,8 +497,8 @@ import numpy as">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/pandas/">
+                                <span class="chip bg-color">pandas</span>
                             </a>
                         
                     </div>
@@ -539,793 +539,10 @@ import numpy as">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="01-重复值处理"><a href="#01-重复值处理" class="headerlink" title="01 重复值处理"></a>01 重复值处理</h2><p>数据录入过程、数据整合过程都可能会产生重复数据，直接删除是重复数据处理的主要方法。<br>pandas提供查看、处理重复数据的方法duplicated和drop_duplicates。以如下数据为例:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> matplotlib <span class="token keyword">as</span> mpl
+                <h2 id="Pandas提升性能的方法（eval-、query-）"><a href="#Pandas提升性能的方法（eval-、query-）" class="headerlink" title="Pandas提升性能的方法（eval()、query()）"></a>Pandas提升性能的方法（eval()、query()）</h2><p>pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；</p>
+<p>一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFrame大于10000行时使用eval(),性能会得到明显提升。</p>
+<pre><code>
 </code></pre>
-<pre class=" language-python"><code class="language-python">sample <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'score'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>nan<span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'group'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>发现重复数据通过duplicated方法完成，如下所示，可以通过该方法查看重复的数据。</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">[</span>sample<span class="token punctuation">.</span>duplicated<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<p>需要去重时，可drop_duplicates方法完成：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>广州市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>深圳市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>男</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>上海市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Mark</td>
-      <td>87.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>重庆市</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Miki</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>贵州市</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Sully</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>北京市</td>
-      <td>2</td>
-      <td>5</td>
-      <td>Rose</td>
-      <td>NaN</td>
-      <td>男</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<p>drop_duplicates方法还可以按照某列去重，例如去除id列重复的所有记录：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>广州市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>重庆市</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Miki</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>贵州市</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Sully</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>北京市</td>
-      <td>2</td>
-      <td>5</td>
-      <td>Rose</td>
-      <td>NaN</td>
-      <td>男</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<h2 id="02-缺失值处理"><a href="#02-缺失值处理" class="headerlink" title="02 缺失值处理"></a>02 缺失值处理</h2><p>缺失值是数据清洗中比较常见的问题，缺失值一般由NA表示，在处理缺失值时要遵循一定的原则。</p>
-<p>首先，需要根据业务理解处理缺失值，弄清楚缺失值产生的原因是故意缺失还是随机缺失，再通过一些业务经验进行填补。一般来说当缺失值少于20%时，连续变量可以使用均值或中位数填补；分类变量不需要填补，单算一类即可，或者也可以用众数填补分类变量。</p>
-<p>当缺失值处于20%-80%之间时，填补方法同上。另外每个有缺失值的变量可以生成一个指示哑变量，参与后续的建模。当缺失值多于80%时，每个有缺失值的变量生成一个指示哑变量，参与后续的建模，不使用原始变量。</p>
-<h3 id="1-查看缺失情况"><a href="#1-查看缺失情况" class="headerlink" title="1. 查看缺失情况"></a>1. 查看缺失情况</h3><p>在进行数据分析前，一般需要了解数据的缺失情况，在Python中可以构造一个lambda函数来查看缺失值，该lambda函数中，sum(col.isnull())表示当前列有多少缺失，col.size表示当前列总共多少行数据：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> col<span class="token punctuation">:</span>sum<span class="token punctuation">(</span>col<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span>col<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
-</code></pre>
-<pre><code>city     0.000000
-group    0.000000
-id       0.000000
-name     0.000000
-score    0.166667
-sex      0.000000
-dtype: float64
-</code></pre>
-<h3 id="2-以指定值填补"><a href="#2-以指定值填补" class="headerlink" title="2. 以指定值填补"></a>2. 以指定值填补</h3><p>pandas数据框提供了fillna方法完成对缺失值的填补，例如对sample表的列score填补缺失值，填补方法为均值,还可以以分位数等方法进行填补：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    99.0
-1    99.0
-2    87.0
-3    77.0
-4    77.0
-5    87.8
-Name: score, dtype: float64
-</code></pre>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>median<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    99.0
-1    99.0
-2    87.0
-3    77.0
-4    77.0
-5    87.0
-Name: score, dtype: float64
-</code></pre>
-<p>也可以用pandas中的ffill函数对缺失值进行前向填补，但在前向填补时需要注意各个列数据的情况,<br>体重列的第一行未填补完成，而pandas中提供了bfill函数进行后向填补：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>ffill<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>广州市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>深圳市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>男</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>上海市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Mark</td>
-      <td>87.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>重庆市</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Miki</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>贵州市</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Sully</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>北京市</td>
-      <td>2</td>
-      <td>5</td>
-      <td>Rose</td>
-      <td>77.0</td>
-      <td>男</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<h3 id="3-缺失值指示变量"><a href="#3-缺失值指示变量" class="headerlink" title="3. 缺失值指示变量"></a>3. 缺失值指示变量</h3><p>pandas数据框对象可以直接调用方法isnull产生缺失值指示变量，例如产生score变量的缺失值指示变量：<br>若想转换为数值0，1型指示变量，可以使用apply方法，int表示将该列替换为int类型。</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    False
-1    False
-2    False
-3    False
-4    False
-5     True
-Name: score, dtype: bool
-</code></pre>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>score<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>int<span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    0
-1    0
-2    0
-3    0
-4    0
-5    1
-Name: score, dtype: int64
-</code></pre>
-<h3 id="4-缺失值删除"><a href="#4-缺失值删除" class="headerlink" title="4.缺失值删除"></a>4.缺失值删除</h3><p>删除缺失值的情形，一般是在不会影响分析结果、造成的影响无伤大雅，或者难以填补的时候采用。</p>
-<p>在pandas中，可以直接用dropna函数进行删除所有含有缺失值的行，或者选择性删除含有缺失值到的行：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#how='any' 在给定的任何一列中有缺失值就删除</span>
-sample<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>subset<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>how<span class="token operator">=</span><span class="token string">'any'</span><span class="token punctuation">)</span>
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>广州市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>深圳市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>男</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>上海市</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Mark</td>
-      <td>87.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>重庆市</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Miki</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>贵州市</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Sully</td>
-      <td>77.0</td>
-      <td>女</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<h3 id="5-数据类型转换"><a href="#5-数据类型转换" class="headerlink" title="5.数据类型转换"></a>5.数据类型转换</h3><p>数据类型关乎后面的数据处理和数据可视化，不同的数据类型处理和进行可视化的用法都不一样，因此，事先把数据的类型转换好，利于后面的相关步骤。<br>在pandas中，可以用info和dtypes方法进行查看数据类型:</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
-sample<span class="token punctuation">.</span>dtypes
-<span class="token comment" spellcheck="true">#有多少行，多少列</span>
-sample<span class="token punctuation">.</span>shape
-</code></pre>
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 6 entries, 0 to 5
-Data columns (total 6 columns):
-city     6 non-null object
-group    6 non-null int64
-id       6 non-null int64
-name     6 non-null object
-score    5 non-null float64
-sex      6 non-null object
-dtypes: float64(1), int64(2), object(3)
-memory usage: 368.0+ bytes
-
-
-
-
-
-(6, 6)
-</code></pre>
-<p>常用的数据类型包括str（字符型）、float（浮点型）和int（整型）。当某列数据的类型出现错误时，可通过astype函数进行强制转换数据类型。例如下面通过astype函数对数值型列转换为字符型：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token operator">=</span>sample<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>str<span class="token punctuation">)</span>
-sample<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token operator">=</span>sample<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'float'</span><span class="token punctuation">)</span>
-</code></pre>
-<h3 id="6-文本处理"><a href="#6-文本处理" class="headerlink" title="6.文本处理"></a>6.文本处理</h3><p>在数据中，文本在某种程度上可以说是最‘脏’的数据，不管在录入的数据，还是爬取的数据，总会出现各种各样的‘脏’数据，处理难度非常高。在处理中，主要是切分字符串、值替换。<br>pandas提供了df.str.split.str()方法对字符串的切割，以下通过此方法获得地级市名称：<br>对于一些多数词，可以通过df.str.replace()方法进行增加、替换或者删除：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token operator">=</span>sample<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'市'</span><span class="token punctuation">,</span>expand<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token operator">=</span>sample<span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女性'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#字典：旧列名和新列名对应关系</span>
-colNameDict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'city'</span><span class="token punctuation">:</span><span class="token string">'籍贯'</span><span class="token punctuation">}</span>
-sample<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns <span class="token operator">=</span>colNameDict<span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-sample
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>籍贯</th>
-      <th>group</th>
-      <th>id</th>
-      <th>name</th>
-      <th>score</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>广州</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>女性</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>深圳</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Bob</td>
-      <td>99.0</td>
-      <td>男</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>上海</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Mark</td>
-      <td>87.0</td>
-      <td>女性</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>重庆</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Miki</td>
-      <td>77.0</td>
-      <td>女性</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>贵州</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Sully</td>
-      <td>77.0</td>
-      <td>女性</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>北京</td>
-      <td>2</td>
-      <td>5</td>
-      <td>Rose</td>
-      <td>NaN</td>
-      <td>男</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<h2 id="噪声值处理"><a href="#噪声值处理" class="headerlink" title="噪声值处理"></a>噪声值处理</h2><p>噪声值指数据中有一个或几个数值与其他数值相比差异较大，又称为异常值、离群值(outlier)。</p>
-<h4 id="1-盖帽法"><a href="#1-盖帽法" class="headerlink" title="1. 盖帽法"></a>1. 盖帽法</h4><p>盖帽法将某连续变量均值上下三倍标准差范围外的记录替换为均值上下三倍标准差值，即盖帽处理</p>
-<p>Python中可自定义函数完成盖帽法。如下所示，参数x表示一个pd.Series列，quantile指盖帽的范围区间，默认凡小于百分之1分位数和大于百分之99分位数的值将会被百分之1分位数和百分之99分位数替代：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cap</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>quantile<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.01</span><span class="token punctuation">,</span><span class="token number">0.99</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""盖帽法处理异常值    Args：       
-    x：pd.Series列，连续变量        
-    quantile：指定盖帽法的上下分位数范围    """</span>
-    <span class="token comment" spellcheck="true"># 生成分位数    </span>
-    Q01<span class="token punctuation">,</span>Q99<span class="token operator">=</span>x<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>quantile<span class="token punctuation">)</span><span class="token punctuation">.</span>values<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 替换异常值为指定的分位数   </span>
-    <span class="token keyword">if</span> Q01 <span class="token operator">></span> x<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        
-        x <span class="token operator">=</span> x<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>        
-        x<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>x<span class="token operator">&lt;</span>Q01<span class="token punctuation">]</span> <span class="token operator">=</span> Q01    
-        <span class="token keyword">if</span> Q99 <span class="token operator">&lt;</span> x<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>       
-            x <span class="token operator">=</span> x<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>       
-            x<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>x<span class="token operator">></span>Q99<span class="token punctuation">]</span> <span class="token operator">=</span> Q99   
-            <span class="token keyword">return</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-</code></pre>
-<p>现生成一组服从正态分布的随机数，sample.hist表示产生直方图,未处理噪声时的变量直方图</p>
-<pre class=" language-python"><code class="language-python">sample <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'normal'</span><span class="token punctuation">:</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-sample<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>bins<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E7%9B%B4%E6%96%B9%E5%9B%BE.png" class title="This is an example image">
-
-
-
-
-<p>对pandas数据框所有列进行盖帽法转换，可以以如下写法，从直方图对比可以看出盖帽后极端值频数的变化。</p>
-<pre class=" language-python"><code class="language-python">new <span class="token operator">=</span> sample<span class="token punctuation">.</span>apply<span class="token punctuation">(</span>cap<span class="token punctuation">,</span>quantile<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.01</span><span class="token punctuation">,</span><span class="token number">0.99</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-new<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>bins<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E7%9B%B4%E6%96%B9%E5%9B%BE1.png" class title="This is an example image">
-
-
-<h4 id="2-分箱法"><a href="#2-分箱法" class="headerlink" title="2. 分箱法"></a>2. 分箱法</h4><p>分箱法通过考察数据的“近邻”来光滑有序数据的值。有序值分布到一些桶或箱中。<br>分箱法包括等深分箱：每个分箱中的样本量一致；等宽分箱：每个分箱中的取值范围一致。直方图其实首先对数据进行了等宽分箱，再计算频数画图。<br>比如价格排序后数据为：4、8、15、21、21、24、25、28、34</p>
-<p>将其划分为（等深）箱：<br>箱1：4、8、15<br>箱2：21、21、24<br>箱3：25、28、34 </p>
-<p>将其划分为（等宽）箱：<br>箱1：4、8<br>箱2：15、21、21、24<br>箱3：25、28、34 </p>
-<p>分箱法将异常数据包含在了箱子中，在进行建模的时候，不直接进行到模型中，因而可以达到处理异常值的目的。<br>pandas的cut函数提供了分箱的实现方法，下面介绍如何具体实现。<br>等宽分箱：cut函数可以直接进行等宽分箱，此时需要的待分箱的列和分箱个数两个参数，如下所示，sample数据的int列为从10个服从标准正态分布的随机数：</p>
-<pre class=" language-python"><code class="language-python">sample <span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'normal'</span><span class="token punctuation">:</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-sample
-</code></pre>
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-
-<pre><code>.dataframe thead th &#123;
-    text-align: left;
-&#125;
-
-.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>normal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-0.208894</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.864225</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-1.109015</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-1.729145</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.151908</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.026209</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>-0.921893</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>-0.447447</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1.033243</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>-0.140880</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-
-
-<p>现分为5箱，可以看到，结果是按照宽度分为5份，下限中，cut函数自动选择小于列最小值一个数值作为下限，最大值为上限，等分为五分。结果产生一个Categories类的列，类似于R中的factor，表示分类变量列。<br>此外弱数据存在缺失，缺失值将在分箱后将继续保持缺失</p>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    (-0.577, -0.000513]
-1         (0.576, 1.152]
-2       (-1.153, -0.577]
-3       (-1.732, -1.153]
-4         (0.576, 1.152]
-5     (-0.000513, 0.576]
-6       (-1.153, -0.577]
-7    (-0.577, -0.000513]
-8         (0.576, 1.152]
-9    (-0.577, -0.000513]
-Name: normal, dtype: category
-Categories (5, interval[float64]): [(-1.732, -1.153] &lt; (-1.153, -0.577] &lt; (-0.577, -0.000513] &lt; (-0.000513, 0.576] &lt; (0.576, 1.152]]
-</code></pre>
-<p>这里也可以使用labels参数指定分箱后各个水平的标签，如下所示，此时相应区间值被标签值替代：</p>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">,</span>bins<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    3
-1    5
-2    2
-3    1
-4    5
-5    4
-6    2
-7    3
-8    5
-9    3
-Name: normal, dtype: category
-Categories (5, int64): [1 &lt; 2 &lt; 3 &lt; 4 &lt; 5]
-</code></pre>
-<p>标签除了可以设定为数值,也可以设定为字符，如下所示，将数据等宽分为两箱，标签为‘bad’，‘good’：</p>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">,</span>bins<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'bad'</span><span class="token punctuation">,</span><span class="token string">'good'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    good
-1    good
-2     bad
-3     bad
-4    good
-5    good
-6     bad
-7     bad
-8    good
-9    good
-Name: normal, dtype: category
-Categories (2, object): [bad &lt; good]
-</code></pre>
-<p>等深分箱：等深分箱中，各个箱的宽度可能不一，但频数是几乎相等的，所以可以采用数据的分位数来进行分箱。依旧以之前的sample数据为例，现进行等深度分2箱，首先找到2箱的分位数：</p>
-<pre class=" language-python"><code class="language-python">sample<span class="token punctuation">.</span>normal<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0.0   -1.729145
-0.5   -0.174887
-1.0    1.151908
-Name: normal, dtype: float64
-</code></pre>
-<p>在bins参数中设定分位数区间，如下所示完成分箱，include_lowest=True参数表示包含边界最小值包含数据的最小值,也可以加入label参数指定标签</p>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">,</span>bins<span class="token operator">=</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> include_lowest<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0    (-1.73, -0.175]
-1    (-0.175, 1.152]
-2    (-1.73, -0.175]
-3    (-1.73, -0.175]
-4    (-0.175, 1.152]
-5    (-0.175, 1.152]
-6    (-1.73, -0.175]
-7    (-1.73, -0.175]
-8    (-0.175, 1.152]
-9    (-0.175, 1.152]
-Name: normal, dtype: category
-Categories (2, interval[float64]): [(-1.73, -0.175] &lt; (-0.175, 1.152]]
-</code></pre>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">,</span>bins<span class="token operator">=</span>sample<span class="token punctuation">.</span>normal<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> include_lowest<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'bad'</span><span class="token punctuation">,</span><span class="token string">'good'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0     bad
-1    good
-2     bad
-3     bad
-4    good
-5    good
-6     bad
-7     bad
-8    good
-9    good
-Name: normal, dtype: category
-Categories (2, object): [bad &lt; good]
-</code></pre>
-<h4 id="3-多变量异常值处理-聚类法"><a href="#3-多变量异常值处理-聚类法" class="headerlink" title="3. 多变量异常值处理-聚类法"></a>3. 多变量异常值处理-聚类法</h4><p>通过快速聚类法将数据对象分组成为多个簇，在同一个簇中的对象具有较高的相似度，而不同的簇之间的对象差别较大。聚类分析可以挖掘孤立点以发现噪声数据，因为噪声本身就是孤立点。<br>对于聚类方法处理异常值，其步骤如下所示：</p>
-<p>输入：数据集S（包括N条记录，属性集D：{年龄、收入}），一条记录为一个数据点，一条记录上的每个属性上的值为一个数据单元格。数据集S有N×D个数据单元格，其中某些数据单元格是噪声数据。</p>
-<p>输出：孤立数据点如图所示。孤立点A是我们认为它是噪声数据，很明显它的噪声属性是收入，通过对收入变量使用盖帽法可以剔除A。</p>
 
                 
             </div>
@@ -1390,8 +607,8 @@ Categories (2, object): [bad &lt; good]
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/pandas/">
+                                    <span class="chip bg-color">pandas</span>
                                 </a>
                             
                         </div>
@@ -1573,9 +790,9 @@ Categories (2, object): [bad &lt; good]
                 <a href="/2022/07/02/undefined.html">
                     <div class="card-image">
                         
-                        <img src="/images/python.jpg" class="responsive-img" alt="python数据清洗方法">
+                        <img src="/images/pandas.jpg" class="responsive-img" alt="Pandas数据分析">
                         
-                        <span class="card-title">python数据清洗方法</span>
+                        <span class="card-title">Pandas数据分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1600,8 +817,8 @@ Categories (2, object): [bad &lt; good]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/pandas/">
+                        <span class="chip bg-color">pandas</span>
                     </a>
                     
                 </div>
@@ -1615,12 +832,12 @@ Categories (2, object): [bad &lt; good]
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/24/undefined.html">
+                <a href="/2022/06/30/undefined.html">
                     <div class="card-image">
                         
-                        <img src="/images/oracle_mysql.jpg" class="responsive-img" alt="mysql和oracle的区别">
+                        <img src="/images/python.jpg" class="responsive-img" alt="python数据清洗方法">
                         
-                        <span class="card-title">mysql和oracle的区别</span>
+                        <span class="card-title">python数据清洗方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1631,7 +848,7 @@ Categories (2, object): [bad &lt; good]
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
                             </span>
                         <span class="publish-author">
                             
@@ -1644,12 +861,8 @@ Categories (2, object): [bad &lt; good]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
-                    </a>
-                    
-                    <a href="/tags/oracle/">
-                        <span class="chip bg-color">oracle</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
