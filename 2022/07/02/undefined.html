@@ -5,8 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Pandas数据分析, bigworldxld">
-    <meta name="description" content="Pandas提升性能的方法（eval()、query()）pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；
-一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFr">
+    <meta name="description" content="使用Pandas.eval()实现高性能运算1、pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；　　一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFrame大">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -539,9 +538,987 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Pandas提升性能的方法（eval-、query-）"><a href="#Pandas提升性能的方法（eval-、query-）" class="headerlink" title="Pandas提升性能的方法（eval()、query()）"></a>Pandas提升性能的方法（eval()、query()）</h2><p>pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；</p>
-<p>一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFrame大于10000行时使用eval(),性能会得到明显提升。</p>
-<pre><code>
+                <h2 id="使用Pandas-eval-实现高性能运算"><a href="#使用Pandas-eval-实现高性能运算" class="headerlink" title="使用Pandas.eval()实现高性能运算"></a>使用Pandas.eval()实现高性能运算</h2><p>1、pandas中的函数eval()能够将字符串对象转化为有效的表达式，进行求值运算并返回结果；<br>　　一般地，运算简单或DataFrame数据量较少之时不适用eval()函数，在DataFrame大于10000行时使用eval(),性能会得到明显提升。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+</code></pre>
+<pre class=" language-python"><code class="language-python">nrows<span class="token operator">=</span><span class="token number">20000</span>
+nclos<span class="token operator">=</span><span class="token number">200</span>
+df1<span class="token punctuation">,</span>df2<span class="token punctuation">,</span>df3<span class="token punctuation">,</span>df4 <span class="token operator">=</span> <span class="token punctuation">[</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span>nrows<span class="token punctuation">,</span>nclos<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">%</span>timeit df1<span class="token operator">+</span>df2<span class="token operator">+</span>df3<span class="token operator">+</span>df4
+</code></pre>
+<pre><code>32.3 ms ± 256 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">%</span>timeit pd<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token string">'df1+df2+df3+df4'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>16.6 ms ± 277 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>其中：魔术命令%timeit可自动多次执行语句，产生一个较为精准的平均执行时间。<br>使用np.allclose()比较两个数组是否完全相同，结果为True表示eval函数计算结果与普通Pandas计算结果一致。</p>
+<pre class=" language-python"><code class="language-python">np<span class="token punctuation">.</span>allclose<span class="token punctuation">(</span>df1<span class="token operator">+</span>df2<span class="token operator">+</span>df3<span class="token operator">+</span>df4<span class="token punctuation">,</span>pd<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token string">'df1+df2+df3+df4'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>True
+</code></pre>
+<p>2、eval()支持的运算方式<br>　　eval()函数支持多种运算方式，如：算数运算、比较运算和布尔运算，同时也支持对象属性与索引的表达方式；<br>　　eval()函数目前还不支持函数条用，if条件语句，循环语句及更为复杂的运算。</p>
+<p>3、DataFrame.eval()实现列间运算  </p>
+<p>4、DataFrame.eval()使用局部变量<br>　通过@符号使用Python的局部变量，@符号表示其后紧随的是一个变量名称而不是列名称，如下：</p>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token string">"sex=='女'and score_math>80"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#新增列</span>
+df<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token string">'sum_score = score_math + score_music'</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#修改列</span>
+<span class="token comment" spellcheck="true"># df.eval('score_math = score_math +5')</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sex</th>
+      <th>sum_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广州市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>78</td>
+      <td>女</td>
+      <td>177</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>81</td>
+      <td>男</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>上海市</td>
+      <td>B</td>
+      <td>Mark</td>
+      <td>87</td>
+      <td>91</td>
+      <td>女</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>重庆市</td>
+      <td>B</td>
+      <td>Miki</td>
+      <td>77</td>
+      <td>72</td>
+      <td>女</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>贵州市</td>
+      <td>C</td>
+      <td>Sully</td>
+      <td>77</td>
+      <td>67</td>
+      <td>女</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>北京市</td>
+      <td>A</td>
+      <td>Rose</td>
+      <td>65</td>
+      <td>99</td>
+      <td>男</td>
+      <td>164</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+<pre class=" language-python"><code class="language-python">add <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token string">'score_math+@add'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    100.0
+1    101.0
+2     90.0
+3     81.0
+4     82.0
+5     71.0
+6      NaN
+7      NaN
+dtype: float64
+</code></pre>
+<h2 id="DataFrame-query-方法"><a href="#DataFrame-query-方法" class="headerlink" title="DataFrame.query()方法"></a>DataFrame.query()方法</h2><p> 　　query()可以实现查询过滤的功能，其用于与DataFrame.eval()类似。<br>   注意：DtaFrame.eval()尽心相同运算时返回的是布尔值</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>query<span class="token punctuation">(</span><span class="token string">"score_math>85 &amp; score_music>85"</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sex</th>
+      <th>sum_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>上海市</td>
+      <td>B</td>
+      <td>Mark</td>
+      <td>87</td>
+      <td>91</td>
+      <td>女</td>
+      <td>178</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h2 id="数据透视表"><a href="#数据透视表" class="headerlink" title="数据透视表"></a>数据透视表</h2><p>一种交互式的表，可进行如求和与计算等操作。可以动态的改变版面布置，会立即按照新的布置重新计算数据。<br>在数据与探索和数据整理时比较常用。<br>数据透视表的创建<br>　　方法一：pd.pivot_table(data,)　　</p>
+<p>　　方法二：data.pivot_table()</p>
+<p>pivot_table常用参数</p>
+<p>参数    说明</p>
+<p>index    指定索引，在数据透视表中按行分组</p>
+<p>values    选择显示的或需要进行聚合运算的列</p>
+<p>columns    将values按所选列进行分组</p>
+<p>aggfunc     聚合运算的方法</p>
+<p>fill_value    将缺失值替换成指定值 </p>
+<p>dropna    默认为True，不包含全部为缺失值的列 </p>
+<p>margins    添加行/列的总计数据，默认是False</p>
+<p>margins_name    命名添加的行/列总计数据 </p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#默认求均值</span>
+df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sum_score</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>85</td>
+      <td>77</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82</td>
+      <td>90</td>
+      <td>172</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">,</span>aggfunc <span class="token operator">=</span> np<span class="token punctuation">.</span>max<span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sum_score</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>重庆市</td>
+      <td>C</td>
+      <td>Sully</td>
+      <td>99</td>
+      <td>91</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>Rose</td>
+      <td>99</td>
+      <td>99</td>
+      <td>180</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">,</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sum_score</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">女</th>
+      <th>A</th>
+      <td>99.0</td>
+      <td>78.0</td>
+      <td>177.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>82.0</td>
+      <td>81.5</td>
+      <td>163.5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77.0</td>
+      <td>67.0</td>
+      <td>144.0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <th>A</th>
+      <td>82.0</td>
+      <td>90.0</td>
+      <td>172.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>values—显示需要进行聚合运算的类<br>columns—设置分组方式</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">,</span>values<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#columns表示根据class将数学分数进行纵向分组</span>
+df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">,</span>values<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token string">'class'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>class</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>99.0</td>
+      <td>82.0</td>
+      <td>77.0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>values和columns的区别</p>
+<p>values选择的列是希望在表中展示的数值，聚合函数aggfunc最终将应用到该值之上<br>columns选择的列是在提供一个将values的值进行纵向分组的方式</p>
+<p>aggfunc传入Numpy函数<br>传入一个一个函数就进行一次计算，传入多个函数就进行多次计算<br>margins添加行/列总计</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">,</span>values<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token string">'class'</span><span class="token punctuation">,</span>margins <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>class</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>99.000000</td>
+      <td>82.0</td>
+      <td>77.0</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>82.0</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>87.666667</td>
+      <td>82.0</td>
+      <td>77.0</td>
+      <td>84.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>margins_name:对 margins进行命名</p>
+<pre class=" language-python"><code class="language-python"> df<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token string">'sex'</span><span class="token punctuation">,</span>values<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token string">'class'</span><span class="token punctuation">,</span>margins <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span>margins_name <span class="token operator">=</span> <span class="token string">'all_mean'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>class</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>all_mean</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>99.000000</td>
+      <td>82.0</td>
+      <td>77.0</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>82.0</td>
+    </tr>
+    <tr>
+      <th>all_mean</th>
+      <td>87.666667</td>
+      <td>82.0</td>
+      <td>77.0</td>
+      <td>84.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<h2 id="分类数据"><a href="#分类数据" class="headerlink" title="分类数据"></a>分类数据</h2><p>分类数据（Category Data）是指Pandas数据类型为分类类型的数据<br>分类数据是由固定的且数量有限的变量组成，通常是字符串。</p>
+<pre class=" language-python"><code class="language-python"> df<span class="token punctuation">.</span>dtypes
+</code></pre>
+<pre><code>city           object
+class          object
+name           object
+score_math      int64
+score_music     int64
+sex            object
+sum_score       int64
+dtype: object
+</code></pre>
+<p>使用astype()将性别转换成分类类型</p>
+<pre class=" language-python"><code class="language-python">sex_cate <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>分类数据的values</p>
+<p>分类数据的values值是一个pandas.Categorical对象，而不再是Numpy对象</p>
+<p>分类数据的属性<br>　　<br>包括类别（categories）和编码（codes）两个属性；</p>
+<p>分类数据将一个类别映射到一个整数上，其内部数据结构有一个类别数组和一个整数数组构成</p>
+<pre class=" language-python"><code class="language-python">sex_cate<span class="token punctuation">.</span>values
+</code></pre>
+<pre><code>[女, 男, 女, 女, 女, 男]
+Categories (2, object): [女, 男]
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查看类别</span>
+sex_cate<span class="token punctuation">.</span>values<span class="token punctuation">.</span>categories
+</code></pre>
+<pre><code>Index([&#39;女&#39;, &#39;男&#39;], dtype=&#39;object&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查看编码</span>
+sex_cate<span class="token punctuation">.</span>values<span class="token punctuation">.</span>codes
+</code></pre>
+<pre><code>array([0, 1, 0, 0, 0, 1], dtype=int8)
+</code></pre>
+<p>使用分类数据的好处<br> 　　<br>分类数据通过将类别进行数字编码，可以大大节省内存的占用，提高运行速度，可使用memory_usage()检验</p>
+<p>分类数据可以指定逻辑顺序，并能够进行逻辑顺序上的排序和筛选最大/最小值的操作</p>
+<p>使用Series.cat.as_ordered()可设置逻辑顺序，但并没有什么实际含义，并不怎么常用</p>
+<pre class=" language-python"><code class="language-python"> df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cat<span class="token punctuation">.</span>as_ordered<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    A
+1    A
+2    B
+3    B
+4    C
+5    A
+dtype: category
+Categories (3, object): [A &lt; B &lt; C]
+</code></pre>
+<p>使用Series.cat.set_categories()自定义逻辑顺序，有实际含义</p>
+<pre class=" language-python"><code class="language-python"> df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cat<span class="token punctuation">.</span>set_categories<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"C"</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">,</span><span class="token string">"A"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    A
+1    A
+2    B
+3    B
+4    C
+5    A
+dtype: category
+Categories (3, object): [C, B, A]
+</code></pre>
+<p>分类数据的排序仍然使用sort_values()</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cat<span class="token punctuation">.</span>set_categories<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>4    C
+2    B
+3    B
+0    A
+1    A
+5    A
+dtype: category
+Categories (3, object): [C, B, A]
+</code></pre>
+<p>筛选最大值与最小值</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cat<span class="token punctuation">.</span>as_ordered<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span>    
+</code></pre>
+<pre><code>&#39;C&#39;
+</code></pre>
+<pre class=" language-python"><code class="language-python"> df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'category'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cat<span class="token punctuation">.</span>as_ordered<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>&#39;A&#39;
+</code></pre>
+<p>通过参数dtype创建分类数据</p>
+<p>创建Series或DataFrame时，可指定参数dtype = ‘category’创建Series或DataFrame</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#创建DataFrame</span>
+dfa <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'female'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'grade'</span><span class="token punctuation">:</span>list<span class="token punctuation">(</span><span class="token string">'BAB'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>dtype<span class="token operator">=</span><span class="token string">'category'</span><span class="token punctuation">)</span>
+dfa<span class="token punctuation">.</span>dtypes
+</code></pre>
+<pre><code>grade    category
+sex      category
+dtype: object
+</code></pre>
+<p>通过pd.Categorical对象创建分类数据</p>
+<p>创建一个pd.Categorical对象，并将其传入Series或者DataFrame，即可创建分类数据</p>
+<pre class=" language-python"><code class="language-python">c_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>Categorical<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'female'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'grade'</span><span class="token punctuation">:</span>list<span class="token punctuation">(</span><span class="token string">'BAB'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+c_df
+</code></pre>
+<pre><code>[sex, grade]
+Categories (2, object): [grade, sex]
+</code></pre>
+<pre class=" language-python"><code class="language-python">c <span class="token operator">=</span> pd<span class="token punctuation">.</span>Categorical<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+dfb<span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'female'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>    
+dfb<span class="token punctuation">[</span><span class="token string">'grade'</span><span class="token punctuation">]</span> <span class="token operator">=</span> c
+dfb<span class="token punctuation">.</span>dtypes
+</code></pre>
+<pre><code>sex        object
+grade    category
+dtype: object
+</code></pre>
+<p>在创建pd.Categorical对象时，可以通过参数categoeies指定类别，没被指定的数据则会显示为缺失值</p>
+<pre class=" language-python"><code class="language-python">c <span class="token operator">=</span> pd<span class="token punctuation">.</span>Categorical<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>categories<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+s
+</code></pre>
+<pre><code>0    NaN
+1      A
+2      B
+3      A
+dtype: category
+Categories (2, object): [A, B]
+</code></pre>
+<p>通过pd.Categorical.from_codes创建分类数据</p>
+<p>当已知类别编码时，可通过pd.Categorical.from_codes创建分类数据;</p>
+<pre class=" language-python"><code class="language-python">categories <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'female'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">]</span>
+codes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+c <span class="token operator">=</span> pd<span class="token punctuation">.</span>Categorical<span class="token punctuation">.</span>from_codes<span class="token punctuation">(</span>codes<span class="token punctuation">,</span>categories<span class="token punctuation">)</span>  
+c
+</code></pre>
+<pre><code>[male, male, male, female, female, male, female]
+Categories (2, object): [female, male]
+</code></pre>
+<p>此时的categories = [‘female’,’male’]的对应的codes值分别为0,1</p>
+<p>通过cut()/qcut()创建分类数据—分类数值型数据<br>　　<br>使用cut()/qcut()进行离散化会自动转为分类类型</p>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">69</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">math <span class="token operator">=</span> pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span>right<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+math<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0     [60, 80)
+1    [80, 100)
+2    [80, 100)
+Name: score_math, dtype: category
+Categories (3, interval[int64]): [[0, 60) &lt; [60, 80) &lt; [80, 100)]
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用参数lables修改类别名称</span>
+math <span class="token operator">=</span> pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span>right<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+math<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    B
+1    A
+2    A
+Name: score_math, dtype: category
+Categories (3, object): [C &lt; B &lt; A]
+</code></pre>
+<p>结合groupby()查看分类数据，例：修改后的成绩等级无法看到分数区间的范围，可结合groupby查看各最大值、最小值等：</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>math<span class="token punctuation">)</span><span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">,</span><span class="token string">'max'</span><span class="token punctuation">,</span><span class="token string">'min'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>score_math</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>C</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>4</td>
+      <td>77.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>2</td>
+      <td>99.0</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>分类数据的特殊属性Series.cat</p>
+<p>包含分类数据的Series有很多操作方法，可通过特殊属性Series.cat访问；</p>
+<p>通过Series.cat查看其类别categories和编码codes.</p>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>pd<span class="token punctuation">.</span>Categorical<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># s.cat.categories</span>
+s<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>codes
+</code></pre>
+<pre><code>0    2
+1    0
+2    1
+3    2
+dtype: int8
+</code></pre>
+<p>分类数据的常用操作方法</p>
+<p>方法    说明</p>
+<p>rename_categories    更改类别名称</p>
+<p>add_categories    添加新类别</p>
+<p>remove_categories    删除类别</p>
+<p>remove_unused_categories    删除数据中没有出现的类别</p>
+<p>set_categories    替换、增加和删除类别</p>
+<p>as_ordered    分类数据设置有逻辑顺序</p>
+<p>as_unordered    分类数据设置无逻辑顺序</p>
+<p>reorder_categories    重排分类数数据的顺序</p>
+<p>更改类别名称—–可通过传入字典的方式进行更改</p>
+<pre class=" language-python"><code class="language-python">s1 <span class="token operator">=</span> s<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>rename_categories<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'A'</span><span class="token punctuation">:</span><span class="token string">'grade A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">:</span><span class="token string">'grade B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">:</span><span class="token string">'grade C'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+s1
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (3, object): [A, B, C]
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 添加新类别</span>
+s2 <span class="token operator">=</span> s<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>add_categories<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+s2
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (4, object): [A, B, C, D]
+</code></pre>
+<p>删除类别</p>
+<p>注意：被删除的类别在数据集中显示值为空值</p>
+<pre class=" language-python"><code class="language-python">s3 <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>remove_categories<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">s4 <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>remove_categories<span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span>
+s4
+</code></pre>
+<pre><code>0      C
+1    NaN
+2      B
+3      C
+dtype: category
+Categories (3, object): [B, C, D]
+</code></pre>
+<p>删除数据中没有出现的类别，remove_categories只能删除某一特定的类别，并不能确定哪些类别并未使用过</p>
+<pre class=" language-python"><code class="language-python">s2
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (4, object): [A, B, C, D]
+</code></pre>
+<pre class=" language-python"><code class="language-python">s5 <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>remove_unused_categories<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s5
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (3, object): [A, B, C]
+</code></pre>
+<p>同时添加或删除类别，使用set_categories，只需将需要的类别直接set即可</p>
+<pre class=" language-python"><code class="language-python">s6 <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>set_categories<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+s6
+</code></pre>
+<pre><code>0      C
+1    NaN
+2      B
+3      C
+dtype: category
+Categories (3, object): [B, C, E]
+</code></pre>
+<p>设置逻辑顺序</p>
+<p>分类数据的逻辑顺序可以通过as_ordered进行设置，也可以通过as_unordered设置为无逻辑顺序</p>
+<pre class=" language-python"><code class="language-python">s_ordered <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>as_ordered<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s_ordered
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (4, object): [A &lt; B &lt; C &lt; D]
+</code></pre>
+<pre class=" language-python"><code class="language-python">s_unordered <span class="token operator">=</span> s_ordered<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>as_unordered<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s_unordered
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (4, object): [A, B, C, D]
+</code></pre>
+<p>在设置分类数据时，也可通过设置参数ordered = True设置逻辑顺序</p>
+<pre class=" language-python"><code class="language-python">s_ordered_new <span class="token operator">=</span> s2<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>set_categories<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ordered<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+s_ordered_new
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (3, object): [C &lt; B &lt; A]
+</code></pre>
+<p>重排逻辑顺序</p>
+<p>方法一：前面已介绍，可通过set_categories自定义逻辑顺序</p>
+<p>方法二：通过reorde_categories方法重排逻辑顺序<br>注意：使用reorder_categories方法不能添加或删除类别，否则会报错</p>
+<pre class=" language-python"><code class="language-python">s_or <span class="token operator">=</span> s<span class="token punctuation">.</span>cat<span class="token punctuation">.</span>reorder_categories<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ordered<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+s_or
+</code></pre>
+<pre><code>0    C
+1    A
+2    B
+3    C
+dtype: category
+Categories (3, object): [B &lt; C &lt; A]
 </code></pre>
 
                 
