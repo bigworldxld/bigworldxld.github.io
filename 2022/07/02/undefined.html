@@ -1520,6 +1520,1085 @@ s_or
 dtype: category
 Categories (3, object): [B &lt; C &lt; A]
 </code></pre>
+<h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>方法一：设置参数subplots  = True即可自动创建子图，可通过参数layout来设置子图布局</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>subplots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>layout<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE.png" class title="This is an example image">
+
+<p>方法二：使用Matplotlib的方法，即plt.subbplots(nrows=2,ncols=2)或plt.subplot(2,2)</p>
+<p>使用tight_layout()自动调整子图间距以免文字重叠</p>
+<pre class=" language-python"><code class="language-python">fig<span class="token punctuation">,</span>axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
+ 
+df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
+ 
+<span class="token comment" spellcheck="true">#自动调整子图间距，以免重叠</span>
+plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE1.png" class title="This is an example image">
+
+<p>调整坐标轴</p>
+<p>参数xticks设置主刻度标签，xlim设置坐标轴范围，y轴与x轴相同，如下：</p>
+<p>plt.xticks()、plt.xlim()<br>添加背景网格</p>
+<p>使用grid参数参加背景网格</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>xticks<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>rot<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>xlim<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>grid<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE2.png" class title="This is an example image">
+
+<p>colormap</p>
+<p>参数colormap传入Matplotlib内置色图的名称，即可设置不同的颜色</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>colormap<span class="token operator">=</span><span class="token string">'Set3'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE3.png" class title="This is an example image">
+
+<h2 id="重采样与频率转换（升降采样、resample-、OHLC、groupby-重采样）"><a href="#重采样与频率转换（升降采样、resample-、OHLC、groupby-重采样）" class="headerlink" title="重采样与频率转换（升降采样、resample()、OHLC、groupby()重采样）"></a>重采样与频率转换（升降采样、resample()、OHLC、groupby()重采样）</h2><p>重采样（resampling）指的是将时间序列从一个频率转换到另一个频率的过程，其中：<br>高频转为低频成为降采样（下采样）<br>低频转为高频成为升采样（上采样）</p>
+<p> 别名    偏移量类型    说明</p>
+<p>D    Day    每日历日</p>
+<p>B    BusinessDay    每日历日</p>
+<p>H    Hour    每小时</p>
+<p>T/min    Minute    每分钟</p>
+<p>S    Second    每秒钟</p>
+<p>M    MonthEnd    每月最后一个日历日</p>
+<p>BM    BusinessMonthEnd    每月最后一个工作日</p>
+<p>Q-JAN、Q-FRB    QuarterEnd    对于以指定月份结束的年度，每季度最后一月的最后一个日历日</p>
+<p>A-JAN、A-FEB    YearEnd    每年指定月份的最后一个日历日</p>
+<p>1、使用resample()方法进行重采样</p>
+<p>例：现有一个以年月日为索引的时间序列ts，将其重采样为年月的频率，并计算均值</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> matplotlib <span class="token keyword">as</span> mpl
+ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-7-30'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2020-07-30    7
+2020-07-31    6
+2020-08-01    6
+2020-08-02    3
+2020-08-03    7
+Freq: D, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-07-31    4.500000
+2020-08-31    4.333333
+Freq: M, dtype: float64
+</code></pre>
+<p>2、降采样<br>使用resample()对数据进行降采样时，需要考虑两个问题：</p>
+<p>各区间那边是闭合的（close参数的值–right即又边界闭合，left即左边界闭合）</p>
+<p>如何标记各个聚合面元，用区间的开头还是末尾</p>
+<p>例：通过求和的方式将上述数据聚合到2分钟的集合里，传入close=’right’会让右边界闭合，传入close=’left’会让左边界闭合</p>
+<pre class=" language-python"><code class="language-python">ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-7-30'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2020-07-30    7
+2020-07-31    1
+2020-08-01    7
+2020-08-02    5
+2020-08-03    0
+Freq: D, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>closed<span class="token operator">=</span><span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-07-31     9
+2020-08-31    12
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>closed<span class="token operator">=</span><span class="token string">'left'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-07-31     7
+2020-08-31    13
+Freq: M, dtype: int32
+</code></pre>
+<p>可以使用loffset设置索引位移，传入参数loffset一个字符串或者偏移量，即可实现对结果索引的一些位移</p>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>loffset<span class="token operator">=</span><span class="token string">'-1D'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-07-30     8
+2020-08-30    12
+dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'2M'</span><span class="token punctuation">,</span>loffset<span class="token operator">=</span><span class="token string">'-1D'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-07-30     8
+2020-09-29    12
+dtype: int32
+</code></pre>
+<p>3、OHLC重采样</p>
+<p>金融领域中有一种时间序列聚合方式（OHLC），计算各面元的四个值：</p>
+<p>O：open，开盘</p>
+<p>H：high，最大值</p>
+<p>L：low，最小值</p>
+<p>C：close，收盘</p>
+<p>其后也不单单用于金融领域，O可以用于表达初始值，H表示最大值，L表示最小值，C表示末尾值。</p>
+<p>传入how = ‘ohlc’可得到一个含有这四种聚合值的DateFrame，但是格式已经改变，如下：</p>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>closed <span class="token operator">=</span> <span class="token string">'right'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'ohlc'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>E:\anaconda\lib\site-packages\ipykernel_launcher.py:1: FutureWarning: how in .resample() is deprecated
+the new syntax is .resample(...).ohlc()
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-07-31</th>
+      <td>7</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-08-31</th>
+      <td>7</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'2M'</span><span class="token punctuation">,</span>closed <span class="token operator">=</span> <span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ohlc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-07-31</th>
+      <td>7</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-30</th>
+      <td>7</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>3、groupby重采样</p>
+<p>例：若有一时间序列数据，如何在每月月末显示该月数据的均值</p>
+<p>无需用到 rollback 滚动，只需传入一个能够访问 ts 索引上的月份字段的函数即可</p>
+<pre class=" language-python"><code class="language-python">rng <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-1-14'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span>rng<span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>month<span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>1    3.944444
+2    5.344828
+3    4.258065
+4    5.000000
+dtype: float64
+</code></pre>
+<p>　根据星期几对上述时间序列进行分组并求出分组后的均值，只需传一个能够访问ts索引上的星期字段函数即可</p>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>weekday<span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    5.285714
+1    4.533333
+2    4.000000
+3    3.142857
+4    6.071429
+5    4.214286
+6    5.571429
+dtype: float64
+</code></pre>
+<p>4、升采样　　</p>
+<p> 在将数据从低频转换到高频时，不需要聚合。</p>
+<pre class=" language-python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-1-14'</span><span class="token punctuation">,</span>periods <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'W-WED'</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span><span class="token string">'two'</span><span class="token punctuation">,</span><span class="token string">'three'</span><span class="token punctuation">,</span><span class="token string">'four'</span><span class="token punctuation">]</span>
+data
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-15</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>6</td>
+      <td>5</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>　将data重采样到日频率，默认会引入缺失值</p>
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-15</th>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-16</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-17</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-18</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-19</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-20</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-21</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ffill <span class="token comment" spellcheck="true"># 填充缺失值</span>
+<span class="token comment" spellcheck="true"># data.resample('D').bfill()</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-15</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-16</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-17</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-18</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-19</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-20</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-21</th>
+      <td>8</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>6</td>
+      <td>5</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>也可以仅填充指定的时期数（目的是限制前面观测值的持续使用距离，limit = 2表示前面的观测值只能填充往后的两行数据）</p>
+<pre class=" language-python"><code class="language-python">n<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>
+k<span class="token operator">=</span>np<span class="token punctuation">.</span>pad<span class="token punctuation">(</span>n<span class="token punctuation">,</span>pad_width<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">'constant'</span><span class="token punctuation">,</span>constant_values<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[[0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 1 2 3 0 0 0]
+ [0 0 0 4 5 6 7 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]]
+</code></pre>
+<p>n:代表的是数组</p>
+<p>pad_width：代表的是不同维度填充的长度，（2，3）分别代表第一个维度左填充2，右边填充3。（3，3）代表第二个维度左边填充3右边填充3。</p>
+<p>第一个维度：指的是第一个括号内的元素</p>
+<p>第二个维度：指的是第二个括号内的元素</p>
+<p>第n个维度：依次类推</p>
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>pad<span class="token punctuation">(</span>limit<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-15</th>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-16</th>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-17</th>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-18</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-19</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-20</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-21</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>5、通过日期进行重采样　<br>对于使用时期索引的数据进行重采样较为简单，先创建一个对象：</p>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>period_range<span class="token punctuation">(</span><span class="token string">'2020-1'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span><span class="token string">'two'</span><span class="token punctuation">,</span><span class="token string">'three'</span><span class="token punctuation">,</span><span class="token string">'four'</span><span class="token punctuation">]</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01</th>
+      <td>-0.979084</td>
+      <td>-0.431727</td>
+      <td>-0.003613</td>
+      <td>0.239935</td>
+    </tr>
+    <tr>
+      <th>2020-02</th>
+      <td>-0.591629</td>
+      <td>-0.041868</td>
+      <td>-0.042129</td>
+      <td>1.735916</td>
+    </tr>
+    <tr>
+      <th>2020-03</th>
+      <td>0.047618</td>
+      <td>-0.651828</td>
+      <td>-0.004301</td>
+      <td>0.017937</td>
+    </tr>
+    <tr>
+      <th>2020-04</th>
+      <td>-0.097645</td>
+      <td>-0.563879</td>
+      <td>0.452829</td>
+      <td>-0.630004</td>
+    </tr>
+    <tr>
+      <th>2020-05</th>
+      <td>-0.114215</td>
+      <td>-0.428281</td>
+      <td>0.409666</td>
+      <td>-0.991012</td>
+    </tr>
+    <tr>
+      <th>2020-06</th>
+      <td>-0.488310</td>
+      <td>0.475253</td>
+      <td>0.419103</td>
+      <td>-0.111489</td>
+    </tr>
+    <tr>
+      <th>2020-07</th>
+      <td>-1.828562</td>
+      <td>1.251410</td>
+      <td>-1.564868</td>
+      <td>1.072381</td>
+    </tr>
+    <tr>
+      <th>2020-08</th>
+      <td>2.068238</td>
+      <td>-0.698950</td>
+      <td>0.959692</td>
+      <td>0.704877</td>
+    </tr>
+    <tr>
+      <th>2020-09</th>
+      <td>0.519954</td>
+      <td>-0.189848</td>
+      <td>-0.234610</td>
+      <td>-0.478327</td>
+    </tr>
+    <tr>
+      <th>2020-10</th>
+      <td>-0.335129</td>
+      <td>0.377634</td>
+      <td>-1.126909</td>
+      <td>0.589016</td>
+    </tr>
+    <tr>
+      <th>2020-11</th>
+      <td>-0.410480</td>
+      <td>-0.174261</td>
+      <td>-0.921766</td>
+      <td>0.426526</td>
+    </tr>
+    <tr>
+      <th>2020-12</th>
+      <td>-0.735885</td>
+      <td>0.582575</td>
+      <td>0.174124</td>
+      <td>-1.819708</td>
+    </tr>
+    <tr>
+      <th>2021-01</th>
+      <td>1.502580</td>
+      <td>-1.056993</td>
+      <td>-0.185758</td>
+      <td>0.873479</td>
+    </tr>
+    <tr>
+      <th>2021-02</th>
+      <td>-0.147175</td>
+      <td>-0.455576</td>
+      <td>1.358502</td>
+      <td>-1.088891</td>
+    </tr>
+    <tr>
+      <th>2021-03</th>
+      <td>-0.227551</td>
+      <td>1.256427</td>
+      <td>-0.516975</td>
+      <td>0.535406</td>
+    </tr>
+    <tr>
+      <th>2021-04</th>
+      <td>0.530525</td>
+      <td>0.405756</td>
+      <td>1.200586</td>
+      <td>0.259992</td>
+    </tr>
+    <tr>
+      <th>2021-05</th>
+      <td>0.262048</td>
+      <td>0.117184</td>
+      <td>0.737047</td>
+      <td>-0.016959</td>
+    </tr>
+    <tr>
+      <th>2021-06</th>
+      <td>-1.988128</td>
+      <td>1.584430</td>
+      <td>1.647670</td>
+      <td>0.873219</td>
+    </tr>
+    <tr>
+      <th>2021-07</th>
+      <td>-0.902770</td>
+      <td>-0.997992</td>
+      <td>-0.007074</td>
+      <td>-0.014629</td>
+    </tr>
+    <tr>
+      <th>2021-08</th>
+      <td>0.398101</td>
+      <td>-1.146586</td>
+      <td>-0.390514</td>
+      <td>0.532349</td>
+    </tr>
+    <tr>
+      <th>2021-09</th>
+      <td>-1.094471</td>
+      <td>0.131216</td>
+      <td>0.441688</td>
+      <td>0.297797</td>
+    </tr>
+    <tr>
+      <th>2021-10</th>
+      <td>-0.236048</td>
+      <td>1.166033</td>
+      <td>-1.359992</td>
+      <td>0.419473</td>
+    </tr>
+    <tr>
+      <th>2021-11</th>
+      <td>0.546093</td>
+      <td>-0.256319</td>
+      <td>-0.672782</td>
+      <td>-1.025643</td>
+    </tr>
+    <tr>
+      <th>2021-12</th>
+      <td>1.237619</td>
+      <td>-0.527950</td>
+      <td>0.419971</td>
+      <td>-0.193061</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>传入’A-DEC’进行降采样（使用年度财政的方式）</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'A-DEC'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>传入’A-JUN’进行降采样（使用6月作为财政年度的分割单位）</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'A-JUN'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020</th>
+      <td>-0.370544</td>
+      <td>-0.273722</td>
+      <td>0.205259</td>
+      <td>0.043547</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>-0.065797</td>
+      <td>0.249982</td>
+      <td>0.127228</td>
+      <td>0.160918</td>
+    </tr>
+    <tr>
+      <th>2022</th>
+      <td>-0.008579</td>
+      <td>-0.271933</td>
+      <td>-0.261451</td>
+      <td>0.002714</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>6、通过日期进行升采样　</p>
+<p>需决定在新频率中，各区间的哪端用于放置原来的值，convention参数默认为<br>start，可设置为end</p>
+<pre class=" language-python"><code class="language-python">annu_df <span class="token operator">=</span> df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'A-DEC'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+annu_df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"> annu_df<span class="token punctuation">.</span>resample<span class="token punctuation">(</span><span class="token string">'Q-DEC'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ffill<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020Q1</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2020Q2</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2020Q3</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2020Q4</th>
+      <td>-0.245427</td>
+      <td>-0.041148</td>
+      <td>-0.123565</td>
+      <td>0.063004</td>
+    </tr>
+    <tr>
+      <th>2021Q1</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+    <tr>
+      <th>2021Q2</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+    <tr>
+      <th>2021Q3</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+    <tr>
+      <th>2021Q4</th>
+      <td>-0.009931</td>
+      <td>0.018302</td>
+      <td>0.222697</td>
+      <td>0.121044</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>
