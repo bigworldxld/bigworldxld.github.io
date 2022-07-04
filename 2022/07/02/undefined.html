@@ -1520,44 +1520,6 @@ s_or
 dtype: category
 Categories (3, object): [B &lt; C &lt; A]
 </code></pre>
-<h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>方法一：设置参数subplots  = True即可自动创建子图，可通过参数layout来设置子图布局</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>subplots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>layout<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE.png" class title="This is an example image">
-
-<p>方法二：使用Matplotlib的方法，即plt.subbplots(nrows=2,ncols=2)或plt.subplot(2,2)</p>
-<p>使用tight_layout()自动调整子图间距以免文字重叠</p>
-<pre class=" language-python"><code class="language-python">fig<span class="token punctuation">,</span>axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
-df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
- 
-df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
- 
-<span class="token comment" spellcheck="true">#自动调整子图间距，以免重叠</span>
-plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE1.png" class title="This is an example image">
-
-<p>调整坐标轴</p>
-<p>参数xticks设置主刻度标签，xlim设置坐标轴范围，y轴与x轴相同，如下：</p>
-<p>plt.xticks()、plt.xlim()<br>添加背景网格</p>
-<p>使用grid参数参加背景网格</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>xticks<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>rot<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>xlim<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>grid<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE2.png" class title="This is an example image">
-
-<p>colormap</p>
-<p>参数colormap传入Matplotlib内置色图的名称，即可设置不同的颜色</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>colormap<span class="token operator">=</span><span class="token string">'Set3'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE3.png" class title="This is an example image">
-
 <h2 id="重采样与频率转换（升降采样、resample-、OHLC、groupby-重采样）"><a href="#重采样与频率转换（升降采样、resample-、OHLC、groupby-重采样）" class="headerlink" title="重采样与频率转换（升降采样、resample()、OHLC、groupby()重采样）"></a>重采样与频率转换（升降采样、resample()、OHLC、groupby()重采样）</h2><p>重采样（resampling）指的是将时间序列从一个频率转换到另一个频率的过程，其中：<br>高频转为低频成为降采样（下采样）<br>低频转为高频成为升采样（上采样）</p>
 <p> 别名    偏移量类型    说明</p>
 <p>D    Day    每日历日</p>
@@ -2581,6 +2543,99 @@ annu_df
   </tbody>
 </table>
 </div>
+
+<h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>一、图形的层次</p>
+<p><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200816164512132-1984558230.png" alt="img"></p>
+<p> 二、Matplotlib常用工具箱</p>
+<table>
+<thead>
+<tr>
+<th>Matplotlib工具箱</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>plt.title(‘title’)</td>
+<td>添加子图标题</td>
+</tr>
+<tr>
+<td>plt.legend([‘In’,’pt’])</td>
+<td>添加图例</td>
+</tr>
+<tr>
+<td>plt.xlabel(‘x’)plt.ylabel(‘y’)</td>
+<td>添加x/y轴标签</td>
+</tr>
+<tr>
+<td>plt.subtitle(‘T’)</td>
+<td>添加绘图框标题</td>
+</tr>
+<tr>
+<td>plt.text(1,1’t’)</td>
+<td>在(1,1)位置添加文字</td>
+</tr>
+<tr>
+<td>plt.show()</td>
+<td>显示图形</td>
+</tr>
+<tr>
+<td>plt.savefig(‘fig.eps’)</td>
+<td>保存图形</td>
+</tr>
+<tr>
+<td>plt.figure(figsize=(12,8))</td>
+<td>绘制12*8绘图框</td>
+</tr>
+<tr>
+<td>plt.xlim(0,1)plt.ylim(0,1)</td>
+<td>设置x/y轴范围</td>
+</tr>
+<tr>
+<td>plt.grid(which=’major’)</td>
+<td>添加背景网格</td>
+</tr>
+<tr>
+<td>plt.xticks(np.arange(0,1,0.2))plt.yticks(np.arange(0,1,0.2))</td>
+<td>修改主刻度标签范围</td>
+</tr>
+</tbody></table>
+<p>方法一：设置参数subplots  = True即可自动创建子图，可通过参数layout来设置子图布局</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>subplots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>layout<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE.png" class title="This is an example image">
+
+<p>方法二：使用Matplotlib的方法，即plt.subbplots(nrows=2,ncols=2)或plt.subplot(2,2)</p>
+<p>使用tight_layout()自动调整子图间距以免文字重叠</p>
+<pre class=" language-python"><code class="language-python">fig<span class="token punctuation">,</span>axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
+ 
+df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
+ 
+<span class="token comment" spellcheck="true">#自动调整子图间距，以免重叠</span>
+plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE1.png" class title="This is an example image">
+
+<p>调整坐标轴</p>
+<p>参数xticks设置主刻度标签，xlim设置坐标轴范围，y轴与x轴相同，如下：</p>
+<p>plt.xticks()、plt.xlim()<br>添加背景网格</p>
+<p>使用grid参数参加背景网格</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>xticks<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>rot<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>xlim<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>grid<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE2.png" class title="This is an example image">
+
+<p>colormap</p>
+<p>参数colormap传入Matplotlib内置色图的名称，即可设置不同的颜色</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>colormap<span class="token operator">=</span><span class="token string">'Set3'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE3.png" class title="This is an example image">
 
 <h2 id="基于Matplotlib的Pandas绘图方法"><a href="#基于Matplotlib的Pandas绘图方法" class="headerlink" title="基于Matplotlib的Pandas绘图方法"></a>基于Matplotlib的Pandas绘图方法</h2><p>Pandas绘制图形相较于Matplotlib来说更为简洁，基础函数为df.plot(x,y)</p>
 <p>通过kind可以设置图形的类型，df.plot()默认绘制折线图，df.plot(kind =’’)用于设置各类图形，如下表所示</p>
