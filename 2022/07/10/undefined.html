@@ -711,6 +711,7 @@ rdd<span class="token punctuation">.</span>flatMap<span class="token punctuation
 >>> [(x, list(map(list, y))) for x, y in sorted(x.cogroup(y).collect())]
 [(0, [[0], [0]]), (1, [[1], [1]]), (2, [[], [2]]), (3, [[], [3]]), (4, [[2], [4]])]
 </code></pre>
+<p>repartitionAndSortWithinPartitions：根据给定的分区程序对RDD重新分区，并在每个结果分区中，按其键对记录进行排序。这比repartition在每个分区内调用然后排序更为有效，因为它可以将排序推入洗牌机制</p>
 <h3 id="双-Value-类型"><a href="#双-Value-类型" class="headerlink" title="双 Value 类型"></a>双 Value 类型</h3><ol start="13">
 <li>intersection </li>
 </ol>
@@ -877,6 +878,8 @@ v<span class="token keyword">=></span><span class="token punctuation">(</span>v<
 <span class="token keyword">val</span> dataRDD2 <span class="token operator">=</span> sparkContext<span class="token punctuation">.</span>makeRDD<span class="token punctuation">(</span>List<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 <span class="token keyword">val</span> value<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>Iterable<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Iterable<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span>  dataRDD1<span class="token punctuation">.</span>cogroup<span class="token punctuation">(</span>dataRDD2<span class="token punctuation">)</span>
 </code></pre>
+<p>cartesian：笛卡尔积，在类型T和U的数据集上调用时，返回（T，U）对（所有元素对）的数据集</p>
+<p>pipe：通过shell命令（例如Perl或bash脚本）通过管道传输RDD的每个分区。将RDD元素写入进程的stdin，并将输出到其stdout的行作为字符串的RDD返回</p>
 <h2 id="RDD-行动算子"><a href="#RDD-行动算子" class="headerlink" title="RDD 行动算子"></a>RDD 行动算子</h2><ol>
 <li>reduce </li>
 </ol>
@@ -956,6 +959,7 @@ rdd<span class="token punctuation">.</span>saveAsObjectFile<span class="token pu
 <span class="token comment" spellcheck="true">// 保存成 Sequencefile 文件</span>
 rdd<span class="token punctuation">.</span>map<span class="token punctuation">(</span><span class="token punctuation">(</span>_<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>saveAsSequenceFile<span class="token punctuation">(</span><span class="token string">"output2"</span><span class="token punctuation">)</span>
 </code></pre>
+<p>控制返回文件数量，通常情况下返回文件为一个文件夹下的多个文件，可以使用SparkContext.wholeTextFiles控制返回文件的个数，例如返回一个文件<br>SparkContext.sequenceFile[Int, String]<br>SparkContext.hadoopRDD<br>SparkContext.objectFile</p>
 <ol start="11">
 <li>foreach </li>
 </ol>
@@ -977,6 +981,14 @@ rdd<span class="token punctuation">.</span>foreach<span class="token punctuation
 2
 >>> m[3]
 4
+</code></pre>
+<p>takeSample：返回一个数组，该数组包含数据集num个元素的随机样本（是否替换），可以选择预先指定随机数生成器种子</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>persist：可以根据参数进行不同级别的缓存MEMORY_ONLY<strong>（仅在内存中）</strong>、MEMORY_AND_DISK<strong>在内存和磁盘</strong>、MEMORY_ONLY_SER<strong>仅在内存中，但是经过序列化）</strong>、MEMORY_AND_DISK_SER<strong>（序列化后存于内存和磁盘）</strong>、DISK_ONLY<strong>（序列化后存于磁盘）</strong>、OFF_HEAP（堆外存储）<br>cache：默认缓存级别MEMORY_ONLY<br>缓存级别选择：MEMORY_ONLY&gt;MEMORY_ONLY_SER&gt;MEMORY_AND_DISK<br>unpersist：释放缓存</p>
+<h2 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h2><p>广播变量：在所有节点上创建一个只读变量，在使用时不应该调用函数中的指定变量值，而是直接使用指定广播变量，而且防止修改节点上的广播变量，dataFrame和变量都可以使用broadcast进行广播，但是rdd不可以<br>val broadcastVar = sc.broadcast(Array(1, 2, 3))</p>
+<p>val broadcastDF = functions.broadcast(df)<br>累加器<br>创建累加器</p>
+<pre class=" language-scala"><code class="language-scala"><span class="token keyword">val</span> accum <span class="token operator">=</span> sc<span class="token punctuation">.</span>longAccumulator<span class="token punctuation">(</span><span class="token string">"My Accumulator"</span><span class="token punctuation">)</span>
+sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>Array<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>x <span class="token keyword">=></span> accum<span class="token punctuation">.</span>add<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+println<span class="token punctuation">(</span>accum<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
 </code></pre>
 <p>参考sparkAPI链接：<a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/api/scala/org/apache/spark/index.html">https://spark.apache.org/docs/latest/api/scala/org/apache/spark/index.html</a></p>
 
