@@ -608,6 +608,27 @@
 </ol>
 <p> 将处理的数据进行扁平化后再进行映射处理，所以算子也称之为扁平映射 </p>
 <pre class=" language-scala"><code class="language-scala"><span class="token keyword">val</span> dataRDD <span class="token operator">=</span> sparkContext<span class="token punctuation">.</span>makeRDD<span class="token punctuation">(</span>List<span class="token punctuation">(</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>List<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">val</span> dataRDD1 <span class="token operator">=</span> dataRDD<span class="token punctuation">.</span>flatMap<span class="token punctuation">(</span> list <span class="token keyword">=></span> list <span class="token punctuation">)</span> 
+<span class="token comment" spellcheck="true">//----------</span>
+rdd<span class="token punctuation">.</span>flatMap<span class="token punctuation">(</span>lambda x<span class="token operator">:</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> test<span class="token punctuation">(</span>items<span class="token punctuation">)</span><span class="token operator">:</span>
+  <span class="token keyword">for</span> item in items<span class="token operator">:</span>
+    <span class="token keyword">yield</span> item<span class="token operator">+</span><span class="token number">1</span>
+rdd<span class="token punctuation">.</span>flatMap<span class="token punctuation">(</span>test<span class="token punctuation">)</span>
+</code></pre>
+<p>yield是一个类似return的关键字。当我们调用这个函数的时候并不是返回计算的结果。而是返回一个生成器。只有迭代这个生成器的时候才会计算结果。yield可以返回值，但是不会结束函数的执行，如果函数后面还有代码，同样是可以执行的。</p>
+<p>yield的好处</p>
+<p>1、不会将所有数据取出来存入内存中，而是返回了一个对象，可以通过对象获取数据，用多少取多少，可以节省内存空间。<br>2、除了能返回一个值，还不会终止循环的运行,再用yield的写法效率比普通的列表效率高</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">111000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">yield</span> i
+<span class="token keyword">def</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  result <span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">111000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result
 </code></pre>
 <ol start="5">
 <li>glom </li>
