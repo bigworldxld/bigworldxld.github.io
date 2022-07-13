@@ -590,6 +590,11 @@
 <p> 将待处理的数据以分区为单位发送到计算节点进行处理，这里的处理是指可以进行任意的处 理，哪怕是过滤数据。</p>
 <pre class=" language-scala"><code class="language-scala"> <span class="token keyword">val</span> dataRDD1<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> dataRDD<span class="token punctuation">.</span>mapPartitions<span class="token punctuation">(</span> datas <span class="token keyword">=></span> <span class="token punctuation">{</span> datas<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-scala"><code class="language-scala">a <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>mapPartitions<span class="token punctuation">(</span>lambda it<span class="token operator">:</span>iter<span class="token punctuation">(</span><span class="token punctuation">[</span>list<span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]]
+</code></pre>
 <p>map 和 mapPartitions 的区别？</p>
 <p> ➢ 数据处理角度</p>
 <p> Map 算子是分区内一个数据一个数据的执行，类似于串行操作。而 mapPartitions 算子 是以分区为单位进行批处理操作。</p>
@@ -603,6 +608,37 @@
 <p> 将待处理的数据以分区为单位发送到计算节点进行处理，这里的处理是指可以进行任意的处 理，哪怕是过滤数据，在处理时同时可以获取当前分区索引。</p>
 <pre class=" language-scala"><code class="language-scala"> <span class="token keyword">val</span> dataRDD1 <span class="token operator">=</span> dataRDD<span class="token punctuation">.</span>mapPartitionsWithIndex<span class="token punctuation">(</span> <span class="token punctuation">(</span>index<span class="token punctuation">,</span> datas<span class="token punctuation">)</span> <span class="token keyword">=></span> <span class="token punctuation">{</span> datas<span class="token punctuation">.</span>map<span class="token punctuation">(</span>index<span class="token punctuation">,</span> _<span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#mapPartitionsWithIndex可以获取两个参数</span>
+<span class="token comment" spellcheck="true">#即分区id和每个分区内的数据组成的Iterator</span>
+a <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>pid<span class="token punctuation">,</span>it<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> sum<span class="token punctuation">(</span>it<span class="token punctuation">)</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span>iter<span class="token punctuation">(</span><span class="token punctuation">[</span>str<span class="token punctuation">(</span>pid<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">[</span>str<span class="token punctuation">(</span>pid<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span> str<span class="token punctuation">]</span>
+b <span class="token operator">=</span> a<span class="token punctuation">.</span>mapPartitionsWithIndex<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+b<span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[&#39;0|10&#39;, &#39;1|45&#39;]
+</code></pre>
+<pre><code>#利用TaskContext可以获取当前每个元素的分区
+from pyspark.taskcontext import TaskContext
+a = sc.parallelize(range(5),3)
+c = a.map(lambda x:(TaskContext.get().partitionId(),x))
+c.collect()
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<p>foreachPartition：类似foreach，但每次提供一个Partition的一批数据</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#范例：求每个分区内最大值的和</span>
+total <span class="token operator">=</span> sc<span class="token punctuation">.</span>accumulator<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span>
+a <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    total<span class="token punctuation">.</span>add<span class="token punctuation">(</span>max<span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>foreachPartition<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+total<span class="token punctuation">.</span>value
+</code></pre>
+<p>199.0</p>
 <ol start="4">
 <li>flatMap </li>
 </ol>
@@ -752,6 +788,14 @@ rdd<span class="token punctuation">.</span>flatMap<span class="token punctuation
 
 <span class="token keyword">val</span> dataRDD <span class="token operator">=</span> dataRDD1<span class="token punctuation">.</span>zip<span class="token punctuation">(</span>dataRDD2<span class="token punctuation">)</span>
 </code></pre>
+<p><strong>zipWithIndex</strong></p>
+<pre><code>#将RDD和一个从0开始的递增序列按照拉链方式连接。
+rdd_name =  sc.parallelize([&quot;LiLei&quot;,&quot;Hanmeimei&quot;,&quot;Lily&quot;,&quot;Lucy&quot;,&quot;Ann&quot;,&quot;Dachui&quot;,&quot;RuHua&quot;])
+rdd_index = rdd_name.zipWithIndex()
+print(rdd_index.collect())
+</code></pre>
+<pre><code>[(&#39;LiLei&#39;, 0), (&#39;Hanmeimei&#39;, 1), (&#39;Lily&#39;, 2), (&#39;Lucy&#39;, 3), (&#39;Ann&#39;, 4), (&#39;Dachui&#39;, 5), (&#39;RuHua&#39;, 6)]
+</code></pre>
 <h3 id="Key-Value-类型"><a href="#Key-Value-类型" class="headerlink" title="Key - Value 类型"></a>Key - Value 类型</h3><ol start="17">
 <li>partitionBy </li>
 </ol>
@@ -878,7 +922,25 @@ v<span class="token keyword">=></span><span class="token punctuation">(</span>v<
 <span class="token keyword">val</span> dataRDD2 <span class="token operator">=</span> sparkContext<span class="token punctuation">.</span>makeRDD<span class="token punctuation">(</span>List<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 <span class="token keyword">val</span> value<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>Iterable<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Iterable<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span>  dataRDD1<span class="token punctuation">.</span>cogroup<span class="token punctuation">(</span>dataRDD2<span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-scala"><code class="language-scala">x <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> x<span class="token punctuation">.</span>cogroup<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>list<span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[(&#39;a&#39;, (&lt;pyspark.resultiterable.ResultIterable object at 0x7f55be4a48d0&gt;, &lt;pyspark.resultiterable.ResultIterable object at 0x7f55be4a4780&gt;)), (&#39;b&#39;, (&lt;pyspark.resultiterable.ResultIterable object at 0x7f55be4a4a20&gt;, &lt;pyspark.resultiterable.ResultIterable object at 0x7f55be4adf28&gt;))]
+[1, 3]
+</code></pre>
 <p>cartesian：笛卡尔积，在类型T和U的数据集上调用时，返回（T，U）对（所有元素对）的数据集</p>
+<pre class=" language-scala"><code class="language-scala">boys <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"LiLei"</span><span class="token punctuation">,</span><span class="token string">"Tom"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+girls <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"HanMeiMei"</span><span class="token punctuation">,</span><span class="token string">"Lily"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+boys<span class="token punctuation">.</span>cartesian<span class="token punctuation">(</span>girls<span class="token punctuation">)</span><span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[(&#39;LiLei&#39;, &#39;HanMeiMei&#39;),
+ (&#39;LiLei&#39;, &#39;Lily&#39;),
+ (&#39;Tom&#39;, &#39;HanMeiMei&#39;),
+ (&#39;Tom&#39;, &#39;Lily&#39;)]
+</code></pre>
 <p>pipe：通过shell命令（例如Perl或bash脚本）通过管道传输RDD的每个分区。将RDD元素写入进程的stdin，并将输出到其stdout的行作为字符串的RDD返回</p>
 <h2 id="RDD-行动算子"><a href="#RDD-行动算子" class="headerlink" title="RDD 行动算子"></a>RDD 行动算子</h2><ol>
 <li>reduce </li>
@@ -933,6 +995,31 @@ println<span class="token punctuation">(</span>takeResult<span class="token punc
 <pre class=" language-scala"><code class="language-scala"><span class="token keyword">val</span> rdd<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> sc<span class="token punctuation">.</span>makeRDD<span class="token punctuation">(</span>List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 将该 RDD 所有元素相加得到结果 //val result: Int = rdd.aggregate(0)(_ + _, _ + _) </span>
 <span class="token keyword">val</span> result<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> rdd<span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">(</span>_ <span class="token operator">+</span> _<span class="token punctuation">,</span> _ <span class="token operator">+</span> _<span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#aggregate比较复杂，先对每个分区执行一个函数，再对每个分区结果执行一个合并函数。</span>
+<span class="token comment" spellcheck="true">#例子：求元素之和以及元素个数</span>
+<span class="token comment" spellcheck="true">#三个参数，第一个参数为初始值，第二个为分区执行函数，第三个为结果合并执行函数。</span>
+rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">inner_func</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>x<span class="token punctuation">,</span>t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">outer_func</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>q<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>q<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+rdd<span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>inner_func<span class="token punctuation">,</span>outer_func<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#aggregate比较复杂，先对每个分区执行一个函数，再对每个分区结果执行一个合并函数。</span>
+<span class="token comment" spellcheck="true">#例子：求元素之和以及元素个数</span>
+<span class="token comment" spellcheck="true">#三个参数，第一个参数为初始值，第二个为分区执行函数，第三个为结果合并执行函数。</span>
+rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">inner_func</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>x<span class="token punctuation">,</span>t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">outer_func</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>q<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>q<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+rdd<span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>inner_func<span class="token punctuation">,</span>outer_func<span class="token punctuation">)</span>
+</code></pre>
+<p>(210,20)</p>
 <ol start="8">
 <li>fold </li>
 </ol>
@@ -983,13 +1070,83 @@ rdd<span class="token punctuation">.</span>foreach<span class="token punctuation
 4
 </code></pre>
 <p>takeSample：返回一个数组，该数组包含数据集num个元素的随机样本（是否替换），可以选择预先指定随机数生成器种子</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>persist：可以根据参数进行不同级别的缓存MEMORY_ONLY<strong>（仅在内存中）</strong>、MEMORY_AND_DISK<strong>在内存和磁盘</strong>、MEMORY_ONLY_SER<strong>仅在内存中，但是经过序列化）</strong>、MEMORY_AND_DISK_SER<strong>（序列化后存于内存和磁盘）</strong>、DISK_ONLY<strong>（序列化后存于磁盘）</strong>、OFF_HEAP（堆外存储）<br>cache：默认缓存级别MEMORY_ONLY<br>缓存级别选择：MEMORY_ONLY&gt;MEMORY_ONLY_SER&gt;MEMORY_AND_DISK<br>unpersist：释放缓存</p>
-<h2 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h2><p>广播变量：在所有节点上创建一个只读变量，在使用时不应该调用函数中的指定变量值，而是直接使用指定广播变量，而且防止修改节点上的广播变量，dataFrame和变量都可以使用broadcast进行广播，但是rdd不可以<br>val broadcastVar = sc.broadcast(Array(1, 2, 3))</p>
-<p>val broadcastDF = functions.broadcast(df)<br>累加器<br>创建累加器</p>
-<pre class=" language-scala"><code class="language-scala"><span class="token keyword">val</span> accum <span class="token operator">=</span> sc<span class="token punctuation">.</span>longAccumulator<span class="token punctuation">(</span><span class="token string">"My Accumulator"</span><span class="token punctuation">)</span>
-sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>Array<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>x <span class="token keyword">=></span> accum<span class="token punctuation">.</span>add<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
-println<span class="token punctuation">(</span>accum<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+<p>可以随机取若干个到Driver,第一个参数设置是否放回抽样</p>
+<pre class=" language-python"><code class="language-python">rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> 
+sample_data <span class="token operator">=</span> rdd<span class="token punctuation">.</span>takeSample<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#subtractByKey去除x中那些key也在y中的元素</span>
+x <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+x<span class="token punctuation">.</span>subtractByKey<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[(&#39;c&#39;, 3)]
+</code></pre>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>如果一个rdd被多个任务用作中间量，那么对其进行cache缓存到内存中对加快计算会非常有帮助。</p>
+<p>声明对一个rdd进行cache后，该rdd不会被立即缓存，而是等到它第一次被计算出来时才进行缓存。</p>
+<p>persist：可以根据参数进行不同级别的缓存MEMORY_ONLY<strong>（仅在内存中）</strong>、MEMORY_AND_DISK<strong>在内存和磁盘</strong>、MEMORY_ONLY_SER<strong>仅在内存中，但是经过序列化）</strong>、MEMORY_AND_DISK_SER<strong>（序列化后存于内存和磁盘）</strong>、DISK_ONLY<strong>（序列化后存于磁盘）</strong>、OFF_HEAP（堆外存储）<br>cache：默认缓存级别MEMORY_ONLY<br>缓存级别选择：MEMORY_ONLY&gt;MEMORY_ONLY_SER&gt;MEMORY_AND_DISK</p>
+<p>如果一个RDD后面不再用到，可以用unpersist释放缓存，unpersist是立即执行的。</p>
+<p>缓存数据不会切断血缘依赖关系，这是因为缓存数据某些分区所在的节点有可能会有故障，例如内存溢出或者节点损坏。</p>
+<p>这时候可以根据血缘关系重新计算这个分区的数据。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#cache缓存到内存中，使用存储级别 MEMORY_ONLY。</span>
+<span class="token comment" spellcheck="true">#MEMORY_ONLY意味着如果内存存储不下，放弃存储其余部分，需要时重新计算。</span>
+a <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>cache<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sum_a <span class="token operator">=</span> a<span class="token punctuation">.</span>reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span>
+cnt_a <span class="token operator">=</span> a<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+mean_a <span class="token operator">=</span> sum_a<span class="token operator">/</span>cnt_a
+<span class="token keyword">print</span><span class="token punctuation">(</span>mean_a<span class="token punctuation">)</span>
+<span class="token number">4999.5</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#persist缓存到内存或磁盘中，默认使用存储级别MEMORY_AND_DISK</span>
+<span class="token comment" spellcheck="true">#MEMORY_AND_DISK意味着如果内存存储不下，其余部分存储到磁盘中。</span>
+<span class="token comment" spellcheck="true">#persist可以指定其它存储级别，cache相当于persist(MEMORY_ONLY)</span>
+<span class="token keyword">from</span>  pyspark<span class="token punctuation">.</span>storagelevel <span class="token keyword">import</span> StorageLevel
+a <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>persist<span class="token punctuation">(</span>StorageLevel<span class="token punctuation">.</span>MEMORY_AND_DISK<span class="token punctuation">)</span>
+sum_a <span class="token operator">=</span> a<span class="token punctuation">.</span>reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span>
+cnt_a <span class="token operator">=</span> a<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+mean_a <span class="token operator">=</span> sum_a<span class="token operator">/</span>cnt_a
+
+a<span class="token punctuation">.</span>unpersist<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#立即释放缓存</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>mean_a<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h2><p>广播变量是不可变变量，实现在不同节点不同任务之间共享数据。</p>
+<p>广播变量在每个机器上缓存一个只读的变量，而不是为每个task生成一个副本，可以减少数据的传输。</p>
+<p>累加器主要是不同节点和Driver之间共享变量，只能实现计数或者累加功能。</p>
+<p>累加器的值只有在Driver上是可读的，在节点上不可见。</p>
+<p>广播变量：在所有节点上创建一个只读变量，在使用时不应该调用函数中的指定变量值，而是直接使用指定广播变量，而且防止修改节点上的广播变量，dataFrame和变量都可以使用broadcast进行广播，但是rdd不可以<br>val broadcastVar = sc.broadcast(Array(1, 2, 3))</p>
+<p>val broadcastDF = functions.broadcast(df)</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#广播变量 broadcast 不可变，在所有节点可读</span>
+broads <span class="token operator">=</span> sc<span class="token punctuation">.</span>broadcast<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rdd<span class="token punctuation">.</span>map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">+</span>broads<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span>collect<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>broads<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+100
+</code></pre>
+<p>累加器<br>创建累加器</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#累加器 只能在Driver上可读，在其它节点只能进行累加</span>
+total <span class="token operator">=</span> sc<span class="token punctuation">.</span>accumulator<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+rdd<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>total<span class="token punctuation">.</span>add<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+total<span class="token punctuation">.</span>value
+</code></pre>
+<p>45</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 计算数据的平均值</span>
+rdd <span class="token operator">=</span> sc<span class="token punctuation">.</span>parallelize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.1</span><span class="token punctuation">,</span><span class="token number">2.1</span><span class="token punctuation">,</span><span class="token number">3.1</span><span class="token punctuation">,</span><span class="token number">4.1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+total <span class="token operator">=</span> sc<span class="token punctuation">.</span>accumulator<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+count <span class="token operator">=</span> sc<span class="token punctuation">.</span>accumulator<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    total<span class="token punctuation">.</span>add<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    count<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    
+rdd<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+total<span class="token punctuation">.</span>value<span class="token operator">/</span>count<span class="token punctuation">.</span>value
+</code></pre>
+<p>2.6</p>
 <p>参考sparkAPI链接：<a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/api/scala/org/apache/spark/index.html">https://spark.apache.org/docs/latest/api/scala/org/apache/spark/index.html</a></p>
 
                 
