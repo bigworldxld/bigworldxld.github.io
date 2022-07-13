@@ -2544,6 +2544,222 @@ annu_df
 </table>
 </div>
 
+<h2 id="时序数据处理（日期范围pd-date-range-、频率-基础频率表-及移动-shift-、rollforward-、rollback-）"><a href="#时序数据处理（日期范围pd-date-range-、频率-基础频率表-及移动-shift-、rollforward-、rollback-）" class="headerlink" title="时序数据处理（日期范围pd.date_range()、频率(基础频率表)及移动(shift()、rollforward()、rollback())）"></a>时序数据处理（日期范围pd.date_range()、频率(基础频率表)及移动(shift()、rollforward()、rollback())）</h2><p>一、生成日期范围的时序数据</p>
+<p>pd.date_range()可用于生成指定长度的日期索引，默认产生按天计算的时间点（即日期范围）。其参数可以是：</p>
+<p>起始结束日期<br>或者是仅有一个起始或结束日期，加上一个时间段参数<br>以下三种方法结果一致：</p>
+<p>pd.date_range(‘20200801’,’20200810’)<br>pd.date_range(start=’20200801’,periods=10)<br>pd.date_range(end=’20200810’,periods=10)<br>结果：</p>
+<p>DatetimeIndex([‘2020-08-01’, ‘2020-08-02’, ‘2020-08-03’, ‘2020-08-04’,<br>               ‘2020-08-05’, ‘2020-08-06’, ‘2020-08-07’, ‘2020-08-08’,<br>               ‘2020-08-09’, ‘2020-08-10’],<br>              dtype=’datetime64[ns]’, freq=’D’)</p>
+<p>注意：此处的freq参数表示时间序列数据的频率，其值为D，表示是以天为频率；</p>
+<p>所以，若想生成一个特殊频率的日期索引，若一个由每月最后一个工作日组成的日期索引，直接加上参数freq=’BM’（BM表示business end of month）</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-01-01'</span><span class="token punctuation">,</span><span class="token string">'2020-12-31'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'BM'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2020-01-31&#39;, &#39;2020-02-28&#39;, &#39;2020-03-31&#39;, &#39;2020-04-30&#39;,
+               &#39;2020-05-29&#39;, &#39;2020-06-30&#39;, &#39;2020-07-31&#39;, &#39;2020-08-31&#39;,
+               &#39;2020-09-30&#39;, &#39;2020-10-30&#39;, &#39;2020-11-30&#39;, &#39;2020-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;BM&#39;)
+</code></pre>
+<p>二、日期频率<br>pandas中的频率是由一个基础频率和一个乘数组成。基础频率通常以一个字符串别名表示，如’M’，’H’。</p>
+<p>date_range()参数freq的取值说明</p>
+<p>基础频率表</p>
+<p>别名    偏移量类型    说明</p>
+<p>D    Day    每日历日</p>
+<p>B     BusinessDay    每工作日 </p>
+<p>H     Hour    每小时 </p>
+<p>T或min     Minute    每分 </p>
+<p>M     MonthEnd    每月最后一个日历日 </p>
+<p>BM     BusinessMonthEnd     每月最后一个工作日</p>
+<p>WOM-1MON      WeekOfMonth     产生每月第一、第二、第四周的星期几，如WOM-3FRI表示每月第3个周五</p>
+<p>Q-JAN      QuarterEnd     对于指定月份（JAN、FEB、MAR…DEC）结束的年度，每季度最后一个月的最后一个日历日</p>
+<p>A-JAN      YearEnd     对于指定年份的最后一个日历日</p>
+<p>例：从2022年1月至2022年3月以’3M’的频率生成一个时间范围 </p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022-01-01'</span><span class="token punctuation">,</span><span class="token string">'2022-12-31'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'3M'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-01-31&#39;, &#39;2022-04-30&#39;, &#39;2022-07-31&#39;, &#39;2022-10-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;3M&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022-01-01'</span><span class="token punctuation">,</span><span class="token string">'2022-12-31'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'WOM-3FRI'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-01-21&#39;, &#39;2022-02-18&#39;, &#39;2022-03-18&#39;, &#39;2022-04-15&#39;,
+               &#39;2022-05-20&#39;, &#39;2022-06-17&#39;, &#39;2022-07-15&#39;, &#39;2022-08-19&#39;,
+               &#39;2022-09-16&#39;, &#39;2022-10-21&#39;, &#39;2022-11-18&#39;, &#39;2022-12-16&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;WOM-3FRI&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2020-01-01'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'2H30T'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#两小时三十分</span>
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2020-01-01 00:00:00&#39;, &#39;2020-01-01 02:30:00&#39;,
+               &#39;2020-01-01 05:00:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;150T&#39;)
+</code></pre>
+<p>对于每个基础频率，都有一个日期偏移量（date offset）对象与之对应。可以通过实例化日期偏移量来创建某种频率：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pandas<span class="token punctuation">.</span>tseries<span class="token punctuation">.</span>offsets <span class="token keyword">import</span> Hour<span class="token punctuation">,</span>Minute
+hour <span class="token operator">=</span> Hour<span class="token punctuation">(</span><span class="token punctuation">)</span>
+hour
+</code></pre>
+<pre><code>&lt;Hour&gt;
+</code></pre>
+<pre class=" language-python"><code class="language-python">four_hours <span class="token operator">=</span> Hour<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+four_hours
+</code></pre>
+<pre><code>&lt;4 * Hours&gt;
+</code></pre>
+<p>大部分偏移量对象可以通过加法进行连接：</p>
+<pre class=" language-python"><code class="language-python"> Hour<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">+</span>Minute<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>&lt;200 * Minutes&gt;
+</code></pre>
+<p>有些频率所描述的时间点并不是均匀分隔的。例如’M’和’BM’就取决于每月的天数，对于后者，还要考虑月末是否是周末，将这些成为锚点偏移量。</p>
+<p>三、移动（超前或之后）数据</p>
+<p>（1）移动（Shifting）指的是沿着时间轴将数据向前或向后移动，保持索引不变。</p>
+<p>　　thift()方法默认表示索引不变数据后移；若提供freq参数，则此时将移动index，数据将保持不变</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#创建一个时序数据</span>
+ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022-1-1'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2022-01-31    2
+2022-02-28    4
+2022-03-31    9
+2022-04-30    4
+2022-05-31    6
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#索引不变，数据向后移2个单位</span>
+ts<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2022-01-31    NaN
+2022-02-28    NaN
+2022-03-31    2.0
+2022-04-30    4.0
+2022-05-31    9.0
+Freq: M, dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#索引不变，数据向前移2个单位</span>
+ts<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2022-01-31    9.0
+2022-02-28    4.0
+2022-03-31    6.0
+2022-04-30    NaN
+2022-05-31    NaN
+Freq: M, dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将时间索引向后移2个月，数据保持不变</span>
+ts<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2022-03-31    2
+2022-04-30    4
+2022-05-31    9
+2022-06-30    4
+2022-07-31    6
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将时间索引向前移2个月，数据保持不变</span>
+ts<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2021-11-30    2
+2021-12-31    4
+2022-01-31    9
+2022-02-28    4
+2022-03-31    6
+Freq: M, dtype: int32
+</code></pre>
+<p>（2）如何通过偏移量对日期进行位移？</p>
+<p>　　　　在时间后直接加上一个实例化的日期偏移量即可。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pandas<span class="token punctuation">.</span>tseries<span class="token punctuation">.</span>offsets <span class="token keyword">import</span> Day<span class="token punctuation">,</span>MonthEnd
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+t <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
+t <span class="token operator">+</span> <span class="token number">10</span><span class="token operator">*</span>Day<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2022-08-18 00:00:00&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#第一次位移量没有一个月那么长，则位移就在当月，所以此时进行2个位移的结果是9月</span>
+t <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>MonthEnd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2022-09-30 00:00:00&#39;)
+</code></pre>
+<p>（3）结合锚点偏移量，使用rollforward()和rollback()方法，可以将日期向前或向后滚动</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pandas<span class="token punctuation">.</span>tseries<span class="token punctuation">.</span>offsets <span class="token keyword">import</span> MonthEnd<span class="token punctuation">,</span>YearEnd<span class="token punctuation">,</span>QuarterEnd
+offset <span class="token operator">=</span> MonthEnd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+t
+</code></pre>
+<pre><code>datetime.datetime(2022, 8, 8, 0, 0)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#向前滚动</span>
+offset<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2022-07-31 00:00:00&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">offset1 <span class="token operator">=</span> YearEnd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+offset1<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2021-12-31 00:00:00&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">offset1<span class="token punctuation">.</span>rollforward<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2022-12-31 00:00:00&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">offset2 <span class="token operator">=</span> QuarterEnd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+offset2<span class="token punctuation">.</span>rollforward<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2022-09-30 00:00:00&#39;)
+</code></pre>
+<p>四、例子:若有以下时间序列，如何在每月月末显示该月数据的均值</p>
+<pre class=" language-python"><code class="language-python">ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token string">'2020-1-15'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'10D'</span><span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2020-01-15    2
+2020-01-25    1
+2020-02-04    8
+2020-02-14    2
+2020-02-24    0
+2020-03-05    5
+2020-03-15    1
+2020-03-25    2
+2020-04-04    6
+2020-04-14    2
+Freq: 10D, dtype: int32
+</code></pre>
+<p>解法步骤：</p>
+<p>先将时间序列使用rollforward()向前滚动，这样将日期索引都设置为当前月的最后一天；</p>
+<p>使用groupby()对时间索引进行分组聚合，求其均值</p>
+<pre class=" language-python"><code class="language-python">offset <span class="token operator">=</span> MonthEnd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#方法一：使用列表推导式将时间序列向后滚动至当前月的最后一天，再将生成的列表转换成DatetimeIndex</span>
+ts<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span><span class="token punctuation">[</span>offset<span class="token punctuation">.</span>rollforward<span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token keyword">for</span> index <span class="token keyword">in</span> ts<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2020-01-31    2
+2020-01-31    1
+2020-02-29    8
+2020-02-29    2
+2020-02-29    0
+2020-03-31    5
+2020-03-31    1
+2020-03-31    2
+2020-04-30    6
+2020-04-30    2
+dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用Groupby()聚合分组</span>
+ts<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>ts<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-01-31    1.500000
+2020-02-29    3.333333
+2020-03-31    2.666667
+2020-04-30    4.000000
+dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法二：以下结果与上述结果一致</span>
+ts<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>offset<span class="token punctuation">.</span>rollforward<span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2020-01-31    1.500000
+2020-02-29    3.333333
+2020-03-31    2.666667
+2020-04-30    4.000000
+dtype: float64
+</code></pre>
+<p>方法一改变了ts，方法二没有；若在使用过程中，若想使用方法一又不想改变ts的值，可以先复制一个ts，然后对复制后的ts进行操作即可。</p>
 <h2 id="数据转换（df-map-、df-replace-）"><a href="#数据转换（df-map-、df-replace-）" class="headerlink" title="数据转换（df.map()、df.replace()）"></a>数据转换（df.map()、df.replace()）</h2><p>在数据分析中，根据需求，有时候需要将一些数据进行转换，而在Pandas中，实现数据转换的常用方法有：</p>
 <p>利用函数或是映射</p>
 <p>可以将自己定义的或者是其他包提供的函数用在Pandas对象上实现批量修改。</p>
