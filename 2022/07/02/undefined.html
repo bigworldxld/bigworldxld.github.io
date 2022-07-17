@@ -3344,6 +3344,899 @@ df1
     </tr>
   </tbody>
 </table>
+</div>
+
+<h2 id="数据转换（哑变量编码pd-get-dummies-）"><a href="#数据转换（哑变量编码pd-get-dummies-）" class="headerlink" title="数据转换（哑变量编码pd.get_dummies()）"></a>数据转换（哑变量编码pd.get_dummies()）</h2><p>哑变量编码</p>
+<p>1、什么叫做哑变量？</p>
+<p>将类别型特征转化“哑变量矩阵”或是“指标矩阵”，让类别特征转换成数值特征的过程。相当与标签化和OneHOt编码</p>
+<p>2、哑变量将派生出那些特征？</p>
+<p>哑变量将会从一个含有k个不同值的特征，派生出k-1个二元特征。因为在建模过程中，有k类的分类变量只需要k-1个变量将其描述，若使用k个变量将出现完全共线性的问题。</p>
+<p>3、如何实现哑变量编码？</p>
+<p>使用get_dummies()函数,指定prefix参数的值来设置前缀；</p>
+<p>例：（1）使用get_dummies()对salary进行转换。</p>
+<p>由于原始数据中有一条salary的值为‘nme’的数据，先将该条数据进行删除，在对salsry进行哑变量编码:</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+data<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'number_project'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+              <span class="token string">'left'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+              <span class="token string">'salary'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'low'</span><span class="token punctuation">,</span><span class="token string">'medium'</span><span class="token punctuation">,</span><span class="token string">'hogh'</span><span class="token punctuation">,</span><span class="token string">'low'</span><span class="token punctuation">,</span><span class="token string">'low'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+             
+             <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#删掉salary为‘nme’那条记录</span>
+data <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token operator">~</span>data<span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'nme'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+data<span class="token punctuation">.</span>tail<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>left</th>
+      <th>number_project</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>5</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>7</td>
+      <td>hogh</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>5</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hogh</th>
+      <th>low</th>
+      <th>medium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#通过prefix设置前缀</span>
+dummies<span class="token operator">=</span>pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>prefix <span class="token operator">=</span> <span class="token string">'salary'</span><span class="token punctuation">)</span>
+dummies<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>salary_hogh</th>
+      <th>salary_low</th>
+      <th>salary_medium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>2）使用df.join()或pd.concat()将新的哑变量编码数据与原本未编码的数据进行合并　</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#展示全部的列</span>
+pd<span class="token punctuation">.</span>set_option<span class="token punctuation">(</span><span class="token string">'display.max_columns'</span><span class="token punctuation">,</span>None<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#合并数据---df.join()</span>
+newdata <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'number_project'</span><span class="token punctuation">,</span><span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>dummies<span class="token punctuation">)</span>
+newdata<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number_project</th>
+      <th>left</th>
+      <th>salary_hogh</th>
+      <th>salary_low</th>
+      <th>salary_medium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#合并数据---pd.concat()</span>
+newdata1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>data<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'number_project'</span><span class="token punctuation">,</span><span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dummies<span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+newdata1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number_project</th>
+      <th>left</th>
+      <th>salary_hogh</th>
+      <th>salary_low</th>
+      <th>salary_medium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>（3）若需要对DataFrame中所有的元素均进行哑变量变化，则</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pd.get_dummies(data)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>（4）若仅需要对某几个特征进行编码，可以用columns进行指定要编码的特征；</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pd.get_dummies(data,columns=[‘salary’])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>（5）通过drop_first = True将第一个编码特征丢掉；</p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>data<span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>drop_first <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>left</th>
+      <th>number_project</th>
+      <th>salary_low</th>
+      <th>salary_medium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h2 id="数据转换（文本数据规整）"><a href="#数据转换（文本数据规整）" class="headerlink" title="数据转换（文本数据规整）"></a>数据转换（文本数据规整）</h2><p>Pandas对于字符串和文本处理通常是由一些内置的字符串方法指定，一般语法格式为：series.str.method。其中，str.method被称为矢量化的字符串方法，包括str.upper()、str.lower()、str.split()等一系列字符串的内置方法，还可以结合正则化式进行处理。</p>
+<p>（1）矢量化的字符串方法将对Series或者Index中的每个元素都进行相同的处理；</p>
+<p>说明：缺失值不做任何处理</p>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'ADJruK'</span><span class="token punctuation">,</span><span class="token string">'hjuQ'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span><span class="token string">'hj'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+s
+</code></pre>
+<pre><code>0    ADJruK
+1      hjuQ
+2       NaN
+3        hj
+dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python">s<span class="token punctuation">.</span>str<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    ADJRUK
+1      HJUQ
+2       NaN
+3        HJ
+dtype: object
+</code></pre>
+<p>（2）对于Index对象也可以使用矢量化字符串的处理方式</p>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Jack Joe'</span><span class="token punctuation">,</span><span class="token string">'BOB Marly'</span><span class="token punctuation">,</span><span class="token string">'sid Jane'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Jack Joe</th>
+      <th>BOB Marly</th>
+      <th>sid Jane</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>8</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将所有列名转化为小写</span>
+df<span class="token punctuation">.</span>columns <span class="token operator">=</span> df<span class="token punctuation">.</span>columns<span class="token punctuation">.</span>str<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>jack joe</th>
+      <th>bob marly</th>
+      <th>sid jane</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>8</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>（3）链式法则（chain rules）：将多个数据规整写在一行代码中；</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将所有列名转化为小写，再使用下划线代替空格</span>
+df<span class="token punctuation">.</span>columns <span class="token operator">=</span> df<span class="token punctuation">.</span>columns<span class="token punctuation">.</span>str<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'_'</span><span class="token punctuation">)</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>jack_joe</th>
+      <th>bob_marly</th>
+      <th>sid_jane</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>8</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>（4）分割元素：str.split()可以将一个Series对象规整为包含多个Series对象或DataFrame对象；</p>
+<p>例：需求为提取每个元素的姓名—使用str.get方法或世界在str上进行索引</p>
+<pre class=" language-python"><code class="language-python">ss <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name1 sex1 age1'</span><span class="token punctuation">,</span><span class="token string">'name2 sex2 age2'</span><span class="token punctuation">,</span><span class="token string">'name3 sex3 age3'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ss
+</code></pre>
+<pre><code>0    name1 sex1 age1
+1    name2 sex2 age2
+2    name3 sex3 age3
+dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python">new_ss <span class="token operator">=</span> ss<span class="token punctuation">.</span>str<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
+new_ss
+<span class="token comment" spellcheck="true"># type(new_ss)|</span>
+</code></pre>
+<pre><code>0    [name1, sex1, age1]
+1    [name2, sex2, age2]
+2    [name3, sex3, age3]
+dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python">new_ss<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>[&#39;name1&#39;, &#39;sex1&#39;, &#39;age1&#39;]
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法一：直接在str属性上使用索引（即str[]），即可提取每个样本的姓名</span>
+new_ss<span class="token punctuation">.</span>str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    name1
+1    name2
+2    name3
+dtype: object
+</code></pre>
+<p>若需要将分隔开的元素规整成一个DataFrame，可以使用expand参数将分隔开的各个部分展开</p>
+<pre class=" language-python"><code class="language-python">ss<span class="token punctuation">.</span>str<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span>expand <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>name1</td>
+      <td>sex1</td>
+      <td>age1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>name2</td>
+      <td>sex2</td>
+      <td>age2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>name3</td>
+      <td>sex3</td>
+      <td>age3</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>（5）结合正则表达式</p>
+<p>Series.str属性结合正则表达式可以匹配一定模式的字符的换的提取、判断、替换等操作。</p>
+<p>这些矢量化的字符串包括str.contains（查看是否包含指定的信息）、str.findall（提取指定的信息）、str.match、str.relpace（替换）和str.extract（指定捕获组以提取某信息）等等</p>
+<p>以爬取的“58同城网重庆市南岸区二手房数据中的楼层数（floors）”为例。</p>
+<pre class=" language-python"><code class="language-python">df<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'floor'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'中层(共16层)'</span><span class="token punctuation">,</span><span class="token string">'中层(共31层)'</span><span class="token punctuation">,</span><span class="token string">'中层(共33层)'</span><span class="token punctuation">,</span><span class="token string">'中层(共16层)'</span><span class="token punctuation">,</span><span class="token string">'中层(共28层)'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>floor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>中层(共16层)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>中层(共31层)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>中层(共33层)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>中层(共16层)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>中层(共28层)</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>使用str.contains()找到其中包含数字的元素　</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'floor'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>contains<span class="token punctuation">(</span>r<span class="token string">'\d'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    True
+1    True
+2    True
+3    True
+4    True
+Name: floor, dtype: bool
+</code></pre>
+<p>使用str.repalce()对楼层进行加密（即将数字替换成’XX’）</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'floor'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>r<span class="token string">'\d.'</span><span class="token punctuation">,</span><span class="token string">'XX'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    中层(共XX层)
+1    中层(共XX层)
+2    中层(共XX层)
+3    中层(共XX层)
+4    中层(共XX层)
+Name: floor, dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用str.findall()提取其中的数字</span>
+df<span class="token punctuation">[</span><span class="token string">'floor'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'\d.'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    16
+1    31
+2    33
+3    16
+4    28
+Name: floor, dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用str.extract()指定捕获组以直接提取数字</span>
+df<span class="token punctuation">[</span><span class="token string">'floor'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>str<span class="token punctuation">.</span>extract<span class="token punctuation">(</span>r<span class="token string">'(\d.)'</span><span class="token punctuation">,</span>expand<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>0    16
+1    31
+2    33
+3    16
+4    28
+Name: floor, dtype: object
+</code></pre>
+<p>（6）对多个标签样本进行哑变量编码</p>
+<p>使用str属性进行哑变量编码，并使用sep指定分隔符</p>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"Animation,Children's,Comedy"</span><span class="token punctuation">,</span><span class="token string">"Comedy,Romance"</span><span class="token punctuation">,</span><span class="token string">"Animation"</span><span class="token punctuation">,</span><span class="token string">"Comedy"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+s
+</code></pre>
+<pre><code>0    Animation,Children&#39;s,Comedy
+1                 Comedy,Romance
+2                      Animation
+3                         Comedy
+dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#对多个标签进行哑变量编码</span>
+s<span class="token punctuation">.</span>str<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>sep<span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Animation</th>
+      <th>Children's</th>
+      <th>Comedy</th>
+      <th>Romance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
