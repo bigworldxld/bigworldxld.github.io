@@ -2544,6 +2544,567 @@ annu_df
 </table>
 </div>
 
+<h2 id="日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）"><a href="#日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）" class="headerlink" title="日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）"></a>日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）</h2><p>一、什么是时间序列？</p>
+<p>时间序列（Time Series）是一种重要的结构化数据形式，在多个时间点观察或测量到的任何事物都可以形成一段时间序列，可分为以下两种：</p>
+<p>定期的时间序列：数据根据某种规律定期出现（例如：每10秒、每1分）</p>
+<p>不定期的时间序列：数据之间并没有固定的时间单位或是单位之间的偏移量</p>
+<p>二、时间序列的类型有哪些？<br>时间序列数据的类型主要取决于具体的应用场景，一般可分为3种：</p>
+<ol>
+<li><p>时间戳（Timestamps）：即特定的时刻，如2020年1月1日14时12分34秒</p>
+</li>
+<li><p>固定时期（Fixed periods）：如2020年3月或2020年全年</p>
+</li>
+<li><p>时间间隔（Interval of time）：如2020年8月1日到2020年9月1日</p>
+</li>
+</ol>
+<p>三、时间序列类型的处理是否Pandas中独有？</p>
+<p>不是Pandas中独有的，Python的基础库中包含了用于日期（date）和时间（time）数据的数据类型，主要用到的模块有datetime和time。</p>
+<p>但是Pandas提供了一组标准的时间序列处理工具和数据算法，如切片、切块、聚合、对定期/不定期的时间序列进行重采样等。</p>
+<p>四、datetime模块</p>
+<p>datetime模块中的数据类型如下：</p>
+<p>类型    说明</p>
+<p>date    以公历形式存储日历日期（年、月、日）</p>
+<p>time    将时间存储为时、分、秒、毫秒</p>
+<p>datetime    存储日期和时间，即date和time的结合</p>
+<p>timedelta    两个datetime值之间的差（日、秒、毫秒）</p>
+<p>其中:datetime.datetime简称为datetime，是最为常用的数据类型。</p>
+<p>例：查看当前的日期与时间（记录到秒），为datetime类型：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+now<span class="token operator">=</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+now
+</code></pre>
+<pre><code>datetime.datetime(2022, 7, 19, 11, 1, 46, 220415)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#可使用如下方式查看年、月、日、时、分、秒</span>
+x <span class="token operator">=</span> <span class="token punctuation">[</span>now<span class="token punctuation">.</span>year<span class="token punctuation">,</span>now<span class="token punctuation">.</span>month<span class="token punctuation">,</span>now<span class="token punctuation">.</span>day<span class="token punctuation">,</span>now<span class="token punctuation">.</span>hour<span class="token punctuation">,</span>now<span class="token punctuation">.</span>minute<span class="token punctuation">,</span>now<span class="token punctuation">.</span>second<span class="token punctuation">]</span>
+x
+</code></pre>
+<pre><code>[2022, 7, 19, 11, 1, 46]
+</code></pre>
+<p>　两个datetime对象之间的时间差（日、秒、毫秒）为timedelta类型</p>
+<pre class=" language-python"><code class="language-python">delta <span class="token operator">=</span> now <span class="token operator">-</span> datetime<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span>
+delta
+</code></pre>
+<pre><code>datetime.timedelta(186, 39706, 220415)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#所以可以通过如下方式查看日、秒、毫秒</span>
+y <span class="token operator">=</span> <span class="token punctuation">[</span>delta<span class="token punctuation">.</span>days<span class="token punctuation">,</span>delta<span class="token punctuation">.</span>seconds<span class="token punctuation">,</span>delta<span class="token punctuation">.</span>microseconds<span class="token punctuation">]</span>
+y
+</code></pre>
+<pre><code>[186, 39706, 220415]
+</code></pre>
+<p>五、字符串和datetime的互换　</p>
+<p>字符串与datetime之间通常需要进行转换，有如下几种方式：</p>
+<p>Python标准库函数：</p>
+<ul>
+<li>日期—&gt;字符串：str或strftime</li>
+<li>字符串—&gt;日期：datetime.striptime</li>
+</ul>
+<p>第三方库函数：</p>
+<ul>
+<li>dateutil.parser时间解析函数　　</li>
+</ul>
+<p>time模块中字符串与时间的互换</p>
+<p>1）日期—–&gt;字符串</p>
+<p>例：使用str将日期转换成字符串</p>
+<pre class=" language-python"><code class="language-python">stamp <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
+str<span class="token punctuation">(</span>stamp<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>&#39;2022-08-08 00:00:00&#39;
+</code></pre>
+<p>那么如何对datetime的格式进行更改呢，在这就设计到了对datetime格式的定义：</p>
+<p>符号    说明</p>
+<p>%Y    4位数的年份</p>
+<p>%y    2位数的年份</p>
+<p>%m    2位数的月</p>
+<p>%d    2位数的日</p>
+<p>%H    24小时的时</p>
+<p>%I    12小时的时</p>
+<p>例：使用strftime将日期转换成字符串，并设置格式</p>
+<pre class=" language-python"><code class="language-python">stamp<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>&#39;2022-08-08&#39;
+</code></pre>
+<p>2）字符串—–&gt;日期</p>
+<p>例：使用strptime将字符串转换成日期，需要传入格式</p>
+<p>需要注意的是：此处的格式不可随便设置，应该与字符串中的格式一致</p>
+<pre class=" language-python"><code class="language-python">value <span class="token operator">=</span> <span class="token string">'2022-1-14'</span>
+<span class="token comment" spellcheck="true"># datetime.strptime(value,'%y-%m-%d') #此时以下将会报错</span>
+datetime<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>value<span class="token punctuation">,</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>datetime.datetime(2022, 1, 14, 0, 0)
+</code></pre>
+<pre class=" language-python"><code class="language-python">values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'2022-05-23'</span><span class="token punctuation">,</span><span class="token string">'2028-04-02'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>datetime<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>value<span class="token punctuation">,</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> vlaue <span class="token keyword">in</span> values <span class="token punctuation">]</span>
+</code></pre>
+<pre><code>[datetime.datetime(2022, 1, 14, 0, 0), datetime.datetime(2022, 1, 14, 0, 0)]
+</code></pre>
+<h2 id="时区处理（UTC查看、获取、时区意识型TimeStamp对象、本地化与转换、计算）"><a href="#时区处理（UTC查看、获取、时区意识型TimeStamp对象、本地化与转换、计算）" class="headerlink" title="时区处理（UTC查看、获取、时区意识型TimeStamp对象、本地化与转换、计算）"></a>时区处理（UTC查看、获取、时区意识型TimeStamp对象、本地化与转换、计算）</h2><p>通常选择使用协调世界时（UTC，又称世界统一时间、世界标准时间、国际协调时间）来处理时间序列。</p>
+<p>时区是以UTC偏移量的形式表示的。</p>
+<p>在Python中，时区信息来自第三方库pytz，Pandas包装了pytz功能。时区名可以在文档中找到，也可以用交互的方式查看。</p>
+<p>（1）查看时区</p>
+<p>pytz有all_timezones、common_timezones这两个属性来查看有哪些时区；</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pytz
+len<span class="token punctuation">(</span>pytz<span class="token punctuation">.</span>common_timezones<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>439
+</code></pre>
+<pre class=" language-python"><code class="language-python">pytz<span class="token punctuation">.</span>common_timezones<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>[&#39;Africa/Abidjan&#39;,
+ &#39;Africa/Accra&#39;,
+ &#39;Africa/Addis_Ababa&#39;,
+ &#39;Africa/Algiers&#39;,
+ &#39;Africa/Asmara&#39;]
+</code></pre>
+<pre class=" language-python"><code class="language-python">pytz<span class="token punctuation">.</span>common_timezones<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>[&#39;US/Eastern&#39;, &#39;US/Hawaii&#39;, &#39;US/Mountain&#39;, &#39;US/Pacific&#39;, &#39;UTC&#39;]
+</code></pre>
+<pre class=" language-python"><code class="language-python">len<span class="token punctuation">(</span>pytz<span class="token punctuation">.</span>all_timezones<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>593
+</code></pre>
+<pre class=" language-python"><code class="language-python">pytz<span class="token punctuation">.</span>all_timezones<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+</code></pre>
+<pre><code>[&#39;UTC&#39;, &#39;Universal&#39;, &#39;W-SU&#39;, &#39;WET&#39;, &#39;Zulu&#39;]
+</code></pre>
+<p>（2）获取时区对象</p>
+<p>　　pytz有timezone属性获取时区对象</p>
+<pre class=" language-python"><code class="language-python">tz <span class="token operator">=</span> pytz<span class="token punctuation">.</span>timezone<span class="token punctuation">(</span><span class="token string">'Asia/Shanghai'</span><span class="token punctuation">)</span>
+tz
+</code></pre>
+<pre><code>&lt;DstTzInfo &#39;Asia/Shanghai&#39; LMT+8:06:00 STD&gt;
+</code></pre>
+<p>（3）查看时间序列的时区</p>
+<p>　　Pandas中的时间序列默认是naive时区，即没有时区。用index.tz方法查看时间序列的时区</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+rng <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022/8/1'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+ts<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span>rng<span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2022-08-01    3
+2022-08-02    8
+2022-08-03    4
+2022-08-04    8
+2022-08-05    7
+Freq: D, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>ts<span class="token punctuation">.</span>index<span class="token punctuation">.</span>tz<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>None
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 通过参数tz可以设置时区</span>
+rng2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022/8/1'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">,</span>tz<span class="token operator">=</span><span class="token string">'UTC'</span><span class="token punctuation">)</span>
+ts2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>rng2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index <span class="token operator">=</span> rng2<span class="token punctuation">)</span>
+ts2
+</code></pre>
+<pre><code>2022-08-01 00:00:00+00:00    7
+2022-08-02 00:00:00+00:00    9
+2022-08-03 00:00:00+00:00    7
+2022-08-04 00:00:00+00:00    8
+2022-08-05 00:00:00+00:00    1
+Freq: D, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>ts2<span class="token punctuation">.</span>index<span class="token punctuation">.</span>tz<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>UTC
+</code></pre>
+<p>（4）本地化和转换</p>
+<p>时间序列若需要和转化，必须先使用tz_localize进行时区本地化，再通过tz_convert()转换成别的时区</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#先进行本地化转换到别的地区</span>
+
+ts_utc <span class="token operator">=</span> ts<span class="token punctuation">.</span>tz_localize<span class="token punctuation">(</span><span class="token string">'UTC'</span><span class="token punctuation">)</span>
+ts_utc<span class="token punctuation">.</span>index
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-08-01&#39;, &#39;2022-08-02&#39;, &#39;2022-08-03&#39;, &#39;2022-08-04&#39;,
+               &#39;2022-08-05&#39;],
+              dtype=&#39;datetime64[ns, UTC]&#39;, freq=&#39;D&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#再转换到别的时区</span>
+ts_utc<span class="token punctuation">.</span>tz_convert<span class="token punctuation">(</span><span class="token string">'US/Eastern'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2022-07-31 20:00:00-04:00    3
+2022-08-01 20:00:00-04:00    8
+2022-08-02 20:00:00-04:00    4
+2022-08-03 20:00:00-04:00    8
+2022-08-04 20:00:00-04:00    7
+Freq: D, dtype: int32
+</code></pre>
+<p>（5）操作时区意识型TimeStamp对象</p>
+<p>与时间序列和日期范围一样，时间戳对象也能从naive本地化为时区意识型（time zone-aware），并从一个时区转换到另一个时区</p>
+<p>例：创建一个时间戳本地化到世界标准时间UTC，并将时区转换为’US/Eastern’</p>
+<pre class=" language-python"><code class="language-python">stamp <span class="token operator">=</span> pd<span class="token punctuation">.</span>Timestamp<span class="token punctuation">(</span><span class="token string">'2022-8-1 18:23:34'</span><span class="token punctuation">)</span>
+stamp_utc <span class="token operator">=</span> stamp<span class="token punctuation">.</span>tz_localize<span class="token punctuation">(</span><span class="token string">'UTC'</span><span class="token punctuation">)</span>
+stamp_utc
+</code></pre>
+<pre><code>Timestamp(&#39;2022-08-01 18:23:34+0000&#39;, tz=&#39;UTC&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">stamp_utc_convert <span class="token operator">=</span> stamp_utc<span class="token punctuation">.</span>tz_convert<span class="token punctuation">(</span><span class="token string">'US/Eastern'</span><span class="token punctuation">)</span>
+stamp_utc_convert
+</code></pre>
+<pre><code>Timestamp(&#39;2022-08-01 14:23:34-0400&#39;, tz=&#39;US/Eastern&#39;)
+</code></pre>
+<p>注意：时区意识型对象在内部保存了一个UTC时间戳，其值在时区转换过程中是不是发生改变的，是从1970年1月1日算起的纳秒数</p>
+<p>如：stamp_utc和stamp_utc_convert的值是一样的</p>
+<pre class=" language-python"><code class="language-python">stamp_utc_convert<span class="token punctuation">.</span>value<span class="token operator">==</span>stamp_utc<span class="token punctuation">.</span>value
+</code></pre>
+<pre><code>True
+</code></pre>
+<p>6）不同时区之间的计算</p>
+<p>当两个时间序列的时期不同，若需要将其合并，最后的结果将会是UTC</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># rng = pd.date_range('2022/8/1',periods=5,freq='D')</span>
+rng <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022/8/1 10:30'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>rng<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index <span class="token operator">=</span> rng<span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2022-08-01 10:30:00    9
+2022-08-02 10:30:00    4
+2022-08-03 10:30:00    5
+2022-08-04 10:30:00    5
+2022-08-05 10:30:00    1
+Freq: D, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts1 <span class="token operator">=</span> ts<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>tz_localize<span class="token punctuation">(</span><span class="token string">'Europe/Zurich'</span><span class="token punctuation">)</span>
+ts2 <span class="token operator">=</span> ts<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span>tz_localize<span class="token punctuation">(</span><span class="token string">'US/Arizona'</span><span class="token punctuation">)</span>
+ts1<span class="token punctuation">.</span>index
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-08-01 10:30:00+02:00&#39;, &#39;2022-08-02 10:30:00+02:00&#39;], dtype=&#39;datetime64[ns, Europe/Zurich]&#39;, freq=&#39;D&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> ts1 <span class="token operator">+</span> ts2
+result
+</code></pre>
+<pre><code>2022-08-01 08:30:00+00:00   NaN
+2022-08-02 08:30:00+00:00   NaN
+2022-08-03 17:30:00+00:00   NaN
+2022-08-04 17:30:00+00:00   NaN
+dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python">result<span class="token punctuation">.</span>index
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-08-01 08:30:00+00:00&#39;, &#39;2022-08-02 08:30:00+00:00&#39;,
+               &#39;2022-08-03 17:30:00+00:00&#39;, &#39;2022-08-04 17:30:00+00:00&#39;],
+              dtype=&#39;datetime64[ns, UTC]&#39;, freq=None)
+</code></pre>
+<h2 id="日期（Period、PeriodIndex、asfreq、财政年度）及算数运算（to-timestamp-、to-period-）"><a href="#日期（Period、PeriodIndex、asfreq、财政年度）及算数运算（to-timestamp-、to-period-）" class="headerlink" title="日期（Period、PeriodIndex、asfreq、财政年度）及算数运算（to_timestamp()、to_period()）"></a>日期（Period、PeriodIndex、asfreq、财政年度）及算数运算（to_timestamp()、to_period()）</h2><p>一、时期</p>
+<p>1、时期的创建</p>
+<p>时期（Period）表示的是时间区间，如数日、数月、数季、数年等。时期的创建需要一个字符或整数以及一个freq参数。</p>
+<p>注意：其中freq参数可以参考日期的基础频率表</p>
+<p>例：创建一个从20220101到20221231的时期</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+p <span class="token operator">=</span> pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'A-DEC'</span><span class="token punctuation">)</span>
+p
+</code></pre>
+<pre><code>Period(&#39;2022&#39;, &#39;A-DEC&#39;)
+</code></pre>
+<p>2、Period对象如何实现位移？<br>　　答：加上或减去一个整数</p>
+<pre class=" language-python"><code class="language-python">p<span class="token operator">+</span><span class="token number">10</span>
+</code></pre>
+<pre><code>Period(&#39;2032&#39;, &#39;A-DEC&#39;)
+</code></pre>
+<p>3、相同频率的Period对象</p>
+<p>若两个Period对象由相同的频率，那么这两个Period对象的差就是两个时间段的单位数量；</p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token number">2030</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'A-DEC'</span><span class="token punctuation">)</span><span class="token operator">-</span>p
+</code></pre>
+<pre><code>8
+</code></pre>
+<p>4、PeriodIndex　</p>
+<p>period_range()函数用于创建规则的时间范围，生成PeriodIndex类型数据；</p>
+<p>来看看其用法与创建规则的日期范围date_range()的区别：</p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>period_range<span class="token punctuation">(</span><span class="token string">'2022-01-01'</span><span class="token punctuation">,</span><span class="token string">'2022-09-01'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'2M'</span><span class="token punctuation">)</span>
+pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2022-01-01'</span><span class="token punctuation">,</span><span class="token string">'2022-09-01'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'2M'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>DatetimeIndex([&#39;2022-01-31&#39;, &#39;2022-03-31&#39;, &#39;2022-05-31&#39;, &#39;2022-07-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;2M&#39;)
+</code></pre>
+<p>从上述例子可以看到，PeriodIndex类型数据的元素类型是period[2M]，而DatetimeIndex类型数据的元素类型是datetime64[ns]。</p>
+<p>只要PeriodIndex类保存了一组，就可以在任何Pandas数据结构中被用作轴索引</p>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>index <span class="token operator">=</span> pd<span class="token punctuation">.</span>period_range<span class="token punctuation">(</span><span class="token string">'202001'</span><span class="token punctuation">,</span><span class="token string">'202004'</span><span class="token punctuation">,</span>freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+s
+</code></pre>
+<pre><code>2020-01    1
+2020-02    0
+2020-03    3
+2020-04    1
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># PeriodIndex类的构造还允许直接使用一组字符串</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'2018Q1'</span><span class="token punctuation">,</span><span class="token string">'2019Q2'</span><span class="token punctuation">,</span><span class="token string">'2020Q3'</span><span class="token punctuation">]</span>
+index <span class="token operator">=</span> pd<span class="token punctuation">.</span>PeriodIndex<span class="token punctuation">(</span>values<span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'Q-DEC'</span><span class="token punctuation">)</span>
+index
+</code></pre>
+<pre><code>PeriodIndex([&#39;2018Q1&#39;, &#39;2019Q2&#39;, &#39;2020Q3&#39;], dtype=&#39;period[Q-DEC]&#39;, freq=&#39;Q-DEC&#39;)
+</code></pre>
+<p>5、通过asfreq频率转换日期　</p>
+<p>Period对象和PeriodIndex对象都可以通过asfreq方法被转换成别的频率；</p>
+<p>（1）参数how：注意start和end</p>
+<p>例：将一个年度时期转换为当年年初或年末的月度时期（以12月结束的财政年度）</p>
+<pre class=" language-python"><code class="language-python">p <span class="token operator">=</span> pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'A-DEC'</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2022-01&#39;, &#39;M&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2022-12&#39;, &#39;M&#39;)
+</code></pre>
+<p>　<img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200815102726708-1097842213.png" alt="img"></p>
+<p>例：不以12月结束的财政年度，若是以6月结束的财政年度，那么年初、年末的月度时期分别为2006年7月、2007年6月</p>
+<pre class=" language-python"><code class="language-python">p <span class="token operator">=</span> pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token number">2007</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'A-JUN'</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2006-07&#39;, &#39;M&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2007-06&#39;, &#39;M&#39;)
+</code></pre>
+<h3 id><a href="#" class="headerlink" title></a><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200815103244837-1600184707.png" alt="img"></h3><p>（2）高频率转换为低频率</p>
+<p>例：将2007年8月的频率转换为’A-JUN’后，月份 2007年8月将属于2008年财政年度（年相较于月，年为低频率，月为高频率，一年12个月）</p>
+<p>以asfreq中为准</p>
+<pre class=" language-python"><code class="language-python">p <span class="token operator">=</span> pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token string">'2007-08'</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">)</span>
+p<span class="token operator">+</span><span class="token number">1</span>
+</code></pre>
+<pre><code>Period(&#39;2007-09&#39;, &#39;M&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'A-JUN'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2008&#39;, &#39;A-JUN&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'A-JUN'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+</code></pre>
+<pre><code>Period(&#39;2009&#39;, &#39;A-JUN&#39;)
+</code></pre>
+<p>　　<img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200815104403416-1169269847.png" alt="img"></p>
+<p>（3）时间序列频率转换</p>
+<p>PeriodIndex和时间序列的频率转换方法一致</p>
+<pre class=" language-python"><code class="language-python">rng <span class="token operator">=</span> pd<span class="token punctuation">.</span>period_range<span class="token punctuation">(</span><span class="token string">'2015'</span><span class="token punctuation">,</span><span class="token string">'2018'</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'A-DEC'</span><span class="token punctuation">)</span>
+ts <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index <span class="token operator">=</span> rng<span class="token punctuation">)</span>
+ts
+</code></pre>
+<pre><code>2015    3
+2016    1
+2017    1
+2018    6
+Freq: A-DEC, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2015-01    3
+2016-01    1
+2017-01    1
+2018-01    6
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2015-12    3
+2016-12    1
+2017-12    1
+2018-12    6
+Freq: M, dtype: int32
+</code></pre>
+<pre class=" language-python"><code class="language-python">ts<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'Q-JAN'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>2015Q4    3
+2016Q4    1
+2017Q4    1
+2018Q4    6
+Freq: Q-JAN, dtype: int32
+</code></pre>
+<p>（4）季度性频率</p>
+<p>Pandas支持12种可能的季度型频率，即从Q-JAN到Q-DEC，下表以2012年的Q-DEC、Q-SEP、Q-JAN为例</p>
+<p>即季度型频率freq设置为谁，谁就是Q4，因为其含义本就表示财政年末</p>
+<p><strong><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200815110124312-1716578661.png" alt="img"></strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#在以1月结束的财政年中，2012Q4是从2011年11月到2012年1月</span>
+p <span class="token operator">=</span> pd<span class="token punctuation">.</span>Period<span class="token punctuation">(</span><span class="token string">'2012Q4'</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'Q-JAN'</span><span class="token punctuation">)</span>
+p
+</code></pre>
+<pre><code>Period(&#39;2012Q4&#39;, &#39;Q-JAN&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2011-11-01&#39;, &#39;D&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'D'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2012-01-31&#39;, &#39;D&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2011-11&#39;, &#39;M&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2011-11-01&#39;, &#39;B&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Period(&#39;2012-01-31&#39;, &#39;B&#39;)
+</code></pre>
+<p>二、时期之间的算数运算</p>
+<p>例：需要获取时期p的倒数第二个工作日下午4点的时间戳</p>
+<p>步骤1：使用第一个asfreq将时期p转换成日期型频率，得到p的倒数第二个工作日的日期</p>
+<p>步骤2：使用第二个asfreq将日期型频率转换成时型频率，得到p的倒数第二个工作日的时间</p>
+<p>步骤3：将时型频率转换成时间戳</p>
+<pre class=" language-python"><code class="language-python">p
+</code></pre>
+<pre><code>Period(&#39;2012Q4&#39;, &#39;Q-JAN&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#步骤1</span>
+p_next <span class="token operator">=</span> p<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+p_next
+</code></pre>
+<pre><code>Period(&#39;2012-01-30&#39;, &#39;B&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#步骤2</span>
+p4_p_next <span class="token operator">=</span> p_next<span class="token punctuation">.</span>asfreq<span class="token punctuation">(</span><span class="token string">'H'</span><span class="token punctuation">,</span>how <span class="token operator">=</span> <span class="token string">'start'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">16</span>
+p4_p_next
+</code></pre>
+<pre><code>Period(&#39;2012-01-30 16:00&#39;, &#39;H&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#步骤3</span>
+p4_p_next<span class="token punctuation">.</span>to_timestamp<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>Timestamp(&#39;2012-01-30 16:00:00&#39;)
+</code></pre>
+<p>时间戳和日期之间的转换</p>
+<p>转为时间戳：to_timestamp()</p>
+<p>转为日期：to_period()</p>
+<p>例：通过数组创建PeriodIndex（年和季度存放于不同的列中，将其合并并设为索引）</p>
+<pre class=" language-python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'year'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token number">2020</span><span class="token punctuation">,</span><span class="token number">2020</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'quarter'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+data<span class="token punctuation">[</span><span class="token string">'number'</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>
+data
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>quarter</th>
+      <th>year</th>
+      <th>number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2019</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2019</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2019</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2019</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2020</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>2020</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">index <span class="token operator">=</span> pd<span class="token punctuation">.</span>PeriodIndex<span class="token punctuation">(</span>year <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'year'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>quarter <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'quarter'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>freq <span class="token operator">=</span> <span class="token string">'Q-DEC'</span><span class="token punctuation">)</span>
+index
+</code></pre>
+<pre><code>PeriodIndex([&#39;2019Q1&#39;, &#39;2019Q2&#39;, &#39;2019Q3&#39;, &#39;2019Q4&#39;, &#39;2020Q1&#39;, &#39;2020Q2&#39;], dtype=&#39;period[Q-DEC]&#39;, freq=&#39;Q-DEC&#39;)
+</code></pre>
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>index <span class="token operator">=</span> index
+data<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'year'</span><span class="token punctuation">,</span><span class="token string">'quarter'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>inplace <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+data
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019Q1</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2019Q2</th>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>2019Q3</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2019Q4</th>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>2020Q1</th>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2020Q2</th>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 <h2 id="时间序列处理的基础（时序数据类型、筛选、子集提取、重复时间索引操作）"><a href="#时间序列处理的基础（时序数据类型、筛选、子集提取、重复时间索引操作）" class="headerlink" title="时间序列处理的基础（时序数据类型、筛选、子集提取、重复时间索引操作）"></a>时间序列处理的基础（时序数据类型、筛选、子集提取、重复时间索引操作）</h2><p>Pandas中最为基础的时间序列类型就是以时间戳（通过以Python字符串或datetime对象表示）为索引的Series；</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
@@ -6125,13 +6686,2016 @@ pd<span class="token punctuation">.</span>concat<span class="token punctuation">
     </tr>
   </tbody>
 </table>
+</div>
 
+<h2 id="数据分组与聚合（df-Groupby-）"><a href="#数据分组与聚合（df-Groupby-）" class="headerlink" title="数据分组与聚合（df.Groupby()）"></a>数据分组与聚合（df.Groupby()）</h2><p>GroupBy技术是对于数据进行分组计算并将各组计算结果合并的一项技术，包括以下3个过程：</p>
+<p>拆分（Spliting）：即将数据进行分组</p>
+<p>应用（Applying）：对每组应用函数进行计算</p>
+<p>合并（Combining）：将计算结果进行数据聚合</p>
+<p>使用GroupBy()可以沿着任意轴进行分组，并且将分组依据的键作为每组的组名，有一下3种用法：</p>
+<p>df.groupby(key)</p>
+<p>df.groupby(key,axis=1)</p>
+<p>df.groupby([key1,key2])<br>注：key需要用””引起来</p>
+<p>其中的参数axis，可设置是横向分组还是纵向分组，默认是横向分组（axis=0），也是比较常用的。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd 
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用groupby()按照class进行分组，返回的结果是一个GroupBY对象，即拆分过程</span>
+<span class="token comment" spellcheck="true"># 分组时所依据的键的唯一值作为索引，且当传入多个值时将产生层次化索引</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>263</td>
+      <td>258</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>164</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 
 
 
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
 
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">A</th>
+      <th>女</th>
+      <td>99.0</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>82.0</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>女</th>
+      <td>82.0</td>
+      <td>81.5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>女</th>
+      <td>77.0</td>
+      <td>67.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>在分组时除了传入列表，也可传入一个对于对象行或列长度一致的数组。（并不常用）</p>
+<p>例：求按性别分组的各课程平均分，传入性别使用中文表示的一个数组</p>
+<pre class=" language-python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>女</th>
+      <td>87.666667</td>
+      <td>79.666667</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>80.333333</td>
+      <td>83.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>.count()函数可统计各组样本数量，.idxmax()函数可返回最大值的索引</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#按照class和sex分组后各组样本的数量</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>city</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">A</th>
+      <th>女</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>女</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>女</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">##按照class和sex分组后最大值的索引</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>idxmax<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">A</th>
+      <th>女</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>男</th>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>女</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>女</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#按照class和sex分组后样本数量最多的索引</span>
+df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>idxmax<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>city           (A, 男)
+name           (A, 男)
+score_math     (A, 男)
+score_music    (A, 男)
+dtype: object
+</code></pre>
+<p>分组的基本方法（分组大小与排序、迭代、指定组或列） </p>
+<p>数据分组的基本方法有3种：</p>
+<ol>
+<li>分组大小和分组排序</li>
+<li>对分组进行迭代</li>
+<li>选择指定组或指定的列</li>
+</ol>
+<p>一、分组大小和分组排序</p>
+<p>可通过GroupBy对象的size()方法，知道每个分组的样本数；</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>class
+A    3
+B    2
+C    1
+dtype: int64
+</code></pre>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>class  sex
+A      女      1
+       男      2
+B      女      2
+C      女      1
+dtype: int64
+</code></pre>
+<p>在默认情况下，分组聚合后的索引会进行排序，可能会降低运行速度，所以，在数据量很大的时候可以设置sort = False，指定不进行排序以提高分组速度；</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span>sort<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>87.666667</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>82.000000</td>
+      <td>81.5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77.000000</td>
+      <td>67.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>二、对分组进行迭代</p>
+<p>GroupBy对象是一个可迭代对象，所以可以通过迭代获取分组名和数据；</p>
+<p>例如：获取班级的分组名和数据（若按多个键进行分组，则分组名变成元组）</p>
+<pre class=" language-python"><code class="language-python">grouped <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> name<span class="token punctuation">,</span>group <span class="token keyword">in</span> grouped<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token operator">*</span><span class="token number">40</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>A
+  city class  name  score_math  score_music sex
+0  广州市     A   Bob          99           78   女
+1  深圳市     A   Bob          99           81   男
+5  北京市     A  Rose          65           99   男
+----------------------------------------
+B
+  city class  name  score_math  score_music sex
+2  上海市     B  Mark          87           91   女
+3  重庆市     B  Miki          77           72   女
+----------------------------------------
+C
+  city class   name  score_math  score_music sex
+4  贵州市     C  Sully          77           67   女
+----------------------------------------
+</code></pre>
+<p>三、选择指定组或指定的列</p>
+<p>（1）将分组名及其数据封装成一个字典，便于后序选择指定组的数据；</p>
+<p>值得注意的是：不可直接将GroupBy对象打包成字典，必须先将其转化成包含多个元组的列表，才能使用dict()将其转换成字典。</p>
+<pre class=" language-python"><code class="language-python">grouped <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span>
+pieces <span class="token operator">=</span> dict<span class="token punctuation">(</span>list<span class="token punctuation">(</span>grouped<span class="token punctuation">)</span><span class="token punctuation">)</span>
+len<span class="token punctuation">(</span>pieces<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>3
+</code></pre>
+<pre class=" language-python"><code class="language-python">pieces<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>dict_keys([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+</code></pre>
+<pre class=" language-python"><code class="language-python">pieces<span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广州市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>78</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>81</td>
+      <td>男</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>北京市</td>
+      <td>A</td>
+      <td>Rose</td>
+      <td>65</td>
+      <td>99</td>
+      <td>男</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（2）GroupBy对象的get_group()也可以达到同样的效果而且更直观</p>
+<pre class=" language-python"><code class="language-python">grouped<span class="token punctuation">.</span>get_group<span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广州市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>78</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>81</td>
+      <td>男</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>北京市</td>
+      <td>A</td>
+      <td>Rose</td>
+      <td>65</td>
+      <td>99</td>
+      <td>男</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（3）若只需要对指定的列进行GroupBy操作，只需在groupby()后加上指定的列即可</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>87.666667</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>82.000000</td>
+      <td>81.5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77.000000</td>
+      <td>67.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="数组分组的高级方法（使用字典、函数、层次化索引级别）"><a href="#数组分组的高级方法（使用字典、函数、层次化索引级别）" class="headerlink" title="数组分组的高级方法（使用字典、函数、层次化索引级别）"></a>数组分组的高级方法（使用字典、函数、层次化索引级别）</h2><p>数据分组的高级方法有3种：</p>
+<ol>
+<li>通过字典进行分组</li>
+<li>通过函数进行分组</li>
+<li>根据层次化索引级别进行分组</li>
+</ol>
+<p>一、根据字典进行分组</p>
+<p>若希望按照特征类别进行分组，可创建一个映射字典</p>
+<pre class=" language-python"><code class="language-python">df1<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'A_male'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">68</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'B_female'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">56</span><span class="token punctuation">,</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">85</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'C_female'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">98</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">57</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'D_male'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">95</span><span class="token punctuation">,</span><span class="token number">85</span><span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+df1
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A_male</th>
+      <th>B_female</th>
+      <th>C_female</th>
+      <th>D_male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>87</td>
+      <td>56</td>
+      <td>98</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>68</td>
+      <td>78</td>
+      <td>87</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>89</td>
+      <td>85</td>
+      <td>57</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>66</td>
+      <td>89</td>
+      <td>89</td>
+      <td>75</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#创建一个映射字典</span>
+mapper <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'A_male'</span><span class="token punctuation">:</span><span class="token string">'Male'</span><span class="token punctuation">,</span><span class="token string">'B_female'</span><span class="token punctuation">:</span><span class="token string">'Female'</span><span class="token punctuation">,</span><span class="token string">'C_female'</span><span class="token punctuation">:</span><span class="token string">'Female'</span><span class="token punctuation">,</span><span class="token string">'D_male'</span><span class="token punctuation">:</span><span class="token string">'Male'</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#通过传入硬着字典，指定分组依据位于列上，对不同类别的特征进行分组</span>
+grouped<span class="token operator">=</span>df1<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>mapper<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#获取分组信息</span>
+grouped<span class="token punctuation">.</span>get_group<span class="token punctuation">(</span><span class="token string">'Male'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A_male</th>
+      <th>D_male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>87</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>68</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>89</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>66</td>
+      <td>75</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 对各组数据按照横向轴进行计算</span>
+grouped<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Female</th>
+      <th>Male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>77.0</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>82.5</td>
+      <td>81.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>71.0</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>89.0</td>
+      <td>70.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>二、根据函数进行分组</p>
+<p>假设对行索引进行分组，可以自定义一函数：当索引值为3时,返回 False ；当索引部位3时返回True；</p>
+<p>注意：使用函数对数据进行分组时，函数输入的是数据的索引列</p>
+<pre class=" language-python"><code class="language-python">grouped
+</code></pre>
+<pre><code>&lt;pandas.core.groupby.DataFrameGroupBy object at 0x000001DCD12B7470&gt;
+</code></pre>
+<pre class=" language-python"><code class="language-python">map_fuc<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>bool<span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">-</span>x<span class="token punctuation">)</span>
+grouped<span class="token operator">=</span>df1<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>map_fuc<span class="token punctuation">)</span>
+<span class="token keyword">for</span> name<span class="token punctuation">,</span>group <span class="token keyword">in</span> grouped<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token operator">*</span><span class="token number">40</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>False
+   A_male  B_female  C_female  D_male
+3      66        89        89      75
+----------------------------------------
+True
+   A_male  B_female  C_female  D_male
+0      87        56        98      87
+1      68        78        87      95
+2      89        85        57      85
+----------------------------------------
+</code></pre>
+<p>三、根据层次化索引进行分组</p>
+<p>先创建一个存在层次化索引的DataFrame对象，如下：</p>
+<pre class=" language-python"><code class="language-python">hier_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">85</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">89</span><span class="token punctuation">,</span><span class="token number">96</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">88</span><span class="token punctuation">,</span><span class="token number">94</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token number">95</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'math'</span><span class="token punctuation">,</span><span class="token string">'music'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'male'</span><span class="token punctuation">,</span><span class="token string">'female'</span><span class="token punctuation">,</span><span class="token string">'male'</span><span class="token punctuation">,</span><span class="token string">'female'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+hier_df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>math</th>
+      <th>music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <th>male</th>
+      <td>78</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">B</th>
+      <th>female</th>
+      <td>89</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>88</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>female</th>
+      <td>90</td>
+      <td>95</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">hier_df<span class="token punctuation">.</span>index<span class="token punctuation">.</span>names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">]</span>
+hier_df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>math</th>
+      <th>music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <th>male</th>
+      <td>78</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">B</th>
+      <th>female</th>
+      <td>89</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>88</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>female</th>
+      <td>90</td>
+      <td>95</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>当DataFrame对象存在层次化索引之时可以通过参数level指定不同索引级别进行分组与聚合；也可以直接指定列无需指定level</p>
+<p>上述例子中的class索引的level=0，sex索引的level=1</p>
+<pre class=" language-python"><code class="language-python">hier_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>level<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>math</th>
+      <th>music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>78.0</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>88.5</td>
+      <td>95.0</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>90.0</td>
+      <td>95.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">hier_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#与直接指定列效果一致</span>
+hier_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>level<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>math</th>
+      <th>music</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>89.5</td>
+      <td>95.5</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>83.0</td>
+      <td>89.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>在分组结果中，若不想分组的键当做索引，设置as_index = Fasle即可，默认的as_index = True</p>
+<pre class=" language-python"><code class="language-python">hier_df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>level<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>as_index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>math</th>
+      <th>music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>89.5</td>
+      <td>95.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>83.0</td>
+      <td>89.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="数据分组的函数应用（df-apply-、df-agg-和df-transform-、df-applymap-）"><a href="#数据分组的函数应用（df-apply-、df-agg-和df-transform-、df-applymap-）" class="headerlink" title="数据分组的函数应用（df.apply()、df.agg()和df.transform()、df.applymap()）"></a>数据分组的函数应用（df.apply()、df.agg()和df.transform()、df.applymap()）</h2><p>将自己定义的或其他库的函数应用于Pandas对象，有以下3种方法：</p>
+<p>apply()：逐行或逐列应用该函数</p>
+<p>agg()和transform()：聚合和转换</p>
+<p>applymap()：逐元素应用函数</p>
+<p>一 、apply()</p>
+<p>其中：设置axis = 1参数，可以逐行进行操作；默认axis=0，即逐列进行操作；</p>
+<p>对于常见的描述性统计方法，可以直接使用一个字符串进行代替，例df.apply(‘mean’)等价于df.apply(np.mean)；</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>99</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>99</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>87</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>77</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>77</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>65</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#对音乐课和数学课逐列求成绩平均分</span>
+df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>score_math     84.000000
+score_music    81.333333
+dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python">type<span class="token punctuation">(</span>df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>pandas.core.series.Series
+</code></pre>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token string">'mean'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>84.0
+</code></pre>
+<pre class=" language-python"><code class="language-python">type<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>pandas.core.series.Series
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#逐行求每个学生的平均分</span>
+df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    88.5
+1    90.0
+2    89.0
+3    74.5
+4    72.0
+5    82.0
+dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python">type<span class="token punctuation">(</span>df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>pandas.core.series.Series
+</code></pre>
+<p>apply()的返回结果与所用的函数是相关的：</p>
+<p>返回结果是Series对象：如上述例子应用的均值函数，就是每一行或每一列返回一个值；</p>
+<p>返回大小相同的DataFrame：如下面自定的lambda函数。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#其中的x可以看作是每一类的Series对象</span>
+df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">-</span> <span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>94</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>94</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>82</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>72</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>72</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>60</td>
+      <td>94</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">type<span class="token punctuation">(</span>df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">-</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>pandas.core.frame.DataFrame
+</code></pre>
+<p>二、数据聚合agg()</p>
+<p>数据聚合agg()指任何能够从数组产生标量值的过程；<br>相当于apply()的特例，可以对pandas对象进行逐行或逐列的处理；<br>能使用agg()的地方，基本上都可以使用apply()代替。<br>例：</p>
+<p>1）对两门课逐列求平均分</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token string">'mean'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token string">'mean'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>score_math     84.000000
+score_music    81.333333
+dtype: float64
+</code></pre>
+<p>2）应用多个函数，可将函数放于一个列表中；<br>例：对两门课分别求最高分与最低分</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'max'</span><span class="token punctuation">,</span><span class="token string">'min'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>max</th>
+      <td>99</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>65</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>max<span class="token punctuation">,</span>np<span class="token punctuation">.</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># df.apply([np.max,'min'])</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>amax</th>
+      <td>99</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>amin</th>
+      <td>65</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>3）使用字典可以对特定列应用特定及多个函数；</p>
+<p>例：对数学成绩求均值和最小值，对音乐课求最大值</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'mean'</span><span class="token punctuation">,</span><span class="token string">'min'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token string">'max'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>max</th>
+      <td>NaN</td>
+      <td>99.0</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>84.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>65.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>三、数据转换transform()</p>
+<p>特点：使用一个函数后，返回相同大小的Pandas对象</p>
+<p>与数据聚合agg()的区别：</p>
+<ol>
+<li><p>数据聚合agg()返回的是对组内全量数据的缩减过程；</p>
+</li>
+<li><p>数据转换transform()返回的是一个新的全量数据。</p>
+</li>
+</ol>
+<p>注意：df.transform(np.mean)将报错，转换是无法产生聚合结果的</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将成绩减去各课程的平均分，使用apply、agg、transfrom都可以实现</span>
+df<span class="token punctuation">.</span>transform<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">-</span>x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">-</span>x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">-</span>x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>15.0</td>
+      <td>-3.333333</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>-0.333333</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.0</td>
+      <td>9.666667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-7.0</td>
+      <td>-9.333333</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-7.0</td>
+      <td>-14.333333</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-19.0</td>
+      <td>17.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>当应用多个函数时，将返回于原始DataFrame大小不同的DataFrame，返回结果中：</p>
+<p>在列索引上第一级别是原始列名</p>
+<p>在第二级别上是转换的函数名</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>transform<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">-</span>x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">score_math</th>
+      <th colspan="2" halign="left">score_music</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>&lt;lambda&gt;</th>
+      <th>&lt;lambda&gt;</th>
+      <th>&lt;lambda&gt;</th>
+      <th>&lt;lambda&gt;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>15.0</td>
+      <td>9.9</td>
+      <td>-3.333333</td>
+      <td>7.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>9.9</td>
+      <td>-0.333333</td>
+      <td>8.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.0</td>
+      <td>8.7</td>
+      <td>9.666667</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-7.0</td>
+      <td>7.7</td>
+      <td>-9.333333</td>
+      <td>7.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-7.0</td>
+      <td>7.7</td>
+      <td>-14.333333</td>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-19.0</td>
+      <td>6.5</td>
+      <td>17.666667</td>
+      <td>9.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>四、applymap()<br>applymap()对pandas对象逐元素应用某个函数，成为元素级函数应用；</p>
+<p>与map()的区别：</p>
+<ul>
+<li>applymap()是DataFrame的实例方法</li>
+<li>map()是Series的实例方法</li>
+</ul>
+<p>例：对成绩保留小数后两位</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>applymap<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span><span class="token string">'%.2f'</span><span class="token operator">%</span>x<span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>99.00</td>
+      <td>78.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>99.00</td>
+      <td>81.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>87.00</td>
+      <td>91.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>77.00</td>
+      <td>72.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>77.00</td>
+      <td>67.00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>65.00</td>
+      <td>99.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span><span class="token string">'%.2f'</span><span class="token operator">%</span>x<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    99.00
+1    99.00
+2    87.00
+3    77.00
+4    77.00
+5    65.00
+Name: score_math, dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">grouped <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span>
+grouped<span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 相当于</span>
+grouped<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token string">'sum'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>263</td>
+      <td>258</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>164</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>可以同时使用多个聚合函数（使用列表的格式），其结果将包含一个层次化索引，新加的索引名称是函数的名称。</p>
+<p>数据聚合也可使用自定义聚合函数：自定义的函数必须具有聚合的作用，若传入一个一个数组（1维），必须只能返回标量值（0维）</p>
+<p>需要注意的是：在构造中间分组数据块时可能存在函数调用、数据重排等较大的开销。</p>
+<pre class=" language-python"><code class="language-python">grouped<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>sum<span class="token punctuation">,</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>x<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">score_math</th>
+      <th colspan="2" halign="left">score_music</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>sum</th>
+      <th>&lt;lambda&gt;</th>
+      <th>sum</th>
+      <th>&lt;lambda&gt;</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>263</td>
+      <td>34</td>
+      <td>258</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>164</td>
+      <td>10</td>
+      <td>163</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77</td>
+      <td>0</td>
+      <td>67</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>在列表中传入一个二元元组（函数名，函数），可以更改列名；</p>
+<pre class=" language-python"><code class="language-python">grouped<span class="token punctuation">.</span>agg<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'sum'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>sum<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'range'</span><span class="token punctuation">,</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>x<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">score_math</th>
+      <th colspan="2" halign="left">score_music</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>sum</th>
+      <th>range</th>
+      <th>sum</th>
+      <th>range</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>263</td>
+      <td>34</td>
+      <td>258</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>164</td>
+      <td>10</td>
+      <td>163</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77</td>
+      <td>0</td>
+      <td>67</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>对于不同的列执行不同的聚合运算，可以向agg()函数传入一个字典，将多个函数运用到至少一列时，聚合结果才会拥有层次化索引；</p>
+<p>所以，在单独的运用一个函数时，若需要显示层次化索引，就可以使用列表的形式“假装”要对某一列运用多个聚合运算。</p>
+<pre class=" language-python"><code class="language-python">map_func <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span>np<span class="token punctuation">.</span>max<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span>np<span class="token punctuation">.</span>min<span class="token punctuation">]</span><span class="token punctuation">}</span>
+grouped<span class="token punctuation">.</span>agg<span class="token punctuation">(</span>map_func<span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">score_math</th>
+      <th colspan="2" halign="left">score_music</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>mean</th>
+      <th>amax</th>
+      <th>mean</th>
+      <th>amin</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>87.666667</td>
+      <td>99</td>
+      <td>86.0</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>82.000000</td>
+      <td>87</td>
+      <td>81.5</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77.000000</td>
+      <td>77</td>
+      <td>67.0</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#假装要对某一列进行多个聚合运算，以达到层次化索引的结果</span>
+map_func <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>max<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'mean'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+grouped<span class="token punctuation">.</span>agg<span class="token punctuation">(</span>map_func<span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>amax</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>99</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>87</td>
+      <td>81.5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>77</td>
+      <td>67.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>从上述例子可以看出，applymap()操作实际上是对每列的Series对象进行了map()操作</p>
+<p>通过以上分析我们可以看到，apply、agg、transform三种方法都可以对分组数据进行函数操作，但也各有特色，总结如下：</p>
+<p>apply中自定义函数对每个分组数据单独进行处理，再将结果合并；整个DataFrame的函数输出可以是标量、Series或DataFrame；每个apply语句只能传入一个函数；</p>
+<p>agg可以通过字典方式指定特征进行不同的函数操作，每一特征的函数输出必须为标量；</p>
+<p>transform不可以通过字典方式指定特征进行不同的函数操作，但函数运算单位也是DataFrame的每一特征，每一特征的函数输出可以是标量或者Series，但标量会被广播。</p>
 <h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>一、图形的层次</p>
 <p><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200816164512132-1984558230.png" alt="img"></p>
 <p> 二、Matplotlib常用工具箱</p>
