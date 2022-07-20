@@ -2544,6 +2544,503 @@ annu_df
 </table>
 </div>
 
+<h2 id="索引调整方法"><a href="#索引调整方法" class="headerlink" title="索引调整方法"></a>索引调整方法</h2><p>一、调整索引、修改列标签<br>1、调整索引的两种情况：</p>
+<ul>
+<li>重新索引</li>
+<li>设置新的索引</li>
+</ul>
+<p>（1）重新索引</p>
+<p>在Pandas对象中，其实索引也是一个对象，所以可对其进行修改。</p>
+<p>例如：df.index=[‘a’,’b’,’c’]</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd 
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'one'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'two'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token string">'three'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.132205</td>
+      <td>0.479927</td>
+      <td>2.538764</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.339174</td>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.462124</td>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#设置索引</span>
+df<span class="token punctuation">.</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">]</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>-0.132205</td>
+      <td>0.479927</td>
+      <td>2.538764</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>-0.339174</td>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>-0.462124</td>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（2）设置新的索引</p>
+<p>reindex()：重新索引并得到一个新的Pandas对象。</p>
+<p>且reindex()方法不仅可以重新索引DataFrame，也可以同时实现过滤功能。</p>
+<pre class=" language-python"><code class="language-python">new <span class="token operator">=</span> df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+new
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>-0.339174</td>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>-0.462124</td>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># reindex()也可以用来调整列的顺序，这时需要设定'columns'=对应的列名；</span>
+df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'three'</span><span class="token punctuation">,</span><span class="token string">'two'</span><span class="token punctuation">,</span><span class="token string">'one'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>three</th>
+      <th>two</th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>0.479927</td>
+      <td>2.538764</td>
+      <td>-0.132205</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+      <td>-0.339174</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>0.210660</td>
+      <td>1.197265</td>
+      <td>-0.462124</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（3）使用set_index()可以指定某一列为索引，这在对日期型数据或者是以名称进行区分的数据非常有用</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#  若是希望在原来索引的基础之上添加新的变量构成层次化索引，则设置append参数为True；　　</span>
+
+df<span class="token punctuation">.</span>set_index<span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span>append<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>one</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <th>-0.132205</th>
+      <td>0.479927</td>
+      <td>2.538764</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <th>-0.339174</th>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <th>-0.462124</th>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>set_index<span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span>drop<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+    <tr>
+      <th>one</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.165862</th>
+      <td>0.165862</td>
+      <td>0.092076</td>
+      <td>-1.385827</td>
+    </tr>
+    <tr>
+      <th>-1.028590</th>
+      <td>-1.028590</td>
+      <td>0.097918</td>
+      <td>0.428650</td>
+    </tr>
+    <tr>
+      <th>0.472469</th>
+      <td>0.472469</td>
+      <td>0.856475</td>
+      <td>0.364913</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>2、修改标签</p>
+<p>修改索引和列名的标签可以使用rename()方法结合字典、Series或者一个原函数将标签映射为一个新的标签。</p>
+<p>（1）关于结合字典</p>
+<p>（2）使用函数映射的方式</p>
+<p>例：将字符串的大写转换函数传入，对列标签进行修改</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns<span class="token operator">=</span>str<span class="token punctuation">.</span>upper<span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ONE</th>
+      <th>THREE</th>
+      <th>TWO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>-0.132205</td>
+      <td>0.479927</td>
+      <td>2.538764</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>-0.339174</td>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>-0.462124</td>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>例：结合lambda：将所有的列的前2个字符大写，其余小写</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span>x<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ONe</th>
+      <th>THree</th>
+      <th>TWo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>-0.132205</td>
+      <td>0.479927</td>
+      <td>2.538764</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>-0.339174</td>
+      <td>0.945127</td>
+      <td>-0.049037</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>-0.462124</td>
+      <td>0.210660</td>
+      <td>1.197265</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>二、创建层次化索引</p>
+<p>层次化索引可以基于Series和DataFrame创建更加高维的数据。</p>
+<p>也就是说，若有一个DataFrame是一个堆积式的（在一个轴上需要创建不止一个索引），那么此时就需要用到层次化索引，这和Panel有些类似。但是在实际中并不是很常用！</p>
+<p>创建一个层次化索引：</p>
+<pre class=" language-python"><code class="language-python">data<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'a1'</span><span class="token punctuation">,</span><span class="token string">'a2'</span><span class="token punctuation">,</span><span class="token string">'b1'</span><span class="token punctuation">,</span><span class="token string">'b2'</span><span class="token punctuation">,</span><span class="token string">'b3'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+data    
+</code></pre>
+<pre><code>a  a1   -0.632830
+   a2   -0.222871
+b  b1    1.220479
+   b2    0.761969
+   b3   -0.274735
+dtype: float64
+</code></pre>
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>index
+</code></pre>
+<pre><code>MultiIndex(levels=[[&#39;a&#39;, &#39;b&#39;], [&#39;a1&#39;, &#39;a2&#39;, &#39;b1&#39;, &#39;b2&#39;, &#39;b3&#39;]],
+           labels=[[0, 0, 1, 1, 1], [0, 1, 2, 3, 4]])
+</code></pre>
+<p>#levels包含了每个级别索引的标签，labels是对每个数据在对应不同levels的位置进行了标记</p>
+<p>每个index均有一个属性（名称names），可通过.index.names对索引列的列名进行创建于修改</p>
+<pre class=" language-python"><code class="language-python">data<span class="token punctuation">.</span>index<span class="token punctuation">.</span>names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'first'</span><span class="token punctuation">,</span><span class="token string">'second'</span><span class="token punctuation">]</span>
+data
+</code></pre>
+<pre><code>first  second
+a      a1       -0.632830
+       a2       -0.222871
+b      b1        1.220479
+       b2        0.761969
+       b3       -0.274735
+dtype: float64
+</code></pre>
+<p>三、重排级别顺序</p>
+<p>重排级别顺序是基于有索引个数&gt;=1的DataFrame。</p>
+<p>（1）swaplevel():将columns轴上的索引级别进行互换。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>df.swaplevel(0,1,axis=1)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>（2）reorder_levels()：指定多个级别的顺序</p>
+<p>（3）提取数据还是可以使用iloc()与loc()</p>
+<p>（4）unstack()：若index轴上有多个级别索引的DataFrame，使用该方法将指定级别(level参数)安排在columns上形成一个新的DataFrame</p>
 <h2 id="日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）"><a href="#日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）" class="headerlink" title="日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）"></a>日期与时间数据（介绍时序数据、datetime模块介绍、字符串与时间互换）</h2><p>一、什么是时间序列？</p>
 <p>时间序列（Time Series）是一种重要的结构化数据形式，在多个时间点观察或测量到的任何事物都可以形成一段时间序列，可分为以下两种：</p>
 <p>定期的时间序列：数据根据某种规律定期出现（例如：每10秒、每1分）</p>
@@ -8696,6 +9193,99 @@ grouped<span class="token punctuation">.</span>agg<span class="token punctuation
 <p>apply中自定义函数对每个分组数据单独进行处理，再将结果合并；整个DataFrame的函数输出可以是标量、Series或DataFrame；每个apply语句只能传入一个函数；</p>
 <p>agg可以通过字典方式指定特征进行不同的函数操作，每一特征的函数输出必须为标量；</p>
 <p>transform不可以通过字典方式指定特征进行不同的函数操作，但函数运算单位也是DataFrame的每一特征，每一特征的函数输出可以是标量或者Series，但标量会被广播。</p>
+<h2 id="读取Excel、csv、mysql等文件存入到MySQL"><a href="#读取Excel、csv、mysql等文件存入到MySQL" class="headerlink" title="读取Excel、csv、mysql等文件存入到MySQL"></a>读取Excel、csv、mysql等文件存入到MySQL</h2><p>数据处理步骤：</p>
+<p>1、Pandas读取数据（如：excel、csv等）</p>
+<p>2、对数据做过滤、统计分析</p>
+<p>3、Pandas将数据存储到MySQL，用于Web页面的页面显示，或是对后序进一步的SQL分析</p>
+<p>步骤一：准备数据</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token comment" spellcheck="true"># df = pd.read_excel('C:/class.xlsx')</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span>
+                       <span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#为索引加上名称为id，以便入库成为主键</span>
+df<span class="token punctuation">.</span>index<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'id'</span>
+</code></pre>
+<p>步骤2：创建sqlalchemy对象连接MySQL</p>
+<p>SQLAlchemy是Python中的ORM框架（Object-Relation Mapping），把关系数据库的表映射到对象上</p>
+<p>安装sqlalchemy前需要安装Python依赖库，即pip install mysql-connector-python</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
+<span class="token comment" spellcheck="true">#mysql表示连接MySQL数据库</span>
+<span class="token comment" spellcheck="true">#mysqlconnector表示使用的库，就是pip install mysql-connector-python中的</span>
+<span class="token comment" spellcheck="true">#root:MySQL的用户名，123表示密码，后面分别是表示连接至本地，端口号，数据库名</span>
+engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">"mysql+mysqlconnector://root:123@127.0.0.1:3306/student"</span><span class="token punctuation">,</span>echo<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<p>方法1：当数据表不存在时，每次覆盖整个表</p>
+<p>fetchall():</p>
+<p>返回多个元组，即返回多个记录(rows),如果没有结果 则返回 ()<br>需要注明：在MySQL中是NULL，而在Python中则是None</p>
+<p>#每次运行会drop table,新建表<br>#name属性表示表的名字，if_exists表示若表存在就替代</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>to_sql<span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'student'</span><span class="token punctuation">,</span>con <span class="token operator">=</span> engine<span class="token punctuation">,</span>if_exists<span class="token operator">=</span><span class="token string">"replace"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查看表结构</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"show create table student"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>CREATE TABLE `student` (
+  `id` bigint DEFAULT NULL,
+  `city` text,
+  `class` text,
+  `name` text,
+  `score_math` bigint DEFAULT NULL,
+  `score_music` bigint DEFAULT NULL,
+  `sex` text,
+  KEY `ix_student_id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查看一共多少条</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select count(1) from student"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>(6,)
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查看数据前3条</span>
+engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student limit 3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[(0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
+ (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
+ (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;)]
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 方法2：当数据表存在时，每次新增数据</span>
+df_new <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+df_new<span class="token punctuation">.</span>to_sql<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'student'</span><span class="token punctuation">,</span>con<span class="token operator">=</span>engine<span class="token punctuation">,</span>if_exists<span class="token operator">=</span><span class="token string">'append'</span><span class="token punctuation">)</span>
+engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student where id&lt;=2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[(0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
+ (0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
+ (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
+ (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
+ (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;),
+ (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;)]
+</code></pre>
+<p>通过上述可以发现，使用append会增加，同一条数据会有冗余</p>
+<p>问题解决：先通过数据KEY删除旧数据</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> id <span class="token keyword">in</span> df_new<span class="token punctuation">.</span>index<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#先删除要新增的数据</span>
+    delete_sql <span class="token operator">=</span> f<span class="token string">"delete from student where id={id}"</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>delete_sql<span class="token punctuation">)</span>
+    engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>delete_sql<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>delete from student where id=0
+delete from student where id=1
+delete from student where id=2
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#删除数据</span>
+engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student where id&lt;=2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[]
+</code></pre>
+<pre class=" language-python"><code class="language-python">engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">'select count(1) from student'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>(3,)
+</code></pre>
 <h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>一、图形的层次</p>
 <p><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200816164512132-1984558230.png" alt="img"></p>
 <p> 二、Matplotlib常用工具箱</p>
