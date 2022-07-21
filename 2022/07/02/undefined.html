@@ -9193,6 +9193,1326 @@ grouped<span class="token punctuation">.</span>agg<span class="token punctuation
 <p>apply中自定义函数对每个分组数据单独进行处理，再将结果合并；整个DataFrame的函数输出可以是标量、Series或DataFrame；每个apply语句只能传入一个函数；</p>
 <p>agg可以通过字典方式指定特征进行不同的函数操作，每一特征的函数输出必须为标量；</p>
 <p>transform不可以通过字典方式指定特征进行不同的函数操作，但函数运算单位也是DataFrame的每一特征，每一特征的函数输出可以是标量或者Series，但标量会被广播。</p>
+<h2 id="缺失值处理与丢弃数据（填充fillna-、删除drop-、drop-duplicates-、dropna-）"><a href="#缺失值处理与丢弃数据（填充fillna-、删除drop-、drop-duplicates-、dropna-）" class="headerlink" title="缺失值处理与丢弃数据（填充fillna()、删除drop()、drop_duplicates()、dropna()）"></a>缺失值处理与丢弃数据（填充fillna()、删除drop()、drop_duplicates()、dropna()）</h2><p>一、了解缺失值</p>
+<p>通常使用 NA(‘not available’)来代指缺失值<br>在Pandas的数据结构中，缺失值使用 NaN(‘Not a Number’)进行标识<br>除了汇总统计方法，还可以使用isnull()来对数据中缺失的样本占比、特征大致的缺失情况进行了解。</p>
+<p>二、缺失值填充—fillna()</p>
+<p>使用fillna()方法进行缺失值填补</p>
+<p>填充方式分为以下几种：</p>
+<p>（1）使用同一个值填补所有的缺失值</p>
+<p>（2）向前填充、向后填充—&gt;通过设置参数method参数来实现</p>
+<p>method参数    说明</p>
+<p>ffill或pad    向前填充值</p>
+<p>bfill或backfill    向后填充值</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd 
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'one'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'two'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'three'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">76</span><span class="token punctuation">,</span><span class="token number">78</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                      
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># df.fillna(method='pad')</span>
+df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>method<span class="token operator">=</span><span class="token string">'bfill'</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（3）对不同列的缺失值使用不同的值进行填补</p>
+<p>　　可以使用字典的方式，如下：</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'two'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'three'</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>3.0</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>23</td>
+      <td>3.0</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>（4）使用一个Pandas的自动对齐功能进行填补</p>
+<p>　　　这也是最常使用的一种方式</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'three'</span><span class="token punctuation">:</span>df<span class="token punctuation">[</span><span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>61.0</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>23</td>
+      <td>61.0</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>三、丢弃数据</p>
+<p>在一些实际的应用场景中，需要根据某些过滤条件丢弃部分无用数据，在多数情况下数据过滤可以同时达到获取和丢弃数据的目的。</p>
+<p>除了使用布尔表达式之外，Pandas对象还有以下三种方法来丢弃无用数据：</p>
+<p>drop():根据标签丢弃数据</p>
+<p>drop_duplicates():丢弃重复数据</p>
+<p>dropna():丢失缺失数据</p>
+<p>(1)根据标签丢弃数据—-drop()</p>
+<p>drop()可以根据标签丢弃多行或多了数据，基本参数如下：</p>
+<p>labels:单个或者多个标签，传入类列表值（列表、array等）</p>
+<p>axis:丢弃行(0,默认)或者列(1)</p>
+<p>inplace:是否用结果替换原pandas对象(默认False)</p>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'one'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'two'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'three'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">76</span><span class="token punctuation">,</span><span class="token number">78</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NaN<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                      
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">,</span><span class="token string">'f'</span><span class="token punctuation">]</span>
+df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>(2)丢弃重复数据—-drop_duplicates()</p>
+<p>1）由于不同的原因，数据中可能会包含重复出现的行（记录）,重复的记录会造成信息的冗余，但是在实际中丢弃重复数据需要谨慎，盲目去重可以会造成数据集丢失部分数据。</p>
+<p>duplicated()方法可以返回一个布尔型的Series,表示各行是否重复，仅仅将重复的最后一行标记为True；</p>
+<p>注：duplicated()方法有参数keep，keep的值有一下三种情况：</p>
+<p>keep = ‘first’—-&gt;返回结果中的第一个重复的数据</p>
+<p>keep = ‘last’—–&gt;返回结果中的最后一个重复的数据</p>
+<p>keep = False——&gt;所有的重复数据为True</p>
+<pre class=" language-python"><code class="language-python">new <span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'one'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'two'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'three'</span><span class="token punctuation">:</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">76</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+new
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>g</th>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>23</td>
+      <td>76</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">new_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>df<span class="token punctuation">,</span>new<span class="token punctuation">]</span><span class="token punctuation">)</span>
+new_df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>23.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">new_df<span class="token punctuation">.</span>duplicated<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#查看各行是否重复</span>
+</code></pre>
+<pre><code>a    False
+b    False
+c    False
+d    False
+e    False
+f    False
+g     True
+h    False
+dtype: bool
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#通过布尔过滤可以丢弃重复数据</span>
+new_df<span class="token punctuation">[</span>new_df<span class="token punctuation">.</span>duplicated<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token boolean">False</span><span class="token punctuation">]</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>23.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">new_df<span class="token punctuation">.</span>duplicated<span class="token punctuation">(</span>keep<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>a     True
+b    False
+c    False
+d    False
+e    False
+f    False
+g     True
+h    False
+dtype: bool
+</code></pre>
+<p>2）Pandas提供的drop_duplicates()可以更加简便的完成去重操作,默认情况下会判断各行的全部列，若只希望根据某一列判断重复项，则在括号后加入列即可。</p>
+<pre class=" language-python"><code class="language-python">new_df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>23.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># new_df.drop_duplicates()</span>
+new_df<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span><span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>(3)丢弃缺失值数据—-dropna()</p>
+<p>在含有缺失值样本比例较小的情况下，可以考虑丢弃缺失值所在的行，或者说一个特征大部分都是缺失值是，也可以考虑丢弃该特征。</p>
+<p>dropna()方法用于丢弃缺失值相关数据，其常用的参数如下：</p>
+<p>axis:丢弃缺失值所在的行（0，默认）或所在列（1）；</p>
+<p>how:’any’表示只要存在缺失值就丢弃（默认），’all’表示所有的值均为缺失值才丢弃；</p>
+<p>subset:考虑部分行和列</p>
+<p>inplace:是否替换原来的Pandas对象</p>
+<pre class=" language-python"><code class="language-python">df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>how<span class="token operator">=</span><span class="token string">'any'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#若要删除存在缺失值所在的行</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>23</td>
+      <td>23.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>23</td>
+      <td>76.0</td>
+      <td>97.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># df.drop(labels=['three'],axis=1)</span>
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>23</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>23</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>87.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="numpy“通用函数”-ufunc-包括以下几种："><a href="#numpy“通用函数”-ufunc-包括以下几种：" class="headerlink" title="numpy“通用函数”(ufunc)包括以下几种："></a>numpy“通用函数”(ufunc)包括以下几种：</h2><ol>
+<li>元素级函数（一元函数）：对数组中的每个元素进行运算</li>
+<li>数组级函数：统计函数，像聚合函数（例如：求和、求平均）</li>
+<li>矩阵运算</li>
+<li>随机生成函数</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.abs()、sum()、mean()std()、var()</td>
+<td>计算绝对值、求和、求平均值求标准差、方差</td>
+<td>arr = np.array([1,2,-3,-4,5])np.abs(arr)</td>
+<td>array([1, 2, 3, 4, 5])</td>
+</tr>
+<tr>
+<td>np.min()、max()、argmin ()、argmax()</td>
+<td>最小值、最大值、最小值索引、最大值索引</td>
+<td>arr = np.array([1.1,2.2,-3.3]) np.argmin(arrr)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>np.square()</td>
+<td>计算各元素的平方</td>
+<td>arr = np.array([1,2,-3,-4,5])np.square(arr)</td>
+<td>array([ 1, 4, 9, 16, 25], dtype=int32)</td>
+</tr>
+<tr>
+<td>np.sqrt()</td>
+<td>计算各元素的平方根</td>
+<td>arr = np.array([1,2,4,5])np.sqrt(arr)</td>
+<td>array([1.    , 1.41421356, 2.    , 2.23606798])</td>
+</tr>
+<tr>
+<td>np.exp()</td>
+<td>计算各元素以e为底的指数（ex）</td>
+<td>arr = np.array([1,2,4,5]) np.exp(arr)</td>
+<td>array([ 2.71828183,  7.3890561 , 54.59815003, 148.4131591 ])</td>
+</tr>
+<tr>
+<td>np.log()、log10()、log2()</td>
+<td>计算以e、10、2为底的对数</td>
+<td>arr = np.array([10,100,1000]) np.log10(arr)</td>
+<td>array([1., 2., 3.])</td>
+</tr>
+<tr>
+<td>np.sign()</td>
+<td>返回各元素的正负号：1（正数）、0（零）、-1（负数）</td>
+<td>arr = np.array([1,2,-3,-4,5,0]) np.sign(arr)</td>
+<td>array([ 1, 1, -1, -1, 1, 0])</td>
+</tr>
+<tr>
+<td>np.sort()</td>
+<td>对数组进行排序（默认升序） 多维数组可以在单个轴上进行排序</td>
+<td>arr = np.array([1,2,-3,-4,5,0]) np.sort(arr)</td>
+<td>array([-4, -3, 0, 1, 2, 5])</td>
+</tr>
+<tr>
+<td>np.unique()</td>
+<td>去重—&gt;结果默认升序排列同python中的集合set()</td>
+<td>arr = np.array([1,2,-3,2,1,0])arr.unique()</td>
+<td>array([-3, 0, 1, 2])</td>
+</tr>
+<tr>
+<td>np.ceil()</td>
+<td>向上取整</td>
+<td>arr = np.array([1.1,2.2,-3.3]) np.ceil(arr)</td>
+<td>array([ 2., 3., -3.])</td>
+</tr>
+<tr>
+<td>floor()</td>
+<td>向下取整</td>
+<td>arr = np.array([1.1,2.2,-3.3]) np.floor(arr)</td>
+<td>array([ 1., 2., -4.])</td>
+</tr>
+<tr>
+<td>np.rint()</td>
+<td>四舍五入</td>
+<td>arr = np.array([1.1,2.2,-3.3]) np.rint(arr)</td>
+<td>array([ 1., 2., -3.])</td>
+</tr>
+<tr>
+<td>np.modf()</td>
+<td>小数和整数分离</td>
+<td>arr = np.array([1.1,2.2,-3.3]) np.modf(arr)</td>
+<td>(array([ 0.1, 0.2, -0.3]), array([ 1., 2., -3.]))</td>
+</tr>
+<tr>
+<td>np.sin()、cos()、tan()</td>
+<td>正弦、余弦、正切</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>np.cumsum()</td>
+<td>求数组元素累计和</td>
+<td>arr = np.array([1,2,3]) np.cumsum(arr)</td>
+<td>array([1, 3, 6], dtype=int32)</td>
+</tr>
+<tr>
+<td>np.cumprod(）</td>
+<td>求数组元素的累积积</td>
+<td>arr = np.array([1,2,3]) np.cumprod(arr)</td>
+<td>array([1, 2, 6], dtype=int32)</td>
+</tr>
+</tbody></table>
+<p> 二、numpy.linalg模块包括许多矩阵运算</p>
+<p>常用的有：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.diag()</td>
+<td>返回矩阵的主对角线元素，若输入一维数组则返回对角矩阵</td>
+<td>arr=np.array([[1,2,3],[2,2,3],[3,5,1]]) np.diag(arr)</td>
+<td>array([1, 2, 1])</td>
+</tr>
+<tr>
+<td>np.trace()</td>
+<td>计算对角线元素之和</td>
+<td>np.trace(arr)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>np.linalg.det()</td>
+<td>计算矩阵的行列式</td>
+<td>np.linalg.det(arr)</td>
+<td>12.999999999999995</td>
+</tr>
+<tr>
+<td>np.linalg.inv()</td>
+<td>计算矩阵的逆</td>
+<td>np.linalg.inv(arr)</td>
+<td>array([[-1.00000000e+00, 1.00000000e+00, -9.25185854e-18],     [ 5.38461538e-01, -6.15384615e-01, 2.30769231e-01],     [ 3.07692308e-01, 7.69230769e-02, -1.53846154e-01]])</td>
+</tr>
+<tr>
+<td>np.dot()</td>
+<td>矩阵点乘</td>
+<td>arr2 = np.array([[1,2],[2,3],[3,4]]) np.dot(arr,arr2)</td>
+<td>array([[14, 20],     [15, 22],     [16, 25]])</td>
+</tr>
+</tbody></table>
+<p> 三、numpy.random模块包括许多生成随机数的函数</p>
+<p>常用的有：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.random.rand()</td>
+<td>产生（0,1）均匀分布的随机数</td>
+<td>arr = np.random.rand(2,2)</td>
+<td>array([[0.28576059, 0.87691219],      [0.98174158, 0.37963998]])</td>
+</tr>
+<tr>
+<td>np.random.randint()</td>
+<td>从给定上下限范围内随机选取整数(默认是0-1之间)</td>
+<td>arr = np.random.randint(0,5,size=(2,2))</td>
+<td>array([[4, 3],     [2, 1]])</td>
+</tr>
+<tr>
+<td>np.random.binomial()</td>
+<td>产生二项分布的随机数，有两个参数：n、p；且可用size指定形状</td>
+<td>arr=np.random.binomial(20,0.3)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>np.random.normal()</td>
+<td>产生正态分布的随机数有两个参数：均值μ、标准差σ；且可用size指定形状</td>
+<td>arr = np.random.normal(0,0.4,size=(2,2))</td>
+<td>array([[ 0.19689244, 0.1862919 ],     [ 0.5238639 , 0.22638041]])</td>
+</tr>
+<tr>
+<td>np.random.randn()</td>
+<td>产生标准正态分布的随机数 即均值μ=0、标准差σ=1</td>
+<td>arr = np.random.randn(2,3)</td>
+<td>array([[ 0.25079709, -0.35966478, -1.28589538],     [-1.02478972, -0.2292332 , -1.40625537]])</td>
+</tr>
+<tr>
+<td>np.random.seed()</td>
+<td>确定随机数生成的种子，让生成随机数的过程可重现（不设置seed时，每次生成的随机数将不同）</td>
+<td>np.random.seed(5) np.random.rand(2,2)np.random.seed(5) np.random.rand(2,3)</td>
+<td>array([[0.22199317, 0.87073231],     [0.20671916, 0.91861091]])array([[0.22199317, 0.87073231, 0.20671916],     [0.91861091, 0.48841119, 0.61174386]])</td>
+</tr>
+</tbody></table>
+<h2 id="DataFrame的删除和添加一列"><a href="#DataFrame的删除和添加一列" class="headerlink" title="DataFrame的删除和添加一列"></a>DataFrame的删除和添加一列</h2><p>添加一列：（1）像字典一样通过赋值的方式执行</p>
+<pre class=" language-python"><code class="language-python">d<span class="token punctuation">[</span><span class="token string">'three'</span><span class="token punctuation">]</span><span class="token operator">=</span>d<span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">]</span><span class="token operator">+</span>d<span class="token punctuation">[</span><span class="token string">'two'</span><span class="token punctuation">]</span>
+</code></pre>
+<p>2）使用insert()在指定位置插入一列，例如在位置1插入新的一列’new’,值为0</p>
+<pre class=" language-python"><code class="language-python">d<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'new'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>删除一列：像字典一样——&gt;使用pop()或者del()，pop()可以在删除列的基础之上将删除的列赋值给一个新的变量</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">del</span> d<span class="token punctuation">[</span><span class="token string">'three'</span><span class="token punctuation">]</span>
+new <span class="token operator">=</span> d<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>DataFrame修改索引名：使用rename()方法</p>
+<pre class=" language-python"><code class="language-python">i <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">:</span><span class="token string">'B'</span><span class="token punctuation">}</span>
+d<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>index<span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#行索引改名</span>
+</code></pre>
+<h2 id="常用的描述性统计函数、汇总函数"><a href="#常用的描述性统计函数、汇总函数" class="headerlink" title="常用的描述性统计函数、汇总函数"></a>常用的描述性统计函数、汇总函数</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>count</td>
+<td>非缺失样本的数量</td>
+<td>sum</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>均值</td>
+<td>mad</td>
+<td>平均绝对偏差（Mean absolute deviation）</td>
+</tr>
+<tr>
+<td>median</td>
+<td>中位数</td>
+<td>min</td>
+<td>最小值</td>
+</tr>
+<tr>
+<td>max</td>
+<td>最大值</td>
+<td>mode</td>
+<td>众数</td>
+</tr>
+<tr>
+<td>abs</td>
+<td>绝对值</td>
+<td>prod</td>
+<td>乘积</td>
+</tr>
+<tr>
+<td>std</td>
+<td>标准差</td>
+<td>var</td>
+<td>无偏方差</td>
+</tr>
+<tr>
+<td>sem</td>
+<td>平均标准误差</td>
+<td>skew</td>
+<td>偏度（三阶矩）</td>
+</tr>
+<tr>
+<td>kurt</td>
+<td>峰度（四阶矩）</td>
+<td>quantile</td>
+<td>分位数</td>
+</tr>
+<tr>
+<td>cumsum</td>
+<td>累计求和</td>
+<td>cumprod</td>
+<td>累积</td>
+</tr>
+<tr>
+<td>cummax</td>
+<td>累计最大值</td>
+<td>cummin</td>
+<td>累积最小值</td>
+</tr>
+</tbody></table>
+<h1 id="二、汇总函数"><a href="#二、汇总函数" class="headerlink" title="二、汇总函数"></a>二、汇总函数</h1><p>（1）describe()：查看各个特征的均值、标准差、最小值、最大值即分位数，对样本数据量进行统计,默认仅对数值型数据进行统计，也可通过<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Cheryol/p/13381453.html">上一节数据筛选</a>中所说的include和exclude来设定包括或是剔除哪些类型的特征。</p>
+<p>　　例如：&gt;&gt;&gt;df.describe(include=[‘object’])</p>
+<p>需要注意的是：</p>
+<ul>
+<li>describe()返回的对象也是一个DataFrame类型，所以我们是可以根据自身需求提取需要的汇总量;</li>
+<li>describe()也可以对非数值型数据进行统计，只是统计指标不同而已.</li>
+</ul>
+<p>（2）info()：显示各个特征数据类型、非空值数量、总体样本量、占用的内存空间；</p>
+<p>　　若不关心其中缺失值的情况，则可设置null_counts参数的值为False；</p>
+<p>　　&gt;&gt;&gt;df.info(null_counts = False)</p>
+<p>　　若不想具体查看特征的每个变量的情况，则可设置verbose参数的值为False;</p>
+<p>　　&gt;&gt;&gt;df.info(verbose=False)</p>
+<p>（3）cov()：协方差，描述各个特征之间的相关关系。</p>
+<p>　　&gt;&gt;&gt;df.cov()</p>
+<p>　　即：若有n个特征，将生成一个n*n的矩阵</p>
+<p>　　需要注意的是：协方差的绝对值不反应线性相关的程度</p>
+<p>（4）corr()：相关系数。表示线性相关的方向和相关程度，其值域为[-1,1]</p>
+<p>　　&gt;&gt;&gt;df.corr()</p>
+<h2 id="什么是Panel"><a href="#什么是Panel" class="headerlink" title="什么是Panel"></a>什么是Panel</h2><ul>
+<li>Series：包含一维索引的一组数据</li>
+<li>DataFrame：包含index和columns两个轴</li>
+<li>Panel（面板）：一种三维数据容器</li>
+</ul>
+<p>一个Panel对象由3个轴构成：</p>
+<ul>
+<li>items——–&gt;axis=0:每个项目对应于内部包含的DataFrame</li>
+<li>major_axis—&gt;axis=1:每个DataFrame的索引（行）</li>
+<li>minor_axis—&gt;axis=2:每个DataFrame的列</li>
+</ul>
+<p>二、Panel的创建</p>
+<p> 　pd.Panel(data,items,major_axis,minor_axis,dtype,copy)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data</td>
+<td>数据采取各种形式，如：ndarray、Series、列表、字典和另外一个DataFrame</td>
+</tr>
+<tr>
+<td>items</td>
+<td>每个项目对应于内部包含的DataFrame</td>
+</tr>
+<tr>
+<td>major_axis</td>
+<td>每个DataFrame的索引（行）</td>
+</tr>
+<tr>
+<td>minor_axis</td>
+<td>每个DataFrame的列</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>每列的数据类型</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>复制数据，默认值为False</td>
+</tr>
+</tbody></table>
+<p>三、Panel的转换</p>
+<p>　　通过to_frame()将Panel转转成一个“堆积式”的DataFrame（stacked DataFrame），此时Paenl的形式与索引都将方便许多。</p>
+<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><p>1、Pandas的数据类型主要结合了pandas和numpy两个模块中的数据类型，包括以下几种：</p>
+<ul>
+<li>float</li>
+<li>int</li>
+<li>bool</li>
+<li>datetime64[ns]——&gt;日期类型</li>
+<li>datetime64[ns,tz]—&gt;日期类型</li>
+<li>timedelta[ns]——-&gt;时间差类型</li>
+<li>category</li>
+<li>object—-&gt;当一个Series仅包括字符串或是包括多种数据类型时为object类型</li>
+</ul>
+<p>2、通过DateFrame对象的dtypes属性,可得到各个特征的数据类型。</p>
+<p>　　例如：df.dtypes</p>
+<p>3、类型转换：</p>
+<p>　 （1）通过astype()转换数据类型，默认情况下会产生对象转换后的一个副本</p>
+<p>　　　　df[‘A’] = df[‘A’].astype(‘int8’)</p>
+<p>　 （2）对多列进行类型转换时，对astype()传入一个字典。字典的键值对格式为列名：目标数据类型</p>
+<p>　　　　df = df.astype({‘A’:’int8’,’B’:’int32’})</p>
+<p>二、数据筛选</p>
+<p>select_dtypes()筛选出特定数据类型的特征</p>
+<p>　　包括两个参数：</p>
+<ul>
+<li>include:筛选时选取的数据类型</li>
+<li>exclude：筛选时排除的数据类型</li>
+</ul>
+<p>df.select_dtypes(include=[‘float’],exclude=[‘int’])</p>
 <h2 id="读取Excel、csv、mysql等文件存入到MySQL"><a href="#读取Excel、csv、mysql等文件存入到MySQL" class="headerlink" title="读取Excel、csv、mysql等文件存入到MySQL"></a>读取Excel、csv、mysql等文件存入到MySQL</h2><p>数据处理步骤：</p>
 <p>1、Pandas读取数据（如：excel、csv等）</p>
 <p>2、对数据做过滤、统计分析</p>
