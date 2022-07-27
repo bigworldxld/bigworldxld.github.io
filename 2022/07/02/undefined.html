@@ -10136,6 +10136,585 @@ df<span class="token punctuation">.</span>drop<span class="token punctuation">(<
 </table>
 </div>
 
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd 
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'haha'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>class</th>
+      <th>name</th>
+      <th>city</th>
+      <th>sex</th>
+      <th>score_math</th>
+      <th>haha</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>Bob</td>
+      <td>广州市</td>
+      <td>女</td>
+      <td>99</td>
+      <td>女</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A</td>
+      <td>Bob</td>
+      <td>深圳市</td>
+      <td>男</td>
+      <td>99</td>
+      <td>男</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>B</td>
+      <td>Mark</td>
+      <td>上海市</td>
+      <td>女</td>
+      <td>87</td>
+      <td>女</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>B</td>
+      <td>Miki</td>
+      <td>重庆市</td>
+      <td>女</td>
+      <td>77</td>
+      <td>女</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C</td>
+      <td>Sully</td>
+      <td>贵州市</td>
+      <td>女</td>
+      <td>77</td>
+      <td>女</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>A</td>
+      <td>Rose</td>
+      <td>北京市</td>
+      <td>男</td>
+      <td>65</td>
+      <td>男</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 特征重复（一列数据和另一列数据的值相似度高,主要用于类别特征重复）</span>
+<span class="token keyword">def</span> <span class="token function">FeatureEquals</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    
+    dfEquals<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>columns<span class="token operator">=</span>data<span class="token punctuation">.</span>columns<span class="token punctuation">,</span>index<span class="token operator">=</span>data<span class="token punctuation">.</span>columns<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> data<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> data<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+            dfEquals<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>equals<span class="token punctuation">(</span>data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> dfEquals
+detEquals<span class="token operator">=</span>FeatureEquals<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>detEquals<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>              city  class   haha   name score_math score_music    sex
+city          True  False  False  False      False       False  False
+class        False   True  False  False      False       False  False
+haha         False  False   True  False      False       False   True
+name         False  False  False   True      False       False  False
+score_math   False  False  False  False       True       False  False
+score_music  False  False  False  False      False        True  False
+sex          False  False   True  False      False       False   True
+</code></pre>
+<pre class=" language-python"><code class="language-python">lenDet<span class="token operator">=</span>detEquals<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+dupCol<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>lenDet<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> l <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>lenDet<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> detEquals<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>k<span class="token punctuation">,</span>l<span class="token punctuation">]</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>detEquals<span class="token punctuation">.</span>columns<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">not</span> <span class="token keyword">in</span> dupCol<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dupCol<span class="token punctuation">.</span>append<span class="token punctuation">(</span>detEquals<span class="token punctuation">.</span>columns<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>            
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>dupCol<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+df
+</code></pre>
+<pre><code>(6, 7)
+(6, 6)
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>haha</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广州市</td>
+      <td>A</td>
+      <td>女</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>男</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>上海市</td>
+      <td>B</td>
+      <td>女</td>
+      <td>Mark</td>
+      <td>87</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>重庆市</td>
+      <td>B</td>
+      <td>女</td>
+      <td>Miki</td>
+      <td>77</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>贵州市</td>
+      <td>C</td>
+      <td>女</td>
+      <td>Sully</td>
+      <td>77</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>北京市</td>
+      <td>A</td>
+      <td>男</td>
+      <td>Rose</td>
+      <td>65</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'haha'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># df.loc[:,['class']]</span>
+<span class="token comment" spellcheck="true"># df[:3]</span>
+<span class="token comment" spellcheck="true"># df[:3][['class']]</span>
+<span class="token comment" spellcheck="true"># 删除一列数据全为空或者全为NaN</span>
+<span class="token keyword">def</span> <span class="token function">dropNullStd</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    beforelen<span class="token operator">=</span>date<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    collisNull<span class="token operator">=</span>date<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token string">'count'</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>collisNull<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>collisNull<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>collisNull<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> collisNull<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            date<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>collisNull<span class="token punctuation">.</span>index<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    afterlen<span class="token operator">=</span>date<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>beforelen<span class="token operator">-</span>afterlen<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+dropNullStd<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>haha            True
+score_math     False
+score_music    False
+Name: count, dtype: bool
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+1
+(6, 6)
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score_math</th>
+      <th>score_music</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>84.000000</td>
+      <td>81.333333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>13.549908</td>
+      <td>11.910779</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>65.000000</td>
+      <td>67.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>77.000000</td>
+      <td>73.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>82.000000</td>
+      <td>79.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>96.000000</td>
+      <td>88.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>99.000000</td>
+      <td>99.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'haha'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">76</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义3O原则来识别异常值</span>
+<span class="token keyword">def</span> <span class="token function">outRange</span><span class="token punctuation">(</span>Ser1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    boolInd<span class="token operator">=</span><span class="token punctuation">(</span>Ser1<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">*</span>Ser1<span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span>Ser1<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>Ser1<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">*</span>Ser1<span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>Ser1<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>boolInd<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>boolInd<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    index<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>Ser1<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span>boolInd<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    outrange<span class="token operator">=</span>Ser1<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> outrange
+outlier<span class="token operator">=</span>outRange<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>outlier<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>outlier<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>outlier<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>0    False
+1    False
+2    False
+3    False
+4    False
+5    False
+Name: score_music, dtype: bool
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+[]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+0
+nan
+nan
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 箱形图四分位数处理异常值</span>
+<span class="token keyword">def</span> <span class="token function">outRange</span><span class="token punctuation">(</span>Ser1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    QL<span class="token operator">=</span>Ser1<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">)</span>
+    QU<span class="token operator">=</span>Ser1<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span><span class="token number">0.75</span><span class="token punctuation">)</span>
+    IQR<span class="token operator">=</span>QU<span class="token operator">-</span>QL
+    Ser1<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>Ser1<span class="token operator">></span><span class="token punctuation">(</span>QU<span class="token operator">+</span><span class="token number">1.5</span><span class="token operator">*</span>IQR<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">=</span>QU
+    Ser1<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>Ser1<span class="token operator">&lt;</span><span class="token punctuation">(</span>QU<span class="token number">-1.5</span><span class="token operator">*</span>IQR<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">=</span>QL
+    <span class="token keyword">return</span> Ser1
+df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token operator">=</span>outRange<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>67.0
+81.0
+
+
+E:\anaconda\lib\site-packages\pandas\core\indexing.py:179: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  self._setitem_with_indexer(indexer, value)
+</code></pre>
+<pre class=" language-python"><code class="language-python">
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># boolInd=pd.Series([False,True,True,False,False],dtype=bool)</span>
+boolInd<span class="token operator">=</span><span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>boolInd<span class="token punctuation">)</span>
+index<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">[</span>boolInd<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>[False, True, True, False, False]
+[1 2]
+</code></pre>
+<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token string">'haha'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">76</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span>np<span class="token punctuation">.</span>NAN<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">naRate<span class="token operator">=</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span>df<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'str'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'%'</span><span class="token comment" spellcheck="true">#统计各个特征的缺失率</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>naRate<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>city           16.666666666666664%
+class                         0.0%
+haha                        100.0%
+name                          0.0%
+score_math                    0.0%
+score_music     33.33333333333333%
+sex            16.666666666666664%
+dtype: object
+</code></pre>
+<pre class=" language-python"><code class="language-python">df
+</code></pre>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th &#123;
+    text-align: left;
+&#125;
+
+.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+</code></pre>
+<p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>class</th>
+      <th>haha</th>
+      <th>name</th>
+      <th>score_math</th>
+      <th>score_music</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广州市</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>78.00</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>深圳市</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>Bob</td>
+      <td>99</td>
+      <td>81.00</td>
+      <td>男</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>上海市</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>Mark</td>
+      <td>87</td>
+      <td>76.00</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>重庆市</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>Miki</td>
+      <td>77</td>
+      <td>72.00</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>贵州市</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>Sully</td>
+      <td>77</td>
+      <td>67.00</td>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>北京市</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>Rose</td>
+      <td>65</td>
+      <td>68.25</td>
+      <td>男</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 等频法，离散化连续型数据（数值型转化为类别型数据）</span>
+<span class="token keyword">def</span> <span class="token function">SameRateCut</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w<span class="token operator">=</span>data<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">1.0</span><span class="token operator">/</span>k<span class="token punctuation">,</span><span class="token number">1.0</span><span class="token operator">/</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    data<span class="token operator">=</span>pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>data<span class="token punctuation">,</span>w<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#默认左开右闭</span>
+    <span class="token keyword">return</span> data
+result<span class="token operator">=</span>SameRateCut<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>(74.0, 81.0]    3
+(67.0, 74.0]    2
+Name: score_music, dtype: int64
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 小数定标标准化数据，将数据映射到[-1,1]区间</span>
+<span class="token keyword">def</span> <span class="token function">DecimalScaler</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data<span class="token operator">=</span>data<span class="token operator">/</span><span class="token number">10</span><span class="token operator">**</span>np<span class="token punctuation">.</span>ceil<span class="token punctuation">(</span>np<span class="token punctuation">.</span>log10<span class="token punctuation">(</span>data<span class="token punctuation">.</span>abs<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+data1<span class="token operator">=</span>DecimalScaler<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+data2<span class="token operator">=</span>DecimalScaler<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+data3<span class="token operator">=</span>pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>data1<span class="token punctuation">,</span>data2<span class="token punctuation">]</span><span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">,</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data3<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>   score_music  score_math
+0         78.0          99
+1         81.0          99
+2         76.0          87
+3         72.0          77
+4         67.0          77
+   score_math  score_music
+0        0.99         0.78
+1        0.99         0.81
+2        0.87         0.76
+3        0.77         0.72
+4        0.77         0.67
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">KmeanCut</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>cluster <span class="token keyword">import</span> KMeans
+    kmodel<span class="token operator">=</span>KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span>k<span class="token punctuation">)</span>
+    kmodel<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>data<span class="token punctuation">.</span>values<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    c<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>kmodel<span class="token punctuation">.</span>cluster_centers_<span class="token punctuation">)</span><span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    w<span class="token operator">=</span>c<span class="token punctuation">.</span>rolling<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    w<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>list<span class="token punctuation">(</span>w<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token punctuation">[</span>data<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    data<span class="token operator">=</span>pd<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>data<span class="token punctuation">,</span>w<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+result<span class="token operator">=</span>KmeanCut<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+</code></pre>
+<pre><code>(0.0, 84.0]     3
+(84.0, 99.0]    3
+Name: score_math, dtype: int64
+</code></pre>
 <h2 id="numpy“通用函数”-ufunc-包括以下几种："><a href="#numpy“通用函数”-ufunc-包括以下几种：" class="headerlink" title="numpy“通用函数”(ufunc)包括以下几种："></a>numpy“通用函数”(ufunc)包括以下几种：</h2><ol>
 <li>元素级函数（一元函数）：对数组中的每个元素进行运算</li>
 <li>数组级函数：统计函数，像聚合函数（例如：求和、求平均）</li>
@@ -10431,671 +11010,6 @@ d<span class="token punctuation">.</span>rename<span class="token punctuation">(
 </ul>
 <p>（2）info()：显示各个特征数据类型、非空值数量、总体样本量、占用的内存空间；</p>
 <p>　　若不关心其中缺失值的情况，则可设置null_counts参数的值为False；</p>
-<p>　　&gt;&gt;&gt;df.info(null_counts = False)</p>
-<p>　　若不想具体查看特征的每个变量的情况，则可设置verbose参数的值为False;</p>
-<p>　　&gt;&gt;&gt;df.info(verbose=False)</p>
-<p>（3）cov()：协方差，描述各个特征之间的相关关系。</p>
-<p>　　&gt;&gt;&gt;df.cov()</p>
-<p>　　即：若有n个特征，将生成一个n*n的矩阵</p>
-<p>　　需要注意的是：协方差的绝对值不反应线性相关的程度</p>
-<p>（4）corr()：相关系数。表示线性相关的方向和相关程度，其值域为[-1,1]</p>
-<p>　　&gt;&gt;&gt;df.corr()</p>
-<h2 id="什么是Panel"><a href="#什么是Panel" class="headerlink" title="什么是Panel"></a>什么是Panel</h2><ul>
-<li>Series：包含一维索引的一组数据</li>
-<li>DataFrame：包含index和columns两个轴</li>
-<li>Panel（面板）：一种三维数据容器</li>
-</ul>
-<p>一个Panel对象由3个轴构成：</p>
-<ul>
-<li>items——–&gt;axis=0:每个项目对应于内部包含的DataFrame</li>
-<li>major_axis—&gt;axis=1:每个DataFrame的索引（行）</li>
-<li>minor_axis—&gt;axis=2:每个DataFrame的列</li>
-</ul>
-<p>二、Panel的创建</p>
-<p> 　pd.Panel(data,items,major_axis,minor_axis,dtype,copy)</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>data</td>
-<td>数据采取各种形式，如：ndarray、Series、列表、字典和另外一个DataFrame</td>
-</tr>
-<tr>
-<td>items</td>
-<td>每个项目对应于内部包含的DataFrame</td>
-</tr>
-<tr>
-<td>major_axis</td>
-<td>每个DataFrame的索引（行）</td>
-</tr>
-<tr>
-<td>minor_axis</td>
-<td>每个DataFrame的列</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>每列的数据类型</td>
-</tr>
-<tr>
-<td>copy</td>
-<td>复制数据，默认值为False</td>
-</tr>
-</tbody></table>
-<p>三、Panel的转换</p>
-<p>　　通过to_frame()将Panel转转成一个“堆积式”的DataFrame（stacked DataFrame），此时Paenl的形式与索引都将方便许多。</p>
-<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><p>1、Pandas的数据类型主要结合了pandas和numpy两个模块中的数据类型，包括以下几种：</p>
-<ul>
-<li>float</li>
-<li>int</li>
-<li>bool</li>
-<li>datetime64[ns]——&gt;日期类型</li>
-<li>datetime64[ns,tz]—&gt;日期类型</li>
-<li>timedelta[ns]——-&gt;时间差类型</li>
-<li>category</li>
-<li>object—-&gt;当一个Series仅包括字符串或是包括多种数据类型时为object类型</li>
-</ul>
-<p>2、通过DateFrame对象的dtypes属性,可得到各个特征的数据类型。</p>
-<p>　　例如：df.dtypes</p>
-<p>3、类型转换：</p>
-<p>　 （1）通过astype()转换数据类型，默认情况下会产生对象转换后的一个副本</p>
-<p>　　　　df[‘A’] = df[‘A’].astype(‘int8’)</p>
-<p>　 （2）对多列进行类型转换时，对astype()传入一个字典。字典的键值对格式为列名：目标数据类型</p>
-<p>　　　　df = df.astype({‘A’:’int8’,’B’:’int32’})</p>
-<p>二、数据筛选</p>
-<p>select_dtypes()筛选出特定数据类型的特征</p>
-<p>　　包括两个参数：</p>
-<ul>
-<li>include:筛选时选取的数据类型</li>
-<li>exclude：筛选时排除的数据类型</li>
-</ul>
-<p>df.select_dtypes(include=[‘float’],exclude=[‘int’])</p>
-<h2 id="读取Excel、csv、mysql等文件存入到MySQL"><a href="#读取Excel、csv、mysql等文件存入到MySQL" class="headerlink" title="读取Excel、csv、mysql等文件存入到MySQL"></a>读取Excel、csv、mysql等文件存入到MySQL</h2><p>数据处理步骤：</p>
-<p>1、Pandas读取数据（如：excel、csv等）</p>
-<p>2、对数据做过滤、统计分析</p>
-<p>3、Pandas将数据存储到MySQL，用于Web页面的页面显示，或是对后序进一步的SQL分析</p>
-<p>步骤一：准备数据</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token comment" spellcheck="true"># df = pd.read_excel('C:/class.xlsx')</span>
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span>
-                       <span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#为索引加上名称为id，以便入库成为主键</span>
-df<span class="token punctuation">.</span>index<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'id'</span>
-</code></pre>
-<p>步骤2：创建sqlalchemy对象连接MySQL</p>
-<p>SQLAlchemy是Python中的ORM框架（Object-Relation Mapping），把关系数据库的表映射到对象上</p>
-<p>安装sqlalchemy前需要安装Python依赖库，即pip install mysql-connector-python</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
-<span class="token comment" spellcheck="true">#mysql表示连接MySQL数据库</span>
-<span class="token comment" spellcheck="true">#mysqlconnector表示使用的库，就是pip install mysql-connector-python中的</span>
-<span class="token comment" spellcheck="true">#root:MySQL的用户名，123表示密码，后面分别是表示连接至本地，端口号，数据库名</span>
-engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">"mysql+mysqlconnector://root:123@127.0.0.1:3306/student"</span><span class="token punctuation">,</span>echo<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-</code></pre>
-<p>方法1：当数据表不存在时，每次覆盖整个表</p>
-<p>fetchall():</p>
-<p>返回多个元组，即返回多个记录(rows),如果没有结果 则返回 ()<br>需要注明：在MySQL中是NULL，而在Python中则是None</p>
-<p>#每次运行会drop table,新建表<br>#name属性表示表的名字，if_exists表示若表存在就替代</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>to_sql<span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'student'</span><span class="token punctuation">,</span>con <span class="token operator">=</span> engine<span class="token punctuation">,</span>if_exists<span class="token operator">=</span><span class="token string">"replace"</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查看表结构</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"show create table student"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>CREATE TABLE `student` (
-  `id` bigint DEFAULT NULL,
-  `city` text,
-  `class` text,
-  `name` text,
-  `score_math` bigint DEFAULT NULL,
-  `score_music` bigint DEFAULT NULL,
-  `sex` text,
-  KEY `ix_student_id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查看一共多少条</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select count(1) from student"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>(6,)
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查看数据前3条</span>
-engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student limit 3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>[(0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
- (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
- (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;)]
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 方法2：当数据表存在时，每次新增数据</span>
-df_new <span class="token operator">=</span> df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
-df_new<span class="token punctuation">.</span>to_sql<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'student'</span><span class="token punctuation">,</span>con<span class="token operator">=</span>engine<span class="token punctuation">,</span>if_exists<span class="token operator">=</span><span class="token string">'append'</span><span class="token punctuation">)</span>
-engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student where id&lt;=2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>[(0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
- (0, &#39;广州市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 78, &#39;女&#39;),
- (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
- (1, &#39;深圳市&#39;, &#39;A&#39;, &#39;Bob&#39;, 99, 81, &#39;男&#39;),
- (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;),
- (2, &#39;上海市&#39;, &#39;B&#39;, &#39;Mark&#39;, 87, 91, &#39;女&#39;)]
-</code></pre>
-<p>通过上述可以发现，使用append会增加，同一条数据会有冗余</p>
-<p>问题解决：先通过数据KEY删除旧数据</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> id <span class="token keyword">in</span> df_new<span class="token punctuation">.</span>index<span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">#先删除要新增的数据</span>
-    delete_sql <span class="token operator">=</span> f<span class="token string">"delete from student where id={id}"</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>delete_sql<span class="token punctuation">)</span>
-    engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>delete_sql<span class="token punctuation">)</span>
-</code></pre>
-<pre><code>delete from student where id=0
-delete from student where id=1
-delete from student where id=2
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#删除数据</span>
-engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from student where id&lt;=2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>[]
-</code></pre>
-<pre class=" language-python"><code class="language-python">engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">'select count(1) from student'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>(3,)
-</code></pre>
-<h2 id="绘制子图—-参数subplots"><a href="#绘制子图—-参数subplots" class="headerlink" title="绘制子图—-参数subplots"></a>绘制子图—-参数subplots</h2><p>一、图形的层次</p>
-<p><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200816164512132-1984558230.png" alt="img"></p>
-<p> 二、Matplotlib常用工具箱</p>
-<table>
-<thead>
-<tr>
-<th>Matplotlib工具箱</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>plt.title(‘title’)</td>
-<td>添加子图标题</td>
-</tr>
-<tr>
-<td>plt.legend([‘In’,’pt’])</td>
-<td>添加图例</td>
-</tr>
-<tr>
-<td>plt.xlabel(‘x’)plt.ylabel(‘y’)</td>
-<td>添加x/y轴标签</td>
-</tr>
-<tr>
-<td>plt.subtitle(‘T’)</td>
-<td>添加绘图框标题</td>
-</tr>
-<tr>
-<td>plt.text(1,1’t’)</td>
-<td>在(1,1)位置添加文字</td>
-</tr>
-<tr>
-<td>plt.show()</td>
-<td>显示图形</td>
-</tr>
-<tr>
-<td>plt.savefig(‘fig.eps’)</td>
-<td>保存图形</td>
-</tr>
-<tr>
-<td>plt.figure(figsize=(12,8))</td>
-<td>绘制12*8绘图框</td>
-</tr>
-<tr>
-<td>plt.xlim(0,1)plt.ylim(0,1)</td>
-<td>设置x/y轴范围</td>
-</tr>
-<tr>
-<td>plt.grid(which=’major’)</td>
-<td>添加背景网格</td>
-</tr>
-<tr>
-<td>plt.xticks(np.arange(0,1,0.2))plt.yticks(np.arange(0,1,0.2))</td>
-<td>修改主刻度标签范围</td>
-</tr>
-</tbody></table>
-<p>方法一：设置参数subplots  = True即可自动创建子图，可通过参数layout来设置子图布局</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>subplots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>layout<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE.png" class title="This is an example image">
-
-<p>方法二：使用Matplotlib的方法，即plt.subbplots(nrows=2,ncols=2)或plt.subplot(2,2)</p>
-<p>使用tight_layout()自动调整子图间距以免文字重叠</p>
-<pre class=" language-python"><code class="language-python">fig<span class="token punctuation">,</span>axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
-df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
- 
-df<span class="token punctuation">[</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
- 
-<span class="token comment" spellcheck="true">#自动调整子图间距，以免重叠</span>
-plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE1.png" class title="This is an example image">
-
-<p>调整坐标轴</p>
-<p>参数xticks设置主刻度标签，xlim设置坐标轴范围，y轴与x轴相同，如下：</p>
-<p>plt.xticks()、plt.xlim()<br>添加背景网格</p>
-<p>使用grid参数参加背景网格</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>xticks<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>rot<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>xlim<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>grid<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE2.png" class title="This is an example image">
-
-<p>colormap</p>
-<p>参数colormap传入Matplotlib内置色图的名称，即可设置不同的颜色</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>colormap<span class="token operator">=</span><span class="token string">'Set3'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<img src="/2022/07/02/undefined/%E5%AD%90%E5%9B%BE3.png" class title="This is an example image">
-
-<h2 id="基于Matplotlib的Pandas绘图方法"><a href="#基于Matplotlib的Pandas绘图方法" class="headerlink" title="基于Matplotlib的Pandas绘图方法"></a>基于Matplotlib的Pandas绘图方法</h2><p>Pandas绘制图形相较于Matplotlib来说更为简洁，基础函数为df.plot(x,y)</p>
-<p>通过kind可以设置图形的类型，df.plot()默认绘制折线图，df.plot(kind =’’)用于设置各类图形，如下表所示</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>x</td>
-<td>x轴数据</td>
-</tr>
-<tr>
-<td>y</td>
-<td>y轴数据</td>
-</tr>
-<tr>
-<td>kind</td>
-<td>设置图表类型（具体可见右表）</td>
-</tr>
-<tr>
-<td>subplots</td>
-<td>判断图片是否有子图</td>
-</tr>
-<tr>
-<td>figsize</td>
-<td>图片尺寸大小</td>
-</tr>
-<tr>
-<td>label</td>
-<td>用于图例的标签</td>
-</tr>
-<tr>
-<td>style</td>
-<td>设置风格，传入字符串（如:’ko-‘）</td>
-</tr>
-<tr>
-<td>alpha</td>
-<td>设置透明度（越靠近0越透明）</td>
-</tr>
-<tr>
-<td>rot</td>
-<td>旋转刻度标签（rotation缩写，取值0-360）</td>
-</tr>
-<tr>
-<td>fontsize</td>
-<td>设置轴刻度的字体大小</td>
-</tr>
-<tr>
-<td>xticks</td>
-<td>用作x轴刻度的值</td>
-</tr>
-<tr>
-<td>yticks</td>
-<td>用作y轴刻度的值</td>
-</tr>
-<tr>
-<td>xlim</td>
-<td>x轴的范围</td>
-</tr>
-<tr>
-<td>ylim</td>
-<td>y轴的范围</td>
-</tr>
-<tr>
-<td>grid</td>
-<td>显示刻度背景网格</td>
-</tr>
-<tr>
-<td>colormap</td>
-<td>设置图形颜色</td>
-</tr>
-<tr>
-<td>layout</td>
-<td>设置子图排列格式</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>参数kind</th>
-<th>图形类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>line</td>
-<td>折线图</td>
-</tr>
-<tr>
-<td>bar/barh</td>
-<td>条形图</td>
-</tr>
-<tr>
-<td>hist</td>
-<td>直方图</td>
-</tr>
-<tr>
-<td>box</td>
-<td>箱线图</td>
-</tr>
-<tr>
-<td>scatter</td>
-<td>散点图</td>
-</tr>
-<tr>
-<td>pie</td>
-<td>饼图</td>
-</tr>
-</tbody></table>
-<p>注意：若在绘制图形时，对象是Series，那么Series对象的索引自动会设置为x轴，但是不会显示刻度标签</p>
-<p>linestyle：设置线的样式（简写：style）</p>
-<p>marker：设置标记样式</p>
-<p>color：设置线的颜色（简写：c）</p>
-<p>linewidth：设置显得粗细（简写：lw）</p>
-<p><strong>样式参数设置</strong>总结如下表：</p>
-<p><img src="https://img2020.cnblogs.com/blog/1479240/202008/1479240-20200816200129085-739140718.png" alt="img"></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token operator">%</span>matplotlib inline
-plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span>
-plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'axes.unicode_minus'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">False</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Bob'</span><span class="token punctuation">,</span><span class="token string">'Mark'</span><span class="token punctuation">,</span><span class="token string">'Miki'</span><span class="token punctuation">,</span><span class="token string">'Sully'</span><span class="token punctuation">,</span><span class="token string">'Rose'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'city'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'广州市'</span><span class="token punctuation">,</span><span class="token string">'深圳市'</span><span class="token punctuation">,</span><span class="token string">'上海市'</span><span class="token punctuation">,</span><span class="token string">'重庆市'</span><span class="token punctuation">,</span><span class="token string">'贵州市'</span><span class="token punctuation">,</span><span class="token string">'北京市'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'sex'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'score_math'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                       <span class="token string">'score_music'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">,</span><span class="token number">72</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python">df1<span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># df1.plot.bar(rot=45)    </span>
-df1<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>kind<span class="token operator">=</span><span class="token string">'bar'</span><span class="token punctuation">,</span>rot<span class="token operator">=</span><span class="token number">45</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'频数'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'sex分类分布条形图'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0.5,1,&#39;sex分类分布条形图&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_3_1.png" class title="This is an example image">
-
-
-<p>DataFrame.plot.bar()</p>
-<p>DataFrame绘制条形图时，会将每一行的值分为一组，各列名称作为图例</p>
-<pre class=" language-python"><code class="language-python">df_class <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
-df_class<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>bar<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f16a1f550&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_5_1.png" class title="This is an example image">
-
-
-
-
-
-<p>堆积条形图</p>
-<p>设置参数stacked=True，每行的值就堆积起来，更易于观察比较各组的分数</p>
-<pre class=" language-python"><code class="language-python">df_class<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>barh<span class="token punctuation">(</span>stacked<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f16c18898&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_7_1.png" class title="This is an example image">
-
-
-
-
-
-<p>直方图</p>
-<p>1、Series.plot.hist()</p>
-<p>2、DataFrame.plot.hist()</p>
-<p>通过bins设置面元，表示将数据分为多少组；</p>
-<p>当有多种类型进行数据可视化时（堆叠情况发生时）可以设置透明度alpha，将数据<br>的可视化更加明显</p>
-<p>默认画的是频数图，如果想画频率图，可以修改参数density = True</p>
-<p>调整参数cumulative= True绘制累积直方图</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>bins<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
-df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'score_math'</span><span class="token punctuation">,</span><span class="token string">'score_music'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>bins<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span>cumulative<span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f17f443c8&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_9_1.png" class title="This is an example image">
-
-
-<img src="/2022/07/02/undefined/output_9_2.png" class title="This is an example image">
-
-
-
-
-<p>绘制子图</p>
-<p>设置参数subplots=True，可将各列分布直方图分别绘制在不同的子图中</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>subplots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>figsize <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>array([&lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000023F17FC0630&gt;,
-       &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000023F17EB4B70&gt;], dtype=object)
-</code></pre>
-<img src="/2022/07/02/undefined/output_11_1.png" class title="This is an example image">
-
-
-<p>箱线图</p>
-<p>1、常规箱线图</p>
-<p>箱线图是一种用作显示数据分散情况的统计图</p>
-<p>用于考察数据之间的分布状况，同时又用于考察数据之间的离散和分布程度，离散程度高表明数据之间的差异较大；</p>
-<p>现绘制各科分数分布箱线图：</p>
-<pre class=" language-python"><code class="language-python">color <span class="token operator">=</span> dict<span class="token punctuation">(</span>boxes<span class="token operator">=</span><span class="token string">'Green'</span><span class="token punctuation">,</span>whiskers<span class="token operator">=</span><span class="token string">'Orange'</span><span class="token punctuation">,</span>medians<span class="token operator">=</span><span class="token string">'Blue'</span><span class="token punctuation">,</span>caps<span class="token operator">=</span><span class="token string">'Gray'</span><span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>box<span class="token punctuation">(</span>color<span class="token operator">=</span>color<span class="token punctuation">,</span>sym<span class="token operator">=</span><span class="token string">'r+'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#sym表示离群点</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'各科分布情况箱线图'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0.5,1,&#39;各科分布情况箱线图&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_13_1.png" class title="This is an example image">
-
-
-
-
-<p>可以通过修改箱线图的return_type参数为dict使得绘图函数返回一个字典，这可以让我们方便地从图中提取一些数据。</p>
-<pre class=" language-python"><code class="language-python">box <span class="token operator">=</span> df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>box<span class="token punctuation">(</span>color<span class="token operator">=</span>color<span class="token punctuation">,</span>sym<span class="token operator">=</span><span class="token string">'r+'</span><span class="token punctuation">,</span>return_type<span class="token operator">=</span><span class="token string">'dict'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># box</span>
-box<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>dict_keys([&#39;whiskers&#39;, &#39;caps&#39;, &#39;boxes&#39;, &#39;medians&#39;, &#39;fliers&#39;, &#39;means&#39;])
-</code></pre>
-<img src="/2022/07/02/undefined/output_15_1.png" class title="This is an example image">
-
-
-
-
-
-<p>其中：’boxes’对应的是箱体部分，’fliers’对应的是异常值点，’whiskers’对应的是两条须，可以通过提取列表的第一个元素获得相应的图块，然后使用get_xydata()获取其对应的数据点</p>
-<p>例：查看异常值部分，使用get_xydata()获取对应的异常值</p>
-<pre class=" language-python"><code class="language-python"> box<span class="token punctuation">[</span><span class="token string">'fliers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>get_xydata<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>array([], shape=(0, 2), dtype=float64)
-</code></pre>
-<p>水平箱线图</p>
-<p>通过vert = False可设置箱线图为水平方向展示</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>box<span class="token punctuation">(</span>color<span class="token operator">=</span>color<span class="token punctuation">,</span>sym<span class="token operator">=</span><span class="token string">'r+'</span><span class="token punctuation">,</span>vert<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'各科分布情况箱线图'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0.5,1,&#39;各科分布情况箱线图&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_19_1.png" class title="This is an example image">
-
-
-
-
-
-<p>分组绘图by</p>
-<p>箱线图也可以使用df.boxplot()的方法，设置参数by根据某列的唯一值将数据进行分组绘图;子图先列进行分组，然后按照班级分类进行分组（即子图的个数 = 列的个数）；当类别较多时，可以设定columns，也就是要分析的列</p>
-<p>如按照班级分组：</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>boxplot<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'class'</span><span class="token punctuation">,</span>sym<span class="token operator">=</span><span class="token string">'r+'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>E:\anaconda\lib\site-packages\numpy\core\fromnumeric.py:57: FutureWarning: reshape is deprecated and will raise in a subsequent release. Please use .values.reshape(...) instead
-  return getattr(obj, method)(*args, **kwds)
-
-
-
-
-
-array([&lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000023F18455B38&gt;,
-       &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000023F18496BE0&gt;], dtype=object)
-</code></pre>
-<img src="/2022/07/02/undefined/output_21_2.png" class title="This is an example image">
-
-
-
-
-
-<p>当boxplot默认绘制了两个标题时，可以通过suptitle和title进行调整，并设定grid参数为False不显示刻度背景网格</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>boxplot<span class="token punctuation">(</span>sym<span class="token operator">=</span><span class="token string">'r+'</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>A         AxesSubplot(0.1,0.559091;0.363636x0.340909)
-B    AxesSubplot(0.536364,0.559091;0.363636x0.340909)
-C             AxesSubplot(0.1,0.15;0.363636x0.340909)
-dtype: object
-</code></pre>
-<img src="/2022/07/02/undefined/output_23_1.png" class title="This is an example image">
-
-
-
-
-
-<p>1、基本散点图</p>
-<p>df.plot.scatter(x,y),绘制散点图需要传入参数x和y，分别设置x轴与y轴的数据。</p>
-<p>基本的散点图主要考察两个散点图之间的相互依存关系（相关关系）</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token string">'score_math'</span><span class="token punctuation">,</span>y <span class="token operator">=</span> <span class="token string">'score_music'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'math与music分数散点图'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0,0.5,&#39;music score&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_25_1.png" class title="This is an example image">
-
-
-
-
-
-<p>设置点的样式：</p>
-<p>s ：设置点的大小</p>
-<p>marker ：设置点的形状</p>
-<p>c：设置点的颜色</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>kind <span class="token operator">=</span> <span class="token string">'scatter'</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token string">'score_math'</span><span class="token punctuation">,</span>y <span class="token operator">=</span> <span class="token string">'score_music'</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">'g'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'*'</span><span class="token punctuation">,</span>s<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f18607400&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_27_1.png" class title="This is an example image">
-
-
-
-
-
-<p>说明：在散点图的绘制过程中，有些数据可能会重叠，可通过设置透明度alpha解决此类问题，但是散点图本就是分析趋势，所以一般情况下问题不大。</p>
-<p>2、加入影响因素（分类散点图）</p>
-<p>将班级等级进行数值编码，并存与新列grade中：</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'grade'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>kind <span class="token operator">=</span> <span class="token string">'scatter'</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token string">'score_math'</span><span class="token punctuation">,</span>y <span class="token operator">=</span> <span class="token string">'score_music'</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">'grade'</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f1871f6a0&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_29_1.png" class title="This is an example image">
-
-
-
-
-
-<p>注意：参数c既可以传入颜色，也可以传入列名，不同值的颜色会发生渐变</p>
-<p>气泡图（散点图的变种）</p>
-<p>散点图可用于展示三个变量（不是单纯的三个变量之间的关系，数据分析一般☞分析两两量变量之间的关系）之间的关系，现使用气泡图的形式加入班级等级影响因素。</p>
-<p>为了便于观察，将grade的编码替换为等比数列。</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'grade'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'grade'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token string">'score_music'</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">'c'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>s<span class="token operator">=</span><span class="token number">100</span><span class="token operator">*</span>df<span class="token punctuation">[</span><span class="token string">'grade'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'math与music分数散点图'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0,0.5,&#39;music score&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_31_1.png" class title="This is an example image">
-
-
-
-
-
-<p>加入plt.colorbar()，可以给子图添加colorbar（颜色条或渐变色条）</p>
-<p>4、六边箱图</p>
-<p>六边箱图又称为高密度散点图，df.plot.hexbin()，若数据点太密集，该图效果优于散点图</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>plot<span class="token punctuation">.</span>hexbin<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'score_math'</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token string">'score_music'</span><span class="token punctuation">,</span>gridsize<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'math与music分数六边箱图'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'math score'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'music score'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0,0.5,&#39;music score&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_33_1.png" class title="This is an example image">
-
-
-
-
-
-<p>注意：其中参数gridsize用于设置x轴方向的六边形数量，默认为100个，使用时根据自身需求进行调整</p>
-<p>七、饼图</p>
-<p>查看某特征的分布情况，df.plot.pie()会自动添加标题和各部分的名称</p>
-<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>plot<span class="token punctuation">.</span>pie<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x23f19a00400&gt;
-</code></pre>
-<img src="/2022/07/02/undefined/output_35_1.png" class title="This is an example image">
-
-
-
-
-
-<p>如何去除默认文字、添加图例、添加每部分百分比数值、设置凸出部分、添加阴影？</p>
-<p>labels = None：可去除饼图外侧每部分的名称；</p>
-<p>plt.ylabel(‘’)：设置y轴标签为空可以去掉默认标题；</p>
-<p>legend = True：添加图例（或者plt.legend()）；</p>
-<p>bbox_to_anchor：用来移动图例的位置，其中0.9表示左右，0.8表示上下；</p>
-<p>labels：表示显示的图例文字；</p>
-<p>autopct:控制图内百分比设置，’%%’的表示输出一个百分号，前一个%是转义字符；</p>
-<p>explode：设置每一块饼图离开中心的距离，如将比重最大的一块凸出；</p>
-<p>shadow = True：添加阴影。</p>
-<pre class=" language-python"><code class="language-python">explode<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#0表示默认不离开</span>
-df<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>plot<span class="token punctuation">.</span>pie<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>labels<span class="token operator">=</span>None<span class="token punctuation">,</span>
-                                    autopct<span class="token operator">=</span><span class="token string">'%.2f%%'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span>
-                                    explode <span class="token operator">=</span> explode<span class="token punctuation">,</span>shadow <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span>bbox_to_anchor<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.9</span><span class="token punctuation">,</span><span class="token number">0.8</span><span class="token punctuation">]</span><span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'class B'</span><span class="token punctuation">,</span><span class="token string">'class A'</span><span class="token punctuation">,</span><span class="token string">'class C'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'班级分布饼图'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>Text(0.5,1,&#39;班级分布饼图&#39;)
-</code></pre>
-<img src="/2022/07/02/undefined/output_37_1.png" class title="This is an example image">
-
-
-
-
-
 
                 
             </div>
