@@ -565,13 +565,17 @@
 <td>q(s3,a2)</td>
 </tr>
 </tbody></table>
-<h3 id="2、公式"><a href="#2、公式" class="headerlink" title="2、公式"></a>2、公式</h3><p>举个例子如图有一个GridWorld的游戏从起点出发到达终点为胜利掉进陷阱为失败。智能体（Agent）、环境状态（environment）、奖励（reward）、动作（action）可以将问题抽象成一个马尔科夫决策过程，我们在每个格子都算是一个状态s(t)  , π(a|s)在s状态下采取动作a策略 。 P(s’|s,a)也可以写成P (a|ss’)为在s状态下选择a动作转换到下一个状态s’的概率。R(s’|s,a)表示在s状态下采取a动作转移到s’的奖励reward，我们的目的很明确就是找到一条能够到达终点获得最大奖赏的策略。<br><img src="https://img-blog.csdn.net/20180619195404915?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwNjE1OTAz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img1"></p>
+<h3 id="2、公式"><a href="#2、公式" class="headerlink" title="2、公式"></a>2、公式</h3><p>举个例子如图有一个GridWorld的游戏从起点出发到达终点为胜利掉进陷阱为失败。智能体（Agent）、环境状态（environment）、奖励（reward）、动作（action）可以将问题抽象成一个马尔科夫决策过程，我们在每个格子都算是一个状态s(t)  , π(a|s)在s状态下采取动作a策略 。 P(s’|s,a)也可以写成P (a|ss’)为在s状态下选择a动作转换到下一个状态s’的概率。R(s’|s,a)表示在s状态下采取a动作转移到s’的奖励reward，我们的目的很明确就是找到一条能够到达终点获得最大奖赏的策略。</p>
+<img src="/2022/07/28/undefined/GridWorld.png" class title="This is an example image">
+
 <p>根据以上推导可以对Q值进行计算，所以有了Q值我们就可以进行学习，也就是Q-table的更新过程，其中α为学习率γ为奖励性衰变系数，采用时间差分法的方法进行更新。</p>
 <p>所以目标就是求出累计奖励最大的策略的期望：</p>
 <p>$$<br>Goal：max_πE[∑^H_{t=0}γ^tR(S_t,A_ t,S_t+1)∣π]<br>$$<br>Qlearning的主要优势就是使用了时间差分法TD（融合了蒙特卡洛和动态规划）能够进行离线学习, 使用bellman方程可以对马尔科夫过程求解最优策略</p>
 <h3 id="3、更新公式"><a href="#3、更新公式" class="headerlink" title="3、更新公式"></a>3、更新公式</h3><p>根据以上推导可以对Q值进行计算，所以有了Q值我们就可以进行学习，也就是Q-table的更新过程，其中α为学习率γ为奖励性衰变系数，采用时间差分法的方法进行更新。</p>
 <p><code>Q(s,a)←Q(s,a)+α[r+γmaxa′Q(s′,a′)−Q(s,a)]</code></p>
-<p>上式就是Q-learning更新的公式，根据下一个状态s’中选取最大的Q ( s ′ , a ′ ) Q(s’,a’)值乘以衰变γ加上真实回报值最为Q现实，而根据过往Q表里面的Q(s,a)作为Q估计。<br><img src="https://img-blog.csdnimg.cn/20190225164323939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwNjE1OTAz,size_16,color_FFFFFF,t_70" alt="img2"><br><img src="https://img-blog.csdn.net/20180615180722209?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwNjE1OTAz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img3"></p>
+<p>上式就是Q-learning更新的公式，根据下一个状态s’中选取最大的Q ( s ′ , a ′ ) Q(s’,a’)值乘以衰变γ加上真实回报值最为Q现实，而根据过往Q表里面的Q(s,a)作为Q估计。<br><img src="https://img-blog.csdnimg.cn/20190225164323939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwNjE1OTAz,size_16,color_FFFFFF,t_70" alt="img2"></p>
+<img src="/2022/07/28/undefined/%E6%9B%B4%E6%96%B0%E5%85%AC%E5%BC%8F.png" class title="This is an example image">
+
 <h3 id="4、实现代码"><a href="#4、实现代码" class="headerlink" title="4、实现代码"></a>4、实现代码</h3><h4 id="案例一宝藏在右边"><a href="#案例一宝藏在右边" class="headerlink" title="案例一宝藏在右边"></a>案例一宝藏在右边</h4><p>用查表Q学习法进行强化学习的一个简单例子。<br>代理“o”在一维世界的左边，宝藏在最右边。<br>运行这个程序，看看代理将如何改善其寻找宝藏的策略。</p>
 <p>源码：treasure_on_right.py</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
