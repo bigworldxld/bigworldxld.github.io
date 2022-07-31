@@ -603,7 +603,7 @@ env <span class="token operator">=</span> gym<span class="token punctuation">.</
 env <span class="token operator">=</span> env<span class="token punctuation">.</span>unwrapped  <span class="token comment" spellcheck="true">#返回基本非包装环境</span>
 N_ACTIONS <span class="token operator">=</span> env<span class="token punctuation">.</span>action_space<span class="token punctuation">.</span>n      <span class="token comment" spellcheck="true"># 杆子能做的动作</span>
 N_STATES <span class="token operator">=</span> env<span class="token punctuation">.</span>observation_space<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>       <span class="token comment" spellcheck="true"># 杆子能获取的环境信息数</span>
-<span class="token comment" spellcheck="true"># 环境状态有4个，小车位置，杆子角度，杆子角速度</span>
+<span class="token comment" spellcheck="true"># 环境状态有4个，小车位置，小车速率，杆子角度，杆子角速度</span>
 ENV_A_SHAPE <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>env<span class="token punctuation">.</span>action_space<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token keyword">else</span> env<span class="token punctuation">.</span>action_space<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>shape     <span class="token comment" spellcheck="true"># to confirm the shape</span>
 
 <span class="token comment" spellcheck="true"># DQN 当中建立两个神经网络, 一个是现实网络 (Target Net),</span>
@@ -957,17 +957,16 @@ dqn <span class="token operator">=</span> DQN<span class="token punctuation">(</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/30/undefined.html">
+                <a href="/2022/07/31/undefined.html">
                     <div class="card-image">
                         
-                        <img src="/images/DQN.jpg" class="responsive-img" alt="基于PyTorch的QDN强化学习">
+                        <img src="/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.jpg" class="responsive-img" alt="设计模式">
                         
-                        <span class="card-title">基于PyTorch的QDN强化学习</span>
+                        <span class="card-title">设计模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -977,9 +976,9 @@ dqn <span class="token operator">=</span> DQN<span class="token punctuation">(</
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -988,16 +987,11 @@ dqn <span class="token operator">=</span> DQN<span class="token punctuation">(</
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/pyTorch/">
-                        <span class="chip bg-color">pyTorch</span>
-                    </a>
-                    
-                    <a href="/tags/DQN/">
-                        <span class="chip bg-color">DQN</span>
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>
