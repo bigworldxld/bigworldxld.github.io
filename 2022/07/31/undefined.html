@@ -576,8 +576,6 @@
 <li>单例类：只能创建一个实例的类</li>
 <li>访问类：使用单例类</li>
 </ul>
-<p>单例模式简图</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14239901-1e8c796119af7ac0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/515/format/webp" alt="img"></p>
 <h4 id="1-1-2-单例模式的实现"><a href="#1-1-2-单例模式的实现" class="headerlink" title="1.1.2 单例模式的实现"></a>1.1.2 单例模式的实现</h4><p>单例设计模式分类两种：</p>
 <ul>
 <li>饿汉式：类加载就会导致该单实例对象被创建</li>
@@ -848,61 +846,61 @@
 <li>小心多重类加载器，也许会破坏你的单例类。</li>
 <li>如果单例类是可序列化的，需要实现严格类型</li>
 </ul>
-<h4 id="一个友好的完整单例模式实例"><a href="#一个友好的完整单例模式实例" class="headerlink" title="一个友好的完整单例模式实例"></a>一个友好的完整单例模式实例</h4><pre><code>
-import java.io.Serializable;
+<h4 id="一个友好的完整单例模式实例"><a href="#一个友好的完整单例模式实例" class="headerlink" title="一个友好的完整单例模式实例"></a>一个友好的完整单例模式实例</h4><pre class=" language-java"><code class="language-java">
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Serializable<span class="token punctuation">;</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 单例模式实例
  * 1. 构造器私有化
  * 2. 提供静态方法供外部获取单例实例
  * 3. 延迟初始化实例
- */
-public class SingletonZCloneSerializableReadResolve implements  Cloneable, Serializable &#123;
-    private static SingletonZCloneSerializableReadResolve instance;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingletonZCloneSerializableReadResolve</span> <span class="token keyword">implements</span>  <span class="token class-name">Cloneable</span><span class="token punctuation">,</span> Serializable <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> SingletonZCloneSerializableReadResolve instance<span class="token punctuation">;</span>
 
-    // 构造器私有化
-    private SingletonZCloneSerializableReadResolve()&#123;
+    <span class="token comment" spellcheck="true">// 构造器私有化</span>
+    <span class="token keyword">private</span> <span class="token function">SingletonZCloneSerializableReadResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-    &#125;
+    <span class="token punctuation">}</span>
 
-    // 提供静态方法
-    public static SingletonZCloneSerializableReadResolve getInstance()&#123;
+    <span class="token comment" spellcheck="true">// 提供静态方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> SingletonZCloneSerializableReadResolve <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-        // 将同步锁范围缩小，降低性能损耗
-        if(instance == null)&#123;
-            synchronized (SingletonZCloneSerializableReadResolve.class)&#123;
-                if(instance == null)&#123;
-                    instance = new SingletonZCloneSerializableReadResolve();
-                &#125;
-            &#125;
-        &#125;
-        return  instance;
-    &#125;
+        <span class="token comment" spellcheck="true">// 将同步锁范围缩小，降低性能损耗</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>SingletonZCloneSerializableReadResolve<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingletonZCloneSerializableReadResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span>  instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 克隆方法--改为public
      * @return
      * @throws CloneNotSupportedException
-     */
-    @Override
-    public Object clone() throws CloneNotSupportedException &#123;
-        throw new CloneNotSupportedException();
-    &#125;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Object <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> CloneNotSupportedException <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CloneNotSupportedException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
 
-    public void display()&#123;
-        System.out.println(&quot;Hurray! I am create as a SingletonZCloneSerializableReadResolve!&quot;);
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hurray! I am create as a SingletonZCloneSerializableReadResolve!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 反序列化时返回instance实例，防止破坏单例模式
      * @return
-     */
-    protected Object readResolve()&#123;
-        return getInstance();
-    &#125;
-&#125;
+     */</span>
+    <span class="token keyword">protected</span> Object <span class="token function">readResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
