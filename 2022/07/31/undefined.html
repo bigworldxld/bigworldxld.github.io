@@ -712,7 +712,7 @@
     INSTANCE
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="防止对象克隆破坏单例模式Singleton"><a href="#防止对象克隆破坏单例模式Singleton" class="headerlink" title="防止对象克隆破坏单例模式Singleton"></a>防止对象克隆破坏单例模式Singleton</h3><p>涉及单例类时还要注意clone方法的正确使用：</p>
+<h4 id="防止对象克隆破坏单例模式Singleton"><a href="#防止对象克隆破坏单例模式Singleton" class="headerlink" title="防止对象克隆破坏单例模式Singleton"></a>防止对象克隆破坏单例模式Singleton</h4><p>涉及单例类时还要注意clone方法的正确使用：</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>byron4j<span class="token punctuation">.</span>cookbook<span class="token punctuation">.</span>designpattern<span class="token punctuation">.</span>singleton<span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">/**
@@ -781,7 +781,7 @@
         <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CloneNotSupportedException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="防止序列化破坏单例模式"><a href="#防止序列化破坏单例模式" class="headerlink" title="防止序列化破坏单例模式"></a>防止序列化破坏单例模式</h3><p>Java序列化机制允许将一个对象的状态转换为字节流，就可以很容易地存储和转移。<br> 一旦对象被序列化，你就可以对其进行反序列化–将字节流转为对象。<br> 如果一个Singleton类被序列化，则可能创建重复的对象。<br> 我们可以使用钩子hook，来解释这个问题。</p>
+<h4 id="防止序列化破坏单例模式"><a href="#防止序列化破坏单例模式" class="headerlink" title="防止序列化破坏单例模式"></a>防止序列化破坏单例模式</h4><p>Java序列化机制允许将一个对象的状态转换为字节流，就可以很容易地存储和转移。<br> 一旦对象被序列化，你就可以对其进行反序列化–将字节流转为对象。<br> 如果一个Singleton类被序列化，则可能创建重复的对象。<br> 我们可以使用钩子hook，来解释这个问题。</p>
 <p>在Java规范中有关于readResolve()方法的介绍：</p>
 <blockquote>
 <p>对于可序列化的和外部化的类，readResolve() 方法允许一个类可以替换/解析从流中读取到的对象。<br> 通过实现 readResolve 方法，一个类就可以直接控制反序列化后的实例以及类型。<br> 定义如下：</p>
@@ -841,14 +841,14 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>枚举方式</strong>不会出现这两个问题。</p>
-<h3 id="使用单例模式的注意事项"><a href="#使用单例模式的注意事项" class="headerlink" title="使用单例模式的注意事项"></a>使用单例模式的注意事项</h3><ul>
+<h4 id="使用单例模式的注意事项"><a href="#使用单例模式的注意事项" class="headerlink" title="使用单例模式的注意事项"></a>使用单例模式的注意事项</h4><ul>
 <li>单例类是很少使用的，如果你要使用这个设计模式，你必须清楚的知道你在做什么。因为全局范围内仅仅创建一个实例，所以在资源受约束的平台是存在风险的。</li>
 <li>注意对象克隆。  单例模式需要仔细检查并阻止clone方法。</li>
 <li>多线程访问下，需要注意线程安全问题。</li>
 <li>小心多重类加载器，也许会破坏你的单例类。</li>
 <li>如果单例类是可序列化的，需要实现严格类型</li>
 </ul>
-<h3 id="一个友好的完整单例模式实例"><a href="#一个友好的完整单例模式实例" class="headerlink" title="一个友好的完整单例模式实例"></a>一个友好的完整单例模式实例</h3><pre><code>
+<h4 id="一个友好的完整单例模式实例"><a href="#一个友好的完整单例模式实例" class="headerlink" title="一个友好的完整单例模式实例"></a>一个友好的完整单例模式实例</h4><pre><code>
 import java.io.Serializable;
 
 /**
