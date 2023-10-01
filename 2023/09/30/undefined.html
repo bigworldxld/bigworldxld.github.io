@@ -622,7 +622,7 @@ remote: error: Trace: 0224239f8e73847812271f660f9977951bd9387">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    786
+                    840
                 </div>
                 
 
@@ -677,8 +677,6 @@ hexo g
 hexo d
 </code></pre>
 <h3 id="博客备份"><a href="#博客备份" class="headerlink" title="博客备份"></a>博客备份</h3><p>hexo的封面图片和音乐信息需要提前备份好，避免清数据没有了！！！</p>
-<p>下载原始数据包</p>
-<p>输入命令git clone -b main url (目前Git最新版本默认都是main，老版本是master)，这里也可以选择你要拉取的分支到本地。</p>
 <p>在git push推送时出现remote: fatal: pack exceeds maximum allowed size问题，经过排查，是由于出现大文件，解决方法：把没用的大文件删除，然后进行分批次上传文件并进行提交即可。</p>
 <p>remote: fatal: pack exceeds maximum allowed size</p>
 <p>最近使用git pull代码时总遇到这个问题，记录下解决办法，仅供参考！这个问题主要还是因为git add中有大文件存在，最直接的办法是用git lfs上传。</p>
@@ -711,6 +709,15 @@ git lfs untrack ".pth"
 </code></pre>
 <p>error: failed to push some refs to …</p>
 <p>当你直接在github上在线修改了代码，或者是直接向某个库中添加文件，但是没有对本地库同步，接着你想push上传到远程库，就会失败，如下：</p>
+<h3 id="博客备份恢复"><a href="#博客备份恢复" class="headerlink" title="博客备份恢复"></a>博客备份恢复</h3><p>下载原始数据包</p>
+<p>输入命令git clone -b main url (目前Git最新版本默认都是main，老版本是master)，这里也可以选择你要拉取的分支到本地。</p>
+<p>1.进入hexo根目录<br>2.直接把箭头指向的<code>.deploy_git</code>和<code>public</code>直接删除！</p>
+<p>先依次执行：</p>
+<pre class=" language-bash"><code class="language-bash">hexo clean
+hexo g
+hexo d
+</code></pre>
+<p>在将public下需要的图片和音乐文件上传</p>
 
                 
             </div>
