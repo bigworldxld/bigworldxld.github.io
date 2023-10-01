@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "hexo-abbrlink": "^2.2.1",
+    "hexo-deployer-cos-enhanced": "^1.0.1",
+    "hexo-deployer-git": "^3.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-prism-plugin": "^2.3.0"
+  }
+}

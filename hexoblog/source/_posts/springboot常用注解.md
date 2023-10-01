@@ -1,0 +1,995 @@
+---
+title: springboot常用注解
+date: 2022-08-05 18:54:30
+img: /images/springboot.jpg
+categories: java
+tags: springboot
+---
+
+## SpringBoot注解
+
+使用注解的优势：
+
+   1.采用纯java代码，不在需要配置繁杂的xml文件
+
+   2.在配置中也可享受面向对象带来的好处
+
+   3.类型安全对重构可以提供良好的支持
+
+   4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
+
+###  1. `@SpringBootApplication`
+
+这里先单独拎出`@SpringBootApplication` 注解说一下，虽然我们一般不会主动去使用它。
+
+这个注解是 Spring Boot 项目的基石，创建 SpringBoot 项目之后会默认在主类加上。
+
+```java
+@SpringBootApplication
+public class SpringSecurityJwtGuideApplication {
+      public static void main(java.lang.String[] args) {
+        SpringApplication.run(SpringSecurityJwtGuideApplication.class, args);
+    }
+}
+```
+
+可以把 `@SpringBootApplication`看作是 `@Configuration`、`@EnableAutoConfiguration`、`@ComponentScan` 注解的集合。
+
+```java
+package org.springframework.boot.autoconfigure;
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = {
+		@Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+   ......
+}
+package org.springframework.boot;
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Configuration
+public @interface SpringBootConfiguration {
+}
+```
+
+- `@EnableAutoConfiguration`：启用 SpringBoot 的自动配置机制
+- `@ComponentScan`： 扫描被`@Component` (`@Service`,`@Controller`)注解的 bean，注解默认会扫描该类所在的包下所有的类。
+- `@Configuration`：允许在 Spring 上下文中注册额外的 bean 或导入其他配置类
+
+### 2. Spring Bean 相关
+
+2.1. `@Autowired`
+
+自动导入对象到类中，被注入进的类同样要被 Spring 容器管理比如：Service 类注入到 Controller 类中。
+
+```java
+@Service
+public class UserService {
+  ......
+}
+@RestController
+@RequestMapping("/users")
+public class UserController {
+   @Autowired
+   private UserService userService;
+   ......
+}
+```
+
+2.2. `Component`,`@Repository`,`@Service`, `@Controller`
+
+我们一般使用 `@Autowired` 注解让 Spring 容器帮我们自动装配 bean。要想把类标识成可用于 `@Autowired` 注解自动装配的 bean 的类,可以采用以下注解实现：
+
+- `@Component` ：通用的注解，可标注任意类为 `Spring` 组件。如果一个 Bean 不知道属于哪个层，可以使用`@Component` 注解标注。
+- `@Repository` : 对应持久层即 Dao 层，主要用于数据库相关操作。
+- `@Service` : 对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层。
+- `@Controller` : 对应 Spring MVC 控制层，主要用户接受用户请求并调用 Service 层返回数据给前端页面。
+
+2.3. `@RestController`
+
+`@RestController`注解是`@Controller和`@`ResponseBody`的合集,表示这是个控制器 bean,并且是将函数的返回值直 接填入 HTTP 响应体中,是 REST 风格的控制器。
+
+单独使用 `@Controller` 不加 `@ResponseBody`的话一般使用在要返回一个视图的情况，这种情况属于比较传统的 Spring MVC 的应用，对应于前后端不分离的情况。`@Controller` +`@ResponseBody` 返回 JSON 或 XML 形式数据
+
+2.4. `@Scope`
+
+声明 Spring Bean 的作用域，使用方法:
+
+```java
+@Bean
+@Scope("singleton")
+public Person personSingleton() {
+    return new Person();
+}
+```
+
+**四种常见的 Spring Bean 的作用域：**
+
+- singleton : 唯一 bean 实例，Spring 中的 bean 默认都是单例的。
+- prototype : 每次请求都会创建一个新的 bean 实例。
+- request : 每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP request 内有效。
+- session : 每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP session 内有效。
+
+2.5. `Configuration`
+
+一般用来声明配置类，可以使用 `@Component`注解替代，不过使用`Configuration`注解声明配置类更加语义化。
+
+**5 种常见的请求类型:**
+
+- **GET** ：请求从服务器获取特定资源。举个例子：`GET /users`（获取所有学生）
+- **POST** ：在服务器上创建一个新的资源。举个例子：`POST /users`（创建学生）
+- **PUT** ：更新服务器上的资源（客户端提供更新后的整个资源）。举个例子：`PUT /users/12`（更新编号为 12 的学生）
+- **DELETE** ：从服务器删除特定的资源。举个例子：`DELETE /users/12`（删除编号为 12 的学生）
+- **PATCH** ：更新服务器上的资源（客户端提供更改的属性，可以看做作是部分更新），使用的比较少，这里就不举例子了。
+
+小结：
+
+@ComponentScan：表示将该类自动发现扫描组件。个人理解相当于，如果扫描到有@Component、@Controller、@Service等这些注解的类，并注册为Bean，可以自动收集所有的Spring组件，包括@Configuration类。我们经常使用@ComponentScan注解搜索beans，并结合@Autowired注解导入。可以自动收集所有的Spring组件，包括@Configuration类。我们经常使用@ComponentScan注解搜索beans，并结合@Autowired注解导入。如果没有配置的话，Spring Boot会扫描启动类所在包下以及子包下的使用了@Service,@Repository等注解的类。
+
+@Configuration：相当于传统的xml配置文件，如果有些第三方库需要用到xml文件，建议仍然通过@Configuration类作为项目的配置主类——可以使用@ImportResource注解加载xml配置文件。
+
+@Import：用来导入其他配置类。
+
+@ImportResource：用来加载xml配置文件。
+
+@Autowired：自动导入依赖的bean
+
+@Service：一般用于修饰service层的组件
+
+@Repository：使用@Repository注解可以确保DAO或者repositories提供异常转译，这个注解修饰的DAO或者repositories类会被ComponetScan发现并配置，同时也不需要为它们提供XML配置项。
+
+@Bean：用@Bean标注方法等价于XML中配置的bean。
+
+@Value：注入Spring boot application.properties配置的属性的值。示例代码：
+
+@Inject：等价于默认的@Autowired，只是没有required属性；
+
+@Component：泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
+
+@Bean:相当于XML中的,放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理。
+
+@AutoWired：自动导入依赖的bean。byType方式。把配置好的Bean拿来用，完成属性、方法的组装，它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。当加上（required=false）时，就算找不到bean也不报错。
+
+@Qualifier：当有多个同一类型的Bean时，可以用@Qualifier(“name”)来指定。与@Autowired配合使用。@Qualifier限定描述符除了能根据名字进行注入，但能进行更细粒度的控制如何选择候选者，具体使用方式如下：
+
+@Resource(name=”name”,type=”type”)：没有括号内内容的话，默认byName。与@Autowired干类似的事。@PathVariable：获取参数。
+
+@JsonBackReference：解决嵌套外链问题。
+
+@RepositoryRestResourcepublic：配合spring-boot-starter-data-rest使用。
+
+### 3.处理常见的 HTTP 请求类型
+
+3.1. GET 请求
+
+@GetMapping("users")` 等价于`@RequestMapping(value="/users",method=RequestMethod.GET)
+
+3.2. POST 请求
+
+@PostMapping("users")` 等价于`@RequestMapping(value="/users",method=RequestMethod.POST)
+
+关于`@RequestBody`注解的使用，在下面的“前后端传值”这块会讲到。
+
+3.3. PUT 请求
+
+@PutMapping("/users/{userId}")` 等价于`@RequestMapping(value="/users/{userId}",method=RequestMethod.PUT)
+
+```java
+@PutMapping("/users/{userId}")
+public ResponseEntity<User> updateUser(@PathVariable(value = "userId") Long userId,
+  @Valid @RequestBody UserUpdateRequest userUpdateRequest) {
+  ......
+}
+```
+
+3.4. **DELETE 请求**
+
+```java
+@DeleteMapping("/users/{userId}")`等价于`@RequestMapping(value="/users/{userId}",method=RequestMethod.DELETE)
+@DeleteMapping("/users/{userId}")
+public ResponseEntity deleteUser(@PathVariable(value = "userId") Long userId){
+  ......
+}
+```
+
+3.5. **PATCH 请求**
+
+一般实际项目中，我们都是 PUT 不够用了之后才用 PATCH 请求去更新数据。
+
+```java
+  @PatchMapping("/profile")
+  public ResponseEntity updateStudent(@RequestBody StudentUpdateRequest studentUpdateRequest) {
+        studentRepository.updateDetail(studentUpdateRequest);
+        return ResponseEntity.ok().build();
+    }
+```
+
+小结：
+
+@RequestMapping：@RequestMapping(“/path”)表示该控制器处理所有“/path”的UR L请求。RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。
+用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。该注解有六个属性：
+params:指定request中必须包含某些参数值是，才让该方法处理。
+headers:指定request中必须包含某些指定的header值，才能让该方法处理请求。
+value:指定请求的实际地址，指定的地址可以是URI Template 模式
+method:指定请求的method类型， GET、POST、PUT、DELETE等
+consumes:指定处理请求的提交内容类型（Content-Type），如application/json,text/html;
+produces:指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回
+
+@RequestParam：用在方法的参数前面。
+@RequestParam
+String a =request.getParameter(“a”)。
+
+@PathVariable:路径变量。如参数与大括号里的名字一样要相同。
+
+
+### 4. 前后端传值
+
+4.1. `@PathVariable` 和 `@RequestParam`
+
+`@PathVariable`用于获取路径参数，`@RequestParam`用于获取查询参数。
+
+举个简单的例子：
+
+```java
+@GetMapping("/klasses/{klassId}/teachers")
+public List<Teacher> getKlassRelatedTeachers(
+         @PathVariable("klassId") Long klassId,
+         @RequestParam(value = "type", required = false) String type ) {
+...
+}
+```
+
+如果我们请求的 url 是：`/klasses/{123456}/teachers?type=web`
+
+那么我们服务获取到的数据就是：`klassId=123456,type=web`。
+
+4.2. `@RequestBody`
+
+用于读取 Request 请求（可能是 POST,PUT,DELETE,GET 请求）的 body 部分并且**Content-Type 为 application/json** 格式的数据，接收到数据之后会自动将数据绑定到 Java 对象上去。系统会使用`HttpMessageConverter`或者自定义的`HttpMessageConverter`将请求的 body 中的 json 字符串转换为 java 对象。
+
+我用一个简单的例子来给演示一下基本使用！
+
+我们有一个注册的接口：
+
+```java
+@PostMapping("/sign-up")
+public ResponseEntity signUp(@RequestBody @Valid UserRegisterRequest userRegisterRequest) {
+  userService.save(userRegisterRequest);
+  return ResponseEntity.ok().build();
+}
+```
+
+`UserRegisterRequest`对象：
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRegisterRequest {
+    @NotBlank
+    private String userName;
+    @NotBlank
+    private String password;
+    @FullName
+    @NotBlank
+    private String fullName;
+}
+```
+
+我们发送 post 请求到这个接口，并且 body 携带 JSON 数据：
+
+```json
+{"userName":"coder","fullName":"shuangkou","password":"123456"}
+```
+
+这样我们的后端就可以直接把 json 格式的数据映射到我们的 `UserRegisterRequest` 类上。
+
+需要注意的是：**一个请求方法只可以有一个`@RequestBody`，但是可以有多个`@RequestParam`和`@PathVariable`**。
+
+### 5. 读取配置信息
+
+**很多时候我们需要将一些常用的配置信息比如阿里云 oss、发送短信、微信认证的相关配置信息等等放到配置文件中。**
+
+我们的数据源`application.yml`内容如下：：
+
+```yaml
+wuhan2020: 2020年初武汉爆发了新型冠状病毒，疫情严重，但是，我相信一切都会过去！武汉加油！中国加油！
+my-profile:
+  name: haha哥
+  email: bigworldxld@163.com
+library:
+  location: 湖北武汉加油中国加油 
+  books:
+    - name: 天才基本法
+      description: 二十二岁的林朝夕在父亲确诊阿尔茨海默病这天，得知自己暗恋多年的校园男神裴之即将出国深造的消息——对方考取的学校，恰是父亲当年为她放弃的那所。
+    - name: 时间的秩序
+      description: 为什么我们记得过去，而非未来？时间“流逝”意味着什么？是我们存在于时间之内，还是时间存在于我们之中？卡洛·罗韦利用诗意的文字，邀请我们思考这一亘古难题——时间的本质。
+    - name: 了不起的我
+      description: 如何养成一个新习惯？如何让心智变得更成熟？如何拥有高质量的关系？ 如何走出人生的艰难时刻？
+```
+
+5.1. `@value`(常用)
+
+使用 `@Value("${property}")` 读取比较简单的配置信息：
+
+```java
+@Value("${wuhan2020}")
+String wuhan2020;
+```
+
+5.2. `@ConfigurationProperties`(常用)
+
+通过`@ConfigurationProperties`读取配置信息并与 bean 绑定。
+
+```java
+@Component
+@ConfigurationProperties(prefix = "library")
+class LibraryProperties {
+    @NotEmpty
+    private String location;
+    private List<Book> books;    
+    @Setter
+    @Getter
+    @ToString
+    static class Book {
+        String name;
+        String description;
+    }
+  省略getter/setter
+  ......
+}
+```
+
+你可以像使用普通的 Spring bean 一样，将其注入到类中使用。
+
+5.3. `PropertySource`（不常用）
+
+`@PropertySource`读取指定 properties 文件
+
+```java
+@Component
+@PropertySource("classpath:website.properties")class WebSite {
+    @Value("${url}")
+    private String url;  省略getter/setter
+  ......
+}
+```
+
+### 6. 参数校验
+
+**数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。**
+
+pringBoot 项目的 spring-boot-starter-web 依赖中已经有 hibernate-validator 包，不需要引用相关依赖。如下图所示（通过 idea 插件—Maven Helper 生成）：
+
+需要注意的是： **所有的注解，推荐使用 JSR 注解，即`javax.validation.constraints`，而不是`org.hibernate.validator.constraints`**
+
+6.1. 一些常用的字段验证的注解
+
+**JSR提供的校验注解**:
+
+- `@Null`  被注释的元素必须为 null
+- `@NotNull`   被注释的元素必须不为 null
+- `@AssertTrue`   被注释的元素必须为 true
+- `@AssertFalse`   被注释的元素必须为 false
+- `@Min(value)`   被注释的元素必须是一个数字，其值必须大于等于指定的最小值
+- `@Max(value)`   被注释的元素必须是一个数字，其值必须小于等于指定的最大值
+- `@DecimalMin(value)` 被注释的元素必须是一个数字，其值必须大于等于指定的最小值
+- `@DecimalMax(value)` 被注释的元素必须是一个数字，其值必须小于等于指定的最大值
+- `@Size(max=, min=)` 被注释的元素的大小必须在指定的范围内
+- `@Digits (integer, fraction)`   被注释的元素必须是一个数字，其值必须在可接受的范围内
+- `@Past` 被注释的元素必须是一个过去的日期
+- `@Future`   被注释的元素必须是一个将来的日期
+- `@Pattern(regex=,flag=)` 被注释的元素必须符合指定的正则表达式
+
+6.2. 验证请求体(RequestBody)
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person {    
+    @NotNull(message = "classId 不能为空")
+    private String classId;    
+    @Size(max = 33)
+    @NotNull(message = "name 不能为空")
+    private String name;    
+    @Pattern(regexp = "((^Man$|^Woman$|^UGM$))", message = "sex 值不在可选范围")
+     @NotNull(message = "sex 不能为空")
+     private String sex;    
+    @Email(message = "email 格式不正确")
+    
+    @NotNull(message = "email 不能为空")
+    private String email;}
+```
+
+正则表达式说明：
+
+```txt
+- ^string : 匹配以 string 开头的字符串
+- string$ ：匹配以 string 结尾的字符串
+- ^string$ ：精确匹配 string 字符串
+- ((^Man$|^Woman$|^UGM$)) : 值只能在 Man,Woman,UGM 这三个值中选择
+```
+
+我们在需要验证的参数上加上了`@Valid`注解，如果验证失败，它将抛出`MethodArgumentNotValidException`。默认情况下，Spring会将此异常转换为HTTP Status 400（错误请求）。
+
+```
+@RestController
+@RequestMapping("/api")
+public class PersonController {    @PostMapping("/person")
+    public ResponseEntity<Person> getPerson(@RequestBody @Valid Person person) {
+        return ResponseEntity.ok().body(person);
+    }
+}
+```
+
+6.3. 验证请求参数(Path Variables 和 Request Parameters)
+
+**一定一定不要忘记在类上加上 `Validated` 注解了，这个参数可以告诉 Spring 去校验方法参数。**
+
+```java
+@RestController
+@RequestMapping("/api")
+@Validated
+public class PersonController {    @GetMapping("/person/{id}")
+    public ResponseEntity<Integer> getPersonByID(@Valid @PathVariable("id") @Max(value = 5,message = "超过 id 的范围了") Integer id) {
+        return ResponseEntity.ok().body(id);
+    }
+}
+```
+
+### 7. 全局处理 Controller 层异常
+
+**相关注解：**
+
+1. `@ControllerAdvice` :注解定义全局异常处理类
+2. `@ExceptionHandler` :注解声明异常处理方法
+
+在类上加上`@ControllerAdvice`注解这个类就成为了全局异常处理类，当然你也可以通过 `assignableTypes`指定特定的 Controller 类，让异常处理类只处理特定类抛出的异常。
+
+如果方法参数不对的话就会抛出`MethodArgumentNotValidException`，我们来处理这个异常。
+
+```java
+@ControllerAdvice
+@ResponseBody
+public class GlobalExceptionHandler {    /**
+     * 请求参数异常处理
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, HttpServletRequest request) {
+       ......
+    }
+}
+```
+
+3. **ResponseStatusException**
+
+通过 `ResponseStatus`注解简单处理异常的方法（将异常映射为状态码）。
+
+```java
+
+@ResponseStatus(code = HttpStatus.NOT_FOUND)
+public class ResourseNotFoundException2 extends RuntimeException {
+    public ResourseNotFoundException2() {
+    }
+
+    public ResourseNotFoundException2(String message) {
+        super(message);
+    }
+}
+```
+
+```java
+@RestController@RequestMapping("/api")public class ResponseStatusExceptionController {    @GetMapping("/resourceNotFoundException2")    public void throwException3() {      
+    //写法二：throw new ResourseNotFoundException2("Sorry, the resourse not found!");
+    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, the resourse not found!", new ResourceNotFoundException());
+    }}
+```
+
+ResponseStatusException 构造函数中的参数解释如下：
+
+•status ：http status
+
+•reason ：response 的消息内容
+
+•cause ：抛出的异常
+
+使用 Get 请求 localhost:8080/api/resourceNotFoundException2[2] ，服务端返回的 JSON 数据如下：
+
+```txt
+{    "timestamp": "2022-08-21T07:11:43.744+0000",    "status": 404,    "error": "Not Found",    "message": "Sorry, the resourse not found!",    "path": "/api/resourceNotFoundException2"}
+```
+
+### 8. JPA 相关
+
+8.1. 创建表
+
+`@Entity`声明一个类对应一个数据库实体。
+
+`@Table` 设置表明
+
+```java
+@Entity
+@Table(name = "role")
+public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
+    省略getter/setter......
+}
+```
+
+8.2. 创建主键
+
+`@Id` ：声明一个字段为主键。
+
+使用`@Id`声明之后，我们还需要定义主键的生成策略。我们可以使用 `@GeneratedValue` 指定主键生成策略。
+
+JPA 使用枚举定义了 4 中常见的主键生成策略
+
+```java
+public enum GenerationType {
+    /**
+     * 使用一个特定的数据库表格来保存主键
+     * 持久化引擎通过关系数据库的一张特定的表格来生成主键,
+     */
+    TABLE,
+    /**
+     *在某些数据库中,不支持主键自增长,比如Oracle、PostgreSQL其提供了一种叫做"序列(sequence)"的机制生成主键
+     */
+    SEQUENCE,
+    /**
+     * 主键自增长
+     */
+    IDENTITY,
+    /**
+     *把主键生成策略交给持久化引擎(persistence engine),
+     *持久化引擎会根据数据库在以上三种主键生成 策略中选择其中一种
+     */
+    AUTO
+}
+```
+
+@GeneratedValue注解默认使用的策略是GenerationType.AUTO
+
+**2.通过 `@GenericGenerator`声明一个主键策略，然后 `@GeneratedValue`使用这个策略**
+
+```java
+@Id
+@GeneratedValue(generator = "IdentityIdGenerator")
+@GenericGenerator(name = "IdentityIdGenerator", strategy = "identity")
+private Long id;
+```
+
+等价于：
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+
+8.3. 设置字段类型
+
+`@Column` 声明字段。
+
+**示例：**
+
+设置属性 userName 对应的数据库字段名为 user_name，长度为 32，非空
+
+```java
+@Column(name = "user_name", nullable = false, length=32)
+private String userName;
+```
+
+设置字段类型并且加默认值，这个还是挺常用的。
+
+```java
+Column(columnDefinition = "tinyint(1) default 1")
+private Boolean enabled;
+```
+
+8.4. 指定不持久化特定字段
+
+`@Transient` ：声明不需要与数据库映射的字段，在保存的时候不需要保存进数据库 。
+
+如果我们想让`secrect` 这个字段不被持久化，可以使用 `@Transient`关键字声明。
+
+```java
+Entity(name="USER")
+public class User {    ......
+    @Transient
+    private String secrect; // not persistent because of @Transient}
+```
+
+除了 `@Transient`关键字声明， 还可以采用下面几种方法：
+
+```java
+static String secrect; // not persistent because of static
+final String secrect = “Satish”; // not persistent because of final
+transient String secrect; // not persistent because of transient
+```
+
+一般使用注解的方式比较多。
+
+8.5. 声明大字段
+
+`@Lob`:声明某个字段为大字段。
+
+```java
+@Lob
+private String content;
+```
+
+更详细的声明：
+
+```java
+@Lob
+//指定 Lob 类型数据的获取策略， FetchType.EAGER 表示非延迟 加载，而 FetchType. LAZY 表示延迟加载 ；
+@Basic(fetch = FetchType.EAGER)
+//columnDefinition 属性指定数据表对应的 Lob 字段类型
+@Column(name = "content", columnDefinition = "LONGTEXT NOT NULL")
+private String content;
+```
+
+8.6. 创建枚举类型的字段
+
+可以使用枚举类型的字段，不过枚举字段要用`@Enumerated`注解修饰。
+
+```java
+public enum Gender {
+    MALE("男性"),
+    FEMALE("女性");    private String value;
+    Gender(String str){
+        value=str;
+    }
+}
+@Entity
+@Table(name = "role")
+public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    省略getter/setter......
+}
+```
+
+数据库里面对应存储的是 MAIL/FEMAIL。
+
+8.7. 增加审计功能
+
+1. `@CreatedDate`: 表示该字段为创建时间时间字段，在这个实体被 insert 的时候，会设置值
+
+2. `@CreatedBy` :表示该字段为创建人，在这个实体被 insert 的时候，会设置值
+
+   `@LastModifiedDate`、`@LastModifiedBy`同理。
+
+`@EnableJpaAuditing`：开启 JPA 审计功能。
+
+8.8. 删除/修改数据
+
+`@Modifying` 注解提示 JPA 该操作是修改操作,注意还要配合`@Transactional`注解使用。
+
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {    
+    @Modifying
+    @Transactional(rollbackFor = Exception.class)
+    void deleteByUserName(String userName);
+}
+```
+
+8.9. 关联关系
+
+- `@OneToOne` 声明一对一关系
+- `@OneToMany` 声明一对多关系
+- `@ManyToOne`声明多对一关系
+- `MangToMang`声明多对多关系
+
+[在Spring Boot 正确中使用JPA](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247485689&amp;idx=1&amp;sn=061b32c2222869932be5631fb0bb5260&amp;chksm=cea24732f9d5ce24a356fb3675170e7843addbfcc79ee267cfdb45c83fc7e90babf0f20d22e1&amp;token=292197051&amp;lang=zh_CN#rd)
+
+小结：
+
+@Entity：@Table(name=”“)：表明这是一个实体类。一般用于jpa这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略
+
+@MappedSuperClass:用在确定是父类的entity上。父类的属性子类可以继承。
+
+@NoRepositoryBean:一般用作父类的repository，有这个注解，spring不会去实例化该repository。
+
+@Column：如果字段名与列名相同，则可以省略。
+
+@Id：表示该属性为主键。
+
+@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = “repair_seq”)：表示主键生成策略是sequence（可以为Auto、IDENTITY、native等，Auto表示可在多个数据库间切换），指定sequence的名字是repair_seq。
+
+@SequenceGeneretor(name = “repair_seq”, sequenceName = “seq_repair”, allocationSize = 1)：name为sequence的名称，以便使用，sequenceName为数据库的sequence名称，两个名称可以一致。
+
+@Transient：表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性。如果一个属性并非数据库表的字段映射,就务必将其标示为@Transient,否则,ORM框架默认其注解为@Basic。@Basic(fetch=FetchType.LAZY)：标记可以指定实体属性的加载方式
+
+@JsonIgnore：作用是json序列化时将Java bean中的一些属性忽略掉,序列化和反序列化都受影响。
+
+@JoinColumn（name=”loginId”）:一对一：本表中指向另一个表的外键。一对多：另一个表指向本表的外键。
+
+@OneToOne、@OneToMany、@ManyToOne：对应hibernate配置文件中的一对一，一对多，多对一。
+
+### 9. 事务 `@Transactional`
+
+在要开启事务的方法上使用`@Transactional`注解即可!
+
+```java
+@Transactional(rollbackFor = Exception.class)
+public void save() {
+  ......
+}
+```
+
+我们知道 Exception 分为运行时异常 RuntimeException 和非运行时异常。在`@Transactional`注解中如果不配置`rollbackFor`属性,那么事物只会在遇到`RuntimeException`的时候才会回滚,加上`rollbackFor=Exception.class`,可以让事物在遇到非运行时异常时也回滚。
+
+`@Transactional` 注解一般用在可以作用在`类`或者`方法`上。
+
+- **作用于类**：当把`@Transactional 注解放在类上时，表示所有该类的`public 方法都配置相同的事务属性信息。
+- **作用于方法**：当类配置了`@Transactional`，方法也配置了`@Transactional`，方法的事务会覆盖类的事务配置信息。
+
+### 10. json 数据处理
+
+10.1. 过滤 json 数据
+
+**`@JsonIgnoreProperties` 作用在类上用于过滤掉特定字段不返回或者不解析。**
+
+```java
+//生成json时将userRoles属性过滤
+@JsonIgnoreProperties({"userRoles"})
+public class User {    private String userName;
+    private String fullName;
+    private String password;
+    @JsonIgnore
+    private List<UserRole> userRoles = new ArrayList<>();
+}
+```
+
+**`@JsonIgnore`一般用于类的属性上，作用和上面的`@JsonIgnoreProperties` 一样。**
+
+```java
+public class User {    private String userName;
+    private String fullName;
+    private String password;
+   //生成json时将userRoles属性过滤
+    @JsonIgnore
+    private List<UserRole> userRoles = new ArrayList<>();
+}
+```
+
+10.2. 格式化 json 数据
+
+`@JsonFormat`一般用来格式化 json 数据。：
+
+比如：
+
+```java
+@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="GMT")
+private Date date;
+```
+
+10.3. 扁平化对象
+
+```java
+@Getter
+@Setter
+@ToString
+public class Account {
+    @JsonUnwrapped
+    private Location location;
+    @JsonUnwrapped
+    private PersonInfo personInfo;  @Getter
+  @Setter
+  @ToString
+  public static class Location {
+     private String provinceName;
+     private String countyName;
+  }
+  @Getter
+  @Setter
+  @ToString
+  public static class PersonInfo {
+    private String userName;
+    private String fullName;
+  }
+}
+```
+
+未扁平化之前：
+
+```json
+{
+    "location": {
+        "provinceName":"湖北",
+        "countyName":"武汉"
+    },
+    "personInfo": {
+        "userName": "coder1234",
+        "fullName": "shaungkou"
+    }
+}
+```
+
+使用`@JsonUnwrapped` 扁平对象之后：
+
+```java
+@Getter
+@Setter
+@ToString
+public class Account {
+    @JsonUnwrapped
+    private Location location;
+    @JsonUnwrapped
+    private PersonInfo personInfo;
+    ......
+}
+```
+
+```json
+{
+  "provinceName":"湖北",
+  "countyName":"武汉",
+  "userName": "coder1234",
+  "fullName": "shaungkou"
+}
+```
+
+### 11. 测试相关
+
+**`@ActiveProfiles`一般作用于测试类上， 用于声明生效的 Spring 配置文件。**
+
+```java
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+@ActiveProfiles("test")
+@Slf4j
+public abstract class TestBase {
+  ......
+}
+```
+
+**`@Test`声明一个方法为测试方法**
+
+**`@Transactional`被声明的测试方法的数据会回滚，避免污染测试数据。**
+
+**`@WithMockUser` Spring Security 提供的，用来模拟一个真实用户，并且可以赋予权限。**
+
+```java
+ @Test
+    @Transactional
+    @WithMockUser(username = "user-id-18163138155", authorities = "ROLE_TEACHER")
+    void should_import_student_success() throws Exception {
+        ......
+    }
+```
+
+### **12 项目中具体配置解析和使用环境**
+
+@MappedSuperclass：
+1.@MappedSuperclass 注解使用在父类上面，是用来标识父类的
+
+2.@MappedSuperclass 标识的类表示其不能映射到数据库表，因为其不是一个完整的实体类，但是它所拥有的属性能够映射在其子类对用的数据库表中
+
+3.@MappedSuperclass 标识的类不能再有@Entity或@Table注解
+
+@Column：
+
+1.当实体的属性与其映射的数据库表的列不同名时需要使用@Column标注说明，该属性通常置于实体的属性声明语句之前，还可与 @Id 标注一起使用。
+
+2.@Column 标注的常用属性是name，用于设置映射数据库表的列名。此外，该标注还包含其它多个属性，如：unique、nullable、length、precision等。具体如下：
+
+  1 name属性：name属性定义了被标注字段在数据库表中所对应字段的名称
+
+  2 unique属性：unique属性表示该字段是否为唯一标识，默认为false，如果表中有一个字段需要唯一标识，则既可以使用该标记，也可以使用@Table注解中的@UniqueConstraint
+
+  3 nullable属性：nullable属性表示该字段是否可以为null值，默认为true
+
+  4 insertable属性：insertable属性表示在使用”INSERT”语句插入数据时，是否需要插入该字段的值
+
+  5 updateable属性：updateable属性表示在使用”UPDATE”语句插入数据时，是否需要更新该字段的值
+
+  6 insertable和updateable属性：一般多用于只读的属性，例如主键和外键等，这些字段通常是自动生成的
+
+  7 columnDefinition属性：columnDefinition属性表示创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用，如果数据库中表已经建好，该属性没有必要使用
+
+  8 table属性：table属性定义了包含当前字段的表名
+
+  9 length属性：length属性表示字段的长度，当字段的类型为varchar时，该属性才有效，默认为255个字符
+
+ 10 precision属性和scale属性：precision属性和scale属性一起表示精度，当字段类型为double时，precision表示数值的总长度，scale表示小数点所占的位数
+
+
+
+具体如下：
+
+   1.double类型将在数据库中映射为double类型，precision和scale属性无效
+   2.double类型若在columnDefinition属性中指定数字类型为decimal并指定精度，则最终以columnDefinition为准
+   3.BigDecimal类型在数据库中映射为decimal类型，precision和scale属性有效
+   4.precision和scale属性只在BigDecimal类型中有效
+
+3.@Column 标注的columnDefinition属性: 表示该字段在数据库中的实际类型.通常 ORM 框架可以根据属性类型自动判断数据库中字段的类型,但是对于Date类型仍无法确定数据库中字段类型究竟是DATE,TIME还是TIMESTAMP.此外,String的默认映射类型为VARCHAR,如果要将 String 类型映射到特定数据库的 BLOB 或TEXT字段类型.
+
+4.@Column标注也可置于属性的getter方法之前
+
+@Getter和@Setter（Lombok）
+@Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法
+
+ @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+ @Setter：注解在属性上；为属性提供 setting 方法
+@Getter：注解在属性上；为属性提供 getting 方法
+@Log4j2 ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象，和@Log4j注解类似
+@NoArgsConstructor：注解在类上；为类提供一个无参的构造方法
+@AllArgsConstructor：注解在类上；为类提供一个全参的构造方法
+ @EqualsAndHashCode:默认情况下，会使用所有非瞬态(non-transient)和非静态(non-static)字段来生成equals和hascode方法，也可以指定具体使用哪些属性。
+ @toString:生成toString方法，默认情况下，会输出类名、所有属性，属性会按照顺序输出，以逗号分割。
+ @NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor
+无参构造器、部分参数构造器、全参构造器，当我们需要重载多个构造器的时候，只能自己手写了
+ @NonNull：注解在属性上，如果注解了，就必须不能为Null
+  @val:注解在属性上，如果注解了，就是设置为final类型，可查看源码的注释知道
+
+ 
+
+当你在执行各种持久化方法的时候，实体的状态会随之改变，状态的改变会引发不同的生命周期事件。这些事件可以使用不同的注释符来指示发生时的回调函数。
+
+@javax.persistence.PostLoad：加载后。
+
+@javax.persistence.PrePersist：持久化前。
+
+@javax.persistence.PostPersist：持久化后。
+
+@javax.persistence.PreUpdate：更新前。
+
+@javax.persistence.PostUpdate：更新后。
+
+@javax.persistence.PreRemove：删除前。
+
+@javax.persistence.PostRemove：删除后。
+
+1）数据库查询
+
+@PostLoad事件在下列情况下触发：
+
+执行EntityManager.find()或getreference()方法载入一个实体后。
+
+执行JPQL查询后。
+
+EntityManager.refresh()方法被调用后。
+
+2）数据库插入
+
+@PrePersist和@PostPersist事件在实体对象插入到数据库的过程中发生：
+
+@PrePersist事件在调用persist()方法后立刻发生，此时的数据还没有真正插入进数据库。
+
+@PostPersist事件在数据已经插入进数据库后发生。
+
+3）数据库更新
+
+@PreUpdate和@PostUpdate事件的触发由更新实体引起：
+
+@PreUpdate事件在实体的状态同步到数据库之前触发，此时的数据还没有真正更新到数据库。
+
+@PostUpdate事件在实体的状态同步到数据库之后触发，同步在事务提交时发生。
+
+4）数据库删除
+
+@PreRemove和@PostRemove事件的触发由删除实体引起：
+
+@PreRemove事件在实体从数据库删除之前触发，即在调用remove()方法删除时发生，此时的数据还没有真正从数据库中删除。
+
+@PostRemove事件在实体从数据库中删除后触发。
+
+

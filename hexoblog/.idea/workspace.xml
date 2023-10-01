@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c3bea97d-134a-4eb3-bc71-fddcc81308cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/README_CN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/default.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/default.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/jp.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/jp.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/languages/zh-CN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/404.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/404.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/back-top.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/back-top.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/background.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/background.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/baidu-analytics.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/baidu-analytics.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/baidu-push.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/baidu-push.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/bg-cover.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/bg-cover.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/disqus.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/disqus.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/footer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/gitalk.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/gitalk.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/github-link.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/github-link.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/gitment.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/gitment.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/google-analytics.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/google-analytics.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/head.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/index-cover.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/index-cover.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/livere.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/livere.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/minivaline.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/minivaline.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/mobile-nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/mobile-nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/navigation.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/navigation.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/paging.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/paging.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-cover.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-cover.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-detail-toc.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-detail-toc.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-detail.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-detail.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-statis.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/post-statis.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/prev-next.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/prev-next.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/reprint-statement.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/reprint-statement.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/reward.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/reward.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/search.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/search.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/share.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/share.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/social-link.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/social-link.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/twikoo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/twikoo.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/valine.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/valine.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/waline.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_partial/waline.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/category-cloud.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/category-cloud.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/category-radar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/category-radar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/dream.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/dream.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/music.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/music.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-gallery.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-gallery.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-projects.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-projects.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-skills.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/my-skills.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/post-calendar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/post-calendar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/post-charts.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/post-charts.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/recommend.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/recommend.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/tag-cloud.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/tag-cloud.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/tag-wordcloud.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/tag-wordcloud.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/video.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/_widget/video.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/about.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/about.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/archive.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/archive.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/bb.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/bb.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/categories.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/categories.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/category.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/category.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/friends.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/friends.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/galleries.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/galleries.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/gallery.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/gallery.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/layout.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/layout.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/post.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/post.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/tag.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/tag.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/tags.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/tags.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/barrager.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/barrager.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/bb.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/bb.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/gitment.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/gitment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/matery.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/matery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/my-gitalk.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/my-gitalk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/my.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/my.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/jquery.barrager.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/jquery.barrager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/matery.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/matery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/animate/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/animate/animate.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aos/aos.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aos/aos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aos/aos.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aos/aos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/APlayer.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/APlayer.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/APlayer.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/APlayer.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/Meting.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/aplayer/Meting.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/css/all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/css/all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/awesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/background/canvas-nest.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/background/canvas-nest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/background/ribbon-dynamic.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/background/ribbon-dynamic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeBlockFuction.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeBlockFuction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeCopy.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeCopy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeLang.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeLang.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeShrink.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/codeBlock/codeShrink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/cryptojs/crypto-js.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/cryptojs/crypto-js.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/dplayer/DPlayer.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/dplayer/DPlayer.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/dplayer/DPlayer.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/dplayer/DPlayer.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/echarts/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/echarts/echarts.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitalk/gitalk.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitalk/gitalk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitalk/gitalk.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitalk/gitalk.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitment/gitment-default.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitment/gitment-default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitment/gitment.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/gitment/gitment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/instantpage/instantpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/instantpage/instantpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jqcloud/jqcloud-1.0.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jqcloud/jqcloud-1.0.4.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jqcloud/jqcloud.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jqcloud/jqcloud.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jquery/jquery-3.6.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/jquery/jquery-3.6.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/lightGallery/fonts/lg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/lightGallery/fonts/lg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/lightGallery/js/lightgallery-all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/lightGallery/js/lightgallery-all.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/masonry/masonry.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/masonry/masonry.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/materialize/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/materialize/materialize.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/mermaid/mermaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/mermaid/mermaid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/mermaid/mermaid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/mermaid/mermaid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/busuanzi.pure.mini.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/busuanzi.pure.mini.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/snow.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/snow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/star.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/star.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/prism/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/prism/prism.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/css/share.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/css/share.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/js/jquery.share.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/js/jquery.share.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/js/social-share.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/share/js/social-share.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/tocbot/tocbot.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/tocbot/tocbot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/valine/Valine.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/valine/Valine.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/valine/av-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/valine/av-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/waline/Waline.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/waline/Waline.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/alipay.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/alipay.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/wechat.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/wechat.png" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="E:\Go1.18.1\go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/themes/hexo-theme-matery" />
+  </component>
+  <component name="ProjectId" id="2G8HSKCgPr0Z1B1XPp1fuSctlj0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
