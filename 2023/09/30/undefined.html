@@ -622,7 +622,7 @@ remote: error: Trace: 0224239f8e73847812271f660f9977951bd9387">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    840
+                    789
                 </div>
                 
 
@@ -689,7 +689,7 @@ git lfs install
 <ol start="2">
 <li>将需要上传的文件加入git lfs track，取消用git lfs untrack</li>
 </ol>
-<pre class=" language-shell"><code class="language-shell"># 加入git lfs track
+<pre class=" language-shell"><code class="language-shell"># 加入git lfs track，会在执行文件价下产生.gitattributes
 git lfs track "*.pth"
 
 # 取消git lfs untrack
@@ -707,8 +707,6 @@ git lfs untrack ".pth"
 <p>取消 LFS 的全局配置</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> lfs uninstall
 </code></pre>
-<p>error: failed to push some refs to …</p>
-<p>当你直接在github上在线修改了代码，或者是直接向某个库中添加文件，但是没有对本地库同步，接着你想push上传到远程库，就会失败，如下：</p>
 <h3 id="博客备份恢复"><a href="#博客备份恢复" class="headerlink" title="博客备份恢复"></a>博客备份恢复</h3><p>下载原始数据包</p>
 <p>输入命令git clone -b main url (目前Git最新版本默认都是main，老版本是master)，这里也可以选择你要拉取的分支到本地。</p>
 <p>1.进入hexo根目录<br>2.直接把箭头指向的<code>.deploy_git</code>和<code>public</code>直接删除！</p>
