@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    17 分
                 </div>
                 
 
@@ -722,7 +722,8 @@ pyyaml
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#入口</span>
     pytest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<p>执行的时候有一些参数:<br>-v:输出更详细的信息<br>s:输出调试信息 (如打印)<br>-n:多线程运行测试用例<br>–reruns 失败用例重跑<br>–html 生成HTML报告<br>2.通过命令行执行<br>pytest -vs</p>
+<p>2.通过命令行执行<br>pytest -vs</p>
+<p>执行的时候有一些参数:<br>-v:输出更详细的信息<br>s:输出调试信息 (如打印)<br>-n:多线程运行测试用例<br>–reruns 失败用例重跑<br>–html 生成HTML报告</p>
 <p>3.通过读取pytest.ini配置文件来执行测试用例不管使用main还是命令行都会自动的去读取pytest.ini的配置文件</p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>pytest<span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">#命令行参数</span>
@@ -745,6 +746,9 @@ markers <span class="token operator">=</span>
     product_manage<span class="token punctuation">:</span>商品管理
     user_manage<span class="token punctuation">:</span>用户管理
 </code></pre>
+<p><strong>读懂测试结果</strong><br>结果缩写符号<br><code>符号    含义</code>    </p>
+<p><code>.    通过</code><br><code>F    失败</code><br><code>E    出错</code><br><code>X    XPass意外通过</code><br><code>x    xfailed 预期失败</code></p>
+<p>x表示反义词<br>如果通过，什么都不显示<br>如果失败，则显示代码和报错信息<br>通过参数可以让结果更加的丰富</p>
 <h3 id="八、执行测试用例时的前后置处理"><a href="#八、执行测试用例时的前后置处理" class="headerlink" title="八、执行测试用例时的前后置处理"></a>八、执行测试用例时的前后置处理</h3><p>第一种:和unittest相似</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setup_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"每个类之前执行"</span><span class="token punctuation">)</span>
@@ -767,12 +771,41 @@ markers <span class="token operator">=</span>
     <span class="token keyword">yield</span> request<span class="token punctuation">.</span>param <span class="token comment" spellcheck="true">#生成器</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>"在用例之后执行<span class="token punctuation">:</span> 查询数据库”<span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span><span class="token keyword">def</span> driver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#启动浏览器yield driver # 这是关键</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#关闭浏览器</span>
+</code></pre>
 <p>接口关联方法：</p>
 <ol>
 <li>通过类变量</li>
 <li>通过一个独立的文件，比如yaml文件</li>
 <li>极限封装成零代码</li>
 </ol>
+<p><strong>封装更加合理的fixture</strong> </p>
+<p>摆脱用例和用例直接的依赖</p>
+<pre class=" language-python"><code class="language-python">pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"module"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token triple-quoted-string string">"""未登录的浏览器"""</span>
+    driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#启动浏览器</span>
+    <span class="token keyword">yield</span> driver
+    driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#关闭浏览器</span>
+@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"module"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">user_driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token comment" spellcheck="true">#己登录的浏览器</span>
+    driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>LoginPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> LoginPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>
+    page<span class="token punctuation">.</span>1ogin<span class="token punctuation">(</span><span class="token string">"beifan_0609"</span>，<span class="token string">"123123"</span><span class="token punctuation">)</span>
+    page<span class="token punctuation">.</span>wait_url_chenge<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#等待登录完成，页面跳转</span>
+    <span class="token keyword">yield</span> driver
+    driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"modu1e"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">c1ear_favor</span><span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#1．跳转到个人中心商品收藏页面</span>
+<span class="token comment" spellcheck="true"># 2．对页面进行操作，清除已有的收藏数据</span>
+user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>userGoodsFavorPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> userGoodsFavorPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>delete_all<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+</code></pre>
 <h3 id="九、YAML详解"><a href="#九、YAML详解" class="headerlink" title="九、YAML详解"></a>九、YAML详解</h3><p>yaml简介：yaml是一种数据类型，它可以和json之间灵活的切换，支持：注释，换行，字符串，裸字符串等。</p>
 <p> 用途： 1.配置文件 2.编写测试用例</p>
 <p> 数据结构： </p>
@@ -810,9 +843,180 @@ markers <span class="token operator">=</span>
 <pre class=" language-bash"><code class="language-bash">allure generate .temps -o report --clean
 </code></pre>
 <p>查看报告<br>必须使用HTTP协议对报告[目录]进行访问<br>应该是url</p>
-<p>日志</p>
+<p><strong>日志</strong></p>
 <p>在pytest.ini文件中添加 log_file_level = info</p>
-<p>截图</p>
+<p>在每个页面类中加入</p>
+<pre class=" language-python"><code class="language-python">loggers <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span> __name__<span class="token punctuation">)</span>
+</code></pre>
+<p>在测试用例的开始或结束加上logger.info(“打印信息”)</p>
+<p><strong>截图</strong></p>
+<pre class=" language-python"><code class="language-python">allure<span class="token punctuation">.</span>attach<span class="token punctuation">(</span><span class="token comment" spellcheck="true"># 交互后进行截图，确认交互效果se1f._driver.get_screenshot_as_png(),</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="十二、Web端自动化测试"><a href="#十二、Web端自动化测试" class="headerlink" title="十二、Web端自动化测试:"></a>十二、Web端自动化测试:</h3><p>1.极高的效率执行</p>
+<p>2.完成复杂的业务场景</p>
+<p>3.记录和调试网页的细节<br>目前主流的工具:<br>Cypress<br>Playwright<br>Selenium</p>
+<h4 id="1-Selenium自动化环境搭建"><a href="#1-Selenium自动化环境搭建" class="headerlink" title="1.Selenium自动化环境搭建"></a>1.Selenium自动化环境搭建</h4><pre class=" language-python"><code class="language-python">pip insta11 webdriver_helper<span class="token number">-0.0</span><span class="token punctuation">.</span><span class="token number">15</span><span class="token operator">-</span>py3<span class="token operator">-</span>none<span class="token operator">-</span>any<span class="token punctuation">.</span>whl
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> webdriver_helper <span class="token keyword">import</span> get_webdriver
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token string">"ie"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 支持chrome、firefox 、ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 控制浏览器</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 退出浏览器</span>
+</code></pre>
+<p>只支持Python3.9及以上版本</p>
+<h4 id="2-浏览器交互"><a href="#2-浏览器交互" class="headerlink" title="2.浏览器交互"></a>2.浏览器交互</h4><p>selenium 以面向对象的思路，完成自动化<br>获取数据: 访问对象的属性<br>操作数据: 调用对象的方法<br>所以: 对浏览器的控制，对driver对象的方法进行调用</p>
+<p>maximize_window()        最大化窗口</p>
+<p>get(url)          跳转指定页面</p>
+<p>refresh()           刷新</p>
+<p>back()           后退</p>
+<p>forward()          前进</p>
+<p>get_screenshot_as_png()       截图的base64内容</p>
+<p>get_screenshot_as_file(path)      截图保存到文件</p>
+<p>current_url           网址</p>
+<p>page_source          源码</p>
+<p>current_window_handle        当前窗口</p>
+<p>window_handles         所有窗口</p>
+<p>switch_to.alert         处理弹窗</p>
+<p>switch_to.frame(‘frame_name’)      切换框架</p>
+<p>switch_to.window(‘window_name’)     切换窗口</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> webdriver_he1per <span class="token keyword">import</span> get_webdriver
+driver <span class="token operator">=</span> get_webdrivero<span class="token comment" spellcheck="true"># 支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"1_启动.png"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#文件名字必须png结尾</span>
+driver<span class="token punctuation">.</span>maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"2.最大化.png"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span> get<span class="token punctuation">(</span><span class="token string">"https: // baidu. com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"3.访问baidu. png"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的网址: "</span>，driver<span class="token punctuation">.</span>current_ur1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的标题:"</span>，driver<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的HTML: "</span>，driver<span class="token punctuation">.</span> page_source<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<h4 id="3-元素定位"><a href="#3-元素定位" class="headerlink" title="3.元素定位"></a>3.元素定位</h4><p>浏览器已经被webdriver-helper启动好了，可以直接进行交互元素需要被定位到，才能对其进行交互<br>Selenium提供8个定位策略</p>
+<p>定位器   描述</p>
+<p>id     定位id属性与搜索值匹配的元素</p>
+<p>name     定位name属性与搜索值匹配的元素</p>
+<p>tag_name   定位标签名称与搜索值匹配的元素</p>
+<p>class_name   定位class属性与搜索值匹配的元素(不允许使用复合类名)</p>
+<p>link_text   定位link_text可视文本与搜索值完全匹配的锚元素</p>
+<p>partial_link_text    定位link_text可视文本部分与搜索值部分匹配的锚点元素</p>
+<p>xpath   定位与XPath表达式匹配的元素</p>
+<p>css_selector   定位CSS 选择器匹配的元素</p>
+<p>1.根据属性进行定位</p>
+<p>元素定位的时候：满足定位条件的元素，可能不只一个</p>
+<pre class=" language-html"><code class="language-html">&lt;input
+id="kw"    #只有ID属性，有唯一性的约束
+name="wd"#
+class="s_ipt"#
+value=""
+max1ength="255"
+autocomplete="off"
+>
+</code></pre>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span> <span class="token comment" spellcheck="true">#支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+e1_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>TAG_NAME，<span class="token string">"input"</span><span class="token punctuation">)</span>
+e1_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID，<span class="token string">"kw"</span><span class="token punctuation">)</span>
+e1_3 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>NAME<span class="token punctuation">,</span><span class="token string">"wd"</span><span class="token punctuation">)</span>
+e1_4 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME，<span class="token string">"s_ipt"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el_4<span class="token punctuation">)</span>
+e1_5 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements<span class="token punctuation">(</span>By<span class="token punctuation">.</span>TAG_NAME，<span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_5<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<p>2.根据文本进行定位 </p>
+<p>只能定位a元素</p>
+<pre class=" language-html"><code class="language-html">&lt;a
+href="http: //news.baidu . com"target="_b1ank"
+c1ass="mnav c-font-normal c-color-t">
+新闻
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#控制浏览器</span>
+el_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>LINK_TEXT，“新闻"<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#精确匹配</span>
+el_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>PARTIAL_LINK_TEXT，<span class="token string">"新"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#模糊匹配</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+</code></pre>
+<p>3.根据表达式进行定位</p>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+el_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>css_SELECTOR<span class="token punctuation">,</span><span class="token string">"#kw"</span><span class="token punctuation">)</span>#精确匹配
+el_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">'//*[@id="kw"]'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#模糊匹配</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<p>CSS和XPath 怎么选:<br>如果有前端开发配合，或自己就是前端开发:选择CSS</p>
+<p>如果没有前端开发配合:选择XPath<br>支持层级跳转<br>支持布尔值,函数</p>
+<p>5.XPath语法</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">//</span><span class="token operator">*</span><span class="token punctuation">[</span>@id<span class="token operator">=</span><span class="token string">"kw"</span> <span class="token operator">and</span> @name<span class="token operator">=</span><span class="token string">"beifan"</span><span class="token punctuation">]</span>
+</code></pre>
+<p><strong>1.XPath基本语法</strong> </p>
+<p>层级 </p>
+<p>属性 </p>
+<p>/ :(开头) 根路径 /html/body </p>
+<p>//:（开头、中间） 任意层级 //*[@id=”kw”] </p>
+<p>*:任意元素 </p>
+<p>@: 属性筛选 </p>
+<p>/: （中间）下一级 /html/body </p>
+<p>.: 本级 </p>
+<p>.. :上一级</p>
+<p><strong>2.XPath函数</strong><br>text获取元素内的文本(精确匹配)</p>
+<p>contains任意位置包含<br>(模糊匹配)<br>starts-with开头相同<br>(半模糊匹配)</p>
+<p><strong>3.XPath 调试</strong><br>开发者工具—控制台—- $x(‘路径’)进行XPath调试<br>XPath 写出来之后，先在F12验证一下，然后放入测试代码</p>
+<p>模拟弹窗</p>
+<p>开发者工具—控制台—-alert(“123”)</p>
+<h4 id="4-元素交互"><a href="#4-元素交互" class="headerlink" title="4.元素交互"></a>4.元素交互</h4><p>面向对象： 属性      方法</p>
+<p>属性     内容     例子 </p>
+<p>id 唯一标记 36f-6a18 </p>
+<p>tag_name 标签名 input </p>
+<p>location 元素坐标 {‘x’: 298, ‘y’: 188}</p>
+<p>size 元素大小 {‘height’: 44, ‘width’: 548} </p>
+<p>rect 元素范围 {‘height’: 44, ‘width’: 548, ‘x’: 298, ‘y’: 188} </p>
+<p>parent WebDriver实例 略 </p>
+<p>screenshot_as_base64() 截图的base64内容 iVBORw0KGgoAAAAN…. </p>
+<p>screenshot_as_png() 截图的二进制内容 b’\x89PNG\r\n\x1a\n\x… </p>
+<p>get_attribute(name) 获取元素的HTML属 性 value_of_css_property 获取CSS属性 </p>
+<p>click() 点击 </p>
+<p>clear() 清空内容 </p>
+<p>send_keys(content) 输入内容</p>
+<p><strong>三大等待</strong></p>
+<p>1．强制等待time.sleep(2)</p>
+<p>2．隐式等待driver.implicitly_wait(10)# 大于0 的参数，表示启用隐式等待</p>
+<p>3．显式等待<strong>自定义</strong>等待的时机</p>
+<pre class=" language-python"><code class="language-python">ele <span class="token operator">=</span> webDriverWait<span class="token punctuation">(</span>driver<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+<span class="token keyword">lambda</span> _<span class="token punctuation">:</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>
+By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">"/htm1/body/div[4]/div/u1/1i[3]/div/a/div/p"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="5-POM"><a href="#5-POM" class="headerlink" title="5.POM"></a>5.POM</h4><p>1.写出元素定位表达式 2. 写出合适等待方式 3. 维护各个元素的定位表达 </p>
+<p>Page Objects Model 页面对象模型 </p>
+<p>类 表示 页面 </p>
+<p>类属性 表示 页面中的元素 </p>
+<p>类的方法 表示 对页面的操作</p>
+<p><strong>封装po</strong></p>
+<p>定义过程:<br>1.定义 BasePage(抽象类)</p>
+<p>2.定义Page(页面类)<br>3.定义元素的交互(对象方法）<br>使用过程:<br>1.打开页面，实例化Page</p>
+<p>2.调用Page方法，完成交互</p>
+<p><strong>使用po</strong></p>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span>driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>LoginPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> LoginPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#实例化PO</span>
+page<span class="token punctuation">.</span>login<span class="token punctuation">(</span><span class="token string">"beifan_0609"</span>，<span class="token string">"123123"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#登录msg = page.get_msg(#获取系统提示</span>
+<span class="token keyword">assert</span> msg <span class="token operator">==</span><span class="token string">"登录成功"</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>GoodsPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> GoodsPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>msg <span class="token operator">=</span> page<span class="token punctuation">.</span>add_to_cartO
+<span class="token keyword">assert</span> msg <span class="token operator">==</span><span class="token string">"加入成功"</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>框架运行流程</strong><br>1.在excel列出用户动作    (关键字)</p>
+<p>⒉.框架读取、执行关键字<br>3.加载其他插件，实现并行测试、失败重试、HTML报告</p>
+<p><strong>Sanmu</strong>是一个纯用Excel描述测试用例的UT自动化测试框</p>
+<p>默认执行run_pytest命令<br>options:<br>–help Show this message and exit.<br>Commands :<br>report    调用allure，生成HTML报告<br>run-pytest    启动Pytest框架执行用例，通过pytest-html生成报告</p>
+<p>run-unittest    启动UnitTess框架执行用例，通HTMLTestRunner生成报告</p>
+<p>show-keys    打印关键字文档<br>start    创建demo文件，并命名为test_{name}.xlsx</p>
 <h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
 <p>commons: 公共封装文件夹</p>
 <p>datas: YAML数据驱动文件夹</p>
