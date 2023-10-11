@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    25 分
                 </div>
                 
 
@@ -694,20 +694,32 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 <p>表单: Content-Type:application/x-www-form-urlencoded (data)</p>
 <p>文本raw:<br>Content-Type:application/json (json)<br>Content-Type:text/plain (data)<br>Content-Typeapplication/javascript (data)</p>
 <p>Content-Type:text/html (data)<br>Content-Type:application/xml (data)<br>二进制:<br>Content-Type:application/octrent-stream (files)</p>
-<h3 id="三、接口自动化实战和封装"><a href="#三、接口自动化实战和封装" class="headerlink" title="三、接口自动化实战和封装"></a>三、接口自动化实战和封装</h3><p>基于pytest单元测试框架，默认测试用例的规则</p>
-<p>1.模块名(py文件)必须以test 开头或 test结尾<br>2.类名必须Test开头<br>3.用例名必须以test 开头</p>
-<p>json是字典的字符串的格式，两种可以相互转换</p>
-<h3 id="四、接口自动化框架封装-统一请求封装"><a href="#四、接口自动化框架封装-统一请求封装" class="headerlink" title="四、接口自动化框架封装 (统一请求封装)"></a>四、接口自动化框架封装 (统一请求封装)</h3><p>1.统计数据<br>2.异常处理<br>3.日志监控</p>
+<h3 id="三、Requests接口自动化测试实战"><a href="#三、Requests接口自动化测试实战" class="headerlink" title="三、Requests接口自动化测试实战"></a>三、Requests接口自动化测试实战</h3><p>接口关联三个层次:<br>1.通过类变量保存中间变量实现接口关联。<br>2.通过单独的文件保存中间变量实现接口关联。<br>3.极限封装成零代码的方式实现接口关联。<br>接口关联两种方式:<br>(1)正则提取实现接口关联<br>re.seach(‘name=”csrf_ token” value= “ ( .*?)” ,res. text).group(1)    通过正则匹配一个值, 通过下标[1]取值，没有匹配到返回None.<br>re.findall()通过正则匹配多个值，返回List, 通过下标取值，没有匹配到返回None<br>(2)JsonPath提取实现接口关联<br>jsonpath.jsonpath(res.json(),”$.access_token”) 返回一 个列表, 通过下标取值,没有找到返回None.</p>
+<p>res.json()[‘access_token’]</p>
+<p>requests .request()和session.request)的区别:前者的每个请求都是独立的，后者会自动的关联,所有请求的cookie信息。</p>
+<h3 id="四、接口自动化框架封装-统一请求封装"><a href="#四、接口自动化框架封装-统一请求封装" class="headerlink" title="四、接口自动化框架封装 (统一请求封装)"></a>四、接口自动化框架封装 (统一请求封装)</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">class</span> <span class="token class-name">Requestutil</span><span class="token punctuation">:</span>
+    sess <span class="token operator">=</span> requests <span class="token punctuation">.</span> session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#统一请求封装</span>
+    <span class="token keyword">def</span> send_ all_request<span class="token punctuation">(</span>self<span class="token punctuation">,</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> RequestUtil<span class="token punctuation">.</span>sess<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res
+</code></pre>
 <p>web项目的接口都会存在cookie关联。session对象能够自动的关联cookies</p>
 <h3 id="五、引入用例管理框架（单元测试框架）"><a href="#五、引入用例管理框架（单元测试框架）" class="headerlink" title="五、引入用例管理框架（单元测试框架）"></a>五、引入用例管理框架（单元测试框架）</h3><p>python: unittest和pytest</p>
-<p>java: junit和testng<br>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
+<p>java: junit和testng</p>
+<p>unittest:ascll的大小来绝对的执行顺序<br>pytest默认从上到下的执行顺序</p>
+<p>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
 <p>2.执行用例: 将测试用例安装一定的顺序和条件执行，并生成结果</p>
 <p>3.判断结果: 通过断言来判断实际结果和预期结果是否相同</p>
 <p>4.生成报告:统计测试进度，耗时，通过率，生成报告</p>
+<p>(2)优势<br>1.提高测试效率,降低维护成本<br>2.减少人工干预,提高测试的准确性,增加代码的重用性。<br>3.核心思想是让不懂代码的人也能够通过这个框架去实现自动化测试。</p>
 <h3 id="六、Pytest框架详解"><a href="#六、Pytest框架详解" class="headerlink" title="六、Pytest框架详解"></a>六、Pytest框架详解</h3><p>pytest是一个非常成熟的python用例测试框架，它可以和很多的工具或框架，selenium，requests,appium实现多种自动化测试<br>它可以和allure结合生成美观的报告以及和jenkins实现持续集成最重要的是，它有很多的插件:</p>
 <pre class=" language-txt"><code class="language-txt">pytest-html  #生成html报告插件
 pytest-xdist  #多线程
-pytest-ordering  #标记测试用例的执行顺序
+pytest-ordering  #标记测试用例的执行顺序@pytest.mark.run (order=1)
+
 pytest-returnfailers  #失败用例重跑
 pytest-base-url  #管理基础路径
 allure-pytest  #生成allure报告
@@ -717,13 +729,25 @@ pyyaml
 </code></pre>
 <p>使用requirements.txt文件保存，并通过以下命令执行包装：</p>
 <p> pip install -r requirements.txt</p>
+<p>基于pytest单元测试框架，默认测试用例的规则</p>
+<p>1.模块名(py文件)必须以test_ 开头或 _test结尾<br>2.测试类名必须Test开头,且不能有init方法<br>3.用例名必须以test 开头</p>
 <h3 id="七、执行的方式有三种"><a href="#七、执行的方式有三种" class="headerlink" title="七、执行的方式有三种"></a>七、执行的方式有三种</h3><p>1.通过main执行</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pytest
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#入口</span>
-    pytest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pytest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'-vs'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
+<p>(1)运行所有: pytest. main()<br>(2)指定模块: pytest. main([‘-vs’,’test_ login.py’])<br>(3)指定目录: pytest. main([‘-vs’,’./interface_ testcase’])<br>(4)通过nodeid指定用例运行: nodeid由模块名，分隔符，类名，方法名，函数名组成。<br>pytest. main([‘-vs’,’./interface_ _testcase/test <em>interface py::test</em> <em>04</em> _func’])</p>
+<p>pytest.main( [‘-vs‘,’/testcase’,’-n=2’])</p>
 <p>2.通过命令行执行<br>pytest -vs</p>
-<p>执行的时候有一些参数:<br>-v:输出更详细的信息<br>s:输出调试信息 (如打印)<br>-n:多线程运行测试用例<br>–reruns 失败用例重跑<br>–html 生成HTML报告</p>
+<p>pytest -vs test_ login.py</p>
+<p>pytest -vs ./interface_ _testcase/test <em>interface.py::test</em> <em>04</em> _func</p>
+<p>执行的时候有一些参数:<br>-v:输出更详细的信息<br>s:输出调试信息 (如打印)<br>-n:多线程运行测试用例</p>
+<p>pytest -vs test_ login.py -n 2</p>
+<p>-k:根据测试用例的部分字符串指定测试用例</p>
+<p>pytest -vs test_ login.py -k “ao”</p>
+<p>-x:表示只要有一个用例报错。那么测试停止</p>
+<p>–maxfail=2出现两个用例失败就停止</p>
+<p>–reruns 失败用例重跑<br>–html 生成HTML报告</p>
 <p>3.通过读取pytest.ini配置文件来执行测试用例不管使用main还是命令行都会自动的去读取pytest.ini的配置文件</p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>pytest<span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">#命令行参数</span>
@@ -739,20 +763,25 @@ python_functions <span class="token operator">=</span> test_<span class="token o
 <span class="token comment" spellcheck="true">#设置基础路径</span>
 base url <span class="token operator">=</span> http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
 <span class="token comment" spellcheck="true">#标记执行:</span>
-<span class="token operator">-</span>m <span class="token string">"smoke or product_manage"</span>
 markers <span class="token operator">=</span>
     smoke<span class="token punctuation">:</span>冒烟测试
     login<span class="token punctuation">:</span>登陆用例
     product_manage<span class="token punctuation">:</span>商品管理
     user_manage<span class="token punctuation">:</span>用户管理
 </code></pre>
+<p><strong>分组执行标记的案例</strong></p>
+<p>在用例上加@pytest.mark.smoke和@pytest.mark.product_manage</p>
+<p>pytest -vs -m “smoke or product_manage”    两个都执行</p>
+<p><strong>pytest跳过测试用例</strong><br>(1)无条件跳过<br>@pytest . mark. skip (reason=”微微”)<br>(2)有条件跳过<br>@pytest . mark. skipif (age&gt;=18, reason=’已成年’ ) </p>
 <p><strong>读懂测试结果</strong><br>结果缩写符号<br><code>符号    含义</code>    </p>
 <p><code>.    通过</code><br><code>F    失败</code><br><code>E    出错</code><br><code>X    XPass意外通过</code><br><code>x    xfailed 预期失败</code></p>
 <p>x表示反义词<br>如果通过，什么都不显示<br>如果失败，则显示代码和报错信息<br>通过参数可以让结果更加的丰富</p>
 <h3 id="八、执行测试用例时的前后置处理"><a href="#八、执行测试用例时的前后置处理" class="headerlink" title="八、执行测试用例时的前后置处理"></a>八、执行测试用例时的前后置处理</h3><p>第一种:和unittest相似</p>
+<p>模块级别: setup_module、teardown_module<br>函数级别:setup_function、teardown_function，不在类中的方法<br>类级别: setup_class、teardown_class</p>
+<p>方法级别:setup_method、teardown_method,在类中的方法<br>用例级别:setup、teardown</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setup_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"每个类之前执行"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> teardown <span class="token keyword">class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">teardown_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"每个类之后执行"</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"用例之前执行"</span><span class="token punctuation">)</span>
@@ -762,7 +791,7 @@ markers <span class="token operator">=</span>
 <p>第二种: fixture固件，作用就是可以更加随心所欲的设置前后置</p>
 <p>使用装饰器<br>@pytest.fixture(scope=””,params=””autouse=,ids=””,name=””)</p>
 <p>scope:作用域<br>function(函数，用例，默认)<br>class 类</p>
-<p>module 模块<br>package/session 会话<br>params:数据驱驱动<br>autouse:自动作用还是手动作用</p>
+<p>module 模块<br>package/session 会话<br>params:数据驱驱动。参数化(支持,列表,元祖(),字典列表[{},{},{}] ,字典元祖({},{},{})<br>autouse:自动作用还是手动作用</p>
 <p>True自动调用，Fasle手动调用(需要在参数里面传入固件名称)</p>
 <p>ids:当数据驱动时更改参数名<br>name:fixture的别名<br>案例:</p>
 <pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"function"</span><span class="token punctuation">,</span>autouse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>params<span class="token operator">=</span>read_yaml<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ids<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'bl'</span><span class="token punctuation">,</span> <span class="token string">'bf'</span> <span class="token punctuation">,</span> <span class="token string">'xy'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"ea"</span> <span class="token punctuation">)</span>
@@ -775,12 +804,9 @@ markers <span class="token operator">=</span>
 driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#启动浏览器yield driver # 这是关键</span>
 driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#关闭浏览器</span>
 </code></pre>
-<p>接口关联方法：</p>
-<ol>
-<li>通过类变量</li>
-<li>通过一个独立的文件，比如yaml文件</li>
-<li>极限封装成零代码</li>
-</ol>
+<p>return和yield都表示返回的意思， 但是return的后面不能有代码，yield返回后后面可以接代码。</p>
+<p>第三种:通过conftest.py和@pytest.fixture()结合使用实现全局的前后置处理(比如:项目的全局登录.模块的全局处理)<br>1.conftest py文件是单独存放的一个夹具配置文件,名称是不能更改。<br>2.用处可以在不同的py文件中使用同一个fxture函数。</p>
+<p>3.conftest py需要和运行的用例放到统一层。 并且不需要做任何的imprt导入的操作。</p>
 <p><strong>封装更加合理的fixture</strong> </p>
 <p>摆脱用例和用例直接的依赖</p>
 <pre class=" language-python"><code class="language-python">pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"module"</span><span class="token punctuation">)</span>
@@ -811,32 +837,67 @@ page<span class="token punctuation">.</span>delete_all<span class="token punctua
 <p> 数据结构： </p>
 <p>1.Map对象（dict）（键:(空格)值） 如：name: 百里</p>
 <p>2.数组（list）,用一组横线”-“开头来表示 如： </p>
-<ul>
-<li><pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name1</span><span class="token punctuation">:</span> 张三 
-<span class="token punctuation">-</span> <span class="token key atrule">name2</span><span class="token punctuation">:</span> 李四 
-<span class="token punctuation">-</span> <span class="token key atrule">name3</span><span class="token punctuation">:</span> 灵灵
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#用例</span>
+<span class="token punctuation">-</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> 获得token鉴权码的接口
+    <span class="token key atrule">request</span> <span class="token punctuation">:</span>
+        <span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//api.weixin.qq.com/cgi<span class="token punctuation">-</span>bin/token
+        <span class="token key atrule">method</span><span class="token punctuation">:</span> get
+        <span class="token key atrule">headers</span><span class="token punctuation">:</span>
+            <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> application/json 
+        <span class="token key atrule">params</span><span class="token punctuation">:</span> 
+            <span class="token key atrule">grant_type</span><span class="token punctuation">:</span> client_ credential
+            <span class="token key atrule">appid</span><span class="token punctuation">:</span> wx6b11b3efd1cdc290
+            <span class="token key atrule">secret</span><span class="token punctuation">:</span> 106a9c6157c4db5f 6029918738f9529d
+    <span class="token key atrule">validate</span> <span class="token punctuation">:</span> 
+        <span class="token punctuation">-</span> <span class="token key atrule">eq</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token key atrule">expires_in</span><span class="token punctuation">:</span> <span class="token number">7200 </span><span class="token punctuation">}</span>
 </code></pre>
-</li>
-</ul>
-<h3 id="十、Pytest用例管理框架数据驱动详解"><a href="#十、Pytest用例管理框架数据驱动详解" class="headerlink" title="十、Pytest用例管理框架数据驱动详解"></a>十、Pytest用例管理框架数据驱动详解</h3><p>数据驱动装饰器<br>@ pytest.mark.parametrize(ages1,args2)</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">YamlUtil</span> <span class="token punctuation">:</span> 
+    <span class="token keyword">def</span> __init__ <span class="token punctuation">(</span>self<span class="token punctuation">,</span> yaml_file<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        通过init方法把yam1文件传入到这个类
+        :param yaml_file:
+        """</span>
+        self<span class="token punctuation">.</span>yaml_file <span class="token operator">=</span> yaml_file
+    <span class="token comment" spellcheck="true">#读取yam1文件</span>
+    <span class="token keyword">def</span> read yaml <span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+读取yam1,对yaml反序列化,就是把我们的yaml格式转换成dict格式。
+        """</span>
+        <span class="token keyword">with</span> open <span class="token punctuation">(</span>self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            value<span class="token operator">=</span>yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">,</span>Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader <span class="token punctuation">)</span>
+            <span class="token keyword">print</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> value 
+   
+    <span class="token comment" spellcheck="true">#写入:追加</span>
+    <span class="token keyword">def</span> <span class="token function">write_yaml</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"a+"</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span>f<span class="token punctuation">,</span> allow_ unicode<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+I
+
+    <span class="token comment" spellcheck="true">#清空</span>
+    <span class="token keyword">def</span> <span class="token function">clear_yaml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span> self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span> <span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>truncate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="十、Pytest用例管理框架数据驱动详解"><a href="#十、Pytest用例管理框架数据驱动详解" class="headerlink" title="十、Pytest用例管理框架数据驱动详解"></a>十、Pytest用例管理框架数据驱动详解</h3><p>python的反射<br>正常:先初始化对象,在调方法。<br>反射:通过对象得到类对象。然后通过类对象调用方法</p>
+<p>数据驱动装饰器<br>@ pytest.mark.parametrize(ages1,args2)</p>
 <p>args1:参数名: 用于传值。<br>vars2:参数值 (可以为列表或元祖，字典列表，字典元祖)，数据中有多少个值那么用例就会执行多少次。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TestLogin</span><span class="token punctuation">:</span>
     @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"caseinfo"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"星星"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
     <span class="token keyword">def</span> test login<span class="token punctuation">(</span>self<span class="token punctuation">,</span>caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>"登陆接口<span class="token punctuation">:</span>“<span class="token operator">+</span>caseinfo<span class="token punctuation">)</span>
-    @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"name,age"</span>，<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"13"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"12"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"星星"</span><span class="token punctuation">,</span><span class="token string">"11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"name,age"</span>，<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"13"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"12"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"星星"</span><span class="token punctuation">,</span><span class="token string">"11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#第二种方式</span>
     <span class="token keyword">def</span> test register<span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"注册接口: %s"</span><span class="token operator">%</span> name<span class="token punctuation">,</span>age
 </code></pre>
-<h3 id="十一、pytest结合allure生成美观的报告"><a href="#十一、pytest结合allure生成美观的报告" class="headerlink" title="十一、pytest结合allure生成美观的报告"></a>十一、pytest结合allure生成美观的报告</h3><p>安装依赖</p>
-<pre class=" language-python"><code class="language-python">pip install allure<span class="token operator">-</span>pytest
-</code></pre>
-<p>1.下载allure，下载之后解压，解压之后配置path环境变量.需要配置jdk,jre</p>
+<p>第二种方式:跟unittest的ddt里面的@unpack解包的一样</p>
+<h3 id="十一、pytest结合allure生成美观的报告"><a href="#十一、pytest结合allure生成美观的报告" class="headerlink" title="十一、pytest结合allure生成美观的报告"></a>十一、pytest结合allure生成美观的报告</h3><p>1.下载allure，下载之后解压，解压之后配置path环境变量.需要配置jdk,jre</p>
 <p>使用pycharm配置JDK 或者]RE<br>D: \Program Files \JetBrains Pycharm Community Edition 2019.2.2 \jbr<br>将目录添加到环境变量JAVA HOME</p>
 <p>path路径的配置: D:\allure-2.13.7\bin (路径中不能有中文)</p>
 <p>验证: allure –version (需要在dos和pycharm中都要验证)如果说Pycharm中验证失败，那么需要重启pycharm，让环境生效。<br>2.在pytest.ini文件中加入命令</p>
 <pre class=" language-ini"><code class="language-ini"><span class="token selector">[pytest]</span>
-<span class="token constant">addopts</span> <span class="token attr-value"><span class="token punctuation">=</span> --alluredir=./temps --clean-alluredir</span>
+<span class="token constant">addopts</span> <span class="token attr-value"><span class="token punctuation">=</span> -vs --alluredir=./temps --clean-alluredir</span>
 </code></pre>
 <p>3.生成Allure报告</p>
 <p>在cmd窗口中执行</p>
@@ -850,6 +911,7 @@ page<span class="token punctuation">.</span>delete_all<span class="token punctua
 </code></pre>
 <p>在测试用例的开始或结束加上logger.info(“打印信息”)</p>
 <p><strong>截图</strong></p>
+<p>在用户用例的执行前后截图加入到allure报告中</p>
 <pre class=" language-python"><code class="language-python">allure<span class="token punctuation">.</span>attach<span class="token punctuation">(</span><span class="token comment" spellcheck="true"># 交互后进行截图，确认交互效果se1f._driver.get_screenshot_as_png(),</span>
 <span class="token punctuation">)</span>
 </code></pre>
@@ -1017,6 +1079,59 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>默认执行run_pytest命令<br>options:<br>–help Show this message and exit.<br>Commands :<br>report    调用allure，生成HTML报告<br>run-pytest    启动Pytest框架执行用例，通过pytest-html生成报告</p>
 <p>run-unittest    启动UnitTess框架执行用例，通HTMLTestRunner生成报告</p>
 <p>show-keys    打印关键字文档<br>start    创建demo文件，并命名为test_{name}.xlsx</p>
+<h3 id="十三、Jenkins以及持续集成简介"><a href="#十三、Jenkins以及持续集成简介" class="headerlink" title="十三、Jenkins以及持续集成简介"></a>十三、Jenkins以及持续集成简介</h3><p>jenkins是一个可以扩展的持续集成和持续部署的平台。它也只是一个平台，主要运行的都是插件</p>
+<p>持续集成:把整个软件生命周期中的所有工作实现自动化，以流水线的方式去完成软件的研发过程<br>开发:编写代码并且进行源码管理，编译打包提供给测试人员测试<br>测试:部警测试环境进行功能测试，持续集成自动化测试</p>
+<p>运维:部署线上环境</p>
+<p><strong>Jenkins的安装</strong><br>1.安装JDK以及配置JDK的环境变量<br>2.插件的下载(1-2小时的下载 )</p>
+<p>3访问:http//localhost:8080</p>
+<p><strong>Jenkins创建以及使用job(项目)应用</strong><br>1新建job<br>2目定义工作空间:指定你的项目在哪里<br>3.输入执行命令:python all.py<br>4执行groovy脚本:System.setProperty(“hudson.model.DirectoryBrowserSupport.CSP”,””)</p>
+<p><strong>Jenkins集成Allure报告</strong><br>1.安装allure插件: Allure Jenkins Plugin<br>2.在[全局工具配置Global Tool Configuration]，配署Allure<br>3.在job配置allure报告</p>
+<p><strong>Jenkins持续集成企业微信(钉钉)实战</strong><br>1创建企微群管理机器人，获得webhook<br>webhook<br>https//avapi.weixinggcom/cgi-bin/webhook/send?kev=bed4f5d11e1-4694-96a4-6f3be8a17197<br>2安装插件:Qv wechat…<br>3.在[系统配置]添加默认webhook地址</p>
+<p>4.进入job，添加构建后操作。配置企微通知</p>
+<p><strong>Jenkins集成电子邮件通知实战</strong></p>
+<p>1.安装插件: Email…<br>2.新建一个邮箱。建议用163，企业邮箱肯定可以。<br>设置打开POP3(接受邮件的协议)和SMTP(发邮件的协议)，获取的客户端的密码:bfwrrjqrzhxldgea</p>
+<p>163 : BKFUMLHFHQBYGUPV<br>3.在[系统配置]配置邮件的发件人，SMTP服务器，收件人信息</p>
+<p>4.进入job，添加构建后操作。配置邮件通知</p>
+<p>系统管理员邮件地址必须和发件人保持一致</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">EmaiManage</span> <span class="token punctuation">:</span>
+    <span class="token keyword">def</span> send email<span class="token punctuation">(</span>self<span class="token punctuation">,</span>report_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#定义SMTP服务器</span>
+        smtpserver <span class="token operator">=</span>smtp<span class="token number">.163</span><span class="token punctuation">.</span>com
+        <span class="token comment" spellcheck="true">#发送邮件的用户名和客户端密码</span>
+        username<span class="token operator">=</span><span class="token string">'mashang_XXX@163.com'</span>
+        <span class="token comment" spellcheck="true">#授权密码password =KNLOCNORUHWHIXJQ</span>
+        <span class="token comment" spellcheck="true">#接收邮件的邮箱</span>
+        receiver <span class="token operator">=</span>XXX@gq<span class="token punctuation">.</span>com
+        <span class="token comment" spellcheck="true">#创建邮件对象</span>
+        message <span class="token operator">=</span> MIMEMultipart<span class="token punctuation">(</span><span class="token string">'related'</span><span class="token punctuation">)</span>
+        subject <span class="token operator">=</span><span class="token string">'湖南一网通项目自动化测试报告'</span> <span class="token comment" spellcheck="true">#邮件的主题</span>
+        fujian <span class="token operator">=</span> MIMEText <span class="token punctuation">(</span>open<span class="token punctuation">(</span>report_name<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>"html<span class="token string">','</span>utf<span class="token number">-8</span>'<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#附件</span>
+        <span class="token comment" spellcheck="true">#把邮件的信息组装到邮件对象里面</span>
+        message<span class="token punctuation">[</span><span class="token string">'form'</span><span class="token punctuation">]</span> <span class="token operator">=</span> username
+        message<span class="token punctuation">[</span><span class="token string">'to'</span><span class="token punctuation">]</span> <span class="token operator">=</span> receiver
+        message<span class="token punctuation">[</span><span class="token string">'subject'</span><span class="token punctuation">]</span> <span class="token operator">=</span> subject
+        message<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>fujian<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#登录smtp服务器并发送邮件</span>
+        smtp <span class="token operator">=</span> smtplib<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>smtpserver<span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>login<span class="token punctuation">(</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>sendmail<span class="token punctuation">(</span>username<span class="token punctuation">,</span>receiver<span class="token punctuation">,</span>message<span class="token punctuation">.</span>as_string<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>                
+</code></pre>
+<h3 id="十四、Unittest框架"><a href="#十四、Unittest框架" class="headerlink" title="十四、Unittest框架"></a>十四、Unittest框架</h3><p>1.用例编写规则<br>unittest(python自带): 提供了testcases测试用例、testsuite测试套件、testfixtures测试件或夹具、testloader测试加载器，testrunner测试运行器。必须遵守以下规则:<br>(1)测试文件必须先导入import unittest<br>(2)测试类必须继承unittest.TestCase<br>(3)测试方法必须以test开头。<br>pytest:它是python的第三方测试框架。基于unittest的扩展框架，必须遵守以下规则:</p>
+<p>(1)测试文件名必须以test 开头或者是 test结尾<br>(2)测试类命令必须以Test开头<br>(3)测试方法必须test开头</p>
+<p>2.用例的前后置</p>
+<p>setUp/tearDown    在每个用例之前或之后与运行一次<br>例如：打开浏览器，加载网页/关闭网页</p>
+<p>setUpClass和tearDownClass     在每个类运行之前或之后运行一次</p>
+<p>例如：创建数据库连接,创建日志对象/关闭数据库连接，销毁日志对象</p>
+<p>setUpModule和tearDownModule     在每个模块之前和之后执行一次</p>
+<p>3.断言<br>unites : assertTrue , assertEqual , assertln</p>
+<p>pytest : assert</p>
+<p>4.报告<br>unittest : htmltestrunner</p>
+<p>pytest : 插件 : pytest-HTML ，allure<br>5.失败重跑<br>unittest:没有</p>
+<p>pytest: pytest-rerunfailures插件</p>
+<p>6.数据驱动<br>unitest : ddt<br>pytest: @pytest.markparametrize装饰器<br>7.用例分类执行<br>unittest: 默认执行所有，也可以通过testsuite来执行部分用例，或者-k参数</p>
+<p>pytest : @pytest.mark</p>
 <h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
 <p>commons: 公共封装文件夹</p>
 <p>datas: YAML数据驱动文件夹</p>
@@ -1032,7 +1147,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>二、传参方式:<br>1.get请求，那么必须通过params传参<br>2.post请求<br>    传json格式，需要使用json传参<br>    传表单格式，需要使用data传参<br>3.文件上传:使用files传参<br>三、接口关联<br>支持多种提取方式: 正则表达式和jsonpath表达式提取</p>
 <p>extract:</p>
 <pre class=" language-txt"><code class="language-txt">    access token:"access token":"(.*?)"         #正则
-    expires in: $.expires in                #jsonpath
+    expires in: $.expires in            #jsonpath
 </code></pre>
 <p>取值方式: 其中read_extract_data是热加载的方法名，access_token是提取的变量名</p>
 <p>${read_extract _data(access token)}</p>
@@ -1045,7 +1160,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>2.在测试用例当中传入类的对象，如DebugTalk()</p>
 <pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"caseinfo"</span><span class="token punctuation">.</span>read_testcase_yaml<span class="token punctuation">(</span><span class="token string">'/testcases/product_manage/pm_create flag.yaml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">test_create_flag</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    RequestsUtil<span class="token punctuation">(</span>DebugTalk<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>standard yaml<span class="token punctuation">(</span>caseinfo<span class="token punctuation">)</span>
+    RequestsUtil<span class="token punctuation">(</span>DebugTalk<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>standard_yaml<span class="token punctuation">(</span>caseinfo<span class="token punctuation">)</span>
 </code></pre>
 <p>3.在YAML测试用例中调用函数: 如:<br>json: </p>
 <p>{“tag”:[“name”:”码尚教育${get_random_number(10000,99999)}”}}</p>
@@ -1056,12 +1171,13 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 - contains: access token
 </code></pre>
 <p>六、数据驱动使用yaml和一级关键字parameterize实现: 如:</p>
-<p>测试用例yam1写法:<br>引入数据驱动文件<br>parameterize:<br>    name-appid-secret-grant_type-assert_str:/datas/product manage/get_token_data.yaml<br>引入变量<br>$ddt{name}</p>
-<p>数据驱动yam1写法:<br>#DDT(data driver test)数据驱动YAML文件,对应的YAML测试用例文件为:pm_get_token.yaml</p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'appid'</span><span class="token punctuation">,</span><span class="token string">'secret'</span><span class="token punctuation">,</span><span class="token string">'grant_type'</span><span class="token punctuation">,</span><span class="token string">'assert_str'</span><span class="token punctuation">]</span>
-<span class="token punctuation">-</span> <span class="token punctuation">[</span>成功获取token鉴权码'<span class="token punctuation">,</span><span class="token string">'wx8a9de038e93f77ab'</span><span class="token punctuation">,</span><span class="token string">'8326fc915928dee3165720c910effb86'</span><span class="token punctuation">,</span><span class="token string">'client credential'</span><span class="token punctuation">,</span><span class="token string">'accesstoken'</span><span class="token punctuation">]</span>
-<span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'检查appid为空'</span><span class="token punctuation">,</span>'8326fc915928dee3165720c910effb86'，'client_credential'<span class="token punctuation">,</span><span class="token number">41002</span><span class="token punctuation">]</span>
-<span class="token punctuation">-</span> <span class="token punctuation">[</span>'检查secret为空'，'wx8a9de038e93f77ab'<span class="token punctuation">,</span><span class="token string">'client_credential'</span><span class="token punctuation">,</span><span class="token number">41004</span><span class="token punctuation">]</span>
+<p><strong>测试用例yam1写法:</strong><br>引入数据驱动文件<br>parameterize:<br>    name-appid-secret-grant_type-assert_str:/datas/product manage/get_token_data.yaml<br>引入变量<br>$ddt{name}</p>
+<p><strong>数据驱动yam1写法:</strong><br>#DDT(data driver test)数据驱动YAML文件,对应的YAML测试用例文件为:pm_get_token.yaml</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">prametrize</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'appid'</span><span class="token punctuation">,</span><span class="token string">'secret'</span><span class="token punctuation">,</span><span class="token string">'grant_type'</span><span class="token punctuation">,</span><span class="token string">'assert_str'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span>成功获取token鉴权码'<span class="token punctuation">,</span><span class="token string">'wx8a9de038e93f77ab'</span><span class="token punctuation">,</span><span class="token string">'8326fc915928dee3165720c910effb86'</span><span class="token punctuation">,</span><span class="token string">'client credential'</span><span class="token punctuation">,</span><span class="token string">'accesstoken'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'检查appid为空'</span><span class="token punctuation">,</span>'8326fc915928dee3165720c910effb86'，'client_credential'<span class="token punctuation">,</span><span class="token number">41002</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span>'检查secret为空'，'wx8a9de038e93f77ab'<span class="token punctuation">,</span><span class="token string">'client_credential'</span><span class="token punctuation">,</span><span class="token number">41004</span><span class="token punctuation">]</span>
 </code></pre>
 <p>七、基础路径的设置<br>在测试用例中使用一级关键字和热加载，如:</p>
 <p>base_url: ${read_config(base,base_spgl_ur1)}</p>
