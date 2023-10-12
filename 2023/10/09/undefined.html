@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.2k
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    32 分
                 </div>
                 
 
@@ -709,7 +709,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 <p>web项目的接口都会存在cookie关联。session对象能够自动的关联cookies</p>
 <h3 id="五、引入用例管理框架（单元测试框架）"><a href="#五、引入用例管理框架（单元测试框架）" class="headerlink" title="五、引入用例管理框架（单元测试框架）"></a>五、引入用例管理框架（单元测试框架）</h3><p>python: unittest和pytest</p>
 <p>java: junit和testng</p>
-<p>unittest:ascll的大小来绝对的执行顺序<br>pytest默认从上到下的执行顺序</p>
+<p>unittest:ascll的大小来绝对的执行顺序,ord(‘a’):查看a的ascii码97；A 65<br>pytest默认从上到下的执行顺序</p>
 <p>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
 <p>2.执行用例: 将测试用例安装一定的顺序和条件执行，并生成结果</p>
 <p>3.判断结果: 通过断言来判断实际结果和预期结果是否相同</p>
@@ -773,9 +773,8 @@ markers <span class="token operator">=</span>
 <p>在用例上加@pytest.mark.smoke和@pytest.mark.product_manage</p>
 <p>pytest -vs -m “smoke or product_manage”    两个都执行</p>
 <p><strong>pytest跳过测试用例</strong><br>(1)无条件跳过<br>@pytest . mark. skip (reason=”微微”)<br>(2)有条件跳过<br>@pytest . mark. skipif (age&gt;=18, reason=’已成年’ ) </p>
-<p><strong>读懂测试结果</strong><br>结果缩写符号<br><code>符号    含义</code>    </p>
-<p><code>.    通过</code><br><code>F    失败</code><br><code>E    出错</code><br><code>X    XPass意外通过</code><br><code>x    xfailed 预期失败</code></p>
-<p>x表示反义词<br>如果通过，什么都不显示<br>如果失败，则显示代码和报错信息<br>通过参数可以让结果更加的丰富</p>
+<p>@unittest.skipUnless(age&lt;18，”如果知了成年，忽略”)</p>
+<p>def test03 zhiliao(self):<br>    print (“测试知了”)</p>
 <h3 id="八、执行测试用例时的前后置处理"><a href="#八、执行测试用例时的前后置处理" class="headerlink" title="八、执行测试用例时的前后置处理"></a>八、执行测试用例时的前后置处理</h3><p>第一种:和unittest相似</p>
 <p>模块级别: setup_module、teardown_module<br>函数级别:setup_function、teardown_function，不在类中的方法<br>类级别: setup_class、teardown_class</p>
 <p>方法级别:setup_method、teardown_method,在类中的方法<br>用例级别:setup、teardown</p>
@@ -805,6 +804,7 @@ driver <span class="token operator">=</span> get_webdriver<span class="token pun
 driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#关闭浏览器</span>
 </code></pre>
 <p>return和yield都表示返回的意思， 但是return的后面不能有代码，yield返回后后面可以接代码。</p>
+<p>params=[‘成龙’,’甄子丹’,’菜10’] 这里params是参数名，有s。 request.param这里是属性名，是没有s的。</p>
 <p>第三种:通过conftest.py和@pytest.fixture()结合使用实现全局的前后置处理(比如:项目的全局登录.模块的全局处理)<br>1.conftest py文件是单独存放的一个夹具配置文件,名称是不能更改。<br>2.用处可以在不同的py文件中使用同一个fxture函数。</p>
 <p>3.conftest py需要和运行的用例放到统一层。 并且不需要做任何的imprt导入的操作。</p>
 <p><strong>封装更加合理的fixture</strong> </p>
@@ -900,9 +900,16 @@ I
 <span class="token constant">addopts</span> <span class="token attr-value"><span class="token punctuation">=</span> -vs --alluredir=./temps --clean-alluredir</span>
 </code></pre>
 <p>3.生成Allure报告</p>
+<pre class=" language-python"><code class="language-python">os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"allure serve .allure_results"</span><span class="token punctuation">)</span>
+</code></pre>
 <p>在cmd窗口中执行</p>
 <pre class=" language-bash"><code class="language-bash">allure generate .temps -o report --clean
 </code></pre>
+<p>allure generate 命令，固定的</p>
+<p> ./temp 临时的json格式报告的路径 </p>
+<p>-o 输出output</p>
+<p> ./report 生成的allure报告的路径 </p>
+<p>–clean 清空./report 路径原来的报告</p>
 <p>查看报告<br>必须使用HTTP协议对报告[目录]进行访问<br>应该是url</p>
 <p><strong>日志</strong></p>
 <p>在pytest.ini文件中添加 log_file_level = info</p>
@@ -942,7 +949,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>switch_to.frame(‘frame_name’)      切换框架</p>
 <p>switch_to.window(‘window_name’)     切换窗口</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> webdriver_he1per <span class="token keyword">import</span> get_webdriver
-driver <span class="token operator">=</span> get_webdrivero<span class="token comment" spellcheck="true"># 支持chrome、firefox . ie</span>
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 支持chrome、firefox . ie</span>
 driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"1_启动.png"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#文件名字必须png结尾</span>
 driver<span class="token punctuation">.</span>maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span>
 driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"2.最大化.png"</span><span class="token punctuation">)</span>
@@ -1031,6 +1038,9 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p><strong>3.XPath 调试</strong><br>开发者工具—控制台—- $x(‘路径’)进行XPath调试<br>XPath 写出来之后，先在F12验证一下，然后放入测试代码</p>
 <p>模拟弹窗</p>
 <p>开发者工具—控制台—-alert(“123”)</p>
+<p>确认弹窗：confirm(“123”)    输入弹窗：prompt(“123”)</p>
+<p>处理一闪而过的窗口</p>
+<p>开发者工具—控制台—debugger—–暂定后选元素定位</p>
 <h4 id="4-元素交互"><a href="#4-元素交互" class="headerlink" title="4.元素交互"></a>4.元素交互</h4><p>面向对象： 属性      方法</p>
 <p>属性     内容     例子 </p>
 <p>id 唯一标记 36f-6a18 </p>
@@ -1079,6 +1089,58 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>默认执行run_pytest命令<br>options:<br>–help Show this message and exit.<br>Commands :<br>report    调用allure，生成HTML报告<br>run-pytest    启动Pytest框架执行用例，通过pytest-html生成报告</p>
 <p>run-unittest    启动UnitTess框架执行用例，通HTMLTestRunner生成报告</p>
 <p>show-keys    打印关键字文档<br>start    创建demo文件，并命名为test_{name}.xlsx</p>
+<p><strong>openpyxl + execl 数据驱动测试</strong></p>
+<p>新的案例实战：添加收获地址 </p>
+<p>1.编写测试用例 </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_user_new_address</span><span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>UserAddressPage<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> UserAddressPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> page<span class="token punctuation">.</span>new_address<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 点击新增地址 按钮</span>
+    page_msg <span class="token operator">=</span> page<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>
+        <span class="token string">"北凡"</span><span class="token punctuation">,</span> <span class="token string">"13191121211"</span><span class="token punctuation">,</span> <span class="token string">"湖南省"</span><span class="token punctuation">,</span> <span class="token string">"长沙市"</span><span class="token punctuation">,</span> <span class="token string">"岳麓区"</span><span class="token punctuation">,</span> <span class="token string">"桐梓坡路117号"</span>
+    <span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输入数据 +提交表单</span>
+    <span class="token keyword">assert</span> page_msg <span class="token operator">==</span> <span class="token string">"操作成功"</span>
+</code></pre>
+<p>2.加载execl测试数据 </p>
+<pre class=" language-python"><code class="language-python">pip install openpyxl
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">read_excel</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    path <span class="token operator">=</span> data_dir <span class="token operator">/</span> filename
+    wb <span class="token operator">=</span> load_workbook<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    ws <span class="token operator">=</span> wb<span class="token punctuation">.</span>active
+    <span class="token keyword">yield</span> <span class="token keyword">from</span> ws<span class="token punctuation">.</span>iter_rows<span class="token punctuation">(</span>min_row<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> values_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<p>3.数据驱动测试</p>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span>
+    <span class="token string">"name,tel,province,city,county,address,alias,is_default,msg"</span><span class="token punctuation">,</span>
+    read_excel<span class="token punctuation">(</span><span class="token string">"ddt_test_new_address.xlsx"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">test_user_new_address</span><span class="token punctuation">(</span>
+    user_driver<span class="token punctuation">,</span>
+    name<span class="token punctuation">,</span>
+    tel<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    county<span class="token punctuation">,</span>
+    address<span class="token punctuation">,</span>
+    alias<span class="token punctuation">,</span>
+    is_default<span class="token punctuation">,</span>
+    msg<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>UserAddressPage<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> UserAddressPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> page<span class="token punctuation">.</span>new_address<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 点击新增地址 按钮</span>
+    page_msg <span class="token operator">=</span> page<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>
+        name<span class="token punctuation">,</span>
+        tel<span class="token punctuation">,</span>
+        province<span class="token punctuation">,</span>
+        city<span class="token punctuation">,</span>
+        county<span class="token punctuation">,</span>
+        address<span class="token punctuation">,</span>
+        alias<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输入数据 +提交表单</span>
+    <span class="token keyword">assert</span> page_msg <span class="token operator">==</span> msg
+</code></pre>
 <h3 id="十三、Jenkins以及持续集成简介"><a href="#十三、Jenkins以及持续集成简介" class="headerlink" title="十三、Jenkins以及持续集成简介"></a>十三、Jenkins以及持续集成简介</h3><p>jenkins是一个可以扩展的持续集成和持续部署的平台。它也只是一个平台，主要运行的都是插件</p>
 <p>持续集成:把整个软件生命周期中的所有工作实现自动化，以流水线的方式去完成软件的研发过程<br>开发:编写代码并且进行源码管理，编译打包提供给测试人员测试<br>测试:部警测试环境进行功能测试，持续集成自动化测试</p>
 <p>运维:部署线上环境</p>
@@ -1123,15 +1185,174 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>2.用例的前后置</p>
 <p>setUp/tearDown    在每个用例之前或之后与运行一次<br>例如：打开浏览器，加载网页/关闭网页</p>
 <p>setUpClass和tearDownClass     在每个类运行之前或之后运行一次</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">(</span>uittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @classmethod    <span class="token comment" spellcheck="true">#在那类中需要加标注</span>
+    <span class="token keyword">def</span> <span class="token function">setUpClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>"setupclass<span class="token punctuation">:</span>在每个类之前执行一次。如<span class="token punctuation">:</span> 创建数据库，生成日志对象”<span class="token punctuation">)</span>
+</code></pre>
 <p>例如：创建数据库连接,创建日志对象/关闭数据库连接，销毁日志对象</p>
 <p>setUpModule和tearDownModule     在每个模块之前和之后执行一次</p>
-<p>3.断言<br>unites : assertTrue , assertEqual , assertln</p>
-<p>pytest : assert</p>
+<p>3.断言<br>unites : assertTrue(a)/assertFalse(a) , assertEqual(a,b)/assertNotEqual(a,b) , assertln(a,b):断言a在b中</p>
+<p>pytest : assert    </p>
 <p>4.报告<br>unittest : htmltestrunner</p>
 <p>pytest : 插件 : pytest-HTML ，allure<br>5.失败重跑<br>unittest:没有</p>
 <p>pytest: pytest-rerunfailures插件</p>
 <p>6.数据驱动<br>unitest : ddt<br>pytest: @pytest.markparametrize装饰器<br>7.用例分类执行<br>unittest: 默认执行所有，也可以通过testsuite来执行部分用例，或者-k参数</p>
 <p>pytest : @pytest.mark</p>
+<p><strong>TestCase用法</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">class</span> <span class="token class-name">EcshopLogin</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#测试用例</span>
+    <span class="token keyword">def</span> <span class="token function">test01_baili</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>”测试用例"<span class="token punctuation">)</span>
+</code></pre>
+<p>1.使用unittest命令行的方式运行python -m unittest -v ecshop_login.EcshopLogin<br>python-m    以脚本的方式去运行一个模块</p>
+<p>unittest-v–verbose     意思就是更详细的输出结果</p>
+<p>ecshop_login.EcshopLogin 为模块名.类名.方法名</p>
+<p>2.使用unittest.main()，以模块的方式运行</p>
+<p>配置pycharm的运行环境或者在命令行使用：python 模块名.py</p>
+<p><strong>读懂测试结果</strong><br>结果缩写符号<br><code>符号    含义</code>    </p>
+<p><code>.    通过</code><br><code>F    失败</code><br><code>E    出错</code><br><code>X    XPass意外通过</code><br><code>x    xfailed 预期失败</code></p>
+<p><code>S    跳过</code></p>
+<p>x表示反义词<br>如果通过，什么都不显示<br>如果失败，则显示代码和报错信息<br>通过参数可以让结果更加的丰富</p>
+<p><strong>unittest.main()底层参数</strong></p>
+<p>module=’__main__’，测试用例用例所在的路径main 表示当前模块</p>
+<p>defaultTest=None,    待测用例的名称，默认是所有<br>argv=None,        接收外部的参数<br>testRunner=None,        测试运行器，TextTestRunner</p>
+<p>testLoader=loader.defaultTestLoader,     指定使用默认的测试用例加载器<br>exit=True        是否在测试完成之后结束python程序<br>verbosity=1        类似于命令行-V，0，1，2</p>
+<p>只运行部分用例使用testCase</p>
+<pre class=" language-python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>Testsuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test01 baili"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test02 weiwei"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">' suite'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#本质上是和下面的命令一样效果的</span>
+<span class="token comment" spellcheck="true">#unittest.TextTestRunner().run(suite)</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+suite <span class="token operator">=</span> unittestTestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
+testcases <span class="token operator">=</span> unittest<span class="token punctuation">.</span>defaultTestLoader<span class="token punctuation">.</span>discover<span class="token punctuation">(</span>start_dir<span class="token operator">=</span>osgetcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>pattern<span class="token operator">=</span><span class="token string">"*.py"</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTests<span class="token punctuation">(</span>testcases<span class="token punctuation">)</span>
+unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">'suite'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>批量执行用例生成</strong>HTML格式的报告<br>在网上下载HTMLTestRunner.py文件放到python安装路径下：C:\python373\Lib</p>
+<p><strong>数据驱动ddt</strong>：DDT：Data Driver Tests</p>
+<p>ddt 是第三方模块，需安装：</p>
+<pre class=" language-python"><code class="language-python">pip install ddt
+</code></pre>
+<p><strong>DDT包含类的装饰器ddt和方法装饰器data</strong><br>通常情况下，data中的数据按照一个参数传递给测试用例，如果data中含有多个数据，如元组，列表，字典等数据，需要自行在脚本中对数据进行分解或者使用unpack分解数据。</p>
+<p>@ddt 类装饰器，用来标记当前类使用ddt数据驱动</p>
+<p>@data 函数装饰器，用来给函数传递数据</p>
+<p>@unpack 函数装饰器，用来对传递的数据进行解包，解列表、元组、字典</p>
+<p>@file_data 函数装饰器，用来直接读取yaml，json格式的文件数据 读取获取的数据是字典列表</p>
+<p><strong>案例：直接在脚本文件中获取测试数据</strong><br>@data(a,b)</p>
+<p>那么a和b各运行一次用例</p>
+<p>@data([a,b],[c,d])</p>
+<p>如果没有@unpack，那么[a,b]当成一个参数传入用例运行</p>
+<p>如果有@unpack，那么[a,b]被分解开，按照用例中的两个参数传递 </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">from</span> ddt <span class="token keyword">import</span> ddt<span class="token punctuation">,</span> data<span class="token punctuation">,</span> unpack
+
+case_data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test1"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+             <span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test2"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+             <span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test3"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+
+@ddt
+<span class="token keyword">class</span> <span class="token class-name">TestDemo</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @data<span class="token punctuation">(</span><span class="token operator">*</span>case_data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#在测试函数上使用@data(*case_data)进行数据解压，然后每一个元素传入测试函数</span>
+    <span class="token keyword">def</span> <span class="token function">test_case</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> case<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>case<span class="token punctuation">)</span>
+</code></pre>
+<p>运行结果：<br>Ran 3 tests in 0.005s</p>
+<p>OK<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test1’}<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test2’}<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test3’}</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">from</span> ddt <span class="token keyword">import</span> ddt<span class="token punctuation">,</span> data<span class="token punctuation">,</span> unpack
+@ddt
+<span class="token keyword">class</span> <span class="token class-name">MyTesting</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#没有@unpack，那么当成一个参数[1, 2, 3]</span>
+    <span class="token keyword">def</span> <span class="token function">test_1</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_1:value={value}'</span><span class="token punctuation">)</span>
+
+    @data<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#三个元素4,5,6</span>
+    <span class="token keyword">def</span> <span class="token function">test_2</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_2:a={a}'</span><span class="token punctuation">)</span>
+
+     @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     @unpack  <span class="token comment" spellcheck="true">#有@unpack，那么分解成3个参数传入用例运行：3, 2, 1是3个参数</span>
+     <span class="token keyword">def</span> <span class="token function">test_minus</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> expected<span class="token punctuation">)</span><span class="token punctuation">:</span>
+          actual <span class="token operator">=</span> int<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">-</span> int<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+          expected <span class="token operator">=</span> int<span class="token punctuation">(</span>expected<span class="token punctuation">)</span>
+          self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span>actual<span class="token punctuation">,</span> expected<span class="token punctuation">)</span>
+
+      @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#没有@unpack，那么当成一个参数:[2, 3]是一个参数，[4, 5]是一个参数</span>
+      <span class="token keyword">def</span> <span class="token function">test_compare</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+          <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_compare:a={a}'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>verbosity<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<p>结果如下：<br>OK<br>test_1:value=[1，2，3]</p>
+<p>test_2:a=4</p>
+<p>test_2:a=5</p>
+<p>test_2:a=6</p>
+<p>test_compare:a=[2，3]</p>
+<p>test_compare:a=[4，5]</p>
+<p><strong>yml文件中获取测试数据</strong><br>在testdata package下新建testdata1.yml文件，文件中写入测试数据如下：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#格式要求：</span>
+<span class="token comment" spellcheck="true">#"-"表示一个列表</span>
+<span class="token comment" spellcheck="true">#用tab键缩进</span>
+
+<span class="token punctuation">-</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'testyy'</span>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span>  <span class="token number">18</span>
+
+<span class="token punctuation">-</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'testzz'</span>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span>  <span class="token number">20</span>
+</code></pre>
+<p>test_ddt.py文件中修改测试代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">import</span> ddt  <span class="token comment" spellcheck="true"># 导入ddt</span>
+<span class="token keyword">import</span> yaml
+ 
+@ddt<span class="token punctuation">.</span>ddt  <span class="token comment" spellcheck="true"># 声明我们要用它</span>
+<span class="token keyword">class</span> <span class="token class-name">Test_ddt</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Before every test case!"</span><span class="token punctuation">)</span>
+ 
+    @ddt<span class="token punctuation">.</span>file_data<span class="token punctuation">(</span><span class="token string">"..\\testdata\\testdata1.yml"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#括号里写yml文件的相对路径</span>
+    <span class="token keyword">def</span> <span class="token function">test_002</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'name is:'</span> <span class="token operator">+</span>str<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'age is:'</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>yml文件中我们定义了2组数据，用例总共执行了2次，按顺序每次取一组数据作为入参。</p>
+<p>从json文件中获取测试数据<br>在testdata package下新建testdata2.json文件，文件中写入测试数据如下：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+   <span class="token property">"student1"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"小明"</span><span class="token punctuation">,</span>
+       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">12</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token property">"student2"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"小张"</span><span class="token punctuation">,</span>
+       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">20</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>test_ddt.py文件中修改测试代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">import</span> ddt  <span class="token comment" spellcheck="true"># 导入ddt</span>
+<span class="token keyword">import</span> yaml
+@ddt<span class="token punctuation">.</span>ddt  <span class="token comment" spellcheck="true"># 声明我们要用它</span>
+<span class="token keyword">class</span> <span class="token class-name">Test_ddt</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Before every test case!"</span><span class="token punctuation">)</span>
+                            @ddt<span class="token punctuation">.</span>file_data<span class="token punctuation">(</span><span class="token string">"..\\testdata\\testdata2.json"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#括号里写json文件的相对路径</span>
+    <span class="token keyword">def</span> <span class="token function">test_003</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"name is:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"age is:"</span> <span class="token operator">+</span>str<span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
 <p>commons: 公共封装文件夹</p>
 <p>datas: YAML数据驱动文件夹</p>
@@ -1143,7 +1364,32 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>pytest.ini:全局pytest配置文件</p>
 <p>run.py:全局运行文件</p>
 <p>readme:接口自动化测试框架说明文件</p>
-<p><strong>接口自动化测试框架YAML测试用例规范:</strong><br>一、一级关键字必须要包含: name,base url,request,validate，在一级关键字request下必须包含:method ,url</p>
+<p><strong>接口自动化测试框架YAML测试用例规范:</strong></p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span>
+    <span class="token key atrule">feature</span><span class="token punctuation">:</span> 用户相关
+    <span class="token key atrule">story</span><span class="token punctuation">:</span> 登陆b2c商城接口
+    <span class="token key atrule">title</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>title)
+    <span class="token key atrule">request</span><span class="token punctuation">:</span>
+        <span class="token key atrule">method</span><span class="token punctuation">:</span> post
+        <span class="token key atrule">url</span><span class="token punctuation">:</span> $(read_config(base_ur1)<span class="token punctuation">}</span><span class="token punctuation">?</span>s=user/login
+        <span class="token key atrule">data</span><span class="token punctuation">:</span>
+            <span class="token key atrule">accounts</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>accounts<span class="token punctuation">]</span>
+            <span class="token key atrule">pwd</span><span class="token punctuation">:</span> $ddt(pwd<span class="token punctuation">}</span>
+            <span class="token key atrule">type</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>type<span class="token punctuation">}</span>
+    <span class="token key atrule">extract</span><span class="token punctuation">:</span>
+        <span class="token key atrule">token</span><span class="token punctuation">:</span> $.data.token
+    <span class="token key atrule">parametrize</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span><span class="token punctuation">[</span><span class="token string">"title"</span><span class="token punctuation">,</span><span class="token string">"accounts"</span><span class="token punctuation">,</span><span class="token string">"pwd"</span><span class="token punctuation">,</span><span class="token string">"type"</span><span class="token punctuation">,</span><span class="token string">"assert_code"</span><span class="token punctuation">,</span><span class="token string">"assert_msg"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span>"验证登陆成功测试用例"，"baili"，"baili123"，"username"<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"登录成功"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">"验证密码必须是6-18位"</span><span class="token punctuation">,</span>"baili"，"123"<span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token string">"密码格式 6~18 个字符"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">"验证错误的用户名"</span><span class="token punctuation">,</span><span class="token punctuation">[</span>"baili"."北凡"<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token punctuation">-</span>3，"登录帐号不存在"<span class="token punctuation">]</span>
+    <span class="token key atrule">validate</span><span class="token punctuation">:</span>
+        <span class="token key atrule">codes</span><span class="token punctuation">:</span> <span class="token number">200</span>
+        <span class="token key atrule">equals</span><span class="token punctuation">:</span>
+            <span class="token key atrule">code</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>assert_code<span class="token punctuation">}</span>
+        <span class="token key atrule">contains</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>assert_msg<span class="token punctuation">}</span>
+</code></pre>
+<p>一、一级关键字必须要包含: name,base url,request,validate，在一级关键字request下必须包含:method ,url</p>
 <p>二、传参方式:<br>1.get请求，那么必须通过params传参<br>2.post请求<br>    传json格式，需要使用json传参<br>    传表单格式，需要使用data传参<br>3.文件上传:使用files传参<br>三、接口关联<br>支持多种提取方式: 正则表达式和jsonpath表达式提取</p>
 <p>extract:</p>
 <pre class=" language-txt"><code class="language-txt">    access token:"access token":"(.*?)"         #正则
@@ -1436,17 +1682,16 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/10/09/undefined.html">
+                <a href="/2023/10/11/undefined.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.jpg" class="responsive-img" alt="接口自动化测试框架入门">
+                        <img src="/images/jemter.jpg" class="responsive-img" alt="接口测试工具入门">
                         
-                        <span class="card-title">接口自动化测试框架入门</span>
+                        <span class="card-title">接口测试工具入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1456,9 +1701,9 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1467,28 +1712,15 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/requests/">
-                        <span class="chip bg-color">requests</span>
+                    <a href="/tags/postman/">
+                        <span class="chip bg-color">postman</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/Yaml/">
-                        <span class="chip bg-color">Yaml</span>
-                    </a>
-                    
-                    <a href="/tags/Pytest/">
-                        <span class="chip bg-color">Pytest</span>
-                    </a>
-                    
-                    <a href="/tags/Allure/">
-                        <span class="chip bg-color">Allure</span>
+                    <a href="/tags/jemter/">
+                        <span class="chip bg-color">jemter</span>
                     </a>
                     
                 </div>
