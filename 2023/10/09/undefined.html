@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    8.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    36 分
                 </div>
                 
 
@@ -699,7 +699,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 <p>requests .request()和session.request)的区别:前者的每个请求都是独立的，后者会自动的关联,所有请求的cookie信息。</p>
 <h3 id="四、接口自动化框架封装-统一请求封装"><a href="#四、接口自动化框架封装-统一请求封装" class="headerlink" title="四、接口自动化框架封装 (统一请求封装)"></a>四、接口自动化框架封装 (统一请求封装)</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">class</span> <span class="token class-name">Requestutil</span><span class="token punctuation">:</span>
-    sess <span class="token operator">=</span> requests <span class="token punctuation">.</span> session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sess <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#统一请求封装</span>
     <span class="token keyword">def</span> send_ all_request<span class="token punctuation">(</span>self<span class="token punctuation">,</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span><span class="token punctuation">:</span>
         res <span class="token operator">=</span> RequestUtil<span class="token punctuation">.</span>sess<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span>
@@ -1353,6 +1353,400 @@ case_data <span class="token operator">=</span> <span class="token punctuation">
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h3 id="十五、RobotFramework的简介和特点"><a href="#十五、RobotFramework的简介和特点" class="headerlink" title="十五、RobotFramework的简介和特点"></a>十五、RobotFramework的简介和特点</h3><p>简介:RF是一个基于Python语言开放的，可扩展的，以关键字驱动模式的自动化测试框架。<br>关键字驱动:关键字驱动表示把项目中的业务逻辑封装成一个一个的关键字，然后调用不同的关键字组成不同的业务。<br>数据驱动:数据驱动是把测试数据放到excel，jaml文件里面，然后通过改变文件中的数据去驱动测试用例执行。<br>特点:<br>1.编写用例非常方便，常见的有txt，robot<br>2.自动化生成html报告<br>3.非常强大的扩展库。<br>4.根据项目的需求自定义关键字<br>5.支持非GUI的方式运行，以及和jenkins实现持续集成</p>
+<p><strong>安装注意事项</strong><br>1.安装python3.7以及环境变量<br>2安装robotframework<br>注意:最新的版本是4.1.2<br>安装的是3.1的版本pip install robotframework==3.1</p>
+<p>3.安装RIDE开发工具:<br>命令 : pip install robotframework-ride<br>会弹出一个窗口，点确定，在卓面生成一个RIDE快捷方式。<br>豆辨下载源:</p>
+<pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> i https://pypi.douban.com/simple robotframework<span class="token operator">==</span>3.12 
+
+pip <span class="token function">install</span> i https://pypi.douban.com/simple robotframework-ride
+</code></pre>
+<p>查看:pip list</p>
+<p>查看:pip list</p>
+<p><strong>使用RIDE开发工具</strong><br>1.new project 注意: 选择Directory<br>2创建文件夫<br>3.创建测试套件<br>4.创建测试用例<br>5.创建资源文件(在文件夹下面创建资源文件，格式必须选择txt格式]。一个资源文件下面可以创建很多个用户目定义的关键字，资源文件可以在测试套件中导入并调用它下面的自定义关键字.</p>
+<p><strong>Robotframework常用的库</strong><br>1.标准库(rf自带的库)<br>Builtin(测试库)<br>Collections(集合库)<br>DateTime(时间库)<br>Screenshot( 截屏库)<br>标准库保存的位置:C:\python373\Liblsite-packages\robotlibraries<br>2.扩展库(通过pip命令安装的库)</p>
+<p>Web自动化测试:SeleniumLibrary Selenium2Library</p>
+<p>​    安装: pip install roboframework-seleniumlibrary</p>
+<p>接口自动化测试: RequestsLibrary<br>    安装: pip install roboframework-requests</p>
+<p>APP自动化测试:AppiumLibrary<br>    安装: pip install roboframework-appiumlibrary</p>
+<p>扩展库保存的位置:C:\python373\Libisite-packages</p>
+<p><strong>常用关键字</strong></p>
+<p>快捷键：</p>
+<p>F5    搜索关键字</p>
+<p>F8    运行测试用例</p>
+<p>Ctrl+Shfit+空格    自动补全关键字</p>
+<table>
+<thead>
+<tr>
+<th>Log</th>
+<th>呵呵</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Comment</td>
+<td>log</td>
+<td>老师</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${a}</td>
+<td>Set Variable</td>
+<td>100</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sleep</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${times}</td>
+<td>Get Time</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Log</td>
+<td>${times}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${content_str}</td>
+<td>Catenate</td>
+<td>SEPARATOR=#</td>
+<td>大道</td>
+<td>实施</td>
+</tr>
+<tr>
+<td>log</td>
+<td>${content_str}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>结果：</p>
+<p>呵呵</p>
+<p>s(a)= 100</p>
+<p>100</p>
+<p>s{times} = 2023-10-14 20:59:30</p>
+<p>2023-10-14 20:59:30</p>
+<p>${content_str)=大道#实施</p>
+<p>大道#实施</p>
+<p><strong>复杂关键字</strong></p>
+<table>
+<thead>
+<tr>
+<th>${list1}</th>
+<th>Create List</th>
+<th>百里</th>
+<th>北凡</th>
+<th>星瑶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log</td>
+<td>${list1}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@{list1}</td>
+<td>Create List</td>
+<td>百里</td>
+<td>北凡</td>
+<td>星瑶</td>
+</tr>
+<tr>
+<td>Log Many</td>
+<td>@{list1}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${dic}</td>
+<td>Create Dictionary</td>
+<td>name=北里</td>
+<td>age=18</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${keys}</td>
+<td>Get Dictionary Keys</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${keys}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${values}</td>
+<td>Get Dictionary</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${values}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${value_to_name}</td>
+<td>Get From Dictionary</td>
+<td>${dic}</td>
+<td>age</td>
+<td></td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>直接执行python函数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${random_number}</td>
+<td>Evaluate</td>
+<td>random.randint(0,100)</td>
+<td>modules=random</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${random_number}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${times}</td>
+<td>Evaluate</td>
+<td>time.time()</td>
+<td>modules=time</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${times}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>直接调用python自定义方法</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Import Library</td>
+<td>E:/test.py</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${a}</td>
+<td>Evaluate</td>
+<td>int(10)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${b}</td>
+<td>Evaluate</td>
+<td>int(20)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${he}</td>
+<td>sum</td>
+<td>${a}</td>
+<td>${b}</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${he}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong>对于没有 get dictionary keys方法，需要在Edit—&gt;Library—&gt;导入Collections</p>
+<p>结果：</p>
+<p>${list1} =[‘百里‘，‘北凡‘，‘星瑶]</p>
+<p>[‘百里‘，‘北凡‘，‘星瑶]</p>
+<p>@{list2}=[百里 | 北凡 | 星瑶 ]</p>
+<p>百里 </p>
+<p>北凡 </p>
+<p> 星瑶 </p>
+<p>${dic}={‘name’：’百里‘，’age’:18}</p>
+<p>{‘name’：’百里‘，’age’:18}</p>
+<p>${keys}=[‘age’,’name ‘]</p>
+<p>[‘age’,’name ‘]</p>
+<p>${values}=[‘18’,’百里’]</p>
+<p>[‘18’,’百里’]</p>
+<p>${value_to_name}=18</p>
+<p>18</p>
+<p>${random_number} = 40<br>40<br>${times} =1637759780.143498</p>
+<p>1637759780.143498</p>
+<p>${a}=10</p>
+<p>${b}=20</p>
+<p>${he}=30</p>
+<p>30</p>
+<table>
+<thead>
+<tr>
+<th>${a}</th>
+<th>Set Variable</th>
+<th>20</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Run Keyword If</td>
+<td>${a}&gt;=80</td>
+<td>log</td>
+<td>成绩优秀</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>ElSE IF</td>
+<td>${a}&gt;=60</td>
+<td>log</td>
+<td>成绩及格</td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>ELSE</td>
+<td>ifs</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN</td>
+<td>等等</td>
+<td>查查</td>
+<td>信息</td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>END</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN RANGE</td>
+<td>1</td>
+<td>11</td>
+<td>2</td>
+</tr>
+<tr>
+<td>RUN Keyword If</td>
+<td>${a}==8</td>
+<td>Exit For Loop</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@{list1}</td>
+<td>Create List</td>
+<td>百里</td>
+<td>北凡</td>
+<td>星瑶</td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN</td>
+<td>@{list1}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>END</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>ifs为业务关键字文件中的if-else结构</p>
 <h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
 <p>commons: 公共封装文件夹</p>
 <p>datas: YAML数据驱动文件夹</p>
