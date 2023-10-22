@@ -638,7 +638,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.7k
+                    8.8k
                 </div>
                 
 
@@ -709,7 +709,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 <p>web项目的接口都会存在cookie关联。session对象能够自动的关联cookies</p>
 <h3 id="五、引入用例管理框架（单元测试框架）"><a href="#五、引入用例管理框架（单元测试框架）" class="headerlink" title="五、引入用例管理框架（单元测试框架）"></a>五、引入用例管理框架（单元测试框架）</h3><p>python: unittest和pytest</p>
 <p>java: junit和testng</p>
-<p>unittest:ascll的大小来绝对的执行顺序,ord(‘a’):查看a的ascii码97；A 65<br>pytest默认从上到下的执行顺序</p>
+<p>unittest:ascii的大小来绝对的执行顺序,ord(‘a’):查看a的ascii码97；A 65<br>pytest默认从上到下的执行顺序</p>
 <p>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
 <p>2.执行用例: 将测试用例安装一定的顺序和条件执行，并生成结果</p>
 <p>3.判断结果: 通过断言来判断实际结果和预期结果是否相同</p>
@@ -719,7 +719,6 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 <pre class=" language-txt"><code class="language-txt">pytest-html  #生成html报告插件
 pytest-xdist  #多线程
 pytest-ordering  #标记测试用例的执行顺序@pytest.mark.run (order=1)
-
 pytest-returnfailers  #失败用例重跑
 pytest-base-url  #管理基础路径
 allure-pytest  #生成allure报告
@@ -729,6 +728,7 @@ pyyaml
 </code></pre>
 <p>使用requirements.txt文件保存，并通过以下命令执行包装：</p>
 <p> pip install -r requirements.txt</p>
+<p>遇到：pytest-returnfailers安装失败，需要到<a target="_blank" rel="noopener" href="https://pypi.org/%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%AF%B9%E5%BA%94%E7%9A%84%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF">https://pypi.org/中搜索对应的版本下载安装即可</a></p>
 <p>基于pytest单元测试框架，默认测试用例的规则</p>
 <p>1.模块名(py文件)必须以test_ 开头或 _test结尾<br>2.测试类名必须Test开头,且不能有init方法<br>3.用例名必须以test 开头</p>
 <h3 id="七、执行的方式有三种"><a href="#七、执行的方式有三种" class="headerlink" title="七、执行的方式有三种"></a>七、执行的方式有三种</h3><p>1.通过main执行</p>
@@ -972,14 +972,14 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>css_selector   定位CSS 选择器匹配的元素</p>
 <p>1.根据属性进行定位</p>
 <p>元素定位的时候：满足定位条件的元素，可能不只一个</p>
-<pre class=" language-html"><code class="language-html">&lt;input
-id="kw"    #只有ID属性，有唯一性的约束
-name="wd"#
-class="s_ipt"#
-value=""
-max1ength="255"
-autocomplete="off"
->
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+<span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>kw<span class="token punctuation">"</span></span>    <span class="token attr-name">#只有ID属性，有唯一性的约束</span>
+<span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wd<span class="token punctuation">"</span></span>
+<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s_ipt<span class="token punctuation">"</span></span>
+<span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+<span class="token attr-name">max1ength</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>255<span class="token punctuation">"</span></span>
+<span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
 </code></pre>
 <pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span> <span class="token comment" spellcheck="true">#支持chrome、firefox . ie</span>
 driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
