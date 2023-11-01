@@ -1058,7 +1058,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p><strong>三大等待</strong></p>
 <p>1．强制等待time.sleep(2)</p>
 <p>2．隐式等待driver.implicitly_wait(10)# 大于0 的参数，表示启用隐式等待</p>
-<p>3．显式等待<strong>自定义</strong>等待的时机</p>
+<p>3．显式等待<strong>自定义</strong>等待的时机 WebDriverWait(driver,5)</p>
 <pre class=" language-python"><code class="language-python">ele <span class="token operator">=</span> webDriverWait<span class="token punctuation">(</span>driver<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>until<span class="token punctuation">(</span>
 <span class="token keyword">lambda</span> _<span class="token punctuation">:</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>
 By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">"/htm1/body/div[4]/div/u1/1i[3]/div/a/div/p"</span><span class="token punctuation">)</span>
