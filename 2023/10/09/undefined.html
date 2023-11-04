@@ -799,7 +799,8 @@ markers <span class="token operator">=</span>
     <span class="token keyword">yield</span> request<span class="token punctuation">.</span>param <span class="token comment" spellcheck="true">#生成器</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>"在用例之后执行<span class="token punctuation">:</span> 查询数据库”<span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span><span class="token keyword">def</span> driver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#启动浏览器yield driver # 这是关键</span>
 driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#关闭浏览器</span>
 </code></pre>
@@ -885,11 +886,11 @@ I
 <p>args1:参数名: 用于传值。<br>vars2:参数值 (可以为列表或元祖，字典列表，字典元祖)，数据中有多少个值那么用例就会执行多少次。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TestLogin</span><span class="token punctuation">:</span>
     @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"caseinfo"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"星星"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">def</span> test login<span class="token punctuation">(</span>self<span class="token punctuation">,</span>caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">test_login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>"登陆接口<span class="token punctuation">:</span>“<span class="token operator">+</span>caseinfo<span class="token punctuation">)</span>
     @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"name,age"</span>，<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"13"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"12"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"星星"</span><span class="token punctuation">,</span><span class="token string">"11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#第二种方式</span>
-    <span class="token keyword">def</span> test register<span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"注册接口: %s"</span><span class="token operator">%</span> name<span class="token punctuation">,</span>age
+    <span class="token keyword">def</span> <span class="token function">test_register</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"注册接口: %s"</span><span class="token operator">%</span> name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
 </code></pre>
 <p>第二种方式:跟unittest的ddt里面的@unpack解包的一样</p>
 <h3 id="十一、pytest结合allure生成美观的报告"><a href="#十一、pytest结合allure生成美观的报告" class="headerlink" title="十一、pytest结合allure生成美观的报告"></a>十一、pytest结合allure生成美观的报告</h3><p>1.下载allure，下载之后解压，解压之后配置path环境变量.需要配置jdk,jre</p>
@@ -1040,7 +1041,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>开发者工具—控制台—-alert(“123”)</p>
 <p>确认弹窗：confirm(“123”)    输入弹窗：prompt(“123”)</p>
 <p>处理一闪而过的窗口</p>
-<p>开发者工具—控制台—debugger—–暂定后选元素定位</p>
+<p>开发者工具—控制台——–暂定后选元素定位</p>
 <h4 id="4-元素交互"><a href="#4-元素交互" class="headerlink" title="4.元素交互"></a>4.元素交互</h4><p>面向对象： 属性      方法</p>
 <p>属性     内容     例子 </p>
 <p>id 唯一标记 36f-6a18 </p>
@@ -1353,6 +1354,7 @@ case_data <span class="token operator">=</span> <span class="token punctuation">
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43170741/article/details/127943305">参考网址</a></p>
 <h3 id="十五、RobotFramework的简介和特点"><a href="#十五、RobotFramework的简介和特点" class="headerlink" title="十五、RobotFramework的简介和特点"></a>十五、RobotFramework的简介和特点</h3><p>简介:RF是一个基于Python语言开放的，可扩展的，以关键字驱动模式的自动化测试框架。<br>关键字驱动:关键字驱动表示把项目中的业务逻辑封装成一个一个的关键字，然后调用不同的关键字组成不同的业务。<br>数据驱动:数据驱动是把测试数据放到excel，jaml文件里面，然后通过改变文件中的数据去驱动测试用例执行。<br>特点:<br>1.编写用例非常方便，常见的有txt，robot<br>2.自动化生成html报告<br>3.非常强大的扩展库。<br>4.根据项目的需求自定义关键字<br>5.支持非GUI的方式运行，以及和jenkins实现持续集成</p>
 <p><strong>安装注意事项</strong><br>1.安装python3.7以及环境变量<br>2安装robotframework<br>注意:最新的版本是4.1.2<br>安装的是3.1的版本pip install robotframework==3.1</p>
 <p>3.安装RIDE开发工具:<br>命令 : pip install robotframework-ride<br>会弹出一个窗口，点确定，在卓面生成一个RIDE快捷方式。<br>豆辨下载源:</p>
