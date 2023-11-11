@@ -645,7 +645,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    36 分
+                    37 分
                 </div>
                 
 
@@ -1033,15 +1033,19 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>@: 属性筛选 </p>
 <p>/: （中间）下一级 /html/body </p>
 <p>.: 本级 </p>
-<p>.. :上一级</p>
-<p><strong>2.XPath函数</strong><br>text获取元素内的文本(精确匹配)</p>
-<p>contains任意位置包含<br>(模糊匹配)<br>starts-with开头相同<br>(半模糊匹配)</p>
+<p>.. :上一级/<br>(模糊匹配)<br>starts-with开头相同<br>(半模糊匹配)</p>
 <p><strong>3.XPath 调试</strong><br>开发者工具—控制台—- $x(‘路径’)进行XPath调试<br>XPath 写出来之后，先在F12验证一下，然后放入测试代码</p>
 <p>模拟弹窗</p>
 <p>开发者工具—控制台—-alert(“123”)</p>
 <p>确认弹窗：confirm(“123”)    输入弹窗：prompt(“123”)</p>
 <p>处理一闪而过的窗口</p>
-<p>开发者工具—控制台——–暂定后选元素定位</p>
+<p>打开console，输入代码setTimeout(() =&gt; {debugger;}, 4000); 回车—-&gt;表示4秒后冻结窗口，除非手动结束，否则不会消失，这时候4秒内点击登录，弹出消息就被冻结了</p>
+<p>开发者工具—控制台——–debugger暂定后选元素定位</p>
+<p>解决id变化递增的问题<br>只能自己写xpath了</p>
+<pre class=" language-python"><code class="language-python">el <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> 
+    <span class="token string">'//*[starts-with(@id, "layui-layer")]/div[2]'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre>
 <h4 id="4-元素交互"><a href="#4-元素交互" class="headerlink" title="4.元素交互"></a>4.元素交互</h4><p>面向对象： 属性      方法</p>
 <p>属性     内容     例子 </p>
 <p>id 唯一标记 36f-6a18 </p>
@@ -1222,8 +1226,8 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>testLoader=loader.defaultTestLoader,     指定使用默认的测试用例加载器<br>exit=True        是否在测试完成之后结束python程序<br>verbosity=1        类似于命令行-V，0，1，2</p>
 <p>只运行部分用例使用testCase</p>
 <pre class=" language-python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>Testsuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
-suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test01 baili"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test02 weiwei"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test01_baili"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test02_weiwei"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">' suite'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#本质上是和下面的命令一样效果的</span>
 <span class="token comment" spellcheck="true">#unittest.TextTestRunner().run(suite)</span>
 <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
@@ -1764,7 +1768,7 @@ pip <span class="token function">install</span> i https://pypi.douban.com/simple
 <pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span>
     <span class="token key atrule">feature</span><span class="token punctuation">:</span> 用户相关
     <span class="token key atrule">story</span><span class="token punctuation">:</span> 登陆b2c商城接口
-    <span class="token key atrule">title</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>title)
+    <span class="token key atrule">title</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>title<span class="token punctuation">}</span>
     <span class="token key atrule">request</span><span class="token punctuation">:</span>
         <span class="token key atrule">method</span><span class="token punctuation">:</span> post
         <span class="token key atrule">url</span><span class="token punctuation">:</span> $(read_config(base_ur1)<span class="token punctuation">}</span><span class="token punctuation">?</span>s=user/login
