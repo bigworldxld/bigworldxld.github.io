@@ -638,7 +638,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.8k
+                    8.9k
                 </div>
                 
 
@@ -961,6 +961,14 @@ driver<span class="token punctuation">.</span>get_screenshot_as_file<span class=
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的HTML: "</span>，driver<span class="token punctuation">.</span> page_source<span class="token punctuation">)</span>
 driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#退出浏览器</span>
 </code></pre>
+<p>driver.switch_to.frame(id)<br>driver.switch_to.default_content()    #</p>
+<p>data=driver.window_handles    #[s001,s002]</p>
+<p>driver.switch_to.window(data[0])    </p>
+<p>ac = ActionChains(driver)</p>
+<p>#手动获取滑块</p>
+<p>ele = driver.find_element(By.XPATH,’//*[@id=”box”]/div[3]’)</p>
+<p>ac.click_and_hold(ele).move_by_offset(300,0).perform()</p>
+<p>ac.release()</p>
 <h4 id="3-元素定位"><a href="#3-元素定位" class="headerlink" title="3.元素定位"></a>3.元素定位</h4><p>浏览器已经被webdriver-helper启动好了，可以直接进行交互元素需要被定位到，才能对其进行交互<br>Selenium提供8个定位策略</p>
 <p>定位器   描述</p>
 <p>id     定位id属性与搜索值匹配的元素</p>
