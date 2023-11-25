@@ -628,14 +628,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    19 分
                 </div>
                 
 
@@ -896,7 +896,31 @@ pm<span class="token punctuation">.</span>globals<span class="token punctuation"
 <p>${__Random(100000,888888)}    生成6位数的随机数    </p>
 <p>${__Random_String(6,zxcvadfqwert)}    生成6位数的随机字符串</p>
 <p>${__counter(true,)}    计数器每执行一次加一，从1开始</p>
-<p>${__V}    执行一个带字符串变量名的表达式</p>
+<p>${__V}    执行一个带字符串变量名的表达式,即拼接</p>
+<table>
+<thead>
+<tr>
+<th>${__dateTimeConvert(,,,)}</th>
+<th>时间格式转换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>${__intSum(,,)}</td>
+<td>整数相加</td>
+</tr>
+<tr>
+<td>${__P(,)}</td>
+<td>获取属性</td>
+</tr>
+<tr>
+<td>${__setProperty(,,)}</td>
+<td>设置属性</td>
+</tr>
+<tr>
+<td>${__time(,)}</td>
+<td>获取当前时间戳</td>
+</tr>
+</tbody></table>
 <p>批量删除</p>
 <p>${_<em>V(ids</em>${__counter(true,)},)}    通过id进行批量删除，从1开始</p>
 <p>计数器组件+${_<em>V(ids</em>${cs})}    通过id进行指定开始到结束批量删除</p>
@@ -904,6 +928,12 @@ pm<span class="token punctuation">.</span>globals<span class="token punctuation"
 <p>文件名称：写文件路径名称</p>
 <p>参数名称：写参数名</p>
 <p>MIME类型：multipart/form-data</p>
+<p><strong>ter读取csv文件内容乱码解决</strong></p>
+<p>确保保存的csv文件为utf-8的格式<br><strong>方法一：</strong><br>修改jmeter.properties文件，（文件路径：jmeter安装位置\apache-jmeter\bin）sampleresult.default.encoding=UTF-8，把前面#去掉。</p>
+<p>然后修改csv配置，动在jmeter上CSV里file encoding框里输入GBK或GB2312（支持中文简体）或者GB18030（支持简体和繁体）</p>
+<p>再次运行，不会出现乱码现象。</p>
+<p><strong>方法二：</strong></p>
+<p>头部信息和默认值与下图配置一样，参数化那里写成gbk或者gb2312(前提是你请求参数中文乱码，如果请求参数没问题，用utf-8也行)</p>
 <h3 id="十、jmeter断言"><a href="#十、jmeter断言" class="headerlink" title="十、jmeter断言"></a>十、jmeter断言</h3><p>1.状态断言， 200，能不能证明我的接口是返回正确的？</p>
 <p> 200只能代表接口有数据返回，但是不能代表返回的数据是对的。 </p>
 <p>响应文本：一般匹配json数据</p>
@@ -947,7 +977,13 @@ log.info<span class="token punctuation">(</span>vars.getObject<span class="token
 <p> 1.数据库断言 </p>
 <p>2.接口加密（AES,DES，MD5,BASE64,RSA，SHA1—SHA256） </p>
 <p>3.签名（混合加密和签名Sign） beanshell语言+java语言</p>
-<h3 id="十一、Jmeter持续集成"><a href="#十一、Jmeter持续集成" class="headerlink" title="十一、Jmeter持续集成"></a><strong>十一、Jmeter持续集成</strong></h3><p>应用场景：接口回归测试，多个测试人员实现版本控制。</p>
+<h3 id="十一、jmeter逻辑控制器"><a href="#十一、jmeter逻辑控制器" class="headerlink" title="十一、jmeter逻辑控制器"></a>十一、jmeter逻辑控制器</h3><p>首先，我们先来看下，不勾选 “Interpret Condition as Variable Expression?”如何填写表达式。</p>
+<p>根据上一段的意思 ，我们能发现，当不勾选后我们的表达式可以输入的更加直接，如1==1，1&lt;=2，1！=2等，这里会判断是否成立，表达式不成立，则表示为false，不执行，反之，则执行里面内容。同时，表达式还可以将变量带入进去，如  ${__Random(1,10,)}&lt;5  ，当随机数随到小于5的数就执行处理器下方的请求内容</p>
+<p>其次 ，我们在来看下，勾选 “Interpret Condition as Variable Expression?”如何填写表达式。</p>
+<p>我们知道勾选的作用是：</p>
+<p>输⼊的条件表达式，不会使⽤JavaScript进⾏解析，⽽是将条件视为JMeter的变量。<br>如果需要进⾏条件判断，则需要使⽤__jexl3或者__groovy函数，来⽣成函数表达式。通过函数</p>
+<p>如   ${__jexl3(${abcd}==“3”,)}  这里表达式的意思就是 当变量  adcd==3时，则输出true，表示执行表达式下的请求，反之则不请求，不只是“==”还可以用 &lt;,&gt;,&lt;=,&gt;=。等等的一些比较符，同时，还有一种写法，这种写法就是在表达式里用__groovy，如${__groovy (“${abcd}”==“3”,)},这个函数对比__jexl3函数来说，区别就是在使用__groovy函数时变量得用英语引号给括起来，其他的都是一样的</p>
+<h3 id="十二、Jmeter持续集成"><a href="#十二、Jmeter持续集成" class="headerlink" title="十二、Jmeter持续集成"></a><strong>十二、Jmeter持续集成</strong></h3><p>应用场景：接口回归测试，多个测试人员实现版本控制。</p>
 <p>全局配置: jmeter.propties<br>jmeter.save.saveservice.output_format=csv<br>jmeter.save.saveservice.response_data=true<br>jmeter.save.saveservice.samplerData=true</p>
 <p> 1、实现Jmeter的非GUI命令行运行。</p>
 <p> -n 命令行模式执行 </p>
