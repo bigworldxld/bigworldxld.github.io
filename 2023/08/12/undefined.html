@@ -628,14 +628,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    20 分
                 </div>
                 
 
@@ -946,6 +946,17 @@ pm<span class="token punctuation">.</span>globals<span class="token punctuation"
 <p>字符串：不支持正则</p>
 <p>2.业务断言，最核心的业务关键字 </p>
 <p>3.beanshell断言 重定向的接口。 </p>
+<p>一般数据库断言必用<br>主要是通过Failure来判断断言成功还是断言失败!<br>Failure=true;断言失败<br>Failure=false;断言成功<br>主要是通过FailureMessage来返回断言的信息</p>
+<p>/先获取发帖接口的名字</p>
+<p>String title =“码尚教育s{rn}”</p>
+<p>log.info(title);</p>
+<p>//获取数据库中的数据</p>
+<p>String sub = vars.getObject(“result”) .get(0).get(“subject”);</p>
+<p>log.info(sub);<br>if(title.equals(sub)){<br>Failure = false;</p>
+<p>FailureMessage =“断言成功”;}</p>
+<p>else{</p>
+<p>Failure = true;</p>
+<p>FailureMessage =”断言失败”;}</p>
 <p>从一个页面到另一个页面有两种方式：</p>
 <p> 跳转：它会把这个页面的所有相关的数据带到下一个页面。 </p>
 <p>重定向：它不会吧这个页面的任何数据带到下一个页面。 </p>
@@ -975,7 +986,12 @@ log.info<span class="token punctuation">(</span>vars.getObject<span class="token
 </code></pre>
 <p>使用beanshell的场景：</p>
 <p> 1.数据库断言 </p>
-<p>2.接口加密（AES,DES，MD5,BASE64,RSA，SHA1—SHA256） </p>
+<p>2.接口加密（对称加密：AES,DES，BASE64 单向加密：MD5,SHA1—SHA256 非对称加密：RSA） </p>
+<p>MD5加密：digest支持MD5,sha系列（除了sha3）</p>
+<p>${_digest(MD5,admin…)}</p>
+<p>${_digest(MD5,123..)}</p>
+<p>Base64加密<br>方式一:${_base64Encode(123,)}<br>方式二<br>beanshell前置处理器:<br>import java.util.Base64;<br>//初始化一个Base64对象，调用encodeTostring()方法<br>String username = Base64.getEncoder(),encodeTostring(“admin”,getBytes(“UTF-8”));</p>
+<p>String password = Base64.getEncoder(),encodeTostring(“123”getBytes(“UTF-8”));<br>vars.put(“us”,username);<br>vars.put(“pw”,password);</p>
 <p>3.签名（混合加密和签名Sign） beanshell语言+java语言</p>
 <h3 id="十一、jmeter逻辑控制器"><a href="#十一、jmeter逻辑控制器" class="headerlink" title="十一、jmeter逻辑控制器"></a>十一、jmeter逻辑控制器</h3><p>首先，我们先来看下，不勾选 “Interpret Condition as Variable Expression?”如何填写表达式。</p>
 <p>根据上一段的意思 ，我们能发现，当不勾选后我们的表达式可以输入的更加直接，如1==1，1&lt;=2，1！=2等，这里会判断是否成立，表达式不成立，则表示为false，不执行，反之，则执行里面内容。同时，表达式还可以将变量带入进去，如  ${__Random(1,10,)}&lt;5  ，当随机数随到小于5的数就执行处理器下方的请求内容</p>
@@ -993,7 +1009,7 @@ log.info<span class="token punctuation">(</span>vars.getObject<span class="token
 <p>-o    指定HTML报告路径(必须是一个空的文件夹)</p>
 <p> jmeter -n -t test.jmx -l result.jtl -e -o results</p>
 <p><strong>Jmeter+Ant集成</strong><br>1)下载ant并解压，解压后配置环境变量，把ant下的bin目录配置到path路径</p>
-<p>D:\lapache-ant-1.10.10\bin<br>2)配首build.xml<br>修改bulid.xml里面的四个位置</p>
+<p>D:\apache-ant-1.10.10\bin<br>2)配首build.xml<br>修改bulid.xml里面的四个位置</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--需要调用的imeter目录，根据需要进行修改，本次使用的linux路径--></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter .home<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>g:\apache-jmeter-5.2.1<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>report.title<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>接门自动化测试<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
@@ -1016,7 +1032,13 @@ log.info<span class="token punctuation">(</span>vars.getObject<span class="token
     <span class="token comment" spellcheck="true">&lt;!-- 声明要运行的脚本路径"*.jmx"指包含此目录下的所有jmeter脚本--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>testplans</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>E:\ants<span class="token punctuation">"</span></span> <span class="token attr-name">includes-"*jmx"</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter,save,saveservice,output format<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>jmeter</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">></span></span>
 </code></pre>
-<p>并放到和.jmx脚本同一个日录<br>3)配jmeterpropties文件<br>jmeter.savesaveservice.output format=xml</p>
+<p>3.配置库JMeter的插件文件<br>把这个文件jmeter.results.shanhe.me.xsl拷贝到jmeter扩展文件夹extras里面</p>
+<p>把extras里面的ant-jmeter-1.1.1.ar拷贝到an的lib目录下</p>
+<p>4.直接通过ant命令执行脚本生成html报告</p>
+<p>ant</p>
+<h3 id="十三、jmeter录制"><a href="#十三、jmeter录制" class="headerlink" title="十三、jmeter录制"></a>十三、jmeter录制</h3><p>添加http代理服务器-》控制面板-&gt;Internet选项-&gt;连接局域网设置上代理输入jmeter所在电脑的ip和8888端口(用完还原)-》目标控制器，Type(httpClent4,java)默认-》filter配置（排除模式：添加建议排除：后面添加.*）包含模式：添加录制的主机ip(.<em>ip地址.</em>)</p>
+<h3 id="十四、jmeter插件安装使用"><a href="#十四、jmeter插件安装使用" class="headerlink" title="十四、jmeter插件安装使用"></a>十四、jmeter插件安装使用</h3><p>1.下载一个插件管理包jmeter-plugins-manager版本jar，放到jmeter的lib/ext目录下重启jmeter，那么就有了插件管理</p>
+<p>监控图的作用主要是:<br>1.看趋势，找性能拐点<br>2.写性能测试报告</p>
 
                 
             </div>

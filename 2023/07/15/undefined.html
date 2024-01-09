@@ -708,7 +708,7 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
 </code></pre>
 <p>web项目的接口都会存在cookie关联。session对象能够自动的关联cookies</p>
 <h3 id="五、引入用例管理框架（单元测试框架）"><a href="#五、引入用例管理框架（单元测试框架）" class="headerlink" title="五、引入用例管理框架（单元测试框架）"></a>五、引入用例管理框架（单元测试框架）</h3><p>python: unittest和pytest</p>
-<p>java: junit和testng</p>
+<p>java: junit和testing</p>
 <p>unittest:ascii的大小来绝对的执行顺序,ord(‘a’):查看a的ascii码97；A 65<br>pytest默认从上到下的执行顺序</p>
 <p>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
 <p>2.执行用例: 将测试用例安装一定的顺序和条件执行，并生成结果</p>
@@ -873,7 +873,7 @@ page<span class="token punctuation">.</span>delete_all<span class="token punctua
     <span class="token comment" spellcheck="true">#写入:追加</span>
     <span class="token keyword">def</span> <span class="token function">write_yaml</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"a+"</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span>f<span class="token punctuation">,</span> allow_ unicode<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span>f<span class="token punctuation">,</span> allow_unicode<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 I
 
     <span class="token comment" spellcheck="true">#清空</span>
@@ -1043,6 +1043,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 <p>.: 本级 </p>
 <p>.. :上一级/<br>(模糊匹配)<br>starts-with开头相同<br>(半模糊匹配)</p>
 <p><strong>3.XPath 调试</strong><br>开发者工具—控制台—- $x(‘路径’)进行XPath调试<br>XPath 写出来之后，先在F12验证一下，然后放入测试代码</p>
+<p>跳转指定网址：window.location.href=‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a></p>
 <p>模拟弹窗</p>
 <p>开发者工具—控制台—-alert(“123”)</p>
 <p>确认弹窗：confirm(“123”)    输入弹窗：prompt(“123”)</p>
@@ -1205,7 +1206,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 </code></pre>
 <p>例如：创建数据库连接,创建日志对象/关闭数据库连接，销毁日志对象</p>
 <p>setUpModule和tearDownModule     在每个模块之前和之后执行一次</p>
-<p>3.断言<br>unites : assertTrue(a)/assertFalse(a) , assertEqual(a,b)/assertNotEqual(a,b) , assertln(a,b):断言a在b中</p>
+<p>3.断言<br>unittest : assertTrue(a)/assertFalse(a) , assertEqual(a,b)/assertNotEqual(a,b) , assertln(a,b):断言a在b中</p>
 <p>pytest : assert    </p>
 <p>4.报告<br>unittest : htmltestrunner</p>
 <p>pytest : 插件 : pytest-HTML ，allure<br>5.失败重跑<br>unittest:没有</p>
@@ -1239,7 +1240,7 @@ suite<span class="token punctuation">.</span>addTest<span class="token punctuati
 unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">' suite'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#本质上是和下面的命令一样效果的</span>
 <span class="token comment" spellcheck="true">#unittest.TextTestRunner().run(suite)</span>
 <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
-suite <span class="token operator">=</span> unittestTestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
+suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
 testcases <span class="token operator">=</span> unittest<span class="token punctuation">.</span>defaultTestLoader<span class="token punctuation">.</span>discover<span class="token punctuation">(</span>start_dir<span class="token operator">=</span>osgetcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>pattern<span class="token operator">=</span><span class="token string">"*.py"</span><span class="token punctuation">)</span>
 suite<span class="token punctuation">.</span>addTests<span class="token punctuation">(</span>testcases<span class="token punctuation">)</span>
 unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">'suite'</span><span class="token punctuation">)</span>
@@ -1374,7 +1375,6 @@ case_data <span class="token operator">=</span> <span class="token punctuation">
 
 pip <span class="token function">install</span> i https://pypi.douban.com/simple robotframework-ride
 </code></pre>
-<p>查看:pip list</p>
 <p>查看:pip list</p>
 <p><strong>使用RIDE开发工具</strong><br>1.new project 注意: 选择Directory<br>2创建文件夫<br>3.创建测试套件<br>4.创建测试用例<br>5.创建资源文件(在文件夹下面创建资源文件，格式必须选择txt格式]。一个资源文件下面可以创建很多个用户目定义的关键字，资源文件可以在测试套件中导入并调用它下面的自定义关键字.</p>
 <p><strong>Robotframework常用的库</strong><br>1.标准库(rf自带的库)<br>Builtin(测试库)<br>Collections(集合库)<br>DateTime(时间库)<br>Screenshot( 截屏库)<br>标准库保存的位置:C:\python373\Liblsite-packages\robotlibraries<br>2.扩展库(通过pip命令安装的库)</p>
