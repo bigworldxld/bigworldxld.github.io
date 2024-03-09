@@ -628,14 +628,14 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.8k
+                    9.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    34 分
+                    35 分
                 </div>
                 
 
@@ -960,7 +960,7 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p><strong>bug</strong></p>
 <p>太占用手机内存<br>太耗电和流量<br>在使用应用的过程中，点击某一个事件进人的页面出现白屏的闪动等</p>
 <h3 id="adb常用命令"><a href="#adb常用命令" class="headerlink" title="adb常用命令"></a><strong>adb常用命令</strong></h3><p>包括三个部分采用了客户端-服务器(C/S)模型，<br>客户端client<br>服务端server:5037<br>守护进程 daemon</p>
-<p>adb [-d |-e |-s <serialnumber>]<command></command></serialnumber></p>
+<p>adb [-d |-e |-s <serialnumber>]<command></serialnumber></p>
 <p>-d:指定当前唯一通过 USB 连接的 Android 设备为命令目标</p>
 <p>-e:指定当前唯一运行的模拟器为命令目标</p>
 <p>-s:指定相应serialNumber号的设备(adb devices的参数)/模拟器为命令目标</p>
@@ -1016,30 +1016,35 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>Home键:adb shell input keyevent 3(置应用于后台运行</p>
 <p>音量放大:adb shell input keyevent 24</p>
 <p>音量缩小:adb shell input keyevent 25</p>
-<p>adb shell monkey -v &lt;事件数&gt;</p>
-<p>adb shell monkey -vv&lt;事件数&gt;</p>
+<h3 id="adb-monkey测试"><a href="#adb-monkey测试" class="headerlink" title="adb-monkey测试"></a>adb-monkey测试</h3><p>monkey测试是一种为了测试软件的稳定性，健壮性的快速有效的方法。简而言之，就是利用工具模拟人的操作，如触摸屏幕，滑动trackball，按键，对手机app进行大量的随机的点按操作。</p>
+<p>目的是测试app在大量用户随机操作下是否会crash（崩溃）和ANR无响应现象</p>
 <p>adb shell monkey -vvv &lt;事件数&gt;</p>
-<p>-s <seednumber>    用于指定伪随机数生成器都seed(种子)值</seednumber></p>
+<p><strong>-v ，用于指定反馈信息级别（就是日志的详细程度）</strong></p>
+<p>-v，只提供启动提示、测试完成提示和最终结果等少量信息；</p>
+<p>-v -v，较为详细的日志，包括每个发送到activity的时间信息；</p>
+<p>-v -v -v，最详细的日志，包括测试中选中/未选中的activity信息</p>
+<p>-s <seednumber>    用于指定伪随机数生成器都seed(种子)值，如果使用相同的种子值重新运行monkey，他将生成相同的事件，<strong>常用于bug复现</strong>。</seednumber></p>
+<p><strong>注意：-s需要跟在包名后，次数前</strong></p>
 <p>-p 用于约束限制，参数用于指定一个或多个包</p>
-<p>时间总数不超过100</p>
-<p>–pct-touch:触摸事件(设定点击事件百分比)</p>
-<p>–pct-motion :滑动事件(设定动作事件百分比</p>
-<p>–pct-trackball:轨迹球事件(设定轨迹球事件百分比)</p>
+<p><strong>–pct-事件类别+事件类别百分比；</strong>，<strong>百分比总数不超过</strong>100</p>
+<p>–pct-touch:触摸事件(设定<strong>点击</strong>事件百分比)</p>
+<p>–pct-motion :<strong>滑动</strong>事件(设定动作事件百分比</p>
+<p>–pct-trackball:<strong>轨迹球</strong>事件(设定轨迹球事件百分比)</p>
 <p>–pct-nav :导航事件( 设定基本导航事件百分比，比如输入设备上、下、左、右键</p>
 <p>–pct-majornav:主要导航事件(设定主要导航事件百分比，比如中间键、返回键、菜单键 )</p>
 <p>–pct-syskeys:系统按键事件( 设定系统导航事件百分比，比如H0ME键、BACK建、拨号键及音量键</p>
-<p>–pct-appswitch:activity之间的切换(设定启动Activity事件百分比)</p>
-<p>–pct-pinchzoom:缩放事件</p>
-<p>–pct-rotation:屏幕旋转事件</p>
-<p>–pct-flip:键盘事件<br>–pct-anyevent :任意事件(设定不常用事件百分比)</p>
-<p>–throttle &lt;数字&gt;     每个事件结束后的间隔时间</p>
+<p>–pct-appswitch:<strong>activity之间的切换</strong>(设定启动Activity事件百分比)</p>
+<p>–pct-pinchzoom:<strong>缩放</strong>事件</p>
+<p>–pct-rotation:<strong>屏幕旋转</strong>事件</p>
+<p>–pct-flip:<strong>键盘</strong>事件<br>–pct-anyevent :任意事件(设定不常用事件百分比)</p>
+<p>–throttle &lt;数字&gt;     每个事件结束后的<strong>间隔时间</strong></p>
 <p>–ignore-crashes:忽略崩溃</p>
 <p>–ignore-timeouts:忽略超时</p>
+<p>**<em>*</em>*–monitor-native-crashes，监视本地崩溃代码；******监视并报告Android系统中本地代码的奔溃事件</p>
 <p>–ignore-security-exceptions:忽略安全异常</p>
 <p>–kill-process-after-error:发生错误后直接杀掉进程</p>
 <p>–dbg-no-events:初始化启动的activity，但是不产生任何事件</p>
 <p>–hprof:指定该项后在事件序列发送前后会立即生成分析报告</p>
-<p>–monitor-native-crashes:跟踪本地方法的崩溃问题</p>
 <p>–wait-dbg:直到连接了调试器才执行monkey测试</p>
 <p>–bugreport:当ANR，系统无响应，Crash的时候获得bugreport</p>
 <p>adb shell monkey 1000 &gt;文件路径/文件名</p>
@@ -1085,6 +1090,11 @@ sys<span class="token punctuation">.</span>setdefaultencoding<span class="token 
 </code></pre>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34594929/article/details/128873722">https://blog.csdn.net/qq_34594929/article/details/128873722</a></p>
 <p>重启一遍Drozer，在打开Drozer，通过设置基本解决了问题</p>
+<h3 id="更新测试"><a href="#更新测试" class="headerlink" title="更新测试"></a><strong>更新测试</strong></h3><p>升级测试-APP升级。web不涉及升级</p>
+<p>1)下载升级 : Android ios 区分，网络类型2G/3G/4G,wif,不同机型;/</p>
+<p>2.新旧版本兼容:微信–旧版本 新版本 -后台接口 </p>
+<p>3.升级后版本使用情况:a.新功能;老功能–回归;老数据升级后是不是正常–存在 查看显示 </p>
+<p>4.文档–静态检查</p>
 
                 
             </div>
