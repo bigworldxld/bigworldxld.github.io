@@ -5,10 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="UI自动化测试之Airtest, 读序">
-    <meta name="description" content="UI自动化测试之AirtestAirtest简介Airtest由网易团队出品，是一个基于图像识别原理的跨平台UI自动化测试框架，适用于游戏和应用程序。
-特点：
-（1）跨平台：Airtest几乎可以在所有平台上执行游戏和APP自动化
-（2）易">
+    <meta name="description" content="UI自动化测试之AirtestAirtest简介Airtest由网易团队出品，是一个基于图像识别原理的跨平台UI自动化测试框架，适用于游戏和应用程序。官方文档：https://airtest.readthedocs.io/zh-cn/lat">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -624,14 +621,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -654,14 +651,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="UI自动化测试之Airtest"><a href="#UI自动化测试之Airtest" class="headerlink" title="UI自动化测试之Airtest"></a>UI自动化测试之Airtest</h2><h3 id="Airtest简介"><a href="#Airtest简介" class="headerlink" title="Airtest简介"></a>Airtest简介</h3><p>Airtest由网易团队出品，是一个基于图像识别原理的跨平台UI自动化测试框架，适用于游戏和应用程序。</p>
+                <h2 id="UI自动化测试之Airtest"><a href="#UI自动化测试之Airtest" class="headerlink" title="UI自动化测试之Airtest"></a>UI自动化测试之Airtest</h2><h3 id="Airtest简介"><a href="#Airtest简介" class="headerlink" title="Airtest简介"></a>Airtest简介</h3><p>Airtest由网易团队出品，是一个基于图像识别原理的跨平台UI自动化测试框架，适用于游戏和应用程序。官方文档：<a target="_blank" rel="noopener" href="https://airtest.readthedocs.io/zh-cn/latest/index.html">https://airtest.readthedocs.io/zh-cn/latest/index.html</a></p>
 <p>特点：</p>
 <p>（1）跨平台：Airtest几乎可以在所有平台上执行游戏和APP自动化</p>
 <p>（2）易操作：使用图像识别技术来定位UI元素，无需嵌入任何代码即可对游戏和应用进行自动化测试。</p>
 <p>（3）可扩展性：通过使用Airtest提供的命令行和Python API接口，可以轻松地在大规模设备集群上运行脚本</p>
 <p>（4）GUI工具：AirtestIDE是一个强大的GUI工具，可以帮助你录制和调试脚本</p>
 <p>Airtest优点：</p>
-<p>1）框架基于图像识别，UI和控件识别，操作简单，功能简洁。</p>
+<p>1）框架基于图像识别（SURFMatching，TemplateMatching，BRISKMatching），UI和控件识别，操作简单，功能简洁。</p>
 <p>2）对代码能力要求不高，容易上手。结合工具本身的脚本录制功能，开发脚本速度快，适合版本快速迭代的要求。</p>
 <p>3）可引入Python第三方库，支持Python进行个性化脚本编程。</p>
 <p>4）可一键生成测试报告，报告美观，清晰明了。</p>
@@ -689,6 +686,7 @@
 <p>a.启动安卓模拟器</p>
 <p>b.在Airtest窗口点击【刷新ADB】或【远程设备连接】</p>
 <p>.使用备用连接参数，设置兼容模式</p>
+<p>真机或手动给模拟器装上Airtets专用输入法Yosemite.apk，因为很多款模拟器都不能自动装上这个应用，所以我们提前手动装下更加稳妥</p>
 <p>AirtestIDE提供了3个备用的连接参数：</p>
 <p>① 第一个 Use javacap ，是给部分无法正常看到手机画面、minicap初始化失败 的手机或设备用的，所以模拟器看到黑屏、部分特殊的平板等设备可以考虑勾选这个选项。</p>
 <p>② 第二个 Use ADB orientation 是 屏幕旋转 的，如果在安卓手机屏幕旋转方向检测有问题、或者是部分特殊的平板无法显示正确的屏幕方向时可以勾选。</p>
@@ -701,6 +699,7 @@
 <p>v : 点击对象的图像或坐标</p>
 <p>times: 点击次数，默认是1</p>
 <p>duration: 点击时间，默认是0.01秒</p>
+<p>right_click:右键点击（仅限Windows模式）</p>
 <p>运行脚本</p>
 <p>点击三角形的【运行】按钮，或者使用快捷键F5</p>
 <p>停止运行：Shift + F5</p>

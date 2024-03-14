@@ -5,14 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="测试日常笔记, 读序">
-    <meta name="description" content="app安全测试一般来说，安全测试可以分为以下几个层次
-
-针对操作系统层面
-针对网络通信层面
-应用本身。
-
-Genymotion模拟器简介
-Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻瓜式安装，易于使用，支">
+    <meta name="description" content="Genymotion模拟器简介
+Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻瓜式安装，易于使用，支持绝大部分的模拟器功能与感应器，甚至支持语音、NFC蓝牙等等。下载安装1.下载地址: https://ww">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -628,14 +622,14 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.2k
+                    9.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    35 分
+                    36 分
                 </div>
                 
 
@@ -658,13 +652,7 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="app安全测试"><a href="#app安全测试" class="headerlink" title="app安全测试"></a>app安全测试</h3><p>一般来说，安全测试可以分为以下几个层次</p>
-<blockquote>
-<p>针对操作系统层面</p>
-<p>针对网络通信层面</p>
-<p>应用本身。</p>
-</blockquote>
-<h3 id="Genymotion模拟器"><a href="#Genymotion模拟器" class="headerlink" title="Genymotion模拟器"></a>Genymotion模拟器</h3><p><strong>简介</strong></p>
+                <h3 id="Genymotion模拟器"><a href="#Genymotion模拟器" class="headerlink" title="Genymotion模拟器"></a>Genymotion模拟器</h3><p><strong>简介</strong></p>
 <p>Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻瓜式安装，易于使用，支持绝大部分的模拟器功能与感应器，甚至支持语音、NFC蓝牙等等。<br>下载安装<br>1.下载地址: <a target="_blank" rel="noopener" href="https://www.genymotion.com/download/">https://www.genymotion.com/download/</a> (下载with VirtualBox版本)<br>2.因为genymotion需要账号登陆，因此我们需要去官网创建账号，因此才可以登陆软件，去如下链接创建账号:<a target="_blank" rel="noopener" href="https://wwwgenymotion.com/account/create/">https://wwwgenymotion.com/account/create/</a><br>3.创建好账号之后，回到刚刚装好的genymotion软件,输入帐号密码,点击next,选择Personal Use,继续next即可使用个人版</p>
 <p><strong>创建模拟器</strong></p>
 <p>1根据左侧设备分类选择设备类型，然后点击右上角- 号即可创建设备<br>2.创建设备之后下载完成即可启动。<br>3.使用adb devices可以检测设备是否连接，设备列表格式一般为: 模拟器ip+端口<br>入 </p>
@@ -960,6 +948,8 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p><strong>bug</strong></p>
 <p>太占用手机内存<br>太耗电和流量<br>在使用应用的过程中，点击某一个事件进人的页面出现白屏的闪动等</p>
 <h3 id="adb常用命令"><a href="#adb常用命令" class="headerlink" title="adb常用命令"></a><strong>adb常用命令</strong></h3><p>包括三个部分采用了客户端-服务器(C/S)模型，<br>客户端client<br>服务端server:5037<br>守护进程 daemon</p>
+<p>adb devices -l</p>
+<p>返回设备序列号和model(设备名称)</p>
 <p>adb [-d |-e |-s <serialnumber>]<command></serialnumber></p>
 <p>-d:指定当前唯一通过 USB 连接的 Android 设备为命令目标</p>
 <p>-e:指定当前唯一运行的模拟器为命令目标</p>
@@ -976,14 +966,19 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>adb shell cmd package install -k &lt;包名&gt;</p>
 <p>截图:adb shell screencap &lt;设备路径&gt;</p>
 <p>录屏:adb shell screenrecord &lt;设备路径&gt;</p>
-<p>Activity管理器(am)工具发出命令以执行各种系统操作</p>
+<p>adb shell dmesg 会打印出内核的调试信息</p>
+<p>发布端口 可以设置任意的端口号，做为主机向模拟器或设备的请求端口。 如：adb forward tcp:5555 tcp:8000</p>
+<p>打开飞行模式： adb shell settings put global airplane_mode_on 1 </p>
+<p>关闭飞行模式： adb shell settings put global airplane_mode_on 0 </p>
+<p><strong>Activity管理器(am)工具</strong>发出命令以执行各种系统操作</p>
 <p>启动应用:adb shell am start -n&lt;包名&gt;/&lt;Activity名&gt;</p>
-<p>强制停止应用:adb shellam force-stop&lt;包名&gt;</p>
-<p>软件包管理器(pm)工具发出命令，对设备上安装的应用软件包执行操作和查询</p>
+<p>强制停止应用:adb shellam force-stop &lt;包名&gt;</p>
+<p><strong>软件包管理器(pm)工具</strong>发出命令，对设备上安装的应用软件包执行操作和查询</p>
 <p>显示所有应用:adb shellrpm list packages</p>
 <p>只显示系统应用:adbshellpmlist packages -s</p>
 <p>只显示第三方应用:adb shell pm list packages -3</p>
 <p>列出所有测试软件包:adb shell pm list instrumentation</p>
+<p>获取模拟器所有包名并且包括APK路径   adb shell pm list packages -f</p>
 <p>删除与软件包关联的所有数据:adb shell pm clear &lt;包名&gt;</p>
 <p>调用dumpsys，获取在连接的设备上运行的所有系统服务的诊断输出</p>
 <p>获取前台包名:adb shell dumpsys activity | grep mFocusedActiviby</p>
@@ -1012,6 +1007,9 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>adb logcat -v time “*:W”        打印 warning 及以上级别的日志<br>adb logcat ActivityManager:D    ‘*:S’<br>过滤tag 为ActivityManager,level为Debug及以上级别的日志</p>
 <p>dump 出当前窗口的UI布局信息<br>前窗口的UI布局简化信息:adb shell uiautomator dump –compressed</p>
 <p>指定输出文件:adbshell uiautomator dump file &lt;设备路径&gt;</p>
+<p>模拟输入   adb shell input text 字符串(不支持中文)</p>
+<p>模拟鼠标点击   adb shell input tap X Y  </p>
+<p>模拟鼠标滑动   adb shell input swipe X1 Y1 X2 Y2</p>
 <p>返回键:adb shell input keyevent 4</p>
 <p>Home键:adb shell input keyevent 3(置应用于后台运行</p>
 <p>音量放大:adb shell input keyevent 24</p>
@@ -1051,6 +1049,8 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>adb shell logcat -v time ‘*:E’  &gt; monkey.log</p>
 <p>指定一个包adb shell monkey -p 包名 [数件数]</p>
 <p>指定多个包adb shell monkey -p 包名 -p 包名 [事件数]</p>
+<h3 id="Dos命令"><a href="#Dos命令" class="headerlink" title="Dos命令"></a>Dos命令</h3><p>tasklist       查看进程<br>netstat -a     查看端口情况<br>netstat -aon|findstr 5037    查看占用端口的进程PID  5037为adb默认端口<br>tasklist /fi “PID eq 15448”   通过PID查看所有进程<br>taskkill /pid 15448 /f       杀死占用端口的进程</p>
+<p>或者taskkill /f /fi “PID eq 8448”</p>
 <h3 id="Drozer安装使用"><a href="#Drozer安装使用" class="headerlink" title="Drozer安装使用"></a>Drozer安装使用</h3><p>运行：</p>
 <p>adb forward tcp:31415 tcp:31415</p>
 <p>drozer.bat console connect</p>
