@@ -622,7 +622,7 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.3k
+                    9.5k
                 </div>
                 
 
@@ -947,7 +947,9 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>显示所有“应用程序无响应ANR”</p>
 <p><strong>bug</strong></p>
 <p>太占用手机内存<br>太耗电和流量<br>在使用应用的过程中，点击某一个事件进人的页面出现白屏的闪动等</p>
-<h3 id="adb常用命令"><a href="#adb常用命令" class="headerlink" title="adb常用命令"></a><strong>adb常用命令</strong></h3><p>包括三个部分采用了客户端-服务器(C/S)模型，<br>客户端client<br>服务端server:5037<br>守护进程 daemon</p>
+<h3 id="adb常用命令"><a href="#adb常用命令" class="headerlink" title="adb常用命令"></a><strong>adb常用命令</strong></h3><p>包括三个部分采用了客户端-服务器(C/S)模型，<br>客户端client</p>
+<p>adb -P <port> start-server</port></p>
+<p>服务端server（默认）:5037<br>守护进程 daemon</p>
 <p>adb devices -l</p>
 <p>返回设备序列号和model(设备名称)</p>
 <p>adb [-d |-e |-s <serialnumber>]<command></serialnumber></p>
@@ -967,7 +969,18 @@ Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻
 <p>截图:adb shell screencap &lt;设备路径&gt;</p>
 <p>录屏:adb shell screenrecord &lt;设备路径&gt;</p>
 <p>adb shell dmesg 会打印出内核的调试信息</p>
+<p><em># 点亮屏幕</em><br>adb <strong>shell</strong> input keyevent 224</p>
+<p><em># 熄灭屏幕</em><br>adb <strong>shell</strong> input keyevent 223</p>
+<p>查看屏幕分辨率</p>
+<p>adb -s &lt;设备序列号&gt;  shell  wm size</p>
+<p>查看设备型号</p>
+<p>adb -s &lt;设备序列号&gt; shell getprop ro.product.model</p>
+<p>查看Android系统版本</p>
+<p><strong>adb</strong> <strong>-s</strong> &lt;设备序列号&gt; <strong>shell</strong> <strong>getprop</strong> <strong>ro</strong>.build.version.release</p>
 <p>发布端口 可以设置任意的端口号，做为主机向模拟器或设备的请求端口。 如：adb forward tcp:5555 tcp:8000</p>
+<p>adb 的运行原理是 PC 端的 adb server 与手机端的守护进程 adbd 建立连接，然后 PC 端的 adb client 通过 adb server 转发命令，adbd 接收命令后解析运行。</p>
+<p>用 <code>adb root  </code>或者 adb shell<code>然后</code>su` 后执行命令</p>
+<p> <code>adb unroot</code> 命令</p>
 <p>打开飞行模式： adb shell settings put global airplane_mode_on 1 </p>
 <p>关闭飞行模式： adb shell settings put global airplane_mode_on 0 </p>
 <p><strong>Activity管理器(am)工具</strong>发出命令以执行各种系统操作</p>
@@ -1334,17 +1347,16 @@ sys<span class="token punctuation">.</span>setdefaultencoding<span class="token 
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/03/01/undefined.html">
+                <a href="/2024/03/03/undefined.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg" class="responsive-img" alt="测试日常笔记">
+                        <img src="/images/%E5%90%84%E7%B1%BBapp%E5%B8%B8%E8%A7%81%E6%B5%8B%E8%AF%95%E7%82%B9.jpg" class="responsive-img" alt="各类app常见测试点">
                         
-                        <span class="card-title">测试日常笔记</span>
+                        <span class="card-title">各类app常见测试点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1354,9 +1366,9 @@ sys<span class="token punctuation">.</span>setdefaultencoding<span class="token 
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1365,12 +1377,15 @@ sys<span class="token punctuation">.</span>setdefaultencoding<span class="token 
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
                     </a>
                     
                 </div>
