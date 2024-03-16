@@ -604,6 +604,10 @@
                                 <span class="chip bg-color">poco</span>
                             </a>
                         
+                            <a href="/tags/tidevice/">
+                                <span class="chip bg-color">tidevice</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -625,14 +629,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    11 分
                 </div>
                 
 
@@ -761,10 +765,52 @@ android <span class="token operator">=</span> Android<span class="token punctuat
 <span class="token keyword">for</span> s <span class="token keyword">in</span> select<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
   s<span class="token punctuation">.</span>offspring<span class="token punctuation">(</span><span class="token string">"com.netease.cloudmusic:id/checkedImage"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h3 id="tidevice-不依赖-xcode-启动-WebDriverAgent"><a href="#tidevice-不依赖-xcode-启动-WebDriverAgent" class="headerlink" title="tidevice-不依赖 xcode 启动 WebDriverAgent"></a>tidevice-不依赖 xcode 启动 WebDriverAgent</h3><p> <strong>不依赖 xcode 启动 WebDriverAgent</strong> 完成设备连接</p>
+<p><strong>1）安装tidevice库</strong></p>
+<p>在本地python环境中，使用 <code>pip install tidevice</code> 命令安装 tidevice 库。</p>
+<p>另外需要注意的是，目前 tidevice 库仅支持安装在 <strong>python3.7及以上版本</strong> 中。</p>
+<p><strong>2）常用的tidevice命令</strong></p>
+<p>查看已连接设备：</p>
+<pre class=" language-shell"><code class="language-shell">tidevice list
+</code></pre>
+<p>查看设备上的第三方应用包名：</p>
+<pre class=" language-shell"><code class="language-shell">tidevice applist
+</code></pre>
+<p>指定设备安装：</p>
+<pre><code># $UDID可以使用tidevice list命令查看
+tidevice -u $UDID  install D:/test.ipa
+# 或者
+tidevice -u $UDID install https://example.org/example.ipa
+</code></pre>
+<p>更多详细的功能可以查看 tidevice 的github文档：<a target="_blank" rel="noopener" href="https://github.com/alibaba/taobao-iphone-device">https://github.com/alibaba/taobao-iphone-device</a> </p>
+<p><strong>3）确保手机上已经安装上WebDriverAgent</strong></p>
+<p>对于未跑过自动化的iOS设备，我们需要先检查设备上是否安装好了WebDriverAgent这个APP，如未安装，则可以通过以下2种方式安装：</p>
+<p>① 将iOS设备与一台Mac连接，然后使 <strong>用xcode编译源码安装</strong> ，成功安装WebDriverAgent即可脱离Mac；</p>
+<p>② 使用tidevice的安装命令，将 <strong>开发者证书重签名</strong> 的 WebDriverAgent.ipa 安装到iOS设备上</p>
+<p><strong>在IDE连接tidevice启动的iOS</strong></p>
+<p>1）用数据线将iOS设备与Windows电脑连接<br>2）查看设备里WebDriverAgent的BundleID<br>tidevice applist</p>
+<p><strong>3）指定BundleID启动</strong> </p>
+<pre class=" language-shell"><code class="language-shell">tidevice xctest -B com.gameappium.WebDriverAgentRunner.xctrunner
+</code></pre>
+<p>WebDriverAgent 启动成功后，后台挂着该命令行窗口即可。<br>4）在IDE的设备连接窗口连接iOS设备<br>最后打开 最新版 的IDE（1.2.8版本），在连接iOS设备框中输入：</p>
+<p>DeviceIdentifier可以在启动的信息中查看</p>
+<p>http+usbmux://DeviceIdentifier<br>最后点击连接即可</p>
+<p><strong>5）补充另一种启动方式</strong></p>
+<pre><code>tidevice wdaproxy -B com.gameappium.WebDriverAgentRunner.xctrunner --port 8200
+</code></pre>
+<p>与步骤3）中的xctest启动方式不同的是，使用wdaproxy启动之后，我们可以在浏览器中使用<a target="_blank" rel="noopener" href="http://localhost:8200/status%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%88%B0%E8%BF%99%E4%B8%AAiOS">http://localhost:8200/status来访问到这个iOS</a></p>
+<h3 id="用脚本连接windows窗口"><a href="#用脚本连接windows窗口" class="headerlink" title="用脚本连接windows窗口"></a>用脚本连接windows窗口</h3><p><strong>窗口句柄</strong>是每个Windows窗口对象拥有的独一无二的32位无符号整数，而且每次打开窗口，旬柄的数值都会变化。<br>使用句柄连接窗口的脚本我们可以这么写auto_setup( file_,devices=[“Windows:///133194”])</p>
+<p>大多数情况下，<strong>搜索窗口</strong>的title比较不容易变化，所以我们可以写一个正则表达式去匹配到待测窗口的title。</p>
+<p>例如匹配“吹梦到西洲”后面跟着换行符以外的任意字符的窗口titleauto_setup( file_,devices=[“Windows:///?title_re=吹梦到西洲.*”])</p>
+<p>如果不需要指定某个窗口应用的话，我们还可以使用如下代码直接连接整个桌面来做自动化:<br>auto setup( file_,devices=[“Windows:///“])</p>
 <h3 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h3><p>连接上1台安卓设置，然后点击右上角的工具按钮，再点击 <code>显示Android助手</code> 选项，可以看到，弹出窗口的左下角，显示了设备当前所有应用的包名（该助手 <strong>仅适用于安卓设备</strong>）</p>
 <p>除了使用使用poco辅助窗的录制功能，还可以通过 <strong>双击控件树上的某个节点</strong> ，来快速生成该节点的定位脚本，在加其他操作</p>
 <p><strong>获取设备连接的字符串</strong></p>
 <p>用IDE连接待测设备，随便开个脚本点击运行，1、2秒后终止运行，拉到log查看窗的最上方，看到完整的运行命令。含有设备连接字符串，直接复制</p>
+<p><strong>在命令行连接设备</strong><br>①连接安卓真机<br>airtest run D:/test/moniqi_test.air     –device Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG<br>②)连接安卓模拟器<br>airtest run D:/test/monigi test.air    –device Android://127.0.0.1:5037/emulator-5554?cap_method=JAVACAP&amp;&amp;ori_method=ADBORI<br>③注意事项<br>在IDE需要勾选备选参数才能够连接上的设备，命令行的设备参数中也要加上这些备选参数;&amp;&amp;符号在Windows和MacOS下都需要转义，否则命令会出现被截断的情况</p>
+<p><strong>在脚本中行连接设备</strong><br>①使用auto_setup接口:<br>auto_setup( file_,devices=[“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”,”Android://127.0.0.1:5037/emulator-5554”])<br>②)使用connect device接口:<br>dev =connect_device(“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”)</p>
+<p>dev = connect device(“Android://127.0.0.1:5037/emulator-5554”)<br>③)使用init_device接口:</p>
+<p>init_device(platform=”Ándroid”, uuid=”5PZTQWQOGES8RWUG”)</p>
 <p><a target="_blank" rel="noopener" href="https://airtest.doc.io.netease.com/summary/summary/">学习教程</a></p>
 
                 
@@ -836,6 +882,10 @@ android <span class="token operator">=</span> Android<span class="token punctuat
                             
                                 <a href="/tags/poco/">
                                     <span class="chip bg-color">poco</span>
+                                </a>
+                            
+                                <a href="/tags/tidevice/">
+                                    <span class="chip bg-color">tidevice</span>
                                 </a>
                             
                         </div>
@@ -1050,6 +1100,10 @@ android <span class="token operator">=</span> Android<span class="token punctuat
                     
                     <a href="/tags/poco/">
                         <span class="chip bg-color">poco</span>
+                    </a>
+                    
+                    <a href="/tags/tidevice/">
+                        <span class="chip bg-color">tidevice</span>
                     </a>
                     
                 </div>
