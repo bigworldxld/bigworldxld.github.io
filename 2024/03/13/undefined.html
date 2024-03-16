@@ -629,14 +629,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    14 分
                 </div>
                 
 
@@ -803,6 +803,34 @@ tidevice -u $UDID install https://example.org/example.ipa
 <p>大多数情况下，<strong>搜索窗口</strong>的title比较不容易变化，所以我们可以写一个正则表达式去匹配到待测窗口的title。</p>
 <p>例如匹配“吹梦到西洲”后面跟着换行符以外的任意字符的窗口titleauto_setup( file_,devices=[“Windows:///?title_re=吹梦到西洲.*”])</p>
 <p>如果不需要指定某个窗口应用的话，我们还可以使用如下代码直接连接整个桌面来做自动化:<br>auto setup( file_,devices=[“Windows:///“])</p>
+<h3 id="poco定位器和操作"><a href="#poco定位器和操作" class="headerlink" title="poco定位器和操作"></a>poco定位器和操作</h3><p>①基本选择器<br>利用元素的一些基本属性来进行定位，比如name、text等等poco(name=”网易云音乐”)<br>②相对选择器<br>利用控件之间的父子关系、爷孙关系和兄弟关系等来定位控件，例如parent()、child（）、offspring（）等poco(“LinearLayoutCompat”).child(“搜索”)<br>③空间顺序选择器<br>常用于UI树中多个相同名称的节点定位，根据节点在U1树的索引顺序进行定位，索引坐标从0开始<br>poco(“mainActivityTab”).offspring(“aActionBar$Tab”)[0]</p>
+<p>①点击操作:<br>poco(“star_single”).click()</p>
+<p>poco(‘star_single’).long_click()<br>②)读取和设置控件的属性<br>poco(“star_single”).get_name()<br>poco(“star_single”).attr(‘name’ )</p>
+<p>poco(“star_single”).get_text()</p>
+<p>poco(“pos_input”).set_text(“123”)</p>
+<p>poco(“pos_input”).setattr(‘text’,”456”)<br>③判断元素是否存在<br>poco(XXX).exists()<br>④)拖动与滑动<br>poco(“star”).drag_to(poco(“shell”))</p>
+<p>⑤内部偏移和外部偏移:<br>poco(“pearl”).focus([0.1,0.1]).long_click()</p>
+<p>poco(“pearl”).focus([0.9,0.9]).long_click()</p>
+<p>poco(“pearl”).focus([0.5,-3]).long_click ()<br>⑥遍历元素:<br>for star in poco(“playDragAndDrop”).child(“star”):star.drag_to(poco(“shell”))<br>⑦等待事件:<br>poco(“bomb”).wait_for_appearance()poco(“bomb”).wait_for _disappearance ()<br>yellow = poco (“yel low”)blue = poco (“blue”)<br>black = poco (“black”)<br>poco.wait for all([yellow,blue,black])poco.wait for any([bomb, yeilow, blue])</p>
+<p>输入backspace键</p>
+<p>driver.find element by id(“kw”).send keys(Keys.BACK_SPACE)</p>
+<h3 id="unity游戏接入poco-sdk"><a href="#unity游戏接入poco-sdk" class="headerlink" title="unity游戏接入poco-sdk"></a>unity游戏接入poco-sdk</h3><p><strong>Poco的支持情况</strong><br>Android和iOS原生直接支持，无需嵌入任何</p>
+<p>代码引擎渲染的项目都需要事先接入Poco-SDK才能查看UI树</p>
+<p>目前poco支持umity、Coc0s2dx-lua、Cocos2dx-js、Cocos-creator、UE4、Egret……</p>
+<p><strong>在unitv项目中接入Poco-SDK</strong></p>
+<p>下载Poco-SDK包</p>
+<p>把Unity3D文件夹放到项目脚本中</p>
+<p>根据UI类型选择，只留下1中gui文件夹</p>
+<p>在unity载入脚本</p>
+<p>成功后可使用IDE单独连接Game窗口查看控件树信息</p>
+<p><strong>成功接入后打成Android包</strong></p>
+<p>文件-build settings-选择安卓-切换平台</p>
+<p>进入玩家设置-修改包名-生成Android包</p>
+<p>在待测设备安装上包，并启动项目，IDE选择对应模式查看控件树</p>
+<p><strong>接入Poco-SDK的常见问题</strong></p>
+<p>如何判断项目是否需要接入sdk:引擎渲染项目都需要(游戏应用)</p>
+<p>接入Poco-SDK的前提条件:有项目源码</p>
+<p>为什么要在根节点或者主camera载入脚本:因为这些节点不会被销毁</p>
 <h3 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h3><p>连接上1台安卓设置，然后点击右上角的工具按钮，再点击 <code>显示Android助手</code> 选项，可以看到，弹出窗口的左下角，显示了设备当前所有应用的包名（该助手 <strong>仅适用于安卓设备</strong>）</p>
 <p>除了使用使用poco辅助窗的录制功能，还可以通过 <strong>双击控件树上的某个节点</strong> ，来快速生成该节点的定位脚本，在加其他操作</p>
 <p><strong>获取设备连接的字符串</strong></p>
@@ -811,6 +839,13 @@ tidevice -u $UDID install https://example.org/example.ipa
 <p><strong>在脚本中行连接设备</strong><br>①使用auto_setup接口:<br>auto_setup( file_,devices=[“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”,”Android://127.0.0.1:5037/emulator-5554”])<br>②)使用connect device接口:<br>dev =connect_device(“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”)</p>
 <p>dev = connect device(“Android://127.0.0.1:5037/emulator-5554”)<br>③)使用init_device接口:</p>
 <p>init_device(platform=”Ándroid”, uuid=”5PZTQWQOGES8RWUG”)</p>
+<p><strong>开启录屏</strong></p>
+<p>adb=ADB(serialno=”PFT4PBLF75GQHYBM”)</p>
+<p>recorder = Recorder(adb)</p>
+<p>recorder.start_recording()<br><strong>结束录屏</strong></p>
+<p>recorder.stop_recording(output=r”D:\airtest\music.mp4”)</p>
+<p><strong>生成报告</strong></p>
+<p>simple_report(<strong>file</strong>,logpath=r“D:\airtest\mylog”,output=“D:\airtest\log.html”)</p>
 <p><a target="_blank" rel="noopener" href="https://airtest.doc.io.netease.com/summary/summary/">学习教程</a></p>
 
                 
