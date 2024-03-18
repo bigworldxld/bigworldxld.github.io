@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.9k
+                    9.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    37 分
+                    40 分
                 </div>
                 
 
@@ -736,7 +736,9 @@ pyyaml
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#入口</span>
     pytest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'-vs'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
-<p>(1)运行所有: pytest. main()<br>(2)指定模块: pytest. main([‘-vs’,’test_ login.py’])<br>(3)指定目录: pytest. main([‘-vs’,’./interface_ testcase’])<br>(4)通过nodeid指定用例运行: nodeid由模块名，分隔符，类名，方法名，函数名组成。<br>pytest. main([‘-vs’,’./interface_ _testcase/test <em>interface py::test</em> <em>04</em> _func’])</p>
+<p>(1)运行所有: pytest. main()<br>(2)指定模块: pytest. main([‘-vs’,’test_ login.py’])<br>(3)指定目录: pytest. main([‘-vs’,’./interface_ testcase’])</p>
+<p>pytest. main([‘-vs’,’./interface_ testcase’,‘–html=report/report.html’,’–self-contained-html’])</p>
+<p>(4)通过nodeid指定用例运行: nodeid由模块名，分隔符，类名，方法名，函数名组成。<br>pytest. main([‘-vs’,’./interface_ _testcase/test <em>interface py::test</em> <em>04</em> _func’])</p>
 <p>pytest.main( [‘-vs‘,’/testcase’,’-n=2’])</p>
 <p>2.通过命令行执行<br>pytest -vs</p>
 <p>pytest -vs test_ login.py</p>
@@ -1761,6 +1763,62 @@ pip <span class="token function">install</span> i https://pypi.douban.com/simple
 </tr>
 </tbody></table>
 <p>ifs为业务关键字文件中的if-else结构</p>
+<h3 id="python接口数据关联"><a href="#python接口数据关联" class="headerlink" title="python接口数据关联"></a>python接口数据关联</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Context</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#这是一个承接上下文的数据</span>
+</code></pre>
+<p>前一个接口</p>
+<p>使用setattr对其它接口需要的数据进行传递，加载到内存中去，比如说后一个接口需要 token</p>
+<pre class=" language-python"><code class="language-python">setattr<span class="token punctuation">(</span>Context<span class="token punctuation">,</span><span class="token string">"token"</span><span class="token punctuation">,</span>req<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"token"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>后一个接口，使用getattr</p>
+<pre class=" language-python"><code class="language-python">getattr<span class="token punctuation">(</span>Context<span class="token punctuation">,</span><span class="token string">"tocken"</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="jemeter跨线程组实现接口关联"><a href="#jemeter跨线程组实现接口关联" class="headerlink" title="jemeter跨线程组实现接口关联"></a>jemeter跨线程组实现接口关联</h3><p>前提：第一个接口和第二个接口存在接口关联(通过token鉴权)，同时还存在cookie鉴权。</p>
+<p>接口压测：接口压力测试的任务，要求对其中一个接口进行500虚拟用户并发。但是这个接口必须要先 登陆之后获取到token才可以请求成功！</p>
+<p> 1.首先设置jmeter.propties里面的参数 </p>
+<p>CookieManager.save.cookies=true </p>
+<p>才能够看到cookie</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">COOKIE_W2S_lastvisit</span><span class="token punctuation">=</span><span class="token attr-value">0%091652876410%09%2Fphpwind%2F</span>
+<span class="token attr-name">COOKIE_W2S_visitor</span><span class="token punctuation">=</span><span class="token attr-value">oF9u%2F8%2BTDp8OtNSRBld43kbit5MjxSfalRd7bm9lHA7Fy173WZoO1g%3D%3D</span>
+<span class="token attr-name">COOKIE_csrf_token</span><span class="token punctuation">=</span><span class="token attr-value">23f8b0cf8d839d02</span>
+</code></pre>
+<p>2.跨线程组cookie鉴权： 只能在一个线程组里面传值的叫局部变量（正则，JSON，用户自定义变量） 能够在多个线程组之间传值的叫全局变量 </p>
+<p>需要通过Beanshell组件（既能使用java语言，也有自己的语法的组件）来设置：</p>
+<p>__setPropty() 设置Jmeter的全局属性。能够在多个线程组之间传值</p>
+<p>__P() 获取全局属性</p>
+<h3 id="埋点"><a href="#埋点" class="headerlink" title="埋点:"></a>埋点:</h3><p>在测试报告的生成过程中埋点，拿到数据通过数据库操作存储到数据库</p>
+<p>在conftest.py中,加入团队和负责人数据</p>
+<pre class=" language-python"><code class="language-python">impot pytest
+@pytest<span class="token punctuation">.</span>hookimpl<span class="token punctuation">(</span>hookwrapper<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>tryfirst<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">pytest_runtest_makereport</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> call<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#是通过yeild做轮询</span>
+    out <span class="token operator">=</span> <span class="token keyword">yield</span>
+    report <span class="token operator">=</span> out<span class="token punctuation">.</span>get_result<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> report<span class="token punctuation">.</span>when <span class="token operator">==</span> <span class="token string">"call"</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#固定过滤语句</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"测试报告:{report}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"步骤:{report.when}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"node id:{report.nodeid}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"执行结果:{report.outcome}"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#下面的if 是获取我们 info 标签中注册的内容:比如我在用例中注册的是 team principal</span>
+        <span class="token keyword">if</span> <span class="token string">"pytestmark"</span> <span class="token keyword">in</span> item<span class="token punctuation">.</span>function<span class="token punctuation">.</span>__dict__<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> item<span class="token punctuation">.</span>function<span class="token punctuation">.</span>pytestmark<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token string">"info"</span> <span class="token keyword">in</span> i<span class="token punctuation">.</span>__dict__<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">,</span>i<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span><span class="token string">"kwargs"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"team"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span><span class="token string">"kwargs"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"principal"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#存储到数据库</span>
+                    mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result,team,principal) values {values};"""</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span>：
+                    values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">)</span>
+                    mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result) values {values};"""</span><span class="token punctuation">)</span>
+      <span class="token keyword">else</span><span class="token punctuation">:</span>  
+        values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">)</span>
+        mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result) values {values};"""</span><span class="token punctuation">)</span> 
+</code></pre>
+<p>使我们的测试用例携带其他维度的数据</p>
+<p>在多个测试用例方法上加入</p>
+<p>@pytest.mark.info(team=”第一团队”，principal=”长风”)</p>
 <h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
 <p>commons: 公共封装文件夹</p>
 <p>datas: YAML数据驱动文件夹</p>

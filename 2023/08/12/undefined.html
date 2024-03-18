@@ -628,14 +628,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    19 分
                 </div>
                 
 
@@ -961,20 +961,6 @@ pm<span class="token punctuation">.</span>globals<span class="token punctuation"
 <p> 跳转：它会把这个页面的所有相关的数据带到下一个页面。 </p>
 <p>重定向：它不会吧这个页面的任何数据带到下一个页面。 </p>
 <p>自动重定向：a,d 跟随重定向：多次重定向的情况下，那么会吧所有重定向的页面全面显示出来。a,b,c,d</p>
-<p><strong>一、跨线程组实现接口鉴权</strong></p>
-<p>前提：第一个接口和第二个接口存在接口关联(通过token鉴权)，同时还存在cookie鉴权。</p>
-<p>接口压测：接口压力测试的任务，要求对其中一个接口进行500虚拟用户并发。但是这个接口必须要先 登陆之后获取到token才可以请求成功！</p>
-<p> 1.首先设置jmeter.propties里面的参数 </p>
-<p>CookieManager.save.cookies=true </p>
-<p>才能够看到cookie</p>
-<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">COOKIE_W2S_lastvisit</span><span class="token punctuation">=</span><span class="token attr-value">0%091652876410%09%2Fphpwind%2F</span>
-<span class="token attr-name">COOKIE_W2S_visitor</span><span class="token punctuation">=</span><span class="token attr-value">oF9u%2F8%2BTDp8OtNSRBld43kbit5MjxSfalRd7bm9lHA7Fy173WZoO1g%3D%3D</span>
-<span class="token attr-name">COOKIE_csrf_token</span><span class="token punctuation">=</span><span class="token attr-value">23f8b0cf8d839d02</span>
-</code></pre>
-<p>2.跨线程组cookie鉴权： 只能在一个线程组里面传值的叫局部变量（正则，JSON，用户自定义变量） 能够在多个线程组之间传值的叫全局变量 </p>
-<p>需要通过Beanshell组件（既能使用java语言，也有自己的语法的组件）来设置：</p>
-<p>__setPropty() 设置Jmeter的全局属性。能够在多个线程组之间传值</p>
-<p>__P() 获取全局属性</p>
 <p><strong>Jmeter执行数据库操作</strong></p>
 <p>应用场景：数据库断言 </p>
 <p>1.在测试计划中引入数据库的驱动文件 </p>

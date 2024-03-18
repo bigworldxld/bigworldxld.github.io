@@ -624,14 +624,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.5k
+                    17.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    64 分
+                    63 分
                 </div>
                 
 
@@ -1304,16 +1304,6 @@ jessionsid = (.+?)
 <p>那我就要去看看logcat日志有没有null point或anr in的关键字。如果有null point，就表示app在测试过程中crash了；然后把null point前后的日志截取下来，发给开发定位；如果有anr in，表示app在测试过程中出现了ANR(程序无响应)</p>
 <p>我们要把/data/anr/traces.txt文件取下下来，再把ANR进程号对应的日志发给开发定位问题</p>
 <h3 id="APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？"><a href="#APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？" class="headerlink" title="APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？"></a>APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？</h3><p>1）、Wifi和移动数据之间切换，没有提示；2）、长时间使用，内存不足，可能是内存泄露；3）、前后台切换，app 崩溃；4）、敏感数据没有加密，如：用户名和密码</p>
-<h3 id="安全测试（渗透测试）"><a href="#安全测试（渗透测试）" class="headerlink" title="安全测试（渗透测试）"></a>安全测试（渗透测试）</h3><p> 场景论坛发帖[美团评论、淘宝评论、58发帖、百度发帖]<br>你们公司的官网有用户发帖功能 –&gt;安全漏洞    </p>
-<p>XSS跨站脚本攻击<br>系统注入恶意:JavaScript 代码</p>
-<script>alert(你被攻击了 );</script>
-<script>window.location.href="https://www.baidu.com"</script>
-<p>浏览器执行的一种语言<br><strong>跨站请求伪造</strong>：CSRF(Cross-site request forgery)<br>[权限漏洞]<br>通过一些 普通的东西，体现出 咱们自己不一样的地方<br>安全测试<br>开发人员 – 安全意识薄弱， 只做了 前端展示的权限控制、全局的接口级别低级别用户</p>
-<p>通过url接口去使用 高级别的用户功能【垂直权限漏洞】</p>
-<p>A B两个拥有平级权限，不同的人操作不同的数据 </p>
-<p>[平行权限漏洞] [没做数据级别权限校验]</p>
-<p>反射性xXS漏洞<br>存储型xxS漏洞<br>DOMXXS漏洞<br>CSRF漏洞<br>SQL注入漏洞<br>命令或代码注入漏洞<br>文件下载漏洞<br>文件上传漏洞<br>平行权限漏洞<br>垂直权限漏洞</p>
-<p>路径遍历漏洞<br>敏感信息泄露漏洞<br>URL跳转漏洞<br>SSRF漏洞<br>短信_邮件 炸弹_暴力破解</p>
 <h3 id="你对软件测试的理解"><a href="#你对软件测试的理解" class="headerlink" title="你对软件测试的理解"></a>你对软件测试的理解</h3><p>软件测试是指通过对软件进行各种测试手段的验证与评估，以发现软件中存在的问题和缺陷，并尽可能地提高软件质量和可靠性的过程。它包括功能测试、性能测试、安全测试、兼容性测试、易用性测试等多个方面，旨在确保软件的正确性、完整性、可靠性、安全性、性能等方面的要求。</p>
 <h3 id="设计微信视频聊天的用例"><a href="#设计微信视频聊天的用例" class="headerlink" title="设计微信视频聊天的用例"></a>设计微信视频聊天的用例</h3><p><strong>用例1</strong>：启动视频聊天<br>参与者：用户A，用户B<br>前置条件：用户A和用户B已添加为微信好友<br>后置条件：进入视频聊天界面<br>操作步骤：</p>
 <ol>
