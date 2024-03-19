@@ -621,14 +621,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    6.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    23 分
                 </div>
                 
 
@@ -653,6 +653,32 @@
             <div id="articleContent">
                 <h3 id="json-dump-和json-dumps-的区别"><a href="#json-dump-和json-dumps-的区别" class="headerlink" title="json.dump()和json.dumps()的区别"></a>json.dump()和json.dumps()的区别</h3><p>json.dumps(date,ensure_ascii=False)是把python对象转换成json对象的一个过程，生成的是字符串。<br>json.dump()是把python对象转换成json对象生成一个fp的文件流，和文件相关</p>
 <p>与json.loads()和json.load()相反</p>
+<h3 id="生成器yield"><a href="#生成器yield" class="headerlink" title="生成器yield"></a>生成器yield</h3><p>生成器函数是一种特殊的函数，它可以在运行中暂停并返回一个中间结果，然后在下一次调用时继续执行，并从上一次暂停的位置开始。<br>，类似于return语句，但不同之处在于，它可以多次返回一个中间结果，并保留函数的状态，以便下一次调用时继续执行。一般来说，使用yield的程序可以看成是一个迭代器</p>
+<p>除了使用next()函数迭代生成器外，还可以使用for循环对生成器进行迭代</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> time
+<span class="token keyword">def</span> <span class="token function">produce</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">yield</span> <span class="token string">"生产了%s个包子"</span><span class="token operator">%</span>i
+    <span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p <span class="token operator">=</span> produce<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    num <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> p<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        num <span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">if</span> num<span class="token operator">==</span><span class="token number">12</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">def</span> <span class="token function">main1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p <span class="token operator">=</span> produce<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    num <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#与效果一样 print(next(p))</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h3><blockquote>
 <p>eval()是python中功能非常强大的一个函数</p>
 </blockquote>
@@ -691,7 +717,7 @@ os.system('终端命令')
 </code></pre>
 <p>上面代码执行后输入：<strong>import</strong>(‘os’).system(‘ls) ，按回车执行</p>
 <p>面试问题：</p>
-<h3 id="你的测试用例的设计思路？"><a href="#你的测试用例的设计思路？" class="headerlink" title="你的测试用例的设计思路？"></a><strong>你的测试用例的设计思路？</strong></h3><p>从功能角度，用户体验角度，兼容性角度，安全性角度，性能角度方面逐一展开讲述就行</p>
+<h3 id="测试用例的设计思路？"><a href="#测试用例的设计思路？" class="headerlink" title="测试用例的设计思路？"></a><strong>测试用例的设计思路？</strong></h3><p>从功能角度，用户体验角度，兼容性角度，安全性角度，性能角度方面逐一展开讲述就行</p>
 <h3 id="session和token检验的区别"><a href="#session和token检验的区别" class="headerlink" title="session和token检验的区别"></a><strong>session和token检验的区别</strong></h3><p>session机制：后端验证通过，代表登录成功，由服务器产生，需要返回 cookie携带sessionid返回给客户端保存，服务器也保存一份sessionid数据，第二次客户端访问时携带与服务器的对比校验</p>
 <p>token机制：后端验证通过，代表登录成功，生成令牌(特殊的字符串)，响应给客户端，不要求服务器一定保存，没有要求一定要使用Cookie携带,一般是json形式传递，token通常由客户端开发自行编码保存，第二次客户端访问时携带与服务器的对比校验</p>
 <p>小程序，app:没有操作cookie的机制，物联网浏览器才有。主要使用token技术</p>
@@ -709,6 +735,100 @@ os.system('终端命令')
 <p>def f(): pass</p>
 <p>print(type(f()))<strong>以上代码输出结果为？</strong></p>
 <p>&lt;class’NoneType’&gt;</p>
+<h3 id="faker自定义数据集"><a href="#faker自定义数据集" class="headerlink" title="faker自定义数据集"></a>faker自定义数据集</h3><p>from faker import Faker</p>
+<p>faker=Faker(locale=‘zh_CN’)</p>
+<p>faker.add_provider(CustomPrvider)    #自定义数据</p>
+<p>faker.random_element((‘男’,’女‘))    #在提供范围中选择<br>faker.random_int(18,40)    #在指定数字中随机数字</p>
+<p>自定义数据集造数据</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> faker<span class="token punctuation">.</span>providers <span class="token keyword">import</span> DynamicProvider
+<span class="token keyword">class</span> <span class="token class-name">MyProvider</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>roomType <span class="token operator">=</span> DynamicProvider<span class="token punctuation">(</span>
+            provider_name<span class="token operator">=</span><span class="token string">"room_type"</span><span class="token punctuation">,</span>
+            elements<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"豪华套房"</span><span class="token punctuation">,</span> <span class="token string">"商务套房"</span><span class="token punctuation">,</span> <span class="token string">"总统套房"</span><span class="token punctuation">,</span> <span class="token string">"时尚主题房"</span><span class="token punctuation">,</span> <span class="token string">"豪华观景房"</span><span class="token punctuation">,</span> <span class="token string">"烂漫都市情侣房"</span><span class="token punctuation">,</span> <span class="token string">"梦回大唐书阁"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>paymentStatus <span class="token operator">=</span> DynamicProvider<span class="token punctuation">(</span>
+            provider_name<span class="token operator">=</span><span class="token string">"payment_status"</span><span class="token punctuation">,</span>
+            elements<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"已支付"</span><span class="token punctuation">,</span> <span class="token string">"待支付"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>orderStatus <span class="token operator">=</span> DynamicProvider<span class="token punctuation">(</span>
+            provider_name<span class="token operator">=</span><span class="token string">"order_status"</span><span class="token punctuation">,</span>
+            elements<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"已预约"</span><span class="token punctuation">,</span> <span class="token string">"已入住"</span><span class="token punctuation">,</span> <span class="token string">"已退房"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span>
+</code></pre>
+<p>使用自定义数据集，并存入数据库中</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+<span class="token keyword">from</span> faker <span class="token keyword">import</span> Faker
+
+<span class="token keyword">from</span> demo<span class="token punctuation">.</span>MyProvider <span class="token keyword">import</span> MyProvider
+<span class="token keyword">def</span> <span class="token function">generate_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    myp <span class="token operator">=</span> MyProvider<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fake <span class="token operator">=</span> Faker<span class="token punctuation">(</span>locale<span class="token operator">=</span><span class="token string">'zh_CN'</span><span class="token punctuation">)</span>
+    fake<span class="token punctuation">.</span>add_provider<span class="token punctuation">(</span>myp<span class="token punctuation">.</span>paymentStatus<span class="token punctuation">)</span>
+    fake<span class="token punctuation">.</span>add_provider<span class="token punctuation">(</span>myp<span class="token punctuation">.</span>roomType<span class="token punctuation">)</span>
+    fake<span class="token punctuation">.</span>add_provider<span class="token punctuation">(</span>myp<span class="token punctuation">.</span>orderStatus<span class="token punctuation">)</span>
+
+    datas <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span>
+            fake<span class="token punctuation">.</span>ean<span class="token punctuation">(</span>prefixes<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'23'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span> length<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>unique<span class="token punctuation">.</span>random_int<span class="token punctuation">(</span>min<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> max<span class="token operator">=</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>room_type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>phone_number<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>ssn<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>random_digit_not_null<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>numerify<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>payment_status<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fake<span class="token punctuation">.</span>order_status<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">return</span> datas
+
+<span class="token keyword">def</span> <span class="token function">mysql_transmit_data</span><span class="token punctuation">(</span>datas<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>
+        host<span class="token operator">=</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+        port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+        user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+        password<span class="token operator">=</span><span class="token string">"645123ab"</span><span class="token punctuation">,</span>
+        db<span class="token operator">=</span><span class="token string">"hotel_management_system"</span><span class="token punctuation">,</span>
+        charset<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">,</span>
+        autocommit<span class="token operator">=</span><span class="token boolean">True</span>
+    <span class="token punctuation">)</span>
+
+    cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> data <span class="token keyword">in</span> datas<span class="token punctuation">:</span>
+        sql <span class="token operator">=</span> <span class="token string">"insert into orders (order_id, room_number, room_title, customer_name, telephone, identification, check_in, check_out, stay_days, total_price, payment, status, create_time)"</span> \
+              <span class="token string">"value ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%s')"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>
+              data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              data<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    order_datas <span class="token operator">=</span> generate_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>order_datas<span class="token punctuation">)</span>
+</code></pre>
+<p>案例：如果造的数据是存量数据，不是新增数据，例如，生成订单中需要商品id,商品id选自数据库中的某一条数据</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> faker<span class="token punctuation">.</span>providers <span class="token keyword">import</span> BaseProvider
+<span class="token keyword">class</span> <span class="token class-name">CustomProvider</span><span class="token punctuation">(</span>BaseProvider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">goods_id</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"localhost"</span><span class="token punctuation">,</span>user<span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">,</span>passwd<span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">,</span> database<span class="token operator">=</span><span class="token string">"finance"</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#使用cursor()方法获取操作游标</span>
+        cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        result<span class="token operator">=</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
+    select id from users
+    '''</span><span class="token punctuation">)</span>
+        ids<span class="token operator">=</span>cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ids
+<span class="token comment" spellcheck="true">#------------------------------    </span>
+<span class="token keyword">from</span> faker <span class="token keyword">import</span> Faker
+faker<span class="token operator">=</span>Faker<span class="token punctuation">(</span>locale<span class="token operator">=</span>‘zh_CN’<span class="token punctuation">)</span>
+faker<span class="token punctuation">.</span>add_provider<span class="token punctuation">(</span>CustomPrvider<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#自定义数据</span>
+</code></pre>
+<h3 id="使用ai-造web后端接口"><a href="#使用ai-造web后端接口" class="headerlink" title="使用ai,造web后端接口"></a>使用ai,造web后端接口</h3><p>问：用flask框架写一个接口，用于mock返回数据，使用Python3.0<br>接口路径 /login<br>参数 用户名，密码<br>请求方式 get<br>返回数据 {“tocken”:”a”}<br>a代表一串8位的随机数字加字母的格式</p>
 <h3 id="元组，列表和字典变量前加-的作用"><a href="#元组，列表和字典变量前加-的作用" class="headerlink" title="元组，列表和字典变量前加*的作用"></a>元组，列表和字典变量前加*的作用</h3><p>在列表前加*号，会将列表拆分成一个一个的独立元素，不光是列表、元组、字典，二维列表，由numpy生成的向量也可以拆分；</p>
 <p>函数中*args和**kwargs的人应该知道，这两个形参都接收若干个参数，通常我们将其称为参数组；</p>
 <ul>
