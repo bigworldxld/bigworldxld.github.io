@@ -638,14 +638,14 @@ Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.7k
+                    10.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    41 分
+                    47 分
                 </div>
                 
 
@@ -864,9 +864,23 @@ page<span class="token punctuation">.</span>delete_all<span class="token punctua
 </code></pre>
 <h3 id="九、YAML详解"><a href="#九、YAML详解" class="headerlink" title="九、YAML详解"></a>九、YAML详解</h3><p>yaml简介：yaml是一种数据类型，它可以和json之间灵活的切换，支持：注释，换行，字符串，裸字符串等。</p>
 <p> 用途： 1.配置文件 2.编写测试用例</p>
+<p>安装：pip3 install PyYaml</p>
 <p> 数据结构： </p>
 <p>1.Map对象（dict）（键:(空格)值） 如：name: 百里</p>
 <p>2.数组（list）,用一组横线”-“开头来表示 如： </p>
+<p>yaml读取单个文档：yaml.safe_load()</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token string">"test1"</span>
+<span class="token punctuation">-</span> <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">"111"</span>
+  <span class="token key atrule">username1</span><span class="token punctuation">:</span> <span class="token string">"test2"</span>
+</code></pre>
+<p>yaml读取多个文档：yaml.safe_load_all()</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token string">"test1"</span>
+<span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">"111"</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">username1</span><span class="token punctuation">:</span> <span class="token string">"test2"</span>
+<span class="token key atrule">password1</span><span class="token punctuation">:</span> <span class="token string">"123"</span>
+</code></pre>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#用例</span>
 <span class="token punctuation">-</span>
     <span class="token key atrule">name</span><span class="token punctuation">:</span> 获得token鉴权码的接口
@@ -882,7 +896,8 @@ page<span class="token punctuation">.</span>delete_all<span class="token punctua
     <span class="token key atrule">validate</span> <span class="token punctuation">:</span> 
         <span class="token punctuation">-</span> <span class="token key atrule">eq</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token key atrule">expires_in</span><span class="token punctuation">:</span> <span class="token number">7200 </span><span class="token punctuation">}</span>
 </code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">YamlUtil</span> <span class="token punctuation">:</span> 
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> yaml
+<span class="token keyword">class</span> <span class="token class-name">YamlUtil</span> <span class="token punctuation">:</span> 
     <span class="token keyword">def</span> __init__ <span class="token punctuation">(</span>self<span class="token punctuation">,</span> yaml_file<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         <span class="token triple-quoted-string string">"""
         通过init方法把yam1文件传入到这个类
@@ -910,6 +925,58 @@ I
         <span class="token keyword">with</span> open<span class="token punctuation">(</span> self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span> <span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
         f<span class="token punctuation">.</span>truncate<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> yaml
+<span class="token comment" spellcheck="true">#1、创建类</span>
+<span class="token keyword">class</span> <span class="token class-name">YamlReader</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#2、初始化，文件是否存在</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>yamlf<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>yamlf<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>yamlf <span class="token operator">=</span> yamlf
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string">"文件不存在"</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_ data <span class="token operator">=</span> None
+        self<span class="token punctuation">.</span>_data_all<span class="token operator">=</span>None
+<span class="token comment" spellcheck="true">#3、yaml读取单个文档</span>
+    <span class="token keyword">def</span> <span class="token function">data</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#第一次调用data，读取yaml文档，如果不是，直接返回之前保存的数据</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yamlf<span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>data <span class="token operator">=</span>yaml<span class="token punctuation">.</span>safe_load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data
+    <span class="token keyword">def</span> <span class="token function">data_all</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#yaml读取单个文档</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data_all<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yamlf<span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>data_all <span class="token operator">=</span>yaml<span class="token punctuation">.</span>safe_load_all<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data_all
+</code></pre>
+<p>yaml配置文件设置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">BASE</span><span class="token punctuation">:</span>
+ <span class="token key atrule">test</span><span class="token punctuation">:</span>
+     <span class="token key atrule">url</span><span class="token punctuation">:</span> <span class="token string">"http://211.103.136.242:8064"</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true">#1、获取项目基本目录</span>
+<span class="token comment" spellcheck="true">#获取当前项目的绝对路径</span>
+current <span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#print(current)</span>
+BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#print(BASE DIR)</span>
+<span class="token comment" spellcheck="true">#定义config目录的路径</span>
+config_path<span class="token operator">=</span>BASE_DIR <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span>"config'
+<span class="token comment" spellcheck="true">#定义conf.yml文件的路径</span>
+config_file <span class="token operator">=</span>_config_path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span><span class="token string">"conf.yml"</span>
+<span class="token keyword">def</span> get config path<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> config_path
+<span class="token keyword">def</span> get config file<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> config_file
+<span class="token comment" spellcheck="true">#2、读取配置文件#创建类</span>
+<span class="token keyword">class</span> <span class="token class-name">ConfigYaml</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#初始yaml读取配置文件</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>config <span class="token operator">=</span>YamlReader<span class="token punctuation">(</span>get_config_file<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#定义方法获取需要信息</span>
+    <span class="token keyword">def</span> <span class="token function">get_conf_url</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">"BASE"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"test"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"url"</span><span class="token punctuation">]</span>
+</code></pre>
 <h3 id="十、Pytest用例管理框架数据驱动详解"><a href="#十、Pytest用例管理框架数据驱动详解" class="headerlink" title="十、Pytest用例管理框架数据驱动详解"></a>十、Pytest用例管理框架数据驱动详解</h3><p>python的反射<br>正常:先初始化对象,在调方法。<br>反射:通过对象得到类对象。然后通过类对象调用方法</p>
 <p>数据驱动装饰器<br>@ pytest.mark.parametrize(ages1,args2)</p>
 <p>args1:参数名: 用于传值。<br>vars2:参数值 (可以为列表或元祖，字典列表，字典元祖)，数据中有多少个值那么用例就会执行多少次。</p>
@@ -922,12 +989,85 @@ I
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"注册接口: %s"</span><span class="token operator">%</span> name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
 </code></pre>
 <p>第二种方式:跟unittest的ddt里面的@unpack解包的一样</p>
+<p>excel工具类</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> xlrd
+<span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true">#目的:参数化，pytest list</span>
+<span class="token comment" spellcheck="true">#自定义异常</span>
+<span class="token keyword">class</span> <span class="token class-name">SheetTypeError</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token comment" spellcheck="true">#1、验证文件是否存在，存在读取，不存在报错</span>
+<span class="token keyword">class</span> <span class="token class-name">ExcelReader</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>excel_file<span class="token punctuation">,</span>sheet_by<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>excel_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>excel_file <span class="token operator">=</span> excel_file
+            self<span class="token punctuation">.</span>sheet_by <span class="token operator">=</span> sheet_by
+            self<span class="token punctuation">.</span>_data<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string">"文件不存在"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#2、读取sheet方式，名称，索引</span>
+    <span class="token keyword">def</span> <span class="token function">data</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#存在数据不读取，反之</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data<span class="token punctuation">:</span>      
+            workbook <span class="token operator">=</span>xlrd<span class="token punctuation">.</span>open_workbook<span class="token punctuation">(</span>self<span class="token punctuation">.</span>excel_file<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token keyword">in</span> <span class="token punctuation">[</span>str<span class="token punctuation">,</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> SheetTypeError<span class="token punctuation">(</span><span class="token string">"请输入Int or Str"</span><span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span><span class="token operator">==</span> int<span class="token punctuation">:</span>
+                sheet <span class="token operator">=</span> workbook<span class="token punctuation">.</span>sheet_by_index<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet by<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span><span class="token operator">==</span>str<span class="token punctuation">:</span>
+              sheet<span class="token operator">=</span>workbook<span class="token punctuation">.</span>sheet_by_name<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#3、读取sheet内容,list内嵌字典</span>
+        <span class="token comment" spellcheck="true">#1.获取首行的信息</span>
+            title <span class="token operator">=</span>sheet<span class="token punctuation">.</span>row_values<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#1 循环，过滤首行，从1开始</span>
+            <span class="token keyword">for</span> col <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>sheet<span class="token punctuation">.</span>nrows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                col_value<span class="token operator">=</span> sheet<span class="token punctuation">.</span>row_values<span class="token punctuation">(</span>col<span class="token punctuation">)</span>
+         <span class="token comment" spellcheck="true">#2 与首组成字典，放list</span>
+                self<span class="token punctuation">.</span>_data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>dict<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>title<span class="token punctuation">,</span> col_value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data
+</code></pre>
 <h3 id="十一、pytest结合allure生成美观的报告"><a href="#十一、pytest结合allure生成美观的报告" class="headerlink" title="十一、pytest结合allure生成美观的报告"></a>十一、pytest结合allure生成美观的报告</h3><p>1.下载allure，下载之后解压，解压之后配置path环境变量.需要配置jdk,jre</p>
 <p>使用pycharm配置JDK 或者]RE<br>D: \Program Files \JetBrains Pycharm Community Edition 2019.2.2 \jbr<br>将目录添加到环境变量JAVA HOME</p>
 <p>path路径的配置: D:\allure-2.13.7\bin (路径中不能有中文)</p>
-<p>验证: allure –version (需要在dos和pycharm中都要验证)如果说Pycharm中验证失败，那么需要重启pycharm，让环境生效。<br>2.在pytest.ini文件中加入命令</p>
+<p>验证: allure –version (需要在dos和pycharm中都要验证)如果说Pycharm中验证失败，那么需要重启pycharm，让环境生效。</p>
+<p>feature:一级标签,对应excel的sheet名称 </p>
+<p>story：二级标签，模块 </p>
+<p>title：用例ID+接口名称 </p>
+<p>description：请求URL 请求类型 期望结枼 实际结果 </p>
+<p>Severity：定义用例的级别，主要有BLOCKER,CRITICAL,MINOR,NORMAL,TRIVIAL等几种类型<br>，默认是NORMAL</p>
+<pre class=" language-python"><code class="language-python">@allure<span class="token punctuation">.</span>title<span class="token punctuation">(</span>"测试用例标题<span class="token number">2</span>”<span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>description<span class="token punctuation">(</span><span class="token string">"执行测试用例1的结果是test2"</span><span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>story<span class="token punctuation">(</span>"这是一个二级标签<span class="token punctuation">:</span>test1'<span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>severity<span class="token punctuation">(</span>allure<span class="token punctuation">.</span>severity_level<span class="token punctuation">.</span>CRITICAL<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"test2"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Allure.dynamic:动态设置相关配置</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#写在用例里面</span>
+<span class="token comment" spellcheck="true">#sheet名称 feature 一级标签</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>feature<span class="token punctuation">(</span>sheet name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#模块 story 二级标签</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>story<span class="token punctuation">(</span>case model<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#用例ID+接口名称 title</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>title<span class="token punctuation">(</span>case id<span class="token operator">+</span>case name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#请求URL 请求类型 期望结果 实际结果描述</span>
+desc <span class="token operator">=</span><span class="token string">"&lt;font color="</span>red"<span class="token operator">></span>请求URL<span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>请求类型<span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>期望结果<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>实际结果<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span>"<span class="token punctuation">.</span>format<span class="token punctuation">(</span>url<span class="token punctuation">,</span>method<span class="token punctuation">,</span>expect_result<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>description<span class="token punctuation">(</span>desc<span class="token punctuation">)</span>
+</code></pre>
+<p>2.在pytest.ini文件中加入命令</p>
 <pre class=" language-ini"><code class="language-ini"><span class="token selector">[pytest]</span>
 <span class="token constant">addopts</span> <span class="token attr-value"><span class="token punctuation">=</span> -vs --alluredir=./temps --clean-alluredir</span>
+#执行目录
+<span class="token constant">testpaths</span> <span class="token attr-value"><span class="token punctuation">=</span> testcase</span>
+#执行目录下的文件
+<span class="token constant">python_files</span> <span class="token attr-value"><span class="token punctuation">=</span> test_*.py</span>
+#执行测试类#
+<span class="token constant">python_classes</span> <span class="token attr-value"><span class="token punctuation">=</span> Test_*</span>
+#执行测试方法
+<span class="token constant">python_functions</span> <span class="token attr-value"><span class="token punctuation">=</span>test_*</span>
 </code></pre>
 <p>3.生成Allure报告</p>
 <pre class=" language-python"><code class="language-python">os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"allure serve .allure_results"</span><span class="token punctuation">)</span>
@@ -949,8 +1089,23 @@ I
 <p>在测试用例的开始或结束加上logger.info(“打印信息”)</p>
 <p><strong>截图</strong></p>
 <p>在用户用例的执行前后截图加入到allure报告中</p>
-<pre class=" language-python"><code class="language-python">allure<span class="token punctuation">.</span>attach<span class="token punctuation">(</span><span class="token comment" spellcheck="true"># 交互后进行截图，确认交互效果se1f._driver.get_screenshot_as_png(),</span>
+<pre class=" language-python"><code class="language-python">allure<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true"># 交互后进行截图，确认交互效果</span>
+    se1f<span class="token punctuation">.</span>_driver<span class="token punctuation">.</span>get_screenshot_as_png<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Subprocess介绍</strong><br>允许你产生新的进程，并且可以把输入，输出，错误直接连接到管道，最后获取结果<br>官方网站:&gt;<a target="_blank" rel="noopener" href="https://docs.python.org/2/library/subprocess.html">https://docs.python.org/2/library/subprocess.html</a><br>方法:&gt;subprocess.call()</p>
+<p>父进程等待子进程完成，返回退出信息(returncode,相当于Linux exit code)</p>
+<p>shell=True 的用法，支持命令以字符串的形式传入。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">allure_report</span><span class="token punctuation">(</span>report_path<span class="token punctuation">,</span>repart_html<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#执行命令 allure generate</span>
+    allure_cmd <span class="token operator">=</span><span class="token string">"allure generate %s -o %s --clean"</span><span class="token operator">%</span><span class="token punctuation">(</span>report_path<span class="token punctuation">,</span>repart_html<span class="token punctuation">)</span>
+    log<span class="token punctuation">.</span>info<span class="token punctuation">(</span>"报告地址”<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        subprocess<span class="token punctuation">.</span>call<span class="token punctuation">(</span>allure_cmd<span class="token punctuation">,</span>shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        log<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"执行用例失败，请检查一下测试环境相关配置"</span><span class="token punctuation">)</span>
+        <span class="token keyword">raise</span>
 </code></pre>
 <h3 id="十二、Web端自动化测试"><a href="#十二、Web端自动化测试" class="headerlink" title="十二、Web端自动化测试:"></a>十二、Web端自动化测试:</h3><p>1.极高的效率执行</p>
 <p>2.完成复杂的业务场景</p>
@@ -1790,6 +1945,69 @@ pip <span class="token function">install</span> i https://pypi.douban.com/simple
 </tr>
 </tbody></table>
 <p>ifs为业务关键字文件中的if-else结构</p>
+<h3 id="断言AssertUtil"><a href="#断言AssertUtil" class="headerlink" title="断言AssertUtil"></a><strong>断言AssertUtil</strong></h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#1、定义封装类</span>
+<span class="token keyword">class</span> <span class="token class-name">AssertUtil</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#2、初始化数据，日志</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#self.log = my_log("AssertUtil")</span>
+    <span class="token keyword">pass</span>
+<span class="token comment" spellcheck="true">#3、code相等</span>
+<span class="token keyword">def</span> <span class="token function">assert_code</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>code<span class="token punctuation">,</span>expected_code<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">assert</span> int<span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token operator">==</span> int<span class="token punctuation">(</span>expected_code<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"code error,code is %s,expected code is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span>expected_code<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#4、body相等</span>
+<span class="token keyword">def</span> <span class="token function">assert_body</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#验证返回结果内容相等</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span><span class="token keyword">assert</span> body <span class="token operator">==</span> expected_body
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"body error,body is &amp;s,expected body is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#5、body包含</span>
+<span class="token keyword">def</span> <span class="token function">assert_in_body</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#验证返回结果是否包含期望的结果</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+        <span class="token keyword">assert</span> expected_body <span class="token keyword">in</span> body
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"不包含或者body是错误，body is %s,expected body is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        
+        
+</code></pre>
+<h3 id="数据库mysqlutil"><a href="#数据库mysqlutil" class="headerlink" title="数据库mysqlutil"></a><strong>数据库mysqlutil</strong></h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+<span class="token keyword">class</span> <span class="token class-name">Mysql</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#2、初始化数据,</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>host<span class="token punctuation">,</span>user<span class="token punctuation">,</span>password<span class="token punctuation">,</span>database<span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span>host，user<span class="token operator">=</span>user<span class="token punctuation">,</span>password<span class="token operator">=</span>password<span class="token punctuation">,</span>
+                                    database<span class="token operator">=</span>database<span class="token punctuation">,</span>charset<span class="token operator">=</span>charset<span class="token punctuation">,</span>port<span class="token operator">=</span>port<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>cursor <span class="token operator">=</span>self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#创建查询、执行方法</span>
+    <span class="token keyword">def</span> <span class="token function">fetchone</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>sgl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>fetchone<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">fetchall</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>sql<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">exec</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#update,delete,insert</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>conn <span class="token operator">and</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> ex<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"执行异常"</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>cursor <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>conn <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h3 id="python接口数据关联"><a href="#python接口数据关联" class="headerlink" title="python接口数据关联"></a>python接口数据关联</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Context</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">#这是一个承接上下文的数据</span>
 </code></pre>

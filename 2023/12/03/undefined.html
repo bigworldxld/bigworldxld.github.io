@@ -621,14 +621,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    26 分
                 </div>
                 
 
@@ -678,6 +678,30 @@
     <span class="token keyword">pass</span>
 <span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="logging用法解析"><a href="#logging用法解析" class="headerlink" title="logging用法解析"></a>logging用法解析</h3><p>初始化 logger = logging.getLogger(“endlesscode”)，getLogger()方法后面最好加上所要日志记录的模块名字，后面的日志格式中的%(name)s 对应的是这里的模块名字<br>设置级别 logger.setLevel(logging.DEBUG),Logging中有NOTSET &lt; DEBUG &lt; INFO &lt; WARNING &lt; ERROR &lt; CRITICAL这几种级别，日志会记录设置级别以上的日志<br>Handler，常用的是StreamHandler和FileHandler，windows下你可以简单理解为一个是console和文件日志，一个打印在CMD窗口上，一个记录在一个文件上<br>formatter，定义了最终log信息的顺序,结构和内容，我喜欢用这样的格式 ‘[%(asctime)s] [%(levelname)s] %(message)s’, ‘%Y-%m-%d %H:%M:%S’，<br>%(name)s Logger的名字<br>%(levelname)s 文本形式的日志级别<br>%(message)s 用户输出的消息<br>%(asctime)s 字符串形式的当前时间。默认格式是 “2003-07-08 16:49:45,896”。逗号后面的是毫秒<br>%(levelno)s 数字形式的日志级别<br>%(pathname)s 调用日志输出函数的模块的完整路径名，可能没有<br>%(filename)s 调用日志输出函数的模块的文件名<br>%(module)s 调用日志输出函数的模块名<br>%(funcName)s 调用日志输出函数的函数名<br>%(lineno)d 调用日志输出函数的语句所在的代码行<br>%(created)f 当前时间，用UNIX标准的表示时间的浮 点数表示<br>%(relativeCreated)d 输出日志信息时的，自Logger创建以 来的毫秒数<br>%(thread)d 线程ID。可能没有<br>%(threadName)s 线程名。可能没有<br>%(process)d 进程ID。可能没有</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> logging
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">"simple_example"</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 建立一个filehandler来把日志记录在文件里，级别为debug以上</span>
+fh <span class="token operator">=</span> logging<span class="token punctuation">.</span>FileHandler<span class="token punctuation">(</span><span class="token string">"spam.log"</span><span class="token punctuation">)</span>
+fh<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 建立一个streamhandler来把日志打在CMD窗口上，级别为error以上</span>
+ch <span class="token operator">=</span> logging<span class="token punctuation">.</span>StreamHandler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ch<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>ERROR<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 设置日志格式</span>
+formatter <span class="token operator">=</span> logging<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token string">"%(asctime)s - %(name)s - %(levelname)s - %(message)s"</span><span class="token punctuation">)</span>
+ch<span class="token punctuation">.</span>setFormatter<span class="token punctuation">(</span>formatter<span class="token punctuation">)</span>
+fh<span class="token punctuation">.</span>setFormatter<span class="token punctuation">(</span>formatter<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#将相应的handler添加在logger对象中</span>
+logger<span class="token punctuation">.</span>addHandler<span class="token punctuation">(</span>ch<span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>addHandler<span class="token punctuation">(</span>fh<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 开始打日志</span>
+logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">"debug message"</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"info message"</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>warn<span class="token punctuation">(</span><span class="token string">"warn message"</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"error message"</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>critical<span class="token punctuation">(</span><span class="token string">"critical message"</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h3><blockquote>
 <p>eval()是python中功能非常强大的一个函数</p>
@@ -1104,6 +1128,21 @@ f<span class="token operator">=</span>Foo<span class="token punctuation">(</span
 <p>从compile()函数的定义中，可以看出返回的是一个匹配对象，它单独使用就没有任何意义，需要和findall(), search(), match(）搭配使用。<br><strong>compile()与findall()一起使用，返回一个列表</strong></p>
 <p>compile()与match()一起使用，可返回一个class、str、tuple。但是一定需要注意match()，从位置0开始匹配，匹配不到会返回None，返回None的时候就没有span/group属性了。匹配到就，返回一个匹配就会结束。</p>
 <p>compile()与search()搭配使用, 返回的类型与match()差不多， 但是不同的是search(), 可以不从位置0开始匹配。但是匹配一个单词之后，匹配和match()一样，匹配就会结束。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#替换Headers变量</span>
+<span class="token comment" spellcheck="true">#1、验证请求中是否${}$，返回${}$中的内容</span>
+str1<span class="token operator">=</span><span class="token string">'{"Authorization":"JWT ${token}$"}'</span>
+<span class="token keyword">if</span> "$<span class="token punctuation">{</span>' <span class="token keyword">in</span> str1<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">import</span> re
+pattern <span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'\${(.*)}\$'</span><span class="token punctuation">)</span>
+re_res <span class="token operator">=</span> pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re_res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#输出:token</span>
+<span class="token comment" spellcheck="true">#2、根据内容token，查询 前置条件测试用例返回结果token =值</span>
+token <span class="token operator">=</span><span class="token string">"123"</span>
+<span class="token comment" spellcheck="true">#3、根据变量结果内容，替换</span>
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>token<span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#输出：{"Authorization":"JWT 123"}</span>
+</code></pre>
 <p>re.sub()方法中含有5个参数，下面进行一一说明（加粗的为必须参数）：<br>（1）pattern：该参数表示正则中的模式字符串；<br>（2）repl：该参数表示要替换的字符串（即匹配到pattern后替换为repl），也可以是个函数；<br>（3）string：该参数表示要被处理（查找替换）的原始字符串；<br>（4）count：可选参数，表示是要替换的最大次数，而且必须是非负整数，该参数默认为0，即所有的匹配都会被替换；<br>（5）flags：可选参数，表示编译时用的匹配模式（如忽略大小写、多行模式等），数字形式，默认为0</p>
 <p>re.sub(r’[^0-9A-Za-z]’, ‘<em>‘, s) 这句话则表示匹配单个非数字和非字母，并将单个非数字和非字母替换为一个星号 。<br>上面 re.sub(r’[^0-9A-Za-z]+’, ‘</em>‘, s) 这句话则表示匹配多个连续的非数字和非字母，并将多个连续的非数字和非字母替换为一个星号 </p>
 <h3 id="删除并重置主键id"><a href="#删除并重置主键id" class="headerlink" title="删除并重置主键id"></a>删除并重置主键id</h3><p>DELETE FROM bankcard WHERE id&gt;10;<br>ALTER TABLE bankcard AUTO_INCREMENT=1;</p>
