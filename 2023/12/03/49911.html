@@ -621,14 +621,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.7k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    27 分
                 </div>
                 
 
@@ -745,13 +745,36 @@ os.system('终端命令')
 <h3 id="session和token检验的区别"><a href="#session和token检验的区别" class="headerlink" title="session和token检验的区别"></a><strong>session和token检验的区别</strong></h3><p>session机制：后端验证通过，代表登录成功，由服务器产生，需要返回 cookie携带sessionid返回给客户端保存，服务器也保存一份sessionid数据，第二次客户端访问时携带与服务器的对比校验</p>
 <p>token机制：后端验证通过，代表登录成功，生成令牌(特殊的字符串)，响应给客户端，不要求服务器一定保存，没有要求一定要使用Cookie携带,一般是json形式传递，token通常由客户端开发自行编码保存，第二次客户端访问时携带与服务器的对比校验</p>
 <p>小程序，app:没有操作cookie的机制，物联网浏览器才有。主要使用token技术</p>
-<h3 id="谈谈你对tcp三次握手机制的理解"><a href="#谈谈你对tcp三次握手机制的理解" class="headerlink" title="谈谈你对tcp三次握手机制的理解"></a><strong>谈谈你对tcp三次握手机制的理解</strong></h3><p>http请求发起之前，已经进行多次网络操作，发送业务 ，底层的传输层协议是tcp 协议。创建”虚拟“连接—三次握手即三次网络数据交互，检查网络的可靠性。</p>
+<h3 id="谈谈你对tcp三次握手机制的理解"><a href="#谈谈你对tcp三次握手机制的理解" class="headerlink" title="谈谈你对tcp三次握手机制的理解"></a><strong>谈谈你对tcp三次握手机制的理解</strong></h3><p>http请求发起之前，已经进行多次网络操作，发送业务 ，底层的传输层协议是tcp 协议。创建”虚拟“连接—三次握手即三次网络数据交互，检查网络的可靠性</p>
+<p>synchronization同步</p>
+<p>acknowledgement确认</p>
+<p>三次握手：</p>
 <p>例子：打电话场景</p>
 <p>我：喂，听得到吗</p>
 <p>姐：听得到，你能听到吗</p>
 <p>我：可以听得到</p>
 <p>….                开始正式聊天</p>
-<p>四次挥手：第四次正式发送http请求</p>
+<p>四次挥手：</p>
+<p>我：我要回家吃饭了</p>
+<p>姐：等下，饭快做好了</p>
+<p>​        饭好了，快回来</p>
+<p>我：马上开飞机回来</p>
+<h3 id="CDN（内容分发网络）"><a href="#CDN（内容分发网络）" class="headerlink" title="CDN（内容分发网络）"></a>CDN（内容分发网络）</h3><p>CDN加速器</p>
+<p>负载均衡</p>
+<p>任播</p>
+<h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>根域名服务器    </p>
+<p>.root    常简写成.</p>
+<p>顶级域名服务器（Top Level Domain）TLD</p>
+<p>.com    .cn    .net    .gov</p>
+<p>权威域名服务器（Authoritative）</p>
+<p>blibli    qq    baidu</p>
+<h3 id="SSH协议握手核心"><a href="#SSH协议握手核心" class="headerlink" title="SSH协议握手核心"></a>SSH协议握手核心</h3><p> 对称加密，双方拥有同一把钥匙，进行加密解密</p>
+<p>非对称加密，我方有私钥和公钥，对方只有公钥，对方使用公钥加密后发送给我，只能使用我的私钥进行解密卡查看</p>
+<p>DH（Diffie Hellman）密钥交换</p>
+<p>我：秘密放箱子加锁，只有我的钥匙能打开，发送给姐</p>
+<p>姐：拿到箱子加锁，只有姐的钥匙能打开，发送给我</p>
+<p>我：拿到箱子解锁，发送给姐</p>
+<p>姐：拿到箱子解锁，获取秘密</p>
 <h3 id="CS（Client-Server）和BS（Browser-Server）"><a href="#CS（Client-Server）和BS（Browser-Server）" class="headerlink" title="CS（Client-Server）和BS（Browser-Server）"></a>CS（Client-Server）和BS（Browser-Server）</h3><p>CS（Client/Server）：客户端—-服务器结构。app端</p>
 <p>BS（Browser/Server）：浏览器—-服务器结构。web端</p>
 <p>C/S 用户固定，一般只应用于局域网中，要求拥有相同的操作系统，如果对于不同操作系统还要相应开发不同的版本，并且对于计算机电脑配置要求也较高。<br>B/S 要求有操作系统和浏览器就行，与操作系统平台无关（可以实现跨平台），对客户端的计算机电脑配置要求较低。</p>
@@ -1246,7 +1269,7 @@ url2 <span class="token operator">=</span> base_url <span class="token operator"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://bigworldxld.github.io/2023/12/03/undefined.html">https://bigworldxld.github.io/2023/12/03/undefined.html</a>
+                    <a href="https://bigworldxld.github.io/2023/12/03/49911.html">https://bigworldxld.github.io/2023/12/03/49911.html</a>
                 </span>
             </div>
             <div class="reprint__notice">

@@ -624,7 +624,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.6k
+                    17.7k
                 </div>
                 
 
@@ -959,6 +959,11 @@
 <p>协议：FDDI，Ethernet，Arpanet，PDN，SLIP，PPP</p>
 <p>7.物理层(Physical Layer)<br>物理层(Physical Layer)是OSI模型的最底层，也是第一层。建立、维护、断开物理连接。</p>
 <p>主要功能：利用传输介质为数据链路层提供物理连接，实现比特流的透明传输。<br>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。使其上面的数据链路层不必考虑网络的具体传输介质是什么。“透明传送比特流”表示经实际电路传送后的比特流没有发生变化，对传送的比特流来说，这个电路好像是看不见的。</p>
+<p>应用数据（应用层，表示层，会话层）-报文</p>
+<p>传输层-段-端口号-服务进程到服务进程</p>
+<p>网络层-包-IP地址-端到端</p>
+<p>数据链路层-帧-MAC地址-跳到跳</p>
+<p>物理层-比特</p>
 <h3 id="传输层中，最常用的两个协议是TCP（Transmission-Control-Protocol）和UDP（User-Datagram-Protocol）"><a href="#传输层中，最常用的两个协议是TCP（Transmission-Control-Protocol）和UDP（User-Datagram-Protocol）" class="headerlink" title="传输层中，最常用的两个协议是TCP（Transmission Control Protocol）和UDP（User Datagram Protocol）"></a>传输层中，最常用的两个协议是TCP（Transmission Control Protocol）和UDP（User Datagram Protocol）</h3><p>TCP与UDP基本区别<br> 1.tcp基于连接的传输层协议与udp无连接<br> 2.TCP要求系统资源较多，UDP较少；<br> 3.UDP程序结构较简单<br> 4.tcp流模式:数据分解为多个小的数据报文进行发送,udp数据报模式,整个报文发送出去;<br> 5.TCP有三次握手,保证数据正确性，UDP可能丢包<br> 6.TCP保证数据顺序，UDP不保证 </p>
 <p> 7.tcp只支持点对点通讯，udp支持一对一、一对多、多对多通讯</p>
 <p> 8.tcp有拥塞机制,udp无</p>
