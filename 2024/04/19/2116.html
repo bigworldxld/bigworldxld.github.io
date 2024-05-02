@@ -123,7 +123,7 @@
           
           <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>每日SQL</span>
+          <span>SQL</span>
         </a>
       </li>
       
@@ -299,7 +299,7 @@
 				  
 				   <i class="fa fas fa-bookmark" style="position: absolute;left:28px" ></i>
 			      
-		          <span>每日SQL</span>
+		          <span>SQL</span>
                   </a>
                 </li>
               
@@ -622,14 +622,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    34 分
                 </div>
                 
 
@@ -680,6 +680,7 @@ playwright install webkit  # 安装webkit
 <p>Playwright 录制脚本</p>
 <pre class=" language-shell"><code class="language-shell">python -m playwright codegen
 </code></pre>
+<p>winsdows下scripts的cmd中输入：playwright.exe codegen</p>
 <p>python -m playwright codegen –help</p>
 <p>-o:指定脚本录制输出位置；</p>
 <p>–target：指定脚本语言，告诉他用什么语言写，后面一大堆，还有个python-pytest!，默认用python</p>
@@ -1033,11 +1034,58 @@ page<span class="token punctuation">.</span>locator<span class="token punctuatio
 page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">":text('Playwright')"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>css选择器</p>
+<p>如果 <code>元素2</code> 是 <code>元素1</code> 的 直接子元素， CSS Selector 选择子元素的语法是这样的</p>
+<p>元素1 &gt; 元素2</p>
+<p>如果 元素2 是 元素1 的 后代元素， CSS Selector 选择后代元素的语法是这样的</p>
+<p>元素1   元素2</p>
+<p>css 选择器支持通过任何属性来选择元素，语法是用一个方括号 <code>[]</code></p>
+<p>比如要选择上面的a元素，就可以使用 <code>[href="http://www.miitbeian.gov.cn"]</code></p>
+<p>比如， 要选择a节点，里面的href属性包含了 miitbeian 字符串，就可以这样写</p>
+<p>a[href*=”miitbeian”]</p>
+<p>选择 属性值 以某个字符串 <code>开头</code> 的元素</p>
+<p>比如， 要选择a节点，里面的href属性以 http 开头 ，就可以这样写</p>
+<p>a[href^=”http”]</p>
+<p> 选择 属性值 以某个字符串 <code>结尾</code> 的元素</p>
+<p>比如， 要选择a节点，里面的href属性以 gov.cn 结尾 ，就可以这样写</p>
+<p>a[href$=”gov.cn”]</p>
+<p>如果一个元素具有多个属性</p>
+<div class="misc" ctype="gun">沙漠之鹰</div>
+
+<p>CSS 选择器 可以指定 选择的元素要 同时具有多个属性的限制，像这样 <code>div[class=misc][ctype=gun]</code></p>
+<p>选择所有 <code>id 为 t1 里面的 span</code> 和 <code>所有的 p 元素</code></p>
+<p>不能这样写：#t1 &gt; span,p</p>
+<p>只能这样写</p>
+<pre class=" language-css"><code class="language-css">#t<span class="token number">1</span> > span , #t<span class="token number">1</span> > p
+</code></pre>
+<p>选择的是 第2个子元素，并且是span类型</p>
+<p>所以这样可以这样写 <code>span:nth-child(2)</code></p>
+<p>就是选择第倒数第1个子元素，并且是p元素</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">p</span><span class="token punctuation">:</span><span class="token function">nth-last-child</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<p>选择的是 <code>第1个span类型</code> 的子元素</p>
+<p>所以也可以这样写 <code>span:nth-of-type(1)</code></p>
+<p>如果要选择的是父元素的 <code>偶数节点</code>，使用 <code>nth-child(even)</code></p>
+<p>比如</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">p</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>even<span class="token punctuation">)</span>
+</code></pre>
+<p>如果要选择的是父元素的 <code>奇数节点</code>，使用 <code>nth-child(odd)</code></p>
+<pre class=" language-css"><code class="language-css"><span class="token property">p</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>odd<span class="token punctuation">)</span>
+</code></pre>
+<p> h3 <code>后面紧跟着的兄弟节点</code> span。</p>
+<p>这就是一种 相邻兄弟 关系，可以这样写 <code>h3 + span</code></p>
+<p>如果要选择是 选择 h3 <code>后面所有的兄弟节点</code> span，可以这样写 <code>h3 ~ span</code></p>
 <pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 根据标签</span>
 page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#nav-bar .contact-us-item'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span> # 通过id <span class="token operator">+</span><span class="token keyword">class</span>
 page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'[data-test=login-button]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 属性定位</span>
 page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"[aria-label='Sign in']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#css定位前面可以加个css=，但是不加也可以程序也会自动匹配</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"chinese student"</span><span class="token operator">></span>张三<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'.chinese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#或者</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'.student'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#如果要表示同时具有两个class 属性，可以这样写</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'.chinese.student'</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Xpath 定位</p>
 <pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"xpath=//button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1057,16 +1105,101 @@ page<span class="token punctuation">.</span>locator<span class="token punctuatio
 <pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token string">'//div[@class="SignFlowInput"] >> //input[@name="password"]'</span><span class="token punctuation">,</span><span class="token string">"ma160065"</span><span class="token punctuation">)</span>
 </code></pre>
 <p>nth选择</p>
-<pre><code># Click first button
-page.locator("button &gt;&gt; nth=0").click()
-# Click last button
-page.locator("button &gt;&gt; nth=-1").click()
+<p><code>nth</code> 方法，获取指定次序的元素，参数0表达第一个， 1 表示第2个</p>
+<pre class=" language-python"><code class="language-python">lct <span class="token operator">=</span> page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'.plant'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>lct<span class="token punctuation">.</span>nth<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>inner_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Click first button</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"button >> nth=0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Click last button</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"button >> nth=-1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>playwright推荐的内置定位</p>
 <p>page.get_by_text()通过文本内容定位。</p>
 <p>page.get_by_label()通过关联标签的文本定位表单控件。page.get_by_placeholder()按占位符定位输入。</p>
 <p>page.get_by_title()通过标题属性定位元素。</p>
 <p>page.get_by_role()通过显式和隐式可访问性属性进行定位。page.get_by_alt_text()通过替代文本定位元素，通常是图像。page.get_by_test_id()根据data-testid属性定位元素(可以配置其他属性)</p>
+<h3 id="ARIA"><a href="#ARIA" class="headerlink" title="ARIA "></a><code>ARIA </code></h3><p><code>（Accessible Rich Internet Applications）</code>。</p>
+<p>ARIA 根据web界面元素的用途，为这些元素定义了一套 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">角色（ Role ）</a> 信息，添加到页面中</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>progress</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>75<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>75 %<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>progress</span><span class="token punctuation">></span></span>
+就等于隐含了如下信息
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>progress</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>75<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span>
+  <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>progressbar<span class="token punctuation">"</span></span>
+  <span class="token attr-name">aria-valuenow</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>75<span class="token punctuation">"</span></span>
+  <span class="token attr-name">aria-valuemax</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>75 %<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 根据 role 定位</span>
+lc <span class="token operator">=</span> page<span class="token punctuation">.</span>get_by_role<span class="token punctuation">(</span><span class="token string">'progressbar'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 打印元素属性 value 的值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>lc<span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>白月黑羽标题1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>白月黑羽标题2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>h1</code> 隐含了 <code>role="heading" aria-level="1"</code> 属性</p>
+<p><code>h2</code> 隐含了 <code>role="heading" aria-level="2"</code> 属性</p>
+<p>h2 元素，隐含了 <code>role="heading" aria-level="2"</code>， 所以可以用下面代码定位</p>
+<pre class=" language-python"><code class="language-python">lc <span class="token operator">=</span> page<span class="token punctuation">.</span>get_by_role<span class="token punctuation">(</span><span class="token string">'heading'</span><span class="token punctuation">,</span>level<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>lc<span class="token punctuation">.</span>inner_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>html 元素标准属性 <code>name</code> 是浏览器内部的，用户看不到，比如</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>link2byhy<span class="token punctuation">'</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.byhy.net<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>教程<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>Accessible Name</code> 不一样，它是元素界面可见的文本名，</p>
+<p>比如上面的元素，暗含的 <code>Accessible Name</code> 值就是 <code>教程</code> ， 当然也暗含了 <code>ARIA role</code> 值为 <code>link</code></p>
+<p>所以，可以这样定位</p>
+<pre class=" language-python"><code class="language-python">lc <span class="token operator">=</span> page<span class="token punctuation">.</span>get_by_role<span class="token punctuation">(</span><span class="token string">'link'</span><span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">'教程'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>lc<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Accessible Name 和 参数name 的内容完全一致，可以指定 <code>exact=True</code></p>
+<p>name值还可以通过<a target="_blank" rel="noopener" href="https://www.byhy.net/py/lang/extra/regex/">正则表达式</a>，进行较复杂的匹配规则，比如</p>
+<pre class=" language-python"><code class="language-python">lc <span class="token operator">=</span> page<span class="token punctuation">.</span>get_by_role<span class="token punctuation">(</span><span class="token string">'link'</span><span class="token punctuation">,</span>name<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"^教"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>常见的</strong>：</p>
+<p><a>  <button>&nbsp;Accessible Name 值 就是其内部的文本内容。</button></a></p>
+<p><code>&lt;textarea&gt; &lt;input&gt;</code> 这些输入框，它们的 Accessible Name 值 是和他们关联的 的文本</p>
+<p>一些元素 比如 <code>&lt;img&gt;</code> ，它的 Accessible Name 是其html 属性 <code>alt</code> 的值</p>
+<p>比如</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/2024/04/19/2116.htmlundefined<span class="token punctuation">"</span></span>  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>banana<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+</code></pre>
+<p>它的 Accessible Name 值为 <code>banana</code> ，role 为 <code>img</code></p>
+<h3 id="视觉定位"><a href="#视觉定位" class="headerlink" title="视觉定位"></a>视觉定位</h3><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>就可以这样定位</p>
+<pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>get_by_placeholder<span class="token punctuation">(</span><span class="token string">'captcha'</span><span class="token punctuation">,</span>exact<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token string">'白月黑羽'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>参数 <code>exact</code> 值为 <code>True</code> ，表示完全匹配，且区分大小写。如果值为False，就只需包含参数字符串即可，且不区分大小写</p>
+<pre class=" language-html"><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Password:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>就可以这样定位</p>
+<pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>get_by_label<span class="token punctuation">(</span><span class="token string">"Username"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token string">"john"</span><span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>get_by_label<span class="token punctuation">(</span><span class="token string">"Password"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token string">"secret"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/2024/04/19/2116.html<span class="token punctuation">"</span></span>  
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>qt-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>就可以这样定位</p>
+<pre class=" language-python"><code class="language-python">href <span class="token operator">=</span> page<span class="token punctuation">.</span>get_by_alt_text<span class="token punctuation">(</span><span class="token string">"qt-button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-html"><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.byhy.net<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>byhy首页<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>教程<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>就可以这样定位</p>
+<pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>get_by_title<span class="token punctuation">(</span><span class="token string">"byhy首页"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Playwright不需要我们额外设置，本来元素操作时，如果根据定位规则找不到元素，就会等待最多 30秒</p>
+<p>想修改 <code>缺省</code> 等待时间， 可以使用 <code>BrowserContext</code> 对象， 如下</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright
+p <span class="token operator">=</span> sync_playwright<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+browser <span class="token operator">=</span> p<span class="token punctuation">.</span>chromium<span class="token punctuation">.</span>launch<span class="token punctuation">(</span>headless<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> slow_mo<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+context <span class="token operator">=</span> browser<span class="token punctuation">.</span>new_context<span class="token punctuation">(</span><span class="token punctuation">)</span>
+context<span class="token punctuation">.</span>set_default_timeout<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#修改缺省等待时间为10毫秒</span>
+page <span class="token operator">=</span> context<span class="token punctuation">.</span>new_page<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 通过context 创建Page对象</span>
+page<span class="token punctuation">.</span>goto<span class="token punctuation">(</span><span class="token string">"https://www.byhy.net/_files/stock1.html"</span><span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#kw'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token string">'通讯\n'</span><span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#go'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <p><strong>Handles（句柄）</strong></p>
 <p>Playwright 可以为页面 DOM 元素或页面内的任何其他对象创建句柄。 </p>
 <p>JSHandle：该浏览页中，任意的javascript对象的引用。<br>ElementHandle: 该浏览页中，任意DOM元素的引用。<br>实际上所有的DOM元素也是javascript对象，所有ElementHandle也是JSHandle</p>
@@ -1080,6 +1213,124 @@ bounding_box <span class="token operator">=</span> element_handle<span class="to
 </code></pre>
 <p>locator和elementHandle的区别</p>
 <p>locator保存的是元素捕获的逻辑。<br>elementHandle指向特定的元素。<br>如果一个elementHandle所指向的元素的文本或者属性发生改变，那么elementHandle仍然指向原来那个没有改变的元素，而locator每一个都会根据捕获的逻辑去获取最新的那个元素，也就是改变后的元素</p>
+<h3 id="界面操作"><a href="#界面操作" class="headerlink" title="界面操作"></a>界面操作</h3><p>获取元素内部的整个html文本， 可以使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-inner-html">inner_html</a> 方法</p>
+<p>如果要 <code>双击</code> ，可以使用 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-dblclick">dblclick</a> 方法</p>
+<p>让光标悬停在某个元素上方，可以使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-hover">hover</a> 方法</p>
+<p>需要根据当前界面中，<code>是否存在某些内容</code> ，来决定下一步操作。</p>
+<p>使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-is-visible">is_visible</a> 方法</p>
+<pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">"#source"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>is_visible<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>该方法不会等待元素出现，而是立即返回 True 或 False </p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">multiple</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multiple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>要设置选中的文件，可以使用 Locator 对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-set-input-files">set_input_files</a> 方法</p>
+<p>如果要获取输入框 <code>&lt;input&gt;</code> ， <code>&lt;textarea&gt;</code> 对应的用户输入文本内容，不能用 <code>inner_text()</code> 方法。而是应该用 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-input-value">input_value</a> 方法</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 先定位</span>
+lc <span class="token operator">=</span> page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'input[type=file]'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 单选一个文件</span>
+lc<span class="token punctuation">.</span>set_input_files<span class="token punctuation">(</span><span class="token string">'d:/1.png'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 或者 多选 文件</span>
+lc<span class="token punctuation">.</span>set_input_files<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'d:/1.png'</span><span class="token punctuation">,</span> <span class="token string">'d:/2.jpg'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>常见的选择框包括： radio框、checkbox框、select框</p>
+<p> radio框、checkbox框</p>
+<p> 可以使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-check">check</a> 方法</p>
+<p> 可以使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-uncheck">uncheck</a> 方法</p>
+<p>可以使用 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-is-checked">is_checked</a> 方法</p>
+<p>可以使用 <code>select</code> 元素对应的 Locator对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-select-option">select_option</a> 方法</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 根据 索引 选择， 从0 开始， 但是为0的时候，好像有bug</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_single'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_option<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 根据 value属性 选择</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_single'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_option<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">'老师'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 根据 选项文本 选择</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_single'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_option<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'老师'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 清空所有选择</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_single'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_option<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>通过css selector 表达式 <code>:checked</code> 伪选择 获取所有选中的 select选项</p>
+<p>比如：</p>
+<pre class=" language-python"><code class="language-python">page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_multi'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_option<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'小江老师'</span><span class="token punctuation">,</span><span class="token string">'小雷老师'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+lcs <span class="token operator">=</span> page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#ss_multi option:checked'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>all_inner_texts<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>lcs<span class="token punctuation">)</span>
+</code></pre>
+<p>要 <code>打开网址/刷新/前进/后退</code> ， 可以分别调用 Page 对象的 <code>goto/reload/go_back/go_forward</code> 方法</p>
+<p><code>BrowserContext</code> 对象有个 <code>pages</code> 属性，这是一个列表，里面依次为所有窗口对应Page对象</p>
+<p>如果当前界面有很多窗口，要把某个窗口作为当前活动窗口显示出来，可以调用该窗口对应的Page对象的 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-page#page-bring-to-front">bring_to_front</a> 方法</p>
+<p><strong>冻结窗口</strong></p>
+<p>在 开发者工具栏 console 里面执行如下js代码</p>
+<pre class=" language-bash"><code class="language-bash">setTimeout<span class="token punctuation">(</span>function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>debugger<span class="token punctuation">}</span>, 5000<span class="token punctuation">)</span>
+</code></pre>
+<p>对下面这段 html</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>t1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>t1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>t2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>t2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>要选中 <code>span#t1</code> 文本内容，并且拖拽到 输入框 <code>[placeholder="captcha"]</code> 里面去，可以使用如下代码：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 选中  `span#t1`  文本内容</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#t1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 拖拽到 输入框  `[placeholder="captcha"]` 里面去</span>
+page<span class="token punctuation">.</span>drag_and_drop<span class="token punctuation">(</span><span class="token string">'#t1'</span><span class="token punctuation">,</span> <span class="token string">'[placeholder="captcha"]'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>如果被拖动元素的Locator对象已经产生，可以直接调用其 <a target="_blank" rel="noopener" href="https://playwright.dev/python/docs/api/class-locator#locator-drag-to">drag_to</a> 方法 进行拖动</p>
+<p>上例中，代码也可以这样写</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 选中  `span#t1`  文本内容</span>
+lc <span class="token operator">=</span> page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#t1'</span><span class="token punctuation">)</span>
+lc<span class="token punctuation">.</span>select_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 拖拽到 输入框  `[placeholder="captcha"]` 里面去</span>
+lc<span class="token punctuation">.</span>drag_to<span class="token punctuation">(</span>page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'[placeholder="captcha"]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>注意， drag_to 的参数是 目标元素的 Locator 对象 ， 而不是 selector 表达式字符串</p>
+<p>弹出的对话框有三种类型，分别是 <code>alert（警告信息）</code> 、 <code>confirm（确认信息）</code> 和 <code>prompt（提示输入）</code></p>
+<p><code>accept</code> 方法作用等同于点击确定按钮</p>
+<p><code>dismiss</code> 方法作用等同于点击取消按钮</p>
+<p><code>message</code> 属性就是对话框界面的提示信息字符串</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright
+pw <span class="token operator">=</span> sync_playwright<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+browser <span class="token operator">=</span> pw<span class="token punctuation">.</span>chromium<span class="token punctuation">.</span>launch<span class="token punctuation">(</span>headless<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+page <span class="token operator">=</span> browser<span class="token punctuation">.</span>new_page<span class="token punctuation">(</span><span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>goto<span class="token punctuation">(</span><span class="token string">"https://cdn2.byhy.net/files/selenium/test4.html"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 处理 弹出对话框 的 回调函数</span>
+<span class="token keyword">def</span> <span class="token function">handleDlg</span><span class="token punctuation">(</span>dialog<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 等待1秒</span>
+    page<span class="token punctuation">.</span>wait_for_timeout<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 点击确定</span>
+    dialog<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 打印 弹出框 提示信息</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dialog<span class="token punctuation">.</span>message<span class="token punctuation">)</span> 
+<span class="token comment" spellcheck="true"># 设置弹出对话框事件回调函数</span>
+page<span class="token punctuation">.</span>on<span class="token punctuation">(</span><span class="token string">"dialog"</span><span class="token punctuation">,</span> handleDlg <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击 alert 按钮</span>
+page<span class="token punctuation">.</span>locator<span class="token punctuation">(</span><span class="token string">'#b1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="跟踪（tracing）"><a href="#跟踪（tracing）" class="headerlink" title="跟踪（tracing）"></a>跟踪（tracing）</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright
+
+p <span class="token operator">=</span> sync_playwright<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+browser <span class="token operator">=</span> p<span class="token punctuation">.</span>chromium<span class="token punctuation">.</span>launch<span class="token punctuation">(</span>headless<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 创建 BrowserContext对象</span>
+context <span class="token operator">=</span> browser<span class="token punctuation">.</span>new_context<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 启动跟踪功能</span>
+context<span class="token punctuation">.</span>tracing<span class="token punctuation">.</span>start<span class="token punctuation">(</span>snapshots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> sources<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> screenshots<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+page <span class="token operator">=</span> context<span class="token punctuation">.</span>new_page<span class="token punctuation">(</span><span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>goto<span class="token punctuation">(</span><span class="token string">"https://www.byhy.net/_files/stock1.html"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 结束跟踪</span>
+context<span class="token punctuation">.</span>tracing<span class="token punctuation">.</span>stop<span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"trace.zip"</span><span class="token punctuation">)</span>
+browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>stop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>当前工作目录下面多了 trace.zip 这个跟踪数据文件。</p>
+<p>怎么查看这个跟踪文件呢？有2种方法：</p>
+<ul>
+<li>直接访问 <a target="_blank" rel="noopener" href="https://trace.playwright.dev/">trace.playwright.dev</a> 这个网站，上传 跟踪文件</li>
+<li>执行命令 <code>playwright show-trace trace.zip</code></li>
+</ul>
 <h3 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a><strong>事件监听</strong></h3><p>Page 对象提供了一个 on 方法，它可以用来监听页面中发生的各个事件，比如 close、console、load、request、response 等等</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright
 <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>playwright<span class="token punctuation">)</span><span class="token punctuation">:</span>
