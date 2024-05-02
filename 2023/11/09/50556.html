@@ -624,14 +624,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.7k
+                    18k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    64 分
+                    65 分
                 </div>
                 
 
@@ -1469,6 +1469,17 @@ jessionsid = (.+?)
 <p>urlencode: %3D-&gt;=</p>
 <p>%3A-&gt;:</p>
 <p>%2F-&gt;/</p>
+<h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>TPS 是由 RPS 、网络延迟 、服务端本身的处理速度 这3个因素决定的</p>
+<p>EPS (error per second) 是 服务端 每秒处理出错的数量，也包含在TPS中</p>
+<p>TOPS (timeout per second) 是 服务端 每秒处理超时的数量</p>
+<p>超时时间具体是多少，应该由产品需求定义</p>
+<p>总RPS = 客户端1 RPS * 客户端1数量 + 客户端2 RPS * 客户端2数量 + …</p>
+<p>并发连接数 是 服务端 和客户端 建立的 <code>TCP连接的数量</code></p>
+<p>并发用户数 是 服务端 同时服务的 <code>用户的数量</code> 。</p>
+<p>用户的一个操作可能引发多个并发连接</p>
+<p>Linux下 可以通过 如下命令 查看并发连接的数量</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">netstat</span> -an <span class="token operator">|</span> <span class="token function">grep</span> ESTABLISHED <span class="token operator">|</span> <span class="token function">grep</span> -w 80 <span class="token operator">|</span> <span class="token function">wc</span> -l
+</code></pre>
 <h3 id="处理cookie的几种方式"><a href="#处理cookie的几种方式" class="headerlink" title="处理cookie的几种方式"></a>处理cookie的几种方式</h3><p>1.直接在请求中传递cookies参数<br>import requests</p>
 <p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
 <p>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = requests.request(‘POST’,url=url,data=data) #登录<br>cookies = res.cookies #获取登录cookies<br>data1 = {‘msg_type’:0,’msg_title’:’aaaaaaa’,’msg_content’:’1111111111’,’act’:’act_add_message’}<br>r = requests.request(‘POST’,url=url,data=data1,cookies=cookies) #发表留言,直接将获取的登录cookies添加到请求中<br>结果：发表留言成功</p>
@@ -1486,6 +1497,9 @@ jessionsid = (.+?)
 <p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
 <p>s = requests.session() #创建会话s<br>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = s.request(‘POST’,url=url,data=data) #通过会话发送登录请求</p>
 <p>data1 = {‘msg_type’:0,’msg_title’:’dddddd’,’msg_content’:’44444’,’act’:’act_add_message’}<br>r = s.request(‘POST’,url=url,data=data1) #通过会话发送留言请求，不需要处理cookie，自动关联<br>结果：发表留言成功</p>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p>HTTP 有好几个版本，包括： <code>0.9</code> 、 <code>1.0</code> 、 <code>1.1</code> 、 <code>2</code> 、 <code>3</code> ，当前最广泛使用的是 <code>HTTP/1.1</code> 版本。</p>
+<p>HTTP 协议最大的特点是 通讯双方 分为 <code>客户端</code> 和 <code>服务端</code> 。</p>
+<p>HTTP3 以前版本 （除了HTTP3） , 都是 基于 TCP 协议的， 所以要进行通讯，客户端 必须先 和服务端 创建 TCP 连接。</p>
 
                 
             </div>
