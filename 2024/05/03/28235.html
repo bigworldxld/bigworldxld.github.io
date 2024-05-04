@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="App自动化测试, 读序">
-    <meta name="description" content="一、App环境搭建1、安装jdk，配置jdk环境变量2、Android SDK环境安装3、Appium server安装4、模拟器的安装(夜神模拟器)5、安装appium-python-client    Python第三方库
-主流App自">
+    <meta name="keywords" content="ios测试, 读序">
+    <meta name="description" content="ios测试自动化一.环境搭建应用场景想要进行ios自动化测试，必须进行环境的搭建需要的环境macOS 系统电脑10.13.6Xcode    10.1打开 app store 搜索 xcode 并下载
+待测试的ios项目。找开发人员appi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>App自动化测试 | 读序</title>
+    <title>ios测试 | 读序</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -476,12 +476,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/app.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/IOS%E6%B5%8B%E8%AF%95.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">App自动化测试</h1>
+                    <h1 class="description center-align post-title">ios测试</h1>
                 </div>
             </div>
         </div>
@@ -597,8 +597,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/app/">
-                                <span class="chip bg-color">app</span>
+                            <a href="/tags/xcode/">
+                                <span class="chip bg-color">xcode</span>
+                            </a>
+                        
+                            <a href="/tags/sream/">
+                                <span class="chip bg-color">sream</span>
+                            </a>
+                        
+                            <a href="/tags/ios/">
+                                <span class="chip bg-color">ios</span>
                             </a>
                         
                     </div>
@@ -613,7 +621,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-19
+                    2024-05-03
                 </div>
                 
 
@@ -622,14 +630,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    19 分
                 </div>
                 
 
@@ -652,178 +660,186 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、App环境搭建"><a href="#一、App环境搭建" class="headerlink" title="一、App环境搭建"></a>一、App环境搭建</h3><p>1、安装jdk，配置jdk环境变量<br>2、Android SDK环境安装<br>3、Appium server安装<br>4、模拟器的安装(夜神模拟器)<br>5、安装appium-python-client    Python第三方库</p>
-<p>主流App自动化方法:<br>SDK原生 : java + android<br>UIAutomator2:python+android<br>w.Appium:各种编程语言 + 各种平台* (android 、ios、 windows)</p>
-<h3 id="二、App自动化测试原理"><a href="#二、App自动化测试原理" class="headerlink" title="二、App自动化测试原理"></a>二、App自动化测试原理</h3><p>如何通过代码操作不同操作系统 (ios/Android)不同版本的手机终端?</p>
-<p>自动化脚本——》发送http指令——》AppiumServer——》转发指令——》Android SDK环增(软件工具包/区架)——》操作手机终端——》被测手机终端(模拟器/真机)</p>
-<p>Android SDK环境:不同系统不同版本差异比较大</p>
-<p>不同系统不同版本可能用到不同软件包/框架?</p>
-<p>所以需要自动化脚本需要指定操作终端的设置参数</p>
-<h3 id="三、Desired-Capabilities-Appium-自动化配置项"><a href="#三、Desired-Capabilities-Appium-自动化配置项" class="headerlink" title="三、Desired Capabilities-Appium 自动化配置项"></a>三、Desired Capabilities-Appium 自动化配置项</h3><p>设置参数:操作系统 platformName</p>
-<p>版本 platformVersion</p>
-<p>设备名称 deviceName</p>
-<p>包名 (应用程序) appPackage</p>
-<p>入口启动页面 appActivity</p>
-<p>不重置 noreset</p>
-<p><a target="_blank" rel="noopener" href="https://appium.io/docs/en/2.1/Desired">https://appium.io/docs/en/2.1/Desired</a> </p>
-<h3 id="四、常用ADB命令"><a href="#四、常用ADB命令" class="headerlink" title="四、常用ADB命令"></a>四、常用ADB命令</h3><p>1、连接模拟器</p>
-<p>adb connect 127.0.0.1:62001</p>
-<p>其他模拟器:雷神 5555    夜神 62001    mumu 7555 逍遥</p>
-<p>2、查看连接的设备</p>
-<p>adb devices</p>
-<p>如果出现如下提示：</p>
-<p>adb server version (31) doesn’t match this client (36); killing…<br>原因： adb版本不对 ,Androd SDK的版本和模拟器的adb版本不一致</p>
-<p>解决方案：将Android SDK的 adb替换掉模拟器的adb即可。模拟器adb路径 ：{安装Path}\Nox\bin</p>
-<p>3、查看被测app的包名及入口启动页面</p>
-<p>查看被测app所有信息</p>
-<p>aapt dump badging apk的路径</p>
-<p>查看指定字符串包名</p>
-<p>aapt dump badging apk的路径 | findstr 包名    </p>
-<p>查到信息中包含</p>
-<p>package:name=“包名    ”</p>
-<p>launchable-activity:name=“启动项包名”</p>
-<p>常见命令：<a target="_blank" rel="noopener" href="https://blog.csdn.net/thundersoft230/article/details/126158186">https://blog.csdn.net/thundersoft230/article/details/126158186</a></p>
-<p><strong>查看qq日志导出文件到主机下</strong></p>
-<p>adb logcat | findstr “qq” &gt;&gt; ./Desktop/qq.log</p>
-<p>adb shell dumpsys battery set status 2  充电模式</p>
-<p>adb shell dumpsys battery set level 50 电量</p>
-<p>adb shell pm list package -3    用于列出第三方应用</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> appium <span class="token keyword">import</span> webdriver
-<span class="token comment" spellcheck="true"># 1、设置终端参数项</span>
-desired_caps<span class="token operator">=</span><span class="token punctuation">{</span>
-<span class="token string">"platformName"</span><span class="token punctuation">:</span><span class="token string">"Android"</span><span class="token punctuation">,</span>
- <span class="token string">"platformVersion"</span><span class="token punctuation">:</span><span class="token string">"5.1.1"</span><span class="token punctuation">,</span>
- <span class="token string">"deviceName"</span><span class="token punctuation">:</span><span class="token string">"xiaomi"</span><span class="token punctuation">,</span>
- <span class="token string">"appPackage"</span><span class="token punctuation">:</span> <span class="token string">"com.tal.kaoyan"</span><span class="token punctuation">,</span>
- <span class="token string">"appActivity"</span><span class="token punctuation">:</span><span class="token string">"com.tal.kaoyan.ui.activity.SplashActivity"</span><span class="token punctuation">,</span>
- <span class="token string">"noReset"</span><span class="token punctuation">:</span><span class="token boolean">True</span>        <span class="token comment" spellcheck="true">#不记住用户信息（包括登录等）</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true"># 2、appium server进行启动</span>
-<span class="token comment" spellcheck="true">#还需要做哪些前期的准备工作</span>
-<span class="token comment" spellcheck="true">#1、appium server进行启动</span>
-<span class="token comment" spellcheck="true">#模拟器/真机必须能够被电脑识别 ----》如何操作? adb命今    adb devices</span>
-<span class="token comment" spellcheck="true">#3、发送指令给到appiumserver</span>
-driver<span class="token operator">=</span>webdriver<span class="token punctuation">.</span>Remote<span class="token punctuation">(</span><span class="token string">"http://127.0.0.1:4723/wd/hub"</span><span class="token punctuation">,</span>desired_caps<span class="token punctuation">)</span>
+                <h2 id="ios测试"><a href="#ios测试" class="headerlink" title="ios测试"></a>ios测试</h2><h3 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h3><h4 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一.环境搭建"></a>一.环境搭建</h4><p>应用场景<br>想要进行ios自动化测试，必须进行环境的搭建<br><strong>需要的环境</strong><br><strong>macOS</strong> 系统电脑<br>10.13.6<br><strong>Xcode</strong>    10.1<br>打开 app store 搜索 xcode 并下载</p>
+<p><strong>待测试的ios项目</strong><br>。找开发人员<br><strong>appium</strong> <strong>Desktop</strong><br>1.10<br><a target="_blank" rel="noopener" href="https://github.com/appium/appium-desktop/releases/download/v1.10.0/Appium-1.10.0.dmg">https://github.com/appium/appium-desktop/releases/download/v1.10.0/Appium-1.10.0.dmg</a></p>
+<p><strong>python</strong><br>3.6.1<br><a target="_blank" rel="noopener" href="https://wwwpython.org/ftp/python/3.6.1/python-3.6.1-macosx10.6.pkgpycharm">https://wwwpython.org/ftp/python/3.6.1/python-3.6.1-macosx10.6.pkgpycharm</a><br>Professional 2018.2.2<br>o<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download">https://www.jetbrains.com/pycharm/download</a><br><strong>node.js</strong><br> 10.5.0</p>
+<p> <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/v10.15.0/node-v10.15.0.pkg">https://npm.taobao.org/mirrors/node/v10.15.0/node-v10.15.0.pkg</a></p>
+<p><strong>cnpm</strong></p>
+<p> 5.2.0</p>
+<p>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao/">https://registry.npm.taobao</a> .org</p>
+<pre><code>npm instal1 -g cnpm --registry=https://registry.npm.taobao.org
 </code></pre>
-<p>页面管理(am activity manager)操作: </p>
-<p>手机应用中的每个页面就是一个activity启动应用，需要通过应用的启动activity来完成调用。</p>
-<p>adb shell am start -W -S[包名]/[启动activity名] 启动对应的应用</p>
-<p>adb完成自动化操作:</p>
-<p>1、先获取包名<br>adb shell pm list package -3</p>
-<p>2、根据包名获取应用的启动activity<br>adb shell monkey -p [被测包名]-v -v -v 1</p>
-<p>3、根据获取到的activity名字，启动应用<br>adb shell am start -W -S com.tencent.mobileqq/.activity.SplashActivity</p>
-<p>4、按顺序执行 input操作，完成对手机的控制。</p>
-<p>5、写成一个test.bat脚本执行就好</p>
-<pre class=" language-bash"><code class="language-bash">rem 启动应用
-adb shell am start -W -S com,tencent.mobileqg/.activity.SplashActivity
-rem 等待
-<span class="token function">ping</span> 127.0.0.1 -n 3
-rem 点击用户名框
-adb shell input tap 471 425
-rem 点击删除的x
-adb shell input tap 704 437
-<span class="token function">ping</span> 127.0.0.1 -n 1
-rem 输入用户名
-adb shell input text 2798145476
-<span class="token function">ping</span> 127.0.0.1 -n 1
-rem 输入密码
-adb shell input tap 446 572
-<span class="token function">ping</span> 127.0.0.1 -n 1
-adb shell input text roy123456
-rem 点击登录按钮
-<span class="token function">ping</span> 127.0.0.1 -n 1
-adb shell input tap 446 812
+<p><strong>ios</strong>-<strong>deploy</strong> 依赖库<br>cnpm install -g ios-deploy<br>brew<br> 1.9.1</p>
+<pre class=" language-bash"><code class="language-bash">ruby <span class="token operator">&lt;</span><span class="token punctuation">(</span>cur1 -fsskL raw.github.com/mxc1/homebrew/go<span class="token punctuation">)</span>
 </code></pre>
-<p>Appium日志的查看</p>
-<p>python自动化脚本如何操作手机终端过程:</p>
-<p>1、自动化脚本发送http请求，请求参数:终端设置参数<br>2、创建会话</p>
-<p>3、确认终端设备是否连接，并且确认安卓版本，确认设置参数是否与终端的设置是否一致</p>
-<p>4、appium会推送一个包“AppiumBootstrap.jar”到模拟器上 ,相当于api包:appium server指令进行接收，操控手机端</p>
-<p>5、相应http请求<br>6、下一个http请求，循环上述过程</p>
-<h3 id="五、Appium元素定位工具"><a href="#五、Appium元素定位工具" class="headerlink" title="五、Appium元素定位工具"></a>五、Appium元素定位工具</h3><p>1.1 <strong>UIAutomatorView</strong></p>
-<p>Android SDK自带的定位工具<br>位置: Android SDK/tools/uiautomatorviewer.bat</p>
-<p>元素常见几个属性<br>text    文本<br>resoure-id:<br>class: 元素标签<br>content-desc（或者为description）: 元素功能描述 语音播报</p>
-<p>注意：在截屏的时候，必须当前截屏的终端没有其他的进程在占用，包括appium server</p>
-<p>或者使用命令重启</p>
-<p>adb kill-server</p>
-<p>adb start-server</p>
-<p>1.2 <strong>Appium Desktop Inspector</strong></p>
-<p>appium server自带的定位工具，需要单独下载</p>
-<p>1.3 <strong>Weditor</strong><br>Uiautomator2    python第三方库 appUi自动化测试框架</p>
-<p>安装:<br>pip install Uiautomator2</p>
-<p>python -m uisutomator2 init</p>
-<p>pip install weditor </p>
-<p>确认安装：</p>
-<p>weditor –help</p>
-<p>启动</p>
-<p>weditor </p>
-<h3 id="六、Appium界面元素定位方法"><a href="#六、Appium界面元素定位方法" class="headerlink" title="六、Appium界面元素定位方法"></a>六、Appium界面元素定位方法</h3><p>(id/ClassName/accessibility/xpath)</p>
-<p>1、通过resourceid属性定位 find_element_by_id 返回是WebElement对象<br>2、通过文本定位 find_element_by_android_uiautomator(“new UiSelector().方法1.()方法2())    组合定位<br>通过调佣系统自带框架(Uiautomator1/Uiautomator2)实现元素定位，基于java代码编写UiSelector实现元素定位提供很多方法，通过多个属性实现元素定位</p>
-<p>3、通过这个content-desc/description属性实现元素定位find_element_by_accessibility_id(“content-desc/description属性值”)</p>
-<p>4、通过xpath定位 一般不建议采用这个方法来进行对应的定位</p>
-<p>元素定位:找出 能定位到元素的 表达式-&gt; 找出表达式<br>appium继承selenium的定位策略，外加自己定制的策略</p>
-<p>driver.find_element(By.ID，”XXXXXX”) # selenium的定位策略<br>driver.find_element(AppiumBy.ID，”XXXXXX”) # Appium的定位袋略</p>
-<p>1.通用定位策略<br>ACCESSIBILITY_ID # 无障碍访问ID</p>
-<pre><code>- Android :content-desc
-- IOS: accessibility-id
+<p><strong>libimobiledevice</strong> 依赖库<br>brew install –HEAD libimobiledevice</p>
+<p>可能出现的问题<br>报错: Requested busbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10<br>解决方法:</p>
+<pre class=" language-bash"><code class="language-bash">brew update
+brew uninstall --ignore-dependencies ibimobiledevicebrew uninstall --ignore-dependencies usbmuxd
+brew <span class="token function">install</span> --HEAD usbmuxd
+brew unlink usbmuxd
+brew <span class="token function">link</span> usbmuxd
+brew <span class="token function">install</span> --HEAD libimobiledevice
 </code></pre>
-<p>ID</p>
+<p><strong>carthage****依赖库</strong><br>brew install carthage<br><strong>ios 系统手机</strong><br> iOS 12.1.2<br><strong>Apple ID</strong><br><a target="_blank" rel="noopener" href="https://appleid.apple.com/account#!&amp;page=create">https://appleid.apple.com/account#!&amp;page=create</a><br><strong>WebDriverAgent</strong><br><a target="_blank" rel="noopener" href="https://github.com/facebook/WebDriverAgent">https://github.com/facebook/WebDriverAgent</a></p>
 <ul>
-<li>Android: resource-id</li>
-<li>IOS: name</li>
+<li>点击 download zip</li>
+<li>配置WebDriverAgent 的内容(真机)</li>
 </ul>
-<p>Class</p>
-<p>XPath    脆弱、性能</p>
-<p>CUSTON    使用自己窗户就的的定位策略</p>
-<p>IMAGE    定位图片的</p>
-<p>2.专用的定位策略</p>
-<p>为不同平台专用<br>ANDROID_UIAUTOMATOR    常用UIAUTOMATOR2<br>ANDROID_VIEWTAG<br>ANDROID DATA MATCHER</p>
-<h3 id="七、APP元素的操作"><a href="#七、APP元素的操作" class="headerlink" title="七、APP元素的操作"></a>七、APP元素的操作</h3><p>1、APP四大常用元素操作: 点击click()     send_keys()     get_attibute()     text()<br>2、滑屏、多点触控、长按 ….<br>3滑屏操作: 左滑 右滑</p>
-<p>get_window_size()    返回字典包含width,height</p>
-<p>swipe(self: T, start x: int, start y: int, end x: int, end y: int, duration: int = 0):</p>
-<p>参数说明:<br>start_x:开始位置的x坐标<br>start_y:开始位置的y坐标<br>endx:结束位置的坐标<br>end_y:结束位置的y坐标<br>duration: 延时多少毫秒<br>左滑:开始位置的x坐标&gt;结束位置的x坐标</p>
-<p>开始位置的y坐标= 结束位置的y坐标</p>
-<p>el.screenshot(“1.png”)    #元素截图<br>driver.get_screenshot_as_file(“a.png”)    #屏幕截图</p>
-<p>send_keys(Keys.RETURN)</p>
-<p><strong>定位一闪而过的元素</strong></p>
-<p>1.元素是 android.widget.Toast</p>
-<p>2.出现和消失时间不确定</p>
-<p>wait = WebDriverWait(driver，5) # 显示等待5秒<br>num=wait.until(lambda _:driver.find_element(AppiumBy.XPATH,’//android.widget.Toast’).text)</p>
-<p>print(“获取到的元素为：”,num)</p>
-<p><strong>POM及POM设计原理</strong><br>POM page object model 页面对象模型，主要应用于Ui自动化测试框架的搭建，主流设计模式之-页面对象模型:结合面向对象编程思路:把项目的每个页面当做一个对象来进行编程</p>
-<p>python基础:什么对象?Python怎么描述一个对象=属性+行为</p>
-<p>通过类定义=具有相同属性+相同行为对象集合</p>
-<p>POM一般分为四层: 项目=n个页面=base层+pageobject层 (页面1，页面2，页面3，….页面n)</p>
-<p>第一层：base层描述每个页面相同的属性及行为</p>
-<p>第二层：pageobject层    每个的独有特征及独有的行为<br>第三层：testcases层    用例层，描述项目业务流程<br>第四层：testdata    数据层</p>
-<p>pom模式设计意义: 层次更加清晰，方便管理以及提供代码的复用性及扩展性<br>核心技能: 搭建自动化框架(代码复用性、维护性、扩展性)</p>
-<h3 id="八、查看多开模拟器端口"><a href="#八、查看多开模拟器端口" class="headerlink" title="八、查看多开模拟器端口"></a>八、查看多开模拟器端口</h3><p>查看模拟器端口号</p>
-<p><strong>如果不知道模拟器的端口怎么办，例如多开模拟器，怎么查看模拟器端口号是多少？</strong><br>首先打开夜神模拟器安装位置的\bin\BignoxVMS目录，多开模拟器会在这个路径创建一个新的目录</p>
-<p>进入目录使用记事本打开以下文件，找到guestport=“5555”，而hostport=”62025”就是该模拟器的端口</p>
-<p><strong>使用adb连接多开夜神模拟器</strong></p>
-<pre class=" language-javascript"><code class="language-javascript">adb connect <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">62025</span>
+<p><strong>adb</strong></p>
+<p>adb 安装(brew cask install android-platform-tools)</p>
+<h4 id="二-使用模拟器进行自动化测试"><a href="#二-使用模拟器进行自动化测试" class="headerlink" title="二.使用模拟器进行自动化测试"></a>二.使用模拟器进行自动化测试</h4><p><strong>2.1</strong>运行iOS程序到模拟器<br>步骤<br>1.选择将要运行的 程序 和 模拟器设备<br>2.快捷键 command +r 运行<br><strong>2.2</strong>查看iOS元素特征</p>
+<p>type-&gt;find_element_by_class_name</p>
+<p>name-&gt;find_element_bu_text</p>
+<p>accessibility_by_id-&gt;find_element_by_id</p>
+<p>滑动：driver.swipe(100,2000,100,1000)</p>
+<p>driver.execute_script(“mobile: scroll”,{“direction”: “down”})    向下滑动2次</p>
+<p>driver.execute_script(“mobile: swipe”,{“direction”: “up”})    向下滑动1次</p>
+<p><strong>注意点</strong><br>1.官方已经明确表示 swipe 等 API 在模拟器7.x-8.x 中无法使用，真机并未提及,网上有人说真机并没有这个问题，但并没有表明版本。真机iOS 12.1.12 实测不行</p>
+<p>本人曾经使用过 Appium 1.8 +模拟器和真机的ioS11 是可以使用的。工作中，如果碰到这种情况，就用 execute_script 的方法实现即可<br>在模拟器中可以连接电脑的键盘进行输入，但是如果连接，appium 将无法工作，所以需要消选Connect Hardware Keyboard</p>
+<p>选中模拟器-&gt;左上角 Hardware - Keyboard-&gt;消选 Connect Hardware Keyboard</p>
+<p>步骤<br>1.打开appium<br>2启动appium<br>3.左上角菜单栏选择appium-new session window</p>
+<p><strong>2.3</strong>编写和运行自动化脚本<br><strong>前置代码</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> appium <span class="token keyword">import</span> webdriver
+desired_caps <span class="token operator">=</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+desired_caps<span class="token punctuation">[</span><span class="token string">'platformName'</span><span class="token punctuation">]</span><span class="token operator">=</span>ios
+desired_caps<span class="token punctuation">[</span><span class="token string">'platformversion'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">12.1</span>
+desired_caps<span class="token punctuation">[</span><span class="token string">'deviceName'</span><span class="token punctuation">]</span> <span class="token operator">=</span>iphone <span class="token number">8</span>
+desired_caps<span class="token punctuation">[</span><span class="token string">'app'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"com.itcast.HMiosTest"</span>
+driver <span class="token operator">=</span>webdriver<span class="token punctuation">.</span>Remote<span class="token punctuation">(</span><span class="token string">'http://localhost:4723/wd/hub'</span>，desired_caps<span class="token punctuation">)</span>
 </code></pre>
-<p>进入adb shell后有两种状态显示：#代表有root权限，$代表没有root权限</p>
-<blockquote>
-<pre class=" language-bash"><code class="language-bash">root@android:/ <span class="token comment" spellcheck="true">#</span>
-shell@mx4:/ $
+<p>app包名在项目根目录：HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的HMiOSTest-&gt;Bandle Identifier对应的值</p>
+<p><strong>需求</strong><br>1点击按进入列表<br>2.获取所有列表的文字内容并输入<br>3.动一次<br>4.点击20<br>5.清空文本框内容6.在文本框中输入“hello”7.单击返回按钮<br>核心代码</p>
+<pre class=" language-python"><code class="language-python">time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"进入列表"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+eles <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">"XCUIEementTypeStaticText"</span><span class="token punctuation">)</span><span class="token keyword">for</span> i <span class="token keyword">in</span> eles<span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 无法使用</span>
+<span class="token comment" spellcheck="true"># driver.swipe(100，2000，100，1000)</span>
+driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">"mobile: swipe"</span>，<span class="token punctuation">{</span><span class="token string">"direction"</span><span class="token punctuation">:</span> <span class="token string">"up"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"//*[@name='20]"</span><span class="token punctuation">)</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+text_view <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">"XCUIEementTypeTextField"</span><span class="token punctuation">)</span>text_view<span class="token punctuation">.</span>clear<span class="token punctuation">(</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+text_view<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"he11o!!!"</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"//XCUIElementTypeButton[@name='Back']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 </code></pre>
-</blockquote>
-<pre class=" language-bash"><code class="language-bash">adb <span class="token function">install</span> <span class="token operator">|</span> -r <span class="token operator">&lt;</span>apkName<span class="token operator">></span>  -r 覆盖原安装文件 -s 可以指定设备
-adb uninstall  <span class="token operator">|</span> -k  <span class="token operator">&lt;</span>apkName<span class="token operator">></span>  卸载软件 -k 加 -k 参数,为卸载软件但是保留配置和缓存文件
-</code></pre>
-<p><strong>文件读取写入</strong></p>
-<p>将文件从PC写入到设备</p>
-<p>adb push &lt;本地路径&gt; &lt;设备路径&gt;</p>
-<p>将文件从设备读取到PC</p>
-<p>adb pull <remote>  <local></local></remote></p>
-<p>注意：由于权限问题，不能直接pull到电脑磁盘根目录，否则会报错</p>
-<p>屏幕截图</p>
-<p>adb shell screencap /sdcard/screen.png<br>adb pull /sdcard/screen.png  C:\Users\Shuqing\Desktop</p>
-<p>Tips：如果5037端口被占用可以使用如下命令释放端口</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">netstat</span> -ano <span class="token operator">|</span> findstr <span class="token string">"5037"</span>
-taskkill -f -pid XXX
-</code></pre>
+<h4 id="三-使用真机进行自动化测试"><a href="#三-使用真机进行自动化测试" class="headerlink" title="三.使用真机进行自动化测试"></a>三.使用真机进行自动化测试</h4><p><strong>3.1</strong>运行ios程序到真机<br>步骤<br>1.在Xcode 中登录自己的Apple ID</p>
+<p>Xcode-&gt;Preferences-&gt;Accounts-&gt;点击+号，输入自己apple id,确认</p>
+<p>2.配开发者信息</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的HMiOSTest-&gt;Signing下的team选择自己账号，等待signing certificate加载完成</p>
+<p>3.选择将要运行的 程序和设备</p>
+<p>xcode-&gt;顶栏的项目名-&gt;Device下的真机</p>
+<p>4.快捷键command+r 运行</p>
+<p>5.弹出不信任窗口：在手机中进入:设置-&gt;通用-&gt;描述文件和设备管理-&gt;开发者应用-&gt;信任自己Apple ID程序，最后弹窗点ok<br>6.重新command +r 运行<br><strong>3.2</strong>配置WebDriverAgent<br>步骤<br>1.进入到下载的 WebDriverAgent 项目下</p>
+<p>2.输入命令./scripts/bootstrap.sh</p>
+<p>3.进入WebDriverAgent-master下的启动 WebDriverAgentxcodeproj<br>4.配置WebDriverAgentLib 的开发者信息</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的WebDriverAgentLib-&gt;Signing下的team选择自己账号</p>
+<p>5.配置WebDriverAgentRunner 的开发者信息</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的WebDriverAgentRunner-&gt;Signing下的team选择自己账号</p>
+<p>6.配置IntegrationApp 的开发者信息</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的IntegrationApp -&gt;Signing下的team选择自己账号</p>
+<p>7.修改 WebDriverAgentRunner 的 Product Bundle ldentifier</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的WebDriverAgentRunner-&gt;Build Settings-&gt;搜索id,找Product Bundle ldentifier改值（<strong>改为一个唯一的值</strong>）为：com.idcast.WebDriverAgentRunner</p>
+<p>8.修改 IntegrationApp 的 Product Bundle ldentifier</p>
+<p>HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的IntegrationApp -&gt;Build Settings-&gt;搜索id,找Product Bundle ldentifier改值为：com.idcast.WebDriverAgentRunner</p>
+<p>9.数据线连接真机<br>10.选择将要运行的 WebDriverAgentRunner 和真机设备</p>
+<p>Xcode-&gt;顶栏的WebDriverAgentRunner-&gt;Device下的真机</p>
+<p>11.使用command +u 运行</p>
+<p>运行前，清理缓存，在product下的clean build folder</p>
+<p>稍等之后会在log中出来一个 url 地址</p>
+<p><strong>设置代理</strong></p>
+<p>在命令行终端通过Homebrew安装iproxy</p>
+<p>brew install libimobileddevice</p>
+<p>iproxy  &lt;ios真机端口&gt; &lt;mac本地端口&gt;</p>
+<p>iproxy 8100 8100</p>
+<p>在浏览器中打开这个地址（192.168.31.189:8100/status或192.168.31.189:8100/inspector），如果<strong>显示一串json 数据</strong>即为正确连接手机并且，真机会多一个程序</p>
+<p>12.将配置好的 WebDriverAgent 项目替换到 appium 的 WebDriverAgent 项目</p>
+<ul>
+<li>打开finder</li>
+<li>快捷键 command +shift +g</li>
+<li>输入路径/Applications/Appium.app/Contents/Resources/app/node_modules/appium-xcuitest-driver</li>
+<li>回车</li>
+<li>将旧项目换个名字(WebDriverAgent-back)，当做备份</li>
+<li>将配置好的项目(WebDriverAgent-master改名为WebDriverAgent)放在这个目录下</li>
+</ul>
+<p><strong>3.3</strong>运行自动化脚本<br>步骤<br>1.修改对应的 platformVersion、deviceName<br>2.查看udid并增加为启动参数</p>
+<p>Xcode-&gt;Windows-&gt;Devices and Simulators-&gt;找到Identifier对应的值</p>
+<p>3.运行即可</p>
+<h3 id="ios抓包Sream"><a href="#ios抓包Sream" class="headerlink" title="ios抓包Sream"></a>ios抓包Sream</h3><p>直接在app store下载</p>
+<p><strong>抓包请求</strong><br>在主界面点击开始抓包按钮，界面顶部显示VPN 标志表示开始抓包，然后启动需要抓包的应用进行操作即可。操作完成之后回到 stream 然后点击停止抓包即可。</p>
+<p>根据抓包时间点击抓包记录，即可进入抓包操作的全部请求。全部请求中可以选择按域名或者按进程来分类。</p>
+<p><strong>构建请求</strong><br>Stream 除了可以自动抓包之外，还可以进行手动构建请求，类似 Postman 工具的作用。在主界面点击构建请求即可进入到构建请求界面。</p>
+<p><strong>HTTPS 抓包</strong><br>如果想要使用 stream对 HTTPS 进行抓包，需要安装 CA证书。点击安装 CA证书，然后直接安装证书。</p>
+<p>安装好证书之后，在设置-通用-关于本机-证书信任设置，信任证书即可</p>
+<p><strong>Hosts 设置</strong><br>如果想对 Host 设置可以点击主界面 Hosts设置菜单,然后点击添加绑定对应的域名和 IP地址。</p>
+<p><strong>收藏请求</strong><br>如果想收藏某个单个请求，可以在请求详情界面点击收藏按钮</p>
+<p><strong>抓包模式</strong><br>点击界面中的设置抓包模式，则进入到设置界面</p>
+<p><strong>黑名单</strong></p>
+<p>若设置了具体的黑名单，抓取的请求则是除了具体黑名单外的接口数据。例如上图中我们设置黑名单域名为*.baidu.com表示会忽略百度相关的网络请求。<em>表示通配符，点击立即生效会开始生效规则。<br><strong>白名单</strong><br>白名单表示只抓取设置的域名请求，我们设置的域名是</em>.sougou.com表示抓取搜狗相关的网络请求</p>
+<p><strong>常用工具</strong><br>常用工具里面包含一些网络调试用的小工具，主要如下<br>URL 编码解码<br>Base64 加密解密<br>MD5<br>时间戳转化<br>RSA 加密解密</p>
+<h3 id="Sandbox-数据存储安全"><a href="#Sandbox-数据存储安全" class="headerlink" title="Sandbox 数据存储安全"></a>Sandbox 数据存储安全</h3><p><a target="_blank" rel="noopener" href="https://developer.apple.com/app-sandboxing/">https://developer.apple.com/app-sandboxing/</a> </p>
+<p>沙盒也叫沙箱,其原理是通过重定向技术，把程序生成和修改的文件定向到自身文件夹中。在沙盒机制下，每个程序之间的文件夹不能互相访问。<br>当应用程序需要向外部请求或接收数据时，都需要经过权限认证，否则，无法获取到数据。应用程序中所有的非代码文件都保存在沙盒中,比如图片、音频、属性列表(Plist),sqlite数据库和文本文件等</p>
+<p><strong>Sandbox 文件存储结构</strong><br>因为应用的沙盒机制，应用只能在指定的几个目录下读写文件。默认情况下，每个沙盒含有<br>3个文件夹:Documents,Library 和 tmp</p>
+<p>AppName.app:存储 App 执行文件和静态资源文件，该目录包含了应用程序本身的数据包括资源文件和可执行文件等。程序启动以后，会根据需要从该目录中动态<br>加载代码或资源到内存。</p>
+<p>Documents:App 的配置文件等，我们可以将应用程序的数据文件保存在该目录下。不过这些数据类型仅限于不可再生的数据，可再生的数据文件应该存放在 Library/cache 目录下</p>
+<p>Library:用来存放默认设置或其它状态信息</p>
+<p>Library/Preference:此目录保存应用程序的所有偏好设置,如.plist 文件，iTunes 同步设备时会备份该目录</p>
+<p>Library/Cache:缓存数据(cache file and cookie file),该文件夹内的内容不会被同步</p>
+<p>tmp：临时文件</p>
+<p><strong>获取沙盒文件</strong><br>需要将测试设备绑定开发者证书才可以查看。<br>xcode<br>1.打开导航栏中window-&gt;device and simulators</p>
+<p>2.显示设备下可以查看的 APP</p>
+<p>3.选中目标 APP, 点击齿轮图标，然后点击 Download container…保存到指定目录</p>
+<p>4.选择下载的文件点击右键弹出菜单,然后选择显示包内容</p>
+<p>5.打开之后就可以查看到沙盒文件</p>
+<p><strong>Sandbox验证点</strong><br>Sandbox 中存储的文件，主要有Plist files,sqlite、cookie 三种类型，这三种类型的文件<br>安全验证点分别如下<br>1.Plist fles(查看具:Xcode(Mac),plistEditor(windows)，)</p>
+<p>文件中是否存储敏感信息，敏感信息是否加密<br>文件是否会被备份，备份泄露是否有风险<br>文件能否被用于跨客户端的逻辑校验(如某个存储文件的内容是客户端用于判断用户是否登陆，测试将该文件导出，拷贝至其他设备，查看能否越过登陆校验)</p>
+<p>2.sqlite(查看工具:sqlite manager<br>文件中是否存储敏感信息，敏感信息是否加密<br>文件是否会被备份，备份是否有泄露风险<br>3.Cookie<br>查看 cookie 有效期(有效期不能短于登录 cookie 的有效期 )</p>
+<p>敏感信息重点关注“登陆信息、用户身份信息、服务器 sq注入链接、管理员登陆账号密码”一类信息。</p>
+<h3 id="Keychain-简介"><a href="#Keychain-简介" class="headerlink" title="Keychain 简介"></a>Keychain 简介</h3><p>ios 设备中的 Keychain 是一个安全的存储容器,可以用来为不同应用保存敏感信息比如用户名，密码，网络密码，认证令牌。苹果自己用 keychain 来保存 wi-Fi 网络密码，VPN凭证等等。它是一个在所有 app 之外的 sqlite数据库。</p>
+<p><strong>获取 Keychain 数据</strong><br>ios 越狱<br>需要获取 keychain 数据文件必须要越狱，i0s 越狱教程请根据自己的系统版本来选择:爱思越狱教程 <a target="_blank" rel="noopener" href="https://www.i4.cn/news_4.html%E8%B6%8A%E7%8B%B1%E4%B9%8B%E5%89%8D%E5%88%87%E9%9B%86%E5%A4%87%E4%BB%BD%E9%87%8D%E8%A6%81%E8%B5%84%E6%96%99">https://www.i4.cn/news_4.html越狱之前切集备份重要资料</a> ,最好不要使用自己日常使用的设备越狱。<br>OpenSSH<br>越狱成功之后需要安装 openssH 工具，i0s 设备其实就是一个小型的 unix 系统，由于苹果的封闭性，在不越狱的手机上，我们能操作的东西很少。如果想在 ios 设备上，通过 pc 直接执行 shell 命令，可以在 ios设备(已越狱)上安装 openssh 服务器，通过pc的ssh 连接过<br>打开 cydia直接搜索 openssH 安装。如果搜索不到可以在软件源菜单中添加源，如雷锋源:<br><a target="_blank" rel="noopener" href="http://apt.abcydia.com/">http://apt.abcydia.com</a></p>
+<p><strong>KeyChain 数据库</strong><br>所有存储在 Keychain 中的数据，实际上是保存在一个 keychain-2.db 的数据库中。 该数据<br>库位于/private/var/Keychains/目录下</p>
+<p><strong>更改权限</strong><br>默认情况下，我们是不能都读取 keychain-2.db 数据库的，所以需要先赋予其可读权限,给<br>keychain-2.db 数据库可读权限</p>
+<p><strong>查看 KeyChain 数据</strong><br>将 keychain-2.db拷贝到桌面，然后使用 DB Browser for sQLite 即可查看数据内容</p>
+<h3 id="htpps安全"><a href="#htpps安全" class="headerlink" title="htpps安全"></a>htpps安全</h3><p>但是即使使用了 HTTPS，也有可能因为没有校验服务器证书的原因导致被中间人劫持。</p>
+<p>就是打开 APP 登录帐号，使用抓包工具如 charles 去看是否有请求获取敏感信息，比如获取资源包或者文件脚本。安全加固实施建议:<br>1.App 内要对 HTTPS 证书做校验。<br>2.避免使用有漏洞的第三网网络库(如 AFNetworking&lt;2.5.3 版本)<br>3.关键数据(如登录密码、卡号、交易密码等)单独加密</p>
+<h3 id="防止网络请求被抓包"><a href="#防止网络请求被抓包" class="headerlink" title="防止网络请求被抓包"></a>防止网络请求被抓包</h3><p>App 安全越来越受重视，要分析一个App，抓包是必不可少的，那么如何防止像 charles 之类(中间人攻击类型)的抓包软件的抓包呢?主要有以下几个思路<br>1.检测是否使用了代理，检测到使用了代理就关闭网络请求。</p>
+<p>2.使用自签名证书的应用和双向验证的应用。<br>3.通过 HTTP/1.1 及以上版本的 CONNECT 请求方式<br>4.对返回的数据进行加密(RSAltoken|AES128 等等)</p>
+<h3 id="绕过代理发送请求"><a href="#绕过代理发送请求" class="headerlink" title="绕过代理发送请求"></a>绕过代理发送请求</h3><p>现在 ios 上的网络请求基本分为三类<br><strong>NSURLConnec tion</strong><br><strong>NSURLSession</strong><br><strong>CFNetWork</strong></p>
+<p>通过 HTTP/1.1 及以上版本的 CONNECT 请求方<br>式<br>什么是 CONNECT 请求 ?<br>平时工作中，GET 跟 POST 是我们用的比较多的请求方式，而CONNECT 是在 HTTP/1.1 协议中HTTP/1.0 定义了三种请求方法:GET，POST和 HEAD方法，HTTP/1.1 新增了五种请求方法OPTIONS、PUT、DELETE、TRACE和CONNECT 方法。</p>
+<p>它主要是把服务器作为跳板，先验证用户名和密码等信息，再让服务器代替用户去访问其它网页，之后把数据返回给用户,之所以说采用 CONNECT 请求当跳板，可以防止 charles 抓包所以就能达到防抓包的目的了。是因为 charles抓CONNECT 的请求，会识别为 unknown </p>
+<h3 id="脱壳背景"><a href="#脱壳背景" class="headerlink" title="脱壳背景"></a>脱壳背景</h3><p>开发提交给 ppstore 发布的 app 都经过官方保护加密。经过 Appstore 加密的应用，我们无法通进行反编译静态分析,在逆向分析过程中需要对加密的二进制文件进行解密才可以进行静态分析，这一过程就是所谓的脱壳(砸壳)。<br>ios 脱壳工具目前主要有一下3种:<br><strong>Clutch</strong><br><strong>dumpdecrypted</strong><br><strong>frida-ios-dump</strong><br>由于 clutch 脱壳不太稳定，frida-ios-dump环境配置比较复杂，所以本文以 dumpdecrypted这个工具做为脱壳工具</p>
+<h3 id="安全扫描平台"><a href="#安全扫描平台" class="headerlink" title="安全扫描平台"></a>安全扫描平台</h3><p>目前有很多 App 安全扫描平台如 360 漏洞扫描，腾讯金刚审计系统等等。这些安全扫描平<br>台的功能如下:</p>
+<p>静态分析：静态分析应用源代码中存在的安全风险，检测包含 Android组件安全，应用程序安全，数据安全</p>
+<p>动态检测：检测包含客户端自身安全，Android组件增强检测，应用通信安全，数据安全</p>
+<p>模拟人机交互：模拟用户和手机交互行为，检测交互过程中应用存在的通信安全风险</p>
+<p>服务器指纹检测：探测后端服务器指纹，进行安全分析，检测后端服务器系统，开发框架web 服务器，数据库等服务组件安全</p>
+<p>服务器后端API检测：抓取应用通信过程中的资源地址，检测应用与服务器通信接口是否存在SQL 注入，xss 跨站，中间人攻击等安全问题</p>
+<h3 id="MobSF"><a href="#MobSF" class="headerlink" title="MobSF"></a>MobSF</h3><p>一种开源自动化的移动移动应用程序安全测试框架，能执行静态，动态和恶意软件分析</p>
+<p>它可用于 Android/i0s 和 windows 移动应用程序的有效和快速安全分析，并支持二进制文件(APK，IPA和 APPX)分析</p>
+<p><strong>静态分析</strong><br>扫描内容<br><strong>Android</strong><br>APK基本信息:文件名、文件大小、MD5、SHA-1、SHA-256<br>APP 信息:包名、Main Activity、版本号等<br>组件:Activity、Service、Broadcast Receiver、Content Provider<br>证书信息(siger certificate)<br>权限信息<br>Android API信息<br>Androidmanifest 分析(标志位、组件配置等<br>代码分析、文件分析<br>url、email、string等</p>
+<p><strong>ios</strong><br>IPA基本信息<br>自定义网址方案<br>权限许可<br>应用传输安全性(ATS)<br>Plist 文件分析<br>文件分析<br>请求网站分析<br>防火墙数据库<br>邮件，源文件</p>
+<p><strong>Show/Stop Screen</strong><br>1.点击 show Screen 可以实时同步设备屏幕，方便测试执行査看。在 Dynamic Analyzer 菜单可以查看实时动态分析日志，Errors菜单可以查看错误日志。</p>
+<p><strong>Install/Remove MobSF RootCA</strong><br>Insta11/Remove MobSF RootcA用来安装卸载MobSF CA证书,方便对样本中 HTTPS 流量进行截<br>获。<br><strong>Start Exported Activity Tester</strong><br>遍历获取 AndroidManifest.x1文件中的所有 Exported Activity 测试流程如下<br>1.依次启动activity,adb-s IP:PoRT shell am start -n PACKAGE/ACTIVITY<br>2.获取当前 activity运行时的屏幕截图，并保存截屏<br>强制关闭应用:adb-sIP:PORT shell am force-stop PACKAGE</p>
+<p><strong>Start Activity Tester</strong><br>遍历 AndroidManifest.xm1文件中的所有 Activity，而不单单是 Exported。<br>处理流程与 Exported Activity 一致。<br><strong>Take a Screenshot</strong><br>截屏并保存到本地</p>
+<h3 id="指标计算公式"><a href="#指标计算公式" class="headerlink" title="指标计算公式"></a>指标计算公式</h3><p>1.<strong>吞吐量计算公式</strong><br>指单位时间内系统处理用户的请求数<br>从业务角度看，吞吐量可以用:请求数/秒、页面数/秒、人数/天或处理业务数/小时等单位来衡量,<br>从网络角度看，吞吐是可以用:字节/秒 来衡量对于交互式应用来说，吞吐量指标反映的是服务器承受的压力，他能够说明系统的负载能力</p>
+<p>F=N*R/T</p>
+<p>这里，F表示吞吐量;N表示并发虚拟用户个数(Concunency Virtual User，并发虚拟用户)，R表示每个VU发出的请求数量，T表示性能测试所用的时间。但如果遇到了性能瓶颈，此时吞吐量和 VU 数量之间就不再符合给出公式的关系</p>
+<p>2.<strong>并发用户计算公式</strong><br>指在客户端的一批用户同时执行一个操作的数量</p>
+<p>案例 : 一个 BBS 有 3000 个用户,平均每天大约有 400 个用户要访问该网站，一天之内，用户从登录到退出的平均时间是4小时,用户只在一天8小时内使用该系统,计算平均并发用户数和并发用户的峰<br>值为多少 ?</p>
+<p>(1):C=nL/T</p>
+<p>在公式(1)中;C是平均的并发用户数:n是login session 的数量;L是login session 的平均长度:T指考察的时间段长度</p>
+<p>(2)<br>$$<br>C^u=C+3\sqrt{C}<br>$$<br>公式(2)则给出了并发用户数峰值的计算公式，其中，C^u指并发用户数的峰值，C 就是公式(1)中得到的平均的并发用户数。该公式的得出是假设用户的login session 产生符合泊松分布而估算得到的</p>
+<p>C=400*4/8=200 </p>
+<p>C^u=200+3V200=242根据公式求得因此平均并发用户数为 200 人，峰值大约为 242 人。</p>
+<p>说明:并发用户数量的统计的方法目前还没有非常准确的公式，因为不同系统会有不同的并发特点。例如 OA 系统统计并发用户数量的经验公式为:使用系统用户数量”(5%~20%)。对于这个公式是没有必要拘泥于计算的结果，因为为了保证系统的扩展空间，测试时的并发用户数量要稍微大一些,除非是要测试系统能承载的最大并发用户数量</p>
+<h3 id="附录参考资料"><a href="#附录参考资料" class="headerlink" title="附录参考资料"></a><strong>附录参考资料</strong></h3><p><a target="_blank" rel="noopener" href="https://testerhome.com/topics/6962">https://testerhome.com/topics/6962</a></p>
+<p><a target="_blank" rel="noopener" href="https://testerhome.com/topics/14911">https://testerhome.com/topics/14911</a></p>
 
                 
             </div>
@@ -850,7 +866,7 @@ taskkill -f -pid XXX
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://bigworldxld.github.io/2023/09/19/undefined.html">https://bigworldxld.github.io/2023/09/19/undefined.html</a>
+                    <a href="https://bigworldxld.github.io/2024/05/03/28235.html">https://bigworldxld.github.io/2024/05/03/28235.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -888,8 +904,16 @@ taskkill -f -pid XXX
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/app/">
-                                    <span class="chip bg-color">app</span>
+                                <a href="/tags/xcode/">
+                                    <span class="chip bg-color">xcode</span>
+                                </a>
+                            
+                                <a href="/tags/sream/">
+                                    <span class="chip bg-color">sream</span>
+                                </a>
+                            
+                                <a href="/tags/ios/">
+                                    <span class="chip bg-color">ios</span>
                                 </a>
                             
                         </div>
@@ -1063,16 +1087,17 @@ taskkill -f -pid XXX
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/30/undefined.html">
+                <a href="/2024/05/03/28235.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD.jpg" class="responsive-img" alt="hexo删除历史大文件">
+                        <img src="/images/IOS%E6%B5%8B%E8%AF%95.jpg" class="responsive-img" alt="ios测试">
                         
-                        <span class="card-title">hexo删除历史大文件</span>
+                        <span class="card-title">ios测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1082,9 +1107,9 @@ taskkill -f -pid XXX
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1093,11 +1118,20 @@ taskkill -f -pid XXX
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/xcode/">
+                        <span class="chip bg-color">xcode</span>
+                    </a>
+                    
+                    <a href="/tags/sream/">
+                        <span class="chip bg-color">sream</span>
+                    </a>
+                    
+                    <a href="/tags/ios/">
+                        <span class="chip bg-color">ios</span>
                     </a>
                     
                 </div>
@@ -1111,12 +1145,12 @@ taskkill -f -pid XXX
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/03/undefined.html">
+                <a href="/2024/05/01/28075.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E5%90%84%E7%9C%81.jpg" class="responsive-img" alt="爬取全国各省某网各项数据">
+                        <img src="/images/js%E5%89%8D%E7%AB%AF.jpg" class="responsive-img" alt="js前端">
                         
-                        <span class="card-title">爬取全国各省某网各项数据</span>
+                        <span class="card-title">js前端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1127,7 +1161,7 @@ taskkill -f -pid XXX
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
                             </span>
                         <span class="publish-author">
                             
@@ -1140,8 +1174,16 @@ taskkill -f -pid XXX
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>
