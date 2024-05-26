@@ -633,14 +633,14 @@ history对应 就是 当前浏览器的 浏览历史对象
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.8k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    30 分
                 </div>
                 
 
@@ -684,6 +684,179 @@ history对应 就是 当前浏览器的 浏览历史对象
 <p>// 清除 sessionStorage 数据<br>sessionStorage.clear();</p>
 <p>// 存入/修改 数据<br>sessionStorage.setItem(‘myCat’, ‘Tom’);</p>
 <p>// 获取数据<br>const cat = sessionStorage.getItem(‘myCat’);</p>
+<h3 id="CSS定位"><a href="#CSS定位" class="headerlink" title="CSS定位"></a>CSS定位</h3><p>方法1：在浏览器开发者模式的elements中，Ctrl+F搜索栏输入css表达式<br>方法2：在浏览器开发者模式的console中，按如下格式验证表达式</p>
+<pre class=" language-txt"><code class="language-txt">$("css表达式")   # 注：表达式中存在引号，则使用单引号，'$'可更换为$$
+</code></pre>
+<p>css选择器语法</p>
+<p>基础选择器</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>格式</th>
+<th>示例</th>
+<th>示例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择全部</td>
+<td>*</td>
+<td>*</td>
+<td>选择全部元素</td>
+</tr>
+<tr>
+<td>标签选择器</td>
+<td>html标签</td>
+<td>p</td>
+<td>选择所有&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>ID选择器</td>
+<td>#id属性值</td>
+<td>#su</td>
+<td>选择所有id=’su’的元素</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>.class属性值</td>
+<td>.s_btn</td>
+<td>选择所有class=’s_btn’的元素</td>
+</tr>
+<tr>
+<td>属性选择器1</td>
+<td>[属性名]</td>
+<td>[type]</td>
+<td>选择所有带type属性的元素</td>
+</tr>
+<tr>
+<td>属性选择器2</td>
+<td>[属性名=’属性值’]</td>
+<td>[type=”submit”]</td>
+<td>选择所有type=”submit”的元素</td>
+</tr>
+<tr>
+<td>属性选择器3</td>
+<td>[属性名*=’属性值’]</td>
+<td>[type*=”submit”]</td>
+<td>选择所有type包含”submit”的元素</td>
+</tr>
+<tr>
+<td>属性选择器4</td>
+<td>[属性名^=’属性值’]</td>
+<td>[type^=”submit”]</td>
+<td>选择所有type以”submit”开头的元素</td>
+</tr>
+</tbody></table>
+<p>组合选择器</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>格式</th>
+<th>示例</th>
+<th>示例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签指定属性</td>
+<td>标签加属性描述</td>
+<td>input#su</td>
+<td>选择所有id=’su’的&lt;input&gt;元素</td>
+</tr>
+<tr>
+<td>并集</td>
+<td>元素1,元素2</td>
+<td>div,p</td>
+<td>选择所有&lt;div&gt;和&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>父子</td>
+<td>元素1&gt;元素2</td>
+<td>div&gt;p</td>
+<td>选择所有父级是&lt;div&gt;的&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>后代</td>
+<td>元素1 元素2</td>
+<td>div p</td>
+<td>选择&lt;div&gt;中的所有&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>相邻</td>
+<td>元素1+元素2</td>
+<td>div+p</td>
+<td>选择&lt;div&gt;同级后的相邻&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>同级</td>
+<td>元素1~元素2</td>
+<td>div~p</td>
+<td>选择&lt;div&gt;同级后的所有&lt;p&gt;元素</td>
+</tr>
+</tbody></table>
+<p>伪属性选择器</p>
+<p>伪属性选择器是指元素在html中实际并不存在该属性，是由css定义的拓展描述属性</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>格式</th>
+<th>示例</th>
+<th>示例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>唯一子元素</td>
+<td>:only-child</td>
+<td>p:only-child</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的唯一一个元素</td>
+</tr>
+<tr>
+<td>第一子元素</td>
+<td>:first-child</td>
+<td>p:first-child</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的第一个元素</td>
+</tr>
+<tr>
+<td>最后子元素</td>
+<td>:last-child</td>
+<td>p:last-child</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的最后一个子元素</td>
+</tr>
+<tr>
+<td>顺序选择器</td>
+<td>:nth-child(n)</td>
+<td>p:nth-child(2)</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的第二个子元素</td>
+</tr>
+<tr>
+<td>顺序类型选择器</td>
+<td>:nth-of-type(n)</td>
+<td>p:nth-of-type(2)</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的第二个&lt;p&gt;元素</td>
+</tr>
+<tr>
+<td>倒序选择器</td>
+<td>:nth-last-child(n)</td>
+<td>p:nth-last-child(2)</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的倒数第二个子元素</td>
+</tr>
+<tr>
+<td>倒序类型选择器</td>
+<td>:nth-last-of-type(n)</td>
+<td>p:nth-last-of-type(2)</td>
+<td>选择所有&lt;p&gt;元素且该元素是其父级的倒数第二个&lt;p&gt;元素</td>
+</tr>
+</tbody></table>
+<pre class=" language-txt"><code class="language-txt">表达式4：input:focus
+表达式5：input:enabled
+表达式6：input:checked
+表达式7: input:not([id])
+表达式4表示查找当前获取焦点的input页面元素
+表达式5表示查找可操作的input页面元素
+表达式6表示查找处于勾选状态的checkbox页面元素
+表达式7表示查找所有无id属性的input页面元素
+</code></pre>
 <h3 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM 文档对象模型"></a>DOM 文档对象模型</h3><p>在浏览器内部（内存中）创建一个文档对象模型 (document object model) 简称 <code>DOM</code> 对象 ， 对应 树状的 文档结构</p>
 <p>只包含一段文本字符串的节点是 <code>文本节点（Text node）</code></p>
 <p>任何 DOM对象都是一个 节点 ， 包括 元素节点、 注释节点、 文本节点、属性节点</p>
