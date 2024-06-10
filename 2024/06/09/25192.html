@@ -625,14 +625,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.5k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    30 分
                 </div>
                 
 
@@ -866,7 +866,7 @@ curl -H <span class="token string">"Content-Type: application/json"</span> -X PO
 </tr>
 <tr>
 <td align="left">SSL 其他</td>
-<td align="left">–ciphers <list of ciphers></list></td>
+<td align="left">–ciphers <list of="" ciphers=""></list></td>
 <td align="left">(SSL)指定SSL要使用的加密方式；如：“aes_256_sha_256”；</td>
 </tr>
 <tr>
@@ -991,7 +991,7 @@ curl -H <span class="token string">"Content-Type: application/json"</span> -X PO
 </tr>
 <tr>
 <td align="left"></td>
-<td align="left">-X <command> –request <command></td>
+<td align="left">-X <command> –request <command></command></command></td>
 <td align="left">（HTTP）指定与服务器通信使用的请求方法，如：GET、PUT、POST、DELETE等，默认GET</td>
 </tr>
 <tr>
@@ -1106,7 +1106,7 @@ curl -H <span class="token string">"Content-Type: application/json"</span> -X PO
 </tr>
 <tr>
 <td align="left"></td>
-<td align="left">-K <br>–config <config file></config></td>
+<td align="left">-K <br>–config <config file=""></config></td>
 <td align="left">从配置文件中读取参数，参考：<a target="_blank" rel="noopener" href="http://curl.haxx.se/docs/">http://curl.haxx.se/docs/</a></td>
 </tr>
 <tr>
@@ -1446,7 +1446,7 @@ curl -H <span class="token string">"Content-Type: application/json"</span> -X PO
 <td>显示版本信息</td>
 </tr>
 <tr>
-<td>-X/–request <command></td>
+<td>-X/–request <command></command></td>
 <td>指定什么命令</td>
 </tr>
 <tr>
@@ -1535,6 +1535,22 @@ curl -H <span class="token string">"Content-Type: application/json"</span> -X PO
 <p>举例:有需求每5分钟请求一次<a target="_blank" rel="noopener" href="http://www.test.com/a/b%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E3%80%82%E5%B8%8C%E6%9C%9B%E4%B8%80%E6%9C%88%E7%9A%84%E6%97%A5%E5%BF%97(%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%92%8C%E9%94%99%E8%AF%AF%E7%9A%84)%E8%83%BD%E5%86%99%E5%85%A5%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6">http://www.test.com/a/b生成一个日志文件。希望一月的日志(正确的和错误的)能写入一个日志文件</a><br>day=<code>date +%F</code><br>logfile=’/var/logs/<a target="_blank" rel="noopener" href="http://www.test.com_&amp;/#39;%60date">www.test.com_'`date</a> +%Y%m`’.log’<br>/usr/bin/echo -e “\n\n[${day}] Start request \n “ &gt;&gt; ${logfile}<br>/bin/curl -v “<a target="_blank" rel="noopener" href="http://www.test.com/a/b&quot;">http://www.test.com/a/b"</a> -d “ccccc” 1&gt;&gt; ${logfile} 2&gt;&gt; ${logfile} –trace-time<br>/usr/bin/echo -e “\n\n[${day}] End request\n” &gt;&gt; ${logfile}</p>
 <h3 id="13、显示抓取错误"><a href="#13、显示抓取错误" class="headerlink" title="13、显示抓取错误"></a>13、显示抓取错误</h3><p>curl -f <a target="_blank" rel="noopener" href="http://www.linux.com/error">http://www.linux.com/error</a></p>
 <p>参考：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/duhuo/p/5695256.html">https://www.cnblogs.com/duhuo/p/5695256.html</a></p>
+<h2 id="附录：wget常用命令"><a href="#附录：wget常用命令" class="headerlink" title="附录：wget常用命令"></a>附录：wget常用命令</h2><p>1.wget<br>wget是一个很实用的下载工具</p>
+<p>2.常用参数<br>参数    说明<br>-O    指定保存的路径以及文件名，存在则覆盖<br>-P    指定下载文件夹，不存在则新建，但优先-O的路径<br>-o    把信息输出到文件而不是终端<br>-b    后台下载，并且信息输出到wget-log文件<br>-i    URL链接文件，可以把多个链接写在文件里批量下载<br>-c    继续下载，即断点续传，接着上次未完成的下载<br>–tries    下载失败时的重试次数，0表示无限制<br>–wait    重试之间的间隔<br>–user-agent    指定用户代理<br>–limit-rate    限制下载速率<br>–spider    检查远程文件是否存在以及文件大小</p>
+<p>3.举例<br>直接下载到当前文件夹，保持默认文件名</p>
+<p>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> </p>
+<p>修改保存路径，路径不存在则自动创建</p>
+<p>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> -P ./tmp/</p>
+<p>修改保存的文件名，如果该文件名包含了路径，则不会保存到-P参数的路径</p>
+<p>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> -O ./tmp/qq.exe</p>
+<p>后台下载，下载信息保存到wget-log文件</p>
+<p>wget -b <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> </p>
+<p>批量下载，你可以把全部下载链接都写在一个文件里一个链接占一行</p>
+<p>wget -i urls.txt</p>
+<p>限制下载速率</p>
+<p>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> -P ./tmp/ –limit-rate=1M<br>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> -P ./tmp/ –limit-rate=512k</p>
+<p>设置重试次数和重试间隔时间，单位为秒</p>
+<p>wget <a target="_blank" rel="noopener" href="https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe">https://dldir1.qq.com/qqfile/qq/PCQQ9.7.9/QQ9.7.9.29056.exe</a> –tries=3 –wait=2</p>
 
                 
             </div>
