@@ -625,14 +625,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -719,60 +719,29 @@
 <p>503（服务不可用）     服务器目前无法使用（由于超载或停机维护）。通常，这只是暂时状态。</p>
 <p>504（网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p>
 <p>505（HTTP 版本不受支持）      服务器不支持请求中所用的 HTTP 协议版本。</p>
-<h2 id="burp功能详解"><a href="#burp功能详解" class="headerlink" title="burp功能详解"></a>burp功能详解</h2><p>   ➢仪表盘:仪表盘，扫描启动、暂停，用于显示任务、日志信息等</p>
-<p>   ➢目标:设置工作的目标范围(URL)，以及报文过滤、报文展示等功能</p>
-<p>   ➢代理:拦截HTTP/s请求的代理服务器，作为web浏览器与服务器的中间人，允许拦截、修改数据流</p>
-<p>   ➢测试器:入侵功能，对web应用程序进行攻击，还可以漏洞利用、Web应用程序模糊测试、暴力破解等。</p>
-<p>   ➢重发器:通过手动来触发单词HTTP请求，并分析应用程序的响应包</p>
-<p>   ➢定序器:会话模块，用于分析那些不可预知的应用程序会话令牌和重要数据的随机性的工具。</p>
-<p>   ➢解码器:是一个进行手动执行或对应用程序数据者智能解码编码的工具.</p>
-<p>   ➢对比器:对比模块，对数据进行差异化分析</p>
-<p>   ➢插件扩展:可以加载BP拓展模块和第三方代码</p>
-<p>   ➢设置模块:可以设置项目、用户等信息  </p>
-<h3 id="dashboard仪表盘"><a href="#dashboard仪表盘" class="headerlink" title="dashboard仪表盘"></a><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=dashboard&amp;spm=1001.2101.3001.7020">dashboard</a>仪表盘</h3><p>代表着一些监控问题及日志和显示当前burp自动爬取目标网站的可行度</p>
-<p><img src="https://img-blog.csdnimg.cn/637704a4d5d64cf69dcb58352f031792.png" alt="img"> </p>
-<h3 id="scanner扫描器"><a href="#scanner扫描器" class="headerlink" title="scanner扫描器"></a>scanner扫描器</h3><p>scanner扫描器可以实现对目标站点的自动爬取，通过右键选取target中的内容可以开始扫描对应站点</p>
-<p><img src="https://img-blog.csdnimg.cn/bbfd303452fe401db8c1ccb0ba1e177e.png" alt="img"></p>
-<p>1是扫描的具体细节，可以选择审计和爬取模式</p>
-<p>2是扫描配置，可以选择扫描的深度，速度等信息</p>
-<p>3是可以实现自动登录的一个功能</p>
-<p>4是资源池</p>
-<p>5用来指定扫描使用的协议</p>
-<p>6指定扫描的网址</p>
-<h3 id="proxy标签"><a href="#proxy标签" class="headerlink" title="proxy标签"></a>proxy标签</h3><p>主要用来抓包使用，在开启监听之后可以拦截数据包并选择接下来的动作</p>
-<p><img src="https://img-blog.csdnimg.cn/216e96de96e0483f851344b444c0a783.png" alt="img"></p>
-<p>forward 代表发送这一个包</p>
-<p>drop 代表丢弃者一个包</p>
-<p>intercept 代表拦截包/放掉所有包（开关）</p>
-<p>action 代表这个包要执行的所有操作，可以选择将这个数据包发送到其他标签进行进一步操作。</p>
-<p><img src="https://img-blog.csdnimg.cn/0d2a0e928c5b44aab3565583f43ce9f7.png" alt="img"> </p>
-<h3 id="intruder标签"><a href="#intruder标签" class="headerlink" title="intruder标签"></a>intruder标签</h3><p>可以用来暴力破解用户名及密码，爆破目录，或者参数</p>
-<p>爆破实例：</p>
-<p>打开靶机，开始监听抓包，随意输入账户名和密码</p>
-<p><img src="https://img-blog.csdnimg.cn/c040d440cbb0478daf9ff6072b0aefcc.png" alt="img"> </p>
-<p><img src="https://img-blog.csdnimg.cn/3fd6c8429b8a459cb0e24fd2d3a397ba.png" alt="img"></p>
-<p>将有敏感信息的包发送给Intruder</p>
-<p><img src="https://img-blog.csdnimg.cn/144f32e078eb4155b5b5f2966f0213f8.png" alt="img"> </p>
-<p>配置暴力破解的参数及位置，目标默认不变</p>
-<p><img src="https://img-blog.csdnimg.cn/4c7087b148ed4268a0f04eebd877b088.png" alt="img"> </p>
-<p>确定爆破的位置，只爆破密码，所以只给密码加上变量标识符，勾选密码字段点击右边的add$</p>
-<p><img src="https://img-blog.csdnimg.cn/8fdc1792e4fe4fe981bef9a0fc51e501.png" alt="img"></p>
-<p>加载密码字典文件。</p>
-<p><img src="https://img-blog.csdnimg.cn/66c455e6e6ea440ea7e78c3b818cfeaf.png" alt="img"> </p>
-<p>调整线程（默认即可）</p>
-<p><img src="https://img-blog.csdnimg.cn/ec2da3926b5e4d8dabc9031a8edb1140.png" alt="img"> </p>
-<p>最后右上角开始攻击</p>
-<p><img src="https://img-blog.csdnimg.cn/bd53dc7b56f54807b158d1bbb58519eb.png" alt="img"> </p>
-<p>当前爆破的状态</p>
-<p><img src="https://img-blog.csdnimg.cn/674b24e0b9da408eb3343ba460e3b479.png" alt="img"></p>
-<p>寻找哪个爆破成功了，可以点击length进行排序，也就是一个找不同的过程</p>
-<p><img src="https://img-blog.csdnimg.cn/b1b265f3ad074904a4bee9bd77caa5d2.png" alt="img"></p>
-<h3 id="repeater标签"><a href="#repeater标签" class="headerlink" title="repeater标签"></a>repeater标签</h3><p>可以有变化的、有更改的发送多次请求，并且得到响应状态。</p>
-<p><img src="https://img-blog.csdnimg.cn/b8cf9c6b0f7647e0862040b1404a7111.png" alt="img"> </p>
-<p>在里面可以编辑数据包并发送，查看实时回复流量</p>
-<p><img src="https://img-blog.csdnimg.cn/a4123a45b87d41faa506d1da50e87f8b.png" alt="img"></p>
-<h3 id="comparer对比标签"><a href="#comparer对比标签" class="headerlink" title="comparer对比标签"></a>comparer对比标签</h3><p>可以用来对比两个数据包中不同的内容，不同的内容将高亮框选</p>
-<p><img src="https://img-blog.csdnimg.cn/c0af5eb7c60945d186fdc90f811b60d5.png" alt="img"></p>
+<h2 id="burp功能详解"><a href="#burp功能详解" class="headerlink" title="burp功能详解"></a>burp功能详解</h2><p>   ➢Dashboard仪表盘:仪表盘，扫描启动、暂停，用于显示任务、日志信息等</p>
+<p>   ➢Target目标:设置工作的目标范围(URL)，以及报文过滤、报文展示等功能</p>
+<p>   ➢Proxy代理:拦截HTTP/s请求的代理服务器，作为web浏览器与服务器的中间人，允许拦截、修改数据流</p>
+<p>   ➢测试器:Intruder入侵功能，对web应用程序进行攻击，还可以漏洞利用、Web应用程序模糊测试、暴力破解等。</p>
+<p>   ➢Repeater重发器:通过手动来触发单词HTTP请求，并分析应用程序的响应包</p>
+<p>   ➢定序器:Sequencer会话模块，用于分析那些不可预知的应用程序会话令牌和重要数据的随机性的工具。</p>
+<p>   ➢Decoder解码器:是一个进行手动执行或对应用程序数据者智能解码编码的工具.</p>
+<p>   ➢Comparer对比器:对比模块，对数据进行差异化分析</p>
+<p>   ➢Extender插件扩展:可以加载BP拓展模块和第三方代码</p>
+<p>   ➢Project options,User options设置模块:可以设置项目、用户等信息  </p>
+<h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>Target模块组成和功能<br>1.Site map;站点地图，以站点(而不是某次请求)来组织burp获取的数据<br>2.Scope:目标，可以限制抓取内容，排除无关流量的干扰。<br>设置HTTP history中包含或者去除的流量<br>也可以在Site map中右击站点，将站点添加到目标域<br>3.lssue definitions:漏洞列表，列出burp可以扫描到的漏洞详情</p>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy代理模块作为BurpSuite的核心功能，是拦截HTTP(HTTPS)的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许你拦截，查看，修改在两个方向上的原始数据流(请求和响应)。<br>intercept:<br>1.Forward:用于发送数据。当把所需要的HTTP请求编辑完成<br>后，手动发送数据。<br>2.Drop:将该请求包丢弃。<br>3.Intercept is off/on:拦截开关。当处于off状态下时,会自动转发所拦截的所有请求;当处于on状态下时，会将所有拦截所有符合规则的请求并将它显示出来等待编辑或其他操作。<br>4.Action:将请求发送到其它模块进行交互。</p>
+<h3 id="intruder标签"><a href="#intruder标签" class="headerlink" title="intruder标签"></a>intruder标签</h3><p>用于自动对Web应用程序自定义的攻击。它可以用来自动执行测试过程中可能出现的所有类型的任务。例如目录爆破，注入，密码爆破(弱口令爆破)等<br>攻击类型<br>狙击手:最多可以一次性测试一个参数</p>
+<p>攻城锤：支持多个payload,只能使用同一个密码本</p>
+<p>音叉攻击：支持多个payload，每个payload独立密码本，多组密码一一对应</p>
+<p>集束炸弹：支持多个payload，每个payload独立密码本，两组密码排列组合，分别测试</p>
+<p>Payload<br>配置Positions设置的标记位的字典。<br>option<br> Request Headers :</p>
+<ul>
+<li>UPdate content-Length header是必选的，因为payload的长度是变化的，所以勾选上这个选项更新或添加每一次请求的content-Length请求头，否则就是错误的请求。</li>
+<li>Set Connection:close为请求更新或添加请求头Connection值为close，这是为了避免和服务器进行长连接，在得到一次响应后就自动关闭连接，因为还有好多版本的请求等着呢，这样可以加快攻击速度。<br>burp中的重发器Repeater：重放，在这个模块里可以修改请求包再重新请求。通过重发器测试文件上传绕过</li>
+</ul>
+<p>测试过程<br>proxy抓包-&gt;Intercept is on-&gt;右键发送到Repeater-&gt;使用验证码插件-&gt;右键发送到Intruder-&gt;positions选择攻击模式-&gt;修改url参数位置-&gt;选择payload set参数和Payload type-&gt;上传密码本-&gt;点击开始攻击-&gt;Results下看length不同之处</p>
+<p>针对basic认证的登录爆破<br>1）抓包获取加密后的basic<br>2）定义payload<br>3）按照字符串分别定义密码本<br>4）定义编码</p>
 <h2 id="弱口令字典"><a href="#弱口令字典" class="headerlink" title="弱口令字典"></a>弱口令字典</h2><p>https:/github.com/rootphantomer/Blasting_dictionary<br>https:/github.com/k8gege/Passwordbic<br><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/secLists">https://github.com/danielmiessler/secLists</a><br><a target="_blank" rel="noopener" href="https://192-168-1-1ip.mobi/defau1t-router-passwords-7ist/">https://192-168-1-1ip.mobi/defau1t-router-passwords-7ist/</a><br><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/secLists/blob/master/Passwords/pefau1t-Credentials/default-">https://github.com/danielmiessler/secLists/blob/master/Passwords/pefau1t-Credentials/default-</a><br>passwords.csv<br><a target="_blank" rel="noopener" href="https://github.com/Dormidera/wordList-compendium">https://github.com/Dormidera/wordList-compendium</a></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_59344199/article/details/128022680">https://blog.csdn.net/qq_59344199/article/details/128022680</a></p>
 
