@@ -630,14 +630,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    21 分
                 </div>
                 
 
@@ -708,8 +708,22 @@ desired_caps<span class="token punctuation">[</span><span class="token string">'
 desired_caps<span class="token punctuation">[</span><span class="token string">'app'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"com.itcast.HMiosTest"</span>
 driver <span class="token operator">=</span>webdriver<span class="token punctuation">.</span>Remote<span class="token punctuation">(</span><span class="token string">'http://localhost:4723/wd/hub'</span>，desired_caps<span class="token punctuation">)</span>
 </code></pre>
-<p>app包名在项目根目录：HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的HMiOSTest-&gt;Bandle Identifier对应的值</p>
-<p><strong>需求</strong><br>1点击按进入列表<br>2.获取所有列表的文字内容并输入<br>3.动一次<br>4.点击20<br>5.清空文本框内容6.在文本框中输入“hello”7.单击返回按钮<br>核心代码</p>
+<p>app包名在项目根目录：HMiOSTest(项目名)-&gt;General-&gt;TARGETS下的HMiOSTest-&gt;Bandle Identifier对应的值<br>BundleID 概念：一个应用的唯一标识<br>开发证书， 开发证书用于真机调试<br>发布证书， 发布证书用于提交到 appStore<br>如果想用 Xcode 运行 App 到真机上，要满足几个条件：<br>1：成为 Apple Developer 计划的成员<br>2：需要设置认证书和应用 ID（开发证书和发布证书）</p>
+<p>Xcode模拟器命令<br>操作模拟器命令：xcrun simctl<br>操作真机命令：idevice<xxx></xxx></p>
+<h1 id="查看已安装的模拟器"><a href="#查看已安装的模拟器" class="headerlink" title="查看已安装的模拟器"></a>查看已安装的模拟器</h1><p>xcrun simctl list devices</p>
+<h1 id="查看已经开机的模拟器"><a href="#查看已经开机的模拟器" class="headerlink" title="查看已经开机的模拟器"></a>查看已经开机的模拟器</h1><p>xcrun simctl list devices |grep Booted</p>
+<h1 id="查看已连接的真机设备的-udid-信息"><a href="#查看已连接的真机设备的-udid-信息" class="headerlink" title="查看已连接的真机设备的 udid 信息"></a>查看已连接的真机设备的 udid 信息</h1><p>idevice_id -l</p>
+<h1 id="查看-模拟器列表"><a href="#查看-模拟器列表" class="headerlink" title="查看 模拟器列表"></a>查看 模拟器列表</h1><p>xcrun simctl list devices</p>
+<h1 id="启动模拟器"><a href="#启动模拟器" class="headerlink" title="启动模拟器"></a>启动模拟器</h1><p>xcrun simctl boot 模拟器id</p>
+<h1 id="模拟器安装应用"><a href="#模拟器安装应用" class="headerlink" title="模拟器安装应用"></a>模拟器安装应用</h1><h2 id="单设备"><a href="#单设备" class="headerlink" title="单设备"></a>单设备</h2><p>xcrun simctl install booted demo.app</p>
+<h2 id="多设备"><a href="#多设备" class="headerlink" title="多设备"></a>多设备</h2><p>xcrun simctl install <device> demo.app</device></p>
+<h1 id="真机安装应用"><a href="#真机安装应用" class="headerlink" title="真机安装应用"></a>真机安装应用</h1><p>ideviceinstaller –install &lt;/path/to/file/xxx.app&gt;<br>ideviceinstaller -i &lt;/path/to/file/xxx.app&gt;</p>
+<h1 id="模拟器卸载应用"><a href="#模拟器卸载应用" class="headerlink" title="模拟器卸载应用"></a>模拟器卸载应用</h1><p>xcrun simctl uninstall <device> <bundleid></bundleid></device></p>
+<h1 id="真机卸载应用"><a href="#真机卸载应用" class="headerlink" title="真机卸载应用"></a>真机卸载应用</h1><p>ideviceinstaller –uninstall <appid><br>ideviceinstaller -U <appid></appid></appid></p>
+<p> 查看应用的 bundleid<br>模拟器查看应用 bundleid</p>
+<p>找到 app 的安装包<br>右键点击<br>显示包内容<br>找到 Info.plist 文件<br>双击打开，就可以找到对应的 Bundle identifier 项<br>真机查看应用的 bundleid : ideviceinstaller -l                        </p>
+<p><strong>需求</strong><br>1点击按进入列表<br>2.获取所有列表的文字内容并输入<br>3.动一次<br>4.点击20<br>5.清空文本框内容6.在文本框中输入“hello”7.单击返回按钮</p>
+<p>核心代码</p>
 <pre class=" language-python"><code class="language-python">time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"进入列表"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
