@@ -596,12 +596,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/http/">
-                                <span class="chip bg-color">http</span>
-                            </a>
-                        
                             <a href="/tags/BrupSuite/">
                                 <span class="chip bg-color">BrupSuite</span>
+                            </a>
+                        
+                            <a href="/tags/http/">
+                                <span class="chip bg-color">http</span>
                             </a>
                         
                     </div>
@@ -625,14 +625,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -731,10 +731,10 @@
 <p>   ➢Project options,User options设置模块:可以设置项目、用户等信息  </p>
 <h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>Target模块组成和功能<br>1.Site map;站点地图，以站点(而不是某次请求)来组织burp获取的数据<br>2.Scope:目标，可以限制抓取内容，排除无关流量的干扰。<br>设置HTTP history中包含或者去除的流量<br>也可以在Site map中右击站点，将站点添加到目标域<br>3.lssue definitions:漏洞列表，列出burp可以扫描到的漏洞详情</p>
 <h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy代理模块作为BurpSuite的核心功能，是拦截HTTP(HTTPS)的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许你拦截，查看，修改在两个方向上的原始数据流(请求和响应)。<br>intercept:<br>1.Forward:用于发送数据。当把所需要的HTTP请求编辑完成<br>后，手动发送数据。<br>2.Drop:将该请求包丢弃。<br>3.Intercept is off/on:拦截开关。当处于off状态下时,会自动转发所拦截的所有请求;当处于on状态下时，会将所有拦截所有符合规则的请求并将它显示出来等待编辑或其他操作。<br>4.Action:将请求发送到其它模块进行交互。</p>
-<h3 id="intruder标签"><a href="#intruder标签" class="headerlink" title="intruder标签"></a>intruder标签</h3><p>用于自动对Web应用程序自定义的攻击。它可以用来自动执行测试过程中可能出现的所有类型的任务。例如目录爆破，注入，密码爆破(弱口令爆破)等<br>攻击类型<br>狙击手:最多可以一次性测试一个参数</p>
-<p>攻城锤：支持多个payload,只能使用同一个密码本</p>
-<p>音叉攻击：支持多个payload，每个payload独立密码本，多组密码一一对应</p>
-<p>集束炸弹：支持多个payload，每个payload独立密码本，两组密码排列组合，分别测试</p>
+<h3 id="intruder标签"><a href="#intruder标签" class="headerlink" title="intruder标签"></a>intruder标签</h3><p>用于自动对Web应用程序自定义的攻击。它可以用来自动执行测试过程中可能出现的所有类型的任务。例如目录爆破，注入，密码爆破(弱口令爆破)等<br>攻击类型<br>狙击手:最多可以一次性测试一个参数（1：A）</p>
+<p>攻城锤：支持多个payload,只能使用同一个密码本（1：A；1：B）</p>
+<p>音叉攻击：支持多个payload，每个payload独立密码本，多组密码一一对应（1：A；2：B）</p>
+<p>集束炸弹：支持多个payload，每个payload独立密码本，两组密码排列组合，分别测试（1：A；1：B；2：A；2：C）</p>
 <p>Payload<br>配置Positions设置的标记位的字典。<br>option<br> Request Headers :</p>
 <ul>
 <li>UPdate content-Length header是必选的，因为payload的长度是变化的，所以勾选上这个选项更新或添加每一次请求的content-Length请求头，否则就是错误的请求。</li>
@@ -742,6 +742,7 @@
 </ul>
 <p>测试过程<br>proxy抓包-&gt;Intercept is on-&gt;右键发送到Repeater-&gt;使用验证码插件-&gt;右键发送到Intruder-&gt;positions选择攻击模式-&gt;修改url参数位置-&gt;选择payload set参数和Payload type-&gt;上传密码本-&gt;点击开始攻击-&gt;Results下看length不同之处</p>
 <p>针对basic认证的登录爆破<br>1）抓包获取加密后的basic<br>2）定义payload<br>3）按照字符串分别定义密码本<br>4）定义编码</p>
+<p>1.simple list(简单列表)<br>在内置字典里有:<br>Fuzzing-quick(模糊-快速)、Fuzzing-full(模糊-全)<br>Usernames(用户名)、Passwords(密码)<br>shortwords(短字符)、a-z(a-z的小写单一字符)、A-Z(A-Z的大写单一字符)、0-9(0-9单一字符)<br>Directories-short(短日录)、Directories-ong(长日录)<br>Filenames-short(短文件名)、Filenames-long(长文件名)<br>Extensions-short(短扩展名)、Extensions-short(长扩展名)<br>Format strings(字符串格式)、Form field names(表单字段名称)<br>Form field values(表单字段值)、Fuzzing-SQLinjection(模糊-SQL注入)<br>Fuzzing-XSS(模糊-XSS)、Fuzzing-path traversal(模糊-路径遍历)<br>N letter words(N个字母单词)、HTTP verbs(http动词)<br>CGl scripts(CGl脚本)、llS files and directories(lls文件和目录)、user agents(用户代理)</p>
 <h2 id="弱口令字典"><a href="#弱口令字典" class="headerlink" title="弱口令字典"></a>弱口令字典</h2><p>https:/github.com/rootphantomer/Blasting_dictionary<br>https:/github.com/k8gege/Passwordbic<br><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/secLists">https://github.com/danielmiessler/secLists</a><br><a target="_blank" rel="noopener" href="https://192-168-1-1ip.mobi/defau1t-router-passwords-7ist/">https://192-168-1-1ip.mobi/defau1t-router-passwords-7ist/</a><br><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/secLists/blob/master/Passwords/pefau1t-Credentials/default-">https://github.com/danielmiessler/secLists/blob/master/Passwords/pefau1t-Credentials/default-</a><br>passwords.csv<br><a target="_blank" rel="noopener" href="https://github.com/Dormidera/wordList-compendium">https://github.com/Dormidera/wordList-compendium</a></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_59344199/article/details/128022680">https://blog.csdn.net/qq_59344199/article/details/128022680</a></p>
 
@@ -808,12 +809,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/http/">
-                                    <span class="chip bg-color">http</span>
-                                </a>
-                            
                                 <a href="/tags/BrupSuite/">
                                     <span class="chip bg-color">BrupSuite</span>
+                                </a>
+                            
+                                <a href="/tags/http/">
+                                    <span class="chip bg-color">http</span>
                                 </a>
                             
                         </div>
