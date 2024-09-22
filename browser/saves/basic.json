@@ -101,7 +101,7 @@
         "autoOffset": true
       },
       "version": "1.0.0",
-      "poweredBy": "bigworldxld",
+      "poweredBy": "YLUI",
       "resizable": true,
       "single": true,
       "size": {
@@ -175,7 +175,7 @@
         "width": "x*0.8"
       },
       "title": "浏览器",
-      "url": "https://kaifa.baidu.com/",
+      "url": "https://kaifa.baidu.com",
       "customTile": "",
       "urlRandomToken": true
     },
@@ -273,7 +273,7 @@
         "height": "y*0.8-80",
         "width": "x*0.8"
       },
-      "title": "pdf学习在线文档",
+      "title": "pdf在线文档",
       "url": "https://bigworldxld.github.io/pdf/",
       "customTile": "",
       "urlRandomToken": false
@@ -508,7 +508,7 @@
           "w": 4,
           "h": 2,
           "app": "ylui-documents",
-          "title": "在线文档",
+          "title": "pdf在线文档",
           "i": "158",
           "params": {},
           "hash": ""
@@ -524,7 +524,7 @@
         "app": "yl-browser",
         "title": "浏览器",
         "params": {},
-        "hash": "
+        "hash": ""
       },
       {
         "app": "yl-system",

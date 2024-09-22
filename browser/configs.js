@@ -4,8 +4,8 @@ YL.static = {
   version: "1.0.0", // 网站版本号
   iconBtnStart: 'html5', //主图标
   author: 'bigworldxld',//作者
-  contactInformation: '2117376396@qq.com',//联系方式
-  officialWebsite: 'https://bigworldxld.github.io/',//软件官网
+  contactInformation: 'null',//联系方式
+  officialWebsite: '//null',//软件官网
   welcome: '本网站UI由 读序 强力驱动\n更多信息：https://bigworldxld.github.io/',//加载完毕控制台提示信息
   copyrightDetail: 'null',//版权详细信息
   otherStatements: '',//其他信息（可留空）
