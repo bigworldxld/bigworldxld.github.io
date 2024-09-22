@@ -207,8 +207,8 @@
         "height": "y*0.8-80",
         "width": "x*0.8"
       },
-      "title": "谷歌商店",
-      "url": "https://tecnoandroid.net/zh-CN/google-play-store/",
+      "title": "应用商店",
+      "url": "https://appstore.ylui.yuri2.cn",
       "customTile": "",
       "urlRandomToken": true
     },
@@ -420,7 +420,7 @@
     },
     {
       "app": "yl-app-store",
-      "title": "谷歌商店",
+      "title": "应用商店",
       "params": {},
       "hash": ""
     },
@@ -464,7 +464,7 @@
           "w": 2,
           "h": 2,
           "app": "yl-app-store",
-          "title": "谷歌商店",
+          "title": "应用商店",
           "i": "91",
           "params": {},
           "hash": ""
@@ -552,7 +552,7 @@
       },
       "itemPushed-88": {
         "app": "yl-app-store",
-        "title": "谷歌商店",
+        "title": "应用商店",
         "params": {},
         "hash": ""
       },
