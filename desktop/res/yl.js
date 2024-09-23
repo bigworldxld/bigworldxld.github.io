@@ -1,12 +1,12 @@
 window.YL = {
   info: {
-    softwareName: 'YLUI',
+    softwareName: 'browser',
     version: window.yluiVersion,
     iconBtnStart: 'yoast',
-    author: 'Yuri2',
-    contactInformation: 'yuri2peter@qq.com',
-    officialWebsite: 'https://ylui.yuri2.cn',
-    copyrightDetail: 'YLUI已授权本产品使用。YLUI禁止任何未经作者授权的使用、修改、二次发布，包括从本产品中剥离YLUI独立使用等侵权行为，违者将追究法律责任。',
+    author: 'bigworldxld',
+    contactInformation: '2117376396@qq.com',
+    officialWebsite: 'https://bigworldxld.github.io/',
+    copyrightDetail: '任何信手拈来的从容，都是厚积薄发的沉淀',
     otherStatements: '',
   },
   data: {},
@@ -23,8 +23,8 @@ window.YL = {
         sound: false,//开启声音
         wallpaper: './res/img/wallpapers/bg1.jpg',
         wallpaperBlur: false, //壁纸模糊（影响性能）
-        wallpaperSlide: false, //壁纸幻灯片
-        wallpaperSlideRandom: false, //壁纸幻灯片顺序随机（否则顺序播放）
+        wallpaperSlide: true, //壁纸幻灯片
+        wallpaperSlideRandom: true, //壁纸幻灯片顺序随机（否则顺序播放）
         wallpaperSlideItv: 0.1, //壁纸幻灯片播放切换间隔（单位：分钟）
         wallpaperSlideTime: Date.now(), //记录最近一次切换壁纸的时刻
         wallpaperSlideIndex: 0, //记录最近一次切换壁纸的index

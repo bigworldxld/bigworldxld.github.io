@@ -5,7 +5,7 @@
   "version": "2.1.20",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuri2peter/ylui"
+    "url": "https://bigworldxld.github.io/"
   },
   "scripts": {
     "start": "http-server ./ -p 5000 -s"

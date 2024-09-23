@@ -4,7 +4,7 @@
     "sound": false,
     "wallpaper": "./res/img/wallpapers/bg4.jpg",
     "wallpaperBlur": false,
-    "wallpaperSlide": false,
+    "wallpaperSlide": true,
     "wallpaperSlideRandom": true,
     "wallpaperSlideItv": 1,
     "wallpaperSlideTime": 1519442460788,
@@ -154,7 +154,7 @@
       "desc": "浏览器",
       "icon": {
         "type": "fa",
-        "content": "internet-explorer",
+        "content": "google",
         "bg": "#3a55c2"
       },
       "openMode": "normal",
@@ -220,7 +220,7 @@
       "desc": "读序-网站",
       "icon": {
         "type": "fa",
-        "content": "yoast",
+        "content": "user-circle",
         "bg": "#6b96cf"
       },
       "openMode": "normal",
@@ -283,13 +283,13 @@
       "autoRun": 0,
       "background": false,
       "badge": 0,
-      "desc": "",
+      "desc": "开源代码托管平台",
       "icon": {
         "type": "str",
         "content": "G",
         "bg": "rgb(216,2,18)"
       },
-      "openMode": "normal",
+      "openMode": "outer",
       "plugin": false,
       "position": {
         "autoOffset": true,
@@ -299,17 +299,17 @@
         "y": "y*0.05"
       },
       "version": "1.0.0",
-      "poweredBy": "",
-      "resizable": true,
+      "poweredBy": "gitee",
+      "resizable": false,
       "single": false,
       "size": {
         "height": "y*0.8-80",
         "width": "x*0.8"
       },
       "title": "码云仓库",
-      "url": "https://gitee.com/bigworldxld",
+      "url": "https://gitee.com",
       "customTile": "",
-      "urlRandomToken": true
+      "urlRandomToken": false
     },
     "ylui-github": {
       "addressBar": false,
