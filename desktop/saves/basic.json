@@ -409,8 +409,41 @@
       "url": "https://imgchr.com/",
       "customTile": "",
       "urlRandomToken": true
+    },
+	"yl-bilibili": {
+      "addressBar": true,
+      "autoRun": 0,
+      "background": false,
+      "badge": 0,
+      "desc": "B站",
+      "icon": {
+        "type": "fa",
+        "content": "tv",
+        "bg": "#E6E61A"
+      },
+      "openMode": "normal",
+      "plugin": false,
+      "position": {
+        "autoOffset": true,
+        "left": true,
+        "top": true,
+        "x": "x*0.1",
+        "y": "y*0.1"
+      },
+      "version": "1.0.0",
+      "poweredBy": "读序",
+      "resizable": true,
+      "single": false,
+      "size": {
+        "height": "y*0.8-80",
+        "width": "x*0.8"
+      },
+      "title": "B站",
+      "url": "https://www.bilibili.com/",
+      "customTile": "",
+      "urlRandomToken": true
     }
-  },
+  },    
   "shortcuts": [
     {
       "app": "yl-browser",
@@ -427,6 +460,12 @@
     {
       "app": "yl-app-home",
       "title": "读序-博客",
+      "params": {},
+      "hash": ""
+    },
+	{
+      "app": "yl-bilibili",
+      "title": "B站",
       "params": {},
       "hash": ""
     },
@@ -453,6 +492,7 @@
         }
       ]
     }
+	
   ],
   "tiles": [
     {
@@ -573,7 +613,14 @@
         "title": "github",
         "params": {},
         "hash": ""
+      },
+      "itemPushed-85": {
+        "app": "yl-bilibili",
+        "title": "B站",
+        "params": {},
+        "hash": ""
       }
+
     }
   }
 }
