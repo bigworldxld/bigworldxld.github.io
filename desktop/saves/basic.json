@@ -15,7 +15,8 @@
     "autoThemeColor": true,
     "wallpapers": [
       {
-        "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+        "image": "./res/img/wallpapers/bg0.jpg",
+        "preview": "./res/img/wallpapers/bg0_1.jpg"
       },
       {
         "image": "./res/img/wallpapers/bg1.jpg",
@@ -177,7 +178,7 @@
       "title": "浏览器",
       "url": "https://kaifa.baidu.com",
       "customTile": "",
-      "urlRandomToken": true
+      "urlRandomToken": false
     },
     "yl-app-store": {
       "addressBar": false,
@@ -382,7 +383,7 @@
       "autoRun": 0,
       "background": false,
       "badge": 0,
-      "desc": "",
+      "desc": "高速稳定图片存储",
       "icon": {
         "type": "fa",
         "content": "image",
@@ -408,7 +409,7 @@
       "title": "路过图床",
       "url": "https://imgchr.com/",
       "customTile": "",
-      "urlRandomToken": true
+      "urlRandomToken": false
     },
 	"yl-bilibili": {
       "addressBar": true,

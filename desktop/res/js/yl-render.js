@@ -486,9 +486,9 @@ YL.render = function (data) {
           YL.onReady(function () {
             setTimeout(function () {
               YL.msg(
-                "YLUI v" + YL.info.version + " 社区版",
-                "当前YLUI为社区版，更多信息及获取商业授权请访问:<br/>YLUI官网：" +
-                  '<a style="color: white" target="_blank" href="https://ylui.yuri2.cn">https://ylui.yuri2.cn</a><p>欢迎使用支付宝扫描二维码对作者进行捐赠，表达您对YLUI的支持~<br/><br/><img style="width: 100%" src="./res/img/donation.png"/></p>'
+                "bigwrldxld" + YL.info.version + " 个人版",
+                "“射手”假说：有一名神枪手，在一个靶子上每隔十厘米打一个洞。设想这个靶子的平面上生活着一种二维智能生物，它们中的科学家在对自己的宇宙进行观察后，发现了一个伟大的定律：“宇宙每隔十厘米，必然会有一个洞。”它们把这个神枪手一时兴起的随意行为，看成了自己宇宙中的铁律。" +
+                  '<a style="color: white" target="_blank" href="https://www.3body.com/home.html">https://www.3body.com/home.html</a><p>过去就像攥在手中的一把干沙，自以为攥得很紧，其实早就从指缝中流光了。记忆是一条早已干涸的河流，只在毫无生气的河床中剩下零落的砾石。~<br/><br/><img style="width: 100%" src="./res/img/donation.png"/></p>'
               );
             }, 1500);
           });

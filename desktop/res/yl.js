@@ -2,7 +2,7 @@ window.YL = {
   info: {
     softwareName: 'browser',
     version: window.yluiVersion,
-    iconBtnStart: 'yoast',
+    iconBtnStart: 'windows',
     author: 'bigworldxld',
     contactInformation: '2117376396@qq.com',
     officialWebsite: 'https://bigworldxld.github.io/',
