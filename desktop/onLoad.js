@@ -24,7 +24,7 @@ YL.onLoad(function () {
       var data = JSON.parse(text);
       YL.init(data);
     } else {
-      alert('YLUI读取配置错误，初始化失败');
+      alert('读取配置错误，初始化失败');
     }
   });
 });
