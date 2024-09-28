@@ -102,7 +102,7 @@
         "autoOffset": true
       },
       "version": "1.0.0",
-      "poweredBy": "YLUI",
+      "poweredBy": "browser",
       "resizable": true,
       "single": true,
       "size": {

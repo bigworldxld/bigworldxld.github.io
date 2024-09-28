@@ -74,8 +74,8 @@ YLApp.onReady(function () {
                     disable:!(YL.static.changeable&&YL.static.dataCenter)
                 },
                 "YLUI": {
-                    icon: "yoast",
-                    text: 'YLUI',
+                    icon: "house",
+                    text: 'Desktop',
                 },
                 "aboutUs": {
                     icon: "info-circle",

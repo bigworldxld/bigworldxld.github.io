@@ -1,6 +1,6 @@
 window.YL = {
   info: {
-    softwareName: 'browser',
+    softwareName: 'Desktop',
     version: window.yluiVersion,
     iconBtnStart: 'windows',
     author: 'bigworldxld',
