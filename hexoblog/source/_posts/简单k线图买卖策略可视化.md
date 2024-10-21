@@ -1,10 +1,12 @@
 ---
 title: 简单k线图买卖策略可视化
-date: 2022-09-05 21:53:51
 img: /images/量化金融.jpg
-tags: 
-	- finance
-	- pyecharts
+categories: python
+tags:
+  - finance
+  - pyecharts
+abbrlink: 37128
+date: 2022-09-05 21:53:51
 ---
 
 记录最近用到的金融买卖策略框架，在给定时间段k线图上叠加显示买点、卖点、收益等信息，用pyecharts可视化标注符合业务逻辑的买点和买点信息以及收益率。

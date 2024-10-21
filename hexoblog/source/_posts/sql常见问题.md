@@ -1,9 +1,10 @@
 ---
 title: sql常见问题
-date: 2023-03-05 16:35:59
 tags: SQL
 categories: database
 img: /images/SQL数据分析题.jpg
+abbrlink: 62776
+date: 2023-03-05 16:35:59
 ---
 
 ## SQL常见错误指南

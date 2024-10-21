@@ -1,9 +1,10 @@
 ---
 title: mysql实用小命令
-date: 2022-12-23 21:14:59
 tags: mysql
 categories: database
 img: /images/mysql.jpg
+abbrlink: 24232
+date: 2022-12-23 21:14:59
 ---
 
 ## 1.group_concat

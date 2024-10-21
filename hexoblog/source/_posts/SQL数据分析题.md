@@ -1,9 +1,10 @@
 ---
 title: SQL数据分析题
-date: 2022-12-11 21:08:39
 categories: database
 tags: SQL
 img: /images/SQL数据分析题.jpg
+abbrlink: 24233
+date: 2022-12-11 21:08:39
 ---
 
 ## 题目1 找出每个部门工资第二高的员工

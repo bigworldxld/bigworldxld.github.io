@@ -1,9 +1,10 @@
 ---
 title: SpringMVC
-date: 2022-03-31 22:07:11
 tags: springMVC
 categories: java
 img: /images/springMVC.jpg
+abbrlink: 4780
+date: 2022-03-31 22:07:11
 ---
 
 # 一、SpringMVC简介

@@ -1,10 +1,12 @@
 ---
 title: 'Hive-sql,spark sql,sql区别'
-date: 2022-10-01 17:27:57
 img: /images/hivesql_sparksql.jpg
+categories: database
 tags:
-	- hive
-	- spark
+  - hive
+  - spark
+abbrlink: 14464
+date: 2022-10-01 17:27:57
 ---
 
 ## Hive-sql和sql的区别是什么？

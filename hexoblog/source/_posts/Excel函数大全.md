@@ -1,8 +1,10 @@
 ---
 title: Excel函数大全
-date: 2023-02-18 09:15:43
+categories: tools
 tags: excel
 img: /images/excel.jpg
+abbrlink: 37841
+date: 2023-02-18 09:15:43
 ---
 
 ## VLOOKUP

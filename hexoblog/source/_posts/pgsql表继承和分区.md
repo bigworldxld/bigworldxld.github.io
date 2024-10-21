@@ -1,9 +1,10 @@
 ---
 title: pgsql表继承和分区
-date: 2023-03-09 15:27:37
 categories: database
 img: /images/pgsql分区.jpg
 tags: pgsql
+abbrlink: 22230
+date: 2023-03-09 15:27:37
 ---
 
 ## PostgreSQL表继承和分区

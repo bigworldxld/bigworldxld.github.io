@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Hadoop（入门）
-date: 2022-02-02 20:49:19
 categories: hadoop生态圈
 img: /images/hadoop.jpg
 tags: hadoop
+abbrlink: 40282
+date: 2022-02-02 20:49:19
 ---
 
 # 大数据技术之Hadoop（入门）

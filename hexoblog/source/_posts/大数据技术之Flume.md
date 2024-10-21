@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Flume
-date: 2022-02-05 23:19:34
 categories: hadoop生态圈
 img: /images/Flume.jpg
 tags: Flume
+abbrlink: 57156
+date: 2022-02-05 23:19:34
 ---
 
 # 大数据技术之Flume

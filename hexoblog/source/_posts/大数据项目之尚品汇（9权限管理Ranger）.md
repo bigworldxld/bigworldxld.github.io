@@ -1,25 +1,26 @@
 ---
 title: 大数据项目之尚品汇（9权限管理Ranger）
-date: 2022-02-14 13:48:57
 categories: data warehouse
 img: /images/datawarehouse.jpg
 tags:
-	- hadoop          
-	- spark
-	- zookeeper
-	- hive
-	- kafka
-	- flume
-	- Azkaban
-	- sqoop
-	- superset
-	- hbase
-	- Presto
-	- kylin
-	- zabbix
-	- Kerberos
-	- ranger
-	- atlas
+  - hadoop
+  - spark
+  - zookeeper
+  - hive
+  - kafka
+  - flume
+  - Azkaban
+  - sqoop
+  - superset
+  - hbase
+  - Presto
+  - kylin
+  - zabbix
+  - Kerberos
+  - ranger
+  - atlas
+abbrlink: 28194
+date: 2022-02-14 13:48:57
 ---
 
 # 第1章 Ranger概述

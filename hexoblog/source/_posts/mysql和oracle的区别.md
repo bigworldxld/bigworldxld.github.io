@@ -1,11 +1,12 @@
 ---
 title: mysql和oracle的区别
-date: 2022-06-24 17:26:05
 categories: database
-tags: 
-	- mysql
-	- oracle
+tags:
+  - mysql
+  - oracle
 img: /images/oracle_mysql.jpg
+abbrlink: 40731
+date: 2022-06-24 17:26:05
 ---
 
 ## 一、mysql和oracle宏观上的区别：

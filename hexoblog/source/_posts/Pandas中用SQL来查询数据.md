@@ -1,9 +1,10 @@
 ---
 title: Pandas中用SQL来查询数据
-date: 2023-03-25 21:43:38
 tags: pandas
 categories: python
 img: /images/pandas.jpg
+abbrlink: 47623
+date: 2023-03-25 21:43:38
 ---
 
 ## Pandas中用SQL来查询数据

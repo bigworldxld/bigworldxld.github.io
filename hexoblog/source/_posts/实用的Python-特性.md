@@ -1,9 +1,10 @@
 ---
 title: 实用的Python 特性
-date: 2022-12-07 16:33:19
 tags: python
 categories: python
 img: /images/Python特性.jpg
+abbrlink: 20317
+date: 2022-12-07 16:33:19
 ---
 
 ## 1 一行 For 循环

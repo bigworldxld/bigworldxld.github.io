@@ -1,10 +1,12 @@
 ---
 title: 使用html转canvas并下载图片
-date: 2022-11-07 15:23:13
 img: /images/html2canvas.jpg
+categories: front-end
 tags:
-	- javascript
-	- html
+  - javascript
+  - html
+abbrlink: 37458
+date: 2022-11-07 15:23:13
 ---
 
 ## 单一图片转换

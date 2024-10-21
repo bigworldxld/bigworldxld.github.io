@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Flink
-date: 2022-03-01 11:46:15
 categories: hadoop生态圈
 img: /images/flink.jpg
 tags: flink
+abbrlink: 11524
+date: 2022-03-01 11:46:15
 ---
 
 # 第一章 Flink 简介

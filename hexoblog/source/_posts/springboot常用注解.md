@@ -1,9 +1,10 @@
 ---
 title: springboot常用注解
-date: 2022-08-05 18:54:30
 img: /images/springboot.jpg
 categories: java
 tags: springboot
+abbrlink: 58497
+date: 2022-08-05 18:54:30
 ---
 
 ## SpringBoot注解

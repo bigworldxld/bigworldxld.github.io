@@ -1,9 +1,10 @@
 ---
 title: 简单Q-learning算法
-date: 2022-07-28 18:10:30
 tags: Q-Learning
 categories: python
 img: /images/Q-Learning.jpg
+abbrlink: 12725
+date: 2022-07-28 18:10:30
 ---
 
 ## Q-Learning算法

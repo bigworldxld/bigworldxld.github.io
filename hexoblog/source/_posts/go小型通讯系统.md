@@ -1,12 +1,13 @@
 ---
 title: go小型通讯系统
-date: 2022-04-27 15:59:35
-categories: GoLang
+categories: OPL
 img: /images/go1.jpg
 tags:
-	- tcp
-	- Reids
-	- GoLang
+  - tcp
+  - Reids
+  - GoLang
+abbrlink: 5123
+date: 2022-04-27 15:59:35
 ---
 
 ## 项目开发流程

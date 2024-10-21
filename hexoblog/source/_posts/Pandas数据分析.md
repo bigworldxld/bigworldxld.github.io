@@ -1,9 +1,10 @@
 ---
 title: Pandas数据分析
-date: 2022-07-02 13:56:15
 tags: pandas
 categories: python
 img: /images/pandas.jpg
+abbrlink: 19241
+date: 2022-07-02 13:56:15
 ---
 
 ## 使用Pandas.eval()实现高性能运算

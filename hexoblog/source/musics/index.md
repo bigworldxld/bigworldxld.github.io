@@ -7,7 +7,7 @@ author: bigworldxld
 password: 181d4dcb338ca4fa878af16b8da76d83f5124cbc7a4dc2479bc22047bdd42216
 ---
 
-## 歌曲欣赏（解脱限制，快乐更新）
+## 歌曲欣赏（更新引擎，解脱限制，快乐更新）
 
 ## 周杰伦
 
@@ -949,11 +949,21 @@ put gay to to battle,girl
 
 ### 周杰伦Medley1
 
-回到过去星晴爱我别走最后的战役
+星晴 + 浪漫手机 + 说爱你 + 粉色海洋 + Mojito
 
 {% aplayer "周杰伦Medley1" "周杰伦" "/mymusic/周杰伦Medley1.mp3"  "https://d.musicapp.migu.cn/data/oss/resource/00/2b/i3/ot.webp" %}
 
 [下载](/mymusic/周杰伦Medley1.mp3)
+
+### 周杰伦Medley2
+
+彩虹 + 轨迹 + 牛仔很忙 + 星晴 + 回到过去
+
+{% aplayer "周杰伦Medley2" "周杰伦" "/mymusic/周杰伦Medley2.mp3"  "https://d.musicapp.migu.cn/data/oss/resource/00/2b/i3/ot.webp" %}
+
+[下载](/mymusic/周杰伦Medley2.mp3)
+
+
 
 ### 大笨钟
 
@@ -1018,6 +1028,105 @@ put gay to to battle,girl
 {% aplayer "龙拳" "周杰伦" "/mymusic/龙拳.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg" %}
 
 [下载](/mymusic/龙拳.mp3)
+
+### 公公偏头痛
+
+吹几页刺客列传我淡定背诵
+
+{% aplayer "公公偏头痛" "周杰伦" "/mymusic/公公偏头痛.mp3"  "https://img4.kuwo.cn/star/albumcover/120/59/22/1713105199.jpg" %}
+
+[下载](/mymusic/公公偏头痛.mp3)
+
+### 世界末末日
+
+落叶的声音
+
+{% aplayer "世界末末日" "周杰伦" "/mymusic/世界末末日.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg" %}
+
+[下载](/mymusic/世界末末日.mp3)
+
+### 乌克丽丽
+
+一般我是不会
+
+用音乐灌醉你
+
+别再不吃东西
+
+{% aplayer "乌克丽丽" "周杰伦" "/mymusic/乌克丽丽.mp3"  "https://img4.kuwo.cn/star/albumcover/120/59/22/1713105199.jpg" %}
+
+[下载](/mymusic/乌克丽丽.mp3)
+
+### 夜的第七章
+
+突兀的细微花香
+
+{% aplayer "夜的第七章" "周杰伦" "/mymusic/夜的第七章.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg" %}
+
+[下载](/mymusic/夜的第七章.mp3)
+
+### 困兽之斗
+
+溃散在薄雾之中
+
+世界在雨中淹没
+
+{% aplayer "困兽之斗" "周杰伦" "/mymusic/困兽之斗.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg" %}
+
+[下载](/mymusic/困兽之斗.mp3)
+
+### 双刀
+
+双刀的正前方
+
+{% aplayer "双刀" "周杰伦" "/mymusic/双刀.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg" %}
+
+[下载](/mymusic/双刀.mp3)
+
+### 迷迭香
+
+一瓶装 全部喝掉
+
+{% aplayer "迷迭香" "周杰伦" "/mymusic/迷迭香.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg" %}
+
+[下载](/mymusic迷迭香.mp3)
+
+### 我落泪情绪零碎
+
+一幕幕纷飞
+
+于是我把诗折叠
+
+{% aplayer "我落泪情绪零碎" "周杰伦" "/mymusic/我落泪情绪零碎.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg" %}
+
+[下载](/mymusic/我落泪情绪零碎.mp3)
+
+### 自导自演
+
+巷口甩尾开了过去的熟悉
+{% aplayer "自导自演" "周杰伦" "/mymusic/自导自演.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg" %}
+
+[下载](/mymusic/自导自演.mp3)
+
+### 四面楚歌
+我只能一直往前走
+{% aplayer "四面楚歌" "周杰伦" "/mymusic/四面楚歌.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg" %}
+
+[下载](/mymusic/四面楚歌.mp3)
+
+### 火车叨位去
+听我讲 风景那么美
+{% aplayer "火车叨位去" "周杰伦" "/mymusic/火车叨位去.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg" %}
+
+[下载](/mymusic/火车叨位去.mp3)
+
+
+### 英雄
+旋转跳跃你闭着眼
+最后让我收头
+{% aplayer "英雄" "周杰伦" "/mymusic/英雄.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg" %}
+
+[下载](/mymusic/英雄.mp3)
 
 ## 陶喆
 
@@ -1268,6 +1377,22 @@ on wednesday I casually walk on by
 {% aplayer "Katrina" "陶喆" "/mymusic/Katrina.mp3"  "https://img4.kuwo.cn/star/albumcover/120/85/22/902955150.jpg" %}
 
 [下载](/mymusic/Katrina.mp3)
+
+### 再见以前先说再见
+
+也许该把门打开风才能进来
+
+{% aplayer "再见以前先说再见" "陶喆" "/mymusic/再见以前先说再见.mp3"  "https://p1.music.126.net/s-RX4DnzNQdcOM0pRNrVxQ==/109951166556851964.jpg" %}
+
+[下载](/mymusic/再见以前先说再见.mp3)
+
+### 是是非非
+
+空空的杯子留着你的唇印
+
+{% aplayer "是是非非" "陶喆" "/mymusic/是是非非.mp3"  "https://p1.music.126.net/s-RX4DnzNQdcOM0pRNrVxQ==/109951166556851964.jpg" %}
+
+[下载](/mymusic/是是非非.mp3)
 
 ## 孙燕姿
 
@@ -1674,6 +1799,18 @@ as long as the the fire remains
 {% aplayer "没有人的方向" "孙燕姿" "/mymusic/没有人的方向.mp3"  "https://p2.music.126.net/AvzIWpdBc-Pl-SZeRvNF_w==/109951167897962361.jpg" %}
 
 [下载](/mymusic/没有人的方向.mp3)
+
+### Stefanie
+
+也不再寻找
+
+在没人的地方
+
+一个人的勇敢
+
+{% aplayer "Stefanie" "孙燕姿" "/mymusic/Stefanie.mp3"  "http://p1.music.126.net/em2jwX9Z-pz3E9fHtojtvg==/109951166887388958.jpg?param=130y130" %}
+
+[下载](/mymusic/Stefanie.mp3)
 
 ## 古巨基
 
@@ -2249,6 +2386,44 @@ money 能鼓舞大志
 
 [下载](/mymusic/子华说.mp3)
 
+### 初心
+
+不怕寂寞地追寻
+
+{% aplayer "初心" "古巨基" "/mymusic/初心（粤语）.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000PkaFu3AWnw1.jpg" %}
+
+[下载](/mymusic/初心（粤语）.mp3)
+
+### 初心
+
+{% aplayer "初心" "古巨基" "/mymusic/初心（国语）.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000PkaFu3AWnw1.jpg" %}
+
+[下载](/mymusic/初心（国语）.mp3)
+
+### So long
+
+问你怎忍孤身漂泊
+
+{% aplayer "So long" "古巨基" "/mymusic/solong.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000PkaFu3AWnw1.jpg" %}
+
+[下载](/mymusic/solong.mp3)
+
+### 我爱毛查查
+
+谁人蒙查查
+
+毛查查是个橙波波
+
+{% aplayer "我爱毛查查" "古巨基" "/mymusic/我爱毛查查.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000PkaFu3AWnw1.jpg" %}
+
+[下载](/mymusic/我爱毛查查.mp3)
+
+
+
+
+
+
+
 ## Taylor Swift
 
 ### Love Story
@@ -2467,6 +2642,14 @@ I could see you
 
 [下载](/mymusic/Icanseeyou.mp3)
 
+### Last Chrismas
+
+I keep my distance but
+
+{% aplayer "Last Chrismas" "Taylor Swift" "/mymusic/LastChrismas.mp3"  "https://p2.music.126.net/fyKxfDUUIL65oDwSgtDLMw==/109951166119330991.jpg" %}
+
+[下载](/mymusic/LastChrismas.mp3)
+
 ## 容祖儿
 
 ### 痛爱
@@ -2527,13 +2710,6 @@ I could see you
 
 [下载](/mymusic/想得太远.mp3)
 
-### 借过
-
-看看你
-
-{% aplayer "借过" "容祖儿" "/mymusic/借过.mp3"  "https://p2.music.126.net/4ZxRzb99x5h1d1gwNXbG6g==/109951166656477740.jpg" %}
-
-[下载](/mymusic/借过.mp3)
 
 ### 习惯失恋
 
@@ -2831,7 +3007,49 @@ show up，好事多为，逃，美丽在望，隆重登场
 
 [下载](/mymusic/孤单喧哗.mp3)
 
+### 容祖儿Medley4
 
+密友，损友，心甘命抵，早有预谋 ，罪魁 ，借过，我也不想这样
+
+{% aplayer "容祖儿Medley4" "容祖儿" "/mymusic/容祖儿Medley4.mp3"  "https://p2.music.126.net/3zxzfGyUp-X8Q22eSkhL-Q==/109951166656569168.jpg" %}
+
+[下载](/mymusic/容祖儿Medley4.mp3)
+
+### 密友
+
+暗地里豁出去
+
+{% aplayer "密友" "容祖儿" "/mymusic/密友.mp3"  "http://imge.kugou.com/stdmusic/400/20160907/20160907215934871986.jpg" %}
+
+[下载](/mymusic/密友.mp3)
+
+### 损友
+
+只怕热泪会流
+
+谁更清楚
+
+{% aplayer "损友" "容祖儿" "/mymusic/损友.mp3"  "https://p1.music.126.net/4ZxRzb99x5h1d1gwNXbG6g==/109951166656477740.jpg" %}
+
+[下载](/mymusic/损友.mp3)
+
+### 感应
+
+找一个自己
+
+{% aplayer "感应" "容祖儿" "/mymusic/感应.mp3"  "http://d.musicapp.migu.cn/prod/file-service/file-down01/8121e8df41a5c12f48b69aea89b71dab/aabba1895b5e956a0d67f604723be98b/94c23e838e29d335bd109761fb180229.webp" %}
+
+[下载](/mymusic/感应.mp3)
+
+### 逃避你
+
+如共你从没开始
+
+世界最遥远的一种相距中
+
+{% aplayer "逃避你" "容祖儿" "/mymusic/逃避你.mp3"  "https://p1.music.126.net/AzONrBRL3tLUi9s6Sb5UOA==/109951163077671018.jpg" %}
+
+[下载](/mymusic/逃避你.mp3)
 
 ## 大张伟
 
@@ -3077,6 +3295,12 @@ show up，好事多为，逃，美丽在望，隆重登场
 
 [下载](/mymusic/拍往上.mp3)
 
+### TwinsMedley
+
+{% aplayer "TwinsMedley" "Twins" "/mymusic/TwinsMedley.mp3"  "https://p2.music.126.net/Pe_oSf2Gh4LKHRmHRS3dfw==/1419469517647580.jpg" %}
+
+[下载](/mymusic/TwinsMedley.mp3)
+
 ### TwinsMedley1
 
 风筝与风，下一站天后，女校男生
@@ -3162,6 +3386,88 @@ show up，好事多为，逃，美丽在望，隆重登场
 {% aplayer "轻功" "Twins" "/mymusic/轻功.mp3"  "https://p1.music.126.net/cKnZ_1YufcY890YxZWjufg==/109951166656371800.jpg" %}
 
 [下载](/mymusic/轻功.mp3)
+
+### 瓶中沙
+
+记得多年后的下午茶
+
+让我的回忆很潇洒
+
+{% aplayer "瓶中沙" "Twins" "/mymusic/瓶中沙.mp3"  "https://p2.music.126.net/h5FhfbxqpupHFxvEc-M6CQ==/109951163263877684.jpg" %}
+
+[下载](/mymusic/瓶中沙.mp3)
+
+### 同样的两个梦
+
+多像云
+
+{% aplayer "同样的两个梦" "Twins" "/mymusic/同样的两个梦.mp3"  "https://p2.music.126.net/h5FhfbxqpupHFxvEc-M6CQ==/109951163263877684.jpg" %}
+
+[下载](/mymusic/同样的两个梦.mp3)
+
+### 星光游乐园
+
+停在这瞬间
+
+背包的左边 票根的背面
+
+{% aplayer "星光游乐园" "Twins" "/mymusic/星光游乐园.mp3"  "https://p2.music.126.net/h5FhfbxqpupHFxvEc-M6CQ==/109951163263877684.jpg" %}
+
+[下载](/mymusic/星光游乐园.mp3)
+
+### 烈女
+
+遇天雨
+
+{% aplayer "烈女" "Twins" "/mymusic/烈女.mp3"  "https://i0.hdslb.com/bfs/archive/329672e7318d77f31043a803b1c457a2dbe956c3.jpg" %}
+
+[下载](/mymusic/烈女.mp3)
+
+### 天地骄阳
+
+天阔路长
+
+来自香港地
+
+{% aplayer "天地骄阳" "Twins" "/mymusic/天地骄阳.mp3"  "https://i0.hdslb.com/bfs/archive/329672e7318d77f31043a803b1c457a2dbe956c3.jpg" %}
+
+[下载](/mymusic/天地骄阳.mp3)
+
+### 救生圈
+
+可将光阴倒流
+
+你说你说太累
+
+{% aplayer "救生圈" "Twins" "/mymusic/救生圈.mp3"  "https://p2.music.126.net/s-g6jFghfDd0ZrujZ7d3RQ==/109951163398842835.jpg" %}
+
+[下载](/mymusic/救生圈.mp3)
+
+### 眼看心勿动
+
+皮相动人却未看穿灵魂
+
+{% aplayer "眼看心勿动" "Twins" "/mymusic/眼看心勿动.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000zGEEo0sOn9J.jpg" %}
+
+[下载](/mymusic/眼看心勿动.mp3)
+
+### 200%咒语
+
+ya ya ya ya ya
+
+{% aplayer "200%咒语" "Twins" "/mymusic/200%咒语.mp3"  "https://p1.music.126.net/f9k4KQAqLzYG149WrNXl_A==/109951163278907283.jpg" %}
+
+[下载](/mymusic/200%咒语.mp3)
+
+### 绝对迁就
+
+剧毒毒我吧我也未深深感染
+
+{% aplayer "绝对迁就" "Twins" "/mymusic/绝对迁就.mp3"  "https://p1.music.126.net/JCTCjJpZfpZfBJts2mVRtQ==/109951163327158235.jpg" %}
+
+[下载](/mymusic/绝对迁就.mp3)
+
+
 
 ## 陈奕迅
 
@@ -3410,3 +3716,1173 @@ as the world turns on and on
 {% aplayer "与你常在" "陈奕迅" "/mymusic/与你常在.mp3"  "https://p1.music.126.net/n8objKMAfyw-cotbj9CmQw==/109951163676240009.jpg" %}
 
 [下载](/mymusic/与你常在.mp3)
+
+### 谢谢
+
+热水瓶里开水一滴不剩
+
+好像什么都蒙上了灰尘
+
+{% aplayer "谢谢" "陈奕迅" "/mymusic/谢谢.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000GDz8k03UOaI.jpg" %}
+
+[下载](/mymusic/谢谢.mp3)
+
+### 2001太空漫游
+
+集齐2000个梦
+
+{% aplayer "2001太空漫游" "陈奕迅" "/mymusic/2001太空漫游.mp3"  "https://p1.music.126.net/w_vuv9hBWq2hlJxJcmJrjg==/109951166115915081.jpg" %}
+
+[下载](/mymusic/2001太空漫游.mp3)
+
+### 致明日的舞
+
+再与你转个圈 发觉你会更耐看
+
+摇曳里 到旷野 到晚空
+
+{% aplayer "致明日的舞" "陈奕迅" "/mymusic/致明日的舞.mp3"  "https://p2.music.126.net/1xeJa4fE4N4YVM68FJ69lQ==/109951165403024844.jpg" %}
+
+[下载](/mymusic/致明日的舞.mp3)
+
+### Shall We Talk
+
+叶儿声声降
+
+为何未照地堂
+
+回响也如同幻觉
+
+{% aplayer "Shall We Talk" "陈奕迅" "/mymusic/shallwetalk.mp3"  "https://p2.music.126.net/LE6HV_Y5-HXFfdXKGhJ94Q==/109951163104933982.jpg" %}
+
+[下载](/mymusic/shallwetalk.mp3)
+
+### Shall We Dance
+
+春天就在你脚尖
+
+随着每一个脚步
+
+{% aplayer "Shall We Dance" "陈奕迅" "/mymusic/shallwedance.mp3"  "https://p2.music.126.net/LE6HV_Y5-HXFfdXKGhJ94Q==/109951163104933982.jpg" %}
+
+[下载](/mymusic/shallwedance.mp3)
+
+### 谢谢侬
+
+躺在病床上动也不想动
+
+{% aplayer "谢谢侬" "陈奕迅" "/mymusic/谢谢侬.mp3"  "https://p2.music.126.net/RdBFQahX4RNsy_fGPva3YQ==/109951166656400274.jpg" %}
+
+[下载](/mymusic/谢谢侬.mp3)
+
+### 时代曲
+
+盼你耐心的安坐
+
+{% aplayer "时代曲" "陈奕迅" "/mymusic/时代曲.mp3"  "https://p1.music.126.net/IrzCyqOCRRaKtiYjlGzwfg==/109951168143442566.jpg" %}
+
+[下载](/mymusic/时代曲.mp3)
+
+### 天下无双
+
+定是答你从无双
+
+{% aplayer "天下无双" "陈奕迅" "/mymusic/天下无双.mp3"  "https://p1.music.126.net/IrzCyqOCRRaKtiYjlGzwfg==/109951168143442566.jpg" %}
+
+[下载](/mymusic/天下无双.mp3)
+
+### 空城记
+
+如果你是月亮
+
+{% aplayer "空城记" "陈奕迅" "/mymusic/空城记.mp3"  "https://p2.music.126.net/Uwl1HXFirYjKJnITAcUykQ==/109951168971887892.jpg" %}
+
+[下载](/mymusic/空城记.mp3)
+
+### 是但求其爱
+
+某一刹骤觉
+
+{% aplayer "是但求其爱" "陈奕迅" "/mymusic/是但求其爱.mp3"  "https://p2.music.126.net/Uwl1HXFirYjKJnITAcUykQ==/109951168971887892.jpg" %}
+
+[下载](/mymusic/是但求其爱.mp3)
+
+### Special One
+
+我喜欢听歪理
+
+{% aplayer "Special One" "陈奕迅" "/mymusic/SpecialOne.mp3"  "https://p2.music.126.net/Uwl1HXFirYjKJnITAcUykQ==/109951168971887892.jpg" %}
+
+[下载](/mymusic/SpecialOne.mp3)
+
+### 我的开始在这里
+
+在你消失的一千零一次
+
+{% aplayer "我的开始在这里" "陈奕迅" "/mymusic/我的开始在这里.mp3"  "https://p2.music.126.net/Uwl1HXFirYjKJnITAcUykQ==/109951168971887892.jpg" %}
+
+[下载](/mymusic/我的开始在这里.mp3)
+
+### 主旋律
+
+让旋律沉淀了在洗脑
+
+{% aplayer "主旋律" "陈奕迅" "/mymusic/主旋律.mp3"  "https://p1.music.126.net/1itDj9ETx-njdPKTuptrwQ==/19057835044482433.jpg" %}
+
+[下载](/mymusic/主旋律.mp3)
+
+### 阿猫阿狗
+
+笑到死
+
+{% aplayer "阿猫阿狗" "陈奕迅" "/mymusic/阿猫阿狗.mp3"  "https://p1.music.126.net/1itDj9ETx-njdPKTuptrwQ==/19057835044482433.jpg" %}
+
+[下载](/mymusic/阿猫阿狗.mp3)
+
+### 任我行
+
+为何在雨伞外独行
+
+飞多远有谁会对它操心
+
+{% aplayer "任我行" "陈奕迅" "/mymusic/任我行.mp3"  "https://p1.music.126.net/1itDj9ETx-njdPKTuptrwQ==/19057835044482433.jpg" %}
+
+[下载](/mymusic/任我行.mp3)
+
+### 粤语残片
+
+极灿烂时光
+
+想再遇确实靠天意
+
+震撼总逐渐变得越肤浅
+
+{% aplayer "粤语残片" "陈奕迅" "/mymusic/粤语残片.mp3"  "https://p1.music.126.net/jzNxBp5DCER2_aKGsXeRww==/109951167435823724.jpg" %}
+
+[下载](/mymusic/粤语残片.mp3)
+
+### 信心花舍
+
+特殊为你开铺
+
+为你愿托着沿路飞舞
+
+{% aplayer "信心花舍" "陈奕迅" "/mymusic/信心花舍.mp3"  "https://p2.music.126.net/BL1nr6SeYEPv2vsz6YJdmA==/19129303300189701.jpg" %}
+
+[下载](/mymusic/粤语残片.mp3)
+
+### 孤儿仔
+
+传说世间每个人
+
+若想抱抱就等下一世
+
+{% aplayer "孤儿仔" "陈奕迅" "/mymusic/孤儿仔.mp3"  "https://p1.music.126.net/kiB7W81cjVzB324cwp7SZQ==/29686813955381.jpg" %}
+
+[下载](/mymusic/孤儿仔.mp3)
+
+### 月球上的人
+
+不理它小爱与大爱
+如果有再会
+{% aplayer "月球上的人" "陈奕迅" "/mymusic/ 月球上的人.mp3"  "https://p1.music.126.net/Qs7rthgurYD-OISrms8hng==/109951166050592954.jpg" %}
+
+[下载](/mymusic/ 月球上的人.mp3)
+
+
+## 卫兰
+
+### 劲歌金曲
+
+爱才，离家出走，等，拍错拖，霎眼娇
+
+{% aplayer "劲歌金曲" "卫兰" "/mymusic/劲歌金曲卫兰.mp3"  "https://p2.music.126.net/VXJHN4RQWxsTGGByPMEWaQ==/109951168561844710.jpg" %}
+
+[下载](/mymusic/劲歌金曲卫兰.mp3)
+
+### 在月台上等你
+
+慢了脚步
+
+{% aplayer "在月台上等你" "卫兰" "/mymusic/在月台上等你.mp3"  "https://p2.music.126.net/S8zv5F3dkFhuYGHoDp3EAA==/109951163651947654.jpg" %}
+
+[下载](/mymusic/在月台上等你.mp3)
+
+### 离家出走
+
+有自由后叹
+
+豁出去漫游
+
+能有幸这样放肆
+
+{% aplayer "离家出走" "卫兰" "/mymusic/离家出走.mp3"  "https://p1.music.126.net/87xBoilZP9PUfi5nmSHbzw==/7722969673635338.jpg" %}
+
+[下载](/mymusic/离家出走.mp3)
+
+### 大哥
+
+不需得你允许
+
+{% aplayer "大哥" "卫兰" "/mymusic/大哥.mp3"  "https://p2.music.126.net/cb9eURnGO_VHFsrLRyFVRw==/5705365836603818.jpg" %}
+
+[下载](/mymusic/大哥.mp3)
+
+### 我的视角
+
+学会放慢时间
+
+安于有时必须要柔软地强悍
+
+{% aplayer "我的视角" "卫兰" "/mymusic/我的视角.mp3"  "https://p1.music.126.net/WI-nN39f3HVIWksLuEiqYA==/109951167948442349.jpg" %}
+
+[下载](/mymusic/我的视角.mp3)
+
+### Dating Rules 
+
+so if you’re down for this craziness I’m down for you
+
+{% aplayer "Dating Rules " "卫兰" "/mymusic/DatingRules.mp3"  "https://p2.music.126.net/_SYeCvhQZUfgQkx-_TOdnQ==/109951167078686625.jpg" %}
+
+[下载](/mymusic/DatingRules.mp3)
+
+### 卫兰Medley
+
+爱才，杂技，十个他不如你一个，天敌，街灯晚餐，积雪
+
+{% aplayer "卫兰Medley" "卫兰" "/mymusic/卫兰Medley.mp3"  "https://p2.music.126.net/G7U4Bo7lnZofEHG-F7lN1w==/109951168152773559.jpg" %}
+
+[下载](/mymusic/卫兰Medley.mp3)
+
+### 街灯晚餐
+
+人又谈何愉快
+
+只想去成全自己
+
+{% aplayer "街灯晚餐" "卫兰" "/mymusic/街灯晚餐.mp3"  "https://p1.music.126.net/zp1mBQj9Ld3F8Nt4f1zwRw==/109951163402004785.jpg" %}
+
+[下载](/mymusic/街灯晚餐.mp3)
+
+### 风靡
+
+人海也扑不出最阔的网
+
+{% aplayer "风靡" "卫兰" "/mymusic/风靡.mp3"  "https://p2.music.126.net/HnTMuBulkJPIMO1-JOPMRQ==/109951167238218952.jpg" %}
+
+[下载](/mymusic/风靡.mp3)
+
+### 回电我
+
+看着自尊剥落失去更加多
+
+{% aplayer "回电我" "卫兰" "/mymusic/回电我.mp3"  "https://p2.music.126.net/HnTMuBulkJPIMO1-JOPMRQ==/109951167238218952.jpg" %}
+
+[下载](/mymusic/回电我.mp3)
+
+### 穿花蝴蝶
+
+如蝴蝶破茧吹过春风
+
+{% aplayer "穿花蝴蝶" "卫兰" "/mymusic/穿花蝴蝶卫兰.mp3"  "https://p2.music.126.net/HnTMuBulkJPIMO1-JOPMRQ==/109951167238218952.jpg" %}
+
+[下载](/mymusic/穿花蝴蝶卫兰.mp3)
+
+### Ghost
+
+{% aplayer "Ghost" "卫兰" "/mymusic/Ghost.mp3"  "https://p2.music.126.net/38PV5FcPJIWeyjhTqxBxlA==/109951167628186538.jpg" %}
+
+[下载](/mymusic/Ghost.mp3)
+
+### 呼吸之间
+
+close you eyes
+
+{% aplayer "呼吸之间" "卫兰" "/mymusic/呼吸之间.mp3"  "https://p2.music.126.net/38PV5FcPJIWeyjhTqxBxlA==/109951167628186538.jpg" %}
+
+[下载](/mymusic/呼吸之间.mp3)
+
+### 她整晚在写信
+
+悠然地呼气
+
+{% aplayer "她整晚在写信" "卫兰" "/mymusic/呼吸之间.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001ImeKp0sf1Sf.jpg" %}
+
+[下载](/mymusic/她整晚在写信.mp3)
+
+### My Cookie Can
+
+讲一声冻冻
+
+{% aplayer "My Cookie Can" "卫兰" "/mymusic/mycookiecan.mp3"  "https://p2.music.126.net/JKl930_MGseAD0eG1659Sw==/109951168505012748.jpg" %}
+
+[下载](/mymusic/mycookiecan.mp3)
+
+### 现代恋爱安全手册
+
+环保自己心再跳
+
+{% aplayer "现代恋爱安全手册" "卫兰" "/mymusic/现代恋爱安全手册.mp3"  "https://p2.music.126.net/JKl930_MGseAD0eG1659Sw==/109951168505012748.jpg" %}
+
+[下载](/mymusic/现代恋爱安全手册.mp3)
+
+### 残酷游戏
+
+明明避过你 未凭命数
+
+谈情像奋斗 共谁在斗
+
+{% aplayer "残酷游戏" "卫兰" "/mymusic/残酷游戏.mp3"  "https://p2.music.126.net/cb9eURnGO_VHFsrLRyFVRw==/5705365836603818.jpg" %}
+
+[下载](/mymusic/残酷游戏.mp3)
+
+### 心有不甘
+
+谁人又理智到永不犯错
+
+{% aplayer "心有不甘" "卫兰" "/mymusic/心有不甘.mp3"  "https://p2.music.126.net/cb9eURnGO_VHFsrLRyFVRw==/5705365836603818.jpg" %}
+
+[下载](/mymusic/心有不甘.mp3)
+
+### 你的眼神
+
+淡淡然掠过
+
+{% aplayer "你的眼神" "卫兰" "/mymusic/你的眼神.mp3"  "https://p2.music.126.net/cb9eURnGO_VHFsrLRyFVRw==/5705365836603818.jpg" %}
+
+[下载](/mymusic/你的眼神.mp3)
+
+## 侧田
+
+### 美丽之最
+
+心想太专心看你在忙
+
+手愿意捐给你拓着头
+
+{% aplayer "美丽之最" "侧田" "/mymusic/美丽之最.mp3"  "https://p2.music.126.net/f2G1cre2FdozPtkNx2dzUA==/109951164016431747.jpg" %}
+
+[下载](/mymusic/美丽之最.mp3)
+
+### 命硬
+
+等荆棘满途全枯死
+
+{% aplayer "命硬" "侧田" "/mymusic/命硬.mp3"  "https://p2.music.126.net/f2G1cre2FdozPtkNx2dzUA==/109951164016431747.jpg" %}
+
+[下载](/mymusic/命硬.mp3)
+
+### 走音
+
+去氹你开心
+
+{% aplayer "走音" "侧田" "/mymusic/走音.mp3"  "https://d.musicapp.migu.cn/data/oss/resource/00/2f/ya/ai.webp" %}
+
+[下载](/mymusic/走音.mp3)
+
+### Kong
+
+世上风霜
+
+欣赏你忧伤
+
+{% aplayer "Kong" "侧田" "/mymusic/Kong.mp3"  "https://p2.music.126.net/f2G1cre2FdozPtkNx2dzUA==/109951164016431747.jpg" %}
+
+[下载](/mymusic/Kong.mp3)
+
+### 感动
+
+至令云腐化
+
+未被人潮掩盖
+
+{% aplayer "感动" "侧田" "/mymusic/感动.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000zYbwm2N4Xmr.jpg" %}
+
+[下载](/mymusic/感动.mp3)
+
+### 一句
+
+说这一句说这一句
+
+{% aplayer "一句" "侧田" "/mymusic/一句.mp3"  "https://p2.music.126.net/k8Gx92umGXsICytMHJ3z_A==/109951167703103858.jpg" %}
+
+[下载](/mymusic/一句.mp3)
+
+### 男人KTV
+
+点首跟绝情诗
+
+{% aplayer "男人KTV" "侧田" "/mymusic/男人KTV.mp3"  "https://p2.music.126.net/k8Gx92umGXsICytMHJ3z_A==/109951167703103858.jpg" %}
+
+[下载](/mymusic/男人KTV.mp3)
+
+### 活多一次
+
+静静觅信仰
+
+{% aplayer "活多一次" "侧田" "/mymusic/活多一次.mp3"  "https://p2.music.126.net/k8Gx92umGXsICytMHJ3z_A==/109951167703103858.jpg" %}
+
+[下载](/mymusic/活多一次.mp3)
+
+### 一粒糖
+
+行前张开眼吧
+
+还是会明白到
+
+{% aplayer "一粒糖" "侧田" "/mymusic/一粒糖.mp3"  "https://p1.music.126.net/rVQN4WdO7zGRkEXBC6Y_vA==/109951167227066038.jpg" %}
+
+[下载](/mymusic/一粒糖.mp3)
+
+### 运
+
+先清楚自己这么有运气
+
+{% aplayer "运" "侧田" "/mymusic/运.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000zYbwm2N4Xmr.jpg" %}
+
+[下载](/mymusic/运.mp3)
+
+### 命书
+
+当故事全数回味
+
+一篇一篇这日记
+
+{% aplayer "命书" "侧田" "/mymusic/命书.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000zYbwm2N4Xmr.jpg" %}
+
+[下载](/mymusic/命书.mp3)
+
+### 决战二战祖
+
+为着你未来你也其实爱材
+
+I can’t see anybody will look like that
+
+{% aplayer "决战二战祖" "侧田" "/mymusic/决战二战祖.mp3"  "https://p2.music.126.net/f2G1cre2FdozPtkNx2dzUA==/109951164016431747.jpg" %}
+
+[下载](/mymusic/决战二战祖.mp3)
+
+### 无言无语
+
+无言无语 才无忧
+
+{% aplayer "无言无语" "侧田" "/mymusic/无言无语.mp3"  "https://p2.music.126.net/f2G1cre2FdozPtkNx2dzUA==/109951164016431747.jpg" %}
+
+[下载](/mymusic/无言无语.mp3)
+
+### 肤浅
+
+喜爱自己肤浅
+
+成熟似世俗
+
+{% aplayer "肤浅" "侧田" "/mymusic/肤浅.mp3"  "https://p2.music.126.net/GvjfWWWqAl24nJgjo-BMxA==/109951165125387963.jpg" %}
+
+[下载](/mymusic/肤浅.mp3)
+
+### 大象席地而坐
+
+一生只凝望耳朵
+
+大象坐在我肩上
+
+{% aplayer "大象席地而坐" "侧田" "/mymusic/大象席地而坐.mp3"  "https://p2.music.126.net/GvjfWWWqAl24nJgjo-BMxA==/109951165125387963.jpg" %}
+
+[下载](/mymusic/大象席地而坐.mp3)
+
+
+
+## 刘若英
+
+### 我不想念
+
+某一扇车窗
+
+{% aplayer "我不想念" "刘若英" "/mymusic/我不想念.mp3"  "https://p2.music.126.net/nmAqT_km61I6avwoIBESqA==/2535473814050033.jpg" %}
+
+[下载](/mymusic/我不想念.mp3)
+
+### 对白
+
+一个人看着天亮起来
+
+{% aplayer "对白" "刘若英" "/mymusic/对白.mp3"  "https://p2.music.126.net/eBF7bHnJYBUfOFrJ_7SUfw==/109951163351825356.jpg" %}
+
+[下载](/mymusic/对白.mp3)
+
+### 后来
+
+我低下头
+
+{% aplayer "后来" "刘若英" "/mymusic/后来.mp3"  "https://p2.music.126.net/eBF7bHnJYBUfOFrJ_7SUfw==/109951163351825356.jpg" %}
+
+[下载](/mymusic/后来.mp3)
+
+### 分开旅行
+
+send给你我的心
+
+{% aplayer "分开旅行" "刘若英" "/mymusic/分开旅行.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001iC4Ar1EKKXi.jpg" %}
+
+[下载](/mymusic/分开旅行.mp3)
+
+### 原来你也在这里
+
+满身风雨我从海上来
+
+{% aplayer "原来你也在这里" "刘若英" "/mymusic/原来你也在这里.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001iC4Ar1EKKXi.jpg" %}
+
+[下载](/mymusic/原来你也在这里.mp3)
+
+### 说话
+
+你习惯用哪支手
+
+{% aplayer "说话" "刘若英" "/mymusic/说话.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003i3hrM1HfzCo.jpg" %}
+
+[下载](/mymusic/说话.mp3)
+
+## 方力申
+
+### 劲歌金曲
+
+abc君，无双谱，零籍口，亲近对亲热错，你记得吗，随传随到，别人情歌，死守，认命
+
+{% aplayer "劲歌金曲方力申" "方力申" "/mymusic/劲歌金曲方力申.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/劲歌金曲方力申.mp3)
+
+### ABC君
+
+你那么吸引
+
+{% aplayer "ABC君" "方力申" "/mymusic/ABC君.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/ABC君.mp3)
+
+### 在你遥远的附近
+
+若此刻你那手机微震
+
+{% aplayer "在你遥远的附近" "方力申" "/mymusic/在你遥远的附近.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/在你遥远的附近.mp3)
+
+### 认命
+
+{% aplayer "认命" "方力申" "/mymusic/认命.mp3"  "https://p2.music.126.net/VHYolJArSF2wxAXEXCTa3A==/109951165102129378.jpg" %}
+
+[下载](/mymusic/认命.mp3)
+
+### 随传随到
+
+然后这窗口
+
+{% aplayer "随传随到" "方力申" "/mymusic/随传随到.mp3"  "https://p2.music.126.net/VHYolJArSF2wxAXEXCTa3A==/109951165102129378.jpg" %}
+
+[下载](/mymusic/随传随到.mp3)
+
+### 皇后
+
+要传奇便懒理那段段是与非
+
+{% aplayer "皇后" "方力申" "/mymusic/皇后.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/皇后.mp3)
+
+### 可爱不可爱
+
+路过几多好人谁也极吸引
+
+是最最不可能才这样吸引
+
+没缘分才会更多心
+
+{% aplayer "可爱不可爱" "方力申" "/mymusic/可爱不可爱.mp3"  "https://p2.music.126.net/DqQ1wWOGKJ-KuWyfjDqb4A==/109951166562826988.jpg" %}
+
+[下载](/mymusic/可爱不可爱.mp3)
+
+### 傻瓜
+
+若我看你 你仿佛也看我
+
+{% aplayer "傻瓜" "方力申" "/mymusic/傻瓜.mp3"  "https://p2.music.126.net/DqQ1wWOGKJ-KuWyfjDqb4A==/109951166562826988.jpg" %}
+
+[下载](/mymusic/傻瓜.mp3)
+
+### 你记得吗
+
+也就够
+
+{% aplayer "你记得吗" "方力申" "/mymusic/你记得吗.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/你记得吗.mp3)
+
+### 先苦后甜
+
+轻抚你皱纹段段旧事再忆记
+
+{% aplayer "先苦后甜" "方力申" "/mymusic/先苦后甜.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/先苦后甜.mp3)
+
+### 自欺欺人
+
+留下次处置
+
+扮未发生
+
+{% aplayer "自欺欺人" "方力申" "/mymusic/自欺欺人.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/自欺欺人.mp3)
+
+### 三位一体
+
+这一刹风景
+
+{% aplayer "三位一体" "方力申" "/mymusic/三位一体.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/三位一体.mp3)
+
+### 自导自恋
+
+自拍天空居然伟大
+
+{% aplayer "自导自恋" "方力申" "/mymusic/自导自恋.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002tX2SE2b7MZO.jpg" %}
+
+[下载](/mymusic/自导自恋.mp3)
+
+### 起跑线
+
+前看
+
+时光
+
+{% aplayer "起跑线" "方力申" "/mymusic/起跑线.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001GrI1i0al3sY.jpg" %}
+
+[下载](/mymusic/起跑线.mp3)
+
+
+
+## Tank
+
+### 倔强的树
+
+宛如枯朽重又复苏
+
+{% aplayer "倔强的树" "Tank" "/mymusic/倔强的树.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014li4N16FWw9.jpg" %}
+
+[下载](/mymusic/倔强的树.mp3)
+
+### 你记得吗
+
+追回所有愿望
+
+{% aplayer "你记得吗" "Tank" "/mymusic/你记得吗.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014li4N16FWw9.jpg" %}
+
+[下载](/mymusic/你记得吗.mp3)
+
+### 千年泪
+
+窗台人影独坐
+
+{% aplayer "千年泪" "Tank" "/mymusic/千年泪.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014li4N16FWw9.jpg" %}
+
+[下载](/mymusic/千年泪.mp3)
+
+### 圆周与方舟
+
+收集散落的奢求
+
+{% aplayer "圆周与方舟" "Tank" "/mymusic/圆周与方舟.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014li4N16FWw9.jpg" %}
+
+[下载](/mymusic/圆周与方舟.mp3)
+
+### 三国恋
+
+将军 北方仓粮占据
+
+{% aplayer "三国恋" "Tank" "/mymusic/三国恋.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000029GgMd2qVyYA.jpg" %}
+
+[下载](/mymusic/三国恋.mp3)
+
+### 功夫少年
+
+自成一派
+
+{% aplayer "功夫少年" "Tank" "/mymusic/功夫少年.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014li4N16FWw9.jpg" %}
+
+[下载](/mymusic/功夫少年.mp3)
+
+## 许嵩
+
+### 心有所向
+
+滂沱大雨难熄炽热向往
+
+{% aplayer "心有所向" "许嵩" "/mymusic/心有所向.mp3"  "https://p2.music.126.net/KyBR4ZDYFlzQJE_uyvfjpA==/109951166118671647.jpg" %}
+
+[下载](/mymusic/心有所向.mp3)
+
+### 素颜
+
+又是一个安静的晚上
+
+{% aplayer "素颜" "许嵩" "/mymusic/素颜.mp3"  "https://p1.music.126.net/LMyITvYRS7NsgA9lYUKpqg==/109951164179134667.jpg" %}
+
+[下载](/mymusic/素颜.mp3)
+
+
+
+## 吴雨霏
+
+### 劲歌金曲
+
+座右铭、最后一秒钟 、不聪明 、失控 、逼得太紧、不如不爱 、马戏团之恋、距离、分手要狠、爱过一场、长不大、爱是最大权利 、爱你变成恨你
+
+{% aplayer "心有所向" "吴雨霏" "/mymusic/劲歌金曲吴雨霏.mp3"  "https://y.gtimg.cn/music/photo_new/T001R300x300M000002nWBET2t5iFx.jpg" %}
+
+[下载](/mymusic/劲歌金曲吴雨霏.mp3)
+
+### 座右铭
+
+问谁可保证
+
+怎张开眼睛
+
+{% aplayer "心有所向" "吴雨霏" "/mymusic/座右铭.mp3"  "https://y.gtimg.cn/music/photo_new/T001R300x300M000002nWBET2t5iFx.jpg" %}
+
+[下载](/mymusic/座右铭.mp3)
+
+### 分手要狠
+
+却会忍不到热吻
+
+{% aplayer "分手要狠" "吴雨霏" "/mymusic/分手要狠.mp3"  "https://p1.music.126.net/94wQFWtsnck5yzb3WINDXw==/109951165115681401.jpg" %}
+
+[下载](/mymusic/分手要狠.mp3)
+
+### 马戏团之恋
+
+明明是危险都要给你踩钢线
+
+{% aplayer "马戏团之恋" "吴雨霏" "/mymusic/马戏团之恋.mp3"  "https://p2.music.126.net/2y49pmtq_rJITLrbh-sZSw==/109951164082568187.jpg" %}
+
+[下载](/mymusic/马戏团之恋.mp3)
+
+### 爱过一场
+
+蓝色的心情飘着灰色的雨滴
+
+{% aplayer "爱过一场" "吴雨霏" "/mymusic/爱过一场.mp3"  "https://p2.music.126.net/2y49pmtq_rJITLrbh-sZSw==/109951164082568187.jpg" %}
+
+[下载](/mymusic/爱过一场.mp3)
+
+### 留不低
+
+能被你最眷恋恐怕要下世
+
+{% aplayer "留不低" "吴雨霏" "/mymusic/留不低.mp3"  "https://p2.music.126.net/Agu7KU3VSnh9hqjVWi1gHQ==/6006632022768891.jpg" %}
+
+[下载](/mymusic/留不低.mp3)
+
+### 飞女正传
+
+还未算失礼物
+
+壮观得有如
+
+{% aplayer "飞女正传" "吴雨霏" "/mymusic/飞女正传.mp3"  "https://d.musicapp.migu.cn/data/oss/resource/00/23/x2/p9.webp" %}
+
+[下载](/mymusic/飞女正传.mp3)
+
+### 失控
+
+逃不过这堤坝
+
+{% aplayer "失控" "吴雨霏" "/mymusic/失控.mp3"  "https://d.musicapp.migu.cn/data/oss/resource/00/23/x2/p9.webp" %}
+
+[下载](/mymusic/失控.mp3)
+
+## 陈僖仪
+
+### 蜚蜚
+
+难道有天花开
+
+总会流言蜚蜚
+
+{% aplayer "蜚蜚" "陈僖仪" "/mymusic/蜚蜚.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001HINi340HHWN.jpg" %}
+
+[下载](/mymusic/蜚蜚.mp3)
+
+### 忘川
+
+河畔那钟声却有很近
+
+埋藏眼内那不安
+
+那钟声响彻城市
+
+{% aplayer "忘川" "陈僖仪" "/mymusic/忘川.mp3"  "https://p2.music.126.net/j4Ruv7uO-x0hhFjnaDt6Og==/109951165083285783.jpg" %}
+
+[下载](/mymusic/忘川.mp3)
+
+### 让风筝飞
+
+荡进天空那裂缝
+
+天色岂会每日也明亮如晴空
+
+{% aplayer "让风筝飞" "陈僖仪" "/mymusic/让风筝飞.mp3"  "https://p2.music.126.net/j4Ruv7uO-x0hhFjnaDt6Og==/109951165083285783.jpg" %}
+
+[下载](/mymusic/让风筝飞.mp3)
+
+### 失乐冰
+
+让我灵魂和感觉长埋地底
+
+以汽水当沐浴露浮在一堆番泡
+
+{% aplayer "失乐冰" "陈僖仪" "/mymusic/失乐冰.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001HINi340HHWN.jpg" %}
+
+[下载](/mymusic/失乐冰.mp3)
+
+### 千秋
+
+公园吸收天空交出光线
+
+{% aplayer "千秋" "陈僖仪" "/mymusic/千秋.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001HINi340HHWN.jpg" %}
+
+[下载](/mymusic/千秋.mp3)
+
+### 纪念悲
+
+让昨日爱慕
+
+{% aplayer "纪念悲" "陈僖仪" "/mymusic/纪念悲.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000001HINi340HHWN.jpg" %}
+
+[下载](/mymusic/纪念悲.mp3)
+
+## Westlife
+
+### My Love
+
+where the skies are blue
+
+{% aplayer "My Love" "Westlife" "/mymusic/MyLove.mp3"  "https://p2.music.126.net/GKRzlo68r--pw8LdE96jEg==/109951163167208843.jpg" %}
+
+[下载](/mymusic/MyLove.mp3)
+
+### Seasons in the Sun
+
+in the air
+
+singing in the sky
+
+{% aplayer "Seasons in the Sun" "Westlife" "/mymusic/SeasonsintheSun.mp3"  "https://p2.music.126.net/GKRzlo68r--pw8LdE96jEg==/109951163167208843.jpg" %}
+
+[下载](/mymusic/SeasonsintheSun.mp3)
+
+### Catch My Breath
+
+that i ever knew
+
+{% aplayer "Catch My Breath" "Westlife" "/mymusic/CatchMyBreath.mp3"  "https://p2.music.126.net/GKRzlo68r--pw8LdE96jEg==/109951163167208843.jpg" %}
+
+[下载](/mymusic/CatchMyBreath.mp3)
+
+## 傅颖
+
+### 花吃了这女孩
+
+像午后雨滋养稻田
+
+{% aplayer "花吃了这女孩" "傅颖" "/mymusic/花吃了这女孩.mp3"  "https://p2.music.126.net/28M6v3aTHYJKARd9uEfoSw==/109951167229878038.jpg" %}
+
+[下载](/mymusic/花吃了这女孩.mp3)
+
+### 最好是你
+
+到今日是否偷偷翻起
+
+{% aplayer "最好是你" "傅颖" "/mymusic/最好是你.mp3"  "https://p2.music.126.net/Nx-uQ4qQaytx6chj2Z82Kw==/1369991501426377.jpg" %}
+
+[下载](/mymusic/最好是你.mp3)
+
+### 今日晴
+
+活像有点冷冰冰
+
+阳光心境取胜
+
+{% aplayer "今日晴" "傅颖" "/mymusic/今日晴.mp3"  "https://p2.music.126.net/Nx-uQ4qQaytx6chj2Z82Kw==/1369991501426377.jpg" %}
+
+[下载](/mymusic/今日晴.mp3)
+
+## 余枫
+
+### 纸风车
+
+谱出心情平仄
+
+甘甜中带点青涩
+
+{% aplayer "纸风车" "余枫" "/mymusic/纸风车.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000fFNUO3VKqpe.jpg" %}
+
+[下载](/mymusic/纸风车.mp3)
+
+## 麦浚龙
+
+### 弱水三千
+
+一转身可以化进了杯中
+
+冻了变雪堆
+
+{% aplayer "弱水三千" "麦浚龙" "/mymusic/弱水三千.mp3"  "https://y.gtimg.cn/music/photo_new/T001R300x300M000000AiOIq3Y5AFK.jpg" %}
+
+[下载](/mymusic/弱水三千.mp3)
+
+## 陈小春
+
+### 独家记忆
+
+没限期
+
+摆在心底
+
+{% aplayer "独家记忆" "陈小春" "/mymusic/独家记忆.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000BnsJ439CxKB.jpg" %}
+
+[下载](/mymusic/独家记忆.mp3)
+
+### 我不是伟人
+
+恕我狠心无限大方非爱人
+
+{% aplayer "我不是伟人" "陈小春" "/mymusic/我不是伟人.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000000BnsJ439CxKB.jpg" %}
+
+[下载](/mymusic/我不是伟人.mp3)
+
+### 相依为命
+
+不必挑选我们成大器
+
+年化像细水冲走几个爱人和知己
+
+{% aplayer "相依为命" "陈小春" "/mymusic/相依为命.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003HDitE32Ii70.jpg" %}
+
+[下载](/mymusic/相依为命.mp3)
+
+## 薛之谦
+
+### 天外来物
+
+你降落的 太突然了
+
+不近又不远处
+
+都褪去颜色
+
+{% aplayer "天外来物" "薛之谦" "/mymusic/天外来物.mp3"  "https://p2.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg" %}
+
+[下载](/mymusic/天外来物.mp3)
+
+### 我好像在哪见过你
+
+我听见了你的声音
+{% aplayer "我好像在哪见过你" "薛之谦" "/mymusic/我好像在哪见过你.mp3"  "https://p2.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg" %}
+
+[下载](/mymusic/我好像在哪见过你.mp3)
+
+## 史振宇
+### 写给辛夷的歌
+你在风中遥望
+
+{% aplayer "写给辛夷的歌" "史振宇" "/mymusic/写给辛夷的歌.mp3"  "https://p2.music.126.net/S_T8ndrDa84-ZWevEOo1Pg==/109951169478518713.jpg" %}
+
+[下载](/mymusic/写给辛夷的歌.mp3)
+
+## 陈慧琳
+### 劲歌金曲
+Lover’s Concerto，我会挂念你，我们都是这样初恋的，别来无，零，她比我丑，一刀两断，都是你的错，临走前吻我，皮外伤，开始，我敢去爱，嫁妆，一生一爱情，Take my hand
+
+{% aplayer "劲歌金曲-陈慧琳" " 陈慧琳" "/mymusic/劲歌金曲-陈慧琳.mp3"  "https://p2.music.126.net/dEP8m5BQfeU6BVMSlumY8A==/17912143928297942.jpg" %}
+
+[下载](/mymusic/劲歌金曲-陈慧琳.mp3)
+
+### 谁愿放手
+
+来这年这一天这地
+曾某年某一天某地
+{% aplayer "谁愿放手" " 陈慧琳" "/mymusic/谁愿放手.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002pdjTI1cWkLN.jpg" %}
+
+[下载](/mymusic/谁愿放手.mp3)
+
+
+## 孙耀威
+### 爱的故事上集
+
+长年累月为你怎再自持
+秋风将涌起的某夜
+
+{% aplayer "爱的故事上集" "孙耀威" "/mymusic/爱的故事上集.mp3"  "https://p2.music.126.net/t0vAGMn-A3XQpiUY0SI6Kw==/109951166782939005.jpg" %}
+
+[下载](/mymusic/爱的故事上集.mp3)
+
+## 郑伊健
+### 甘心替代你
+
+曾一起出走不怕闯进绝地
+{% aplayer "甘心替代你" "郑伊健" "/mymusic/甘心替代你.mp3"  "https://p2.music.126.net/HGJGJp7IJZDUxtr-U-FfCg==/109951166583261485.jpg" %}
+
+[下载](/mymusic/甘心替代你.mp3)
+
+## 张敬轩
+### 樱花树下
+
+树荫有一只蝉
+还记得樱花正开
+{% aplayer "樱花树下" "张敬轩" "/mymusic/樱花树下.mp3"  "https://p1.music.126.net/MbAMGidLob2YUEsw732PXw==/18815942488049510.jpg" %}
+
+[下载](/mymusic/樱花树下.mp3)
+
+
+## 赵英博
+### 昨日晴空
+
+人海之中
+多喧哗
+{% aplayer " 昨日晴空" "赵英博, 任敏, 辛云来, 章若楠, 朱丹妮" "/mymusic/ 昨日晴空mp3"  "https://p1.music.126.net/txikZRkBTTEidW-sHyz_jA==/109951163575106477.jpg" %}
+
+[下载](/mymusic/ 昨日晴空.mp3)
+
+## 林峯
+### 爱在记忆中找你
+
+要自页说起
+{% aplayer "爱在记忆中找你" "林峯" "/mymusic/爱在记忆中找你.mp3"  "https://p2.music.126.net/YAKmgqX1dBSs7QSXi4-dqw==/109951166712223799.jpg" %}
+
+[下载](/mymusic/真心英雄.mp3)
+
+## 周华健
+### 真心英雄
+
+把握生命里的每一分钟
+{% aplayer "真心英雄" "周华健&成龙&李宗盛" "/mymusic/真心英雄.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002WrmcA3cDfqO.jpg" %}
+
+[下载](/mymusic/真心英雄.mp3)
+
+
+## 周柏豪陈柏宇洪卓立
+### 情歌金曲串烧
+宏愿，车匙，弥敦道，lovin'you，永久保存，mr.adult，难以替代，目前，i miss you，三脚猫，六天，傻小子
+{% aplayer "情歌金曲串烧" "周柏豪&陈柏宇&洪卓立" "/mymusic/情歌金曲串烧.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002WrmcA3cDfqO.jpg" %}
+
+[下载](/mymusic/情歌金曲串烧.mp3)
+
+## 陈柏宇
+### 你瞒我瞒
+有任何难题却不提起
+{% aplayer "你瞒我瞒" "周柏豪" "/mymusic/你瞒我瞒.mp3"  "https://p1.music.126.net/13UtJJamABRpgmFmuq6gwg==/109951165958573797.jpg" %}
+
+[下载](/mymusic/你瞒我瞒.mp3)
+
+
+## 印子月
+### 借过
+可是忘了还给我
+{% aplayer "借过" "印子月" "/mymusic/借过.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000003LbwS92Ihv4q.jpg" %}
+
+[下载](/mymusic/借过.mp3)
+
+## 周柏豪
+### 傻小子
+缓慢脚步
+来又去
+{% aplayer "傻小子" "周柏豪" "/mymusic/傻小子.mp3"  "https://p2.music.126.net/h5m7F7_Il1KWPtRw47kmYw==/109951164081857249.jpg" %}
+
+[下载](/mymusic/傻小子.mp3)
+
+### 宏愿
+我笑着去许愿
+{% aplayer "宏愿" "周柏豪" "/mymusic/宏愿.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002WrmcA3cDfqO.jpg" %}
+
+[下载](/mymusic/宏愿.mp3)
+
+### 六天
+
+北海道雪纷飞
+{% aplayer "六天" "周柏豪" "/mymusic/六天.mp3"  "https://y.gtimg.cn/music/photo_new/T002R300x300M000002WrmcA3cDfqO.jpg" %}
+
+[下载](/mymusic/六天.mp3)
+
+## 梁汉文
+### 七友
+谁人曾照顾过我的感受
+{% aplayer "七友" "梁汉文" "/mymusic/七友.mp3"  "https://p1.music.126.net/7nolNRJdaTEmr4K0hjRA8A==/41781441856456.jpg" %}
+
+[下载](/mymusic/七友.mp3)
+
+## 王杰
+### 不浪漫罪名
+
+流进了眼角里的刺
+{% aplayer "不浪漫罪名" "王杰" "/mymusic/不浪漫罪名.mp3"  "https://p2.music.126.net/3Uv-httwuCF2nxdW5jz7Zg==/109951168956482696.jpg" %}
+
+[下载](/mymusic/不浪漫罪名.mp3)
+
+### 谁明浪子心
+
+听说太理想的一切都不可接触
+可找到知己
+{% aplayer "谁明浪子心" "王杰" "/mymusic/谁明浪子心.mp3"  "https://p2.music.126.net/3Uv-httwuCF2nxdW5jz7Zg==/109951168956482696.jpg" %}
+
+[下载](/mymusic/谁明浪子心.mp3)
+
+### 我是真的爱上你
+
+你有善解人意的心
+{% aplayer "我是真的爱上你" "王杰" "/mymusic/我是真的爱上你.mp3"  "https://p2.music.126.net/3Uv-httwuCF2nxdW5jz7Zg==/109951168956482696.jpg" %}
+
+[下载](/mymusic/我是真的爱上你.mp3)
+
+## 张芸京
+### 偏爱
+
+等你的依赖对你偏爱
+{% aplayer "偏爱" "张芸京" "/mymusic/偏爱.mp3"  "https://p1.music.126.net/Peby--S44lDHFhdnZhOX0A==/109951168087159141.jpg" %}
+
+[下载](/mymusic/偏爱.mp3)
+
+## 曾沛慈
+### 够爱
+藏在无边无际
+地球不停的转动
+{% aplayer "够爱" "曾沛慈" "/mymusic/够爱.mp3"  "https://p2.music.126.net/B4xe2G5caKAeSg2kgzJGbg==/109951168163464107.jpg" %}
+
+[下载](/mymusic/够爱.mp3)
+
+## 黑Gril
+### 123木头人
+
+123木头人
+{% aplayer "123木头人" "黑Gril" "/mymusic/123木头人.mp3"  "https://p2.music.126.net/XjTMhCxkHinwyIBukB7T7Q==/109951167343283474.jpg" %}
+
+[下载](/mymusic/123木头人.mp3)
+
+## 胡夏
+### 那些年
+曾经想征服全世界
+{% aplayer "那些年" "胡夏" "/mymusic/那些年.mp3"  "https://p1.music.126.net/GyH5RG2HUo78PJ161NCY8A==/109951165966760453.jpg" %}
+
+[下载](/mymusic/那些年.mp3)
+
+## 郑钧
+### 低空飞行
+在人群之中从容穿梭
+但无法夺走我的勇气
+{% aplayer "低空飞行" "郑钧" "/mymusic/低空飞行.mp3"  "http://imge.kugou.com/stdmusic/400/20230901/20230901145740344283.jpg" %}
+
+[下载](/mymusic/低空飞行.mp3)
+

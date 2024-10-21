@@ -1,10 +1,11 @@
 ---
 title: SQL查询技巧
-date: 2022-11-30 16:29:36
 tags: mysql
 cover: true
 categories: database
 img: /images/mysql技巧.jpg
+abbrlink: 32795
+date: 2022-11-30 16:29:36
 ---
 
 ## 1.列转行

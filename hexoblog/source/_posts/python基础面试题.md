@@ -1,9 +1,10 @@
 ---
 title: python基础面试题
-date: 2022-12-12 21:43:09
 tags: python
 categories: python
 img: /images/python基础面试题.jpg
+abbrlink: 6063
+date: 2022-12-12 21:43:09
 ---
 
 ## ***\*1、一行代码实现1--100之和\****

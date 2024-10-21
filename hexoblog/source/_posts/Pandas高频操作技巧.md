@@ -1,9 +1,10 @@
 ---
 title: Pandas高频操作技巧
-date: 2023-03-08 11:39:25
 tags: pandas
 categories: python
 img: /images/pandas1.jpg
+abbrlink: 19160
+date: 2023-03-08 11:39:25
 ---
 
 ## Pandas 高频操作技巧

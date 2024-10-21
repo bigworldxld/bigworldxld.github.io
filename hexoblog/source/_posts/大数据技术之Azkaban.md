@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Azkaban
-date: 2022-02-08 22:08:19
 categories: hadoop生态圈
 img: /images/Azkaban.jpg
 tags: Azkaban
+abbrlink: 16820
+date: 2022-02-08 22:08:19
 ---
 
 # 第1章 Azkaban概论

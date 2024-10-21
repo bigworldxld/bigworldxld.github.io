@@ -1,9 +1,10 @@
 ---
 title: 练习springboot自定义starter
-date: 2022-10-04 17:37:50
 tags: springboot
 categories: java
 img: /images/自定义启动器.jpg
+abbrlink: 16497
+date: 2022-10-04 17:37:50
 ---
 
 ## 1.自定义启动器

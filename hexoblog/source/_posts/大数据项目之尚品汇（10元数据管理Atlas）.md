@@ -1,25 +1,26 @@
 ---
 title: 大数据项目之尚品汇（10元数据管理Atlas）
-date: 2022-02-15 13:51:56
 categories: data warehouse
 img: /images/datawarehouse.jpg
 tags:
-	- hadoop          
-	- spark
-	- zookeeper
-	- hive
-	- kafka
-	- flume
-	- Azkaban
-	- sqoop
-	- superset
-	- hbase
-	- Presto
-	- kylin
-	- zabbix
-	- Kerberos
-	- ranger
-	- atlas
+  - hadoop
+  - spark
+  - zookeeper
+  - hive
+  - kafka
+  - flume
+  - Azkaban
+  - sqoop
+  - superset
+  - hbase
+  - Presto
+  - kylin
+  - zabbix
+  - Kerberos
+  - ranger
+  - atlas
+abbrlink: 14181
+date: 2022-02-15 13:51:56
 ---
 
 # 第1章 Atlas入门

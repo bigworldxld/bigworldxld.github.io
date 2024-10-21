@@ -1,9 +1,10 @@
 ---
 title: go语言基础
-date: 2022-04-21 22:15:20
-categories: GoLang
+categories: OPL
 tags: GoLang
 img: /images/go2.jpg
+abbrlink: 25470
+date: 2022-04-21 22:15:20
 ---
 
 ## 背景

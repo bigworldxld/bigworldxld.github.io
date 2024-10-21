@@ -1,8 +1,9 @@
 ---
 title: 大数据技术之Shell
-date: 2022-01-31 17:48:35
 img: /images/shell.jpg
 tags: Shell
+abbrlink: 32648
+date: 2022-01-31 17:48:35
 ---
 
 # 第1章 Shell概述

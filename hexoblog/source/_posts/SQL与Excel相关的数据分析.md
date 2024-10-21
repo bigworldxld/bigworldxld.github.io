@@ -1,9 +1,10 @@
 ---
 title: SQL与Excel相关的数据分析
-date: 2023-01-14 15:41:07
 tags: mysql
 categories: database
 img: /images/mysql.jpg
+abbrlink: 54434
+date: 2023-01-14 15:41:07
 ---
 
 ## Excel一样使用SQL进行数据分析

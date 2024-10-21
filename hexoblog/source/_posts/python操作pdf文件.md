@@ -1,9 +1,10 @@
 ---
 title: python操作pdf文件
-date: 2023-03-22 15:45:07
 tags: python
 categories: python
 img: /images/python.jpg
+abbrlink: 15114
+date: 2023-03-22 15:45:07
 ---
 
 ## ChatPDF，PDF操作一键完成

@@ -1,8 +1,10 @@
 ---
 title: 写SQL的30条注意
-date: 2022-11-28 21:19:23
 img: /images/sql优化.jpg
+categories: database
 tags: SQL
+abbrlink: 48175
+date: 2022-11-28 21:19:23
 ---
 
 ## 1、查询SQL尽量不要使用select *，而是select具体字段。

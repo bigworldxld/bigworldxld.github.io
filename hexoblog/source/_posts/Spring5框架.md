@@ -1,9 +1,10 @@
 ---
 title: Spring5框架
-date: 2022-03-26 22:12:04
 tags: Spring
 categories: java
 img: /images/Spring.jpg
+abbrlink: 7610
+date: 2022-03-26 22:12:04
 ---
 
 # Spring5 框架

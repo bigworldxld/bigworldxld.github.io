@@ -1,10 +1,11 @@
 ---
 title: python数据清洗方法
-date: 2022-06-30 21:02:09
 tags: python
 cover: true
 categories: python
 img: /images/python.jpg
+abbrlink: 35380
+date: 2022-06-30 21:02:09
 ---
 
 ## 01 重复值处理

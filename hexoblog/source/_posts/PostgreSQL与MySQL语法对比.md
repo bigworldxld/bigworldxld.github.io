@@ -1,11 +1,12 @@
 ---
 title: PostgreSQL与MySQL语法对比
-date: 2023-01-15 15:42:09
 categories: database
 img: /images/pgsql和mysql对比.jpg
 tags:
-	- pgsql
-	- mysql
+  - pgsql
+  - mysql
+abbrlink: 65482
+date: 2023-01-15 15:42:09
 ---
 
 ## PostgreSQL与MySQL语法对比

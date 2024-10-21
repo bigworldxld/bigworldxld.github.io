@@ -1,10 +1,12 @@
 ---
 title: Cursor全自动代码生成器
-date: 2023-03-19 18:59:09
 img: /images/Cursor.jpg
-tags: 
-	- chatgpt
-	- Corsor
+categories: tools
+tags:
+  - chatgpt
+  - Corsor
+abbrlink: 38571
+date: 2023-03-19 18:59:09
 ---
 
 ## Cursor全自动代码生成器

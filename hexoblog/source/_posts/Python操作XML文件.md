@@ -1,9 +1,10 @@
 ---
 title: Python操作XML文件
-date: 2023-03-11 17:38:01
 tags: python
 categories: python
 img: /images/Python操作XML.jpg
+abbrlink: 59546
+date: 2023-03-11 17:38:01
 ---
 
 ## 什么是 XML？

@@ -1,9 +1,10 @@
 ---
 title: JUC高并发入门
-date: 2022-09-21 23:39:09
 tags: JUC
 categories: java
 img: /images/JUC.jpg
+abbrlink: 63325
+date: 2022-09-21 23:39:09
 ---
 
 ## 一、线程基础

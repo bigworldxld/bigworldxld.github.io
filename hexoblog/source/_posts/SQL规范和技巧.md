@@ -1,9 +1,10 @@
 ---
 title: SQL规范和技巧
-date: 2023-03-21 11:08:18
 tags: SQL
 categories: database
 img: /images/SQL数据分析题.jpg
+abbrlink: 21687
+date: 2023-03-21 11:08:18
 ---
 
 ## 命名规范

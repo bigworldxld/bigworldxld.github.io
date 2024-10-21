@@ -1,9 +1,10 @@
 ---
 title: Mysql真题
-date: 2022-06-12 21:14:59
 tags: SQL
 categories: database
 img: /images/mysql.jpg
+abbrlink: 21735
+date: 2022-06-12 21:14:59
 ---
 
 # **MySQL面试真题**

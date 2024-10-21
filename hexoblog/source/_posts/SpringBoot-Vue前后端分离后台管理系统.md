@@ -1,12 +1,13 @@
 ---
 title: SpringBoot+Vue前后端分离后台管理系统
-date: 2022-06-22 18:45:00
 img: /images/springboot+vue.jpg
 categories: java
 tags:
-	- vue
-	- springboot
-	- nginx
+  - vue
+  - springboot
+  - nginx
+abbrlink: 48605
+date: 2022-06-22 18:45:00
 ---
 
 ## 安装vue的环境

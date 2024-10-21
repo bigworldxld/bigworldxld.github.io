@@ -1,13 +1,14 @@
 ---
 title: Spark常用RDD算子
-date: 2022-07-10 20:01:11
 img: /images/spark_rdd.jpg
 cover: true
 coverImg: /images/spark_rdd.jpg
 categories: hadoop生态圈
 tags:
-	- Spark
-	- RDD
+  - Spark
+  - RDD
+abbrlink: 54025
+date: 2022-07-10 20:01:11
 ---
 
 ## RDD 创建

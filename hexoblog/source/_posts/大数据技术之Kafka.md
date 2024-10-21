@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Kafka
-date: 2022-02-04 23:12:53
 categories: hadoop生态圈
 img: /images/kafka.jpg
 tags: kafka
+abbrlink: 5272
+date: 2022-02-04 23:12:53
 ---
 
 # 大数据技术之Kafka

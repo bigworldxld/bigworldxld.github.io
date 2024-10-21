@@ -1,25 +1,26 @@
 ---
 title: 大数据项目之尚品汇（5即席查询Presto&Kylin）
-date: 2022-02-10 11:26:36
 categories: data warehouse
 img: /images/datawarehouse.jpg
-tags: 
-	- hadoop          
-	- spark
-	- zookeeper
-	- hive
-	- kafka
-	- flume
-	- Azkaban
-	- sqoop
-	- superset
-	- hbase
-	- Presto
-	- kylin
-	- zabbix
-	- Kerberos
-	- ranger
-	- atlas
+tags:
+  - hadoop
+  - spark
+  - zookeeper
+  - hive
+  - kafka
+  - flume
+  - Azkaban
+  - sqoop
+  - superset
+  - hbase
+  - Presto
+  - kylin
+  - zabbix
+  - Kerberos
+  - ranger
+  - atlas
+abbrlink: 37074
+date: 2022-02-10 11:26:36
 ---
 
 # 第1章 Presto

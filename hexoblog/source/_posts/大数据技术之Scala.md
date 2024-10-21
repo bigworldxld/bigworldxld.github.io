@@ -1,8 +1,9 @@
 ---
 title: 大数据技术之Scala
-date: 2022-03-20 16:11:50
 img: /images/Scala.jpg
 tags: Scala
+abbrlink: 24330
+date: 2022-03-20 16:11:50
 ---
 
 # 第 1 章 Scala 入 门

@@ -1,25 +1,26 @@
 ---
 title: 大数据项目之尚品汇（4可视化报表Superset）
-date: 2022-02-09 23:02:13
 categories: data warehouse
 img: /images/datawarehouse.jpg
-tags: 
-	- hadoop          
-	- spark
-	- zookeeper
-	- hive
-	- kafka
-	- flume
-	- Azkaban
-	- sqoop
-	- superset
-	- hbase
-	- Presto
-	- kylin
-	- zabbix
-	- Kerberos
-	- ranger
-	- atlas
+tags:
+  - hadoop
+  - spark
+  - zookeeper
+  - hive
+  - kafka
+  - flume
+  - Azkaban
+  - sqoop
+  - superset
+  - hbase
+  - Presto
+  - kylin
+  - zabbix
+  - Kerberos
+  - ranger
+  - atlas
+abbrlink: 25261
+date: 2022-02-09 23:02:13
 ---
 
 # 第1章 Superset入门

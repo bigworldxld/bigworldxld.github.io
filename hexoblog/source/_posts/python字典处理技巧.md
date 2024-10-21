@@ -1,9 +1,10 @@
 ---
 title: python字典处理技巧
-date: 2023-02-19 09:55:25
 tags: python
 categories: python
 img: /images/python.jpg
+abbrlink: 5870
+date: 2023-02-19 09:55:25
 ---
 
 ## Python 字典处理技巧

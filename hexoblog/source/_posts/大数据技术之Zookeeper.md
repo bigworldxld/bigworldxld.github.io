@@ -1,9 +1,10 @@
 ---
 title: 大数据技术之Zookeeper
-date: 2022-02-03 22:55:25
 img: /images/Zookeeper.jpg
 categories: hadoop生态圈
 tags: Zookeeper
+abbrlink: 6898
+date: 2022-02-03 22:55:25
 ---
 
 # 大数据技术之Zookeeper

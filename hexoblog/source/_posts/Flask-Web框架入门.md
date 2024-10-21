@@ -1,9 +1,10 @@
 ---
 title: Flask Web框架入门
-date: 2022-07-17 22:10:25
 tags: Flask
 categories: hadoop生态圈
 img: /images/Flask.jpg
+abbrlink: 3291
+date: 2022-07-17 22:10:25
 ---
 Flask是一个轻量级的基于Python的web框架。
 ## 1. 简介

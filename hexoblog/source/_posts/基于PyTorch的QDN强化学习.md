@@ -1,11 +1,12 @@
 ---
 title: 基于PyTorch的QDN强化学习
-date: 2022-07-30 22:08:11
 img: /images/DQN.jpg
 categories: python
-tags: 
-	- pyTorch
-	- DQN
+tags:
+  - pyTorch
+  - DQN
+abbrlink: 21869
+date: 2022-07-30 22:08:11
 ---
 
 ## pytorch 基础

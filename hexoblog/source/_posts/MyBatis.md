@@ -1,9 +1,10 @@
 ---
 title: MyBatis
-date: 2022-04-03 15:11:44
 tags: MyBatis
 categories: java
 img: /images/mybatis.jpg
+abbrlink: 61918
+date: 2022-04-03 15:11:44
 ---
 
 # Mybatis简介

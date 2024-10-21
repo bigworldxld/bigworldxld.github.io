@@ -42,10 +42,29 @@
 	"url": "https://crowya.com/",
 	"title": "乌鸦鬼婆最近在沉迷什么"
 },{
-	"avatar": "https://picbed.saop.cc/icon/Asuna-256.png",
+	"avatar": "https://saop.cc/images/icon/logo.png",
 	"name": "Ading阿定",
 	"introduction": "对于我们的幸福来说,别人的看法在本质上来讲并不十分重要",
 	"url": "https://saop.cc/",
 	"title": "我们的上方都是那广阔的蓝色天空"
+},{
+	"avatar": "https://p3-passport.byteacctimg.com/img/user-avatar/3dbf16fac82c6697423927473772fe7b~130x130.awebp",
+	"name": "网易AirtestProject",
+	"introduction": "Airtest掘金博客账号",
+	"url": "https://juejin.cn/user/1275089221067928",
+	"title": "了解一下"
+},{
+	"avatar": "https://q1.qlogo.cn/g?b=qq&nk=757401350&s=100",
+	"name": "Zgao写的工具集",
+	"introduction": "https://zgao.top/archives/",
+	"url": "https://zgao.top/tools/demo.html",
+	"title": "瞅一瞅"
+},{
+	"avatar": "https://lovefc.cn/Themes/default2/static/images/avatar.jpg",
+	"name": "封尘",
+	"introduction": "做自己的英雄",
+	"url": "https://lovefc.cn/index.html",
+	"title": "看一看"
 }
+
 ]

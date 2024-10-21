@@ -1,8 +1,10 @@
 ---
 title: ai文字绘画
-date: 2023-09-02 18:03:21
 img: /pictures/宇宙之外.jpg
+categories: analysis
 tags: AI
+abbrlink: 4794
+date: 2023-09-02 18:03:21
 ---
 
 ## AI文案绘画
