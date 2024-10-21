@@ -36,9 +36,7 @@ rvictl -s udid
 ## 界面介绍
 
 Wireshark的流量监控界面主要分为四块，由上至下
-
-{% asset_img wireshark界面.png This is an example image %}
-
+![wireshark界面](https://bigworldxld.github.io/picx-images-hosting/images/wireshark界面.67xgj8i223.webp)
  说明：数据包列表区中不同的协议使用了不同的颜色区分。协议颜色标识定位在菜单栏View --> Coloring Rules。如下所示
 {% asset_img wireshark颜色过滤.png This is an example image %}
 
