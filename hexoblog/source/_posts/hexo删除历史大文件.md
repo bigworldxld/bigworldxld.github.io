@@ -170,3 +170,42 @@ Template render error: (unknown path)
   Error: expected end of comment, got end of file
 
 某一篇博客中可能存在"’{ #“字符串，去掉它，或者去掉”#".
+
+
+
+解决将Hexo部署到GitHub时报错：Error: Spawn failed
+在进行修改后都需要重新执行hexo clean hexo g hexo d 
+
+方法一：检查网络连接
+确保你的网络连接正常，可以连接到github
+使用命令 ping github.com  检查能否连接到github
+方法二：检查Git配置 
+检查deploy.repo
+打开博客主目录配置文件 __config.yml
+修改 deploy.repo 为正确的ssh key：
+
+检查deploy.branch
+ 打开博客主目录配置文件 __config.yml
+
+修改deploy.branch为github上对应库的branch：
+
+方法三： 删除.deplot_git文件夹
+删除 .deplot_git文件夹
+输入  git config --global core.autocrlf false
+方法四： 检查github访问权限
+使用命令 ssh -T git@github.com测试 SSH 连接
+如果出现以下信息，意味着无法通过 22 端口进行 SSH 连接：
+ssh: connect to host github.com port 22: Connection timed out
+尝试使用命令 ssh -T -p 443 git@ssh.github.com ，将 SSH 连接的端口更改为 443
+如果显示以下信息，意味着通过 443 端口成功进行了身份验证，但 GitHub 不提供 shell 访问权限：
+Hi xxxx! You've successfully authenticated, but GitHub does not provide shell access.
+现在，我们需要在 ~/.ssh/config 文件中覆盖 SSH 设置
+在文件中添加以下内容，然后保存并关闭文件：
+# Add section below to it
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+最后，再次尝试使用命令ssh -T git@github.com进行 SSH 连接
+如果显示以下信息，可以正常连接到 GitHub
+Hi xxxxx! You've successfully authenticated, but GitHub does not provide shell access.
+

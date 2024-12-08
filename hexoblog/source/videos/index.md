@@ -19,7 +19,7 @@ layout: "videos"
 
 ## 我怎么可以忍
 
-{% dplayer "url=/mymusic/我是猫.mp4" "pic=https://d.musicapp.migu.cn/data/oss/resource/00/20/j9/7k.webp" "loop=no" "theme=#FADFA3" "autoplay=false" %}
+{% dplayer "url=https://bigworldxld.github.io/picx-images-hosting/mymusic/我是猫.mp4" "pic=https://d.musicapp.migu.cn/data/oss/resource/00/20/j9/7k.webp" "loop=no" "theme=#FADFA3" "autoplay=false" %}
 
 ## AI文案绘画
 
