@@ -1,0 +1,1735 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="AirtestIDE使用, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="AirtestIDE使用Airtest和poco（绝对坐标与相对坐标）Airtest的坐标系airtest的touch接口，实际上点击的是一个 (x, y)绝对坐标，在截图语句中，airtest会先根据传入的图片找到该图片在当前画面上的位置">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>AirtestIDE使用 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/AirtestIDE.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">AirtestIDE使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/airtest/">
+                                <span class="chip bg-color">airtest</span>
+                            </a>
+                        
+                            <a href="/tags/poco/">
+                                <span class="chip bg-color">poco</span>
+                            </a>
+                        
+                            <a href="/tags/tidevice/">
+                                <span class="chip bg-color">tidevice</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-03-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="AirtestIDE使用"><a href="#AirtestIDE使用" class="headerlink" title="AirtestIDE使用"></a>AirtestIDE使用</h2><h3 id="Airtest和poco（绝对坐标与相对坐标）"><a href="#Airtest和poco（绝对坐标与相对坐标）" class="headerlink" title="Airtest和poco（绝对坐标与相对坐标）"></a>Airtest和poco（绝对坐标与相对坐标）</h3><p><strong>Airtest的坐标系</strong><br>airtest的touch接口，实际上点击的是一个 (x, y)绝对坐标，在截图语句中，airtest会先根据传入的图片找到该图片在当前画面上的位置坐标，然后进行点击(查看log日记可以看到)。</p>
+<p>而airtest的swipe接口，滑动起点和滑动终点使用的也是(x, y)绝对坐标。</p>
+<p>根据设备分辨率，计算合适的坐标进行操作。</p>
+<pre class=" language-python"><code class="language-python">width<span class="token punctuation">,</span> height <span class="token operator">=</span> device<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_current_resolution<span class="token punctuation">(</span><span class="token punctuation">)</span>
+start_pt<span class="token operator">=</span><span class="token punctuation">(</span>width<span class="token operator">*</span><span class="token number">0.9</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+end_pt<span class="token operator">=</span><span class="token punctuation">(</span>width<span class="token operator">*</span><span class="token number">0.1</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    swipe<span class="token punctuation">(</span>start_pt<span class="token punctuation">,</span> end_pt<span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<p>使用屏幕坐标的功能查看坐标</p>
+<p>打开IDE的选项&gt;–设置，可以看到在Device设置部分，有实时坐标显示和相对坐标显示俩个选项</p>
+<p>勾选实时坐标选项，可以实时在手机屏幕画面上显示出鼠标位置的坐标，方便大家获取绝对坐标。此时 点击鼠标右键，还可以自动将当前坐标信息复制到剪贴板中</p>
+<p>在勾选了实时显示坐标的情况下，再勾选相对坐标选项，将会以(0, 0) 到 (1, 1) 为范围显示出相对坐标。使用相对坐标可以避免跨分辨率的操作点超出屏幕的问题，使坐标操作兼容性更好。</p>
+<p><strong>poco的坐标系</strong></p>
+<p>使用局部坐标系的click接口</p>
+<p>首先我们需要知道点击默认是点在 anchorPoint 上的，每个UI都会有一个 anchorPoint ，也就是检视器(Inspector)中UI包围盒的那个红点，大部分情况下 anchorPoint 都在UI包围盒的正中央。</p>
+<p>引入局部坐标系来表示<strong>相对于某UI的坐标</strong>。局部坐标系以UI包围盒左上角为原点，向右为x轴，向下为y轴，包围盒宽和高均为单位一。局部坐标系可以更灵活地定位UI内或外的位置，例如(0.5, 0.5)就代表UI的正中央，也就相当于我们上文中默认的anchorPoint；超过1或小于0的坐标值则表示UI的外面</p>
+<p>想点击 anchorPoint 以外的其他指定位置时，可以传一个参数到 click 方法中，这个参数是一个用list或tuple表示的2维向量，其 [x, y] 值分别表示相对于包围盒左上角的偏移量，左上角为 [0, 0] ，右下角为 [1, 1] 。</p>
+<p>想改变以anchorPoint为起点，也可以使用focus方法：</p>
+<p>poco(“com.miui.home:id/workspace”).offspring(“天气”).offspring(“com.miui.home:id/icon_icon”).focus([0,0]).click()</p>
+<p><strong>使用归一化坐标系的swipe接口</strong></p>
+<p>归一化坐标系就是将屏幕宽和高按照单位一来算，这样UI在poco中的宽和高其实就是相对于屏幕的百分比大小了，好处就是不同分辨率设备之间，同一个UI的归一化坐标系下的位置和尺寸是一样的</p>
+<pre class=" language-python"><code class="language-python">joystick <span class="token operator">=</span> poco<span class="token punctuation">(</span><span class="token string">'movetouch_panel'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>child<span class="token punctuation">(</span><span class="token string">'point_img'</span><span class="token punctuation">)</span>
+joystick<span class="token punctuation">.</span>swipe<span class="token punctuation">(</span><span class="token string">'up'</span><span class="token punctuation">)</span>
+joystick<span class="token punctuation">.</span>swipe<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#45度向右上方</span>
+joystick<span class="token punctuation">.</span>swipe<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Airtest封装的ADB操作"><a href="#Airtest封装的ADB操作" class="headerlink" title="Airtest封装的ADB操作"></a>Airtest封装的ADB操作</h3><p>问题：遇到ADB版本冲突的报错：<br>raise AdbError(stdout, stderr)<br>airtest.core.error.AdbError: stdout[] stderr[adb server version (36) doesn’t match this client (40); killing…<br>could not read ok from ADB Server<br>而我们不清楚电脑里面那么多ADB，究竟哪些是40版本，哪些是36版本时，我们就可以使用 adb version 查看当前的ADB版本，然后将电脑里面所有的ADB替换成同一个版本，从而解决这个版本冲突的问题</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mzlogin/awesome-adb">adb教程</a></p>
+<pre class=" language-python"><code class="language-python">__author__<span class="token operator">=</span>AirtestProject
+<span class="token keyword">from</span> airtest<span class="token punctuation">.</span>core<span class="token punctuation">.</span>api <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> airtest<span class="token punctuation">.</span>core<span class="token punctuation">.</span>android<span class="token punctuation">.</span>android <span class="token keyword">import</span> <span class="token operator">*</span>
+auto_setup<span class="token punctuation">(</span>__file__<span class="token punctuation">,</span>devices<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"Android:///"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>compress<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span>
+android <span class="token operator">=</span> Android<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#打印本地设备的序列号</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>android<span class="token punctuation">.</span>get_default_device<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#打印设备上安装的第三方应用的包名列表</span>
+<span class="token comment" spellcheck="true">#等同于:adb -5 《设备序列号> shell pm list packages -3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>android<span class="token punctuation">.</span>list_app<span class="token punctuation">(</span>third_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>1）返回应用的完整路径：path_app()<br>android = Android()<br>android.path_app(“com.netease.cloudmusic”)<br>2）检查应用是否存在于当前设备上：check_app()<br>android = Android()<br>android.check_app(“com.netease.cloudmusic”)<br>3）停止应用运行：stop_app()<br>stop_app(“com.netease.cloudmusic”)</p>
+<p>启动应用:start_app()</p>
+<p>start_app(“com.netease.cloudmusic”)</p>
+<p>清除应用数据：clear_app()</p>
+<p>clear_app(“com.netease.cloudmusic”)<br>4）安装应用：install_app()<br>install(r”D:\demo\tutorial-blackjack-release-signed.apk”)</p>
+<p>卸载应用：uninstall_app()</p>
+<p>uninstall(“org.cocos2dx.javascript”)</p>
+<p>5）关键词操作：keyevent()<br>keyevent(“HOME”)<br>keyevent(“POWER”)<br>6）唤醒设备：wake()<br>wake()<br>7）返回HOME：home()<br>home()<br>8）文本输入：text()<br>text(“123”)<br>9）检查屏幕是否打开：is_screenon()<br>android = Android()<br>android.is_screenon()<br>10）检查设备是否锁定：is_locked()<br>android = Android()<br>android.is_locked()<br>11）获取当前设备的分辨率：get_current_resolution()<br>android = Android()<br>android.get_current_resolution()<br>12）其它adb shell命令：shell()<br>shell(“ls”)<br>shell(“pm list packages -3”)</p>
+<h3 id="截图脚本"><a href="#截图脚本" class="headerlink" title="截图脚本"></a>截图脚本</h3><p>Airtest会尝试用 SURFMatching 、TemplateMatching 和 BRISKMatching 这三种算法来进行图像识别</p>
+<p><strong>阙值 和 可信度</strong> ，他们的取值范围都是[0,1]。在每一条图像识别的脚本中，都会有1个用于结果筛选的阙值，默认值为0.7。<br>当上述三种算法在执行过程中识别到初始结果时，就会计算出来这个初始结果的可信度，当 可信度＞阙值 的时候，程序会认为 找到了最佳的匹配结果 ；而当 可信度＜阙值 的时候，程序则会认为 没有找到最佳的匹配结果 。</p>
+<p>在执行截图脚本的时候，查看log窗口，观察算法识别结果的可信度：</p>
+<p>① 可信度&gt;阙值，程序判定找到匹配结果</p>
+<p>② 可信度&lt;阙值，程序判定未找到匹配结果，循环用三种算法继续查找直到超时</p>
+<ul>
+<li><p>截取图标时尽量不要截入过多的背景内容</p>
+</li>
+<li><p>打开应用尽量使用start_app而不是截图脚本，</p>
+<p>start_app(“com.netease.cloudmusic”)  #打开网易云音乐</p>
+</li>
+<li><p>用image editor查看截图识别结果的可信度</p>
+</li>
+</ul>
+<p>录制/编写好1条截图脚本之后，无需运行，可以直接双击截图，进入图片编辑器，点击左上角的 <code>snapshot+recognition</code> 按钮，即可查看截图在当前页面的识别情况，包含识别出来的位置以及识别结果的可信度</p>
+<ul>
+<li>巧用target_pos点击截图的不同位置</li>
+</ul>
+<p>截图脚本都是点击截图的中心位置，即 <code>target_pos=5</code> 。对于一张截图来说，总共有9个 <code>target_pos</code> ，当我们把截图的 <code>target_pos</code> 设置成不同的值时，脚本会点击在截图不同的位置上</p>
+<p>1    2    3</p>
+<p>4    5    6</p>
+<p>7    8    9</p>
+<p>打开图片编辑器，右侧可以修改 <code>target_pos</code> 的值</p>
+<p>修改完成之后，把截图脚本切换成代码模式，我们就可以看到此时的截图脚本里面多了 <code>target_pos</code> 这个参数：</p>
+<p>当精准截图（仅截取某个按钮/图标）不能满足唯一定位时，我们可以考虑加大截图范围，增加更多的特征点，确保截图定位的准确性</p>
+<ul>
+<li>巧用坐标进行点击/滑动,如首页的轮播图</li>
+<li>巧用keyevent(“BACK”)替代返回的截图脚本</li>
+<li>录制功能要注意截图的兼容性</li>
+<li>画面切换的时候，可以多使用wait或者sleep，再进行点击操作</li>
+<li>合理调整阙值</li>
+</ul>
+<p>双击截图打开图片编辑器，在右侧修改截图的阙值</p>
+<p>设置全局的 threshold ：<br>from airtest.core.setting import Settings as ST<br>ST.THRESHOLD = 0.7  # 其他语句的默认阈值</p>
+<p>截图语句的阙值设置：</p>
+<p>from airtest.core.setting import Settings as ST<br>ST.THRESHOLD_STRICT = 0.7</p>
+<ul>
+<li>用自定义语句（例如截图列表）</li>
+</ul>
+<p>对应截图纳入搜索列表。代码脚本如下：</p>
+<pre class=" language-python"><code class="language-python">picList <span class="token operator">=</span> <span class="token punctuation">[</span>pic1<span class="token punctuation">,</span>pic2<span class="token punctuation">,</span>pic3<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 截图的图片对象列表</span>
+<span class="token keyword">for</span> pic <span class="token keyword">in</span> picList<span class="token punctuation">:</span>
+     pos <span class="token operator">=</span> exists<span class="token punctuation">(</span>pic<span class="token punctuation">)</span>
+     <span class="token keyword">if</span> pos<span class="token punctuation">:</span>
+         touch<span class="token punctuation">(</span>pos<span class="token punctuation">)</span>
+         <span class="token keyword">break</span>
+</code></pre>
+<p>注意：如果for循环中没有break语句，会导致次逻辑运行时将所有的图片都找一遍(找到后执行touch)，而非找到合适结果立即返回</p>
+<ul>
+<li><p>用poco语句代替截图脚本</p>
+<p>取前3行遍历节点的脚本</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python">select<span class="token operator">=</span>list<span class="token punctuation">(</span>poco<span class="token punctuation">(</span><span class="token string">"android.widget.LinearLayout"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>offspring<span class="token punctuation">(</span><span class="token string">"com.netease.cloudmusic:id/dragSortplayListlist"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>child<span class="token punctuation">(</span><span class="token string">"android.view.view"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> s <span class="token keyword">in</span> select<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+  s<span class="token punctuation">.</span>offspring<span class="token punctuation">(</span><span class="token string">"com.netease.cloudmusic:id/checkedImage"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="tidevice-不依赖-xcode-启动-WebDriverAgent"><a href="#tidevice-不依赖-xcode-启动-WebDriverAgent" class="headerlink" title="tidevice-不依赖 xcode 启动 WebDriverAgent"></a>tidevice-不依赖 xcode 启动 WebDriverAgent</h3><p> <strong>不依赖 xcode 启动 WebDriverAgent</strong> 完成设备连接</p>
+<p><strong>1）安装tidevice库</strong></p>
+<p>在本地python环境中，使用 <code>pip install tidevice</code> 命令安装 tidevice 库。</p>
+<p>另外需要注意的是，目前 tidevice 库仅支持安装在 <strong>python3.7及以上版本</strong> 中。</p>
+<p><strong>2）常用的tidevice命令</strong></p>
+<p>查看已连接设备：</p>
+<pre class=" language-shell"><code class="language-shell">tidevice list
+</code></pre>
+<p>查看设备上的第三方应用包名：</p>
+<pre class=" language-shell"><code class="language-shell">tidevice applist
+</code></pre>
+<p>指定设备安装：</p>
+<pre><code># $UDID可以使用tidevice list命令查看
+tidevice -u $UDID  install D:/test.ipa
+# 或者
+tidevice -u $UDID install https://example.org/example.ipa
+</code></pre>
+<p>更多详细的功能可以查看 tidevice 的github文档：<a target="_blank" rel="noopener" href="https://github.com/alibaba/taobao-iphone-device">https://github.com/alibaba/taobao-iphone-device</a> </p>
+<p><strong>3）确保手机上已经安装上WebDriverAgent</strong></p>
+<p>对于未跑过自动化的iOS设备，我们需要先检查设备上是否安装好了WebDriverAgent这个APP，如未安装，则可以通过以下2种方式安装：</p>
+<p>① 将iOS设备与一台Mac连接，然后使 <strong>用xcode编译源码安装</strong> ，成功安装WebDriverAgent即可脱离Mac；</p>
+<p>② 使用tidevice的安装命令，将 <strong>开发者证书重签名</strong> 的 WebDriverAgent.ipa 安装到iOS设备上</p>
+<p><strong>在IDE连接tidevice启动的iOS</strong></p>
+<p>1）用数据线将iOS设备与Windows电脑连接<br>2）查看设备里WebDriverAgent的BundleID<br>tidevice applist</p>
+<p><strong>3）指定BundleID启动</strong> </p>
+<pre class=" language-shell"><code class="language-shell">tidevice xctest -B com.gameappium.WebDriverAgentRunner.xctrunner
+</code></pre>
+<p>WebDriverAgent 启动成功后，后台挂着该命令行窗口即可。<br>4）在IDE的设备连接窗口连接iOS设备<br>最后打开 最新版 的IDE（1.2.8版本），在连接iOS设备框中输入：</p>
+<p>DeviceIdentifier可以在启动的信息中查看</p>
+<p>http+usbmux://DeviceIdentifier<br>最后点击连接即可</p>
+<p><strong>5）补充另一种启动方式</strong></p>
+<pre><code>tidevice wdaproxy -B com.gameappium.WebDriverAgentRunner.xctrunner --port 8200
+</code></pre>
+<p>与步骤3）中的xctest启动方式不同的是，使用wdaproxy启动之后，我们可以在浏览器中使用<a target="_blank" rel="noopener" href="http://localhost:8200/status%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%88%B0%E8%BF%99%E4%B8%AAiOS">http://localhost:8200/status来访问到这个iOS</a></p>
+<h3 id="用脚本连接windows窗口"><a href="#用脚本连接windows窗口" class="headerlink" title="用脚本连接windows窗口"></a>用脚本连接windows窗口</h3><p><strong>窗口句柄</strong>是每个Windows窗口对象拥有的独一无二的32位无符号整数，而且每次打开窗口，旬柄的数值都会变化。<br>使用句柄连接窗口的脚本我们可以这么写auto_setup( file_,devices=[“Windows:///133194”])</p>
+<p>大多数情况下，<strong>搜索窗口</strong>的title比较不容易变化，所以我们可以写一个正则表达式去匹配到待测窗口的title。</p>
+<p>例如匹配“吹梦到西洲”后面跟着换行符以外的任意字符的窗口titleauto_setup( file_,devices=[“Windows:///?title_re=吹梦到西洲.*”])</p>
+<p>如果不需要指定某个窗口应用的话，我们还可以使用如下代码直接连接整个桌面来做自动化:<br>auto setup( file_,devices=[“Windows:///“])</p>
+<h3 id="poco定位器和操作"><a href="#poco定位器和操作" class="headerlink" title="poco定位器和操作"></a>poco定位器和操作</h3><p>①基本选择器<br>利用元素的一些基本属性来进行定位，比如name、text等等poco(name=”网易云音乐”)<br>②相对选择器<br>利用控件之间的父子关系、爷孙关系和兄弟关系等来定位控件，例如parent()、child（）、offspring（）等poco(“LinearLayoutCompat”).child(“搜索”)<br>③空间顺序选择器<br>常用于UI树中多个相同名称的节点定位，根据节点在U1树的索引顺序进行定位，索引坐标从0开始<br>poco(“mainActivityTab”).offspring(“aActionBar$Tab”)[0]</p>
+<p>①点击操作:<br>poco(“star_single”).click()</p>
+<p>poco(‘star_single’).long_click()<br>②)读取和设置控件的属性<br>poco(“star_single”).get_name()<br>poco(“star_single”).attr(‘name’ )</p>
+<p>poco(“star_single”).get_text()</p>
+<p>poco(“pos_input”).set_text(“123”)</p>
+<p>poco(“pos_input”).setattr(‘text’,”456”)<br>③判断元素是否存在<br>poco(XXX).exists()<br>④)拖动与滑动<br>poco(“star”).drag_to(poco(“shell”))</p>
+<p>⑤内部偏移和外部偏移:<br>poco(“pearl”).focus([0.1,0.1]).long_click()</p>
+<p>poco(“pearl”).focus([0.9,0.9]).long_click()</p>
+<p>poco(“pearl”).focus([0.5,-3]).long_click ()<br>⑥遍历元素:<br>for star in poco(“playDragAndDrop”).child(“star”):star.drag_to(poco(“shell”))<br>⑦等待事件:<br>poco(“bomb”).wait_for_appearance()poco(“bomb”).wait_for _disappearance ()<br>yellow = poco (“yel low”)blue = poco (“blue”)<br>black = poco (“black”)<br>poco.wait for all([yellow,blue,black])poco.wait for any([bomb, yeilow, blue])</p>
+<p>输入backspace键</p>
+<p>driver.find element by id(“kw”).send keys(Keys.BACK_SPACE)</p>
+<h3 id="unity游戏接入poco-sdk"><a href="#unity游戏接入poco-sdk" class="headerlink" title="unity游戏接入poco-sdk"></a>unity游戏接入poco-sdk</h3><p><strong>Poco的支持情况</strong><br>Android和iOS原生直接支持，无需嵌入任何</p>
+<p>代码引擎渲染的项目都需要事先接入Poco-SDK才能查看UI树</p>
+<p>目前poco支持umity、Coc0s2dx-lua、Cocos2dx-js、Cocos-creator、UE4、Egret……</p>
+<p><strong>在unitv项目中接入Poco-SDK</strong></p>
+<p>下载Poco-SDK包</p>
+<p>把Unity3D文件夹放到项目脚本中</p>
+<p>根据UI类型选择，只留下1中gui文件夹</p>
+<p>在unity载入脚本</p>
+<p>成功后可使用IDE单独连接Game窗口查看控件树信息</p>
+<p><strong>成功接入后打成Android包</strong></p>
+<p>文件-build settings-选择安卓-切换平台</p>
+<p>进入玩家设置-修改包名-生成Android包</p>
+<p>在待测设备安装上包，并启动项目，IDE选择对应模式查看控件树</p>
+<p><strong>接入Poco-SDK的常见问题</strong></p>
+<p>如何判断项目是否需要接入sdk:引擎渲染项目都需要(游戏应用)</p>
+<p>接入Poco-SDK的前提条件:有项目源码</p>
+<p>为什么要在根节点或者主camera载入脚本:因为这些节点不会被销毁</p>
+<h3 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h3><p>连接上1台安卓设置，然后点击右上角的工具按钮，再点击 <code>显示Android助手</code> 选项，可以看到，弹出窗口的左下角，显示了设备当前所有应用的包名（该助手 <strong>仅适用于安卓设备</strong>）</p>
+<p>除了使用使用poco辅助窗的录制功能，还可以通过 <strong>双击控件树上的某个节点</strong> ，来快速生成该节点的定位脚本，在加其他操作</p>
+<p><strong>获取设备连接的字符串</strong></p>
+<p>用IDE连接待测设备，随便开个脚本点击运行，1、2秒后终止运行，拉到log查看窗的最上方，看到完整的运行命令。含有设备连接字符串，直接复制</p>
+<p><strong>在命令行连接设备</strong><br>①连接安卓真机<br>airtest run D:/test/moniqi_test.air     –device Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG<br>②)连接安卓模拟器<br>airtest run D:/test/monigi test.air    –device Android://127.0.0.1:5037/emulator-5554?cap_method=JAVACAP&amp;&amp;ori_method=ADBORI<br>③注意事项<br>在IDE需要勾选备选参数才能够连接上的设备，命令行的设备参数中也要加上这些备选参数;&amp;&amp;符号在Windows和MacOS下都需要转义，否则命令会出现被截断的情况</p>
+<p><strong>在脚本中行连接设备</strong><br>①使用auto_setup接口:<br>auto_setup( file_,devices=[“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”,”Android://127.0.0.1:5037/emulator-5554”])<br>②)使用connect device接口:<br>dev =connect_device(“Android://127.0.0.1:5037/5PZTQWQ0GES8RWUG”)</p>
+<p>dev = connect device(“Android://127.0.0.1:5037/emulator-5554”)<br>③)使用init_device接口:</p>
+<p>init_device(platform=”Ándroid”, uuid=”5PZTQWQOGES8RWUG”)</p>
+<p><strong>开启录屏</strong></p>
+<p>adb=ADB(serialno=”PFT4PBLF75GQHYBM”)</p>
+<p>recorder = Recorder(adb)</p>
+<p>recorder.start_recording()<br><strong>结束录屏</strong></p>
+<p>recorder.stop_recording(output=r”D:\airtest\music.mp4”)</p>
+<p><strong>生成报告</strong></p>
+<p>simple_report(<strong>file</strong>,logpath=r“D:\airtest\mylog”,output=“D:\airtest\log.html”)</p>
+<p><a target="_blank" rel="noopener" href="https://airtest.doc.io.netease.com/summary/summary/">学习教程</a></p>
+<p>testerhome: <a target="_blank" rel="noopener" href="https://testerhome.com/">https://testerhome.com/</a></p>
+<p>掘金: https:/uejin.cn/</p>
+<p>CSDN:<a target="_blank" rel="noopener" href="https://www.csdn.net/">https://www.csdn.net</a></p>
+<p>博客园: https:/<a target="_blank" rel="noopener" href="http://www.cnblogs.com/">www.cnblogs.com/</a></p>
+<p>开源中国:<a target="_blank" rel="noopener" href="https://www.oschina.net/">https://www.oschina.net</a><br>《软件测试》<br>《软件测试的艺术》<br>《Google软件测试之道》<br>《mysql必知必会》<br>《移动app测试实战》<br>《腾讯Android自动化测试实战》<br>《鸟哥的Linux私房菜》<br>《Web安全测试》</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2024/03/13/35131.html">https://bigworldxld.github.io/2024/03/13/35131.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/airtest/">
+                                    <span class="chip bg-color">airtest</span>
+                                </a>
+                            
+                                <a href="/tags/poco/">
+                                    <span class="chip bg-color">poco</span>
+                                </a>
+                            
+                                <a href="/tags/tidevice/">
+                                    <span class="chip bg-color">tidevice</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/03/29/19662.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/chrome.jpg" class="responsive-img" alt="Chrome常用选项">
+                        
+                        <span class="card-title">Chrome常用选项</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/chrome/">
+                        <span class="chip bg-color">chrome</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/03/60703.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E5%90%84%E7%B1%BBapp%E5%B8%B8%E8%A7%81%E6%B5%8B%E8%AF%95%E7%82%B9.jpg" class="responsive-img" alt="各类app常见测试点">
+                        
+                        <span class="card-title">各类app常见测试点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/test/" class="post-category">
+                                    test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

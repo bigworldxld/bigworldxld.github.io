@@ -1,0 +1,2080 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="大数据技术之Azkaban, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="第1章 Azkaban概论1.1 为什么需要工作流调度系统1）一个完整的数据分析系统通常都是由大量任务单元组成：Shell脚本程序，Java程序，MapReduce程序、Hive脚本等2）各任务单元之间存在时间先后及前后依赖关系3）为了很好">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>大数据技术之Azkaban | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/Azkaban.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">大数据技术之Azkaban</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Azkaban/">
+                                <span class="chip bg-color">Azkaban</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/" class="post-category">
+                                hadoop生态圈
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-08
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="第1章-Azkaban概论"><a href="#第1章-Azkaban概论" class="headerlink" title="第1章 Azkaban概论"></a>第1章 Azkaban概论</h1><h2 id="1-1-为什么需要工作流调度系统"><a href="#1-1-为什么需要工作流调度系统" class="headerlink" title="1.1 为什么需要工作流调度系统"></a>1.1 为什么需要工作流调度系统</h2><p>1）一个完整的数据分析系统通常都是由大量任务单元组成：<br>Shell脚本程序，Java程序，MapReduce程序、Hive脚本等<br>2）各任务单元之间存在时间先后及前后依赖关系<br>3）为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行；</p>
+<img src="/2022/02/08/16820/%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F.png" class title="This is an example image">
+
+<h2 id="1-2-常见工作流调度系统"><a href="#1-2-常见工作流调度系统" class="headerlink" title="1.2 常见工作流调度系统"></a>1.2 常见工作流调度系统</h2><p>1）简单的任务调度：直接使用Linux的Crontab来定义；<br>2）复杂的任务调度：开发调度平台或使用现成的开源调度系统，比如Ooize、Azkaban、 AirflowDolphinScheduler等。</p>
+<h2 id="1-3-Azkaban与Oozie对比"><a href="#1-3-Azkaban与Oozie对比" class="headerlink" title="1.3 Azkaban与Oozie对比"></a>1.3 Azkaban与Oozie对比</h2><p>总体来说，Ooize相比Azkaban是一个重量级的任务调度系统，功能全面，但配置使用也更复杂。如果可以不在意某些功能的缺失，轻量级调度器Azkaban是很不错的候选对象。</p>
+<h1 id="第2章-Azkaban入门"><a href="#第2章-Azkaban入门" class="headerlink" title="第2章 Azkaban入门"></a>第2章 Azkaban入门</h1><h2 id="2-1-集群模式安装"><a href="#2-1-集群模式安装" class="headerlink" title="2.1 集群模式安装"></a>2.1 集群模式安装</h2><h3 id="2-1-1-上传tar包"><a href="#2-1-1-上传tar包" class="headerlink" title="2.1.1 上传tar包"></a>2.1.1 上传tar包</h3><p>1）将azkaban-db-3.84.4.tar.gz，azkaban-exec-server-3.84.4.tar.gz，azkaban-web-server-3.84.4.tar.gz上传到hadoop102的/opt/software路径</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ ll
+总用量 35572
+-rw-r--r--. 1 atguigu atguigu     6433 4月  18 17:24 azkaban-db-3.84.4.tar.gz
+-rw-r--r--. 1 atguigu atguigu 16175002 4月  18 17:26 azkaban-exec-server-3.84.4.tar.gz
+-rw-r--r--. 1 atguigu atguigu 20239974 4月  18 17:26 azkaban-web-server-3.84.4.tar.gz
+</code></pre>
+<p>2）新建/opt/module/azkaban目录，并将所有tar包解压到这个目录下</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ mkdir /opt/module/azkaban
+</code></pre>
+<p>3）解压azkaban-db-3.84.4.tar.gz、 azkaban-exec-server-3.84.4.tar.gz和azkaban-web-server-3.84.4.tar.gz到/opt/module/azkaban目录下</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ tar -zxvf azkaban-db-3.84.4.tar.gz -C /opt/module/azkaban/
+[atguigu@hadoop102 software]$ tar -zxvf azkaban-exec-server-3.84.4.tar.gz -C /opt/module/azkaban/
+[atguigu@hadoop102 software]$ tar -zxvf azkaban-web-server-3.84.4.tar.gz -C /opt/module/azkaban/
+</code></pre>
+<p>4）进入到/opt/module/azkaban目录，依次修改名称</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban]$ mv azkaban-exec-server-3.84.4/ azkaban-exec
+[atguigu@hadoop102 azkaban]$ mv azkaban-web-server-3.84.4/ azkaban-web
+</code></pre>
+<h3 id="2-1-2-配置MySQL"><a href="#2-1-2-配置MySQL" class="headerlink" title="2.1.2 配置MySQL"></a>2.1.2 配置MySQL</h3><p>1）正常安装MySQL<br>详见《尚硅谷大数据技术之Hive》<br>2）启动MySQL</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban]$ mysql -uroot -p000000
+</code></pre>
+<p>3）登陆MySQL，创建Azkaban数据库</p>
+<pre class=" language-shell"><code class="language-shell">mysql> create database azkaban;
+</code></pre>
+<p>4）创建azkaban用户并赋予权限<br>设置密码有效长度4位及以上</p>
+<pre class=" language-shell"><code class="language-shell">mysql> set global validate_password_length=4;
+</code></pre>
+<p>设置密码策略最低级别</p>
+<pre class=" language-shell"><code class="language-shell">mysql> set global validate_password_policy=0;
+</code></pre>
+<p>创建Azkaban用户，任何主机都可以访问Azkaban，密码是000000</p>
+<pre class=" language-shell"><code class="language-shell">mysql> CREATE USER 'azkaban'@'%' IDENTIFIED BY '000000';
+</code></pre>
+<p>赋予Azkaban用户增删改查权限 </p>
+<pre class=" language-shell"><code class="language-shell">mysql> GRANT SELECT,INSERT,UPDATE,DELETE ON azkaban.* to 'azkaban'@'%' WITH GRANT OPTION;
+</code></pre>
+<p>5）创建Azkaban表，完成后退出MySQL</p>
+<pre class=" language-shell"><code class="language-shell">mysql> use azkaban;
+mysql> source /opt/module/azkaban/azkaban-db-3.84.4/create-all-sql-3.84.4.sql
+mysql> quit;
+</code></pre>
+<p>6）更改MySQL包大小；防止Azkaban连接MySQL阻塞</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ sudo vim /etc/my.cnf
+</code></pre>
+<p>在[mysqld]下面加一行max_allowed_packet=1024M</p>
+<pre class=" language-shell"><code class="language-shell">[mysqld]
+max_allowed_packet=1024M
+</code></pre>
+<p>8）重启MySQL</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ sudo systemctl restart mysqld
+</code></pre>
+<h3 id="2-1-3-配置Executor-Server"><a href="#2-1-3-配置Executor-Server" class="headerlink" title="2.1.3 配置Executor Server"></a>2.1.3 配置Executor Server</h3><p>Azkaban Executor Server处理工作流和作业的实际执行。<br>1）编辑azkaban.properties</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban]$ vim /opt/module/azkaban/azkaban-exec/conf/azkaban.properties
+</code></pre>
+<p>修改如下标红的属性</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true">#...</span>
+<span class="token attr-name">default.timezone.id</span><span class="token punctuation">=</span><span class="token attr-value">Asia/Shanghai</span>
+<span class="token comment" spellcheck="true">#...</span>
+<span class="token attr-name">azkaban.webserver.url</span><span class="token punctuation">=</span><span class="token attr-value">http://hadoop102:8081</span>
+
+<span class="token attr-name">executor.port</span><span class="token punctuation">=</span><span class="token attr-value">12321</span>
+<span class="token comment" spellcheck="true">#...</span>
+<span class="token attr-name">database.type</span><span class="token punctuation">=</span><span class="token attr-value">mysql</span>
+<span class="token attr-name">mysql.port</span><span class="token punctuation">=</span><span class="token attr-value">3306</span>
+<span class="token attr-name">mysql.host</span><span class="token punctuation">=</span><span class="token attr-value">hadoop102</span>
+<span class="token attr-name">mysql.database</span><span class="token punctuation">=</span><span class="token attr-value">azkaban</span>
+<span class="token attr-name">mysql.user</span><span class="token punctuation">=</span><span class="token attr-value">azkaban</span>
+<span class="token attr-name">mysql.password</span><span class="token punctuation">=</span><span class="token attr-value">000000</span>
+<span class="token attr-name">mysql.numconnections</span><span class="token punctuation">=</span><span class="token attr-value">100</span>
+</code></pre>
+<p>2）同步azkaban-exec到所有节点</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban]$ xsync /opt/module/azkaban/azkaban-exec
+</code></pre>
+<p>3）必须进入到/opt/module/azkaban/azkaban-exec路径，分别在三台机器上，启动executor server</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-exec]$ bin/start-exec.sh
+[atguigu@hadoop103 azkaban-exec]$ bin/start-exec.sh
+[atguigu@hadoop104 azkaban-exec]$ bin/start-exec.sh
+</code></pre>
+<p>注意：如果在/opt/module/azkaban/azkaban-exec目录下出现executor.port文件，说明启动成功<br>4）下面激活executor，需要</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-exec]$ curl -G "hadoop102:12321/executor?action=activate" && echo
+
+[atguigu@hadoop103 azkaban-exec]$ curl -G "hadoop103:12321/executor?action=activate" && echo
+
+[atguigu@hadoop104 azkaban-exec]$ curl -G "hadoop104:12321/executor?action=activate" && echo
+</code></pre>
+<p>如果三台机器都出现如下提示，则表示激活成功<br>{“status”:”success”}</p>
+<h3 id="2-1-4-配置Web-Server"><a href="#2-1-4-配置Web-Server" class="headerlink" title="2.1.4 配置Web Server"></a>2.1.4 配置Web Server</h3><p>Azkaban Web Server处理项目管理，身份验证，计划和执行触发。<br>1）编辑azkaban.properties</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban]$ vim /opt/module/azkaban/azkaban-web/conf/azkaban.properties
+</code></pre>
+<p>修改如下属性</p>
+<pre class=" language-shell"><code class="language-shell">...
+default.timezone.id=Asia/Shanghai
+...
+database.type=mysql
+mysql.port=3306
+mysql.host=hadoop102
+mysql.database=azkaban
+mysql.user=azkaban
+mysql.password=000000
+mysql.numconnections=100
+...
+azkaban.executorselector.filters=StaticRemainingFlowSize,CpuStatus
+</code></pre>
+<p>说明：<br>#StaticRemainingFlowSize：正在排队的任务数；<br>#CpuStatus：CPU占用情况<br>#MinimumFreeMemory：内存占用情况。测试环境，必须将MinimumFreeMemory删除掉，否则它会认为集群资源不够，不执行。<br>2）修改azkaban-users.xml文件，添加atguigu用户</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-web]$ vim /opt/module/azkaban/azkaban-web/conf/azkaban-users.xml
+</code></pre>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>azkaban-users</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">groups</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>azkaban<span class="token punctuation">"</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>azkaban<span class="token punctuation">"</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>admin<span class="token punctuation">"</span></span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>azkaban<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>metrics<span class="token punctuation">"</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>metrics<span class="token punctuation">"</span></span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>metrics<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>atguigu<span class="token punctuation">"</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>admin<span class="token punctuation">"</span></span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>atguigu<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>admin<span class="token punctuation">"</span></span> <span class="token attr-name">permissions</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ADMIN<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>metrics<span class="token punctuation">"</span></span> <span class="token attr-name">permissions</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>METRICS<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>azkaban-users</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>3）必须进入到hadoop102的/opt/module/azkaban/azkaban-web路径，启动web server</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-web]$ bin/start-web.sh
+</code></pre>
+<p>4）访问<a href="http://hadoop102:8081,并用atguigu用户登陆">http://hadoop102:8081,并用atguigu用户登陆</a></p>
+<h2 id="2-2-Work-Flow案例实操"><a href="#2-2-Work-Flow案例实操" class="headerlink" title="2.2 Work Flow案例实操"></a>2.2 Work Flow案例实操</h2><h3 id="2-2-1-HelloWorld案例"><a href="#2-2-1-HelloWorld案例" class="headerlink" title="2.2.1 HelloWorld案例"></a>2.2.1 HelloWorld案例</h3><p>1）在windows环境，新建azkaban.project文件，编辑内容如下</p>
+<pre class=" language-shell"><code class="language-shell">azkaban-flow-version: 2.0
+</code></pre>
+<p>注意：该文件作用，是采用新的Flow-API方式解析flow文件。<br>2）新建basic.flow文件，内容如下</p>
+<ul>
+<li><pre class=" language-shell"><code class="language-shell">nodes:
+
+  - name: jobA
+type: command
+config:
+  command: echo "Hello World"
+</code></pre>
+</li>
+</ul>
+<p>（1）Name：job名称<br>（2）Type：job类型。command表示你要执行作业的方式为命令<br>（3）Config：job配置<br>3）将azkaban.project、basic.flow文件压缩到一个zip文件，文件名称必须是英文，比如first.zip。</p>
+<p>4）在WebServer新建项目：<a target="_blank" rel="noopener" href="http://hadoop102:8081/index">http://hadoop102:8081/index</a></p>
+
+
+<p>5）给项目名称命名和添加项目描述</p>
+<img src="/2022/02/08/16820/%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0%E5%91%BD%E5%90%8D.png" class title="This is an example image">
+
+<p>6）first.zip文件上传</p>
+<img src="/2022/02/08/16820/first.zip%E6%96%87%E4%BB%B6.png" class title="This is an example image">
+
+<p>7）选择上传的文件</p>
+<img src="/2022/02/08/16820/%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6.png" class title="This is an example image">
+
+<p>8）执行任务流</p>
+<img src="/2022/02/08/16820/%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E6%B5%81.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E6%B5%811.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E6%B5%812.png" class title="This is an example image">
+
+<p>9）在日志中，查看运行结果</p>
+<img src="/2022/02/08/16820/%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E6%9F%A5%E7%9C%8B%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C1.png" class title="This is an example image">
+
+<h3 id="2-2-2-作业依赖案例"><a href="#2-2-2-作业依赖案例" class="headerlink" title="2.2.2 作业依赖案例"></a>2.2.2 作业依赖案例</h3><p>需求：JobA和JobB执行完了，才能执行JobC<br>具体步骤：<br>1）修改basic.flow为如下内容</p>
+<ul>
+<li><pre class=" language-shell"><code class="language-shell">nodes:
+  - name: jobC
+    type: command
+    # jobC 依赖 JobA和JobB
+    dependsOn:
+      - jobA
+      - jobB
+    config:
+      command: echo "I’m JobC"
+
+  - name: jobA
+    type: command
+    config:
+      command: echo "I’m JobA"
+
+  - name: jobB
+    type: command
+    config:
+      command: echo "I’m JobB"
+</code></pre>
+</li>
+</ul>
+<p>1）dependsOn：作业依赖，后面案例中演示<br>2）将修改后的basic.flow和azkaban.project压缩成second.zip文件</p>
+<p>3）重复2.3.1节HelloWorld后续步骤。</p>
+<h3 id="2-2-3-自动失败重试案例"><a href="#2-2-3-自动失败重试案例" class="headerlink" title="2.2.3 自动失败重试案例"></a>2.2.3 自动失败重试案例</h3><p>需求：如果执行任务失败，需要重试3次，重试的时间间隔10000ms<br>具体步骤：<br>1）编译配置流</p>
+<ul>
+<li><pre class=" language-shell"><code class="language-shell">nodes:
+
+  - name: JobA
+    type: command
+    config:
+      command: sh /not_exists.sh
+      retries: 3
+      retry.backoff: 10000
+</code></pre>
+<p>参数说明：<br>retries：重试次数<br>retry.backoff：重试的时间间隔<br>2）将修改后的basic.flow和azkaban.project压缩成four.zip文件</p>
+<p>3）重复2.3.1节HelloWorld后续步骤。</p>
+<p>4）执行并观察到一次失败+三次重试</p>
+<p>5）也可以点击上图中的Log，在任务日志中看到，总共执行了4次。</p>
+<p>6）也可以在Flow全局配置中添加任务失败重试配置，此时重试配置会应用到所有Job。<br>案例如下：</p>
+</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">config:
+  retries: 3
+  retry.backoff: 10000
+nodes:
+  - name: JobA
+    type: command
+    config:
+      command: sh /not_exists.sh
+</code></pre>
+<h3 id="2-2-4-手动失败重试案例"><a href="#2-2-4-手动失败重试案例" class="headerlink" title="2.2.4 手动失败重试案例"></a>2.2.4 手动失败重试案例</h3><p>需求：JobA=》JobB（依赖于A）=》JobC=》JobD=》JobE=》JobF。生产环境，任何Job都有可能挂掉，可以根据需求执行想要执行的Job。<br>具体步骤：<br>1）编译配置流</p>
+<pre class=" language-shell"><code class="language-shell">nodes:
+  - name: JobA
+    type: command
+    config:
+      command: echo "This is JobA."
+
+  - name: JobB
+    type: command
+    dependsOn:
+      - JobA
+    config:
+      command: echo "This is JobB."
+
+  - name: JobC
+    type: command
+    dependsOn:
+      - JobB
+    config:
+      command: echo "This is JobC."
+
+  - name: JobD
+    type: command
+    dependsOn:
+      - JobC
+    config:
+      command: echo "This is JobD."
+
+  - name: JobE
+    type: command
+    dependsOn:
+      - JobD
+    config:
+      command: echo "This is JobE."
+
+  - name: JobF
+    type: command
+    dependsOn:
+      - JobE
+    config:
+      command: echo "This is JobF."
+</code></pre>
+<p>2）将修改后的basic.flow和azkaban.project压缩成five.zip文件</p>
+<p>3）重复2.3.1节HelloWorld后续步骤。</p>
+<p>Enable和Disable下面都分别有如下参数：<br>    Parents：该作业的上一个任务<br>    Ancestors：该作业前的所有任务<br>    Children：该作业后的一个任务<br>    Descendents：该作业后的所有任务<br>    Enable All：所有的任务<br>4）可以根据需求选择性执行对应的任务。</p>
+<h1 id="第3章-Azkaban进阶"><a href="#第3章-Azkaban进阶" class="headerlink" title="第3章 Azkaban进阶"></a>第3章 Azkaban进阶</h1><h2 id="3-1-JavaProcess作业类型案例"><a href="#3-1-JavaProcess作业类型案例" class="headerlink" title="3.1 JavaProcess作业类型案例"></a>3.1 JavaProcess作业类型案例</h2><p>JavaProcess类型可以运行一个自定义主类方法，type类型为javaprocess，可用的配置为：<br>Xms：最小堆<br>Xmx：最大堆<br>classpath：类路径<br>java.class：要运行的Java对象，其中必须包含Main方法<br>main.args：main方法的参数<br>案例：<br>1）新建一个azkaban的maven工程<br>2）创建包名：com.atguigu<br>3）创建AzTest类</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>atguigu<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AzTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This is for testing!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4）打包成jar包azkaban-1.0-SNAPSHOT.jar<br>5）新建testJava.flow，内容如下</p>
+<pre class=" language-shell"><code class="language-shell">nodes:
+  - name: test_java
+    type: javaprocess
+    config:
+      Xms: 96M
+      Xmx: 200M
+      java.class: com.atguigu.AzTest
+</code></pre>
+<p>6）将Jar包、flow文件和project文件打包成javatest.zip<br>7）创建项目=》上传javatest.zip =》执行作业=》观察结果</p>
+<h2 id="3-2-条件工作流案例"><a href="#3-2-条件工作流案例" class="headerlink" title="3.2 条件工作流案例"></a>3.2 条件工作流案例</h2><p>条件工作流功能允许用户自定义执行条件来决定是否运行某些Job。条件可以由当前Job的父Job输出的运行时参数构成，也可以使用预定义宏。在这些条件下，用户可以在确定Job执行逻辑时获得更大的灵活性，例如，只要父Job之一成功，就可以运行当前Job。</p>
+<h3 id="3-2-1-运行时参数案例"><a href="#3-2-1-运行时参数案例" class="headerlink" title="3.2.1 运行时参数案例"></a>3.2.1 运行时参数案例</h3><p>1）基本原理<br>（1）父Job将参数写入JOB_OUTPUT_PROP_FILE环境变量所指向的文件<br>（2）子Job使用 ${jobName:param}来获取父Job输出的参数并定义执行条件<br>2）支持的条件运算符：<br>（1）==    等于<br>（2）!=    不等于<br>（3）&gt;    大于<br>（4）&gt;=    大于等于<br>（5）&lt;    小于<br>（6）&lt;=    小于等于<br>（7）&amp;&amp; 与<br>（8）||    或<br>（9）!    非<br>3）案例：<br>需求：<br>JobA执行一个shell脚本。<br>JobB执行一个shell脚本，但JobB不需要每天都执行，而只需要每个周一执行。<br>（1）新建JobA.sh</p>
+<pre class=" language-sh"><code class="language-sh">#!/bin/bash
+echo "do JobA"
+wk=`date +%w`
+echo "{\"wk\":$wk}" > $JOB_OUTPUT_PROP_FILE
+</code></pre>
+<p>（2）新建JobB.sh</p>
+<pre class=" language-sh"><code class="language-sh">#!/bin/bash
+echo "do JobB"
+</code></pre>
+<p>（3）新建condition.flow</p>
+<pre class=" language-shell"><code class="language-shell">nodes:
+ - name: JobA
+   type: command
+   config:
+     command: sh JobA.sh
+
+ - name: JobB
+   type: command
+   dependsOn:
+     - JobA
+   config:
+     command: sh JobB.sh
+   condition: ${JobA:wk} == 1
+</code></pre>
+<p>（4）将JobA.sh、JobB.sh、condition.flow和azkaban.project打包成condition.zip<br>（5）创建condition项目=》上传condition.zip文件=》执行作业=》观察结果<br>（6）按照我们设定的条件，JobB会根据当日日期决定是否执行</p>
+<img src="/2022/02/08/16820/JobB%E4%BC%9A%E6%A0%B9%E6%8D%AE%E5%BD%93%E6%97%A5%E6%97%A5%E6%9C%9F.png" class title="This is an example image">
+
+<h3 id="3-2-2-预定义宏案例"><a href="#3-2-2-预定义宏案例" class="headerlink" title="3.2.2 预定义宏案例"></a>3.2.2 预定义宏案例</h3><p>Azkaban中预置了几个特殊的判断条件，称为预定义宏。<br>预定义宏会根据所有父Job的完成情况进行判断，再决定是否执行。可用的预定义宏如下：<br>（1）all_success: 表示父Job全部成功才执行(默认)<br>（2）all_done：表示父Job全部完成才执行<br>（3）all_failed：表示父Job全部失败才执行<br>（4）one_success：表示父Job至少一个成功才执行<br>（5）one_failed：表示父Job至少一个失败才执行<br>1）案例<br>需求：<br>JobA执行一个shell脚本<br>JobB执行一个shell脚本<br>JobC执行一个shell脚本，要求JobA、JobB中有一个成功即可执行<br>（1）新建JobA.sh</p>
+<pre class=" language-sh"><code class="language-sh">#!/bin/bash
+echo "do JobA"
+</code></pre>
+<p>（2）新建JobC.sh</p>
+<pre class=" language-sh"><code class="language-sh">#!/bin/bash
+echo "do JobC"
+</code></pre>
+<p>（3）新建macro.flow</p>
+<pre class=" language-shell"><code class="language-shell">nodes:
+
+ - name: JobA
+   type: command
+   config:
+     command: sh JobA.sh
+
+ - name: JobB
+   type: command
+   config:
+     command: sh JobB.sh
+
+ - name: JobC
+   type: command
+   dependsOn:
+     - JobA
+     - JobB
+       config:
+         command: sh JobC.sh
+       condition: one_success
+</code></pre>
+<p>（4）JobA.sh、JobC.sh、macro.flow、azkaban.project文件，打包成macro.zip。<br>注意：没有JobB.sh。<br>（5）创建macro项目=》上传macro.zip文件=》执行作业=》观察结果</p>
+<h2 id="3-3-定时执行案例"><a href="#3-3-定时执行案例" class="headerlink" title="3.3 定时执行案例"></a>3.3 定时执行案例</h2><p>需求：JobA每间隔1分钟执行一次；<br>具体步骤：<br>1）Azkaban可以定时执行工作流。在执行工作流时候，选择左下角Schedule</p>
+<img src="/2022/02/08/16820/%E5%B7%A6%E4%B8%8B%E8%A7%92Schedule.png" class title="This is an example image">
+
+<p>2）右上角注意时区是上海，然后在左面填写具体执行事件，填写的方法和crontab配置定时任务规则一致。</p>
+<img src="/2022/02/08/16820/%E9%85%8D%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E9%85%8D%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A11.png" class title="This is an example image">
+
+<p>3）观察结果</p>
+<img src="/2022/02/08/16820/%E8%A7%82%E5%AF%9F%E7%BB%93%E6%9E%9C.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E8%A7%82%E5%AF%9F%E7%BB%93%E6%9E%9C1.png" class title="This is an example image">
+
+<p>4）删除定时调度<br>    点击remove Schedule即可删除当前任务的调度规则。</p>
+<img src="/2022/02/08/16820/%E5%88%A0%E9%99%A4%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6.png" class title="This is an example image">
+
+<h2 id="3-4-邮件报警案例"><a href="#3-4-邮件报警案例" class="headerlink" title="3.4 邮件报警案例"></a>3.4 邮件报警案例</h2><h3 id="3-4-1-注册邮箱"><a href="#3-4-1-注册邮箱" class="headerlink" title="3.4.1 注册邮箱"></a>3.4.1 注册邮箱</h3><p>1）申请注册一个126邮箱</p>
+<p>2）点击邮箱账号=》账号管理</p>
+<img src="/2022/02/08/16820/126%E9%82%AE%E7%AE%B1.png" class title="This is an example image">
+
+<p>3）开启SMTP服务</p>
+<img src="/2022/02/08/16820/%E5%BC%80%E5%90%AFSMTP%E6%9C%8D%E5%8A%A1.png" class title="This is an example image">
+
+<p>4）一定要记住授权码</p>
+<img src="/2022/02/08/16820/%E6%8E%88%E6%9D%83%E7%A0%81.png" class title="This is an example image">
+
+<h3 id="3-4-2-默认邮件报警案例"><a href="#3-4-2-默认邮件报警案例" class="headerlink" title="3.4.2 默认邮件报警案例"></a>3.4.2 默认邮件报警案例</h3><p>Azkaban默认支持通过邮件对失败的任务进行报警，配置方法如下：<br>1）在azkaban-web节点hadoop102上，编辑/opt/module/azkaban/azkaban-web/conf/azkaban.properties，修改如下内容：</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-web]$ vim /opt/module/azkaban/azkaban-web/conf/azkaban.properties
+</code></pre>
+<p>添加如下内容：<br>#这里设置邮件发送服务器，需要 申请邮箱，切开通stmp服务，以下只是例子</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">mail.sender</span><span class="token punctuation">=</span><span class="token attr-value">atguigu@126.com</span>
+<span class="token attr-name">mail.host</span><span class="token punctuation">=</span><span class="token attr-value">smtp.126.com</span>
+<span class="token attr-name">mail.user</span><span class="token punctuation">=</span><span class="token attr-value">atguigu@126.com</span>
+<span class="token attr-name">mail.password</span><span class="token punctuation">=</span><span class="token attr-value">用邮箱的授权码</span>
+</code></pre>
+<p>2）保存并重启web-server。</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 azkaban-web]$ bin/shutdown-web.sh
+[atguigu@hadoop102 azkaban-web]$ bin/start-web.sh
+</code></pre>
+<p>3）编辑basic.flow</p>
+<pre class=" language-shell"><code class="language-shell">nodes:
+
+  - name: jobA
+    type: command
+    config:
+      command: echo "This is an email test."
+</code></pre>
+<p>4）将azkaban.project和basic.flow压缩成email.zip<br>5）创建工程=》上传文件=》执行作业=》查看结果</p>
+<img src="/2022/02/08/16820/126%E9%82%AE%E7%AE%B1%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C.png" class title="This is an example image">
+
+<p>6）观察邮箱，发现执行成功或者失败的邮件</p>
+<img src="/2022/02/08/16820/%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E5%A4%B1%E8%B4%A5.png" class title="This is an example image">
+
+<h2 id="3-5-电话报警案例"><a href="#3-5-电话报警案例" class="headerlink" title="3.5 电话报警案例"></a>3.5 电话报警案例</h2><h3 id="3-5-1-第三方告警平台集成"><a href="#3-5-1-第三方告警平台集成" class="headerlink" title="3.5.1 第三方告警平台集成"></a>3.5.1 第三方告警平台集成</h3><p>有时任务执行失败后邮件报警接收不及时，因此可能需要其他报警方式，比如电话报警。如有类似需求，可与第三方告警平台进行集成，例如睿象云。<br>1）进入睿象云官网注册账号并登录<br>官网地址：<a target="_blank" rel="noopener" href="https://www.aiops.com/">https://www.aiops.com/</a></p>
+<img src="/2022/02/08/16820/%E7%9D%BF%E8%B1%A1%E4%BA%91%E5%AE%98%E7%BD%91%E6%B3%A8%E5%86%8C.png" class title="This is an example image">
+
+<p>2）集成告警平台，使用Email集成</p>
+<img src="/2022/02/08/16820/Email%E9%9B%86%E6%88%90.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/Email%E9%9B%86%E6%88%901.png" class title="This is an example image">
+
+<p>3）获取邮箱地址，后边需将报警信息发送至该邮箱</p>
+<img src="/2022/02/08/16820/%E8%8E%B7%E5%8F%96%E9%82%AE%E7%AE%B1%E5%9C%B0%E5%9D%80.png" class title="This is an example image">
+
+<p>4）配置分派策略</p>
+<img src="/2022/02/08/16820/%E9%85%8D%E7%BD%AE%E5%88%86%E6%B4%BE%E7%AD%96%E7%95%A5.png" class title="This is an example image">
+
+<p>5）配置通知策略</p>
+<img src="/2022/02/08/16820/%E9%85%8D%E7%BD%AE%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5.png" class title="This is an example image">
+
+<img src="/2022/02/08/16820/%E9%85%8D%E7%BD%AE%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A51.png" class title="This is an example image">
+
+<h3 id="3-5-2-测试"><a href="#3-5-2-测试" class="headerlink" title="3.5.2 测试"></a>3.5.2 测试</h3><p> 执行上一个邮件通知的案例，将通知对象改为刚刚集成第三方平台时获取的邮箱。</p>
+<img src="/2022/02/08/16820/%E9%9B%86%E6%88%90%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0.png" class title="This is an example image">
+
+<h2 id="3-6-Azkaban多Executor模式注意事项"><a href="#3-6-Azkaban多Executor模式注意事项" class="headerlink" title="3.6 Azkaban多Executor模式注意事项"></a>3.6 Azkaban多Executor模式注意事项</h2><p>Azkaban多Executor模式是指，在集群中多个节点部署Executor。在这种模式下， Azkaban web Server会根据策略，选取其中一个Executor去执行任务。<br>为确保所选的Executor能够准确的执行任务，我们须在以下两种方案任选其一，推荐使用方案二。<br>方案一：指定特定的Executor（hadoop102）去执行任务。<br>1）在MySQL中azkaban数据库executors表中，查询hadoop102上的Executor的id。</p>
+<pre class=" language-shell"><code class="language-shell">mysql> use azkaban;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from executors;
++----+-----------+-------+--------+
+| id | host          | port  | active |
++----+-----------+-------+--------+
+|  1   | hadoop103 | 35985 |      1 |
+|  2   | hadoop104 | 36363 |      1 |
+|  3   | hadoop102 | 12321 |      1 |
++----+-----------+-------+--------+
+3 rows in set (0.00 sec)
+</code></pre>
+<p>2）在执行工作流程时加入useExecutor属性，如下</p>
+<img src="/2022/02/08/16820/%E5%8A%A0%E5%85%A5useExecutor.png" class title="This is an example image">
+
+<p>方案二：在Executor所在所有节点部署任务所需脚本和应用。</p>
+<h1 id="第4章-参考资料"><a href="#第4章-参考资料" class="headerlink" title="第4章 参考资料"></a>第4章 参考资料</h1><h2 id="4-1-Azkaban完整配置"><a href="#4-1-Azkaban完整配置" class="headerlink" title="4.1 Azkaban完整配置"></a>4.1 Azkaban完整配置</h2><p>见官网文档：<a target="_blank" rel="noopener" href="https://azkaban.readthedocs.io/en/latest/configuration.html">https://azkaban.readthedocs.io/en/latest/configuration.html</a></p>
+<h2 id="4-2-YAML语法"><a href="#4-2-YAML语法" class="headerlink" title="4.2 YAML语法"></a>4.2 YAML语法</h2><p>Azkaban2.0工作流文件是用YAML语法写的，相关教程如下：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34261415/article/details/88012535">YAML</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2022/02/08/16820.html">https://bigworldxld.github.io/2022/02/08/16820.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Azkaban/">
+                                    <span class="chip bg-color">Azkaban</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/02/09/25261.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（4可视化报表Superset）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（4可视化报表Superset）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/07/10237.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（3数据仓库系统）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（3数据仓库系统）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

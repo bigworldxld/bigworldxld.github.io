@@ -1,0 +1,1984 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="测试日常笔记, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="Genymotion模拟器简介
+Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻瓜式安装，易于使用，支持绝大部分的模拟器功能与感应器，甚至支持语音、NFC蓝牙等等。下载安装1.下载地址: https://ww">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>测试日常笔记 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">测试日常笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/test/" class="post-category">
+                                test
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-03-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    36 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="Genymotion模拟器"><a href="#Genymotion模拟器" class="headerlink" title="Genymotion模拟器"></a>Genymotion模拟器</h3><p><strong>简介</strong></p>
+<p>Genymotion 是一个非常快的 Android 拟器，秒级开机关机速度，傻瓜式安装，易于使用，支持绝大部分的模拟器功能与感应器，甚至支持语音、NFC蓝牙等等。<br>下载安装<br>1.下载地址: <a target="_blank" rel="noopener" href="https://www.genymotion.com/download/">https://www.genymotion.com/download/</a> (下载with VirtualBox版本)<br>2.因为genymotion需要账号登陆，因此我们需要去官网创建账号，因此才可以登陆软件，去如下链接创建账号:<a target="_blank" rel="noopener" href="https://wwwgenymotion.com/account/create/">https://wwwgenymotion.com/account/create/</a><br>3.创建好账号之后，回到刚刚装好的genymotion软件,输入帐号密码,点击next,选择Personal Use,继续next即可使用个人版</p>
+<p><strong>创建模拟器</strong></p>
+<p>1根据左侧设备分类选择设备类型，然后点击右上角- 号即可创建设备<br>2.创建设备之后下载完成即可启动。<br>3.使用adb devices可以检测设备是否连接，设备列表格式一般为: 模拟器ip+端口<br>入 </p>
+<p>adb devices<br>List of devices attached<br>192.168.46.101:5555    device<br><strong>ARM****转换</strong><br>Genymotion 是基于x86的不支持ARM架构。所以有些应用是基于ARM架构编译的就无法安装</p>
+<p>解决方法:下载安装转换工具Genymotion ARM Translation 根据自己的模拟器系统版本下载对应的 zip 包，然后将包直接拖入到模拟器安装，安装完成后重启模拟器</p>
+<h3 id="测试内容"><a href="#测试内容" class="headerlink" title="测试内容"></a>测试内容</h3><p>电量不足、存储空间不足、网络不稳定时，测试App是否能正确响应、正常运行</p>
+<p>不断增加负载、不断增大数据吞吐量,用户增多，请求增多等以确定App的服务瓶颈，测试App运行时对移动设备的资源占用情况，包括内存、CPU消耗，App长期运行时耗电量、耗流量情况</p>
+<p>CPU：过高直接crash掉</p>
+<p>Adb命令：adb shell top （-h）来显示cpu等信息</p>
+<p><strong>僵尸进程</strong>. 僵尸进程是当子进程比父进程先结束，而父进程又没有回收子进程，释放子进程占用的资源，此时子进程将成为一个僵尸进程。</p>
+<p>测试app中某一个单一进程对cpu的占用率是否异常</p>
+<h3 id="ios的xcode性能监控工具Instruments"><a href="#ios的xcode性能监控工具Instruments" class="headerlink" title="ios的xcode性能监控工具Instruments"></a>ios的xcode性能监控工具<strong>Instruments</strong></h3><p><strong>Activity</strong> Monitor<br>监视CPU、内存、磁盘和网络使用统计信息跟踪进程的匿名虚拟内存和堆<br><strong>Allocations</strong><br>为对象提供类名和可选的retain/release历史记录<br>这个模板通过时间分析来度量应<br><strong>Core</strong> Animation<br>用程序图形性能以及进程的CPu使用情况<br>这个模板跟踪Core Data文件系<br>Core Data<br>统活动，包括提取、缓存失败和保存<br>使用基于时间或时间的采样方法<br>Counters<br>收集性能监视器计数器(PMC)事件<br>这个模板提供有关电量使用以及<br>Energy Log<br>主要设备模块的基本开关状态的诊断信息<br>这个模板监视文件和目录活动,包括文件的打开关闭和调用、文<br>File Activity<br>件权限修改、目录创建、文件移动等<br>了解对游戏性能和平滑帧率至关<br>Game Performance<br>重要的关键性能领域<br>测量内存使用情况，检查泄漏内存，并按照类来提供对象分配的<br>Leaks<br>统计信息，以及所有活动分配和泄漏内存地址历史记录<br>通过提供应用程序、驱动程序和GPU层的跟踪信息来分析iOS.<br>Metal System Trace<br>tvOS和 macOS Matal 应用程序的性能</p>
+<hr>
+<h3 id="内存测试"><a href="#内存测试" class="headerlink" title="内存测试"></a>内存测试</h3><p>安卓的内存管理机制是：和linux不一样，linux是如果进程结束了就会回收，但是安卓是保     留在内存中，当不够用的时候才会回收释放  </p>
+<p>Adb shell cat /proc/meminfo 查看内存信息，查看单个进程对内存的占用是否异常</p>
+<p>使用命令adb shell procrank来获取各个应用的VSS、RSS、PSS、USS</p>
+<p>VSS-Virtual Set Size虚拟耗用内存</p>
+<p>RSS-Resident Set Size实际使用物理内存<br>PSS-Proportional Set Size按比例使用的物理内存</p>
+<p>USS-Unique Set Size进程独自占用的物理内存</p>
+<p>使用adb命令来测试指定进程包名的内存使用详细情况，命令格式如下:adb shell dumpsys meminfo [pkg or pid]</p>
+<p>前面是adb命令，后面可以用python 导入csv os time 库等 csv.write生成图表展示CPU，内存使用情况</p>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a><strong>内存泄漏</strong></h3><p>使用static变量引起的，线程未回收，handler的使用，资源未关闭造成的（curse，close），bitmap占用过多内存未recycle</p>
+<p>ios测试fps：</p>
+<p>使用<strong>Instruments</strong>的core animation工具，测试内存</p>
+<p>Fps帧率：越高更新越快　就越练来越连贯</p>
+<p>android fps测试过程：</p>
+<ul>
+<li>adb devices连接</li>
+<li>设置-开发者选项-监控-GPU呈现模式分析-勾选上In adb shell dumpsys gfxinfo</li>
+<li>获取设备当前打开的应用包名adb shell dumpsys window | grep mCurrentForcus</li>
+<li>adb shell dumpsys gfxinfo com.youku.phone &gt; C:\Users\Desktop\fps.txt</li>
+</ul>
+<h3 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h3><p>冷启动，热启动 adb命令可以获取启动时间</p>
+<p>adb shell am start -w com.you ku.phone/c om.youku. phone.Activitywelcome</p>
+<p>ios使用instuments的time profile测试耗时毫秒</p>
+<h3 id="功耗电量测试"><a href="#功耗电量测试" class="headerlink" title="功耗电量测试"></a>功耗电量测试</h3><p>细致到单个进程耗电量</p>
+<p><strong>android</strong>:</p>
+<p>1.收集电池的历史数据</p>
+<p>adb shell dumpsys batterystats –enable full-wake-history</p>
+<p>2.重置电池数据</p>
+<p>adb shell dumpsys batterystats –reset</p>
+<p>使用命令adb bugreport导出电量信息结果</p>
+<p>android7.0以上：</p>
+<p>adb bugreport C: \Users\Shuqing\Desktop\bugreport.zip</p>
+<p>android7.0以下：</p>
+<p>获取 bugreport信息（记录了从开机之后详细的dumpsys , dumpstate和logcat信息）adb bugreport &gt; [path]bugreport.txt</p>
+<p>Android 7.0以上系统版本:<br>adb bugreport C: \Users\Shuqing\Desktop \bugreport.zi p<br>/data/user_de/O/com.android. shell/files/bugreports/bugreport-meizu_M1822_…-01-44.zip: 1file pulled, 0 skipped. 15.4 MB/s (3393069 bytes in 0.210s)<br>.Android 7.0以下系统版本<br>获取 bugreport信息（记录了从开机之后详细的dumpsys , dumpstate和logcat信息）</p>
+<p>adb bugreport &gt; [path]bugreport.txt</p>
+<p>获取dumpsys信息（获取系统信息:比如内存 CPU，accounts，activities，wifi等信息)</p>
+<p>adb shell dumpsys batterystats &gt;存放的电脑地址/batterystats.txt<br>或者获取指定的应用程序的dumpsys 信息:<br>adb shell dumpsys batterystats &gt;包名〉存放的电脑地址/batterystats.txt</p>
+<h3 id="ios功耗测试"><a href="#ios功耗测试" class="headerlink" title="ios功耗测试"></a>ios功耗测试</h3><p>1.打开设置-开发者─Logging</p>
+<p>2.打开Energy，点击开始录制</p>
+<p>3.执行操作</p>
+<p>4.完成后，设置-开发者─Logging，点击“stop recording”</p>
+<p>5.连接设备，打开instrument,启动Energy Log,从设备导入数据</p>
+<p>6.导入完成，查看数据</p>
+<h3 id="过度绘制测试"><a href="#过度绘制测试" class="headerlink" title="过度绘制测试"></a>过度绘制测试</h3><p>Android过度绘制测试</p>
+<p>开启：设置-开发者选项-调试GPU过度绘制-选择GPU过度绘制区域</p>
+<p>原色:无过渡绘制<br>蓝色:绘制一次(正常)</p>
+<p>绿色:绘制二次（轻微)</p>
+<p>浅红:绘制三次(中度)</p>
+<p>深红:绘制四次（严重)</p>
+<p>ios过度绘制测试</p>
+<p>ios使用instuments的CoreAnimation测试，Color Blended Layer用来检测哪里发生了图层混合，并用红色标记出来，所以我们要尽可能减少红色区域。</p>
+<p>Fiddler模拟丢包延迟</p>
+<p>iOS手机上开发者工具也可以模拟网络环境 简便设置一些参数</p>
+<p><strong>Perfdog</strong>：性能测试工具　点击开始记录到结束时间大于１０秒，传到后台里面可以查看数据结果，可以到处excel查看图表（上诉所有的指标）</p>
+<h3 id="安全测试："><a href="#安全测试：" class="headerlink" title="安全测试："></a><strong>安全测试：</strong></h3><p><strong>抖音遭撞库攻击　账号密码泄露</strong></p>
+<p><strong>渗透测试和安全测试</strong></p>
+<p><strong>渗透测试：攻击者角度，成功入侵证明</strong></p>
+<p><strong>安全测试：保护着角度，全面分析架构等问题，分析可能存在的隐患</strong></p>
+<p>api安全测试：http嗅探、客户端证书有效性、XSS/CSRF、越权访问（前端）、api dos攻击，syn  postman astra</p>
+<p>Web安全测试：aqi注入，url安全测试，xss，csrf  burpsuite</p>
+<p>App安全测试：代码反编译、中间人攻击、组件暴露、数据安全sql</p>
+<p><strong>Android四大组件：</strong></p>
+<p>Activity:界面组件，就是一个单独的窗口（如冷启动应用进入的界面就是launchable-activity）</p>
+<p>Service:服务组件，用于在后台完成用户指定的操作（如后台音乐播放）</p>
+<p>Content provider：内容组件，是一种数据共享型组件，用于向其他应用共享数据（如短信和联系人应用之间的数据共享）</p>
+<p>Broadcast receiver:消息组件，监听/接收应用App发出的广播消息并做出响应（如电话呼入，耳机插入）</p>
+<p>Apktool可以双向反编译，还可以生成签名</p>
+<p>Sql注入：后端服务器php等有问题，欺骗表单提交过来的sql查询并执行（动态拼装sql，sql预处理语句） 是否加密 可以直接导出来查看的</p>
+<p>Drozer：自动化测试漏洞</p>
+<p>Activity组件暴露：：export=true 就会导致越权，不用登录直接进入</p>
+<p>Broadcast暴露：消息泄露或越权</p>
+<p>Service暴露;越权</p>
+<p>Contentprovider暴露：改密码等操作</p>
+<p>Httpcanary：手机抓包</p>
+<p>中间人攻击，两边都欺骗着 IP地址端口等</p>
+<p>ios抓包 ：stream 自动抓包，手动构建请求（postman）</p>
+<p>僵尸进程：子进程比父进程先结束，但是父进程没有回收子进程，导致资源没有被释放</p>
+<p>Ios的app是以沙盒方式存贮的可以通过xcode来找到沙盒里面的文件</p>
+<p>沙盒校验点：</p>
+<p><strong>sqlite</strong>（查看工具：sqlite manager）</p>
+<p>文件是否存储敏感信息，是否加密</p>
+<p>文件是否被备份，是否有泄露的风险</p>
+<p>Cookie</p>
+<p>查看Cookie有效期（有效期不能短于登录Cookie的有效期）</p>
+<p>敏感信息重点关注“登录信息，用户身份信息，服务器sql注入链接，管理员登录账号密码”一类信息</p>
+<p>以及文件敏感信息是否加密等</p>
+<p>Ios中又keychain最安全的存贮数据的地方实际上也是一个db</p>
+<p>http安全：中间人攻击 没有校验服务器的证书，导致伪造证书，劫持等</p>
+<p>脱壳：因为app store的app有加密，所以我们用dumpdecrepted工具来解密脱壳</p>
+<p>mobSF 手机安全测试软件 可以生成报告 图标查看</p>
+<p> <strong>苹果手机连接电脑</strong></p>
+<p>可以使用多种软件，包括但不限于iTunes和PP助手。以下是连接流程的概述：</p>
+<p>iTunes：这是苹果公司官方提供的软件，用于连接iPhone和其他iOS设备到电脑上的一个应用程序。要使用iTunes，您需要访问苹果官网上下载并安装iTunes的安装包。安装后，通过USB数据线将您的iPhone或iPad连接到电脑，然后启动iTunes，按照屏幕提示操作即可完成连接。1</p>
+<p>PP助手或其他第三方软件助手：这些辅助工具通常提供更直观的用户界面和额外的功能。如果您没有越狱，则只能使用iTunes。但如果有越狱，您可以尝试使用如361安全卫士、91助手或QQ电脑管家等其他第三方的手机助手软件来连接您的iPhone。</p>
+<p>IRQ全称为Interrupt Request，即是”中断请求”的意思，IRQ的作用就是在我们所用的电脑中，执行硬件中断请求的动作，比如我们需要读取硬盘中的一段数据时，当数据读取完毕，硬盘就通过IRQ来通知系统，相应的数据已经写到指定的内存中了。</p>
+<h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a><strong>热更新</strong></h3><p>（Hot Update），也称热修复（Hot Fix），是指在不停机或重新启动的情况下，对软件或应用程序进行在线更新或修复的技术。这种更新方式可以缩短用户等待时间，提高用户体验，同时也为开发者提供了更好的版本控制和管理方式</p>
+<h3 id="ES服务器"><a href="#ES服务器" class="headerlink" title="ES服务器"></a>ES服务器</h3><p>ES服务器（Elasticsearch server）是一个基于Lucene库的实时全文搜索和分析引擎，能够实现快速、可靠的搜索和分析功能，适合大规模数据的处理和分析，也可用作日志分析、商业智能、安全分析等领域。ES服务器具有数据完备性，支持复杂的查询方式，同时也可以支持实时搜索，非常适合满足高吞吐量下的大数据需求。</p>
+<p><strong>ES对服务器的要求</strong></p>
+<ol>
+<li><p>内存要足够：ES服务器需要足够的内存来处理查询和索引，建议内存至少为32GB及以上；</p>
+</li>
+<li><p>处理器速度要快：ES服务器需要持续地进行分析和搜索，所以越快的处理器速度越好，建议使用至少2.4GHz的处理器；</p>
+</li>
+<li><p>存储要大：ES服务器需要处理大量的数据和文件，所以存储要大，建议使用至少1TB的硬盘存储。</p>
+</li>
+</ol>
+<p><strong>ES服务器最大内存建议</strong></p>
+<p>建议ES服务器最大内存在32GB以上，因为ES服务器需要足够的内存来处理查询和索引，否则可能导致内存使用率过高和性能下降。</p>
+<p><strong>ES服务器默认密码</strong></p>
+<p>ES服务器默认密码为“changeme”，建议在安装和使用ES服务器时及时更改默认密码并设置安全访问控制。</p>
+<p><strong>Elasticsearch基本概念：</strong></p>
+<p>ES中有几个基本概念：索引(index)、类型(type)、文档(document)、映射(mapping)等。我们将这几个概念与传统的关系型数据库中的库、表、行、列等概念进行对比，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>RDBS</th>
+<th>ES</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库(database)</td>
+<td>索引(index)</td>
+</tr>
+<tr>
+<td>表(table)</td>
+<td>类型(type)(ES6.0之后被废弃，es7中完全删除)</td>
+</tr>
+<tr>
+<td>表结构(schema)</td>
+<td>映射(mapping)</td>
+</tr>
+<tr>
+<td>行(row)</td>
+<td>文档(document)</td>
+</tr>
+<tr>
+<td>列(column)</td>
+<td>字段（field)</td>
+</tr>
+<tr>
+<td>索引</td>
+<td>反向索引</td>
+</tr>
+<tr>
+<td>sQL</td>
+<td>查询DSL</td>
+</tr>
+<tr>
+<td>SELECT * FROM table</td>
+<td>GET http:// …</td>
+</tr>
+<tr>
+<td>UPDATE table SET</td>
+<td>PUT http://……</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>DELETE http://…</td>
+</tr>
+</tbody></table>
+<p><strong>索引（index）：</strong><br>索引是ES的一个逻辑存储，对应关系型数据库中的库，ES可以把索引数据存放到服务器中，也可以sharding(分片)后存储到多台服务器上。每个索引有一个或多个分片，每个分片可以有多个副本。</p>
+<p><strong>类型（type）：</strong><br>ES中，一个索引可以存储多个用于不同用途的对象，可以通过类型来区分索引中的不同对象，对应关系型数据库中表的概念。但是在ES6.0开始，类型的概念被废弃，ES7中将它完全删除。删除type的原因：</p>
+<blockquote>
+<p>我们一直认为ES中的“index”类似于关系型数据库的“database”，而“type”相当于一个数据表。ES的开发者们认为这是一个糟糕的认识。例如：关系型数据库中两个数据表示是独立的，即使他们里面有相同名称的列也不影响使用，但ES中不是这样的。<br>我们都知道elasticsearch是基于Lucene开发的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E&amp;spm=1001.2101.3001.7020">搜索引擎</a>，而ES中不同type下名称相同的filed最终在Lucene中的处理方式是一样的。举个例子，两个不同type下的两个user_name，在ES同一个索引下其实被认为是同一个filed，你必须在两个不同的type中定义相同的filed映射。否则，不同type中的相同字段名称就会在处理中出现冲突的情况，导致Lucene处理效率下降。<br>去掉type能够使数据存储在独立的index中，这样即使有相同的字段名称也不会出现冲突，就像ElasticSearch出现的第一句话一样“你知道的，为了搜索····”，去掉type就是为了提高ES处理数据的效率。<br>除此之外，在同一个索引的不同type下存储字段数不一样的实体会导致存储中出现稀疏数据，影响Lucene压缩文档的能力，导致ES查询效率的降低</p>
+</blockquote>
+<p>alias：可以给 index 添加零个或多个alias，通过 alias 使用index 和根据index name 访问index一样，但是，alias给我们提供了一种切换index的能力，比如重建了index，取名● customer_online_v2，这时，有了alias，我要访问新 index，只需要把 alias 添加到新 index 即可，并把alias从旧的 index 删除。不用修改代码。</p>
+<p><strong>文档（document）：</strong><br>存储在ES中的主要实体叫文档，可以理解为关系型数据库中表的一行数据记录。每个文档由多个字段（field）组成。区别于关系型数据库的是，ES是一个非结构化的数据库，每个文档可以有不同的字段，并且有一个唯一标识。</p>
+<p><strong>映射（mapping）：</strong><br>mapping是对索引库中的索引字段及其数据类型进行定义，类似于关系型数据库中的表结构。ES默认动态创建索引和索引类型的mapping，这就像是关系型数据中的，无需定义表机构，更不用指定字段的数据类型。当然也可以手动指定mapping类型。</p>
+<h3 id="ES集群核心概念："><a href="#ES集群核心概念：" class="headerlink" title="ES集群核心概念："></a>ES集群核心概念：</h3><p><strong>1、集群（cluster）</strong><br>一个ES集群由多个节点（node）组成， 每个集群都有一个共同的集群名称最为标识</p>
+<p><strong>2、节点（node）</strong><br>一个es实例即为一个节点，一台机器可以有多个节点，正常使用下每个实例都应该会部署在不同的机器上。ES的配置文件中可以通过node.master、 node.data 来设置节点类型</p>
+<ul>
+<li>node.master： true/false 表示节点是否具有成为主节点的资格</li>
+<li>node.data： true/false 表示节点是否为存储数据</li>
+<li>client_node，主要是起到请求分发的作用，类似路由</li>
+</ul>
+<p>node节点的组合方式：</p>
+<ul>
+<li>主节点+数据节点： 默认方式，节点既可以作为主节点，又存储数据</li>
+<li>数据节点： 节点只存储数据，不参与主节点选举</li>
+<li>客户端节点： 不会成为主节点，也不存储数据，主要针对海量请求时进行负载均衡</li>
+</ul>
+<p><strong>3、分片（shard）：</strong><br>如果我们的索引数据量很大，超过硬件存放单个文件的限制，就会影响查询请求的速度，ES引入了分片技术。一个分片本身就是一个完成的搜索引擎，文档存储在分片中，而分片会被分配到集群中的各个节点中，随着集群的扩大和缩小，ES会自动的将分片在节点之间进行迁移，以保证集群能保持一种平衡。分片有以下特点：</p>
+<p>（1）ES的一个索引可以包含多个分片（shard）；<br>（2）每一个分片（shard）都是一个最小的工作单元，承载部分数据；<br>（3）每个shard都是一个lucene实例，有完整的简历索引和处理请求的能力；<br>（4）增减节点时，shard会自动在nodes中负载均衡；<br>（5）一个文档只能完整的存放在一个shard上<br>（6）一个索引中含有shard的数量，默认值为5，在索引创建后这个值是不能被更改的。<br>（7）优点：水平分割和扩展我们存放的内容索引；分发和并行跨碎片操作提高性能/吞吐量；<br>（8）每一个shard关联的副本分片（replica shard）的数量，默认值为1，这个设置在任何时候都可以修改。</p>
+<p>2、副本：replica<br>副本（replica shard）就是shard的冗余备份，它的主要作用：</p>
+<ul>
+<li>冗余备份，防止数据丢失；</li>
+<li>shard异常时负责容错和负载均衡；</li>
+</ul>
+<h3 id="ES的特性："><a href="#ES的特性：" class="headerlink" title="ES的特性："></a>ES的特性：</h3><p>速度快、易扩展、弹性、灵活、操作简单、多语言客户端、X-Pack、hadoop/spark强强联手、开箱即用。<br><strong>分布式</strong>：横向扩展非常灵活<br><strong>全文检索</strong>：基于lucene的强大的全文检索能力；<br><strong>近实时搜索和分析</strong>：数据进入ES，可达到近实时搜索，还可进行聚合分析<br><strong>高可用</strong>：容错机制，自动发现新的或失败的节点，重组和重新平衡数据<br><strong>模式自由</strong>：ES的动态mapping机制可以自动检测数据的结构和类型，创建索引并使数据可搜索。<br>RESTful API：JSON + HTTP</p>
+<p><strong>插件HEAD</strong></p>
+<p>elasticsearch-head是一个界面化的集群操作和管理工具</p>
+<h3 id="Android文件存储路径"><a href="#Android文件存储路径" class="headerlink" title="Android文件存储路径"></a>Android文件存储路径</h3><p><strong>手机存储分为三块区域</strong><br><em>1.内部存储<br>2.SD卡存储（Primary External Storage）<br>3.外置sd卡（Secondary External Storage）</em></p>
+<p><strong>内部存储</strong></p>
+<p>1.RAM 运行时内存<br>2.ROM 内部存储,即data目录</p>
+<p>*Environment.getDataDirectory().getPath()<br>/data（没有root，无法打开）</p>
+<p>1./data/app（存放着安装的apk）<br> 2./data/data（APP的存储内容）<br> data/data/&lt;包名&gt;/shared_prefs<br> data/data/&lt;包名&gt;/databases<br> data/data/&lt;包名&gt;/files<br> data/data/&lt;包名&gt;/cache（context.getCacheDir()）<br> 3./mnt/    (挂载点)</p>
+<p>​    /mnt/adcard0/    存储卡挂载目录</p>
+<p>​    /mnt/udisk/    U盘挂载目录</p>
+<p> 4./dev/（Linux系统文件夹）<br> 5./system/（系统配置）下的：</p>
+<p>app/    存放的是常规下载的应用程序，可以看到都是以APK格式结尾的文件。在这个文件夹下的程序为系统默认的组件，自己安装的软件将不会出现在这里，而是/data/app文件夹中。</p>
+<p>bin/     这个目录下的文件都是系统的本地程序，从bin文件夹名称可以看出是binary二进制的程序，里面主要是Linux系统自带的组件(命令)</p>
+<p>etc/    android 系统的配置文件，比如APN接入点设置等核心配置。</p>
+<p>fonts/    这里面保存着系统的字体，标准字体和粗体、斜体外可以看到文件体积最大的可能是中文字库，或一些unicode字库，从T-Mobile G1上可以清楚的看到显示简体中文正常.如果你有root权限，可以往里添加自己喜欢的字体，比如雅黑</p>
+<p>framework/    主要是一些核心的文件，从后缀名为jar可以看出是是系统平台框架。<br>lib/里面保存的是系统底层类库，里面很多都是框架层的实现文件，一般以.so后缀结尾类似windows下的dIl文件</p>
+<p>usr/    用户文件夹，包含共享、键盘布局、时间区域文件等。</p>
+<p>media/<br>    audio/    保存着安卓系统默认的铃声闹铃提醒alarms/<br>    notificatinos/    短信或提示音<br>    rignstones/    来电铃声<br>    ui/    界面音效，比如键盘敲击声</p>
+<p>/sbin/    系统工具，比如 ps/cp/pm等</p>
+<p><strong>SD卡存储（可读写）</strong></p>
+<p>外部存储路径：<br><em>Environment.getExternalStorageDirectory().getPath()<br>/storage/emulated/0</em></p>
+<p>九大公有目录：</p>
+<p><em>Environment.getExternalStoragePublicDirectory(DIRECTORY_ALARMS)    ;<br> //storage/emulated/0/Alarms<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM);<br> //storage/emulated/0/DCIM<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS);<br> //storage/emulated/0/Download<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_MOVIES);<br> //storage/emulated/0/Movies<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_MUSIC);<br> //storage/emulated/0/Music<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_NOTIFICATIONS);<br> //storage/emulated/0/Notifications<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES);<br> //storage/emulated/0/Pictures<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_PODCASTS);<br> //storage/emulated/0/Podcasts<br> Environment.getExternalStoragePublicDirectory(DIRECTORY_RINGTONES);<br> //storage/emulated/0/Ringtones</em><br> 可通过context.getExternalFilesDir(String type)获取，也由上直接获取，不建设使用公有目录存储App数据</p>
+<p>私有目录：</p>
+<p>getExternalCacheDir()<br> //storage/emulated/0/Android/data/&lt;包名&gt;/cache/</p>
+<p>context.getObbDir()<br> //storage/sdcard/Android/obb/</p>
+<p><strong>外置SD卡（可读，无法写入）</strong></p>
+<p><strong>应用管理清除数据的清楚目录：</strong></p>
+<p><em>清除缓存：将外部私有数据下的cache包（/storage/emulated/0/Android/data/&lt;包名&gt;/cache）清除，将内部数据下的cache包下的内容（/data/data/&lt;包名&gt;/cache/）清除 。<br> 清楚数据：将外部私有数据的data下包名（/storage/emulated/0/Android/data/&lt;包名&gt;/）清除，将内部数据包名下的所有内容（/data/data/&lt;包名&gt;/）清除；</em></p>
+<p><strong>文件夹</strong></p>
+<p>1./acct/    系统回收站，删除的系统文件<br>2./cache/    缓存</p>
+<p>3./data/    用户的所有程序相关数据</p>
+<pre><code> app/    所有用户安装的apk文件
+</code></pre>
+<p>4./proc/    运行时的文件</p>
+<p>5./dev/设备文件，Linux系统常规文件夹，里面的文件很多都是设备模拟的文件系统<br>6./storage/    手机存储设备    </p>
+<p>​    /sdcard0/    第一块SD存储卡</p>
+<h3 id="iOS设备的系统常用文件夹的位置"><a href="#iOS设备的系统常用文件夹的位置" class="headerlink" title="iOS设备的系统常用文件夹的位置"></a>iOS设备的系统常用文件夹的位置</h3><p>2、【/private/var/mobile/Media /DCIM】     相册照片文件存放目录【/Library/Wallpaper】    系统墙纸的存放目录</p>
+<p>3、【/private/var/mobile/Media/DCIM/999APPLE】    系统自带截屏文件存放路径，截屏方法：按住Power并快速按一下Home键</p>
+<p>4、【/System/Library/Audio/UISounds】    系统声音文件的存放目录</p>
+<p>5、【/private/var/mobile/Media /ipad Recorder】     录音文件存放目录</p>
+<p>6、【/private/var/root/Media/EBooks】     电子书存放目录</p>
+<p>7、【/private/var/mobile /Media/iTunes_Control/Music】 iTunes上传的多媒体文件（例如MP3、MP4等）存放目录，文件没有被修改，但是文件名字被修改了，直接下载到电脑即可读取。</p>
+<p>8、【/private/var/mobile /Library/AddressBook】 系统电话本的存放目录。</p>
+<p>9、【/private/var/mobile/Media/Maps】    离线地图目录，把地图文件夹放到该目录下，文件夹赋予777权限</p>
+<p>10、【/Applications】    常用软件的安装目录</p>
+<p>11、【/Applications/Preferences.app/zh_CN.lproj】    软件Preferences.app的中文汉化文件存放目录</p>
+<p>12、【/private/var/mobile/Library/Downloads】    ipa文件存放目录，把下载来的ipa文件放到此目录下，用Installous安装</p>
+<p>13、【/private/var/mobile/Applications】    通过AppStore和iTunes安装的程序都在里面。</p>
+<p>14、【/private/var/run】    系统进程运行的临时目录，查看这里可以看到系统启动的所有进程</p>
+<p>15、【/bin】    和linux系统差不多，是系统执行指令的存放目录。</p>
+<p>16、【/private/var/logs/CrashReporter】    系统错误记录报告</p>
+<p>17、【/private/var/mobile】    新刷完的机器，要在这个文件夹下建一个Documents的目录，很多程序都要用到。</p>
+<p>18、【/private/var/stash】    这个文件夹下的Applications目录里面是所有通过Cydia和app安装的程序，Ringtones目录里是所有的手机铃音，自制铃音直接拷在里面即可，Themes目录里是所有Winterboard主题，可以手工修改。</p>
+<p>19、【/var/stash/Themes.XXXXXX】    winterboard主题文件存放路径</p>
+<p>20、【/System/Library/Fonts/Cache】    系统字体目录，要替换的字体放在该目录下，权限644不变</p>
+<p>21、【/private/var/mobile/Library/Keyboard】    系统拼音字库文件位置</p>
+<p><strong>apk结构</strong></p>
+<p>lib/</p>
+<p>res/<br>assets/</p>
+<p>classes(n).dex</p>
+<p>resources.arsc</p>
+<p>AndroidManifest.xml</p>
+<p><strong>移动端 app 分类</strong></p>
+<p>Native App:原生app 手机应用程序</p>
+<p>Hybrid App:混合型app手机应用程序</p>
+<p> Web App:基于 Web 的 app 手机应用程序</p>
+<p>Activity<br>Window<br>View<br>ViewGroup</p>
+<h3 id="开启开发者选项"><a href="#开启开发者选项" class="headerlink" title="开启开发者选项"></a><strong>开启开发者选项</strong></h3><p>不锁定屏幕（充电时不锁屏休眠）</p>
+<p>蓝牙数据包日志（进行bug测试，方便同蓝牙下的其他人员查看日志）</p>
+<p>OEM解锁（刷机时，需要解除手机设备锁）</p>
+<p>DSU Loader(安卓11开始，下载最新GSI,无需输入任何快速启动或adb命令)</p>
+<p>USB 调试（连接usb启动调试模式）</p>
+<p>无线调试（pc端和客户端在同一个WLAN下）</p>
+<p>选择调试应用（允许开发者在电脑上调试手机应用）</p>
+<p>日志记录器缓冲区（记录移动电话系统日志文件）</p>
+<p>选择模拟位置信息应用（地图软件定位其他到地方）</p>
+<p>显示点按（触摸）操作反馈（点击屏幕有白色圆点出现）</p>
+<p>指针位置（显示当前触摸点坐标x，y）</p>
+<p>时间悬浮窗（显示当前时间，时分秒）</p>
+<p>显示布局边界（用于剪辑边界，边距等）</p>
+<p>启动GPU调试层（提升手机流畅性和图像，增加手机发热，耗电量）</p>
+<p>显示刷新率（不是实时的，当前屏幕最高能飙到多少帧率）</p>
+<p>调试 GPU 过渡绘制(关闭，显示红色过度绘制，显示适合绿色弱视者查看的区域)</p>
+<p>系统跟踪（将设备活动保存到跟踪文件的Android工具，用于性能）</p>
+<p>强制允许将应用写入外部存储设备（强制应用可以安装写入到sd卡）</p>
+<p>最小宽度（用于调整缩放，数值设置在360-1000，范围外会变成砖头机）</p>
+<p>强制将活动设为可调整大小（强制让不支持分屏的app开启分屏模式 ，开启后重启）</p>
+<p>演示模式（显示固定时间，满格信号，电量图标）</p>
+<p>功耗检测（上：帧速率检测工具，中：当前时间检测工具，下：进程活动检测工具）</p>
+<p>显示所有“应用程序无响应ANR”</p>
+<p><strong>bug</strong></p>
+<p>太占用手机内存<br>太耗电和流量<br>在使用应用的过程中，点击某一个事件进人的页面出现白屏的闪动等</p>
+<h3 id="adb常用命令"><a href="#adb常用命令" class="headerlink" title="adb常用命令"></a><strong>adb常用命令</strong></h3><p>包括三个部分采用了客户端-服务器(C/S)模型，<br>客户端client</p>
+<p>adb -P <port> start-server</port></p>
+<p>服务端server（默认）:5037<br>守护进程 daemon</p>
+<p>adb devices -l</p>
+<p>返回设备序列号和model(设备名称)</p>
+<p>adb [-d |-e |-s <serialnumber>]<command></serialnumber></p>
+<p>-d:指定当前唯一通过 USB 连接的 Android 设备为命令目标</p>
+<p>-e:指定当前唯一运行的模拟器为命令目标</p>
+<p>-s:指定相应serialNumber号的设备(adb devices的参数)/模拟器为命令目标</p>
+<p>adb get-state</p>
+<p>device 正常</p>
+<p>offine 连接出现异常，设备无响应</p>
+<p>unauthorized未授权</p>
+<p>adb kill-server</p>
+<p>普通安装:adb install &lt;apk路径&gt;</p>
+<p>覆盖安装:adb install -r &lt;apk路径&gt;</p>
+<p>完全卸载:adb uninstall &lt;包名&gt;</p>
+<p>保留配置文件:adb uninstall -k &lt;包名&gt;</p>
+<p>adb shell cmd package install -k &lt;包名&gt;</p>
+<p>截图:adb shell screencap &lt;设备路径&gt;</p>
+<p>录屏:adb shell screenrecord &lt;设备路径&gt;</p>
+<p>adb shell dmesg 会打印出内核的调试信息</p>
+<p><em># 点亮屏幕</em><br>adb <strong>shell</strong> input keyevent 224</p>
+<p><em># 熄灭屏幕</em><br>adb <strong>shell</strong> input keyevent 223</p>
+<p>查看屏幕分辨率</p>
+<p>adb -s &lt;设备序列号&gt;  shell  wm size</p>
+<p>查看设备型号</p>
+<p>adb -s &lt;设备序列号&gt; shell getprop ro.product.model</p>
+<p>查看Android系统版本</p>
+<p><strong>adb</strong> <strong>-s</strong> &lt;设备序列号&gt; <strong>shell</strong> <strong>getprop</strong> <strong>ro</strong>.build.version.release</p>
+<p>发布端口 可以设置任意的端口号，做为主机向模拟器或设备的请求端口。 如：adb forward tcp:5555 tcp:8000</p>
+<p>adb 的运行原理是 PC 端的 adb server 与手机端的守护进程 adbd 建立连接，然后 PC 端的 adb client 通过 adb server 转发命令，adbd 接收命令后解析运行。</p>
+<p>用 <code>adb root  </code>或者 adb shell<code>然后</code>su` 后执行命令</p>
+<p> <code>adb unroot</code> 命令</p>
+<p>打开飞行模式： adb shell settings put global airplane_mode_on 1 </p>
+<p>关闭飞行模式： adb shell settings put global airplane_mode_on 0 </p>
+<p><strong>Activity管理器(am)工具</strong>发出命令以执行各种系统操作</p>
+<p>启动应用:adb shell am start -n&lt;包名&gt;/&lt;Activity名&gt;</p>
+<p>强制停止应用:adb shellam force-stop &lt;包名&gt;</p>
+<p><strong>软件包管理器(pm)工具</strong>发出命令，对设备上安装的应用软件包执行操作和查询</p>
+<p>显示所有应用:adb shellrpm list packages</p>
+<p>只显示系统应用:adbshellpmlist packages -s</p>
+<p>只显示第三方应用:adb shell pm list packages -3</p>
+<p>列出所有测试软件包:adb shell pm list instrumentation</p>
+<p>获取模拟器所有包名并且包括APK路径   adb shell pm list packages -f</p>
+<p>删除与软件包关联的所有数据:adb shell pm clear &lt;包名&gt;</p>
+<p>调用dumpsys，获取在连接的设备上运行的所有系统服务的诊断输出</p>
+<p>获取前台包名:adb shell dumpsys activity | grep mFocusedActiviby</p>
+<p>检查输入诊断:adb shell dumpsys input</p>
+<p>测试界面性能fps:adb shell dumpsys gfxinfo &lt;包名&gt;</p>
+<p>检查电池诊断:adb shell dumpsys batterystats –charged&lt;包名&gt;</p>
+<p>Current Battery Service state:<br>Ac powered: true<br>USB powered: false<br>Wireless powered:false<br>Max charging current:2000000#最大充电电流;mA<br>status:2    #电池状态:2:充电状态，其他数字为非充电状态<br>health:2    #电池健康状态:只有数字2表示good<br>present: true    #电池是否安装在机身<br>scale:100    #电量:百分比level:81<br>temperature:353    #电池温度，单位是0.1摄氏度<br>voltage:4108    #电池电压</p>
+<p>technology: Li-poly    #电池种类</p>
+<p>查看CPU信息:adb shell dumpsys cpuinfo</p>
+<p>查看内存信息:adb shell dumpsys meminfo</p>
+<p>liux/mac:adb shell top -d 1| grep “包名”    (每隔1秒打印一次)</p>
+<p>windows:adb shell top | findstr “包名”</p>
+<p>获取内存占用情况统计信息:adb shell dumpsys procstats –hours 3</p>
+<p>打印链接设备的log信息</p>
+<p>V-明细 verbose(最低优先级)<br>D-调试 debug<br>I-信息 info<br>W-警告 warn<br>E-错误 error<br>F-严重错误 fatal<br>S-无记载silent(最高优先级，绝不会输出任何内容</p>
+<p>crash 闪退</p>
+<p>exception异常<br>force closed 强制退出</p>
+<p>anr (application no response)程序无响应</p>
+<p>屏幕输出日志:adb logcat<br>通过标签过滤:adb logcat -s 标签</p>
+<p>显示时间:adb logcat -v time</p>
+<p>输出所有信息:adb logcat -v long</p>
+<p>adb logcat -v color    使用不同的颜色来显示优先级</p>
+<p>输出日志到app上:adb logcat -f <filename></filename></p>
+<p>输出日志到pc上:adb logcat -v time &gt; log.txt</p>
+<p>清除旧日志信息:adb logcat -c</p>
+<p>adb logcat -v time “*:W”        打印 warning 及以上级别的日志<br>adb logcat ActivityManager:D    ‘*:S’<br>过滤tag 为ActivityManager,level为Debug及以上级别的日志</p>
+<p>dump 出当前窗口的UI布局信息<br>前窗口的UI布局简化信息:adb shell uiautomator dump –compressed</p>
+<p>指定输出文件:adbshell uiautomator dump file &lt;设备路径&gt;</p>
+<p>模拟输入   adb shell input text 字符串(不支持中文)</p>
+<p>模拟鼠标点击   adb shell input tap X Y  </p>
+<p>模拟鼠标滑动   adb shell input swipe X1 Y1 X2 Y2</p>
+<p>返回键:adb shell input keyevent 4</p>
+<p>Home键:adb shell input keyevent 3(置应用于后台运行</p>
+<p>音量放大:adb shell input keyevent 24</p>
+<p>音量缩小:adb shell input keyevent 25</p>
+<h3 id="adb-monkey测试"><a href="#adb-monkey测试" class="headerlink" title="adb-monkey测试"></a>adb-monkey测试</h3><p>monkey测试是一种为了测试软件的稳定性，健壮性的快速有效的方法。简而言之，就是利用工具模拟人的操作，如触摸屏幕，滑动trackball，按键，对手机app进行大量的随机的点按操作。</p>
+<p>目的是测试app在大量用户随机操作下是否会crash（崩溃）和ANR无响应现象</p>
+<p>adb shell monkey -vvv &lt;事件数&gt;</p>
+<p><strong>-v ，用于指定反馈信息级别（就是日志的详细程度）</strong></p>
+<p>-v，只提供启动提示、测试完成提示和最终结果等少量信息；</p>
+<p>-v -v，较为详细的日志，包括每个发送到activity的时间信息；</p>
+<p>-v -v -v，最详细的日志，包括测试中选中/未选中的activity信息</p>
+<p>-s <seednumber>    用于指定伪随机数生成器都seed(种子)值，如果使用相同的种子值重新运行monkey，他将生成相同的事件，<strong>常用于bug复现</strong>。</seednumber></p>
+<p><strong>注意：-s需要跟在包名后，次数前</strong></p>
+<p>-p 用于约束限制，参数用于指定一个或多个包</p>
+<p><strong>–pct-事件类别+事件类别百分比；</strong>，<strong>百分比总数不超过</strong>100</p>
+<p>–pct-touch:触摸事件(设定<strong>点击</strong>事件百分比)</p>
+<p>–pct-motion :<strong>滑动</strong>事件(设定动作事件百分比</p>
+<p>–pct-trackball:<strong>轨迹球</strong>事件(设定轨迹球事件百分比)</p>
+<p>–pct-nav :导航事件( 设定基本导航事件百分比，比如输入设备上、下、左、右键</p>
+<p>–pct-majornav:主要导航事件(设定主要导航事件百分比，比如中间键、返回键、菜单键 )</p>
+<p>–pct-syskeys:系统按键事件( 设定系统导航事件百分比，比如H0ME键、BACK建、拨号键及音量键</p>
+<p>–pct-appswitch:<strong>activity之间的切换</strong>(设定启动Activity事件百分比)</p>
+<p>–pct-pinchzoom:<strong>缩放</strong>事件</p>
+<p>–pct-rotation:<strong>屏幕旋转</strong>事件</p>
+<p>–pct-flip:<strong>键盘</strong>事件<br>–pct-anyevent :任意事件(设定不常用事件百分比)</p>
+<p>–throttle &lt;数字&gt;     每个事件结束后的<strong>间隔时间</strong></p>
+<p>–ignore-crashes:忽略崩溃</p>
+<p>–ignore-timeouts:忽略超时</p>
+<p>**<em>*</em>*–monitor-native-crashes，监视本地崩溃代码；******监视并报告Android系统中本地代码的奔溃事件</p>
+<p>–ignore-security-exceptions:忽略安全异常</p>
+<p>–kill-process-after-error:发生错误后直接杀掉进程</p>
+<p>–dbg-no-events:初始化启动的activity，但是不产生任何事件</p>
+<p>–hprof:指定该项后在事件序列发送前后会立即生成分析报告</p>
+<p>–wait-dbg:直到连接了调试器才执行monkey测试</p>
+<p>–bugreport:当ANR，系统无响应，Crash的时候获得bugreport</p>
+<p>adb shell monkey 1000 &gt;文件路径/文件名</p>
+<p>adb shell logcat -v time ‘*:E’  &gt; monkey.log</p>
+<p>指定一个包adb shell monkey -p 包名 [数件数]</p>
+<p>指定多个包adb shell monkey -p 包名 -p 包名 [事件数]</p>
+<h3 id="Dos命令"><a href="#Dos命令" class="headerlink" title="Dos命令"></a>Dos命令</h3><p>tasklist       查看进程<br>netstat -a     查看端口情况<br>netstat -aon|findstr 5037    查看占用端口的进程PID  5037为adb默认端口<br>tasklist /fi “PID eq 15448”   通过PID查看所有进程<br>taskkill /pid 15448 /f       杀死占用端口的进程</p>
+<p>或者taskkill /f /fi “PID eq 8448”</p>
+<h3 id="Drozer安装使用"><a href="#Drozer安装使用" class="headerlink" title="Drozer安装使用"></a>Drozer安装使用</h3><p>运行：</p>
+<p>adb forward tcp:31415 tcp:31415</p>
+<p>drozer.bat console connect</p>
+<p>查包名：</p>
+<p>通过输入安装包的部分关键字查找包全称 run app.<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=package&amp;spm=1001.2101.3001.7020">package</a>.list -f 安装包部分关键字</p>
+<p>run app.package.list -f ifree</p>
+<p>使用app.package.info模块查看apk基本信息</p>
+<p>run app.package.info -a com.example.demo</p>
+<p><strong>使用app.package.attacksurface模块识别攻击面</strong></p>
+<p>dz&gt; run app.package.attacksurface com.ifreetalk.ftalk<br>Attack Surface:<br>  11 activities exported<br>  5 broadcast receivers exported<br>  1 content providers exported<br>  6 services exported</p>
+<p>问题：</p>
+<p>报错ImportError: No module named google.protobuf，需要安装依赖，直接安装显示超时，那么我们使用镜像安装。</p>
+<p>pip国内镜像</p>
+<p>  阿里云 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>  中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>  豆瓣(douban) <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></p>
+<p>  清华大学 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<p>  中国科学技术大学 <a target="_blank" rel="noopener" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>临时使用：可以在使用pip的时候在后面加上-i参数，指定pip源</p>
+<p>安装依赖如下：</p>
+<p>pip2 install protobuf -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>pip2 install pyopenssl -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>pip2 install pyyaml -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>pip2 install twisted -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>pip2 install service_identity -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/SouthWind0/article/details/108931740">https://blog.csdn.net/SouthWind0/article/details/108931740</a></p>
+<p>Drozer获取目标包名中文乱码和模块报Error 0</p>
+<p>根据路径找到文件[python2](<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=python2&amp;spm=1001.2101.3001.7020)%5CLib%5Csite-packages%5Cdrozer%5Cmodules%5Capp%5Cpackage.py">https://so.csdn.net/so/search?q=python2&amp;spm=1001.2101.3001.7020)\Lib\site-packages\drozer\modules\app\package.py</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> sys
+reload<span class="token punctuation">(</span>sys<span class="token punctuation">)</span>
+sys<span class="token punctuation">.</span>setdefaultencoding<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">        <span class="token keyword">if</span> arguments<span class="token punctuation">.</span>no_app_name<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>write<span class="token punctuation">(</span>u<span class="token string">"%s\n"</span> <span class="token operator">%</span> application<span class="token punctuation">.</span>packageName<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>write<span class="token punctuation">(</span>u<span class="token string">"%s (%s)\n"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>application<span class="token punctuation">.</span>packageName<span class="token punctuation">,</span> self<span class="token punctuation">.</span>packageManager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>getApplicationLabel<span class="token punctuation">(</span>application<span class="token punctuation">.</span>packageName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34594929/article/details/128873722">https://blog.csdn.net/qq_34594929/article/details/128873722</a></p>
+<p>重启一遍Drozer，在打开Drozer，通过设置基本解决了问题</p>
+<h3 id="更新测试"><a href="#更新测试" class="headerlink" title="更新测试"></a><strong>更新测试</strong></h3><p>升级测试-APP升级。web不涉及升级</p>
+<p>1)下载升级 : Android ios 区分，网络类型2G/3G/4G,wif,不同机型;/</p>
+<p>2.新旧版本兼容:微信–旧版本 新版本 -后台接口 </p>
+<p>3.升级后版本使用情况:a.新功能;老功能–回归;老数据升级后是不是正常–存在 查看显示 </p>
+<p>4.文档–静态检查</p>
+<p>代码层（Junit,Pytest/unitest）-单元测试-》接口层(jmater,postman,loadruner,robot framework)-集成测试-》UI层(appinium,airtest,poco,selenium)-自动化测试</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2024/03/01/44020.html">https://bigworldxld.github.io/2024/03/01/44020.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/03/03/60703.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E5%90%84%E7%B1%BBapp%E5%B8%B8%E8%A7%81%E6%B5%8B%E8%AF%95%E7%82%B9.jpg" class="responsive-img" alt="各类app常见测试点">
+                        
+                        <span class="card-title">各类app常见测试点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/test/" class="post-category">
+                                    test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/24/28091.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E6%B8%B8%E6%88%8F.jpg" class="responsive-img" alt="游戏专业术语">
+                        
+                        <span class="card-title">游戏专业术语</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">游戏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

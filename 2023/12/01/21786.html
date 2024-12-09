@@ -1,0 +1,1706 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="安全测试ZAP工具, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="安全测试ZAP工具ZAP基本概念：代理服务器：ZAP通过代理服务器拦截Web应用程序与浏览器之间的通信，并记录HTTP和HTTPS请求和响应。官网
+漏洞扫描器appscan收费，破击有版权风险
+开放式Web应用程序安全项目-OWASP（Op">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>安全测试ZAP工具 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/ZAP.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">安全测试ZAP工具</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ZAP/">
+                                <span class="chip bg-color">ZAP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="安全测试ZAP工具"><a href="#安全测试ZAP工具" class="headerlink" title="安全测试ZAP工具"></a>安全测试ZAP工具</h2><h3 id="ZAP基本概念："><a href="#ZAP基本概念：" class="headerlink" title="ZAP基本概念："></a>ZAP基本概念：</h3><h4 id="代理服务器："><a href="#代理服务器：" class="headerlink" title="代理服务器："></a>代理服务器：</h4><p>ZAP通过代理服务器拦截Web应用程序与浏览器之间的通信，并记录HTTP和HTTPS请求和响应。<a target="_blank" rel="noopener" href="https://github.com/zaproxy/zaproxy">官网</a></p>
+<h4 id="漏洞扫描器"><a href="#漏洞扫描器" class="headerlink" title="漏洞扫描器"></a>漏洞扫描器</h4><p>appscan收费，破击有版权风险</p>
+<p>开放式Web应用程序安全项目-OWASP（Open Web Application Security Project）<br>非营利组织，不附属于任何企业或财团</p>
+<p>ZAP具有强大的漏洞扫描能力，能够检测Web应用程序中的常见漏洞，如XSS、SQL注入、CSRF、命令注入等</p>
+<p>系统注入恶意:JavaScript 代码</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span>你被攻击了 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>浏览器执行的一种语言<br><strong>跨站请求伪造</strong>：CSRF(Cross-site request forgery)</p>
+<p>ZAP可以通过被动扫描或主动扫描两种方式进行漏洞扫描。 被动扫描是在Web应用程序与浏览器之间的通信中拦截和检测漏洞，而主动扫描是通过模拟攻击向Web应用程序发送请求以检测漏洞。</p>
+<h4 id="攻击脚本"><a href="#攻击脚本" class="headerlink" title="攻击脚本"></a>攻击脚本</h4><p>ZAP支持通过编写攻击脚本对Web应用程序进行自动化攻击，这些脚本可以模拟各种攻击场景，如SQL注入、XSS等。</p>
+<h4 id="报告生成"><a href="#报告生成" class="headerlink" title="报告生成"></a>报告生成</h4><p>ZAP能够生成详细的漏洞报告，包括漏洞的描述、影响、解决方案等，帮助安全专业人员对漏洞进行准确分类和评估。</p>
+<p>ZAP可以生成各种类型的报告，包括HTML、XML、CSV等格式。</p>
+<h3 id="使用ZAP的主要用途包括："><a href="#使用ZAP的主要用途包括：" class="headerlink" title="使用ZAP的主要用途包括："></a>使用ZAP的主要用途包括：</h3><ul>
+<li>发现和修复Web应用程序的漏洞</li>
+<li>模拟攻击和漏洞挖掘，以发现潜在的安全风险</li>
+<li>评估Web应用程序的安全性，为安全决策提供有力依据</li>
+<li>进行安全培训和演练，帮助安全专业人员提高技能和经验</li>
+</ul>
+<h3 id="安装-ZAP"><a href="#安装-ZAP" class="headerlink" title="安装 ZAP"></a>安装 ZAP</h3><p>首先要做的是在要对其执行渗透测试的系统上安装 ZAP。从下载页面下载相应的安装程序。<a target="_blank" rel="noopener" href="https://github.com/zaproxy/zaproxy/wiki/Downloads">https://github.com/zaproxy/zaproxy/wiki/Downloads</a></p>
+<p>请注意，ZAP 需要 Java 8以上 才能运行。macOS 安装程序包含相应版本的 Java，但您必须为 Windows、Linux 和跨平台版本单独安装 Java 8+。Docker 版本不需要您安装 Java。</p>
+<p>windows 版JDK使用exe安装后即可</p>
+<p>ZAP 2.10.0安装包</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1P0tbN_qr6m4dLd2bsqjlmw">https://pan.baidu.com/s/1P0tbN_qr6m4dLd2bsqjlmw</a><br>提取码：pgwi</p>
+<h3 id="持久化会话"><a href="#持久化会话" class="headerlink" title="持久化会话"></a>持久化会话</h3><p>首次启动 ZAP 时，系统将询问您是否要保留 ZAP 会话。默认情况下，ZAP 会话始终记录到具有默认名称和位置的 HSQLDB 数据库中的磁盘。如果不保留会话，则在退出 ZAP 时将删除这些文件。</p>
+<p>如果选择保留会话，则会话信息将保存在本地数据库中，以便以后可以访问它，并且您将能够提供用于保存文件的自定义名称和位置。</p>
+<h3 id="ZAP-桌面-UI-由以下元素组成："><a href="#ZAP-桌面-UI-由以下元素组成：" class="headerlink" title="ZAP 桌面 UI 由以下元素组成："></a>ZAP 桌面 UI 由以下元素组成：</h3><p>菜单栏 – 提供对许多自动和手动工具的访问。<br>工具栏 – 包括可轻松访问最常用功能的按钮。<br>树窗口 – 显示站点树和脚本树。<br>工作区窗口 – 显示请求、响应和脚本，并允许您对其进行编辑。<br>信息窗口 – 显示自动和手动工具的详细信息。<br>页脚 – 显示找到的警报的摘要以及主要自动化工具的状态</p>
+<h3 id="快速开始-自动扫描"><a href="#快速开始-自动扫描" class="headerlink" title="快速开始-自动扫描"></a>快速开始-自动扫描</h3><p>开始使用 ZAP 的最简单方法是通过“快速入门”选项卡。 快速入门是安装 ZAP 时自动包含的 ZAP 加载项。</p>
+<p>要运行快速入门自动扫描：</p>
+<p>启动 ZAP，然后单击工作区窗口的快速启动选项卡。<br>单击大的自动扫描按钮。<br>在“要攻击的 URL”文本框中，输入要攻击的 Web 应用程序的完整 URL。<br>点击攻击</p>
+<p>勾选传统爬虫，点击攻击，ZAP会自动攻击填写的网站。</p>
+<p>ZAP 将继续使用蜘蛛抓取 Web 应用程序，并被动扫描它找到的每个页面。然后，ZAP 将使用活动扫描程序攻击所有发现的页面、功能和参数。</p>
+<p>2种爬虫<br>ZAP 提供 2 个爬虫用于爬网 Web 应用程序，您可以从此屏幕使用其中一个或两个。</p>
+<p>传统的 ZAP 蜘蛛，通过检查来自 Web 应用程序的响应中的 HTML 来发现链接。这种蜘蛛速度很快，但在探索使用 JavaScript 生成链接的 AJAX Web 应用程序时并不总是有效的。</p>
+<p>对于AJAX应用程序，ZAP的AJAX蜘蛛可能更有效。该蜘蛛通过调用浏览器来探索Web应用程序，然后跟踪已生成的链接。AJAX 蜘蛛比传统蜘蛛慢，需要额外的配置才能在“无头”环境中使用。</p>
+<p>解释您的测试结果<br>当 ZAP 抓取您的 Web 应用程序时，它会构建 Web 应用程序页面以及用于呈现这些页面的资源的映射。然后，它会记录发送到每个页面的请求和响应，并在请求或响应出现潜在问题时创建警报。</p>
+<p>查看浏览的页面<br>要检查浏览页面的树视图，请单击树窗口中的站点选项卡。您可以展开节点以查看访问的各个 URL。</p>
+<p>查看警报和警报详细信息<br>页脚的左侧包含测试期间发现的警报计数，这些警报按风险类别细分。这些风险类别是：High,Medium,Low,Informational,False Positive</p>
+<h3 id="手动浏览应用程序"><a href="#手动浏览应用程序" class="headerlink" title="手动浏览应用程序"></a>手动浏览应用程序</h3><p>被动扫描和自动攻击功能是开始对 Web 应用程序进行漏洞评估的好方法，但它有一些限制。其中包括：</p>
+<p>被动扫描期间无法发现受登录页保护的任何页面，因为除非已配置 ZAP 的身份验证功能，否则 ZAP 将不会处理所需的身份验证。<br>您无法很好地控制被动扫描中的探索顺序或自动攻击中执行的攻击类型。ZAP 确实提供了许多其他选项，用于被动扫描之外的探索和攻击。</p>
+<p>手动浏览</p>
+<p>要手动探索您的应用程序，请执行以下操作：</p>
+<ol>
+<li>启动 ZAP，然后单击工作区窗口的<strong>快速启动</strong>选项卡。</li>
+<li>单击大的手动探索按钮。</li>
+<li>在“要浏览的 URL”文本框中，输入<strong>要浏览</strong>的 Web 应用程序的完整 URL。</li>
+<li>选择您要使用的浏览器</li>
+<li>单击<strong>启动浏览器</strong></li>
+</ol>
+<h3 id="使用ZAP进行扫描："><a href="#使用ZAP进行扫描：" class="headerlink" title="使用ZAP进行扫描："></a>使用ZAP进行扫描：</h3><p>介绍如何使用ZAP进行漏洞扫描，包括如何配置扫描范围、选择扫描策略、进行结果分析和漏洞修复。</p>
+<p>使用ZAP进行漏洞扫描的步骤如下：<br><strong>配置扫描范围：</strong></p>
+<p>在ZAP界面中，点击“File”菜单下的“New Session”选项，输入要扫描的目标Web应用程序的URL地址，并选择“Spider”选项卡，配置爬虫设置，包括爬取范围、排除URL等。</p>
+<p>以下是详细的步骤：</p>
+<p>打开ZAP并点击“File”菜单下的“New Session”选项。</p>
+<p>在“New Session”对话框中，输入要扫描的Web应用程序的URL地址，并设置必要的认证信息和名称。</p>
+<p>点击“Spider”选项卡，可以配置爬虫设置，例如：</p>
+<p>爬取范围：您可以设置爬虫要爬取的页面范围，包括仅爬取起始URL、深度限制和子目录限制等。</p>
+<p>排除URL：您可以设置爬虫要排除的URL，以避免爬取无用或敏感页面。</p>
+<p>表单填充：您可以设置表单填充选项，以自动填充表单并测试可能存在的漏洞。</p>
+<p>其他设置：您还可以设置其他爬虫选项，例如Cookie处理、线程数和扫描延迟等。</p>
+<p>点击“Start”按钮，ZAP将开始爬取和扫描Web应用程序。您可以在“Sites”窗口中查看扫描结果，并在“Alerts”窗口中查看可能存在的漏洞和安全问题。<br>通过这些操作，您可以配置扫描范围，使用ZAP对目标Web应用程序进行全面的爬取和扫描，并及时发现和修复安全问题，保障Web应用程序的安全和可靠性。</p>
+<p><strong>选择扫描策略</strong>：</p>
+<p>在ZAP界面中，点击“Attack”菜单下的“Scanner”选项，选择扫描策略，例如SQL注入、跨站脚本、文件包含等。</p>
+<p>以下是详细步骤：</p>
+<p>打开ZAP并选择要扫描的目标Web应用程序。</p>
+<p>点击“Attack”菜单，并选择“Scanner”选项。</p>
+<p>在“Scanner”窗口中，您将看到多个扫描策略可供选择，例如SQL注入、跨站脚本（XSS）、文件包含（LFI/RFI）等。</p>
+<p>您可以选择一个或多个扫描策略，然后单击“Start”按钮开始扫描。</p>
+<p>扫描完成后，您可以在“Alerts”窗口中查看扫描结果和发现的漏洞。</p>
+<p>使用ZAP，您可以选择适当的扫描策略，为Web应用程序的安全性进行定期检测和漏洞扫描。这有助于保护Web应用程序和用户信息，并最大程度地减少安全风险。</p>
+<p><strong>开始扫描</strong>：</p>
+<p>点击“Attack”菜单下的“Start Scan”选项，启动漏洞扫描。扫描过程中，可以查看扫描进度、扫描日志等信息。</p>
+<p>在扫描过程中，工具将会通过各种手段对目标进行主动探测和检测。这些手段主要包括：</p>
+<p>端口扫描：探测目标计算机的开放端口，了解目标计算机上运行的服务。<br>漏洞探测：检测目标计算机上是否存在已知的漏洞和弱点，并尝试利用这些漏洞和弱点获取系统权限。<br>目录和文件扫描：扫描目标网站的目录和文件，查找是否存在未授权访问、任意文件读取、文件上传等漏洞。<br>数据库扫描：探测目标网站所使用的数据库类型，以及是否存在SQL注入等漏洞。<br>Web应用扫描：检测目标网站的Web应用程序中是否存在漏洞和错误配置，例如跨站点脚本攻击、文件包含漏洞、敏感信息泄露等。<br>扫描完成后，工具将会生成一份详细的扫描报告，其中包括漏洞的级别、影响范围、修复建议等信息。根据扫描报告中的结果，管理员可以及时修复漏洞，提高系统安全性。</p>
+<p><strong>分析结果</strong>：</p>
+<p>在ZAP界面中，点击“Alerts”菜单，可以查看漏洞扫描结果，包括漏洞类型、漏洞等级、漏洞描述等信息。可以根据需要对漏洞进行分类、过滤、排序等操作，方便进行分析和修复。</p>
+<p>除了查看漏洞扫描结果外，ZAP还提供了其他一些分析功能，包括：</p>
+<p>图形化漏洞分析：ZAP提供了各种图形化的报表和统计功能，可以帮助用户更直观地了解漏洞情况和风险等级。<br>动态调试：ZAP支持在漏洞扫描过程中进行动态调试和分析，可帮助用户更深入地了解漏洞产生的原因和特点，以及提供更有效的修复建议。<br>自定义扩展：ZAP提供了强大的插件和扩展机制，用户可以通过编写自定义插件和扩展来扩展ZAP的功能，以满足特定的需求。<br>这些分析功能可以帮助用户更全面地理解漏洞扫描结果，并有效地提高漏洞修复的效率和准确率。</p>
+<p><strong>修复漏洞</strong>：</p>
+<p>根据漏洞扫描结果，对Web应用程序进行漏洞修复，例如修复代码缺陷、删除不必要的文件或服务、更新安全配置等。</p>
+<p>修复漏洞的步骤如下：</p>
+<p>1.优先修复高危漏洞：先修复对系统安全影响最大的高危漏洞，以确保系统的安全性。</p>
+<p>2.更新系统和应用程序：针对已知漏洞，及时更新系统和应用程序到最新版本，并关闭不必要的服务。</p>
+<p>3.审查代码：评估应用程序代码，寻找存在的漏洞，并进行修复。</p>
+<p>4.限制用户权限：将用户权限限制到最小，以减少攻击面。</p>
+<p>5.加强访问控制：通过加强访问控制，限制用户可以访问的页面和数据。</p>
+<p>6.使用有效的防火墙和入侵检测系统：保护应用程序远离网络攻击和恶意软件，以确保应用程序及其数据的安全性。</p>
+<p>7.与安全专家进行合作：请安全专家评估并提供安全建议，以确保应用程序的安全性。</p>
+<p>维护Web应用程序的安全性是一个连续的过程。必须定期进行漏洞扫描，并修复任何发现的漏洞，以确保应用程序的安全性。</p>
+<h3 id="使用ZAP进行攻击："><a href="#使用ZAP进行攻击：" class="headerlink" title="使用ZAP进行攻击："></a>使用ZAP进行攻击：</h3><p>介绍如何使用ZAP进行模拟攻击，包括如何编写攻击脚本、模拟SQL注入、XSS、CSRF等攻击方式，以及如何进行自动化攻击和批量攻击。</p>
+<h4 id="编写攻击脚本："><a href="#编写攻击脚本：" class="headerlink" title="编写攻击脚本："></a><strong>编写攻击脚本</strong>：</h4><p>在ZAP界面中，点击“Tools”菜单下的“Scripts”选项，选择“New Script”选项，输入脚本名称和脚本内容，例如SQL注入脚本、XSS脚本、CSRF脚本等。</p>
+<p>编写攻击脚本的步骤如下：</p>
+<p>1.确定攻击目标：选择要攻击的Web应用程序，进行漏洞扫描和分析。</p>
+<p>2.选择攻击方式：根据应用程序的漏洞类型，选择适当的攻击方式，例如SQL注入、跨站脚本、文件包含等。</p>
+<p>3.编写攻击脚本：在ZAP界面中，点击“Tools”菜单下的“Scripts”选项，选择“New Script”选项，输入脚本名称和脚本内容。根据攻击方式和目标应用程序的特征，编写相应的攻击脚本。</p>
+<p>4.测试攻击脚本：使用编写的攻击脚本，对目标应用程序进行测试，检测是否能够成功进行攻击。</p>
+<p>5.优化攻击脚本：根据测试结果，优化攻击脚本，提高攻击的效率和成功率。</p>
+<p>注意事项：</p>
+<p>1.在编写攻击脚本时，需遵守法律法规和道德伦理，不得用于非法的攻击行为。</p>
+<p>2.攻击脚本可能会对应用程序造成不可逆的损害，测试时需谨慎操作，以免造成严重后果。</p>
+<p>3.攻击脚本只是一种工具，不能够代替人工审计和测试，建议与其他测试工具和方法结合使用，以确保Web应用程序的安全性。</p>
+<h4 id="模拟攻击-模糊测试-："><a href="#模拟攻击-模糊测试-：" class="headerlink" title="模拟攻击(模糊测试)："></a><strong>模拟攻击</strong>(模糊测试)：</h4><p>在ZAP界面中，点击“Attack”菜单下的<strong>“Fuzz”选项</strong>，选择要攻击的目标URL地址和攻击脚本，启动模拟攻击。模拟攻击过程中，ZAP会发送攻击请求，并记录攻击结果和返回数据。</p>
+<p>模拟攻击的步骤如下：</p>
+<p>1.确定攻击目标：选择要攻击的Web应用程序，进行漏洞扫描和分析。</p>
+<p>2.选择攻击方式：根据应用程序的漏洞类型，选择适当的攻击方式，例如SQL注入(1’ or ‘1’=’1)、跨站脚本、文件包含等。</p>
+<p>3.编写攻击脚本：在ZAP界面中，点击“Tools”菜单下的“Scripts”选项，选择“New Script”选项，输入脚本名称和脚本内容。根据攻击方式和目标应用程序的特征，编写相应的攻击脚本。</p>
+<p>4.模拟攻击：在ZAP界面中，点击“Attack”菜单下的“Fuzz”选项，选择要攻击的目标URL地址和攻击脚本，启动模拟攻击。ZAP会自动发送攻击请求，并记录攻击结果和返回数据。</p>
+<p>5.分析攻击结果：在ZAP界面中，点击“Fuzz”菜单，可以查看模拟攻击的结果和详细信息，包括攻击请求、返回数据、攻击效果等。根据结果分析攻击效果，确定是否存在漏洞，进一步进行修复和优化。</p>
+<p>注意事项：</p>
+<p>1.模拟攻击可能会对应用程序造成不可逆的损害，测试时需谨慎操作。</p>
+<p>2.攻击脚本需要针对具体的应用程序进行开发，不能够直接复制使用。</p>
+<p>3.模拟攻击只是一种测试工具，不能够代替人工审计和测试，建议与其他测试工具和方法结合使用，以确保Web应用程序的安全性。</p>
+<h4 id="自动化攻击："><a href="#自动化攻击：" class="headerlink" title="自动化攻击："></a><strong>自动化攻击</strong>：</h4><p>在ZAP界面中，点击“Tools”菜单下的“Automation”选项，配置自动化攻击设置，例如攻击目标、攻击脚本、攻击频率等。启动自动化攻击后，ZAP会自动发送攻击请求，模拟恶意攻击行为。</p>
+<p>自动化攻击的步骤如下：</p>
+<p>1.确定攻击目标：选择要攻击的Web应用程序，进行漏洞扫描和分析。</p>
+<p>2.选择攻击方式：根据应用程序的漏洞类型，选择适当的攻击方式，例如SQL注入、跨站脚本、文件包含等。</p>
+<p>3.编写攻击脚本：在ZAP界面中，点击“Tools”菜单下的“Scripts”选项，选择“New Script”选项，输入脚本名称和脚本内容。根据攻击方式和目标应用程序的特征，编写相应的攻击脚本。自动化攻击需要一个Python脚本，该脚本包含了攻击逻辑。</p>
+<p>4.配置自动化攻击设置：在ZAP界面中，点击“Tools”菜单下的“Automation”选项，配置自动化攻击设置，例如攻击目标、攻击脚本、攻击频率等。可以使用默认的攻击脚本，也可以选择自己编写的攻击脚本。</p>
+<p>5.启动自动化攻击：在ZAP界面中，点击“Tools”菜单下的“Automation”选项，在弹出的对话框中选择要使用的攻击脚本，点击“Start”按钮，启动自动化攻击。ZAP会自动发送攻击请求，并记录攻击结果和返回数据。</p>
+<p>6.分析攻击结果：在ZAP界面中，点击“Fuzz”菜单，可以查看模拟攻击的结果和详细信息，包括攻击请求、返回数据、攻击效果等。根据结果分析攻击效果，确定是否存在漏洞，进一步进行修复和优化。</p>
+<p>注意事项：</p>
+<p>1.自动化攻击可能会对应用程序造成不可逆的损害，测试时需谨慎操作。</p>
+<p>2.攻击脚本需要针对具体的应用程序进行开发，不能够直接复制使用。</p>
+<p>3.自动化攻击只是一种测试工具，不能够代替人工审计和测试，建议与其他测试工具和方法结合使用，以确保Web应用程序的安全性。</p>
+<h4 id="批量攻击："><a href="#批量攻击：" class="headerlink" title="批量攻击："></a><strong>批量攻击</strong>：</h4><p>在ZAP界面中，点击“File”菜单下的“Import URLs”选项，导入要攻击的URL列表。然后在“Attack”菜单中选择攻击脚本和攻击策略，启动批量攻击。ZAP会自动遍历URL列表，发送攻击请求，并记录攻击结果和返回数据。</p>
+<p>批量攻击的步骤如下：</p>
+<p>1.准备目标列表：在文本文件或CSV文件中准备要攻击的URL列表，可以使用第三方工具如Burp Suite、OWASP ZAP等抓取扫描结果中的URL，也可以手动编辑。</p>
+<p>2.导入URL列表：在ZAP界面中，点击“File”菜单下的“Import URLs”选项，导入准备好的URL列表文件。</p>
+<p>3.选择攻击脚本和策略：在“Attack”菜单中选择合适的攻击脚本和策略。如果没有特别要求，可以使用默认的攻击脚本和策略。</p>
+<p>4.启动批量攻击：在ZAP界面中，点击“Attack”菜单下的“Fuzz”选项，选择导入的URL列表和攻击脚本和策略，启动批量攻击。ZAP会自动遍历URL列表，发送攻击请求，并记录攻击结果和返回数据。</p>
+<p>5.分析攻击结果：在ZAP界面中，点击“Fuzz”菜单，可以查看模拟攻击的结果和详细信息，包括攻击请求、返回数据、攻击效果等。根据结果分析攻击效果，确定是否存在漏洞，进一步进行修复和优化。</p>
+<p>注意事项：</p>
+<p>1.批量攻击可能会对应用程序造成不可逆的损害，测试时需谨慎操作。</p>
+<p>2.攻击脚本和策略需要根据具体的攻击目标进行调整，不能够直接使用。</p>
+<p>3.批量攻击是一种测试工具，不能够代替人工审计和测试，建议与其他测试工具和方法结合使用，以确保Web应用程序的安全性。</p>
+<h3 id="高级功能："><a href="#高级功能：" class="headerlink" title="高级功能："></a>高级功能：</h3><p>介绍ZAP的高级功能，包括API调用、脚本化攻击、代理拦截等，以及如何利用这些功能进行更深入的漏洞挖掘和攻击。</p>
+<p>提供了许多高级功能，可以让用户更深入地进行漏洞挖掘和攻击，包括以下几个方面：</p>
+<p><strong>API</strong>调用：</p>
+<p>ZAP提供了REST API，可以通过HTTP请求调用ZAP的功能，例如启动扫描、获取漏洞报告、设置代理等，可以通过编写脚本或使用其他工具进行调用。</p>
+<p>API调用的步骤如下：</p>
+<p>1.启动ZAP：在ZAP界面中，点击“File”菜单中的“Open”选项，选择ZAP安装目录下的“zap.bat”或“zap.sh”文件，启动ZAP。</p>
+<p>2.启动API：在ZAP界面中，点击“Tools”菜单下的“Options”选项，选择“API”选项卡，启用“API启用选项”和“允许远程启动选项”，设置API密钥。</p>
+<p>3.编写脚本：根据需求编写HTTP请求脚本，使用HTTP库发送请求，包括URL地址、请求方法、请求参数等。</p>
+<p>4.调用API：使用脚本或其他工具发送HTTP请求，包括API密钥、请求方法、请求参数，进行API调用。</p>
+<p>5.获取结果：API调用后，ZAP会返回相应的结果，包括漏洞报告、扫描状态、代理设置等，根据情况进行分析和处理。</p>
+<p>注意事项：</p>
+<p>1.使用API调用时，需要注意安全性问题，不要泄露API密钥和其他敏感信息。</p>
+<p>2.API调用需要理解ZAP的工作原理和功能，根据需要选择合适的API接口进行调用。</p>
+<p>3.API调用需要进行脚本编写和HTTP库使用，需要有一定的编程能力和经验。</p>
+<p>4.在调用API时，应根据具体情况进行参数设置和处理，以确保调用的正确性和有效性。</p>
+<p><strong>脚本化攻击</strong>：</p>
+<p>ZAP支持使用Python脚本进行攻击，用户可以编写自定义的攻击脚本，调用ZAP的API实现更灵活的攻击方式。</p>
+<p>脚本化攻击的步骤如下：</p>
+<p>1.安装Python：在本地计算机上安装Python环境。</p>
+<p>2.安装ZAP Python API库：使用pip工具安装ZAP Python API库，可以通过命令行输入“pip install python-owasp-zap-v2.4”进行安装。</p>
+<p>3.编写攻击脚本：使用Python编写攻击脚本，根据需求调用ZAP的API实现攻击功能，例如发送请求、检测漏洞、生成报告等。</p>
+<p>4.运行攻击脚本：在命令行中运行攻击脚本，或者在Python IDE中打开脚本进行运行。</p>
+<p>5.获取结果：脚本运行后，ZAP会返回相应的结果，包括漏洞报告、扫描状态、代理设置等，根据情况进行分析和处理。</p>
+<p>注意事项：</p>
+<p>1.在编写攻击脚本时，应对输入数据进行合法性验证，避免攻击脚本本身成为安全漏洞。</p>
+<p>2.攻击脚本需要理解ZAP的工作原理和API功能，根据需要选择合适的API接口进行调用。</p>
+<p>3.攻击脚本需要进行参数设置和处理，应根据具体情况进行调整。</p>
+<p>4.使用脚本化攻击需要有一定的编程能力和经验，不建议新手使用。</p>
+<p><strong>代理拦截</strong>：</p>
+<p>ZAP可以作为代理服务器，拦截并修改传输数据，可以修改HTTP请求和响应报文，进行更深入的漏洞挖掘和攻击。同时，ZAP也可以拦截SSL/TLS传输数据，进行中间人攻击，获取敏感信息。</p>
+<p>在ZAP中进行代理拦截的步骤如下：</p>
+<p>1.启动ZAP并设置代理：在ZAP界面中，点击“Tools”菜单下的“Options”选项，选择“Local Proxy”设置代理参数，包括代理端口、HTTPS代理等。</p>
+<p>2.配置浏览器代理：将浏览器代理设置为ZAP代理，可以在浏览器中访问需要测试的网站，所有的请求和响应都会通过ZAP代理拦截，进行漏洞挖掘和攻击。</p>
+<p>3.拦截请求和响应：在ZAP界面中，点击“Proxy”菜单下的“Interception”选项，启用拦截功能，可以实时监控和修改请求和响应，包括添加、修改、删除参数，发送攻击请求等。</p>
+<p>4.记录请求和响应数据：在拦截过程中，可以选择保存请求和响应数据，用于后续数据分析和攻击。</p>
+<p>5.结束拦截和代理：在测试完成后，需要关闭拦截和代理功能，避免对正常业务产生影响。</p>
+<p>注意事项：</p>
+<p>1.代理拦截需要对HTTP协议和网络通信有一定的了解，建议有一定的安全测试经验的用户使用。</p>
+<p>2.在拦截请求和响应时，应注意保护用户的隐私和敏感信息，避免泄露。同时，对于一些需要认证的网站，需要进行合法授权后再进行测试。</p>
+<p>3.在使用代理拦截进行攻击时，需要遵循相关法律法规，不得进行非法攻击行为。</p>
+<p><strong>自定义插件</strong>：</p>
+<p>ZAP提供了开放的API和插件机制，用户可以开发自定义插件，扩展ZAP的功能，提高漏洞挖掘和攻击的效率和准确性。</p>
+<p>自定义插件是ZAP功能扩展的主要方式，可以根据实际需求编写自己的插件，扩展ZAP的功能，例如自定义漏洞检测、自定义攻击脚本、自定义报告格式等。</p>
+<p>自定义插件的开发步骤如下：</p>
+<p>熟悉ZAP插件机制：插件是以Java编写的，需要了解ZAP的API和插件开发框架，以及相关的Java编程知识。</p>
+<p>编写插件代码：根据实际需求，编写插件代码，可以使用ZAP提供的API、工具类和插件框架，或者使用其他Java开发框架。</p>
+<p>测试和调试插件：在ZAP中安装和加载插件，进行测试和调试，查看插件是否正常工作、是否有错误和异常等。</p>
+<p>发布和分享插件：在ZAP插件市场或其他平台上发布和分享插件，让更多的用户使用和反馈，提高插件的质量和效率。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2023/12/01/21786.html">https://bigworldxld.github.io/2023/12/01/21786.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/ZAP/">
+                                    <span class="chip bg-color">ZAP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/03/49911.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.jpg" class="responsive-img" alt="日常问题笔记">
+                        
+                        <span class="card-title">日常问题笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/09/50556.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E8%BD%AF%E6%B5%8B%E7%AC%94%E8%AE%B0.jpg" class="responsive-img" alt="软测笔记">
+                        
+                        <span class="card-title">软测笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/test/" class="post-category">
+                                    test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

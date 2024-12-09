@@ -1,0 +1,1900 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="接口测试工具, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="接口测试工具使用一、接口测试分类接口测试：就是测试项目和项目之间，模块和模块之间，组件和组件之间的数据交互和权限鉴定(鉴 权)。 
+分类：
+ 测试外部接口：是被测系统和外部系统之间的接口。（一般只要正常调用即可）
+ 测试内部接口：是被测系统">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>接口测试工具 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/jemter.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">接口测试工具</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/postman/">
+                                <span class="chip bg-color">postman</span>
+                            </a>
+                        
+                            <a href="/tags/jemter/">
+                                <span class="chip bg-color">jemter</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/test/" class="post-category">
+                                test
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-08-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="接口测试工具使用"><a href="#接口测试工具使用" class="headerlink" title="接口测试工具使用"></a>接口测试工具使用</h2><h3 id="一、接口测试分类"><a href="#一、接口测试分类" class="headerlink" title="一、接口测试分类"></a>一、接口测试分类</h3><p>接口测试：就是测试项目和项目之间，模块和模块之间，组件和组件之间的数据交互和权限鉴定(鉴 权)。 </p>
+<p>分类：</p>
+<p> 测试外部接口：是被测系统和外部系统之间的接口。（一般只要正常调用即可）</p>
+<p> 测试内部接口：是被测系统内部各个模块之间的接口。 </p>
+<p>1.内部接口提供给内部系统使用（一般只要正常调用即可） </p>
+<p>2.内部接口提供给外部系统使用（测试必须非常全面，正例，反例，鉴权，兼容）</p>
+<p>接口测试重点测试什么？</p>
+<p> 接口参数传递的正确性，接口功能的正确性，以及各种异常情况系统的容错能力，接口的权限控制，接口的兼容性。</p>
+<p>前后端分离：前后端联调。mock模拟，测试左移。 基于安全考虑</p>
+<p><strong>市面接口类型</strong></p>
+<p>1.基于soap接口架构的接口：基于webservice协议，基于XML传输数据的。</p>
+<p> 分辨：接口地址：https://….?wsdl</p>
+<p> 基于工具：soapui </p>
+<p>2.基于RPC接口架构的接口：阿里的dubbo，RMI，thift 分辨：接口地址：dubbo:// </p>
+<p>springcloud微服务 </p>
+<p>基于工具：jmeter（插件）</p>
+<p> 3.最核心的主流：基于restful接口架构：http协议</p>
+<p>基于工具：jmeter,postman</p>
+<h3 id="二、接口流程，用例设计方案"><a href="#二、接口流程，用例设计方案" class="headerlink" title="二、接口流程，用例设计方案"></a>二、接口流程，用例设计方案</h3><p>1.拿到api接口文档(可以从开发拿，也可以抓包自己创建)，熟悉接口文档业务，接口地址，接口鉴权(鉴定是否有访问接口的权限)方式，接口入参，出参，是否有完善的错误码机制。</p>
+<p>2.编写接口测试用例以及评审<br>思路:<br>正例: 输入正常的入参，接口能够正常返回。(get/post)反例:<br>鉴权反例: 必填，错误的鉴权码，鉴权码已过期…….<br>参数反例: 必填，参数类型异常，参数的长度异常…..<br>错误码反例:<br>其他场景:黑名单，接口调用次数限制，分页场景。<br>接口的兼容性:一个接口是否能兼容多个版本的前端</p>
+<p>3.使用接口测试工具Postman/jmeter/apifox执行接口测试，提供BUG，以及BUG验</p>
+<p>Postman+Newman+Jenkins+git实现持续集成并目生成报告</p>
+<p>jmeter+ant+git+jenkins持续集成</p>
+<h3 id="三、postman执行接口测试"><a href="#三、postman执行接口测试" class="headerlink" title="三、postman执行接口测试"></a>三、postman执行接口测试</h3><p><strong>请求：</strong>请求方式，请求路径，请求头，请求参数</p>
+<p>Params: get请求传参</p>
+<p>Authorization: 鉴权</p>
+<p>Headers: 请求头</p>
+<ul>
+<li>accept:客户端接收的数据类型</li>
+<li>content-type:客户端发送给服务器的数据类型</li>
+<li>user-agent:客户端的类型</li>
+<li>xmlhttprequest:异步请求</li>
+</ul>
+<p>Body: post请求传参</p>
+<ul>
+<li>none:没有参数</li>
+<li>form-data: 文件上传 (包含键值对和文件上传)</li>
+<li>x-www-form-urlencoded: 表单请求 (键值对)</li>
+<li>raw: 使用原始数据格式请求 (JSON，XML，HTML，Text，Javascript)</li>
+<li>binary: 二进制文件上传。</li>
+</ul>
+<p>Pre-request Script: 请求之前的脚本<br>Tests: 请求之后的脚本。<br>Settings: 设置<br>Cookies: 是Postman用于自动管理Cookie的功能</p>
+<p><strong>响应</strong>：</p>
+<p>Body：返回的值</p>
+<ul>
+<li>Pretty:以不同的格式查看返回结果</li>
+<li>Raw:以文本格式查看返回结果</li>
+<li>Preview：以网页格式查看返回结果 </li>
+</ul>
+<p>Cookies：响应的Cookie </p>
+<p>Headers：响应头 </p>
+<p>TestResults:断言的结果</p>
+<p><strong>调试</strong></p>
+<p>Console控制台 </p>
+<p>面试题：get请求和post请求的区别是什么？</p>
+<p> 1.get请求一般用于获取数据，post一般用于提交数据。 </p>
+<p>2.传参的方式不一样： get请求在接口地址里面以？的方式传参，多个参数直接用&amp;分隔。 post是在body当中传参。</p>
+<p> 3.post比get请求安全。</p>
+<p> 4.get请求只发一个数据报文，post请求发送两个数据报文。 </p>
+<p><strong>接口关联</strong> </p>
+<p>第一种方式：</p>
+<p>1.取值并设置全局变量（JSON提取器）只能用于json数据</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//打印用于调试</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//把返回的字符串转换成JSON对象。</span>
+<span class="token keyword">var</span> baili <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//取值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>baili<span class="token punctuation">.</span>access_token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>2.在需要的接口里面通过&lt;!–swig￼0–&gt;</p>
+<p>json；是一种数据格式。 </p>
+<p>它有两种数据： </p>
+<p>1.对象（字典）（键值对，key:value） {key:value}</p>
+<p> 2.数组 （列表） [a,b,c,d] </p>
+<p>键值对：key:value</p>
+<p>第二种方式：</p>
+<p>正则表达式提取器：用于所有数据</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//判断只有返回成功才需要提取</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token string">"access_token"</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">{</span>  
+   <span class="token comment" spellcheck="true">//正则表达式提取器</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//通过正则匹配值,match匹配，</span>
+<span class="token keyword">var</span> datas <span class="token operator">=</span> responseBody<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">'"access_token":"(.+?)")'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>datas<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置成全局变量</span>
+pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"tokens"</span><span class="token punctuation">,</span>datas<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.在需要的接口里面通过&lt;!–swig￼1–&gt;    Python自动换行</p>
+<p><strong>环境变量和全局变量</strong><br>全局变量:在所有的接口里面都可以访问的变量</p>
+<p>环境变量:在当前环境里面都可以访问的变量<br>1.设置环境变量</p>
+<p>2.把所有的请求中的ip地址改成获取环境变量的方式  </p>
+<p>3.在postman的右上角选择不同的环境即可。</p>
+<h3 id="四、postman动态参数和断言"><a href="#四、postman动态参数和断言" class="headerlink" title="四、postman动态参数和断言"></a>四、postman动态参数和断言</h3><p>第一种：系统自带的动态参数 </p>
+ //动态时间戳
+
+  //动态0-1000的整形
+
+  //动态的guid字符串 
+
+<p>第二种：自定义的动态参数</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//自定义动态参数生产随机数</span>
+<span class="token keyword">var</span> times <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"times"</span><span class="token punctuation">,</span> times<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//定时五秒</span>
+<span class="token keyword">const</span> sleep <span class="token operator">=</span> <span class="token punctuation">(</span>milliseconds<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> start <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> start <span class="token operator">+</span> milliseconds<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Status code: Code is 200        检查返回的状态码是否为200 (常用)<br>Response body: Contains string        检查返回的数据中包括有指定的字符串 (常用)<br>Response body: JSON value check        检查json中的其中一个字段的值 (常用）<br>Response body: ls equal to a string        检查返回的值等于一个指定的字符串 (常用)<br>Response headers: Content-Type header check        检查是否包含有content-type响应头<br>Response time is less than 200ms        检查请求的时间少于200MS<br>Status code: Successful POST request        检查返回的状态码是否在数组中<br>Status code: Code name has string        检查状态信息是指定的字符串</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//------------断言-----------</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"检查返回状态码为200"</span>，<span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>to<span class="token punctuation">.</span>have<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"检查返回的结果中包括指定字符串"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">include</span><span class="token punctuation">(</span><span class="token string">"access token"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"检查json中其中一个字段的值"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> jsonData <span class="token operator">=</span> pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>jsonData<span class="token punctuation">.</span>expires_in<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">eql</span><span class="token punctuation">(</span><span class="token number">7200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//第四种在编辑接口</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Body is correct"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>to<span class="token punctuation">.</span>have<span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span> <span class="token string">'{"errcode" :0, "errmsg" :"ok"}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Content-Type is present"</span>，<span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>to<span class="token punctuation">.</span>have<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Response time is less than 200ms"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>responseTime<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">below</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Successful POST request"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>code<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">oneOf</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">202</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"status code name has string"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span>to<span class="token punctuation">.</span>have<span class="token punctuation">.</span>status <span class="token punctuation">(</span><span class="token string">"OK"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Body matches string"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>     <span class="token comment" spellcheck="true">//断言形如：张三534214的数据</span>
+pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">include</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token operator">+</span>pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"times"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>一旦需要断言随机数，那么就必须使用自定义动态参数并且要注意如下事项：</p>
+<p> 1.在断言的代码中不能够使用的方式取全局变量。</p>
+<p> 2.一般通过：pm.globals.get(“times”) 取全局变量的值</p>
+<h3 id="五、Postman批量运行测试用例和参数化"><a href="#五、Postman批量运行测试用例和参数化" class="headerlink" title="五、Postman批量运行测试用例和参数化"></a><strong>五、Postman批量运行测试用例和参数化</strong></h3><p>特别要注意:文件上传的接口在做批量运行的时候会报错</p>
+<p>解决方案:在settings中的Location为postman默认文件上传目录，需要将文件上传的文件拷贝到这个目录</p>
+<p>Allow reading files outside working下开启选项</p>
+<p>第一组数据：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"access token"</span><span class="token operator">:</span><span class="token string">"54_9ztT4UEWEtv5LBGm4gUogsam9xjbSu35VjsV8DU01Di9EUGORN5R3ywKqHZIXP(45cMsuymFkP7GazAnBrH7LrYi8mJ8apGSh-q4bayPdXtbSzfETP7IEORLT2vwOPknfYPOE8e-OA I2urOZUfAIAENI"</span><span class="token punctuation">,</span>
+<span class="token property">"expires_in"</span><span class="token operator">:</span> <span class="token number">7200</span><span class="token punctuation">}</span>
+</code></pre>
+<p>第二组数据：</p>
+<pre><code>{
+"errcode": 40002,
+"errmsg": "invalid grant_type rid: 620cfc5e-51b0dfc4-118b36a1"
+ }
+</code></pre>
+<p><strong>上传csv文件批量处理</strong></p>
+<p>在Tests中，编写后置处理</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//设置成全局变量</span>
+pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"tokens"</span><span class="token punctuation">,</span>datas<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//街言包含有access_token</span>
+pm<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Body matches string"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    pm<span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span>pm<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span><span class="token function">include</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>getassert_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>特别注意： 在断言中取数据文件的值，不能使用：pm.globals.get(“times”) ，而是要使用：data.assert_str</p>
+<h3 id="六、Postman接口测试之Cookie鉴权和Mock测试"><a href="#六、Postman接口测试之Cookie鉴权和Mock测试" class="headerlink" title="六、Postman接口测试之Cookie鉴权和Mock测试"></a>六、Postman接口测试之Cookie鉴权和Mock测试</h3><p>1.什么是Cookie？ cookie是一小段文本，格式是key-valuie键值对</p>
+<p>分类：持久化，回话级。</p>
+<p>2.查看Cookie？ F12，抓包工具。</p>
+<p> 3.Cookie是如何实现鉴权的，如果判断接口和接口之间存在Cookie鉴权。 </p>
+<p>cookie可以传输session，也可以传输token。</p>
+<p> cookie鉴权的原理：分为两步 </p>
+<p>1.当客户端第一次访问服务器的时候，那么服务器就会生成cookie，并且通过响应里面的set-cookie 传输给客户端。客户端会自动保存。</p>
+<p> 2.当客户端第2-N次访问服务器的时候，那么客户端就会自动的读取本地的cookie，然后根据主机IP或 域名添加对应的cookie从而实现鉴权。</p>
+<p><strong>Mock测试</strong></p>
+<p>mock：模拟 </p>
+<p>应用场景：</p>
+<p> 1.前后端分离的架构下，前后端的开发是不同步，前端的展示数据依赖于后端的接口。后端的接口还没 完成。</p>
+<p> 2.当被测系统调用第三方接口，这个时候我们想要测试这个接口的错误场景。 </p>
+<p>3.去甲方展示demo，静态网页</p>
+<p>Shift+F5 :缓存刷新</p>
+<p>postman的mock测试每天只能访问1000次。</p>
+<h3 id="七、Postman处理需要加密和解密的接口以及持续集成"><a href="#七、Postman处理需要加密和解密的接口以及持续集成" class="headerlink" title="七、Postman处理需要加密和解密的接口以及持续集成"></a>七、Postman处理需要加密和解密的接口以及持续集成</h3><p>目前市面上的加密技术：</p>
+<p> 1.对称式加密：DES，AES，Base64</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//Base64位加密</span>
+<span class="token comment" spellcheck="true">//把需要加密的值转换成utf-8的编码格式</span>
+<span class="token keyword">var</span> us <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span>enc<span class="token punctuation">.</span>Utf8<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> pw <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span>enc<span class="token punctuation">.</span>Utf8<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//对转换后的值做Base64加密</span>
+<span class="token keyword">var</span> bs64_us <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span>enc<span class="token punctuation">.</span>Base64<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>us<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> bs64_pw <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span>enc<span class="token punctuation">.</span>Base64<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>pw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置为全局变量</span>
+pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"bs64_us"</span><span class="token punctuation">,</span>bs64_us<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pm<span class="token punctuation">.</span>globals<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"bs64_pw"</span><span class="token punctuation">,</span>bs64_pw<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>2.非对称式加密（双钥）：RSA加密 </p>
+<p>3.只加密不解密：SHA加密，MD5 </p>
+<p>4.混合加密（自定义加密方式） </p>
+<p>5.接口签名Sign</p>
+<p><strong>Postman持续集成</strong><br>newman (新男人): 专为postman而生的命令行工具。<br>安装:<br>1.安装Nodejs<br>2.安装newman<br>命令如下: npm install -g newman</p>
+<p>3.导出postman的脚本并执行。 导出：用例，环境，全局变量。</p>
+<p> 命令：</p>
+<pre class=" language-bash"><code class="language-bash">newman run <span class="token string">"e:\newmans\yongli.json"</span> -e <span class="token string">"e:\newmans\huanjing.json"</span> -g <span class="token string">"e:\newmans\quanju.json"</span> -r cli,html,json,junit --reporter-html-export <span class="token string">"e:\newmans\report.html"</span>
+</code></pre>
+<p>有Postman，Jmeter，为什么现在很多企业用requests做接口自动化呢？</p>
+<p> 1.没有非常完善的报告体系、</p>
+<p> 2.怎么实现团队协作？版本控制。</p>
+<p> 3.CSV参数化。 </p>
+<p>4.只支持http和https协议，支持webservice，dubbo不支持。</p>
+<p> 5.找错，定位问题。</p>
+<p> 6.连接数据库，日志监控。 </p>
+<p>所以：复杂的大量的接口测试，使用python+requests接口自动化。</p>
+<h3 id="八、Jmeter的界面和组件详解"><a href="#八、Jmeter的界面和组件详解" class="headerlink" title="八、Jmeter的界面和组件详解"></a>八、Jmeter的界面和组件详解</h3><p>jmeter依赖于java环境（jdk1.8以上）</p>
+<p> 1.安装jdk以及配置jdk的环境变量。</p>
+<p> 2.jmeter不需要安装，解压即可使用</p>
+<p>backups 备份jmx脚本。 </p>
+<p>bin目录： ApacheJMeter.jar Jmeter的主要jar文件 </p>
+<p>jmeter.bat 启动文件</p>
+<p> jmeter.properties 全局配置文件 </p>
+<p>docs 离线帮助文档，用于二次开发</p>
+<p> exras 第三方插件集成</p>
+<p><strong>组件</strong>： </p>
+<p>1.测试计划:容器。起点<br>2.线程组:一定用户。(测试片段)<br>3.配置元件: 配置信息<br>4.前置处理器:请求之前的操作<br>5.逻相控制器：单次请求，循环请求，判断请求</p>
+<p>6.定时器:固定定时器，高斯，随机。<br>7.取样器: 请求。http,ftp,tcp,jdbc</p>
+<p>8.后置处理器:请求之后的操作</p>
+<p>9.断言:判断结果是否正确<br>10.监听器:收集测试结果</p>
+<p>组件作用域： </p>
+<p>1.兄弟(同级)组件 </p>
+<p>2.兄弟组件下的子组件 </p>
+<p>3.父组件</p>
+<p> 执行顺序： </p>
+<p>测试计划》线程组》配置元件》前置处理器》定时器》逻辑控制器》取样器》后置处理器》断言》监 听器</p>
+<h3 id="九、使用Jmeter做接口测试"><a href="#九、使用Jmeter做接口测试" class="headerlink" title="九、使用Jmeter做接口测试"></a>九、使用Jmeter做接口测试</h3><p>接口关联: 把上一个接口的返回值作为下一个接口的参数<br>后置处理器:(用组件之前可以先测试：在查看树中的RegExp Tester进行正则表达式测试)</p>
+<p>1.正则表达式提取器(提取的值+左边界+右边界，原则是最小的唯一的值)<br>引用: ${token}<br>2.JSON提取器<br>$.tags[1].id</p>
+<p><strong>函数助手：</strong></p>
+<p>${__Random(100000,888888)}    生成6位数的随机数    </p>
+<p>${__Random_String(6,zxcvadfqwert)}    生成6位数的随机字符串</p>
+<p>${__counter(true,)}    计数器每执行一次加一，从1开始</p>
+<p>${__V}    执行一个带字符串变量名的表达式,即拼接</p>
+<table>
+<thead>
+<tr>
+<th>${__dateTimeConvert(,,,)}</th>
+<th>时间格式转换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>${__intSum(,,)}</td>
+<td>整数相加</td>
+</tr>
+<tr>
+<td>${__P(,)}</td>
+<td>获取属性</td>
+</tr>
+<tr>
+<td>${__setProperty(,,)}</td>
+<td>设置属性</td>
+</tr>
+<tr>
+<td>${__time(,)}</td>
+<td>获取当前时间戳</td>
+</tr>
+</tbody></table>
+<p>批量删除</p>
+<p>${_<em>V(ids</em>${__counter(true,)},)}    通过id进行批量删除，从1开始</p>
+<p>计数器组件+${_<em>V(ids</em>${cs})}    通过id进行指定开始到结束批量删除</p>
+<p><strong>jmeter文件上传</strong></p>
+<p>文件名称：写文件路径名称</p>
+<p>参数名称：写参数名</p>
+<p>MIME类型：multipart/form-data</p>
+<p><strong>ter读取csv文件内容乱码解决</strong></p>
+<p>确保保存的csv文件为utf-8的格式<br><strong>方法一：</strong><br>修改jmeter.properties文件，（文件路径：jmeter安装位置\apache-jmeter\bin）sampleresult.default.encoding=UTF-8，把前面#去掉。</p>
+<p>然后修改csv配置，动在jmeter上CSV里file encoding框里输入GBK或GB2312（支持中文简体）或者GB18030（支持简体和繁体）</p>
+<p>再次运行，不会出现乱码现象。</p>
+<p><strong>方法二：</strong></p>
+<p>头部信息和默认值与下图配置一样，参数化那里写成gbk或者gb2312(前提是你请求参数中文乱码，如果请求参数没问题，用utf-8也行)</p>
+<h3 id="十、jmeter断言"><a href="#十、jmeter断言" class="headerlink" title="十、jmeter断言"></a>十、jmeter断言</h3><p>1.状态断言， 200，能不能证明我的接口是返回正确的？</p>
+<p> 200只能代表接口有数据返回，但是不能代表返回的数据是对的。 </p>
+<p>响应文本：一般匹配json数据</p>
+<p>响应代码：200</p>
+<p>响应信息：OK</p>
+<p>模式匹配模式：</p>
+<p>包括：支持正则，与字符串一样</p>
+<p>匹配：支持正则，与相等一样</p>
+<p>相等：不支持正则，</p>
+<p>字符串：不支持正则</p>
+<p>2.业务断言，最核心的业务关键字 </p>
+<p>3.beanshell断言 重定向的接口。 </p>
+<p>一般数据库断言必用<br>主要是通过Failure来判断断言成功还是断言失败!<br>Failure=true;断言失败<br>Failure=false;断言成功<br>主要是通过FailureMessage来返回断言的信息</p>
+<p>/先获取发帖接口的名字</p>
+<p>String title =“码尚教育s{rn}”</p>
+<p>log.info(title);</p>
+<p>//获取数据库中的数据</p>
+<p>String sub = vars.getObject(“result”) .get(0).get(“subject”);</p>
+<p>log.info(sub);<br>if(title.equals(sub)){<br>Failure = false;</p>
+<p>FailureMessage =“断言成功”;}</p>
+<p>else{</p>
+<p>Failure = true;</p>
+<p>FailureMessage =”断言失败”;}</p>
+<p>从一个页面到另一个页面有两种方式：</p>
+<p> 跳转：它会把这个页面的所有相关的数据带到下一个页面。 </p>
+<p>重定向：它不会吧这个页面的任何数据带到下一个页面。 </p>
+<p>自动重定向：a,d 跟随重定向：多次重定向的情况下，那么会吧所有重定向的页面全面显示出来。a,b,c,d</p>
+<p><strong>Jmeter执行数据库操作</strong></p>
+<p>应用场景：数据库断言 </p>
+<p>1.在测试计划中引入数据库的驱动文件 </p>
+<p>2.建立数据库连接池</p>
+<p>3.发送JDBC数据库请求 Beanshell后置处理器加入如下代码获取数据库里面的值。</p>
+<pre class=" language-bash"><code class="language-bash">log.info<span class="token punctuation">(</span><span class="token string">"码尚教育百里老师真帅"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log.info<span class="token punctuation">(</span>vars.getObject<span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span>.get<span class="token punctuation">(</span>0<span class="token punctuation">)</span>.get<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">))</span><span class="token punctuation">;</span>
+log.info<span class="token punctuation">(</span>vars.getObject<span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span>.get<span class="token punctuation">(</span>1<span class="token punctuation">)</span>.get<span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">))</span><span class="token punctuation">;</span>
+</code></pre>
+<p>使用beanshell的场景：</p>
+<p> 1.数据库断言 </p>
+<p>2.接口加密（对称加密：AES,DES，BASE64 单向加密：MD5,SHA1—SHA256 非对称加密：RSA） </p>
+<p>MD5加密：digest支持MD5,sha系列（除了sha3）</p>
+<p>${_digest(MD5,admin…)}</p>
+<p>${_digest(MD5,123..)}</p>
+<p>Base64加密<br>方式一:${_base64Encode(123,)}<br>方式二<br>beanshell前置处理器:<br>import java.util.Base64;<br>//初始化一个Base64对象，调用encodeTostring()方法<br>String username = Base64.getEncoder(),encodeTostring(“admin”,getBytes(“UTF-8”));</p>
+<p>String password = Base64.getEncoder(),encodeTostring(“123”getBytes(“UTF-8”));<br>vars.put(“us”,username);<br>vars.put(“pw”,password);</p>
+<p>3.签名（混合加密和签名Sign） beanshell语言+java语言</p>
+<h3 id="十一、jmeter逻辑控制器"><a href="#十一、jmeter逻辑控制器" class="headerlink" title="十一、jmeter逻辑控制器"></a>十一、jmeter逻辑控制器</h3><p>首先，我们先来看下，不勾选 “Interpret Condition as Variable Expression?”如何填写表达式。</p>
+<p>根据上一段的意思 ，我们能发现，当不勾选后我们的表达式可以输入的更加直接，如1==1，1&lt;=2，1！=2等，这里会判断是否成立，表达式不成立，则表示为false，不执行，反之，则执行里面内容。同时，表达式还可以将变量带入进去，如  ${__Random(1,10,)}&lt;5  ，当随机数随到小于5的数就执行处理器下方的请求内容</p>
+<p>其次 ，我们在来看下，勾选 “Interpret Condition as Variable Expression?”如何填写表达式。</p>
+<p>我们知道勾选的作用是：</p>
+<p>输⼊的条件表达式，不会使⽤JavaScript进⾏解析，⽽是将条件视为JMeter的变量。<br>如果需要进⾏条件判断，则需要使⽤__jexl3或者__groovy函数，来⽣成函数表达式。通过函数</p>
+<p>如   ${__jexl3(${abcd}==“3”,)}  这里表达式的意思就是 当变量  adcd==3时，则输出true，表示执行表达式下的请求，反之则不请求，不只是“==”还可以用 &lt;,&gt;,&lt;=,&gt;=。等等的一些比较符，同时，还有一种写法，这种写法就是在表达式里用__groovy，如${__groovy (“${abcd}”==“3”,)},这个函数对比__jexl3函数来说，区别就是在使用__groovy函数时变量得用英语引号给括起来，其他的都是一样的</p>
+<h3 id="十二、Jmeter持续集成"><a href="#十二、Jmeter持续集成" class="headerlink" title="十二、Jmeter持续集成"></a><strong>十二、Jmeter持续集成</strong></h3><p>应用场景：接口回归测试，多个测试人员实现版本控制。</p>
+<p>全局配置: jmeter.propties<br>jmeter.save.saveservice.output_format=csv<br>jmeter.save.saveservice.response_data=true<br>jmeter.save.saveservice.samplerData=true</p>
+<p> 1、实现Jmeter的非GUI命令行运行。</p>
+<p> -n 命令行模式执行 </p>
+<p>-t 制定Jmeter的jmx脚本文件的名称 </p>
+<p>-l 表示生成jtl报告名称 </p>
+<p>-e    生成HTML报告</p>
+<p>-o    指定HTML报告路径(必须是一个空的文件夹)</p>
+<p> jmeter -n -t test.jmx -l result.jtl -e -o results</p>
+<p><strong>Jmeter+Ant集成</strong><br>1)下载ant并解压，解压后配置环境变量，把ant下的bin目录配置到path路径</p>
+<p>D:\apache-ant-1.10.10\bin<br>2)配首build.xml<br>修改bulid.xml里面的四个位置</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--需要调用的imeter目录，根据需要进行修改，本次使用的linux路径--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter .home<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>g:\apache-jmeter-5.2.1<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>report.title<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>接门自动化测试<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- jmeter生成jt1格式的结果报告的路径 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter,result,jtl,dir<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">value-"E:</span>\ants\jtl"</span> <span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- jmeter生成html格式的结果报告的路径--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter.result.html.dir<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>B: ants html<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!--[详细报告] jmeter生成html格式的详细报告的路径--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name-"jmeter.result,html,dirl"</span> <span class="token attr-name">value-"report"</span> <span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- 生成的报告的前缀--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ReportName<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>接口自动化汇总报告<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ReportName1<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>接口自动化详细报告<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+&lt;property name-"jmeter,result.jtlName" value-"$(jmeter,result,jtl.dir)/$(ReportName),jtl" />
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter,xesult.htmlName<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$(jmeter,result.html,dix)/SReportName),html<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!--[详细报告]详细报告的文件名--></span>
+&lt;property name="jmeter.result.htmlNamel" value-"$(jmeter.result.html.dir1)/$(ReportNamel) .html" />
+--------------------------------------------------
+<span class="token comment" spellcheck="true">&lt;!-- 该命令为执行命令--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span> <span class="token attr-name">name-"test"</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>taskdef</span> <span class="token attr-name">name-"jmeter"</span> <span class="token attr-name">classname-"org.programerplanet,</span> <span class="token attr-name">ant,taskdefs</span> <span class="token attr-name">,jmeter</span> <span class="token attr-name">,JMeterTask"&lt;jmeter</span> <span class="token attr-name">jmeterhome</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$(jmeter.home)<span class="token punctuation">"</span></span> <span class="token attr-name">resultlog</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>S(jmeter.result.jtlName)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 声明要运行的脚本路径"*.jmx"指包含此目录下的所有jmeter脚本--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>testplans</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>E:\ants<span class="token punctuation">"</span></span> <span class="token attr-name">includes-"*jmx"</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jmeter,save,saveservice,output format<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>jmeter</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>3.配置库JMeter的插件文件<br>把这个文件jmeter.results.shanhe.me.xsl拷贝到jmeter扩展文件夹extras里面</p>
+<p>把extras里面的ant-jmeter-1.1.1.ar拷贝到an的lib目录下</p>
+<p>4.直接通过ant命令执行脚本生成html报告</p>
+<p>ant</p>
+<h3 id="十三、jmeter录制"><a href="#十三、jmeter录制" class="headerlink" title="十三、jmeter录制"></a>十三、jmeter录制</h3><p>添加http代理服务器-》控制面板-&gt;Internet选项-&gt;连接局域网设置上代理输入jmeter所在电脑的ip和8888端口(用完还原)-》目标控制器，Type(httpClent4,java)默认-》filter配置（排除模式：添加建议排除：后面添加.*）包含模式：添加录制的主机ip(.<em>ip地址.</em>)</p>
+<h3 id="十四、jmeter插件安装使用"><a href="#十四、jmeter插件安装使用" class="headerlink" title="十四、jmeter插件安装使用"></a>十四、jmeter插件安装使用</h3><p>1.下载一个插件管理包jmeter-plugins-manager版本jar，放到jmeter的lib/ext目录下重启jmeter，那么就有了插件管理</p>
+<p>监控图的作用主要是:<br>1.看趋势，找性能拐点<br>2.写性能测试报告</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2023/08/12/35630.html">https://bigworldxld.github.io/2023/08/12/35630.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/postman/">
+                                    <span class="chip bg-color">postman</span>
+                                </a>
+                            
+                                <a href="/tags/jemter/">
+                                    <span class="chip bg-color">jemter</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/09/02/4794.html">
+                    <div class="card-image">
+                        
+                        <img src="/pictures/%E5%AE%87%E5%AE%99%E4%B9%8B%E5%A4%96.jpg" class="responsive-img" alt="ai文字绘画">
+                        
+                        <span class="card-title">ai文字绘画</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/16/34344.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E6%95%B0%E6%8D%AE%E5%8C%96%E7%AE%A1%E7%90%86.jpg" class="responsive-img" alt="《数据化管理》摘记">
+                        
+                        <span class="card-title">《数据化管理》摘记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">阅读</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

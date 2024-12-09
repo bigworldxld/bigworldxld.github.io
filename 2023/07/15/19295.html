@@ -1,0 +1,3025 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="接口自动化测试框架, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="接口自动化测试框架一、市面行情1.主流接口测试工具实现接口自动化 (适用于中小型的公司或项目)  50%
+Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant+Git/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>接口自动化测试框架 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">接口自动化测试框架</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/requests/">
+                                <span class="chip bg-color">requests</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/Yaml/">
+                                <span class="chip bg-color">Yaml</span>
+                            </a>
+                        
+                            <a href="/tags/Pytest/">
+                                <span class="chip bg-color">Pytest</span>
+                            </a>
+                        
+                            <a href="/tags/Allure/">
+                                <span class="chip bg-color">Allure</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/test/" class="post-category">
+                                test
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    47 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="接口自动化测试框架"><a href="#接口自动化测试框架" class="headerlink" title="接口自动化测试框架"></a>接口自动化测试框架</h2><h3 id="一、市面行情"><a href="#一、市面行情" class="headerlink" title="一、市面行情"></a>一、市面行情</h3><p>1.主流接口测试工具实现接口自动化 (适用于中小型的公司或项目)  50%</p>
+<p>Postman+Newman+git/Svn+Jenkins (基于Javascript语言)接口自动化Jmeter+Ant+Git/Svn+Jenkins (基于Java和BeanShell语言)接口自动化<br>2.基于代码的接口自动化 (适用于大中型公司或一线互联网公司) 40%</p>
+<p>Python+Requests+Yaml+Pytest+Allure+Logging+热加载+Jenkins持续集成接口自动化<br>3.基于平台的接口自动化 (适用于于特大型或外包型公司) 30K以上，10%测试开发</p>
+<h3 id="二、全面认识Requests"><a href="#二、全面认识Requests" class="headerlink" title="二、全面认识Requests"></a>二、全面认识Requests</h3><p>requests模块式用于发送Http请求以及接口http响应的python的第三方库。安装pip install requests<br>详解requests: Alt+Enter自动导包</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>url， params<span class="token operator">=</span>None， <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>url， data<span class="token operator">=</span>None， json<span class="token operator">=</span>None，<span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">put</span><span class="token punctuation">(</span>url， data<span class="token operator">=</span>None， <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">delete</span><span class="token punctuation">(</span>url，<span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">request</span><span class="token punctuation">(</span>method， url，<span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#这个是前面四个方法统一调用的方法</span>
+<span class="token keyword">def</span> <span class="token function">session</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#回话，web项目中从登陆和退出就是一个回话.session对象的request方法</span>
+<span class="token keyword">def</span> <span class="token function">request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> params<span class="token operator">=</span>None，data<span class="token operator">=</span>None，headers<span class="token operator">=</span>None，cookies<span class="token operator">=</span>None，files<span class="token operator">=</span>Noneauth<span class="token operator">=</span>None，timeout<span class="token operator">=</span>None，allow redirects<span class="token operator">=</span><span class="token boolean">True</span>，proxies<span class="token operator">=</span>Nonehooks<span class="token operator">=</span>None，stream<span class="token operator">=</span>None，verify<span class="token operator">=</span>None，cert<span class="token operator">=</span>None，json<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+</code></pre>
+<p><strong>解析requests底层原理:</strong><br>method,请求方式<br>url, 请求路径<br>params=None,get请求传参</p>
+<p>data=None,post或put请求传参</p>
+<p>json=None post请求传参</p>
+<p>headers=None,请求头</p>
+<p>cookies=None,Cookie信息<br>files=None,文件上传<br>auth=None,鉴权<br>timeout=None,超时处理<br>allow_redirects=True,是否允许重定向<br>proxies=None,代理<br>hooks=None,钩子<br>stream=None,文件下载<br>verify=None,证书验证<br>cert=None,CA证书</p>
+<p><strong>Response对象:</strong><br>res .text    返回文本格式</p>
+<p>res .content    返回bytes类型数据</p>
+<p>res.json()    返回json数据<br>res .status_code    返回状态码<br>res .reason    返回状态信息<br>res.cookies    返回cookie信息<br>res.encoding    返回编码格式<br>res .headers    返回响应头<br>res .request.???    返回请求的信息和数据</p>
+<p><strong>post请求中data传参和json传参的本质</strong></p>
+<p><strong>Postman</strong>中Post请求的四种不同的传参方式以及它们对应的请求头</p>
+<p>文件上传: Content-Type:multipart/form-data (files)</p>
+<p>表单: Content-Type:application/x-www-form-urlencoded (data)</p>
+<p>文本raw:<br>Content-Type:application/json (json)<br>Content-Type:text/plain (data)<br>Content-Typeapplication/javascript (data)</p>
+<p>Content-Type:text/html (data)<br>Content-Type:application/xml (data)<br>二进制:<br>Content-Type:application/octrent-stream (files)</p>
+<h3 id="三、Requests接口自动化测试实战"><a href="#三、Requests接口自动化测试实战" class="headerlink" title="三、Requests接口自动化测试实战"></a>三、Requests接口自动化测试实战</h3><p>接口关联三个层次:<br>1.通过类变量保存中间变量实现接口关联。<br>2.通过单独的文件保存中间变量实现接口关联。<br>3.极限封装成零代码的方式实现接口关联。<br>接口关联两种方式:<br>(1)正则提取实现接口关联<br>re.seach(‘name=”csrf_ token” value= “ ( .*?)” ,res. text).group(1)    通过正则匹配一个值, 通过下标[1]取值，没有匹配到返回None.<br>re.findall()通过正则匹配多个值，返回List, 通过下标取值，没有匹配到返回None<br>(2)JsonPath提取实现接口关联<br>jsonpath.jsonpath(res.json(),”$.access_token”) 返回一 个列表, 通过下标取值,没有找到返回None.</p>
+<p>res.json()[‘access_token’]</p>
+<p>requests .request()和session.request)的区别:前者的每个请求都是独立的，后者会自动的关联,所有请求的cookie信息。</p>
+<h3 id="四、接口自动化框架封装-统一请求封装"><a href="#四、接口自动化框架封装-统一请求封装" class="headerlink" title="四、接口自动化框架封装 (统一请求封装)"></a>四、接口自动化框架封装 (统一请求封装)</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">class</span> <span class="token class-name">Requestutil</span><span class="token punctuation">:</span>
+    sess <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#统一请求封装</span>
+    <span class="token keyword">def</span> send_ all_request<span class="token punctuation">(</span>self<span class="token punctuation">,</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> RequestUtil<span class="token punctuation">.</span>sess<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token operator">**</span>kwargs <span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res
+</code></pre>
+<p>web项目的接口都会存在cookie关联。session对象能够自动的关联cookies</p>
+<h3 id="五、引入用例管理框架（单元测试框架）"><a href="#五、引入用例管理框架（单元测试框架）" class="headerlink" title="五、引入用例管理框架（单元测试框架）"></a>五、引入用例管理框架（单元测试框架）</h3><p>python: unittest和pytest</p>
+<p>java: junit和testing</p>
+<p>unittest:ascii的大小来绝对的执行顺序,ord(‘a’):查看a的ascii码97；A 65<br>pytest默认从上到下的执行顺序</p>
+<p>作用:<br>1.发现用例: 根据每个框架默认的规则去发现并且加载测试用例</p>
+<p>2.执行用例: 将测试用例安装一定的顺序和条件执行，并生成结果</p>
+<p>3.判断结果: 通过断言来判断实际结果和预期结果是否相同</p>
+<p>4.生成报告:统计测试进度，耗时，通过率，生成报告</p>
+<p>(2)优势<br>1.提高测试效率,降低维护成本<br>2.减少人工干预,提高测试的准确性,增加代码的重用性。<br>3.核心思想是让不懂代码的人也能够通过这个框架去实现自动化测试。</p>
+<h3 id="六、Pytest框架详解"><a href="#六、Pytest框架详解" class="headerlink" title="六、Pytest框架详解"></a>六、Pytest框架详解</h3><p>pytest是一个非常成熟的python用例测试框架，它可以和很多的工具或框架，selenium，requests,appium实现多种自动化测试<br>它可以和allure结合生成美观的报告以及和jenkins实现持续集成最重要的是，它有很多的插件:</p>
+<pre class=" language-txt"><code class="language-txt">pytest-html  #生成html报告插件
+pytest-xdist  #多线程
+pytest-ordering  #标记测试用例的执行顺序@pytest.mark.run (order=1)
+pytest-returnfailers  #失败用例重跑
+pytest-base-url  #管理基础路径
+allure-pytest  #生成allure报告
+pytest 
+requests
+pyyaml
+</code></pre>
+<p>使用requirements.txt文件保存，并通过以下命令执行包装：</p>
+<p> pip install -r requirements.txt</p>
+<p>遇到：pytest-returnfailers安装失败，需要到<a target="_blank" rel="noopener" href="https://pypi.org/%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%AF%B9%E5%BA%94%E7%9A%84%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF">https://pypi.org/中搜索对应的版本下载安装即可</a></p>
+<p>基于pytest单元测试框架，默认测试用例的规则</p>
+<p>1.模块名(py文件)必须以test_ 开头或 _test结尾<br>2.测试类名必须Test开头,且不能有init方法<br>3.用例名必须以test 开头</p>
+<h3 id="七、执行的方式有三种"><a href="#七、执行的方式有三种" class="headerlink" title="七、执行的方式有三种"></a>七、执行的方式有三种</h3><p>1.通过main执行</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pytest
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#入口</span>
+    pytest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'-vs'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>(1)运行所有: pytest. main()<br>(2)指定模块: pytest. main([‘-vs’,’test_ login.py’])<br>(3)指定目录: pytest. main([‘-vs’,’./interface_ testcase’])</p>
+<p>pytest. main([‘-vs’,’./interface_ testcase’,‘–html=report/report.html’,’–self-contained-html’])</p>
+<p>(4)通过nodeid指定用例运行: nodeid由模块名，分隔符，类名，方法名，函数名组成。<br>pytest. main([‘-vs’,’./interface_ _testcase/test <em>interface py::test</em> <em>04</em> _func’])</p>
+<p>pytest.main( [‘-vs‘,’/testcase’,’-n=2’])</p>
+<p>2.通过命令行执行<br>pytest -vs</p>
+<p>pytest -vs test_ login.py</p>
+<p>pytest -vs ./interface_ _testcase/test <em>interface.py::test</em> <em>04</em> _func</p>
+<p>执行的时候有一些参数:<br>-v:输出更详细的信息<br>-s:输出调试信息 (如打印)<br>-n:多线程运行测试用例</p>
+<p>-q:保持输出简短</p>
+<p>pytest -vs test_ login.py -n 2</p>
+<p>-k:根据测试用例的部分字符串指定测试用例</p>
+<p>pytest -vs test_ login.py -k “ao”</p>
+<p>-x:表示只要有一个用例报错。那么测试停止</p>
+<p>–maxfail=2出现两个用例失败就停止</p>
+<p>–reruns 失败用例重跑<br>–html 生成HTML报告</p>
+<p><strong>从包运行测试</strong></p>
+<pre class=" language-python"><code class="language-python">pytest <span class="token operator">-</span><span class="token operator">-</span>pyargs pkg<span class="token punctuation">.</span>testing
+</code></pre>
+<p><strong>读懂测试结果</strong></p>
+<p>可用字符的完整列表：</p>
+<blockquote>
+<ul>
+<li><code>f</code> -失败</li>
+<li><code>E</code> -误差</li>
+<li><code>s</code> 跳过</li>
+<li><code>x</code> -失败</li>
+<li><code>X</code> -XPASS</li>
+<li><code>p</code> 通过</li>
+<li><code>P</code> -通过输出</li>
+</ul>
+</blockquote>
+<p>修改python回溯打印<br>修改回溯打印的示例：</p>
+<p>pytest –showlocals # 在回溯中显示局部变量<br>pytest -l           # show local variables (shortcut)</p>
+<p>pytest –tb=auto    # (default) ‘long’ tracebacks for the first and last</p>
+<p>entry, but ‘short’ style for the other entries</p>
+<p>pytest –tb=long    # exhaustive, informative traceback formatting<br>pytest –tb=short   # shorter traceback format<br>pytest –tb=line    # only one line per failure<br>pytest –tb=native  # Python standard library formatting<br>pytest –tb=no      # no traceback at all</p>
+<p><strong>分析测试执行持续时间</strong><br>在 6.0 版更改.</p>
+<p>要获取长度超过1.0秒的最慢10个测试持续时间的列表：</p>
+<p>pytest –durations=10 –durations-min=1.0</p>
+<p>3.通过读取pytest.ini配置文件来执行测试用例不管使用main还是命令行都会自动的去读取pytest.ini的配置文件</p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>pytest<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#命令行参数</span>
+addopts <span class="token operator">=</span> <span class="token operator">-</span>Vs
+<span class="token comment" spellcheck="true">#改变默认的测试用例的路径</span>
+testpaths <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token operator">/</span>testcase
+<span class="token comment" spellcheck="true">#改变测试用例的模块名规则</span>
+python_files <span class="token operator">=</span> test_<span class="token operator">*</span><span class="token punctuation">.</span>py
+<span class="token comment" spellcheck="true">#改变测试类的默认规则</span>
+python_classes <span class="token operator">=</span> Test<span class="token operator">*</span> 
+<span class="token comment" spellcheck="true">#改变测试用例名称规则</span>
+python_functions <span class="token operator">=</span> test_<span class="token operator">*</span> 
+<span class="token comment" spellcheck="true">#设置基础路径</span>
+base url <span class="token operator">=</span> http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
+<span class="token comment" spellcheck="true">#标记执行:</span>
+markers <span class="token operator">=</span>
+    smoke<span class="token punctuation">:</span>冒烟测试
+    login<span class="token punctuation">:</span>登陆用例
+    product_manage<span class="token punctuation">:</span>商品管理
+    user_manage<span class="token punctuation">:</span>用户管理
+</code></pre>
+<p><strong>分组执行标记的案例</strong></p>
+<p>在用例上加@pytest.mark.smoke和@pytest.mark.product_manage</p>
+<p>pytest -m smoke 运行所有用 <code>@pytest.mark.smoke</code> 装饰符</p>
+<p>pytest -vs -m “smoke or product_manage”    两种装饰器都执行</p>
+<p><strong>pytest跳过测试用例</strong><br>(1)无条件跳过<br>@pytest . mark. skip (reason=”微微”)<br>(2)有条件跳过<br>@pytest . mark. skipif (age&gt;=18, reason=’已成年’ ) </p>
+<p>@unittest.skipUnless(age&lt;18，”如果知了成年，忽略”)</p>
+<p>def test03 zhiliao(self):<br>    print (“测试知了”)</p>
+<h3 id="八、执行测试用例时的前后置处理"><a href="#八、执行测试用例时的前后置处理" class="headerlink" title="八、执行测试用例时的前后置处理"></a>八、执行测试用例时的前后置处理</h3><p>第一种:和unittest相似</p>
+<p>模块级别: setup_module、teardown_module<br>函数级别:setup_function、teardown_function，不在类中的方法<br>类级别: setup_class、teardown_class</p>
+<p>方法级别:setup_method、teardown_method,在类中的方法<br>用例级别:setup、teardown</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setup_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"每个类之前执行"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">teardown_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"每个类之后执行"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"用例之前执行"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">teardown</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"用例之后执行"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>第二种: fixture固件，作用就是可以更加随心所欲的设置前后置</p>
+<p>使用装饰器<br>@pytest.fixture(scope=””,params=””autouse=,ids=””,name=””)</p>
+<p>scope:作用域<br>    function(函数，用例，默认)<br>    class 类</p>
+<p>​    module 模块<br>​    package</p>
+<p>​    session 会话<br>params:数据驱驱动。参数化(支持,列表,元祖(),字典列表[{},{},{}] ,字典元祖({},{},{})<br>autouse:自动作用还是手动作用</p>
+<p>True自动调用，Fasle手动调用(需要在参数里面传入固件名称)</p>
+<p>ids:当数据驱动时更改参数名<br>name:fixture的别名<br>案例:</p>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"function"</span><span class="token punctuation">,</span>autouse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>params<span class="token operator">=</span>read_yaml<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ids<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'bl'</span><span class="token punctuation">,</span> <span class="token string">'bf'</span> <span class="token punctuation">,</span> <span class="token string">'xy'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"ea"</span> <span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">exe_assert</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"在用例之前执行: 查询数据库用于断言"</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> request<span class="token punctuation">.</span>param <span class="token comment" spellcheck="true">#生成器</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>"在用例之后执行<span class="token punctuation">:</span> 查询数据库”<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#启动浏览器yield driver # 这是关键</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token comment" spellcheck="true">#关闭浏览器</span>
+</code></pre>
+<p>return和yield都表示返回的意思， 但是return的后面不能有代码，yield返回后后面可以接代码。</p>
+<p>params=[‘成龙’,’甄子丹’,’菜10’] 这里params是参数名，有s。 request.param这里是属性名，是没有s的。</p>
+<p>第三种:通过conftest.py和@pytest.fixture()结合使用实现全局的前后置处理(比如:项目的全局登录.模块的全局处理)<br>1.conftest py文件是单独存放的一个夹具配置文件,名称是不能更改。<br>2.用处可以在不同的py文件中使用同一个fxture函数。</p>
+<p>3.conftest py需要和运行的用例放到统一层。 并且不需要做任何的imprt导入的操作。</p>
+<p><strong>封装更加合理的fixture</strong> </p>
+<p>摆脱用例和用例直接的依赖</p>
+<pre class=" language-python"><code class="language-python">pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"module"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token triple-quoted-string string">"""未登录的浏览器"""</span>
+    driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#启动浏览器</span>
+    <span class="token keyword">yield</span> driver
+    driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#关闭浏览器</span>
+@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"module"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">user_driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token comment" spellcheck="true">#己登录的浏览器</span>
+    driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>LoginPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> LoginPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>
+    page<span class="token punctuation">.</span>1ogin<span class="token punctuation">(</span><span class="token string">"beifan_0609"</span>，<span class="token string">"123123"</span><span class="token punctuation">)</span>
+    page<span class="token punctuation">.</span>wait_url_chenge<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#等待登录完成，页面跳转</span>
+    <span class="token keyword">yield</span> driver
+    driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@pytest<span class="token punctuation">.</span>fixture<span class="token punctuation">(</span>scope<span class="token operator">=</span><span class="token string">"modu1e"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">c1ear_favor</span><span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#1．跳转到个人中心商品收藏页面</span>
+<span class="token comment" spellcheck="true"># 2．对页面进行操作，清除已有的收藏数据</span>
+user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>userGoodsFavorPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> userGoodsFavorPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+page<span class="token punctuation">.</span>delete_all<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+</code></pre>
+<h3 id="九、YAML详解"><a href="#九、YAML详解" class="headerlink" title="九、YAML详解"></a>九、YAML详解</h3><p>yaml简介：yaml是一种数据类型，它可以和json之间灵活的切换，支持：注释，换行，字符串，裸字符串等。</p>
+<p> 用途： 1.配置文件 2.编写测试用例</p>
+<p>安装：pip3 install PyYaml</p>
+<p> 数据结构： </p>
+<p>1.Map对象（dict）（键:(空格)值） 如：name: 百里</p>
+<p>2.数组（list）,用一组横线”-“开头来表示 如： </p>
+<p>yaml读取单个文档：yaml.safe_load()</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token string">"test1"</span>
+<span class="token punctuation">-</span> <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">"111"</span>
+  <span class="token key atrule">username1</span><span class="token punctuation">:</span> <span class="token string">"test2"</span>
+</code></pre>
+<p>yaml读取多个文档：yaml.safe_load_all()</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token string">"test1"</span>
+<span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">"111"</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">username1</span><span class="token punctuation">:</span> <span class="token string">"test2"</span>
+<span class="token key atrule">password1</span><span class="token punctuation">:</span> <span class="token string">"123"</span>
+</code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#用例</span>
+<span class="token punctuation">-</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> 获得token鉴权码的接口
+    <span class="token key atrule">request</span> <span class="token punctuation">:</span>
+        <span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//api.weixin.qq.com/cgi<span class="token punctuation">-</span>bin/token
+        <span class="token key atrule">method</span><span class="token punctuation">:</span> get
+        <span class="token key atrule">headers</span><span class="token punctuation">:</span>
+            <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> application/json 
+        <span class="token key atrule">params</span><span class="token punctuation">:</span> 
+            <span class="token key atrule">grant_type</span><span class="token punctuation">:</span> client_ credential
+            <span class="token key atrule">appid</span><span class="token punctuation">:</span> wx6b11b3efd1cdc290
+            <span class="token key atrule">secret</span><span class="token punctuation">:</span> 106a9c6157c4db5f 6029918738f9529d
+    <span class="token key atrule">validate</span> <span class="token punctuation">:</span> 
+        <span class="token punctuation">-</span> <span class="token key atrule">eq</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token key atrule">expires_in</span><span class="token punctuation">:</span> <span class="token number">7200 </span><span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> yaml
+<span class="token keyword">class</span> <span class="token class-name">YamlUtil</span> <span class="token punctuation">:</span> 
+    <span class="token keyword">def</span> __init__ <span class="token punctuation">(</span>self<span class="token punctuation">,</span> yaml_file<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        通过init方法把yam1文件传入到这个类
+        :param yaml_file:
+        """</span>
+        self<span class="token punctuation">.</span>yaml_file <span class="token operator">=</span> yaml_file
+    <span class="token comment" spellcheck="true">#读取yam1文件</span>
+    <span class="token keyword">def</span> read yaml <span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+读取yam1,对yaml反序列化,就是把我们的yaml格式转换成dict格式。
+        """</span>
+        <span class="token keyword">with</span> open <span class="token punctuation">(</span>self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            value<span class="token operator">=</span>yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">,</span>Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader <span class="token punctuation">)</span>
+            <span class="token keyword">print</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> value 
+   
+    <span class="token comment" spellcheck="true">#写入:追加</span>
+    <span class="token keyword">def</span> <span class="token function">write_yaml</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"a+"</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span>f<span class="token punctuation">,</span> allow_unicode<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+I
+
+    <span class="token comment" spellcheck="true">#清空</span>
+    <span class="token keyword">def</span> <span class="token function">clear_yaml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span> self<span class="token punctuation">.</span>yaml_file<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span> <span class="token punctuation">,</span>mode<span class="token operator">=</span><span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>truncate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> yaml
+<span class="token comment" spellcheck="true">#1、创建类</span>
+<span class="token keyword">class</span> <span class="token class-name">YamlReader</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#2、初始化，文件是否存在</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>yamlf<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>yamlf<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>yamlf <span class="token operator">=</span> yamlf
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string">"文件不存在"</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_ data <span class="token operator">=</span> None
+        self<span class="token punctuation">.</span>_data_all<span class="token operator">=</span>None
+<span class="token comment" spellcheck="true">#3、yaml读取单个文档</span>
+    <span class="token keyword">def</span> <span class="token function">data</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#第一次调用data，读取yaml文档，如果不是，直接返回之前保存的数据</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yamlf<span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>data <span class="token operator">=</span>yaml<span class="token punctuation">.</span>safe_load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data
+    <span class="token keyword">def</span> <span class="token function">data_all</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#yaml读取单个文档</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data_all<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>self<span class="token punctuation">.</span>yamlf<span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>data_all <span class="token operator">=</span>yaml<span class="token punctuation">.</span>safe_load_all<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data_all
+</code></pre>
+<p>yaml配置文件设置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">BASE</span><span class="token punctuation">:</span>
+ <span class="token key atrule">test</span><span class="token punctuation">:</span>
+     <span class="token key atrule">url</span><span class="token punctuation">:</span> <span class="token string">"http://211.103.136.242:8064"</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true">#1、获取项目基本目录</span>
+<span class="token comment" spellcheck="true">#获取当前项目的绝对路径</span>
+current <span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#print(current)</span>
+BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#print(BASE DIR)</span>
+<span class="token comment" spellcheck="true">#定义config目录的路径</span>
+config_path<span class="token operator">=</span>BASE_DIR <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span>"config'
+<span class="token comment" spellcheck="true">#定义conf.yml文件的路径</span>
+config_file <span class="token operator">=</span>_config_path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span><span class="token string">"conf.yml"</span>
+<span class="token keyword">def</span> get config path<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> config_path
+<span class="token keyword">def</span> get config file<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> config_file
+<span class="token comment" spellcheck="true">#2、读取配置文件#创建类</span>
+<span class="token keyword">class</span> <span class="token class-name">ConfigYaml</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#初始yaml读取配置文件</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>config <span class="token operator">=</span>YamlReader<span class="token punctuation">(</span>get_config_file<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#定义方法获取需要信息</span>
+    <span class="token keyword">def</span> <span class="token function">get_conf_url</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">"BASE"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"test"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"url"</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="十、Pytest用例管理框架数据驱动详解"><a href="#十、Pytest用例管理框架数据驱动详解" class="headerlink" title="十、Pytest用例管理框架数据驱动详解"></a>十、Pytest用例管理框架数据驱动详解</h3><p>python的反射<br>正常:先初始化对象,在调方法。<br>反射:通过对象得到类对象。然后通过类对象调用方法</p>
+<p>数据驱动装饰器<br>@ pytest.mark.parametrize(ages1,args2)</p>
+<p>args1:参数名: 用于传值。<br>vars2:参数值 (可以为列表或元祖，字典列表，字典元祖)，数据中有多少个值那么用例就会执行多少次。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TestLogin</span><span class="token punctuation">:</span>
+    @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"caseinfo"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"星星"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test_login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>"登陆接口<span class="token punctuation">:</span>“<span class="token operator">+</span>caseinfo<span class="token punctuation">)</span>
+    @pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"name,age"</span>，<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"敏敏"</span><span class="token punctuation">,</span><span class="token string">"13"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"北北"</span><span class="token punctuation">,</span><span class="token string">"12"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"星星"</span><span class="token punctuation">,</span><span class="token string">"11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#第二种方式</span>
+    <span class="token keyword">def</span> <span class="token function">test_register</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"注册接口: %s"</span><span class="token operator">%</span> name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
+</code></pre>
+<p>第二种方式:跟unittest的ddt里面的@unpack解包的一样</p>
+<p>excel工具类</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> xlrd
+<span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true">#目的:参数化，pytest list</span>
+<span class="token comment" spellcheck="true">#自定义异常</span>
+<span class="token keyword">class</span> <span class="token class-name">SheetTypeError</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token comment" spellcheck="true">#1、验证文件是否存在，存在读取，不存在报错</span>
+<span class="token keyword">class</span> <span class="token class-name">ExcelReader</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>excel_file<span class="token punctuation">,</span>sheet_by<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>excel_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>excel_file <span class="token operator">=</span> excel_file
+            self<span class="token punctuation">.</span>sheet_by <span class="token operator">=</span> sheet_by
+            self<span class="token punctuation">.</span>_data<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> FileNotFoundError<span class="token punctuation">(</span><span class="token string">"文件不存在"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#2、读取sheet方式，名称，索引</span>
+    <span class="token keyword">def</span> <span class="token function">data</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#存在数据不读取，反之</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>_data<span class="token punctuation">:</span>      
+            workbook <span class="token operator">=</span>xlrd<span class="token punctuation">.</span>open_workbook<span class="token punctuation">(</span>self<span class="token punctuation">.</span>excel_file<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token keyword">in</span> <span class="token punctuation">[</span>str<span class="token punctuation">,</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> SheetTypeError<span class="token punctuation">(</span><span class="token string">"请输入Int or Str"</span><span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span><span class="token operator">==</span> int<span class="token punctuation">:</span>
+                sheet <span class="token operator">=</span> workbook<span class="token punctuation">.</span>sheet_by_index<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet by<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> type<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span><span class="token operator">==</span>str<span class="token punctuation">:</span>
+              sheet<span class="token operator">=</span>workbook<span class="token punctuation">.</span>sheet_by_name<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sheet_by<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#3、读取sheet内容,list内嵌字典</span>
+        <span class="token comment" spellcheck="true">#1.获取首行的信息</span>
+            title <span class="token operator">=</span>sheet<span class="token punctuation">.</span>row_values<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#1 循环，过滤首行，从1开始</span>
+            <span class="token keyword">for</span> col <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>sheet<span class="token punctuation">.</span>nrows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                col_value<span class="token operator">=</span> sheet<span class="token punctuation">.</span>row_values<span class="token punctuation">(</span>col<span class="token punctuation">)</span>
+         <span class="token comment" spellcheck="true">#2 与首组成字典，放list</span>
+                self<span class="token punctuation">.</span>_data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>dict<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>title<span class="token punctuation">,</span> col_value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">.</span>_data
+</code></pre>
+<h3 id="十一、pytest结合allure生成美观的报告"><a href="#十一、pytest结合allure生成美观的报告" class="headerlink" title="十一、pytest结合allure生成美观的报告"></a>十一、pytest结合allure生成美观的报告</h3><p>1.下载allure，下载之后解压，解压之后配置path环境变量.需要配置jdk,jre</p>
+<p>使用pycharm配置JDK 或者]RE<br>D: \Program Files \JetBrains Pycharm Community Edition 2019.2.2 \jbr<br>将目录添加到环境变量JAVA HOME</p>
+<p>path路径的配置: D:\allure-2.13.7\bin (路径中不能有中文)</p>
+<p>验证: allure –version (需要在dos和pycharm中都要验证)如果说Pycharm中验证失败，那么需要重启pycharm，让环境生效。</p>
+<p>feature:一级标签,对应excel的sheet名称 </p>
+<p>story：二级标签，模块 </p>
+<p>title：用例ID+接口名称 </p>
+<p>description：请求URL 请求类型 期望结枼 实际结果 </p>
+<p>Severity：定义用例的级别，主要有BLOCKER,CRITICAL,MINOR,NORMAL,TRIVIAL等几种类型<br>，默认是NORMAL</p>
+<pre class=" language-python"><code class="language-python">@allure<span class="token punctuation">.</span>title<span class="token punctuation">(</span>"测试用例标题<span class="token number">2</span>”<span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>description<span class="token punctuation">(</span><span class="token string">"执行测试用例1的结果是test2"</span><span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>story<span class="token punctuation">(</span>"这是一个二级标签<span class="token punctuation">:</span>test1'<span class="token punctuation">)</span>
+@allure<span class="token punctuation">.</span>severity<span class="token punctuation">(</span>allure<span class="token punctuation">.</span>severity_level<span class="token punctuation">.</span>CRITICAL<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"test2"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Allure.dynamic:动态设置相关配置</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#写在用例里面</span>
+<span class="token comment" spellcheck="true">#sheet名称 feature 一级标签</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>feature<span class="token punctuation">(</span>sheet name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#模块 story 二级标签</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>story<span class="token punctuation">(</span>case model<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#用例ID+接口名称 title</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>title<span class="token punctuation">(</span>case id<span class="token operator">+</span>case name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#请求URL 请求类型 期望结果 实际结果描述</span>
+desc <span class="token operator">=</span><span class="token string">"&lt;font color="</span>red"<span class="token operator">></span>请求URL<span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>请求类型<span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>期望结果<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>Br<span class="token operator">/</span><span class="token operator">></span> \
+<span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">"red"</span><span class="token operator">></span>实际结果<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">}</span>"<span class="token punctuation">.</span>format<span class="token punctuation">(</span>url<span class="token punctuation">,</span>method<span class="token punctuation">,</span>expect_result<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+allure<span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span>description<span class="token punctuation">(</span>desc<span class="token punctuation">)</span>
+</code></pre>
+<p>2.在pytest.ini文件中加入命令</p>
+<pre class=" language-ini"><code class="language-ini"><span class="token selector">[pytest]</span>
+<span class="token constant">addopts</span> <span class="token attr-value"><span class="token punctuation">=</span> -vs --alluredir=./temps --clean-alluredir</span>
+#执行目录
+<span class="token constant">testpaths</span> <span class="token attr-value"><span class="token punctuation">=</span> testcase</span>
+#执行目录下的文件
+<span class="token constant">python_files</span> <span class="token attr-value"><span class="token punctuation">=</span> test_*.py</span>
+#执行测试类#
+<span class="token constant">python_classes</span> <span class="token attr-value"><span class="token punctuation">=</span> Test_*</span>
+#执行测试方法
+<span class="token constant">python_functions</span> <span class="token attr-value"><span class="token punctuation">=</span>test_*</span>
+</code></pre>
+<p>3.生成Allure报告</p>
+<pre class=" language-python"><code class="language-python">os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"allure serve .allure_results"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>在cmd窗口中执行</p>
+<pre class=" language-bash"><code class="language-bash">allure generate .temps -o report --clean
+</code></pre>
+<p>allure generate 命令，固定的</p>
+<p> ./temp 临时的json格式报告的路径 </p>
+<p>-o 输出output</p>
+<p> ./report 生成的allure报告的路径 </p>
+<p>–clean 清空./report 路径原来的报告</p>
+<p>查看报告<br>必须使用HTTP协议对报告[目录]进行访问<br>应该是url</p>
+<p><strong>日志</strong></p>
+<p>在pytest.ini文件中添加 log_file_level = info</p>
+<p>在每个页面类中加入</p>
+<pre class=" language-python"><code class="language-python">loggers <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span> __name__<span class="token punctuation">)</span>
+</code></pre>
+<p>在测试用例的开始或结束加上logger.info(“打印信息”)</p>
+<p><strong>截图</strong></p>
+<p>在用户用例的执行前后截图加入到allure报告中</p>
+<pre class=" language-python"><code class="language-python">allure<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true"># 交互后进行截图，确认交互效果</span>
+    se1f<span class="token punctuation">.</span>_driver<span class="token punctuation">.</span>get_screenshot_as_png<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Subprocess介绍</strong><br>允许你产生新的进程，并且可以把输入，输出，错误直接连接到管道，最后获取结果<br>官方网站:&gt;<a target="_blank" rel="noopener" href="https://docs.python.org/2/library/subprocess.html">https://docs.python.org/2/library/subprocess.html</a><br>方法:&gt;subprocess.call()</p>
+<p>父进程等待子进程完成，返回退出信息(returncode,相当于Linux exit code)</p>
+<p>shell=True 的用法，支持命令以字符串的形式传入。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">allure_report</span><span class="token punctuation">(</span>report_path<span class="token punctuation">,</span>repart_html<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#执行命令 allure generate</span>
+    allure_cmd <span class="token operator">=</span><span class="token string">"allure generate %s -o %s --clean"</span><span class="token operator">%</span><span class="token punctuation">(</span>report_path<span class="token punctuation">,</span>repart_html<span class="token punctuation">)</span>
+    log<span class="token punctuation">.</span>info<span class="token punctuation">(</span>"报告地址”<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        subprocess<span class="token punctuation">.</span>call<span class="token punctuation">(</span>allure_cmd<span class="token punctuation">,</span>shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        log<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"执行用例失败，请检查一下测试环境相关配置"</span><span class="token punctuation">)</span>
+        <span class="token keyword">raise</span>
+</code></pre>
+<h3 id="十二、Web端自动化测试"><a href="#十二、Web端自动化测试" class="headerlink" title="十二、Web端自动化测试:"></a>十二、Web端自动化测试:</h3><p>1.极高的效率执行</p>
+<p>2.完成复杂的业务场景</p>
+<p>3.记录和调试网页的细节<br>目前主流的工具:<br>Cypress<br>Playwright<br>Selenium</p>
+<h4 id="1-Selenium自动化环境搭建"><a href="#1-Selenium自动化环境搭建" class="headerlink" title="1.Selenium自动化环境搭建"></a>1.Selenium自动化环境搭建</h4><pre class=" language-python"><code class="language-python">pip insta11 webdriver_helper<span class="token number">-0.0</span><span class="token punctuation">.</span><span class="token number">15</span><span class="token operator">-</span>py3<span class="token operator">-</span>none<span class="token operator">-</span>any<span class="token punctuation">.</span>whl
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> webdriver_helper <span class="token keyword">import</span> get_webdriver
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token string">"ie"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 支持chrome、firefox 、ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 控制浏览器</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 退出浏览器</span>
+</code></pre>
+<p>只支持Python3.9及以上版本</p>
+<h4 id="2-浏览器交互"><a href="#2-浏览器交互" class="headerlink" title="2.浏览器交互"></a>2.浏览器交互</h4><p>selenium 以面向对象的思路，完成自动化<br>获取数据: 访问对象的属性<br>操作数据: 调用对象的方法<br>所以: 对浏览器的控制，对driver对象的方法进行调用</p>
+<p>maximize_window()        最大化窗口</p>
+<p>get(url)          跳转指定页面</p>
+<p>refresh()           刷新</p>
+<p>back()           后退</p>
+<p>forward()          前进</p>
+<p>get_screenshot_as_png()       截图的base64内容</p>
+<p>get_screenshot_as_file(path)      截图保存到文件</p>
+<p>current_url           网址</p>
+<p>page_source          源码</p>
+<p>current_window_handle        当前窗口</p>
+<p>window_handles         所有窗口</p>
+<p>switch_to.alert         处理弹窗</p>
+<p>switch_to.frame(‘frame_name’)      切换框架</p>
+<p>switch_to.window(‘window_name’)     切换窗口</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> webdriver_he1per <span class="token keyword">import</span> get_webdriver
+driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"1_启动.png"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#文件名字必须png结尾</span>
+driver<span class="token punctuation">.</span>maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"2.最大化.png"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span> get<span class="token punctuation">(</span><span class="token string">"https: // baidu. com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">"3.访问baidu. png"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的网址: "</span>，driver<span class="token punctuation">.</span>current_ur1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的标题:"</span>，driver<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"当前的HTML: "</span>，driver<span class="token punctuation">.</span> page_source<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<p>driver.switch_to.frame(id)<br>driver.switch_to.default_content()    #</p>
+<p>data=driver.window_handles    #[s001,s002]</p>
+<p>driver.switch_to.window(data[0])    </p>
+<p>ac = ActionChains(driver)</p>
+<p>#手动获取滑块</p>
+<p>ele = driver.find_element(By.XPATH,’//*[@id=”box”]/div[3]’)</p>
+<p>ac.click_and_hold(ele).move_by_offset(300,0).perform()</p>
+<p>ac.release()</p>
+<h4 id="3-元素定位"><a href="#3-元素定位" class="headerlink" title="3.元素定位"></a>3.元素定位</h4><p>浏览器已经被webdriver-helper启动好了，可以直接进行交互元素需要被定位到，才能对其进行交互<br>Selenium提供8个定位策略</p>
+<p>定位器   描述</p>
+<p>id     定位id属性与搜索值匹配的元素</p>
+<p>name     定位name属性与搜索值匹配的元素</p>
+<p>tag_name   定位标签名称与搜索值匹配的元素</p>
+<p>class_name   定位class属性与搜索值匹配的元素(不允许使用复合类名)</p>
+<p>link_text   定位link_text可视文本与搜索值完全匹配的锚元素</p>
+<p>partial_link_text    定位link_text可视文本部分与搜索值部分匹配的锚点元素</p>
+<p>xpath   定位与XPath表达式匹配的元素</p>
+<p>css_selector   定位CSS 选择器匹配的元素</p>
+<p>1.根据属性进行定位</p>
+<p>元素定位的时候：满足定位条件的元素，可能不只一个</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+<span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>kw<span class="token punctuation">"</span></span>    <span class="token attr-name">#只有ID属性，有唯一性的约束</span>
+<span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wd<span class="token punctuation">"</span></span>
+<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s_ipt<span class="token punctuation">"</span></span>
+<span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+<span class="token attr-name">max1ength</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>255<span class="token punctuation">"</span></span>
+<span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span> <span class="token comment" spellcheck="true">#支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+e1_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>TAG_NAME，<span class="token string">"input"</span><span class="token punctuation">)</span>
+e1_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID，<span class="token string">"kw"</span><span class="token punctuation">)</span>
+e1_3 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>NAME<span class="token punctuation">,</span><span class="token string">"wd"</span><span class="token punctuation">)</span>
+e1_4 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME，<span class="token string">"s_ipt"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el_4<span class="token punctuation">)</span>
+e1_5 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements<span class="token punctuation">(</span>By<span class="token punctuation">.</span>TAG_NAME，<span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_5<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<p>2.根据文本进行定位 </p>
+<p>只能定位a元素</p>
+<pre class=" language-html"><code class="language-html">&lt;a
+href="http: //news.baidu . com"target="_b1ank"
+c1ass="mnav c-font-normal c-color-t">
+新闻
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#控制浏览器</span>
+el_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>LINK_TEXT，“新闻"<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#精确匹配</span>
+el_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>PARTIAL_LINK_TEXT，<span class="token string">"新"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#模糊匹配</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+</code></pre>
+<p>3.根据表达式进行定位</p>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#支持chrome、firefox . ie</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://baidu.com"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制浏览器</span>
+el_1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>css_SELECTOR<span class="token punctuation">,</span><span class="token string">"#kw"</span><span class="token punctuation">)</span>#精确匹配
+el_2 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">'//*[@id="kw"]'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#模糊匹配</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e1_2<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#退出浏览器</span>
+</code></pre>
+<p>CSS和XPath 怎么选:<br>如果有前端开发配合，或自己就是前端开发:选择CSS</p>
+<p>如果没有前端开发配合:选择XPath<br>支持层级跳转<br>支持布尔值,函数</p>
+<p>5.XPath语法</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">//</span><span class="token operator">*</span><span class="token punctuation">[</span>@id<span class="token operator">=</span><span class="token string">"kw"</span> <span class="token operator">and</span> @name<span class="token operator">=</span><span class="token string">"beifan"</span><span class="token punctuation">]</span>
+</code></pre>
+<p><strong>1.XPath基本语法</strong> </p>
+<p>层级 </p>
+<p>属性 </p>
+<p>/ :(开头) 根路径 /html/body </p>
+<p>//:（开头、中间） 任意层级 //*[@id=”kw”] </p>
+<p>*:任意元素 </p>
+<p>@: 属性筛选 </p>
+<p>/: （中间）下一级 /html/body </p>
+<p>.: 本级 </p>
+<p>.. :上一级/<br>(模糊匹配)<br>starts-with开头相同<br>(半模糊匹配)</p>
+<p><strong>3.XPath 调试</strong><br>开发者工具—控制台—- $x(‘路径’)进行XPath调试<br>XPath 写出来之后，先在F12验证一下，然后放入测试代码</p>
+<p>跳转指定网址：window.location.href=‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a></p>
+<p>模拟弹窗</p>
+<p>开发者工具—控制台—-alert(“123”)</p>
+<p>确认弹窗：confirm(“123”)    输入弹窗：prompt(“123”)</p>
+<p>处理一闪而过的窗口</p>
+<p>打开console，输入代码setTimeout(() =&gt; {debugger;}, 4000); 回车—-&gt;表示4秒后冻结窗口，除非手动结束，否则不会消失，这时候4秒内点击登录，弹出消息就被冻结了</p>
+<p>开发者工具—控制台——–debugger暂定后选元素定位</p>
+<p>解决id变化递增的问题<br>只能自己写xpath了</p>
+<pre class=" language-python"><code class="language-python">el <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> 
+    <span class="token string">'//*[starts-with(@id, "layui-layer")]/div[2]'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="4-元素交互"><a href="#4-元素交互" class="headerlink" title="4.元素交互"></a>4.元素交互</h4><p>面向对象： 属性      方法</p>
+<p>属性     内容     例子 </p>
+<p>id 唯一标记 36f-6a18 </p>
+<p>tag_name 标签名 input </p>
+<p>location 元素坐标 {‘x’: 298, ‘y’: 188}</p>
+<p>size 元素大小 {‘height’: 44, ‘width’: 548} </p>
+<p>rect 元素范围 {‘height’: 44, ‘width’: 548, ‘x’: 298, ‘y’: 188} </p>
+<p>parent WebDriver实例 略 </p>
+<p>screenshot_as_base64() 截图的base64内容 iVBORw0KGgoAAAAN…. </p>
+<p>screenshot_as_png() 截图的二进制内容 b’\x89PNG\r\n\x1a\n\x… </p>
+<p>get_attribute(name) 获取元素的HTML属 性 value_of_css_property 获取CSS属性 </p>
+<p>click() 点击 </p>
+<p>clear() 清空内容 </p>
+<p>send_keys(content) 输入内容</p>
+<p><strong>三大等待</strong></p>
+<p>1．强制等待time.sleep(2)</p>
+<p>2．隐式等待driver.implicitly_wait(10)# 大于0 的参数，表示启用隐式等待</p>
+<p>3．显式等待<strong>自定义</strong>等待的时机 WebDriverWait(driver,5)</p>
+<pre class=" language-python"><code class="language-python">ele <span class="token operator">=</span> webDriverWait<span class="token punctuation">(</span>driver<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+<span class="token keyword">lambda</span> _<span class="token punctuation">:</span> driver<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>
+By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span><span class="token string">"/htm1/body/div[4]/div/u1/1i[3]/div/a/div/p"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="5-POM"><a href="#5-POM" class="headerlink" title="5.POM"></a>5.POM</h4><p>1.写出元素定位表达式 2. 写出合适等待方式 3. 维护各个元素的定位表达 </p>
+<p>Page Objects Model 页面对象模型 </p>
+<p>类 表示 页面 </p>
+<p>类属性 表示 页面中的元素 </p>
+<p>类的方法 表示 对页面的操作</p>
+<p><strong>封装po</strong></p>
+<p>定义过程:<br>1.定义 BasePage(抽象类)</p>
+<p>2.定义Page(页面类)<br>3.定义元素的交互(对象方法）<br>使用过程:<br>1.打开页面，实例化Page</p>
+<p>2.调用Page方法，完成交互</p>
+<p><strong>使用po</strong></p>
+<pre class=" language-python"><code class="language-python">driver <span class="token operator">=</span> get_webdriver<span class="token punctuation">(</span>driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>LoginPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> LoginPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#实例化PO</span>
+page<span class="token punctuation">.</span>login<span class="token punctuation">(</span><span class="token string">"beifan_0609"</span>，<span class="token string">"123123"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#登录msg = page.get_msg(#获取系统提示</span>
+<span class="token keyword">assert</span> msg <span class="token operator">==</span><span class="token string">"登录成功"</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>GoodsPage<span class="token punctuation">.</span>ur1<span class="token punctuation">)</span>
+page <span class="token operator">=</span> GoodsPage<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>msg <span class="token operator">=</span> page<span class="token punctuation">.</span>add_to_cartO
+<span class="token keyword">assert</span> msg <span class="token operator">==</span><span class="token string">"加入成功"</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>框架运行流程</strong><br>1.在excel列出用户动作    (关键字)</p>
+<p>⒉.框架读取、执行关键字<br>3.加载其他插件，实现并行测试、失败重试、HTML报告</p>
+<p><strong>Sanmu</strong>是一个纯用Excel描述测试用例的UT自动化测试框</p>
+<p>默认执行run_pytest命令<br>options:<br>–help Show this message and exit.<br>Commands :<br>report    调用allure，生成HTML报告<br>run-pytest    启动Pytest框架执行用例，通过pytest-html生成报告</p>
+<p>run-unittest    启动UnitTess框架执行用例，通HTMLTestRunner生成报告</p>
+<p>show-keys    打印关键字文档<br>start    创建demo文件，并命名为test_{name}.xlsx</p>
+<p><strong>openpyxl + execl 数据驱动测试</strong></p>
+<p>新的案例实战：添加收获地址 </p>
+<p>1.编写测试用例 </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_user_new_address</span><span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>UserAddressPage<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> UserAddressPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> page<span class="token punctuation">.</span>new_address<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 点击新增地址 按钮</span>
+    page_msg <span class="token operator">=</span> page<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>
+        <span class="token string">"北凡"</span><span class="token punctuation">,</span> <span class="token string">"13191121211"</span><span class="token punctuation">,</span> <span class="token string">"湖南省"</span><span class="token punctuation">,</span> <span class="token string">"长沙市"</span><span class="token punctuation">,</span> <span class="token string">"岳麓区"</span><span class="token punctuation">,</span> <span class="token string">"桐梓坡路117号"</span>
+    <span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输入数据 +提交表单</span>
+    <span class="token keyword">assert</span> page_msg <span class="token operator">==</span> <span class="token string">"操作成功"</span>
+</code></pre>
+<p>2.加载execl测试数据 </p>
+<pre class=" language-python"><code class="language-python">pip install openpyxl
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">read_excel</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    path <span class="token operator">=</span> data_dir <span class="token operator">/</span> filename
+    wb <span class="token operator">=</span> load_workbook<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    ws <span class="token operator">=</span> wb<span class="token punctuation">.</span>active
+    <span class="token keyword">yield</span> <span class="token keyword">from</span> ws<span class="token punctuation">.</span>iter_rows<span class="token punctuation">(</span>min_row<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> values_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<p>3.数据驱动测试</p>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span>
+    <span class="token string">"name,tel,province,city,county,address,alias,is_default,msg"</span><span class="token punctuation">,</span>
+    read_excel<span class="token punctuation">(</span><span class="token string">"ddt_test_new_address.xlsx"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">test_user_new_address</span><span class="token punctuation">(</span>
+    user_driver<span class="token punctuation">,</span>
+    name<span class="token punctuation">,</span>
+    tel<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    county<span class="token punctuation">,</span>
+    address<span class="token punctuation">,</span>
+    alias<span class="token punctuation">,</span>
+    is_default<span class="token punctuation">,</span>
+    msg<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>UserAddressPage<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> UserAddressPage<span class="token punctuation">(</span>user_driver<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> page<span class="token punctuation">.</span>new_address<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 点击新增地址 按钮</span>
+    page_msg <span class="token operator">=</span> page<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>
+        name<span class="token punctuation">,</span>
+        tel<span class="token punctuation">,</span>
+        province<span class="token punctuation">,</span>
+        city<span class="token punctuation">,</span>
+        county<span class="token punctuation">,</span>
+        address<span class="token punctuation">,</span>
+        alias<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输入数据 +提交表单</span>
+    <span class="token keyword">assert</span> page_msg <span class="token operator">==</span> msg
+</code></pre>
+<h3 id="十三、Jenkins以及持续集成简介"><a href="#十三、Jenkins以及持续集成简介" class="headerlink" title="十三、Jenkins以及持续集成简介"></a>十三、Jenkins以及持续集成简介</h3><p>jenkins是一个可以扩展的持续集成和持续部署的平台。它也只是一个平台，主要运行的都是插件</p>
+<p>持续集成:把整个软件生命周期中的所有工作实现自动化，以流水线的方式去完成软件的研发过程<br>开发:编写代码并且进行源码管理，编译打包提供给测试人员测试<br>测试:部警测试环境进行功能测试，持续集成自动化测试</p>
+<p>运维:部署线上环境</p>
+<p><strong>Jenkins的安装</strong><br>1.安装JDK以及配置JDK的环境变量<br>2.插件的下载(1-2小时的下载 )</p>
+<p>3访问:http//localhost:8080</p>
+<p><strong>Jenkins创建以及使用job(项目)应用</strong><br>1新建job<br>2目定义工作空间:指定你的项目在哪里<br>3.输入执行命令:python all.py<br>4执行groovy脚本:System.setProperty(“hudson.model.DirectoryBrowserSupport.CSP”,””)</p>
+<p><strong>Jenkins集成Allure报告</strong><br>1.安装allure插件: Allure Jenkins Plugin<br>2.在[全局工具配置Global Tool Configuration]，配署Allure<br>3.在job配置allure报告</p>
+<p><strong>Jenkins持续集成企业微信(钉钉)实战</strong><br>1创建企微群管理机器人，获得webhook<br>webhook<br>https//avapi.weixinggcom/cgi-bin/webhook/send?kev=bed4f5d11e1-4694-96a4-6f3be8a17197<br>2安装插件:Qv wechat…<br>3.在[系统配置]添加默认webhook地址</p>
+<p>4.进入job，添加构建后操作。配置企微通知</p>
+<p><strong>Jenkins集成电子邮件通知实战</strong></p>
+<p>1.安装插件: Email…<br>2.新建一个邮箱。建议用163，企业邮箱肯定可以。<br>设置打开POP3(接受邮件的协议)和SMTP(发邮件的协议)，获取的客户端的密码:bfwrrjqrzhxldgea</p>
+<p>163 : BKFUMLHFHQBYGUPV<br>3.在[系统配置]配置邮件的发件人，SMTP服务器，收件人信息</p>
+<p>4.进入job，添加构建后操作。配置邮件通知</p>
+<p>系统管理员邮件地址必须和发件人保持一致</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">EmaiManage</span> <span class="token punctuation">:</span>
+    <span class="token keyword">def</span> send email<span class="token punctuation">(</span>self<span class="token punctuation">,</span>report_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#定义SMTP服务器</span>
+        smtpserver <span class="token operator">=</span>smtp<span class="token number">.163</span><span class="token punctuation">.</span>com
+        <span class="token comment" spellcheck="true">#发送邮件的用户名和客户端密码</span>
+        username<span class="token operator">=</span><span class="token string">'mashang_XXX@163.com'</span>
+        <span class="token comment" spellcheck="true">#授权密码password =KNLOCNORUHWHIXJQ</span>
+        <span class="token comment" spellcheck="true">#接收邮件的邮箱</span>
+        receiver <span class="token operator">=</span>XXX@gq<span class="token punctuation">.</span>com
+        <span class="token comment" spellcheck="true">#创建邮件对象</span>
+        message <span class="token operator">=</span> MIMEMultipart<span class="token punctuation">(</span><span class="token string">'related'</span><span class="token punctuation">)</span>
+        subject <span class="token operator">=</span><span class="token string">'湖南一网通项目自动化测试报告'</span> <span class="token comment" spellcheck="true">#邮件的主题</span>
+        fujian <span class="token operator">=</span> MIMEText <span class="token punctuation">(</span>open<span class="token punctuation">(</span>report_name<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>"html<span class="token string">','</span>utf<span class="token number">-8</span>'<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#附件</span>
+        <span class="token comment" spellcheck="true">#把邮件的信息组装到邮件对象里面</span>
+        message<span class="token punctuation">[</span><span class="token string">'form'</span><span class="token punctuation">]</span> <span class="token operator">=</span> username
+        message<span class="token punctuation">[</span><span class="token string">'to'</span><span class="token punctuation">]</span> <span class="token operator">=</span> receiver
+        message<span class="token punctuation">[</span><span class="token string">'subject'</span><span class="token punctuation">]</span> <span class="token operator">=</span> subject
+        message<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>fujian<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#登录smtp服务器并发送邮件</span>
+        smtp <span class="token operator">=</span> smtplib<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>smtpserver<span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>login<span class="token punctuation">(</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>sendmail<span class="token punctuation">(</span>username<span class="token punctuation">,</span>receiver<span class="token punctuation">,</span>message<span class="token punctuation">.</span>as_string<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        smtp<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>                
+</code></pre>
+<h3 id="十四、Unittest框架"><a href="#十四、Unittest框架" class="headerlink" title="十四、Unittest框架"></a>十四、Unittest框架</h3><p>1.用例编写规则<br>unittest(python自带): 提供了testcases测试用例、testsuite测试套件、testfixtures测试件或夹具、testloader测试加载器，testrunner测试运行器。必须遵守以下规则:<br>(1)测试文件必须先导入import unittest<br>(2)测试类必须继承unittest.TestCase<br>(3)测试方法必须以test开头。<br>pytest:它是python的第三方测试框架。基于unittest的扩展框架，必须遵守以下规则:</p>
+<p>(1)测试文件名必须以test 开头或者是 test结尾<br>(2)测试类命令必须以Test开头<br>(3)测试方法必须test开头</p>
+<p>2.用例的前后置</p>
+<p>setUp/tearDown    在每个用例之前或之后与运行一次<br>例如：打开浏览器，加载网页/关闭网页</p>
+<p>setUpClass和tearDownClass     在每个类运行之前或之后运行一次</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">(</span>uittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @classmethod    <span class="token comment" spellcheck="true">#在那类中需要加标注</span>
+    <span class="token keyword">def</span> <span class="token function">setUpClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>"setupclass<span class="token punctuation">:</span>在每个类之前执行一次。如<span class="token punctuation">:</span> 创建数据库，生成日志对象”<span class="token punctuation">)</span>
+</code></pre>
+<p>例如：创建数据库连接,创建日志对象/关闭数据库连接，销毁日志对象</p>
+<p>setUpModule和tearDownModule     在每个模块之前和之后执行一次</p>
+<p>3.断言<br>unittest : assertTrue(a)/assertFalse(a) , assertEqual(a,b)/assertNotEqual(a,b) , assertln(a,b):断言a在b中</p>
+<p>pytest : assert    </p>
+<p>4.报告<br>unittest : htmltestrunner</p>
+<p>pytest : 插件 : pytest-HTML ，allure<br>5.失败重跑<br>unittest:没有</p>
+<p>pytest: pytest-rerunfailures插件</p>
+<p>6.数据驱动<br>unitest : ddt<br>pytest: @pytest.markparametrize装饰器<br>7.用例分类执行<br>unittest: 默认执行所有，也可以通过testsuite来执行部分用例，或者-k参数</p>
+<p>pytest : @pytest.mark</p>
+<p><strong>TestCase用法</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">class</span> <span class="token class-name">EcshopLogin</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#测试用例</span>
+    <span class="token keyword">def</span> <span class="token function">test01_baili</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>”测试用例"<span class="token punctuation">)</span>
+</code></pre>
+<p>1.使用unittest命令行的方式运行python -m unittest -v ecshop_login.EcshopLogin<br>python-m    以脚本的方式去运行一个模块</p>
+<p>unittest-v–verbose     意思就是更详细的输出结果</p>
+<p>ecshop_login.EcshopLogin 为模块名.类名.方法名</p>
+<p>2.使用unittest.main()，以模块的方式运行</p>
+<p>配置pycharm的运行环境或者在命令行使用：python 模块名.py</p>
+<p><strong>读懂测试结果</strong><br>结果缩写符号<br><code>符号    含义</code>    </p>
+<p><code>.    通过</code><br><code>F    失败</code><br><code>E    出错</code><br><code>X    XPass意外通过</code><br><code>x    xfailed 预期失败</code></p>
+<p><code>S    跳过</code></p>
+<p>x表示反义词<br>如果通过，什么都不显示<br>如果失败，则显示代码和报错信息<br>通过参数可以让结果更加的丰富</p>
+<p><strong>unittest.main()底层参数</strong></p>
+<p>module=’__main__’，测试用例用例所在的路径main 表示当前模块</p>
+<p>defaultTest=None,    待测用例的名称，默认是所有<br>argv=None,        接收外部的参数<br>testRunner=None,        测试运行器，TextTestRunner</p>
+<p>testLoader=loader.defaultTestLoader,     指定使用默认的测试用例加载器<br>exit=True        是否在测试完成之后结束python程序<br>verbosity=1        类似于命令行-V，0，1，2</p>
+<p>只运行部分用例使用testCase</p>
+<pre class=" language-python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>Testsuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test01_baili"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>EcshopLogin<span class="token punctuation">(</span><span class="token string">"test02_weiwei"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">' suite'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#本质上是和下面的命令一样效果的</span>
+<span class="token comment" spellcheck="true">#unittest.TextTestRunner().run(suite)</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span>
+testcases <span class="token operator">=</span> unittest<span class="token punctuation">.</span>defaultTestLoader<span class="token punctuation">.</span>discover<span class="token punctuation">(</span>start_dir<span class="token operator">=</span>osgetcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>pattern<span class="token operator">=</span><span class="token string">"*.py"</span><span class="token punctuation">)</span>
+suite<span class="token punctuation">.</span>addTests<span class="token punctuation">(</span>testcases<span class="token punctuation">)</span>
+unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>defaultTest<span class="token operator">=</span><span class="token string">'suite'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>批量执行用例生成</strong>HTML格式的报告<br>在网上下载HTMLTestRunner.py文件放到python安装路径下：C:\python373\Lib</p>
+<p><strong>数据驱动ddt</strong>：DDT：Data Driver Tests</p>
+<p>ddt 是第三方模块，需安装：</p>
+<pre class=" language-python"><code class="language-python">pip install ddt
+</code></pre>
+<p><strong>DDT包含类的装饰器ddt和方法装饰器data</strong><br>通常情况下，data中的数据按照一个参数传递给测试用例，如果data中含有多个数据，如元组，列表，字典等数据，需要自行在脚本中对数据进行分解或者使用unpack分解数据。</p>
+<p>@ddt 类装饰器，用来标记当前类使用ddt数据驱动</p>
+<p>@data 函数装饰器，用来给函数传递数据</p>
+<p>@unpack 函数装饰器，用来对传递的数据进行解包，解列表、元组、字典</p>
+<p>@file_data 函数装饰器，用来直接读取yaml，json格式的文件数据 读取获取的数据是字典列表</p>
+<p><strong>案例：直接在脚本文件中获取测试数据</strong><br>@data(a,b)</p>
+<p>那么a和b各运行一次用例</p>
+<p>@data([a,b],[c,d])</p>
+<p>如果没有@unpack，那么[a,b]当成一个参数传入用例运行</p>
+<p>如果有@unpack，那么[a,b]被分解开，按照用例中的两个参数传递 </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">from</span> ddt <span class="token keyword">import</span> ddt<span class="token punctuation">,</span> data<span class="token punctuation">,</span> unpack
+
+case_data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test1"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+             <span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test2"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+             <span class="token punctuation">{</span><span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"test3"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+
+@ddt
+<span class="token keyword">class</span> <span class="token class-name">TestDemo</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @data<span class="token punctuation">(</span><span class="token operator">*</span>case_data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#在测试函数上使用@data(*case_data)进行数据解压，然后每一个元素传入测试函数</span>
+    <span class="token keyword">def</span> <span class="token function">test_case</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> case<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>case<span class="token punctuation">)</span>
+</code></pre>
+<p>运行结果：<br>Ran 3 tests in 0.005s</p>
+<p>OK<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test1’}<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test2’}<br>{‘url’: ‘<a target="_blank" rel="noopener" href="http://www.baidu.com’/">www.baidu.com’</a>, ‘data’: ‘test3’}</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">from</span> ddt <span class="token keyword">import</span> ddt<span class="token punctuation">,</span> data<span class="token punctuation">,</span> unpack
+@ddt
+<span class="token keyword">class</span> <span class="token class-name">MyTesting</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#没有@unpack，那么当成一个参数[1, 2, 3]</span>
+    <span class="token keyword">def</span> <span class="token function">test_1</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_1:value={value}'</span><span class="token punctuation">)</span>
+
+    @data<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#三个元素4,5,6</span>
+    <span class="token keyword">def</span> <span class="token function">test_2</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_2:a={a}'</span><span class="token punctuation">)</span>
+
+     @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     @unpack  <span class="token comment" spellcheck="true">#有@unpack，那么分解成3个参数传入用例运行：3, 2, 1是3个参数</span>
+     <span class="token keyword">def</span> <span class="token function">test_minus</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> expected<span class="token punctuation">)</span><span class="token punctuation">:</span>
+          actual <span class="token operator">=</span> int<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">-</span> int<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+          expected <span class="token operator">=</span> int<span class="token punctuation">(</span>expected<span class="token punctuation">)</span>
+          self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span>actual<span class="token punctuation">,</span> expected<span class="token punctuation">)</span>
+
+      @data<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#没有@unpack，那么当成一个参数:[2, 3]是一个参数，[4, 5]是一个参数</span>
+      <span class="token keyword">def</span> <span class="token function">test_compare</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+          <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'test_compare:a={a}'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span>verbosity<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<p>结果如下：<br>OK<br>test_1:value=[1，2，3]</p>
+<p>test_2:a=4</p>
+<p>test_2:a=5</p>
+<p>test_2:a=6</p>
+<p>test_compare:a=[2，3]</p>
+<p>test_compare:a=[4，5]</p>
+<p><strong>yml文件中获取测试数据</strong><br>在testdata package下新建testdata1.yml文件，文件中写入测试数据如下：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#格式要求：</span>
+<span class="token comment" spellcheck="true">#"-"表示一个列表</span>
+<span class="token comment" spellcheck="true">#用tab键缩进</span>
+
+<span class="token punctuation">-</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'testyy'</span>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span>  <span class="token number">18</span>
+
+<span class="token punctuation">-</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'testzz'</span>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span>  <span class="token number">20</span>
+</code></pre>
+<p>test_ddt.py文件中修改测试代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">import</span> ddt  <span class="token comment" spellcheck="true"># 导入ddt</span>
+<span class="token keyword">import</span> yaml
+ 
+@ddt<span class="token punctuation">.</span>ddt  <span class="token comment" spellcheck="true"># 声明我们要用它</span>
+<span class="token keyword">class</span> <span class="token class-name">Test_ddt</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Before every test case!"</span><span class="token punctuation">)</span>
+ 
+    @ddt<span class="token punctuation">.</span>file_data<span class="token punctuation">(</span><span class="token string">"..\\testdata\\testdata1.yml"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#括号里写yml文件的相对路径</span>
+    <span class="token keyword">def</span> <span class="token function">test_002</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'name is:'</span> <span class="token operator">+</span>str<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'age is:'</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>yml文件中我们定义了2组数据，用例总共执行了2次，按顺序每次取一组数据作为入参。</p>
+<p>从json文件中获取测试数据<br>在testdata package下新建testdata2.json文件，文件中写入测试数据如下：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+   <span class="token property">"student1"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"小明"</span><span class="token punctuation">,</span>
+       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">12</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token property">"student2"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"小张"</span><span class="token punctuation">,</span>
+       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">20</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>test_ddt.py文件中修改测试代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">import</span> ddt  <span class="token comment" spellcheck="true"># 导入ddt</span>
+<span class="token keyword">import</span> yaml
+@ddt<span class="token punctuation">.</span>ddt  <span class="token comment" spellcheck="true"># 声明我们要用它</span>
+<span class="token keyword">class</span> <span class="token class-name">Test_ddt</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Before every test case!"</span><span class="token punctuation">)</span>
+                            @ddt<span class="token punctuation">.</span>file_data<span class="token punctuation">(</span><span class="token string">"..\\testdata\\testdata2.json"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#括号里写json文件的相对路径</span>
+    <span class="token keyword">def</span> <span class="token function">test_003</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"name is:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"age is:"</span> <span class="token operator">+</span>str<span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43170741/article/details/127943305">参考网址</a></p>
+<h3 id="十五、RobotFramework的简介和特点"><a href="#十五、RobotFramework的简介和特点" class="headerlink" title="十五、RobotFramework的简介和特点"></a>十五、RobotFramework的简介和特点</h3><p>简介:RF是一个基于Python语言开放的，可扩展的，以关键字驱动模式的自动化测试框架。<br>关键字驱动:关键字驱动表示把项目中的业务逻辑封装成一个一个的关键字，然后调用不同的关键字组成不同的业务。<br>数据驱动:数据驱动是把测试数据放到excel，jaml文件里面，然后通过改变文件中的数据去驱动测试用例执行。<br>特点:<br>1.编写用例非常方便，常见的有txt，robot<br>2.自动化生成html报告<br>3.非常强大的扩展库。<br>4.根据项目的需求自定义关键字<br>5.支持非GUI的方式运行，以及和jenkins实现持续集成</p>
+<p><strong>安装注意事项</strong><br>1.安装python3.7以及环境变量<br>2安装robotframework<br>注意:最新的版本是4.1.2<br>安装的是3.1的版本pip install robotframework==3.1</p>
+<p>3.安装RIDE开发工具:<br>命令 : pip install robotframework-ride<br>会弹出一个窗口，点确定，在卓面生成一个RIDE快捷方式。<br>豆辨下载源:</p>
+<pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> i https://pypi.douban.com/simple robotframework<span class="token operator">==</span>3.12 
+
+pip <span class="token function">install</span> i https://pypi.douban.com/simple robotframework-ride
+</code></pre>
+<p>查看:pip list</p>
+<p><strong>使用RIDE开发工具</strong><br>1.new project 注意: 选择Directory<br>2创建文件夫<br>3.创建测试套件<br>4.创建测试用例<br>5.创建资源文件(在文件夹下面创建资源文件，格式必须选择txt格式]。一个资源文件下面可以创建很多个用户目定义的关键字，资源文件可以在测试套件中导入并调用它下面的自定义关键字.</p>
+<p><strong>Robotframework常用的库</strong><br>1.标准库(rf自带的库)<br>Builtin(测试库)<br>Collections(集合库)<br>DateTime(时间库)<br>Screenshot( 截屏库)<br>标准库保存的位置:C:\python373\Liblsite-packages\robotlibraries<br>2.扩展库(通过pip命令安装的库)</p>
+<p>Web自动化测试:SeleniumLibrary Selenium2Library</p>
+<p>​    安装: pip install roboframework-seleniumlibrary</p>
+<p>接口自动化测试: RequestsLibrary<br>    安装: pip install roboframework-requests</p>
+<p>APP自动化测试:AppiumLibrary<br>    安装: pip install roboframework-appiumlibrary</p>
+<p>扩展库保存的位置:C:\python373\Libisite-packages</p>
+<p><strong>常用关键字</strong></p>
+<p>快捷键：</p>
+<p>F5    搜索关键字</p>
+<p>F8    运行测试用例</p>
+<p>Ctrl+Shfit+空格    自动补全关键字</p>
+<table>
+<thead>
+<tr>
+<th>Log</th>
+<th>呵呵</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Comment</td>
+<td>log</td>
+<td>老师</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${a}</td>
+<td>Set Variable</td>
+<td>100</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sleep</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${times}</td>
+<td>Get Time</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Log</td>
+<td>${times}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${content_str}</td>
+<td>Catenate</td>
+<td>SEPARATOR=#</td>
+<td>大道</td>
+<td>实施</td>
+</tr>
+<tr>
+<td>log</td>
+<td>${content_str}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>结果：</p>
+<p>呵呵</p>
+<p>s(a)= 100</p>
+<p>100</p>
+<p>s{times} = 2023-10-14 20:59:30</p>
+<p>2023-10-14 20:59:30</p>
+<p>${content_str)=大道#实施</p>
+<p>大道#实施</p>
+<p><strong>复杂关键字</strong></p>
+<table>
+<thead>
+<tr>
+<th>${list1}</th>
+<th>Create List</th>
+<th>百里</th>
+<th>北凡</th>
+<th>星瑶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log</td>
+<td>${list1}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@{list1}</td>
+<td>Create List</td>
+<td>百里</td>
+<td>北凡</td>
+<td>星瑶</td>
+</tr>
+<tr>
+<td>Log Many</td>
+<td>@{list1}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${dic}</td>
+<td>Create Dictionary</td>
+<td>name=北里</td>
+<td>age=18</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${keys}</td>
+<td>Get Dictionary Keys</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${keys}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${values}</td>
+<td>Get Dictionary</td>
+<td>${dic}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${values}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${value_to_name}</td>
+<td>Get From Dictionary</td>
+<td>${dic}</td>
+<td>age</td>
+<td></td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>直接执行python函数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${random_number}</td>
+<td>Evaluate</td>
+<td>random.randint(0,100)</td>
+<td>modules=random</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${random_number}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${times}</td>
+<td>Evaluate</td>
+<td>time.time()</td>
+<td>modules=time</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${times}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>直接调用python自定义方法</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Import Library</td>
+<td>E:/test.py</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${a}</td>
+<td>Evaluate</td>
+<td>int(10)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${b}</td>
+<td>Evaluate</td>
+<td>int(20)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>${he}</td>
+<td>sum</td>
+<td>${a}</td>
+<td>${b}</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${he}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong>对于没有 get dictionary keys方法，需要在Edit—&gt;Library—&gt;导入Collections</p>
+<p>结果：</p>
+<p>${list1} =[‘百里‘，‘北凡‘，‘星瑶]</p>
+<p>[‘百里‘，‘北凡‘，‘星瑶]</p>
+<p>@{list2}=[百里 | 北凡 | 星瑶 ]</p>
+<p>百里 </p>
+<p>北凡 </p>
+<p> 星瑶 </p>
+<p>${dic}={‘name’：’百里‘，’age’:18}</p>
+<p>{‘name’：’百里‘，’age’:18}</p>
+<p>${keys}=[‘age’,’name ‘]</p>
+<p>[‘age’,’name ‘]</p>
+<p>${values}=[‘18’,’百里’]</p>
+<p>[‘18’,’百里’]</p>
+<p>${value_to_name}=18</p>
+<p>18</p>
+<p>${random_number} = 40<br>40<br>${times} =1637759780.143498</p>
+<p>1637759780.143498</p>
+<p>${a}=10</p>
+<p>${b}=20</p>
+<p>${he}=30</p>
+<p>30</p>
+<table>
+<thead>
+<tr>
+<th>${a}</th>
+<th>Set Variable</th>
+<th>20</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Run Keyword If</td>
+<td>${a}&gt;=80</td>
+<td>log</td>
+<td>成绩优秀</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>ElSE IF</td>
+<td>${a}&gt;=60</td>
+<td>log</td>
+<td>成绩及格</td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>ELSE</td>
+<td>ifs</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN</td>
+<td>等等</td>
+<td>查查</td>
+<td>信息</td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>END</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN RANGE</td>
+<td>1</td>
+<td>11</td>
+<td>2</td>
+</tr>
+<tr>
+<td>RUN Keyword If</td>
+<td>${a}==8</td>
+<td>Exit For Loop</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>@{list1}</td>
+<td>Create List</td>
+<td>百里</td>
+<td>北凡</td>
+<td>星瑶</td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>${a}</td>
+<td>IN</td>
+<td>@{list1}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>${a}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>END</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>ifs为业务关键字文件中的if-else结构</p>
+<h3 id="断言AssertUtil"><a href="#断言AssertUtil" class="headerlink" title="断言AssertUtil"></a><strong>断言AssertUtil</strong></h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#1、定义封装类</span>
+<span class="token keyword">class</span> <span class="token class-name">AssertUtil</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#2、初始化数据，日志</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#self.log = my_log("AssertUtil")</span>
+    <span class="token keyword">pass</span>
+<span class="token comment" spellcheck="true">#3、code相等</span>
+<span class="token keyword">def</span> <span class="token function">assert_code</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>code<span class="token punctuation">,</span>expected_code<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">assert</span> int<span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token operator">==</span> int<span class="token punctuation">(</span>expected_code<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"code error,code is %s,expected code is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span>expected_code<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#4、body相等</span>
+<span class="token keyword">def</span> <span class="token function">assert_body</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#验证返回结果内容相等</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span><span class="token keyword">assert</span> body <span class="token operator">==</span> expected_body
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"body error,body is &amp;s,expected body is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#5、body包含</span>
+<span class="token keyword">def</span> <span class="token function">assert_in_body</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#验证返回结果是否包含期望的结果</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+        <span class="token keyword">assert</span> expected_body <span class="token keyword">in</span> body
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"不包含或者body是错误，body is %s,expected body is %s"</span><span class="token operator">%</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span>expected_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        
+        
+</code></pre>
+<h3 id="数据库mysqlutil"><a href="#数据库mysqlutil" class="headerlink" title="数据库mysqlutil"></a><strong>数据库mysqlutil</strong></h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+<span class="token keyword">class</span> <span class="token class-name">Mysql</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#2、初始化数据,</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>host<span class="token punctuation">,</span>user<span class="token punctuation">,</span>password<span class="token punctuation">,</span>database<span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span>host，user<span class="token operator">=</span>user<span class="token punctuation">,</span>password<span class="token operator">=</span>password<span class="token punctuation">,</span>
+                                    database<span class="token operator">=</span>database<span class="token punctuation">,</span>charset<span class="token operator">=</span>charset<span class="token punctuation">,</span>port<span class="token operator">=</span>port<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>cursor <span class="token operator">=</span>self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#创建查询、执行方法</span>
+    <span class="token keyword">def</span> <span class="token function">fetchone</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>sgl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>fetchone<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">fetchall</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>sql<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">exec</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#update,delete,insert</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>conn <span class="token operator">and</span> self<span class="token punctuation">.</span>cursor<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> ex<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"执行异常"</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>cursor <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>conn <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="python接口数据关联"><a href="#python接口数据关联" class="headerlink" title="python接口数据关联"></a>python接口数据关联</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Context</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#这是一个承接上下文的数据</span>
+</code></pre>
+<p>前一个接口</p>
+<p>使用setattr对其它接口需要的数据进行传递，加载到内存中去，比如说后一个接口需要 token</p>
+<pre class=" language-python"><code class="language-python">setattr<span class="token punctuation">(</span>Context<span class="token punctuation">,</span><span class="token string">"token"</span><span class="token punctuation">,</span>req<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"token"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>后一个接口，使用getattr</p>
+<pre class=" language-python"><code class="language-python">getattr<span class="token punctuation">(</span>Context<span class="token punctuation">,</span><span class="token string">"tocken"</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="jemeter跨线程组实现接口关联"><a href="#jemeter跨线程组实现接口关联" class="headerlink" title="jemeter跨线程组实现接口关联"></a>jemeter跨线程组实现接口关联</h3><p>前提：第一个接口和第二个接口存在接口关联(通过token鉴权)，同时还存在cookie鉴权。</p>
+<p>接口压测：接口压力测试的任务，要求对其中一个接口进行500虚拟用户并发。但是这个接口必须要先 登陆之后获取到token才可以请求成功！</p>
+<p> 1.首先设置jmeter.propties里面的参数 </p>
+<p>CookieManager.save.cookies=true </p>
+<p>才能够看到cookie</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">COOKIE_W2S_lastvisit</span><span class="token punctuation">=</span><span class="token attr-value">0%091652876410%09%2Fphpwind%2F</span>
+<span class="token attr-name">COOKIE_W2S_visitor</span><span class="token punctuation">=</span><span class="token attr-value">oF9u%2F8%2BTDp8OtNSRBld43kbit5MjxSfalRd7bm9lHA7Fy173WZoO1g%3D%3D</span>
+<span class="token attr-name">COOKIE_csrf_token</span><span class="token punctuation">=</span><span class="token attr-value">23f8b0cf8d839d02</span>
+</code></pre>
+<p>2.跨线程组cookie鉴权： 只能在一个线程组里面传值的叫局部变量（正则，JSON，用户自定义变量） 能够在多个线程组之间传值的叫全局变量 </p>
+<p>需要通过Beanshell组件（既能使用java语言，也有自己的语法的组件）来设置：</p>
+<p>__setPropty() 设置Jmeter的全局属性。能够在多个线程组之间传值</p>
+<p>__P() 获取全局属性</p>
+<h3 id="埋点"><a href="#埋点" class="headerlink" title="埋点:"></a>埋点:</h3><p>在测试报告的生成过程中埋点，拿到数据通过数据库操作存储到数据库</p>
+<p>在conftest.py中,加入团队和负责人数据</p>
+<pre class=" language-python"><code class="language-python">impot pytest
+@pytest<span class="token punctuation">.</span>hookimpl<span class="token punctuation">(</span>hookwrapper<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>tryfirst<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">pytest_runtest_makereport</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> call<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#是通过yeild做轮询</span>
+    out <span class="token operator">=</span> <span class="token keyword">yield</span>
+    report <span class="token operator">=</span> out<span class="token punctuation">.</span>get_result<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> report<span class="token punctuation">.</span>when <span class="token operator">==</span> <span class="token string">"call"</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#固定过滤语句</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"测试报告:{report}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"步骤:{report.when}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"node id:{report.nodeid}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"执行结果:{report.outcome}"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#下面的if 是获取我们 info 标签中注册的内容:比如我在用例中注册的是 team principal</span>
+        <span class="token keyword">if</span> <span class="token string">"pytestmark"</span> <span class="token keyword">in</span> item<span class="token punctuation">.</span>function<span class="token punctuation">.</span>__dict__<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> item<span class="token punctuation">.</span>function<span class="token punctuation">.</span>pytestmark<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token string">"info"</span> <span class="token keyword">in</span> i<span class="token punctuation">.</span>__dict__<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">,</span>i<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span><span class="token string">"kwargs"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"team"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span><span class="token string">"kwargs"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"principal"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#存储到数据库</span>
+                    mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result,team,principal) values {values};"""</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span>：
+                    values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">)</span>
+                    mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result) values {values};"""</span><span class="token punctuation">)</span>
+      <span class="token keyword">else</span><span class="token punctuation">:</span>  
+        values <span class="token operator">=</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>report<span class="token punctuation">.</span>location<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">.</span>originalname<span class="token punctuation">,</span>report<span class="token punctuation">.</span>outcome<span class="token punctuation">)</span>
+        mysql<span class="token punctuation">.</span>change<span class="token punctuation">(</span>f<span class="token triple-quoted-string string">"""insert into test_cases(caseId,
+,testId, test_name, result) values {values};"""</span><span class="token punctuation">)</span> 
+</code></pre>
+<p>使我们的测试用例携带其他维度的数据</p>
+<p>在多个测试用例方法上加入</p>
+<p>@pytest.mark.info(team=”第一团队”，principal=”长风”)</p>
+<h3 id="附录：接口自动化测试框架"><a href="#附录：接口自动化测试框架" class="headerlink" title="附录：接口自动化测试框架"></a>附录：接口自动化测试框架</h3><p><strong>文件夹加说明</strong>：</p>
+<p>commons: 公共封装文件夹</p>
+<p>datas: YAML数据驱动文件夹</p>
+<p>hotloads:热加载文件夹</p>
+<p>logs:日志文件夹<br>reports:定制的allure报告文件夹</p>
+<p>temps:临时报告文件夹<br>testcases:YAML测试用例文件夹</p>
+<p>config.yaml:全局配置文件<br>conftest.py:全局fixture固件</p>
+<p> extract.yaml:全局接口关联中间变量提取文件</p>
+<p>pytest.ini:全局pytest配置文件</p>
+<p>run.py:全局运行文件</p>
+<p>readme:接口自动化测试框架说明文件</p>
+<p><strong>接口自动化测试框架YAML测试用例规范:</strong></p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span>
+    <span class="token key atrule">feature</span><span class="token punctuation">:</span> 用户相关
+    <span class="token key atrule">story</span><span class="token punctuation">:</span> 登陆b2c商城接口
+    <span class="token key atrule">title</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>title<span class="token punctuation">}</span>
+    <span class="token key atrule">request</span><span class="token punctuation">:</span>
+        <span class="token key atrule">method</span><span class="token punctuation">:</span> post
+        <span class="token key atrule">url</span><span class="token punctuation">:</span> $(read_config(base_ur1)<span class="token punctuation">}</span><span class="token punctuation">?</span>s=user/login
+        <span class="token key atrule">data</span><span class="token punctuation">:</span>
+            <span class="token key atrule">accounts</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>accounts<span class="token punctuation">]</span>
+            <span class="token key atrule">pwd</span><span class="token punctuation">:</span> $ddt(pwd<span class="token punctuation">}</span>
+            <span class="token key atrule">type</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>type<span class="token punctuation">}</span>
+    <span class="token key atrule">extract</span><span class="token punctuation">:</span>
+        <span class="token key atrule">token</span><span class="token punctuation">:</span> $.data.token
+    <span class="token key atrule">parametrize</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span><span class="token punctuation">[</span><span class="token string">"title"</span><span class="token punctuation">,</span><span class="token string">"accounts"</span><span class="token punctuation">,</span><span class="token string">"pwd"</span><span class="token punctuation">,</span><span class="token string">"type"</span><span class="token punctuation">,</span><span class="token string">"assert_code"</span><span class="token punctuation">,</span><span class="token string">"assert_msg"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span>"验证登陆成功测试用例"，"baili"，"baili123"，"username"<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"登录成功"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">"验证密码必须是6-18位"</span><span class="token punctuation">,</span>"baili"，"123"<span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token string">"密码格式 6~18 个字符"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">"验证错误的用户名"</span><span class="token punctuation">,</span><span class="token punctuation">[</span>"baili"."北凡"<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token punctuation">-</span>3，"登录帐号不存在"<span class="token punctuation">]</span>
+    <span class="token key atrule">validate</span><span class="token punctuation">:</span>
+        <span class="token key atrule">codes</span><span class="token punctuation">:</span> <span class="token number">200</span>
+        <span class="token key atrule">equals</span><span class="token punctuation">:</span>
+            <span class="token key atrule">code</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>assert_code<span class="token punctuation">}</span>
+        <span class="token key atrule">contains</span><span class="token punctuation">:</span> $ddt<span class="token punctuation">{</span>assert_msg<span class="token punctuation">}</span>
+</code></pre>
+<p>一、一级关键字必须要包含: name,base url,request,validate，在一级关键字request下必须包含:method ,url</p>
+<p>二、传参方式:<br>1.get请求，那么必须通过params传参<br>2.post请求<br>    传json格式，需要使用json传参<br>    传表单格式，需要使用data传参<br>3.文件上传:使用files传参<br>三、接口关联<br>支持多种提取方式: 正则表达式和jsonpath表达式提取</p>
+<p>extract:</p>
+<pre class=" language-txt"><code class="language-txt">    access token:"access token":"(.*?)"         #正则
+    expires in: $.expires in            #jsonpath
+</code></pre>
+<p>取值方式: 其中read_extract_data是热加载的方法名，access_token是提取的变量名</p>
+<p>${read_extract _data(access token)}</p>
+<p>四、热加载<br>1.在hotloads目录下创建一个py文件并新建一个类(可以自定义)，然后写方法，注意返回值需要字符串就返回字符串，需要整形就返回征整形，如下:</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#获得随机数，需要字符串返回的字符串。</span>
+<span class="token keyword">def</span> <span class="token function">get_random_number</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>min<span class="token punctuation">,</span>max<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rm <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>int<span class="token punctuation">(</span>min<span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> str<span class="token punctuation">(</span>rm<span class="token punctuation">)</span>
+</code></pre>
+<p>2.在测试用例当中传入类的对象，如DebugTalk()</p>
+<pre class=" language-python"><code class="language-python">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize<span class="token punctuation">(</span><span class="token string">"caseinfo"</span><span class="token punctuation">.</span>read_testcase_yaml<span class="token punctuation">(</span><span class="token string">'/testcases/product_manage/pm_create flag.yaml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">test_create_flag</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> caseinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    RequestsUtil<span class="token punctuation">(</span>DebugTalk<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>standard_yaml<span class="token punctuation">(</span>caseinfo<span class="token punctuation">)</span>
+</code></pre>
+<p>3.在YAML测试用例中调用函数: 如:<br>json: </p>
+<p>{“tag”:[“name”:”码尚教育${get_random_number(10000,99999)}”}}</p>
+<p>五、此框架支持两种断言方式: 分别为equals和contains断言<br>如:</p>
+<pre class=" language-txt"><code class="language-txt">validate:
+- equals: {status code: 205}
+- equals: {expires in: 7200}
+- contains: access token
+</code></pre>
+<p>六、数据驱动使用yaml和一级关键字parameterize实现: 如:</p>
+<p><strong>测试用例yam1写法:</strong><br>引入数据驱动文件<br>parameterize:<br>    name-appid-secret-grant_type-assert_str:/datas/product manage/get_token_data.yaml<br>引入变量<br>$ddt{name}</p>
+<p><strong>数据驱动yam1写法:</strong><br>#DDT(data driver test)数据驱动YAML文件,对应的YAML测试用例文件为:pm_get_token.yaml</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">prametrize</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'appid'</span><span class="token punctuation">,</span><span class="token string">'secret'</span><span class="token punctuation">,</span><span class="token string">'grant_type'</span><span class="token punctuation">,</span><span class="token string">'assert_str'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span>成功获取token鉴权码'<span class="token punctuation">,</span><span class="token string">'wx8a9de038e93f77ab'</span><span class="token punctuation">,</span><span class="token string">'8326fc915928dee3165720c910effb86'</span><span class="token punctuation">,</span><span class="token string">'client credential'</span><span class="token punctuation">,</span><span class="token string">'accesstoken'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token string">'检查appid为空'</span><span class="token punctuation">,</span>'8326fc915928dee3165720c910effb86'，'client_credential'<span class="token punctuation">,</span><span class="token number">41002</span><span class="token punctuation">]</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span>'检查secret为空'，'wx8a9de038e93f77ab'<span class="token punctuation">,</span><span class="token string">'client_credential'</span><span class="token punctuation">,</span><span class="token number">41004</span><span class="token punctuation">]</span>
+</code></pre>
+<p>七、基础路径的设置<br>在测试用例中使用一级关键字和热加载，如:</p>
+<p>base_url: ${read_config(base,base_spgl_ur1)}</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2023/07/15/19295.html">https://bigworldxld.github.io/2023/07/15/19295.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/requests/">
+                                    <span class="chip bg-color">requests</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/Yaml/">
+                                    <span class="chip bg-color">Yaml</span>
+                                </a>
+                            
+                                <a href="/tags/Pytest/">
+                                    <span class="chip bg-color">Pytest</span>
+                                </a>
+                            
+                                <a href="/tags/Allure/">
+                                    <span class="chip bg-color">Allure</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/07/16/34344.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E6%95%B0%E6%8D%AE%E5%8C%96%E7%AE%A1%E7%90%86.jpg" class="responsive-img" alt="《数据化管理》摘记">
+                        
+                        <span class="card-title">《数据化管理》摘记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">阅读</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/02/30754.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4.jpg" class="responsive-img" alt="数据运营体系">
+                        
+                        <span class="card-title">数据运营体系</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E8%BF%90%E8%90%A5/">
+                        <span class="chip bg-color">数据运营</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

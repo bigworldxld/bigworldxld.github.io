@@ -1,0 +1,2262 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="大数据项目之尚品汇（5即席查询Presto&amp;Kylin）, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="第1章 Presto1.1 Presto简介1.1.1 Presto概念
+
+1.1.2 Presto架构
+
+1.1.3 Presto优缺点
+
+1.1.4 Presto、Impala性能比较https://blog.csdn.net/u012">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>大数据项目之尚品汇（5即席查询Presto&amp;Kylin） | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/datawarehouse.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">大数据项目之尚品汇（5即席查询Presto&amp;Kylin）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hive/">
+                                <span class="chip bg-color">hive</span>
+                            </a>
+                        
+                            <a href="/tags/spark/">
+                                <span class="chip bg-color">spark</span>
+                            </a>
+                        
+                            <a href="/tags/Azkaban/">
+                                <span class="chip bg-color">Azkaban</span>
+                            </a>
+                        
+                            <a href="/tags/kafka/">
+                                <span class="chip bg-color">kafka</span>
+                            </a>
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                            <a href="/tags/zookeeper/">
+                                <span class="chip bg-color">zookeeper</span>
+                            </a>
+                        
+                            <a href="/tags/flume/">
+                                <span class="chip bg-color">flume</span>
+                            </a>
+                        
+                            <a href="/tags/sqoop/">
+                                <span class="chip bg-color">sqoop</span>
+                            </a>
+                        
+                            <a href="/tags/superset/">
+                                <span class="chip bg-color">superset</span>
+                            </a>
+                        
+                            <a href="/tags/hbase/">
+                                <span class="chip bg-color">hbase</span>
+                            </a>
+                        
+                            <a href="/tags/Presto/">
+                                <span class="chip bg-color">Presto</span>
+                            </a>
+                        
+                            <a href="/tags/kylin/">
+                                <span class="chip bg-color">kylin</span>
+                            </a>
+                        
+                            <a href="/tags/zabbix/">
+                                <span class="chip bg-color">zabbix</span>
+                            </a>
+                        
+                            <a href="/tags/Kerberos/">
+                                <span class="chip bg-color">Kerberos</span>
+                            </a>
+                        
+                            <a href="/tags/ranger/">
+                                <span class="chip bg-color">ranger</span>
+                            </a>
+                        
+                            <a href="/tags/atlas/">
+                                <span class="chip bg-color">atlas</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                data warehouse
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-10
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    29 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="第1章-Presto"><a href="#第1章-Presto" class="headerlink" title="第1章 Presto"></a>第1章 Presto</h1><h2 id="1-1-Presto简介"><a href="#1-1-Presto简介" class="headerlink" title="1.1 Presto简介"></a>1.1 Presto简介</h2><h3 id="1-1-1-Presto概念"><a href="#1-1-1-Presto概念" class="headerlink" title="1.1.1 Presto概念"></a>1.1.1 Presto概念</h3><img src="/2022/02/10/37074/Presto%E7%AE%80%E4%BB%8B.jpg" class title="This is an example image">
+
+<h3 id="1-1-2-Presto架构"><a href="#1-1-2-Presto架构" class="headerlink" title="1.1.2 Presto架构"></a>1.1.2 Presto架构</h3><img src="/2022/02/10/37074/Presto%E6%9E%B6%E6%9E%84.png" class title="This is an example image">
+
+<h3 id="1-1-3-Presto优缺点"><a href="#1-1-3-Presto优缺点" class="headerlink" title="1.1.3 Presto优缺点"></a>1.1.3 Presto优缺点</h3><img src="/2022/02/10/37074/Presto%E4%BC%98%E7%BC%BA%E7%82%B9.png" class title="This is an example image">
+
+<h3 id="1-1-4-Presto、Impala性能比较"><a href="#1-1-4-Presto、Impala性能比较" class="headerlink" title="1.1.4 Presto、Impala性能比较"></a>1.1.4 Presto、Impala性能比较</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012551524/article/details/79124532">https://blog.csdn.net/u012551524/article/details/79124532</a><br>测试结论：Impala性能稍领先于Presto，但是Presto在数据源支持上非常丰富，包括Hive、图数据库、传统关系型数据库、Redis等。</p>
+<h2 id="1-2-Presto安装"><a href="#1-2-Presto安装" class="headerlink" title="1.2 Presto安装"></a>1.2 Presto安装</h2><h3 id="1-2-1-Presto-Server安装"><a href="#1-2-1-Presto-Server安装" class="headerlink" title="1.2.1 Presto Server安装"></a>1.2.1 Presto Server安装</h3><p>0）官网地址<br><a target="_blank" rel="noopener" href="https://prestodb.github.io/">https://prestodb.github.io/</a><br>1）下载地址<br><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.196/presto-server-0.196.tar.gz">https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.196/presto-server-0.196.tar.gz</a><br>2）将presto-server-0.196.tar.gz导入hadoop102的/opt/software目录下，并解压到/opt/module目录</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 software]$ tar -zxvf presto-server-0.196.tar.gz -C /opt/module/
+</code></pre>
+<p>3）修改名称为presto</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 module]$ mv presto-server-0.196/ presto
+</code></pre>
+<p>4）进入到/opt/module/presto目录，并创建存储数据文件夹</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ mkdir data
+</code></pre>
+<p>5）进入到/opt/module/presto目录，并创建存储配置文件文件夹</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ mkdir etc
+</code></pre>
+<p>6）配置在/opt/module/presto/etc目录下添加jvm.config配置文件</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 etc]$ vim jvm.config
+</code></pre>
+<p>添加如下内容</p>
+<pre class=" language-properties"><code class="language-properties">-server
+-Xmx16G
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">+UseG1GC</span>
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">G1HeapRegionSize=32M</span>
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">+UseGCOverheadLimit</span>
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">+ExplicitGCInvokesConcurrent</span>
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">+HeapDumpOnOutOfMemoryError</span>
+<span class="token attr-name">-XX</span><span class="token punctuation">:</span><span class="token attr-value">+ExitOnOutOfMemoryError</span>
+</code></pre>
+<p>7）Presto可以支持多个数据源，在Presto里面叫catalog，这里我们配置支持Hive的数据源，配置一个Hive的catalog</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 etc]$ mkdir catalog
+[atguigu@hadoop102 catalog]$ vim hive.properties 
+</code></pre>
+<p>添加如下内容</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">connector.name</span><span class="token punctuation">=</span><span class="token attr-value">hive-hadoop2</span>
+<span class="token attr-name">hive.metastore.uri</span><span class="token punctuation">=</span><span class="token attr-value">thrift://hadoop102:9083</span>
+</code></pre>
+<p>8）将hadoop102上的presto分发到hadoop103、hadoop104</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 module]$ xsync presto
+</code></pre>
+<p>9）分发之后，分别进入hadoop102、hadoop103、hadoop104三台主机的/opt/module/presto/etc的路径。配置node属性，node id每个节点都不一样。</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 etc]$vim node.properties
+node.environment=production
+node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
+node.data-dir=/opt/module/presto/data
+
+[atguigu@hadoop103 etc]$vim node.properties
+node.environment=production
+node.id=ffffffff-ffff-ffff-ffff-fffffffffffe
+node.data-dir=/opt/module/presto/data
+
+[atguigu@hadoop104 etc]$vim node.properties
+node.environment=production
+node.id=ffffffff-ffff-ffff-ffff-fffffffffffd
+node.data-dir=/opt/module/presto/data
+</code></pre>
+<p>10）Presto是由一个coordinator节点和多个worker节点组成。在hadoop102上配置成coordinator，在hadoop103、hadoop104上配置为worker。<br>（1）hadoop102上配置coordinator节点<br>[atguigu@hadoop102 etc]$ vim config.properties<br>添加内容如下</p>
+<pre class=" language-shell"><code class="language-shell">coordinator=true
+node-scheduler.include-coordinator=false
+http-server.http.port=8881
+query.max-memory=50GB
+discovery-server.enabled=true
+discovery.uri=http://hadoop102:8881
+</code></pre>
+<p>（2）hadoop103、hadoop104上配置worker节点</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop103 etc]$ vim config.properties
+</code></pre>
+<p>添加内容如下</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">coordinator</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token attr-name">http-server.http.port</span><span class="token punctuation">=</span><span class="token attr-value">8881</span>
+<span class="token attr-name">query.max-memory</span><span class="token punctuation">=</span><span class="token attr-value">50GB</span>
+<span class="token attr-name">discovery.uri</span><span class="token punctuation">=</span><span class="token attr-value">http://hadoop102:8881</span>
+</code></pre>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop104 etc]$ vim config.properties
+</code></pre>
+<p>添加内容如下</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">coordinator</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token attr-name">http-server.http.port</span><span class="token punctuation">=</span><span class="token attr-value">8881</span>
+<span class="token attr-name">query.max-memory</span><span class="token punctuation">=</span><span class="token attr-value">50GB</span>
+<span class="token attr-name">discovery.uri</span><span class="token punctuation">=</span><span class="token attr-value">http://hadoop102:8881</span>
+</code></pre>
+<p>11）在hadoop102的/opt/module/hive目录下，启动Hive Metastore，用atguigu角色</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 hive]$
+nohup bin/hive --service metastore >/dev/null 2>&1 &
+</code></pre>
+<p>12）分别在hadoop102、hadoop103、hadoop104上启动Presto Server<br>（1）前台启动Presto，控制台显示日志</p>
+<pre class=" language-sh"><code class="language-sh">[atguigu@hadoop102 presto]$ bin/launcher run
+[atguigu@hadoop103 presto]$ bin/launcher run
+[atguigu@hadoop104 presto]$ bin/launcher run
+</code></pre>
+<p>（2）后台启动Presto</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ bin/launcher start
+[atguigu@hadoop103 presto]$ bin/launcher start
+[atguigu@hadoop104 presto]$ bin/launcher start
+</code></pre>
+<p>13）日志查看路径/opt/module/presto/data/var/log</p>
+<h3 id="1-2-2-Presto命令行Client安装"><a href="#1-2-2-Presto命令行Client安装" class="headerlink" title="1.2.2 Presto命令行Client安装"></a>1.2.2 Presto命令行Client安装</h3><p>1）下载Presto的客户端<br><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.196/presto-cli-0.196-executable.jar">https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.196/presto-cli-0.196-executable.jar</a><br>2）将presto-cli-0.196-executable.jar上传到hadoop102的/opt/module/presto文件夹下<br>3）修改文件名称</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ mv presto-cli-0.196-executable.jar  prestocli
+</code></pre>
+<p>4）增加执行权限</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ chmod +x prestocli
+</code></pre>
+<p>5）启动prestocli</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 presto]$ ./prestocli --server hadoop102:8881 --catalog hive --schema default
+</code></pre>
+<p>6）Presto命令行操作<br>Presto的命令行操作，相当于Hive命令行操作。每个表必须要加上schema。<br>例如：<br>select * from schema.table limit 100</p>
+<h3 id="1-2-3-Presto可视化Client安装"><a href="#1-2-3-Presto可视化Client安装" class="headerlink" title="1.2.3 Presto可视化Client安装"></a>1.2.3 Presto可视化Client安装</h3><p>1）将yanagishima-18.0.zip上传到hadoop102的/opt/module目录<br>2）解压缩yanagishima</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 module]$ unzip yanagishima-18.0.zip
+cd yanagishima-18.0
+</code></pre>
+<p>3）进入到/opt/module/yanagishima-18.0/conf文件夹，编写yanagishima.properties配置</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 conf]$ vim yanagishima.properties
+</code></pre>
+<p>​    添加如下内容</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">jetty.port</span><span class="token punctuation">=</span><span class="token attr-value">7080</span>
+<span class="token attr-name">presto.datasources</span><span class="token punctuation">=</span><span class="token attr-value">atguigu-presto</span>
+<span class="token attr-name">presto.coordinator.server.atguigu-presto</span><span class="token punctuation">=</span><span class="token attr-value">http://hadoop102:8881</span>
+<span class="token attr-name">catalog.atguigu-presto</span><span class="token punctuation">=</span><span class="token attr-value">hive</span>
+<span class="token attr-name">schema.atguigu-presto</span><span class="token punctuation">=</span><span class="token attr-value">default</span>
+<span class="token attr-name">sql.query.engines</span><span class="token punctuation">=</span><span class="token attr-value">presto</span>
+</code></pre>
+<p>4）在/opt/module/yanagishima-18.0路径下启动yanagishima</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 yanagishima-18.0]$
+nohup bin/yanagishima-start.sh >y.log 2>&1 &
+</code></pre>
+<p>5）启动web页面<br><a target="_blank" rel="noopener" href="http://hadoop102:7080/">http://hadoop102:7080</a><br>看到界面，进行查询了。<br>6）查看表结构</p>
+<img src="/2022/02/10/37074/%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84.png" class title="This is an example image">
+
+<p>这里有个Tree View，可以查看所有表的结构，包括Schema、表、字段等。<br>比如执行select * from hive.dw_weather.tmp_news_click limit 10，这个句子里Hive这个词可以删掉，是上面配置的Catalog</p>
+<img src="/2022/02/10/37074/%E9%85%8D%E7%BD%AE%E7%9A%84Catalog.png" class title="This is an example image">
+
+<p>每个表后面都有个复制键，点一下会复制完整的表名，然后再上面框里面输入sql语句，ctrl+enter键执行显示结果</p>
+<img src="/2022/02/10/37074/%E6%89%A7%E8%A1%8C%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C.png" class title="This is an example image">
+
+<h2 id="1-3-Presto优化之数据存储"><a href="#1-3-Presto优化之数据存储" class="headerlink" title="1.3 Presto优化之数据存储"></a>1.3 Presto优化之数据存储</h2><h3 id="1-3-1-合理设置分区"><a href="#1-3-1-合理设置分区" class="headerlink" title="1.3.1 合理设置分区"></a>1.3.1 合理设置分区</h3><p>与Hive类似，Presto会根据元数据信息读取分区数据，合理的分区能减少Presto数据读取量，提升查询性能。</p>
+<h3 id="1-3-2-使用列式存储"><a href="#1-3-2-使用列式存储" class="headerlink" title="1.3.2 使用列式存储"></a>1.3.2 使用列式存储</h3><p>Presto对ORC文件读取做了特定优化，因此在Hive中创建Presto使用的表时，建议采用ORC格式存储。相对于Parquet，Presto对ORC支持更好。</p>
+<h3 id="1-3-3-使用压缩"><a href="#1-3-3-使用压缩" class="headerlink" title="1.3.3 使用压缩"></a>1.3.3 使用压缩</h3><p>数据压缩可以减少节点间数据传输对IO带宽压力，对于即席查询需要快速解压，建议采用Snappy压缩。</p>
+<h2 id="1-4-Presto优化之查询SQL"><a href="#1-4-Presto优化之查询SQL" class="headerlink" title="1.4 Presto优化之查询SQL"></a>1.4 Presto优化之查询SQL</h2><h3 id="1-4-1-只选择使用的字段"><a href="#1-4-1-只选择使用的字段" class="headerlink" title="1.4.1 只选择使用的字段"></a>1.4.1 只选择使用的字段</h3><p>由于采用列式存储，选择需要的字段可加快字段的读取、减少数据量。避免采用*读取所有字段。<br>[GOOD]: SELECT time, user, host FROM tbl</p>
+<p>[BAD]:  SELECT * FROM tbl</p>
+<h3 id="1-4-2-过滤条件必须加上分区字段"><a href="#1-4-2-过滤条件必须加上分区字段" class="headerlink" title="1.4.2 过滤条件必须加上分区字段"></a>1.4.2 过滤条件必须加上分区字段</h3><p>对于有分区的表，where语句中优先使用分区字段进行过滤。acct_day是分区字段，visit_time是具体访问时间。<br>[GOOD]: SELECT time, user, host FROM tbl where acct_day=20171101</p>
+<p>[BAD]:  SELECT * FROM tbl where visit_time=20171101</p>
+<h3 id="1-4-3-Group-By语句优化"><a href="#1-4-3-Group-By语句优化" class="headerlink" title="1.4.3 Group By语句优化"></a>1.4.3 Group By语句优化</h3><p>合理安排Group by语句中字段顺序对性能有一定提升。将Group By语句中字段按照每个字段distinct数据多少进行降序排列。<br>[GOOD]: SELECT GROUP BY uid, gender</p>
+<p>[BAD]:  SELECT GROUP BY gender, uid</p>
+<h3 id="1-4-4-Order-by时使用Limit"><a href="#1-4-4-Order-by时使用Limit" class="headerlink" title="1.4.4 Order by时使用Limit"></a>1.4.4 Order by时使用Limit</h3><p>Order by需要扫描数据到单个worker节点进行排序，导致单个worker需要大量内存。如果是查询Top N或者Bottom N，使用limit可减少排序计算和内存压力。<br>[GOOD]: SELECT * FROM tbl ORDER BY time LIMIT 100</p>
+<p>[BAD]:  SELECT * FROM tbl ORDER BY time</p>
+<h3 id="1-4-5-使用Join语句时将大表放在左边"><a href="#1-4-5-使用Join语句时将大表放在左边" class="headerlink" title="1.4.5 使用Join语句时将大表放在左边"></a>1.4.5 使用Join语句时将大表放在左边</h3><p>Presto中join的默认算法是broadcast join，即将join左边的表分割到多个worker，然后将join右边的表数据整个复制一份发送到每个worker进行计算。如果右边的表数据量太大，则可能会报内存溢出错误。<br>[GOOD] SELECT … FROM large_table l join small_table s on l.id = s.id<br>[BAD] SELECT … FROM small_table s join large_table l on l.id = s.id</p>
+<h2 id="1-5-注意事项"><a href="#1-5-注意事项" class="headerlink" title="1.5 注意事项"></a>1.5 注意事项</h2><h3 id="1-5-1-字段名引用"><a href="#1-5-1-字段名引用" class="headerlink" title="1.5.1 字段名引用"></a>1.5.1 字段名引用</h3><p>避免和关键字冲突：MySQL对字段加反引号`、Presto对字段加双引号分割<br>当然，如果字段名称不是关键字，可以不加这个双引号。</p>
+<h3 id="1-5-2-时间函数"><a href="#1-5-2-时间函数" class="headerlink" title="1.5.2 时间函数"></a>1.5.2 时间函数</h3><p>对于Timestamp，需要进行比较的时候，需要添加Timestamp关键字，而MySQL中对Timestamp可以直接进行比较。<br>/<em>MySQL的写法</em>/<br>SELECT t FROM a WHERE t &gt; ‘2017-01-01 00:00:00’; </p>
+<p>/<em>Presto中的写法</em>/<br>SELECT t FROM a WHERE t &gt; timestamp ‘2017-01-01 00:00:00’;</p>
+<h3 id="1-5-3-不支持INSERT-OVERWRITE语法"><a href="#1-5-3-不支持INSERT-OVERWRITE语法" class="headerlink" title="1.5.3 不支持INSERT OVERWRITE语法"></a>1.5.3 不支持INSERT OVERWRITE语法</h3><p>Presto中不支持insert overwrite语法，只能先delete，然后insert into。</p>
+<h3 id="1-5-4-PARQUET格式"><a href="#1-5-4-PARQUET格式" class="headerlink" title="1.5.4 PARQUET格式"></a>1.5.4 PARQUET格式</h3><p>Presto目前支持Parquet格式，支持查询，但不支持insert。</p>
+<h1 id="第2章-Kylin"><a href="#第2章-Kylin" class="headerlink" title="第2章 Kylin"></a>第2章 Kylin</h1><h2 id="2-1-Kylin简介"><a href="#2-1-Kylin简介" class="headerlink" title="2.1 Kylin简介"></a>2.1 Kylin简介</h2><h3 id="2-1-1-Kylin-定义"><a href="#2-1-1-Kylin-定义" class="headerlink" title="2.1.1 Kylin 定义"></a>2.1.1 Kylin 定义</h3><p>Apache Kylin是一个开源的分布式分析引擎，提供Hadoop/Spark之上的SQL查询接口及多维分析（OLAP）能力以支持超大规模数据，最初由eBay Inc开发并贡献至开源社区。它能在亚秒内查询巨大的Hive表。</p>
+<h3 id="2-1-2-Kylin架构"><a href="#2-1-2-Kylin架构" class="headerlink" title="2.1.2 Kylin架构"></a>2.1.2 Kylin架构</h3><img src="/2022/02/10/37074/Kylin%E6%9E%B6%E6%9E%84.png" class title="This is an example image">
+
+<p>1）REST Server<br>REST Server是一套面向应用程序开发的入口点，旨在实现针对Kylin平台的应用开发工作。 此类应用程序可以提供查询、获取结果、触发cube构建任务、获取元数据以及获取用户权限等等。另外可以通过Restful接口实现SQL查询。<br>2）查询引擎（Query Engine）<br>当cube准备就绪后，查询引擎就能够获取并解析用户查询。它随后会与系统中的其它组件进行交互，从而向用户返回对应的结果。<br>3）路由器（Routing）<br>在最初设计时曾考虑过将Kylin不能执行的查询引导去Hive中继续执行，但在实践后发现Hive与Kylin的速度差异过大，导致用户无法对查询的速度有一致的期望，很可能大多数查询几秒内就返回结果了，而有些查询则要等几分钟到几十分钟，因此体验非常糟糕。最后这个路由功能在发行版中默认关闭。<br>4）元数据管理工具（Metadata）<br>Kylin是一款元数据驱动型应用程序。元数据管理工具是一大关键性组件，用于对保存在Kylin当中的所有元数据进行管理，其中包括最为重要的cube元数据。其它全部组件的正常运作都需以元数据管理工具为基础。 Kylin的元数据存储在hbase中。<br>5）任务引擎（Cube Build Engine）<br>这套引擎的设计目的在于处理所有离线任务，其中包括shell脚本、Java API以及Map Reduce任务等等。任务引擎对Kylin当中的全部任务加以管理与协调，从而确保每一项任务都能得到切实执行并解决其间出现的故障。</p>
+<h3 id="2-1-3-Kylin特点"><a href="#2-1-3-Kylin特点" class="headerlink" title="2.1.3 Kylin特点"></a>2.1.3 Kylin特点</h3><p>Kylin的主要特点包括支持SQL接口、支持超大规模数据集、亚秒级响应、可伸缩性、高吞吐率、BI工具集成等。<br>1）标准SQL接口：Kylin是以标准的SQL作为对外服务的接口。<br>2）支持超大数据集：Kylin对于大数据的支撑能力可能是目前所有技术中最为领先的。早在2015年eBay的生产环境中就能支持百亿记录的秒级查询，之后在移动的应用场景中又有了千亿记录秒级查询的案例。<br>3）亚秒级响应：Kylin拥有优异的查询相应速度，这点得益于预计算，很多复杂的计算，比如连接、聚合，在离线的预计算过程中就已经完成，这大大降低了查询时刻所需的计算量，提高了响应速度。<br>4）可伸缩性和高吞吐率：单节点Kylin可实现每秒70个查询，还可以搭建Kylin的集群。<br>5）BI工具集成<br>Kylin可以与现有的BI工具集成，具体包括如下内容。<br>ODBC：与Tableau、Excel、PowerBI等工具集成<br>JDBC：与Saiku、BIRT等Java工具集成<br>RestAPI：与JavaScript、Web网页集成<br>Kylin开发团队还贡献了Zepplin的插件，也可以使用Zepplin来访问Kylin服务。</p>
+<h2 id="2-2-Kylin安装"><a href="#2-2-Kylin安装" class="headerlink" title="2.2 Kylin安装"></a>2.2 Kylin安装</h2><h3 id="2-2-1-Kylin依赖环境"><a href="#2-2-1-Kylin依赖环境" class="headerlink" title="2.2.1 Kylin依赖环境"></a>2.2.1 Kylin依赖环境</h3><p>安装Kylin前需先部署好Hadoop、Hive、Zookeeper、HBase，并且需要在/etc/profile中配置以下环境变量HADOOP_HOME，HIVE_HOME，HBASE_HOME，记得source使其生效。</p>
+<h3 id="2-2-2-Kylin搭建"><a href="#2-2-2-Kylin搭建" class="headerlink" title="2.2.2 Kylin搭建"></a>2.2.2 Kylin搭建</h3><p>1）上传Kylin安装包apache-kylin-3.0.2-bin.tar.gz<br>2）解压apache-kylin-3.0.2-bin.tar.gz到/opt/module</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 sorfware]$ tar -zxvf apache-kylin-3.0.2-bin.tar.gz -C /opt/module/
+
+[atguigu@hadoop102 module]$ mv /opt/module/apache-kylin-3.0.2-bin /opt/module/kylin
+</code></pre>
+<h3 id="2-2-3-Kylin兼容性问题"><a href="#2-2-3-Kylin兼容性问题" class="headerlink" title="2.2.3 Kylin兼容性问题"></a>2.2.3 Kylin兼容性问题</h3><p>修改/opt/module/kylin/bin/find-spark-dependency.sh，排除冲突的jar包<br>需要增加的内容：! -name ‘<em>jackson</em>‘ ! -name ‘<em>metastore</em>‘<br>注意前后保留空格</p>
+<img src="/2022/02/10/37074/%E5%89%8D%E5%90%8E%E4%BF%9D%E7%95%99%E7%A9%BA%E6%A0%BC.png" class title="This is an example image">
+
+<h3 id="2-2-4-Kylin启动"><a href="#2-2-4-Kylin启动" class="headerlink" title="2.2.4 Kylin启动"></a>2.2.4 Kylin启动</h3><p>（1）启动Kylin之前，需先启动Hadoop（hdfs，yarn，jobhistoryserver）、Zookeeper、Hbase<br>（2）启动Kylin</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 kylin]$ bin/kylin.sh start
+</code></pre>
+<p>启动之后查看各个节点进程：<br>——————— hadoop102 —————-<br>3360 JobHistoryServer<br>31425 HMaster<br>3282 NodeManager<br>3026 DataNode<br>53283 Jps<br>2886 NameNode<br>44007 RunJar<br>2728 QuorumPeerMain<br>31566 HRegionServer<br>——————— hadoop103 —————-<br>5040 HMaster<br>2864 ResourceManager<br>9729 Jps<br>2657 QuorumPeerMain<br>4946 HRegionServer<br>2979 NodeManager<br>2727 DataNode<br>——————— hadoop104 —————-<br>4688 HRegionServer<br>2900 NodeManager<br>9848 Jps<br>2636 QuorumPeerMain<br>2700 DataNode<br>2815 SecondaryNameNode</p>
+<p>在<a target="_blank" rel="noopener" href="http://hadoop102:7070/kylin%E6%9F%A5%E7%9C%8BWeb%E9%A1%B5%E9%9D%A2">http://hadoop102:7070/kylin查看Web页面</a></p>
+<img src="/2022/02/10/37074/%E6%9F%A5%E7%9C%8BWeb%E9%A1%B5%E9%9D%A2.png" class title="This is an example image">
+
+<p>用户名为：ADMIN，密码为：KYLIN<br>5）关闭Kylin<br>[atguigu@hadoop102 kylin]$ bin/kylin.sh stop</p>
+<h2 id="2-3-Kylin使用"><a href="#2-3-Kylin使用" class="headerlink" title="2.3 Kylin使用"></a>2.3 Kylin使用</h2><p>以gmall数据仓库中的dwd_order_detail作为事实表，dim_user_info、dim_sku_info、dim_base_province作为维度表，构建星型模型，并演示如何使用Kylin进行OLAP分析。</p>
+<h3 id="2-3-1-创建工程"><a href="#2-3-1-创建工程" class="headerlink" title="2.3.1 创建工程"></a>2.3.1 创建工程</h3><p>1）点击下图中的”+”。</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BB.png" class title="This is an example image">
+
+<p>2）填写项目名称和描述信息，并点击Submit按钮提交。</p>
+<img src="/2022/02/10/37074/Submit%E6%8C%89%E9%92%AE%E6%8F%90%E4%BA%A4.png" class title="This is an example image">
+
+<h3 id="2-3-2-获取数据源"><a href="#2-3-2-获取数据源" class="headerlink" title="2.3.2 获取数据源"></a>2.3.2 获取数据源</h3><p>1）点击DataSource</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBDataSource.png" class title="This is an example image">
+
+<p>2）点击下图按钮导入Hive表</p>
+<img src="/2022/02/10/37074/%E5%AF%BC%E5%85%A5Hive%E8%A1%A8.png" class title="This is an example image">
+
+<p>3）选择以下表格，并点击Sync按钮<br>dwd_order_detail<br>dim_sku_info<br>dim_user_info<br>dim_base_province</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBSync%E6%8C%89%E9%92%AE.png" class title="This is an example image">
+
+<p>注意事项：<br>Kylin不能处理Hive表中的复杂数据类型（Array,Map,Struct）,即便复杂类型的字段并未参与到计算之中。故在加载Hive数据源时，不能直接加载带有复杂数据类型字段的表。而在dim_sku_info表中存在两个复杂数据类型的字段（平台属性和销售属性），故dim_sku_info不能直接加载，需对其进行以下处理。<br>（1）在hive客户端创建一个视图，如下。该视图已经将dim_sku_info表中的复杂数据类型的字段去掉，在后续的计算中，不再使用dim_sku_info，而使用dim_sku_info_view。</p>
+<pre class=" language-sql"><code class="language-sql">hive <span class="token punctuation">(</span>gmall<span class="token punctuation">)</span><span class="token operator">></span>
+<span class="token keyword">create</span> <span class="token keyword">view</span> dim_sku_info_view
+<span class="token keyword">as</span>
+<span class="token keyword">select</span>
+    id<span class="token punctuation">,</span>
+    price<span class="token punctuation">,</span>
+    sku_name<span class="token punctuation">,</span>
+    sku_desc<span class="token punctuation">,</span>
+    weight<span class="token punctuation">,</span>
+    is_sale<span class="token punctuation">,</span>
+    spu_id<span class="token punctuation">,</span>
+    spu_name<span class="token punctuation">,</span>
+    category3_id<span class="token punctuation">,</span>
+    category3_name<span class="token punctuation">,</span>
+    category2_id<span class="token punctuation">,</span>
+    category2_name<span class="token punctuation">,</span>
+    category1_id<span class="token punctuation">,</span>
+    category1_name<span class="token punctuation">,</span>
+    tm_id<span class="token punctuation">,</span>
+    tm_name<span class="token punctuation">,</span>
+    create_time
+<span class="token keyword">from</span> dim_sku_info<span class="token punctuation">;</span>
+</code></pre>
+<p>（2）在kylin中重新导入dim_sku_info_view视图</p>
+<h3 id="2-3-3-创建model"><a href="#2-3-3-创建model" class="headerlink" title="2.3.3 创建model"></a>2.3.3 创建model</h3><p>1）点击Models，点击”+New”按钮，点击”★New Model”按钮。</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBModels.png" class title="This is an example image">
+
+<p>2）填写Model信息，点击Next</p>
+<img src="/2022/02/10/37074/%E5%A1%AB%E5%86%99Model.png" class title="This is an example image">
+
+<p>3）指定事实表</p>
+<img src="/2022/02/10/37074/%E6%8C%87%E5%AE%9A%E4%BA%8B%E5%AE%9E%E8%A1%A8.png" class title="This is an example image">
+
+<p>4）选择维度表，并指定事实表和维度表的关联条件，点击Ok</p>
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E7%BB%B4%E5%BA%A6%E8%A1%A8.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E7%BB%B4%E5%BA%A6%E8%A1%A81.png" class title="This is an example image">
+
+<p>维度表添加完毕之后，点击Next</p>
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E7%BB%B4%E5%BA%A6%E8%A1%A82.png" class title="This is an example image">
+
+<p>5）指定维度字段，并点击Next</p>
+<img src="/2022/02/10/37074/%E6%8C%87%E5%AE%9A%E7%BB%B4%E5%BA%A6%E5%AD%97%E6%AE%B5.png" class title="This is an example image">
+
+<p>6）指定度量字段，并点击Next</p>
+<img src="/2022/02/10/37074/%E6%8C%87%E5%AE%9A%E5%BA%A6%E9%87%8F%E5%AD%97%E6%AE%B5.png" class title="This is an example image">
+
+<p>7）指定事实表分区字段（仅支持时间分区），点击Save按钮，model创建完毕</p>
+<img src="/2022/02/10/37074/%E6%8C%87%E5%AE%9A%E4%BA%8B%E5%AE%9E%E8%A1%A8%E5%88%86%E5%8C%BA%E5%AD%97%E6%AE%B5.png" class title="This is an example image">
+
+<h3 id="2-3-4-构建cube"><a href="#2-3-4-构建cube" class="headerlink" title="2.3.4 构建cube"></a>2.3.4 构建cube</h3><p>1）点击new， 并点击new cube</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBnew.png" class title="This is an example image">
+
+<p>2）填写cube信息，选择cube所依赖的model，并点击next</p>
+<img src="/2022/02/10/37074/%E5%A1%AB%E5%86%99cube%E4%BF%A1%E6%81%AF.png" class title="This is an example image">
+
+<p>3）选择所需的维度，如下图所示</p>
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E6%89%80%E9%9C%80%E7%9A%84%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E6%89%80%E9%9C%80%E7%9A%84%E7%BB%B4%E5%BA%A61.png" class title="This is an example image">
+
+<p>4）选择所需度量值，如下图所示</p>
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E6%89%80%E9%9C%80%E5%BA%A6%E9%87%8F%E5%80%BC.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9%E6%89%80%E9%9C%80%E5%BA%A6%E9%87%8F%E5%80%BC1.png" class title="This is an example image">
+
+<p>4）cube自动合并设置，cube需按照日期分区字段每天进行构建，每次构建的结果会保存在Hbase中的一张表内，为提高查询效率，需将每日的cube进行合并，此处可设置合并周期。</p>
+<img src="/2022/02/10/37074/cube%E8%87%AA%E5%8A%A8%E5%90%88%E5%B9%B6%E8%AE%BE%E7%BD%AE.png" class title="This is an example image">
+
+<p>5）Kylin高级配置（优化相关，暂时跳过）</p>
+<img src="/2022/02/10/37074/Kylin%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE.png" class title="This is an example image">
+
+<p>6）Kylin相关属性配置覆盖</p>
+<img src="/2022/02/10/37074/Kylin%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E8%A6%86%E7%9B%96.png" class title="This is an example image">
+
+<p>7）Cube信息总览，点击Save，Cube创建完成</p>
+<img src="/2022/02/10/37074/Cube%E4%BF%A1%E6%81%AF%E6%80%BB%E8%A7%88.png" class title="This is an example image">
+
+<p>8）构建Cube（计算），点击对应Cube的action按钮，选择build</p>
+<img src="/2022/02/10/37074/%E6%9E%84%E5%BB%BACube.png" class title="This is an example image">
+
+<p>9）选择要构建的时间区间，点击Submit</p>
+<img src="/2022/02/10/37074/%E6%9E%84%E5%BB%BA%E7%9A%84%E6%97%B6%E9%97%B4%E5%8C%BA%E9%97%B4.png" class title="This is an example image">
+
+<p>10）点击Monitor查看构建进度</p>
+<img src="/2022/02/10/37074/%E6%9F%A5%E7%9C%8B%E6%9E%84%E5%BB%BA%E8%BF%9B%E5%BA%A6.png" class title="This is an example image">
+
+<h3 id="2-3-5-使用进阶"><a href="#2-3-5-使用进阶" class="headerlink" title="2.3.5 使用进阶"></a>2.3.5 使用进阶</h3><p>1）每日全量维度表及拉链维度表重复Key问题如何处理<br>按照上述流程，会发现，在cube构建流程中出现以下错误</p>
+<img src="/2022/02/10/37074/%E9%94%99%E8%AF%AF.png" class title="This is an example image">
+
+<p>错误原因分析：<br>上述错误原因是model中的维度表dim_user_info为拉链表、dim_sku_info（dim_sku_info_view）为每日全量表，故使用整张表作为维度表，必然会出现订单明细表中同一个user_id或者sku_id对应多条数据的问题，针对上述问题，有以下解决方案。<br>在hive客户端为拉链表以及每日全量维度表创建视图，在创建视图时对数据加以过滤，保证从视图中查出的数据是一份全量最新的数据即可。<br>（1）创建维度表视图<br>–拉链维度表视图</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> dim_user_info_view <span class="token keyword">as</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dim_user_info <span class="token keyword">where</span> dt<span class="token operator">=</span><span class="token string">'9999-99-99'</span><span class="token punctuation">;</span>
+</code></pre>
+<p>–全量维度表视图（注意排除复杂数据类型字段）</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> dim_sku_info_view
+<span class="token keyword">as</span>
+<span class="token keyword">select</span>
+    id<span class="token punctuation">,</span>
+    price<span class="token punctuation">,</span>
+    sku_name<span class="token punctuation">,</span>
+    sku_desc<span class="token punctuation">,</span>
+    weight<span class="token punctuation">,</span>
+    is_sale<span class="token punctuation">,</span>
+    spu_id<span class="token punctuation">,</span>
+    spu_name<span class="token punctuation">,</span>
+    category3_id<span class="token punctuation">,</span>
+    category3_name<span class="token punctuation">,</span>
+    category2_id<span class="token punctuation">,</span>
+    category2_name<span class="token punctuation">,</span>
+    category1_id<span class="token punctuation">,</span>
+    category1_name<span class="token punctuation">,</span>
+    tm_id<span class="token punctuation">,</span>
+    tm_name<span class="token punctuation">,</span>
+    create_time
+<span class="token keyword">from</span> dim_sku_info
+<span class="token keyword">where</span> dt<span class="token operator">=</span>date_add<span class="token punctuation">(</span><span class="token keyword">current_date</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>–当前情形我们先创建一个2020-06-15的视图，由于之前已经创建了dim_sku_info_view，故无需重新创建，修改之前的视图即可。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">view</span> dim_sku_info_view
+<span class="token keyword">as</span>
+<span class="token keyword">select</span>
+    id<span class="token punctuation">,</span>
+    price<span class="token punctuation">,</span>
+    sku_name<span class="token punctuation">,</span>
+    sku_desc<span class="token punctuation">,</span>
+    weight<span class="token punctuation">,</span>
+    is_sale<span class="token punctuation">,</span>
+    spu_id<span class="token punctuation">,</span>
+    spu_name<span class="token punctuation">,</span>
+    category3_id<span class="token punctuation">,</span>
+    category3_name<span class="token punctuation">,</span>
+    category2_id<span class="token punctuation">,</span>
+    category2_name<span class="token punctuation">,</span>
+    category1_id<span class="token punctuation">,</span>
+    category1_name<span class="token punctuation">,</span>
+    tm_id<span class="token punctuation">,</span>
+    tm_name<span class="token punctuation">,</span>
+    create_time
+<span class="token keyword">from</span> dim_sku_info
+<span class="token keyword">where</span> dt<span class="token operator">=</span><span class="token string">'2020-06-15'</span><span class="token punctuation">;</span>
+</code></pre>
+<p>（2）在DataSource中导入新创建的视图，之前的维度表，可选择性删除。<br>（3）重新创建model、cube。<br>2）如何实现每日自动构建cube<br>Kylin提供了Restful API，因次我们可以将构建cube的命令写到脚本中，将脚本交给azkaban或者oozie这样的调度工具，以实现定时调度的功能。<br>脚本如下:</p>
+<pre class=" language-sh"><code class="language-sh">#!/bin/bash
+cube_name=order_cube
+do_date=`date -d '-1 day' +%F`
+
+#获取00:00时间戳
+start_date_unix=`date -d "$do_date 08:00:00" +%s`
+start_date=$(($start_date_unix*1000))
+
+#获取24:00的时间戳
+stop_date=$(($start_date+86400000))
+
+curl -X PUT -H "Authorization: Basic QURNSU46S1lMSU4=" -H 'Content-Type: application/json' -d '{"startTime":'$start_date', "endTime":'$stop_date', "buildType":"BUILD"}' http://hadoop102:7070/kylin/api/cubes/$cube_name/build
+</code></pre>
+<h2 id="2-4-Kylin-Cube构建原理"><a href="#2-4-Kylin-Cube构建原理" class="headerlink" title="2.4 Kylin Cube构建原理"></a>2.4 Kylin Cube构建原理</h2><h3 id="2-4-1-维度和度量"><a href="#2-4-1-维度和度量" class="headerlink" title="2.4.1 维度和度量"></a>2.4.1 维度和度量</h3><p>维度：即观察数据的角度。比如员工数据，可以从性别角度来分析，也可以更加细化，从入职时间或者地区的维度来观察。维度是一组离散的值，比如说性别中的男和女，或者时间维度上的每一个独立的日期。因此在统计时可以将维度值相同的记录聚合在一起，然后应用聚合函数做累加、平均、最大和最小值等聚合计算。<br>度量：即被聚合（观察）的统计值，也就是聚合运算的结果。比如说员工数据中不同性别员工的人数，又或者说在同一年入职的员工有多少。</p>
+<h3 id="2-4-2-Cube和Cuboid"><a href="#2-4-2-Cube和Cuboid" class="headerlink" title="2.4.2 Cube和Cuboid"></a>2.4.2 Cube和Cuboid</h3><p>有了维度跟度量，一个数据表或者数据模型上的所有字段就可以分类了，它们要么是维度，要么是度量（可以被聚合）。于是就有了根据维度和度量做预计算的Cube理论。<br>给定一个数据模型，我们可以对其上的所有维度进行聚合，对于N个维度来说，组合`的所有可能性共有2n种。对于每一种维度的组合，将度量值做聚合计算，然后将结果保存为一个物化视图，称为Cuboid。所有维度组合的Cuboid作为一个整体，称为Cube。<br>下面举一个简单的例子说明，假设有一个电商的销售数据集，其中维度包括时间[time]、商品[item]、地区[location]和供应商[supplier]，度量为销售额。那么所有维度的组合就有24 = 16种，如下图所示：</p>
+<img src="/2022/02/10/37074/%E7%BB%B4%E5%BA%A6%E8%B7%9F%E5%BA%A6%E9%87%8F.png" class title="This is an example image">
+
+<p>一维度（1D）的组合有：[time]、[item]、[location]和[supplier]4种；<br>二维度（2D）的组合有：[time, item]、[time, location]、[time, supplier]、[item, location]、[item, supplier]、[location, supplier]3种；<br>三维度（3D）的组合也有4种；<br>最后还有零维度（0D）和四维度（4D）各有一种，总共16种。<br>注意：每一种维度组合就是一个Cuboid，16个Cuboid整体就是一个Cube。</p>
+<h3 id="2-4-3-Cube构建算法"><a href="#2-4-3-Cube构建算法" class="headerlink" title="2.4.3 Cube构建算法"></a>2.4.3 Cube构建算法</h3><p>1）逐层构建算法（layer）</p>
+
+
+<p>我们知道，一个N维的Cube，是由1个N维子立方体、N个(N-1)维子立方体、N*(N-1)/2个(N-2)维子立方体、……、N个1维子立方体和1个0维子立方体构成，总共有2^N个子立方体组成，在逐层算法中，按维度数逐层减少来计算，每个层级的计算（除了第一层，它是从原始数据聚合而来），是基于它上一层级的结果来计算的。比如，[Group by A, B]的结果，可以基于[Group by A, B, C]的结果，通过去掉C后聚合得来的；这样可以减少重复计算；当 0维度Cuboid计算出来的时候，整个Cube的计算也就完成了。<br>每一轮的计算都是一个MapReduce任务，且串行执行；一个N维的Cube，至少需要N次MapReduce Job。</p>
+
+
+<p>算法优点：<br>1）此算法充分利用了MapReduce的优点，处理了中间复杂的排序和shuffle工作，故而算法代码清晰简单，易于维护；<br>2）受益于Hadoop的日趋成熟，此算法非常稳定，即便是集群资源紧张时，也能保证最终能够完成。<br>算法缺点：<br>1）当Cube有比较多维度的时候，所需要的MapReduce任务也相应增加；由于Hadoop的任务调度需要耗费额外资源，特别是集群较庞大的时候，反复递交任务造成的额外开销会相当可观；<br>2）由于Mapper逻辑中并未进行聚合操作，所以每轮MR的shuffle工作量都很大，导致效率低下。<br>3）对HDFS的读写操作较多：由于每一层计算的输出会用做下一层计算的输入，这些Key-Value需要写到HDFS上；当所有计算都完成后，Kylin还需要额外的一轮任务将这些文件转成HBase的HFile格式，以导入到HBase中去；<br>总体而言，该算法的效率较低，尤其是当Cube维度数较大的时候。<br>2）快速构建算法（inmem）</p>
+<img src="/2022/02/10/37074/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E7%AE%97%E6%B3%95.png" class title="This is an example image">
+
+<p>也被称作“逐段”(By Segment) 或“逐块”(By Split) 算法，从1.5.x开始引入该算法，该算法的主要思想是，每个Mapper将其所分配到的数据块，计算成一个完整的小Cube 段（包含所有Cuboid）。每个Mapper将计算完的Cube段输出给Reducer做合并，生成大Cube，也就是最终结果。如图所示解释了此流程。</p>
+
+
+<p>与旧算法相比，快速算法主要有两点不同：<br>1） Mapper会利用内存做预聚合，算出所有组合；Mapper输出的每个Key都是不同的，这样会减少输出到Hadoop MapReduce的数据量，Combiner也不再需要；<br>2）一轮MapReduce便会完成所有层次的计算，减少Hadoop任务的调配。</p>
+<h3 id="2-4-4-Cube存储原理"><a href="#2-4-4-Cube存储原理" class="headerlink" title="2.4.4 Cube存储原理"></a>2.4.4 Cube存储原理</h3>
+
+<img src="/2022/02/10/37074/Cube%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%861.png" class title="This is an example image">
+
+<h2 id="2-5-Kylin-Cube构建优化"><a href="#2-5-Kylin-Cube构建优化" class="headerlink" title="2.5 Kylin Cube构建优化"></a>2.5 Kylin Cube构建优化</h2><h3 id="2-5-1-使用衍生维度（derived-dimension）"><a href="#2-5-1-使用衍生维度（derived-dimension）" class="headerlink" title="2.5.1 使用衍生维度（derived dimension）"></a>2.5.1 使用衍生维度（derived dimension）</h3><p>衍生维度用于在有效维度内将维度表上的非主键维度排除掉，并使用维度表的主键（其实是事实表上相应的外键）来替代它们。Kylin会在底层记录维度表主键与维度表其他维度之间的映射关系，以便在查询时能够动态地将维度表的主键“翻译”成这些非主键维度，并进行实时聚合。</p>
+<img src="/2022/02/10/37074/%E8%A1%8D%E7%94%9F%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<p>虽然衍生维度具有非常大的吸引力，但这也并不是说所有维度表上的维度都得变成衍生维度，如果从维度表主键到某个维度表维度所需要的聚合工作量非常大，则不建议使用衍生维度。</p>
+<h3 id="2-5-2-使用聚合组（Aggregation-group）"><a href="#2-5-2-使用聚合组（Aggregation-group）" class="headerlink" title="2.5.2 使用聚合组（Aggregation group）"></a>2.5.2 使用聚合组（Aggregation group）</h3><p>聚合组（Aggregation Group）是一种强大的剪枝工具。聚合组假设一个Cube的所有维度均可以根据业务需求划分成若干组（当然也可以是一个组），由于同一个组内的维度更可能同时被同一个查询用到，因此会表现出更加紧密的内在关联。每个分组的维度集合均是Cube所有维度的一个子集，不同的分组各自拥有一套维度集合，它们可能与其他分组有相同的维度，也可能没有相同的维度。每个分组各自独立地根据自身的规则贡献出一批需要被物化的Cuboid，所有分组贡献的Cuboid的并集就成为了当前Cube中所有需要物化的Cuboid的集合。不同的分组有可能会贡献出相同的Cuboid，构建引擎会察觉到这点，并且保证每一个Cuboid无论在多少个分组中出现，它都只会被物化一次。<br>对于每个分组内部的维度，用户可以使用如下三种可选的方式定义，它们之间的关系，具体如下。<br>1）强制维度（Mandatory），如果一个维度被定义为强制维度，那么这个分组产生的所有Cuboid中每一个Cuboid都会包含该维度。每个分组中都可以有0个、1个或多个强制维度。如果根据这个分组的业务逻辑，则相关的查询一定会在过滤条件或分组条件中，因此可以在该分组中把该维度设置为强制维度。</p>
+<img src="/2022/02/10/37074/%E5%BC%BA%E5%88%B6%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<p>2）层级维度（Hierarchy），每个层级包含两个或更多个维度。假设一个层级中包含D1，D2…Dn这n个维度，那么在该分组产生的任何Cuboid中， 这n个维度只会以（），（D1），（D1，D2）…（D1，D2…Dn）这n+1种形式中的一种出现。每个分组中可以有0个、1个或多个层级，不同的层级之间不应当有共享的维度。如果根据这个分组的业务逻辑，则多个维度直接存在层级关系，因此可以在该分组中把这些维度设置为层级维度。</p>
+<img src="/2022/02/10/37074/%E5%B1%82%E7%BA%A7%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<p>3）联合维度（Joint），每个联合中包含两个或更多个维度，如果某些列形成一个联合，那么在该分组产生的任何Cuboid中，这些联合维度要么一起出现，要么都不出现。每个分组中可以有0个或多个联合，但是不同的联合之间不应当有共享的维度（否则它们可以合并成一个联合）。如果根据这个分组的业务逻辑，多个维度在查询中总是同时出现，则可以在该分组中把这些维度设置为联合维度。</p>
+<img src="/2022/02/10/37074/%E8%81%94%E5%90%88%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<p>这些操作可以在Cube Designer的Advanced Setting中的Aggregation Groups区域完成，如下图所示。</p>
+
+
+<p>聚合组的设计非常灵活，甚至可以用来描述一些极端的设计。假设我们的业务需求非常单一，只需要某些特定的Cuboid，那么可以创建多个聚合组，每个聚合组代表一个Cuboid。具体的方法是在聚合组中先包含某个Cuboid所需的所有维度，然后把这些维度都设置为强制维度。这样当前的聚合组就只能产生我们想要的那一个Cuboid了。<br>再比如，有的时候我们的Cube中有一些基数非常大的维度，如果不做特殊处理，它就会和其他的维度进行各种组合，从而产生一大堆包含它的Cuboid。包含高基数维度的Cuboid在行数和体积上往往非常庞大，这会导致整个Cube的膨胀率变大。如果根据业务需求知道这个高基数的维度只会与若干个维度（而不是所有维度）同时被查询到，那么就可以通过聚合组对这个高基数维度做一定的“隔离”。我们把这个高基数的维度放入一个单独的聚合组，再把所有可能会与这个高基数维度一起被查询到的其他维度也放进来。这样，这个高基数的维度就被“隔离”在一个聚合组中了，所有不会与它一起被查询到的维度都没有和它一起出现在任何一个分组中，因此也就不会有多余的Cuboid产生。这点也大大减少了包含该高基数维度的Cuboid的数量，可以有效地控制Cube的膨胀率。</p>
+<h3 id="2-5-3-Row-Key优化"><a href="#2-5-3-Row-Key优化" class="headerlink" title="2.5.3 Row Key优化"></a>2.5.3 Row Key优化</h3><p>Kylin会把所有的维度按照顺序组合成一个完整的Rowkey，并且按照这个Rowkey升序排列Cuboid中所有的行。<br>设计良好的Rowkey将更有效地完成数据的查询过滤和定位，减少IO次数，提高查询速度，维度在rowkey中的次序，对查询性能有显著的影响。<br>Row key的设计原则如下：<br>1）被用作过滤的维度放在前边。</p>
+<img src="/2022/02/10/37074/%E8%BF%87%E6%BB%A4%E7%9A%84%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<p>2）基数大的维度放在基数小的维度前边。</p>
+<img src="/2022/02/10/37074/%E5%9F%BA%E6%95%B0%E5%A4%A7%E7%9A%84%E7%BB%B4%E5%BA%A6.png" class title="This is an example image">
+
+<h2 id="2-6-Kylin-BI工具集成"><a href="#2-6-Kylin-BI工具集成" class="headerlink" title="2.6 Kylin BI工具集成"></a>2.6 Kylin BI工具集成</h2><p>可以与Kylin结合使用的可视化工具很多，例如：<br>ODBC：与Tableau、Excel、PowerBI等工具集成<br>JDBC：与Saiku、BIRT等Java工具集成<br>RestAPI：与JavaScript、Web网页集成<br>Kylin开发团队还贡献了Zepplin的插件，也可以使用Zepplin来访问Kylin服务。</p>
+<h3 id="2-6-1-JDBC"><a href="#2-6-1-JDBC" class="headerlink" title="2.6.1 JDBC"></a>2.6.1 JDBC</h3><p>1）新建项目并导入依赖</p>
+<pre class=" language-xml-dtd"><code class="language-xml-dtd"> <dependencies>
+        <dependency>
+            <groupId>org.apache.kylin</groupId>
+            <artifactId>kylin-jdbc</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+    </dependencies>
+</code></pre>
+<p>2）编码</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>atguigu<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestKylin</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+    
+        <span class="token comment" spellcheck="true">//Kylin_JDBC 驱动</span>
+        String KYLIN_DRIVER <span class="token operator">=</span> <span class="token string">"org.apache.kylin.jdbc.Driver"</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//Kylin_URL</span>
+        String KYLIN_URL <span class="token operator">=</span> <span class="token string">"jdbc:kylin://hadoop102:7070/FirstProject"</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//Kylin的用户名</span>
+        String KYLIN_USER <span class="token operator">=</span> <span class="token string">"ADMIN"</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//Kylin的密码</span>
+        String KYLIN_PASSWD <span class="token operator">=</span> <span class="token string">"KYLIN"</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//添加驱动信息</span>
+        Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>KYLIN_DRIVER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//获取连接</span>
+        Connection connection <span class="token operator">=</span> DriverManager<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>KYLIN_URL<span class="token punctuation">,</span> KYLIN_USER<span class="token punctuation">,</span> KYLIN_PASSWD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//预编译SQL</span>
+        PreparedStatement ps <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">prepareStatement</span><span class="token punctuation">(</span><span class="token string">"SELECT sum(sal) FROM emp group by deptno"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//执行查询</span>
+        ResultSet resultSet <span class="token operator">=</span> ps<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token comment" spellcheck="true">//遍历打印</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>resultSet<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>resultSet<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3）结果展示</p>
+<img src="/2022/02/10/37074/%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA.png" class title="This is an example image">
+
+<h3 id="2-6-2-Zepplin"><a href="#2-6-2-Zepplin" class="headerlink" title="2.6.2 Zepplin"></a>2.6.2 Zepplin</h3><p>1）Zepplin安装与启动<br>（1）将zeppelin-0.8.0-bin-all.tgz上传至Linux<br>（2）解压zeppelin-0.8.0-bin-all.tgz之/opt/module</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 sorfware]$ tar -zxvf zeppelin-0.8.0-bin-all.tgz -C /opt/module/
+</code></pre>
+<p>（3）修改名称</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 module]$ mv zeppelin-0.8.0-bin-all/ zeppelin
+</code></pre>
+<p>（4）启动</p>
+<pre class=" language-shell"><code class="language-shell">[atguigu@hadoop102 zeppelin]$ bin/zeppelin-daemon.sh start
+</code></pre>
+<p>可登录网页查看，web默认端口号为8080<br><a target="_blank" rel="noopener" href="http://hadoop102:8080/">http://hadoop102:8080</a></p>
+<img src="/2022/02/10/37074/%E7%BD%91%E9%A1%B5%E6%9F%A5%E7%9C%8B.png" class title="This is an example image">
+
+<p>2）配置Zepplin支持Kylin<br>（1）点击右上角anonymous选择Interpreter</p>
+<img src="/2022/02/10/37074/%E9%80%89%E6%8B%A9Interpreter.png" class title="This is an example image">
+
+<p>（2）搜索Kylin插件并修改相应的配置</p>
+<img src="/2022/02/10/37074/%E6%90%9C%E7%B4%A2Kylin%E6%8F%92%E4%BB%B6.png" class title="This is an example image">
+
+<p>（3）修改完成点击Save完成</p>
+<img src="/2022/02/10/37074/Save%E5%AE%8C%E6%88%90.png" class title="This is an example image">
+
+<p>3）案例实操<br>需求：查询员工详细信息，并使用各种图表进行展示<br>（1）点击Notebook创建新的note</p>
+
+
+<p>（2）填写Note Name点击Create</p>
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBCreate.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E7%82%B9%E5%87%BBCreate1.png" class title="This is an example image">
+
+<p>（3）执行查询</p>
+
+
+<p>（4）结果展示</p>
+<img src="/2022/02/10/37074/%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA1.png" class title="This is an example image">
+
+<p>（5）其他图表格式</p>
+<img src="/2022/02/10/37074/%E5%9B%BE%E8%A1%A8%E6%A0%BC%E5%BC%8F.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E5%9B%BE%E8%A1%A8%E6%A0%BC%E5%BC%8F1.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E5%9B%BE%E8%A1%A8%E6%A0%BC%E5%BC%8F2.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E5%9B%BE%E8%A1%A8%E6%A0%BC%E5%BC%8F3.png" class title="This is an example image">
+
+<img src="/2022/02/10/37074/%E5%9B%BE%E8%A1%A8%E6%A0%BC%E5%BC%8F4.png" class title="This is an example image">
+
+<p><a href="https://bigworldxld.github.io/2022/02/11/undefined.html">大数据项目之尚品汇（6集群监控Zabbix）</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2022/02/10/37074.html">https://bigworldxld.github.io/2022/02/10/37074.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/hive/">
+                                    <span class="chip bg-color">hive</span>
+                                </a>
+                            
+                                <a href="/tags/spark/">
+                                    <span class="chip bg-color">spark</span>
+                                </a>
+                            
+                                <a href="/tags/Azkaban/">
+                                    <span class="chip bg-color">Azkaban</span>
+                                </a>
+                            
+                                <a href="/tags/kafka/">
+                                    <span class="chip bg-color">kafka</span>
+                                </a>
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/zookeeper/">
+                                    <span class="chip bg-color">zookeeper</span>
+                                </a>
+                            
+                                <a href="/tags/flume/">
+                                    <span class="chip bg-color">flume</span>
+                                </a>
+                            
+                                <a href="/tags/sqoop/">
+                                    <span class="chip bg-color">sqoop</span>
+                                </a>
+                            
+                                <a href="/tags/superset/">
+                                    <span class="chip bg-color">superset</span>
+                                </a>
+                            
+                                <a href="/tags/hbase/">
+                                    <span class="chip bg-color">hbase</span>
+                                </a>
+                            
+                                <a href="/tags/Presto/">
+                                    <span class="chip bg-color">Presto</span>
+                                </a>
+                            
+                                <a href="/tags/kylin/">
+                                    <span class="chip bg-color">kylin</span>
+                                </a>
+                            
+                                <a href="/tags/zabbix/">
+                                    <span class="chip bg-color">zabbix</span>
+                                </a>
+                            
+                                <a href="/tags/Kerberos/">
+                                    <span class="chip bg-color">Kerberos</span>
+                                </a>
+                            
+                                <a href="/tags/ranger/">
+                                    <span class="chip bg-color">ranger</span>
+                                </a>
+                            
+                                <a href="/tags/atlas/">
+                                    <span class="chip bg-color">atlas</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/02/11/29176.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（6集群监控Zabbix）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（6集群监控Zabbix）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/09/25261.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（4可视化报表Superset）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（4可视化报表Superset）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

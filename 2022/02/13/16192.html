@@ -1,0 +1,2274 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="大数据项目之尚品汇（8安全环境实战）, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="第1章 概述Hadoop启用Kerberos安全认证之后，之前的非安全环境下的全流程调度脚本和即席查询引擎均会遇到认证问题，故需要对其进行改进。
+第2章 数仓全流程2.1 改动说明此处统一将数仓的全部数据资源的所有者设为hive用户，全流程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>大数据项目之尚品汇（8安全环境实战） | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/datawarehouse.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">大数据项目之尚品汇（8安全环境实战）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hive/">
+                                <span class="chip bg-color">hive</span>
+                            </a>
+                        
+                            <a href="/tags/spark/">
+                                <span class="chip bg-color">spark</span>
+                            </a>
+                        
+                            <a href="/tags/Azkaban/">
+                                <span class="chip bg-color">Azkaban</span>
+                            </a>
+                        
+                            <a href="/tags/kafka/">
+                                <span class="chip bg-color">kafka</span>
+                            </a>
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                            <a href="/tags/zookeeper/">
+                                <span class="chip bg-color">zookeeper</span>
+                            </a>
+                        
+                            <a href="/tags/flume/">
+                                <span class="chip bg-color">flume</span>
+                            </a>
+                        
+                            <a href="/tags/sqoop/">
+                                <span class="chip bg-color">sqoop</span>
+                            </a>
+                        
+                            <a href="/tags/superset/">
+                                <span class="chip bg-color">superset</span>
+                            </a>
+                        
+                            <a href="/tags/hbase/">
+                                <span class="chip bg-color">hbase</span>
+                            </a>
+                        
+                            <a href="/tags/Presto/">
+                                <span class="chip bg-color">Presto</span>
+                            </a>
+                        
+                            <a href="/tags/kylin/">
+                                <span class="chip bg-color">kylin</span>
+                            </a>
+                        
+                            <a href="/tags/zabbix/">
+                                <span class="chip bg-color">zabbix</span>
+                            </a>
+                        
+                            <a href="/tags/Kerberos/">
+                                <span class="chip bg-color">Kerberos</span>
+                            </a>
+                        
+                            <a href="/tags/ranger/">
+                                <span class="chip bg-color">ranger</span>
+                            </a>
+                        
+                            <a href="/tags/atlas/">
+                                <span class="chip bg-color">atlas</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                data warehouse
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="第1章-概述"><a href="#第1章-概述" class="headerlink" title="第1章 概述"></a>第1章 概述</h1><p>Hadoop启用Kerberos安全认证之后，之前的非安全环境下的全流程调度脚本和即席查询引擎均会遇到认证问题，故需要对其进行改进。</p>
+<h1 id="第2章-数仓全流程"><a href="#第2章-数仓全流程" class="headerlink" title="第2章 数仓全流程"></a>第2章 数仓全流程</h1><h2 id="2-1-改动说明"><a href="#2-1-改动说明" class="headerlink" title="2.1 改动说明"></a>2.1 改动说明</h2><p>此处统一将数仓的全部数据资源的所有者设为hive用户，全流程的每步操作均认证为hive用户。</p>
+<h2 id="2-2-改动实操"><a href="#2-2-改动实操" class="headerlink" title="2.2 改动实操"></a>2.2 改动实操</h2><h3 id="2-2-1-用户准备"><a href="#2-2-1-用户准备" class="headerlink" title="2.2.1 用户准备"></a>2.2.1 用户准备</h3><p><strong>1.</strong>** 在各节点创建 <em><strong>*hive*</strong></em> 用户，如已存在则跳过**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# useradd hive -g hadoop
+
+[root@hadoop102 ~]# echo hive | passwd --stdin hive
+
+[root@hadoop103 ~]# useradd hive -g hadoop
+
+[root@hadoop103 ~]# echo hive | passwd --stdin hive
+
+[root@hadoop104 ~]# useradd hive -g hadoop
+
+[root@hadoop104 ~]# echo hive | passwd --stdin hive
+</code></pre>
+<p><strong>2.</strong>** 为 <em><strong>*hive*</strong></em> 用户创建 <em><strong>*Keberos*</strong></em> 主体**</p>
+<p>1）创建主体</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey hive"
+</code></pre>
+<p>2）生成keytab文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/hive.keytab hive"
+</code></pre>
+<p>3）修改keytab文件所有者和访问权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown hive:hadoop /etc/security/keytab/hive.keytab
+
+[root@hadoop102 ~]# chmod 440 /etc/security/keytab/hive.keytab
+</code></pre>
+<p>4）分发keytab文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# xsync /etc/security/keytab/hive.keytab
+</code></pre>
+<h3 id="2-2-2-数据采集通道修改"><a href="#2-2-2-数据采集通道修改" class="headerlink" title="2.2.2 数据采集通道修改"></a>2.2.2 数据采集通道修改</h3><p><strong>1.</strong>** 用户行为日志**</p>
+<p>修改/opt/module/flume/conf/kafka-flume-hdfs.conf配置文件，增加以下参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop104 ~]# vim /opt/module/flume/conf/kafka-flume-hdfs.conf
+</code></pre>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">a1.sinks.k1.hdfs.kerberosPrincipal</span><span class="token punctuation">=</span><span class="token attr-value">hive@EXAMPLE.COM</span>
+
+<span class="token attr-name">a1.sinks.k1.hdfs.kerberosKeytab</span><span class="token punctuation">=</span><span class="token attr-value">/etc/security/keytab/hive.keytab</span>
+</code></pre>
+<p><strong>2.</strong>** 业务数据**</p>
+<p>修改sqoop每日同步脚本/home/atguigu/bin/mysql_to_hdfs.sh，</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim /home/atguigu/bin/mysql_to_hdfs.sh
+</code></pre>
+<p>在顶部增加如下认证语句</p>
+<pre class=" language-shell"><code class="language-shell">kinit -kt /etc/security/keytab/hive.keytab hive
+</code></pre>
+<h3 id="2-2-3-数仓各层脚本修改"><a href="#2-2-3-数仓各层脚本修改" class="headerlink" title="2.2.3 数仓各层脚本修改"></a>2.2.3 数仓各层脚本修改</h3><p>数仓各层脚本均需在顶部加入如下认证语句</p>
+<pre class=" language-shell"><code class="language-shell">kinit -kt /etc/security/keytab/hive.keytab hive
+</code></pre>
+<p>修改语句如下</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' hdfs_to_ods_log.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' hdfs_to_ods_db.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' ods_to_dwd_log.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' ods_to_dim_db.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' ods_to_dwd_db.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' dwd_to_dws.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' dws_to_dwt.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' dwt_to_ads.sh
+
+[root@hadoop102 ~]# sed -i '1 a kinit -kt /etc/security/keytab/hive.keytab hive' hdfs_to_mysql.sh
+</code></pre>
+<p>注：</p>
+<p>sed -i ‘1 a text’ file</p>
+<p>表示将text内容加入到file文件的第1行之后</p>
+<h3 id="2-2-4-修改HDFS特定路径所有者"><a href="#2-2-4-修改HDFS特定路径所有者" class="headerlink" title="2.2.4 修改HDFS特定路径所有者"></a>2.2.4 修改HDFS特定路径所有者</h3><p>1.认证为hdfs用户，执行以下命令并按提示输入密码</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kinit hdfs/hadoop
+</code></pre>
+<p>2.修改数据采集目标路径</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hive:hadoop /origin_data
+</code></pre>
+<p>3.修改数仓表所在路径</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hive:hadoop /warehouse
+</code></pre>
+<p>4.修改hive家目录/user/hive</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hive:hadoop /user/hive
+</code></pre>
+<p>5.修改spark.eventLog.dir路径</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hive:hadoop /spark-history
+</code></pre>
+<h3 id="2-2-5-全流程数据准备"><a href="#2-2-5-全流程数据准备" class="headerlink" title="2.2.5 全流程数据准备"></a>2.2.5 全流程数据准备</h3><p><strong>1.</strong>** 用户行为日志**</p>
+<p>1）启动日志采集通道，包括Zookeeper，Kafka，Flume等</p>
+<p>2）修改hadoop102，hadoop103两台节点的/opt/module/applog/application.yml文件，将模拟日期改为2020-06-16如下</p>
+<p>#业务日期</p>
+<p>mock.date: “2020-06-16”</p>
+<p>3）执行生成日志的脚本</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# lg.sh
+</code></pre>
+<p>4）等待片刻，观察HDFS是否出现2020-06-16的日志文件</p>
+<img src="/2022/02/13/16192/%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6.png" class title="This is an example image">
+
+<p><strong>2.</strong>** 业务数据**</p>
+<p>1）修改/opt/module/db_log/application.properties，将模拟日期修改为2020-06-16，如下</p>
+<p>#业务日期</p>
+<p>mock.date=2020-06-16</p>
+<p>2）进入到/opt/module/db_log路径，执行模拟生成业务数据的命令，如下</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# java -jar gmall2020-mock-db-2021-01-22.jar
+</code></pre>
+<p>3）观察mysql的gmall数据中是否出现2020-06-16的数据</p>
+<img src="/2022/02/13/16192/gmall%E6%95%B0%E6%8D%AE.png" class title="This is an example image">
+
+<h3 id="2-2-6-启动Azkaban"><a href="#2-2-6-启动Azkaban" class="headerlink" title="2.2.6 启动Azkaban"></a>2.2.6 启动Azkaban</h3><p>1.在各节点创建azkaban用户</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# useradd azkaban -g hadoop
+
+[root@hadoop102 ~]# echo azkaban | passwd --stdin azkaban
+
+[root@hadoop103 ~]# useradd azkaban -g hadoop
+
+[root@hadoop103 ~]# echo azkaban | passwd --stdin azkaban
+
+[root@hadoop104 ~]# useradd azkaban -g hadoop
+
+[root@hadoop104 ~]# echo azkaban | passwd --stdin azkaban
+</code></pre>
+<p>2.将各节点Azkaban安装路径所有者改为azkaban用户</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown -R azkaban:hadoop /opt/module/azkaban
+
+[root@hadoop103 ~]# chown -R azkaban:hadoop /opt/module/azkaban
+
+[root@hadoop104 ~]# chown -R azkaban:hadoop /opt/module/azkaban
+</code></pre>
+<p>3.使用azkaban用户启动Azkaban</p>
+<p>1）启动Executor Server</p>
+<p>在各节点执行以下命令，启动Executor</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u azkaban bash -c "cd /opt/module/azkaban/azkaban-exec;bin/start-exec.sh"
+
+[root@hadoop103 ~]# sudo -i -u azkaban bash -c "cd /opt/module/azkaban/azkaban-exec;bin/start-exec.sh"
+
+[root@hadoop104 ~]# sudo -i -u azkaban bash -c "cd /opt/module/azkaban/azkaban-exec;bin/start-exec.sh"
+</code></pre>
+<p>2）激活Executor Server，任选一台节点执行以下激活命令即可</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# curl http://hadoop102:12321/executor?action=activate
+
+[root@hadoop102 ~]# curl http://hadoop103:12321/executor?action=activate
+
+[root@hadoop102 ~]# curl http://hadoop104:12321/executor?action=activate
+</code></pre>
+<p>3）启动Web Server</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u azkaban bash -c "cd /opt/module/azkaban/azkaban-web;bin/start-web.sh"
+</code></pre>
+<p>4.修改数仓各层脚本访问权限，确保azkaban用户能够访问到</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown -R atguigu:hadoop /home/atguigu
+
+[root@hadoop102 ~]# chmod 770 /home/atguigu
+
+[root@hadoop103 ~]# chown -R atguigu:hadoop /home/atguigu
+
+[root@hadoop103 ~]# chmod 770 /home/atguigu
+
+[root@hadoop104 ~]# chown -R atguigu:hadoop /home/atguigu
+
+[root@hadoop104 ~]# chmod 770 /home/atguigu
+</code></pre>
+<h3 id="2-2-7-全流程调度"><a href="#2-2-7-全流程调度" class="headerlink" title="2.2.7 全流程调度"></a>2.2.7 全流程调度</h3><p>1）工作流参数</p>
+
+
+<p>2）运行结果</p>
+<img src="/2022/02/13/16192/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" class title="This is an example image">
+
+<h1 id="第3章-即席查询之Presto"><a href="#第3章-即席查询之Presto" class="headerlink" title="第3章 即席查询之Presto"></a>第3章 即席查询之Presto</h1><h2 id="3-1-改动说明"><a href="#3-1-改动说明" class="headerlink" title="3.1 改动说明"></a>3.1 改动说明</h2><p>Presto集群开启Kerberos认证可只配置Presto Coordinator和Presto Cli之间进行认证，集群内部通讯可不进行认证。Presto Coordinator和Presto Cli之间的认证要求两者采用更为安全的HTTPS协议进行通讯。</p>
+<p>若Presto对接的是Hive数据源，由于其需要访问Hive的元数据和HDFS上的数据文件，故也需要对Hive Connector进行Kerberos认证。</p>
+<h2 id="3-2-改动实操"><a href="#3-2-改动实操" class="headerlink" title="3.2 改动实操"></a>3.2 改动实操</h2><h3 id="3-2-1-用户准备"><a href="#3-2-1-用户准备" class="headerlink" title="3.2.1 用户准备"></a>3.2.1 用户准备</h3><p><strong>1.</strong>** 在所有节点创建 <em><strong>*presto*</strong></em> 系统用户**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# useradd presto -g hadoop
+
+[root@hadoop102 ~]# echo presto | passwd --stdin presto
+
+[root@hadoop103 ~]# useradd presto -g hadoop
+
+[root@hadoop103 ~]# echo presto | passwd --stdin presto
+
+[root@hadoop104 ~]# useradd presto -g hadoop
+
+[root@hadoop104 ~]# echo presto | passwd --stdin presto
+</code></pre>
+<p><strong>2.</strong>** 为 <em><strong>*Hive Connector*</strong></em> 创建 <em><strong>*Kerberos*</strong></em> 主体**</p>
+<p>1）创建presto用户的Kerberos主体</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey presto"
+</code></pre>
+<p>2）生成keytab文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/presto.keytab presto"
+</code></pre>
+<p>3）修改keytab文件的访问权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown presto:hadoop /etc/security/keytab/presto.keytab
+</code></pre>
+<p>4）分发keytab文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# xsync /etc/security/keytab/presto.keytab
+</code></pre>
+<p><strong>3.</strong>** 为 <em><strong>*Presto Coordinator*</strong></em> 创建 <em><strong>*Kerberos*</strong></em> 主体**</p>
+<p>1）创建presto用户的Kerberos主体</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey presto/hadoop102"
+</code></pre>
+<p>2）生成keytab文件</p>
+<pre class=" language-sh"><code class="language-sh">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/presto.service.keytab presto/hadoop102"
+</code></pre>
+<p>3）修改keytab文件的访问权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown presto:hadoop /etc/security/keytab/presto.service.keytab
+</code></pre>
+<h3 id="3-2-2-创建HTTPS协议所需的密钥对"><a href="#3-2-2-创建HTTPS协议所需的密钥对" class="headerlink" title="3.2.2 创建HTTPS协议所需的密钥对"></a>3.2.2 创建HTTPS协议所需的密钥对</h3><p><strong>注意</strong> ：</p>
+<p>（1）alias（别名）需要和Presto Coordinator的Kerberos主体名保持一致</p>
+<p>（2）名字与姓氏 需要填写Coordinator所在的主机名</p>
+<p>1）使用Java提供的keytool工具生成密钥对</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# keytool -genkeypair -alias **presto** -keyalg RSA -keystore /etc/security/keytab/keystore.jks
+</code></pre>
+<p>输入密钥库口令:</p>
+<p>再次输入新口令:</p>
+<p>您的名字与姓氏是什么?</p>
+<p>您的组织单位名称是什么?</p>
+<p><a target="_blank" rel="noopener" href="https://word2md.com/**hadoop102**">Unknown</a>:</p>
+<p>您的组织名称是什么?</p>
+<p><a target="_blank" rel="noopener" href="https://word2md.com/**hadoop102**">Unknown</a>:</p>
+<p>您所在的城市或区域名称是什么?</p>
+<p><a target="_blank" rel="noopener" href="https://word2md.com/**hadoop102**">Unknown</a>:</p>
+<p>您所在的省/市/自治区名称是什么?</p>
+<p><a target="_blank" rel="noopener" href="https://word2md.com/**hadoop102**">Unknown</a>:</p>
+<p>该单位的双字母国家/地区代码是什么?</p>
+<p><a target="_blank" rel="noopener" href="https://word2md.com/**hadoop102**">Unknown</a>:</p>
+<p>CN=hadoop102, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?</p>
+<p>输入 &lt;presto&gt; 的密钥口令</p>
+<p>(如果和密钥库口令相同, 按回车):</p>
+<p>2）修改keystore文件的所有者和访问权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown presto:hadoop /etc/security/keytab/keystore.jks
+
+[root@hadoop102 ~]# chmod 660 /etc/security/keytab/keystore.jks
+</code></pre>
+<h3 id="3-2-3-修改Presto-Coordinator配置文件"><a href="#3-2-3-修改Presto-Coordinator配置文件" class="headerlink" title="3.2.3 修改Presto Coordinator配置文件"></a>3.2.3 修改Presto Coordinator配置文件</h3><p>在/opt/module/presto/etc/config.properties文件中 <strong>增加</strong> 以下参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim /opt/module/presto/etc/config.properties
+</code></pre>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">http-server.authentication.type</span><span class="token punctuation">=</span><span class="token attr-value">KERBEROS</span>
+
+<span class="token attr-name">http.server.authentication.krb5.service-name</span><span class="token punctuation">=</span><span class="token attr-value">presto</span>
+
+<span class="token attr-name">http.server.authentication.krb5.keytab</span><span class="token punctuation">=</span><span class="token attr-value">/etc/security/keytab/presto.service.keytab</span>
+
+<span class="token attr-name">http.authentication.krb5.config</span><span class="token punctuation">=</span><span class="token attr-value">/etc/krb5.conf</span>
+
+<span class="token attr-name">http-server.https.enabled</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token attr-name">http-server.https.port</span><span class="token punctuation">=</span><span class="token attr-value">7778</span>
+
+<span class="token attr-name">http-server.https.keystore.path</span><span class="token punctuation">=</span><span class="token attr-value">/etc/security/keytab/keystore.jks</span>
+
+<span class="token attr-name">http-server.https.keystore.key</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
+</code></pre>
+<h3 id="3-2-4-修改Hive-Connector配置文件"><a href="#3-2-4-修改Hive-Connector配置文件" class="headerlink" title="3.2.4 修改Hive Connector配置文件"></a>3.2.4 修改Hive Connector配置文件</h3><p>1.在/opt/module/presto/etc/catalog/hive.properties中增加以下参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim /opt/module/presto/etc/catalog/hive.properties
+</code></pre>
+<pre class=" language-shell"><code class="language-shell">hive.metastore.authentication.type=KERBEROS
+
+hive.metastore.service.principal=hive/hadoop102@EXAMPLE.COM
+
+hive.metastore.client.principal=presto@EXAMPLE.COM
+
+hive.metastore.client.keytab=/etc/security/keytab/presto.keytab
+
+hive.hdfs.authentication.type=KERBEROS
+
+hive.hdfs.impersonation.enabled=true
+
+hive.hdfs.presto.principal=presto@EXAMPLE.COM
+
+hive.hdfs.presto.keytab=/etc/security/keytab/presto.keytab
+
+hive.config.resources=/opt/module/hadoop-3.1.3/etc/hadoop/core-site.xml,/opt/module/hadoop-3.1.3/etc/hadoop/hdfs-site.xml
+</code></pre>
+<p>2.分发/opt/module/presto/etc/catalog/hive.properties文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# xsync /opt/module/presto/etc/catalog/hive.properties
+</code></pre>
+<h3 id="3-2-5-配置客户端Kerberos主体到用户名之间的映射规则"><a href="#3-2-5-配置客户端Kerberos主体到用户名之间的映射规则" class="headerlink" title="3.2.5 配置客户端Kerberos主体到用户名之间的映射规则"></a>3.2.5 配置客户端Kerberos主体到用户名之间的映射规则</h3><p>1.新建/opt/module/presto/etc/access-control.properties配置文件，内容如下</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim /opt/module/presto/etc/access-control.properties
+</code></pre>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">access-control.name</span><span class="token punctuation">=</span><span class="token attr-value">file</span>
+
+<span class="token attr-name">security.config-file</span><span class="token punctuation">=</span><span class="token attr-value">etc/rules.json</span>
+</code></pre>
+<ol>
+<li>新建/opt/module/presto/etc/rules.json文件，内容如下</li>
+</ol>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim /opt/module/presto/etc/rules.json
+</code></pre>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+
+<span class="token property">"catalogs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span>
+
+<span class="token property">"allow"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token property">"user_patterns"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+
+<span class="token string">"(.*)"</span><span class="token punctuation">,</span>
+
+<span class="token string">"([a-zA-Z]+)/?.*@.*"</span>
+
+<span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="3-2-6-配置Presto代理用户"><a href="#3-2-6-配置Presto代理用户" class="headerlink" title="3.2.6 配置Presto代理用户"></a>3.2.6 配置Presto代理用户</h3><p><strong>1.</strong>** 修改 <em><strong>*Hadoop*</strong></em> 配置文件**</p>
+<p>修改$HADOOP_HOME/etc/hadoop/core-site.xml配置文件，增加如下内容</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim $HADOOP_HOME/etc/hadoop/core-site.xml
+</code></pre>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hadoop.proxyuser.presto.hosts<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hadoop.proxyuser.presto.groups<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hadoop.proxyuser.presto.users<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><strong>2.</strong>** 分发修改的文件**</p>
+<pre class=" language-xml"><code class="language-xml">[root@hadoop102 ~]# xsync $HADOOP_HOME/etc/hadoop/core-site.xml
+</code></pre>
+<p><strong>3.</strong>** 重启 <em><strong>*Hadoop*</strong></em> 集群**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# stop-dfs.sh
+
+[root@hadoop103 ~]# stop-yarn.sh
+
+[root@hadoop102 ~]# start-dfs.sh
+
+[root@hadoop103 ~]# start-yarn.sh
+</code></pre>
+<h3 id="3-2-7-重启Presto集群"><a href="#3-2-7-重启Presto集群" class="headerlink" title="3.2.7 重启Presto集群"></a>3.2.7 重启Presto集群</h3><p><strong>1.</strong>** 关闭集群**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# /opt/module/presto/bin/launcher stop
+
+[root@hadoop103 ~]# /opt/module/presto/bin/launcher stop
+
+[root@hadoop104 ~]# /opt/module/presto/bin/launcher stop
+</code></pre>
+<p><strong>2.</strong>** 修改 <em><strong>*Presto*</strong></em> 安装路径所有者为 **<strong>presto</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown -R presto:hadoop /opt/module/presto
+
+[root@hadoop103 ~]# chown -R presto:hadoop /opt/module/presto
+
+[root@hadoop104 ~]# chown -R presto:hadoop /opt/module/presto
+</code></pre>
+<p><strong>3.</strong>** 使用 <em><strong>*hive*</strong></em> 用户启动 <em><strong>*MetaStore*</strong></em> 服务**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u hive hive --service metastore
+</code></pre>
+<p><strong>4.</strong>** 使用 <em><strong>*presto*</strong></em> 用户启动 <em><strong>*Presto*</strong></em> 集群**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u presto /opt/module/presto/bin/launcher start
+
+[root@hadoop103 ~]# sudo -i -u presto /opt/module/presto/bin/launcher start
+
+[root@hadoop104 ~]# sudo -i -u presto /opt/module/presto/bin/launcher start
+</code></pre>
+<h3 id="3-2-8-客户端认证访问Presto集群"><a href="#3-2-8-客户端认证访问Presto集群" class="headerlink" title="3.2.8 客户端认证访问Presto集群"></a>3.2.8 客户端认证访问Presto集群</h3><pre class=" language-shell"><code class="language-shell">[root@hadoop102 presto]# ./prestocli \
+
+--server https://hadoop102:7778 \
+
+--catalog hive \
+
+--schema default \
+
+--enable-authentication \
+
+--krb5-remote-service-name presto \
+
+--krb5-config-path /etc/krb5.conf \
+
+--krb5-principal atguigu@EXAMPLE.COM \
+
+--krb5-keytab-path /home/atguigu/atguigu.keytab \
+
+--keystore-path /etc/security/keytab/keystore.jks \
+
+--keystore-password 123456 \
+
+--user atguigu
+</code></pre>
+<h1 id="第4章-即席查询之Kylin"><a href="#第4章-即席查询之Kylin" class="headerlink" title="第4章 即席查询之Kylin"></a>第4章 即席查询之Kylin</h1><h2 id="4-1-改动说明"><a href="#4-1-改动说明" class="headerlink" title="4.1 改动说明"></a>4.1 改动说明</h2><p>从Kylin的架构，可以看出Kylin充当只是一个Hadoop客户端，读取Hive数据，利用MR或Spark进行计算，将Cube存储至HBase中。所以在安全的Hadoop环境下，Kylin不需要做额外的配置，只需要具备一个Kerberos主体，进行常规的认证即可。</p>
+<p>但是Kylin所依赖的HBase需要进行额外的配置，才能在安全的Hadoop环境下正常工作。</p>
+<h2 id="4-2-改动实操"><a href="#4-2-改动实操" class="headerlink" title="4.2 改动实操"></a>4.2 改动实操</h2><h3 id="4-2-1-HBase开启Kerberos认证"><a href="#4-2-1-HBase开启Kerberos认证" class="headerlink" title="4.2.1 HBase开启Kerberos认证"></a>4.2.1 HBase开启Kerberos认证</h3><p><strong>1.</strong>** 用户准备**</p>
+<p>1）在各节点创建hbase系统用户</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# useradd -g hadoop hbase
+
+[root@hadoop102 ~]# echo hbase | passwd --stdin hbase
+
+[root@hadoop103 ~]# useradd -g hadoop hbase
+
+[root@hadoop103 ~]# echo hbase | passwd --stdin hbase
+
+[root@hadoop104 ~]# useradd -g hadoop hbase
+
+[root@hadoop104 ~]# echo hbase | passwd --stdin hbase
+</code></pre>
+<p>2）创建hbase Kerberos主体</p>
+<p>（1）在hadoop102节点创建主体，生成密钥文件，并修改所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey hbase/hadoop102"
+
+[root@hadoop102 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/hbase.service.keytab hbase/hadoop102"
+
+[root@hadoop102 ~]# chown hbase:hadoop /etc/security/keytab/hbase.service.keytab
+</code></pre>
+<p>（2）在hadoop103节点创建主体，生成密钥文件，并修改所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop103 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey hbase/hadoop103"
+
+[root@hadoop103 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/hbase.service.keytab hbase/hadoop103"
+
+[root@hadoop103 ~]# chown hbase:hadoop /etc/security/keytab/hbase.service.keytab
+</code></pre>
+<p>（3）在hadoop104节点创建主体，生成密钥文件，并修改所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop104 ~]# kadmin -padmin/admin -wadmin -q"addprinc -randkey hbase/hadoop104"
+
+[root@hadoop104 ~]# kadmin -padmin/admin -wadmin -q"xst -k /etc/security/keytab/hbase.service.keytab hbase/hadoop104"
+
+[root@hadoop104 ~]# chown hbase:hadoop /etc/security/keytab/hbase.service.keytab
+</code></pre>
+<p><strong>2.</strong>** 修改 <em><strong>*HBase*</strong></em> 配置文件**</p>
+<p>修改$HBASE_HOME/conf/hbase-site.xml配置文件，增加以下参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# vim $HBASE_HOME/conf/hbase-site.xml
+</code></pre>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.security.authentication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>kerberos<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.master.kerberos.principal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>hbase/_HOST@EXAMPLE.COM<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span> 
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.master.keytab.file<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>/etc/security/keytab/hbase.service.keytab<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.regionserver.kerberos.principal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>hbase/_HOST@EXAMPLE.COM<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span> 
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.regionserver.keytab.file<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>/etc/security/keytab/hbase.service.keytab<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hbase.coprocessor.region.classes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>org.apache.hadoop.hbase.security.token.TokenProvider<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><strong>3.</strong>** 分发配置文件**</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# xsync $HBASE_HOME/conf/hbase-site.xml
+</code></pre>
+<p><strong>4.</strong>** 修改 <em><strong>*hbase.rootdir*</strong></em> 路径所有者**</p>
+<p>1）使用hdfs/hadoop用户进行认证</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kinit hdfs/hadoop
+</code></pre>
+<p>2）修改所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hbase:hadoop /hbase
+</code></pre>
+<p><strong>5.</strong>** 启动 **<strong>HBase</strong></p>
+<p>1）修改各节点HBase安装目录所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown -R hbase:hadoop /opt/module/hbase
+
+[root@hadoop103 ~]# chown -R hbase:hadoop /opt/module/hbase
+
+[root@hadoop104 ~]# chown -R hbase:hadoop /opt/module/hbase
+</code></pre>
+<p>2）配置hbase用户从主节点（hadoop102）到所有节点的ssh免密</p>
+<p>3）使用hbase用户启动HBase</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u hbase start-hbase.sh
+</code></pre>
+<p><strong>6.</strong>** 停止 **<strong>HBase</strong></p>
+<p>启用Kerberos认证之后，关闭HBase时，需先进行Kerberos用户认证，认证的主体为hbase。</p>
+<p>1）认证为hbase主体</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u hbase kinit -kt /etc/security/keytab/hbase.service.keytab hbase/hadoop102
+</code></pre>
+<p>2）停止hbase</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u hbase stop-hbase.sh
+</code></pre>
+<h3 id="4-2-2-Kylin进行Kerberos认证"><a href="#4-2-2-Kylin进行Kerberos认证" class="headerlink" title="4.2.2 Kylin进行Kerberos认证"></a>4.2.2 Kylin进行Kerberos认证</h3><p><strong>1.</strong>** 用户准备**</p>
+<p>创建kylin系统用户</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# useradd -g hadoop kylin
+
+[root@hadoop102 ~]# echo kylin | passwd --stdin kylin
+</code></pre>
+<p><strong>2.</strong>** 修改 <em><strong>*kylin.env.hdfs-working-dir*</strong></em> 路径所有者为 **<strong>kylin</strong></p>
+<p>1）使用hdfs/hadoop用户进行认证</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# kinit hdfs/hadoop
+</code></pre>
+<p>2）修改所有者</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# hadoop fs -chown -R hive:hadoop /kylin
+</code></pre>
+<p><strong>3.</strong>** 修改 <em><strong>*/opt/module/kylin*</strong></em> 所有者为 **<strong>kylin</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# chown -R kylin:hadoop /opt/module/kylin
+</code></pre>
+<p><strong>4.</strong>** 启动 **<strong>kylin</strong></p>
+<p>1）在kylin用户下认证为hive主体</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u kylin kinit -kt /etc/security/keytab/hive.keytab hive
+</code></pre>
+<p>2）以kylin用户的身份启动kylin</p>
+<pre class=" language-shell"><code class="language-shell">[root@hadoop102 ~]# sudo -i -u kylin /opt/module/kylin/bin/kylin.sh start
+</code></pre>
+<p><a href="https://bigworldxld.github.io/2022/02/14/undefined.html">大数据项目之尚品汇（9权限管理Ranger）</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2022/02/13/16192.html">https://bigworldxld.github.io/2022/02/13/16192.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/hive/">
+                                    <span class="chip bg-color">hive</span>
+                                </a>
+                            
+                                <a href="/tags/spark/">
+                                    <span class="chip bg-color">spark</span>
+                                </a>
+                            
+                                <a href="/tags/Azkaban/">
+                                    <span class="chip bg-color">Azkaban</span>
+                                </a>
+                            
+                                <a href="/tags/kafka/">
+                                    <span class="chip bg-color">kafka</span>
+                                </a>
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/zookeeper/">
+                                    <span class="chip bg-color">zookeeper</span>
+                                </a>
+                            
+                                <a href="/tags/flume/">
+                                    <span class="chip bg-color">flume</span>
+                                </a>
+                            
+                                <a href="/tags/sqoop/">
+                                    <span class="chip bg-color">sqoop</span>
+                                </a>
+                            
+                                <a href="/tags/superset/">
+                                    <span class="chip bg-color">superset</span>
+                                </a>
+                            
+                                <a href="/tags/hbase/">
+                                    <span class="chip bg-color">hbase</span>
+                                </a>
+                            
+                                <a href="/tags/Presto/">
+                                    <span class="chip bg-color">Presto</span>
+                                </a>
+                            
+                                <a href="/tags/kylin/">
+                                    <span class="chip bg-color">kylin</span>
+                                </a>
+                            
+                                <a href="/tags/zabbix/">
+                                    <span class="chip bg-color">zabbix</span>
+                                </a>
+                            
+                                <a href="/tags/Kerberos/">
+                                    <span class="chip bg-color">Kerberos</span>
+                                </a>
+                            
+                                <a href="/tags/ranger/">
+                                    <span class="chip bg-color">ranger</span>
+                                </a>
+                            
+                                <a href="/tags/atlas/">
+                                    <span class="chip bg-color">atlas</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/02/14/28194.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（9权限管理Ranger）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（9权限管理Ranger）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/12/34552.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/datawarehouse.jpg" class="responsive-img" alt="大数据项目之尚品汇（7用户认证Kerberos）">
+                        
+                        <span class="card-title">大数据项目之尚品汇（7用户认证Kerberos）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/data-warehouse/" class="post-category">
+                                    data warehouse
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
+                    </a>
+                    
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/Azkaban/">
+                        <span class="chip bg-color">Azkaban</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/zookeeper/">
+                        <span class="chip bg-color">zookeeper</span>
+                    </a>
+                    
+                    <a href="/tags/flume/">
+                        <span class="chip bg-color">flume</span>
+                    </a>
+                    
+                    <a href="/tags/sqoop/">
+                        <span class="chip bg-color">sqoop</span>
+                    </a>
+                    
+                    <a href="/tags/superset/">
+                        <span class="chip bg-color">superset</span>
+                    </a>
+                    
+                    <a href="/tags/hbase/">
+                        <span class="chip bg-color">hbase</span>
+                    </a>
+                    
+                    <a href="/tags/Presto/">
+                        <span class="chip bg-color">Presto</span>
+                    </a>
+                    
+                    <a href="/tags/kylin/">
+                        <span class="chip bg-color">kylin</span>
+                    </a>
+                    
+                    <a href="/tags/zabbix/">
+                        <span class="chip bg-color">zabbix</span>
+                    </a>
+                    
+                    <a href="/tags/Kerberos/">
+                        <span class="chip bg-color">Kerberos</span>
+                    </a>
+                    
+                    <a href="/tags/ranger/">
+                        <span class="chip bg-color">ranger</span>
+                    </a>
+                    
+                    <a href="/tags/atlas/">
+                        <span class="chip bg-color">atlas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

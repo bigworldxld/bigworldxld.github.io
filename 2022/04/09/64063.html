@@ -1,0 +1,1725 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器学习和推荐系统1, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="推荐系统评测指标•    预测准确度•    用户满意度•    覆盖率•    多样性•    惊喜度
+•    信任度•    实时性•    健壮性•    商业目标
+推荐准确度评测• 评分预测很多网站都有让用户给物品打分的功能，如果">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器学习和推荐系统1 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/machine.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器学习和推荐系统1</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/Machine-learning/">
+                                <span class="chip bg-color">Machine learning</span>
+                            </a>
+                        
+                            <a href="/tags/jupyternobook/">
+                                <span class="chip bg-color">jupyternobook</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/recommendation-system/" class="post-category">
+                                recommendation system
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-09
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="推荐系统评测指标"><a href="#推荐系统评测指标" class="headerlink" title="推荐系统评测指标"></a>推荐系统评测指标</h1><p>•    预测准确度<br>•    用户满意度<br>•    覆盖率<br>•    多样性<br>•    惊喜度</p>
+<p>•    信任度<br>•    实时性<br>•    健壮性<br>•    商业目标</p>
+<h1 id="推荐准确度评测"><a href="#推荐准确度评测" class="headerlink" title="推荐准确度评测"></a>推荐准确度评测</h1><h2 id="•-评分预测"><a href="#•-评分预测" class="headerlink" title="• 评分预测"></a>• 评分预测</h2><p>很多网站都有让用户给物品打分的功能，如果知道用户对物品的历史评分，就可以从中学习一个兴趣模型，从而预测用户对新物品的评分<br>– 评分预测的准确度一般用均方根误差（RMSE）或平均绝对误差（MAE）计算</p>
+<img src="/2022/04/09/64063/%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE.jpg" class title="This is an example image">
+
+<h2 id="•-Top-N推荐"><a href="#•-Top-N推荐" class="headerlink" title="• Top-N推荐"></a>• Top-N推荐</h2><p>– 网站提供推荐服务时，一般是给用户一个个性化的推荐列表，这种推荐叫做<br>Top-N推荐<br>– Top-N推荐的预测准确率一般用精确率（precision）和召回率（recall）来度量</p>
+<p>准确率、精确率和召回率</p>
+<img src="/2022/04/09/64063/Top-N%E6%8E%A8%E8%8D%90.jpg" class title="This is an example image">
+
+<img src="/2022/04/09/64063/Top-N%E6%8E%A8%E8%8D%901.jpg" class title="This is an example image">
+
+<h1 id="机-器-学-习-基-础"><a href="#机-器-学-习-基-础" class="headerlink" title="机 器 学 习 基 础"></a>机 器 学 习 基 础</h1><p>•    经验风险<br>–    模型 f(X) 关于训练数据集的平均损失称为经验风险（empirial risk），记作 Remp</p>
+<p>•    经验风险最小化（Empirical Risk Minimization，ERM）<br>–    这一策略认为，经验风险最小的模型就是最优的模型<br>–    样本足够大时，ERM 有很好的学习效果，因为有足够多的“经验”<br>–    样本较小时，ERM 就会出现一些问题</p>
+<p>训练误差和测试误差<br>•    训练误差<br>–    训练误差（training error）是关于训练集的平均损失。</p>
+<img src="/2022/04/09/64063/%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE.jpg" class title="This is an example image">
+
+<p>–    训练误差的大小，可以用来判断给定问题是否容易学习，但本质上并不重要<br>•    测试误差<br>–    测试误差（testing error）是关于测试集的平均损失。</p>
+<img src="/2022/04/09/64063/%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE.jpg" class title="This is an example image">
+
+<p>–    测试误差真正反映了模型对未知数据的预测能力，这种能力一般被称为 泛化能力</p>
+<h3 id="0-引入依赖"><a href="#0-引入依赖" class="headerlink" title="0. 引入依赖"></a>0. 引入依赖</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+</code></pre>
+<h3 id="1-导入数据（data-csv）"><a href="#1-导入数据（data-csv）" class="headerlink" title="1. 导入数据（data.csv）"></a>1. 导入数据（data.csv）</h3><p>32.502345269453031,31.70700584656992<br>53.426804033275019,68.77759598163891<br>61.530358025636438,62.562382297945803<br>47.475639634786098,71.546632233567777<br>59.813207869512318,87.230925133687393<br>55.142188413943821,78.211518270799232<br>52.211796692214001,79.64197304980874<br>39.299566694317065,59.171489321869508<br>48.10504169176825,75.331242297063056<br>52.550014442733818,71.300879886850353<br>45.419730144973755,55.165677145959123<br>54.351634881228918,82.478846757497919<br>44.164049496773352,62.008923245725825<br>58.16847071685779,75.392870425994957<br>56.727208057096611,81.43619215887864<br>48.955888566093719,60.723602440673965<br>44.687196231480904,82.892503731453715<br>60.297326851333466,97.379896862166078<br>45.618643772955828,48.847153317355072<br>38.816817537445637,56.877213186268506<br>66.189816606752601,83.878564664602763<br>65.41605174513407,118.59121730252249<br>47.48120860786787,57.251819462268969<br>41.57564261748702,51.391744079832307<br>51.84518690563943,75.380651665312357<br>59.370822011089523,74.765564032151374<br>57.31000343834809,95.455052922574737<br>63.615561251453308,95.229366017555307<br>46.737619407976972,79.052406169565586<br>50.556760148547767,83.432071421323712<br>52.223996085553047,63.358790317497878<br>35.567830047746632,41.412885303700563<br>42.436476944055642,76.617341280074044<br>58.16454011019286,96.769566426108199<br>57.504447615341789,74.084130116602523<br>45.440530725319981,66.588144414228594<br>61.89622268029126,77.768482417793024<br>33.093831736163963,50.719588912312084<br>36.436009511386871,62.124570818071781<br>37.675654860850742,60.810246649902211<br>44.555608383275356,52.682983366387781<br>43.318282631865721,58.569824717692867<br>50.073145632289034,82.905981485070512<br>43.870612645218372,61.424709804339123<br>62.997480747553091,115.24415280079529<br>32.669043763467187,45.570588823376085<br>40.166899008703702,54.084054796223612<br>53.575077531673656,87.994452758110413<br>33.864214971778239,52.725494375900425<br>64.707138666121296,93.576118692658241<br>38.119824026822805,80.166275447370964<br>44.502538064645101,65.101711570560326<br>40.599538384552318,65.562301260400375<br>41.720676356341293,65.280886920822823<br>51.088634678336796,73.434641546324301<br>55.078095904923202,71.13972785861894<br>41.377726534895203,79.102829683549857<br>62.494697427269791,86.520538440347153<br>49.203887540826003,84.742697807826218<br>41.102685187349664,59.358850248624933<br>41.182016105169822,61.684037524833627<br>50.186389494880601,69.847604158249183<br>52.378446219236217,86.098291205774103<br>50.135485486286122,59.108839267699643<br>33.644706006191782,69.89968164362763<br>39.557901222906828,44.862490711164398<br>56.130388816875467,85.498067778840223<br>57.362052133238237,95.536686846467219<br>60.269214393997906,70.251934419771587<br>35.678093889410732,52.721734964774988<br>31.588116998132829,50.392670135079896<br>53.66093226167304,63.642398775657753<br>46.682228649471917,72.247251068662365<br>43.107820219102464,57.812512976181402<br>70.34607561504933,104.25710158543822<br>44.492855880854073,86.642020318822006<br>57.50453330326841,91.486778000110135<br>36.930076609191808,55.231660886212836<br>55.805733357942742,79.550436678507609<br>38.954769073377065,44.847124242467601<br>56.901214702247074,80.207523139682763<br>56.868900661384046,83.14274979204346<br>34.33312470421609,55.723489260543914<br>59.04974121466681,77.634182511677864<br>57.788223993230673,99.051414841748269<br>54.282328705967409,79.120646274680027<br>51.088719898979143,69.588897851118475<br>50.282836348230731,69.510503311494389<br>44.211741752090113,73.687564318317285<br>38.005488008060688,61.366904537240131<br>32.940479942618296,67.170655768995118<br>53.691639571070056,85.668203145001542<br>68.76573426962166,114.85387123391394<br>46.230966498310252,90.123572069967423<br>68.319360818255362,97.919821035242848<br>50.030174340312143,81.536990783015028<br>49.239765342753763,72.111832469615663<br>50.039575939875988,85.232007342325673<br>48.149858891028863,66.224957888054632<br>25.128484647772304,53.454394214850524</p>
+<p>在jupyternobook中运行</p>
+<pre class=" language-python"><code class="language-python">points <span class="token operator">=</span> np<span class="token punctuation">.</span>genfromtxt<span class="token punctuation">(</span><span class="token string">'data.csv'</span><span class="token punctuation">,</span> delimiter<span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">)</span>
+points<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 提取points中的两列数据，分别作为x，y</span>
+x <span class="token operator">=</span> points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+y <span class="token operator">=</span> points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 用plt画出散点图</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/04/09/64063/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95.jpg" class title="This is an example image">
+
+<h3 id="2-定义损失函数"><a href="#2-定义损失函数" class="headerlink" title="2. 定义损失函数"></a>2. 定义损失函数</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 损失函数是系数的函数，另外还要传入数据的x，y</span>
+<span class="token keyword">def</span> <span class="token function">compute_cost</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> points<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    total_cost <span class="token operator">=</span> <span class="token number">0</span>
+    M <span class="token operator">=</span> len<span class="token punctuation">(</span>points<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 逐点计算平方损失误差，然后求平均数</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        y <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        total_cost <span class="token operator">+=</span> <span class="token punctuation">(</span> y <span class="token operator">-</span> w <span class="token operator">*</span> x <span class="token operator">-</span> b <span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+    <span class="token comment" spellcheck="true">#total_cost为平均损失函数</span>
+    <span class="token keyword">return</span> total_cost<span class="token operator">/</span>M
+</code></pre>
+<h2 id="简单线性回归（最小二乘法）"><a href="#简单线性回归（最小二乘法）" class="headerlink" title="简单线性回归（最小二乘法）"></a>简单线性回归（最小二乘法）</h2><h3 id="3-定义算法拟合函数"><a href="#3-定义算法拟合函数" class="headerlink" title="3.定义算法拟合函数"></a>3.定义算法拟合函数</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 先定义一个求均值的函数</span>
+<span class="token keyword">def</span> <span class="token function">average</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum <span class="token operator">=</span> <span class="token number">0</span>
+    num <span class="token operator">=</span> len<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sum <span class="token operator">+=</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> sum<span class="token operator">/</span>num
+
+<span class="token comment" spellcheck="true"># 定义核心拟合函数</span>
+<span class="token keyword">def</span> <span class="token function">fit</span><span class="token punctuation">(</span>points<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    M <span class="token operator">=</span> len<span class="token punctuation">(</span>points<span class="token punctuation">)</span>
+    x_bar <span class="token operator">=</span> average<span class="token punctuation">(</span>points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#x平均值  </span>
+    sum_yx <span class="token operator">=</span> <span class="token number">0</span>
+    sum_x2 <span class="token operator">=</span> <span class="token number">0</span>
+    sum_delta <span class="token operator">=</span> <span class="token number">0</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        y <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        sum_yx <span class="token operator">+=</span> y <span class="token operator">*</span> <span class="token punctuation">(</span> x <span class="token operator">-</span> x_bar <span class="token punctuation">)</span>
+        sum_x2 <span class="token operator">+=</span> x <span class="token operator">**</span> <span class="token number">2</span>
+    <span class="token comment" spellcheck="true"># 根据公式计算w</span>
+    w <span class="token operator">=</span> sum_yx <span class="token operator">/</span> <span class="token punctuation">(</span> sum_x2 <span class="token operator">-</span> M <span class="token operator">*</span> <span class="token punctuation">(</span>x_bar<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        y <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        sum_delta <span class="token operator">+=</span> <span class="token punctuation">(</span> y <span class="token operator">-</span> w <span class="token operator">*</span> x <span class="token punctuation">)</span>
+    b <span class="token operator">=</span> sum_delta <span class="token operator">/</span> M
+    <span class="token keyword">return</span> w<span class="token punctuation">,</span> b
+</code></pre>
+<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><pre class=" language-python"><code class="language-python">w<span class="token punctuation">,</span> b <span class="token operator">=</span> fit<span class="token punctuation">(</span>points<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"w is: "</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b is: "</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+cost <span class="token operator">=</span> compute_cost<span class="token punctuation">(</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> points<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"cost is: "</span><span class="token punctuation">,</span> cost<span class="token punctuation">)</span>
+</code></pre>
+<p>w is:  1.3224310227553846<br>b is:  7.991020982269173<br>cost is:  110.25738346621313</p>
+<h3 id="5-画出拟合曲线"><a href="#5-画出拟合曲线" class="headerlink" title="5. 画出拟合曲线"></a>5. 画出拟合曲线</h3><pre class=" language-python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 针对每一个x，计算出预测的y值</span>
+pred_y <span class="token operator">=</span> w <span class="token operator">*</span> x <span class="token operator">+</span> b
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> pred_y<span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/04/09/64063/%E6%8B%9F%E5%90%88%E6%9B%B2%E7%BA%BF.jpg" class title="This is an example image">
+
+<h2 id="简单线性回归（梯度下降法）"><a href="#简单线性回归（梯度下降法）" class="headerlink" title="简单线性回归（梯度下降法）"></a>简单线性回归（梯度下降法）</h2><h3 id="3-定义模型的超参数"><a href="#3-定义模型的超参数" class="headerlink" title="3. 定义模型的超参数"></a>3. 定义模型的超参数</h3><pre class=" language-python"><code class="language-python">alpha <span class="token operator">=</span> <span class="token number">0.0001</span>   <span class="token comment" spellcheck="true">#步长</span>
+initial_w <span class="token operator">=</span> <span class="token number">0</span>
+initial_b <span class="token operator">=</span> <span class="token number">0</span>
+num_iter <span class="token operator">=</span> <span class="token number">10</span>    <span class="token comment" spellcheck="true">#迭代次数</span>
+</code></pre>
+<h3 id="4-定义核心梯度下降算法函数"><a href="#4-定义核心梯度下降算法函数" class="headerlink" title="4. 定义核心梯度下降算法函数"></a>4. 定义核心梯度下降算法函数</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">grad_desc</span><span class="token punctuation">(</span>points<span class="token punctuation">,</span> initial_w<span class="token punctuation">,</span> initial_b<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> num_iter<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w <span class="token operator">=</span> initial_w
+    b <span class="token operator">=</span> initial_b
+    <span class="token comment" spellcheck="true"># 定义一个list保存所有的损失函数值，用来显示下降的过程</span>
+    cost_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_iter<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        cost_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span> compute_cost<span class="token punctuation">(</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> points<span class="token punctuation">)</span> <span class="token punctuation">)</span>
+        w<span class="token punctuation">,</span> b <span class="token operator">=</span> step_grad_desc<span class="token punctuation">(</span> w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> points <span class="token punctuation">)</span>
+    
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> cost_list<span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">step_grad_desc</span><span class="token punctuation">(</span> current_w<span class="token punctuation">,</span> current_b<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> points <span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum_grad_w <span class="token operator">=</span> <span class="token number">0</span>
+    sum_grad_b <span class="token operator">=</span> <span class="token number">0</span>
+    M <span class="token operator">=</span> len<span class="token punctuation">(</span>points<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#点的个数</span>
+    
+    <span class="token comment" spellcheck="true"># 对每个点，代入公式求和</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        y <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        sum_grad_w <span class="token operator">+=</span> <span class="token punctuation">(</span> current_w <span class="token operator">*</span> x <span class="token operator">+</span> current_b <span class="token operator">-</span> y <span class="token punctuation">)</span> <span class="token operator">*</span> x
+        sum_grad_b <span class="token operator">+=</span> current_w <span class="token operator">*</span> x <span class="token operator">+</span> current_b <span class="token operator">-</span> y
+    
+    <span class="token comment" spellcheck="true"># 用公式求当前梯度</span>
+    grad_w <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">/</span>M <span class="token operator">*</span> sum_grad_w
+    grad_b <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">/</span>M <span class="token operator">*</span> sum_grad_b
+    
+    <span class="token comment" spellcheck="true"># 梯度下降，更新当前的w和b</span>
+    updated_w <span class="token operator">=</span> current_w <span class="token operator">-</span> alpha <span class="token operator">*</span> grad_w
+    updated_b <span class="token operator">=</span> current_b <span class="token operator">-</span> alpha <span class="token operator">*</span> grad_b
+    
+    <span class="token keyword">return</span> updated_w<span class="token punctuation">,</span> updated_b
+</code></pre>
+<h3 id="5-测试：运行梯度下降算法计算最优的w和b"><a href="#5-测试：运行梯度下降算法计算最优的w和b" class="headerlink" title="5. 测试：运行梯度下降算法计算最优的w和b"></a>5. 测试：运行梯度下降算法计算最优的w和b</h3><pre class=" language-python"><code class="language-python">w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> cost_list <span class="token operator">=</span> grad_desc<span class="token punctuation">(</span> points<span class="token punctuation">,</span> initial_w<span class="token punctuation">,</span> initial_b<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> num_iter <span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"w is: "</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b is: "</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+cost <span class="token operator">=</span> compute_cost<span class="token punctuation">(</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> points<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"cost is: "</span><span class="token punctuation">,</span> cost<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>cost_list<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>w is:  1.4774173755483797<br>b is:  0.02963934787473238<br>cost is:  112.65585181499748</p>
+<img src="/2022/04/09/64063/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95.jpg" class title="This is an example image">
+
+<h3 id="6-画出拟合曲线"><a href="#6-画出拟合曲线" class="headerlink" title="6. 画出拟合曲线"></a>6. 画出拟合曲线</h3><pre class=" language-python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 针对每一个x，计算出预测的y值</span>
+pred_y <span class="token operator">=</span> w <span class="token operator">*</span> x <span class="token operator">+</span> b
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> pred_y<span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2022/04/09/64063/%E6%8B%9F%E5%90%88%E6%9B%B2%E7%BA%BF1.jpg" class title="This is an example image">
+
+<h2 id="线性回归调sklearn库实现"><a href="#线性回归调sklearn库实现" class="headerlink" title="线性回归调sklearn库实现"></a>线性回归调sklearn库实现</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LinearRegression
+lr <span class="token operator">=</span> LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span>
+x_new <span class="token operator">=</span> x<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+y_new <span class="token operator">=</span> y<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+lr<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>x_new<span class="token punctuation">,</span> y_new<span class="token punctuation">)</span>
+</code></pre>
+<p>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 从训练好的模型中提取系数和截距</span>
+w <span class="token operator">=</span> lr<span class="token punctuation">.</span>coef_<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+b <span class="token operator">=</span> lr<span class="token punctuation">.</span>intercept_<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"w is: "</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b is: "</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+cost <span class="token operator">=</span> compute_cost<span class="token punctuation">(</span>w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> points<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"cost is: "</span><span class="token punctuation">,</span> cost<span class="token punctuation">)</span>
+</code></pre>
+<p>w is:  1.3224310227553597<br>b is:  7.991020982270399<br>cost is:  110.25738346621318</p>
+<pre class=" language-python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 针对每一个x，计算出预测的y值</span>
+pred_y <span class="token operator">=</span> w <span class="token operator">*</span> x <span class="token operator">+</span> b
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> pred_y<span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2022/04/09/64063.html">https://bigworldxld.github.io/2022/04/09/64063.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/Machine-learning/">
+                                    <span class="chip bg-color">Machine learning</span>
+                                </a>
+                            
+                                <a href="/tags/jupyternobook/">
+                                    <span class="chip bg-color">jupyternobook</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/04/11/64383.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/machine.jpg" class="responsive-img" alt="机器学习和推荐系统2">
+                        
+                        <span class="card-title">机器学习和推荐系统2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/recommendation-system/" class="post-category">
+                                    recommendation system
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/Machine-learning/">
+                        <span class="chip bg-color">Machine learning</span>
+                    </a>
+                    
+                    <a href="/tags/jupyternobook/">
+                        <span class="chip bg-color">jupyternobook</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/04/03/61918.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/mybatis.jpg" class="responsive-img" alt="MyBatis">
+                        
+                        <span class="card-title">MyBatis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MyBatis/">
+                        <span class="chip bg-color">MyBatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

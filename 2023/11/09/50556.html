@@ -1,0 +1,2371 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="软测笔记, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="软测笔记软测概念什么是软件测试? (找程序中的 bug? 找文档中的 bug?)
+找软件中的 bug。(什么是 bug?bug 的严重级别? )
+什么是软件?软件是由程序，数据，文档三个部分组成的。
+“程序: 用计算机语言 (java C，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>软测笔记 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/%E8%BD%AF%E6%B5%8B%E7%AC%94%E8%AE%B0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">软测笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">测试</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/test/" class="post-category">
+                                test
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-09
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    18k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    65 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="软测笔记"><a href="#软测笔记" class="headerlink" title="软测笔记"></a>软测笔记</h2><h3 id="软测概念"><a href="#软测概念" class="headerlink" title="软测概念"></a>软测概念</h3><p>什么是软件测试? (找程序中的 bug? 找文档中的 bug?)</p>
+<p>找软件中的 bug。(什么是 bug?bug 的严重级别? )</p>
+<p>什么是软件?<br>软件是由<strong>程序，数据，文档</strong>三个部分组成的。</p>
+<p>“程序: 用计算机语言 (java C，C#，C++net，python) 描述解决问题的方法和步骤。<br>数据:程序加工处理的原材料。<br>文档:生成软件的过程中所形成的<strong>图文资料</strong>，例如:需求规格说明书，用户使用于册，帮助文档。</p>
+<p>实际测试过程中可能会遇到的文档?</p>
+<ul>
+<li>需求规格说明书</li>
+<li>概要设计说明书</li>
+<li>详细设计说明书</li>
+<li>安装手册</li>
+<li>用户使用手册</li>
+<li>帮助手册</li>
+</ul>
+<p><strong>文档测试的规范</strong><br>文档测试只能对文档进行<strong>红色，绿色，蓝色</strong>标注</p>
+<p>红色:文档里面不明白，不理解，有疑问或认为是错误的</p>
+<p>绿色:测试人员发现的问题，组织好语言。</p>
+<p>蓝色:和<strong>项目经理或需求调研人员</strong>确认的需求,<strong>需求评审会</strong></p>
+<p>冒烟测试：系统测试之前</p>
+<p>[面试题]如何进行文档测试?</p>
+<p>检查文档的完整性，一致性，易理解性，易浏览性，正确性</p>
+<p>用户需求:需求调研人员从用户现场调研回来的第一版需求。</p>
+<p>测试需求: 需求规格说明书中明确阐述出来的需求和需求存在不明白，不理解或认为是错误的和项目经理或需求调研人员确认的需求称为测试需求</p>
+<p>总结：1.测试需求肯定大于需求规格说明书的。</p>
+<p>2.完成需求文档的测试，实际上是完成了需求规格说明书向测试需求的转化</p>
+<p>3.文档测试是程序测试的基础。</p>
+<p>[面试题] 什么是测试思路? </p>
+<p>了解清楚测试需求之后，从哪些角度进行测试。测试思路分析的时候先考虑正常的，然后在考虑异常的。</p>
+<p>无效的规则，测试时一定要一个一个覆盖，因为发现 bug 好定位(发现bug,定位bug)</p>
+<p>测试思路里面可能存在重复的情况，思路分析完成后一定要过滤。</p>
+<p>[面试题] 什么是测试用例? 你是如何理解设计测试用例的?</p>
+<p> 根据测试需求分析出很多种情况 (测试思路)，然后让软件按照我们设计的情况来运行，如果运行的结果与我们设计的结果一致的情况下即为通过，不一致的情况下即为 bug。</p>
+<p>总给1、测试用例的输入一定要看软件的界面，怎么操作的就怎么写。</p>
+<p>2、测试思路里面有几种情况，就要设计几条用例来进行覆盖。</p>
+<p>3、保持用例步与步之间的独立性，因为测试用例每一步执行不通过都是 bug，如果<strong>步与步之间关联了</strong>，则<strong>发现 bug 不好跟踪</strong>。–[面试题]为什么要保持用例步与步之间的独立性?<br>4、测试用例中使用数据的地方必须要用数据。</p>
+<p>5、测试用例的每一个输入必须有明确的结果</p>
+<p>第一步:先进行分类</p>
+<p>第二步:分析一下满足类的规则和不满足类的规则</p>
+<p>第三步:根据分析出来的规则得出测试思路</p>
+<p>第四步: 根据测试思路开发测试用例</p>
+<p><strong>bug 书写规范</strong><br>第一、如何编写 bug 的标题标题: 位置，问题的概要描述 (40 字以内)【标题里面不要能出现 XXXX 错误,XXXXX 问题】</p>
+<p>登录系统，正常登录系统时系统崩溃</p>
+<p>开始-段落，选中一行文字左对齐时，系统没有响应</p>
+<p>第二、如何编写 bug 的复现步骤-测试用例可以参照怎么操作的就怎么写</p>
+<p>例如: 进入登录系统界面，用户名输入张三，密码输入 123456，点击确定</p>
+<p>第三、实际结果(bug) +系统崩溃<br>预期结果 (正确的结果)</p>
+<p>第四、登录成功，进入系统首页面+</p>
+<p>第五、备注</p>
+<p>Bug 前提，约束，复现概率等等</p>
+<h3 id="等价类"><a href="#等价类" class="headerlink" title="等价类"></a><strong>等价类</strong></h3><p>总结:<br>该案例背后所涉及到的测试方法    [面试题] 测试用例的设计方法有哪些?</p>
+<p>一、等价类测试用例的设计方法”<br>(1) 等价类”<br>它是输入域的子集合，把输入域里面性质相同或相近的归为一类，每一类抽一个代表进行测试，如果这一代表测试过程中发现问题，则该类均有问题，如果这一代表测试过程中没有发现问题，证明这一类均没有问题。</p>
+<p>“备注:“<br>输入域: 所有的子集合加起来就是输入域。</p>
+<p>等价类:对输入域进行划分，把输入域划分为更小的类。</p>
+<p>等价类作用: 有效的<strong>降低了测试的输入量</strong>,大大的<strong>减轻了测试的工作量</strong>。[面试题]等价类方法的作用?“</p>
+<p>如果发现抽出的代表不能代表这一类的情况下，说明等价类划分的太大了，需要进一步进行划分。</p>
+<p>(2) 等价类划分<br>第一、有效等价类:对程序规格说明书来说是合理的有意义的数据构成的集合。(满足类的<br>规则。)<br>第二、无效等价类: 对程序规格说明书来说是不合理的，无意义的数据构成的集合。(不满足类的规则。)</p>
+<p>(3) 等价类原则</p>
+<p>第一、如果输入条件规定了取值范围的情况下，一般可以确立一个有效等价类和两个无效等价类。例如: 体重输入框10-100</p>
+<p>第二、如果输入条件是一个集合的情况下，可以确立一个有效等价类，一个无效等价类。例如:A输入只能输入整数。整数是一个集合。</p>
+<p>第三、如果输入条件是一个 boolean 量的情况下可以确立一个有效等价类和一个无效等价类。例如: 1，0<br>第四、如果输入条件是一组值，假定有 N 个，程序要对这一组值分别处理的情况下，可以确立 N个有等价类和一个无效等价类。例如: 1，@，A，中</p>
+<h3 id="边界值"><a href="#边界值" class="headerlink" title="边界值"></a><strong>边界值</strong></h3><p>第一、ASCII 码<br>第二、为什么取边界附近的数据进行测试+<br>(1) 程序员写代码的时候按照边界来写。“<br>(2)因为大量的测试经验统计得出，程序最容易出错误的地方不在边界以内，而是在<strong>边界附近最容易出错误</strong>。</p>
+<p>测试思路:<br>支持数字验证(10 种)    0189(1种)<br>不支持英文字母的验证 (52 种（26个字母*2）)    ABYZabyz (2种)<br>不支持汉字 (2种)    简体繁体<br>不支持特殊字符验证 (33 种)     1、空格/    2、: @    3、[`    4、{ ~     (4 种)</p>
+<p>最大长度的验证 (2种)    19 个字符，20 个字符，21 个字符 (3种)<br>必填项验证 (1 种)</p>
+<p><strong>下拉列表格式的测试</strong><br>测试需求:<br>点击下拉按钮正常打开下拉列表<br>点击下拉按钮正常打开下拉列表，选择内容，内容显示在下拉表里面，下拉列表自<br>动关闭<br>点击下拉按钮正常打开下拉列表再次点击下拉按钮，下拉列表自动关闭。“点击下拉按钮正常打开下拉列表.点击界面其他位置，下拉列表自动关闭。“<br>点击下拉按钮正常打开下拉列表显示水平滚动条和竖直滚动条，且正常使用。“<br>点击下拉按钮正常打开下拉列表，显示内容与顺序和需求文档一致。“<br>点击下拉按钮正常打开下拉列表，选择内容显示在列表内，再次选择内容成功替换<br>以前输入的内容。“<br>测试思路:<br>正常打开下拉列表验证 (1种) </p>
+<p>自动关闭验证 (3 种)<br>滚动条显示验证 (2 种)<br>数据显示验证 (2 种)</p>
+<p>下拉列表逻辑功能验证</p>
+<p>测试需求:下拉列表只有5项或 5项以内的情况下</p>
+<p>测试思路:全测试<br>测试需求:下拉列表有很多项的情况下</p>
+<p>测试思路:<br>1、测试第一项和最后一项。(2 种)<br>2、如果每一项功能都不一样的情况下，测试时全部进行测试。(自动化测试工具)</p>
+<h3 id="因果图"><a href="#因果图" class="headerlink" title="因果图"></a>因果图</h3><p>监听器系统的测试思路，用例开发</p>
+<p>第一步: 阅读需求的过程中识别出哪些是原因，哪些是结果，分析正常的原因和结果</p>
+<p>第二步: 两种方案，画因果图，推导出测试思路根据原因推导出结果，先假设原因成立，推导出结果，然后在假设原因不成立，推导出很多种情况。“根据结果推导出原因，先假设结果成立，推导出原因，然后在假设原因不成立，推导出很多种情况</p>
+<p>备注: 多个原因产生多个结果的情况下，必须使用中间节点进行转化。</p>
+<h3 id="场景法"><a href="#场景法" class="headerlink" title="场景法"></a>场景法</h3><p>此类系统的测试称为业务测试，现场需求一般是流程图</p>
+<p>测试思路:<br>第一步: 阅读需求的过程中，不考虑不通过的情况，只考虑通过的情况，找出系统的基本业务流程。<br>一般用户提交一份申请一》科室秘书审核一》科室主任审核—》中心秘书审核—》院长审核—》调职调绩成功 (1 种)<br>第二步: 对基本业务流程上面的每一个环节进行分析，可能存在的异常情况，有多少考虑多少，然后过滤重复的测试思路。</p>
+<p><strong>总结:</strong><br>第一、<br>先找出基本业务流程。(一个系统就一条基本业务流程吗? 不一定，根据系统的大小<br>来确定。)“<br>第二、基本业务流程:系统的核心流程，每个环节都通过的情况。备选业务流程:基本业务流程中每一个环节不通过的情况<br>第三、该方法的名称: 场景法，业务流程分析法，业务测试，流程测试。<br>第四、如果备选业务流程相同的情况下，只要取一支进行测试方可。<br>第五、高级测试人员一般把测试的重心放在系统的业务上进行测试。</p>
+<h3 id="H5测试"><a href="#H5测试" class="headerlink" title="H5测试"></a>H5测试</h3><p>原生 (native) 和 H5 对比优点和缺点</p>
+<p>native使用原生系统内核的，相当于直接在系统上操作</p>
+<p><strong>Native</strong> 优点:<br>运行速度快。“<br>可以应用底层的 api<br>比较节约流量<br>缺点:<br>不同的操作系统需要独立开发</p>
+<p>更新需要重新打包，重新安装</p>
+<p>做适配，需要非常多的机型</p>
+<p><strong>H5 特点:</strong><br>优点:<br>只需要开发一次</p>
+<p>更新不需要打包，直接更新服务器上的就可以了</p>
+<p>开发成本低<br>缺点:<br>打开页面时候，得需要再次加载<br>网络<br>只调帮有限的底层 API</p>
+<p>混合应用: 一部分用原生，一部分用 H5</p>
+<p>1、部分功能给用户体验好的，不经常变动的就用原生</p>
+<p>2、某些功能经常变动，就用 H5</p>
+<p><strong>如何判断一个 APP 中是否用 H5 页面</strong><br>一、找开发或项目经理确认一下哪些地方用原生哪些地方用 H5。</p>
+<p>二、 如果没有文档的情况下:<br>1、看断网的情况: 正常显示的即为原生，显示 404 域页面错误即为 html</p>
+<p>2、看加载方式: 打开一个新的页面有加加载进度条，即为 H5 页面。</p>
+<p>3、打开一个页面，能复制即为 H5,不能复制的一般即为原生。</p>
+<p>4、看一下页面布局: 一般密密麻麻的即原生，一整块一整块的即为 H5</p>
+<p>H5测试<br>(1) 功能测试，逻辑测试 (业务测试) 和传统系统一样<br>(2) 测试时需要注意:<br><strong>登录</strong><br>客户端已登录的情况，H5 以登录状态运行。</p>
+<p>客户端没有登录的情况下，运行 H5 需要拉起原生登录</p>
+<p><strong>页面</strong><br>关注一下页面加载时间</p>
+<p>弱网络的环境下，加载 H5 时是否有“加载中的提示“</p>
+<p>超时，页面提示信息是否友好</p>
+<p>返回 button</p>
+<p>横竖屏</p>
+<p><strong>兼容性 (适配)</strong></p>
+<p>系统是否支持 H5</p>
+<p>H5 在 web 页上面是否能正常显示<br><strong>刷新</strong><br>1、主动刷新</p>
+<p><strong>翻页</strong></p>
+<p>翻页后是否正常显示，检查内容<br><strong>手机操作</strong><br>1、锁屏在解屏，检查 H5 是否正常显示<br>2、前后台切换，检查 H5 是否正常<br><strong>弱网测试</strong><br>弱网络的情况下，数据加载慢，检看一下是否有 loading 提示信息</p>
+<p><strong>H5 案例</strong><br>备注: 一般情况下原生还没有开发出来，H5 已经写完了，这样的情况下，可以首先进行 H5测试。<br>第一方案: 使用 chrome 在 web 页上进行测试。(手机模式，手机型号)</p>
+<p>第二方案: 把链接生成二维码，用手机扫一下进行测试</p>
+<h3 id="安装与卸载测试"><a href="#安装与卸载测试" class="headerlink" title="安装与卸载测试"></a>安装与卸载测试</h3><p>安装测试–主要针对 C/S 模式的软件</p>
+<p>第一、安装前的测试<br>安装包用杀毒软件杀毒“<br>双击 setup.exe<br>第三方软件进行安装</p>
+<p>命令行进行安装</p>
+<p>第二、安装过程的测试</p>
+<p>安装界面的测试(对照安装 手册进行测试)</p>
+<p>逻辑功能的测试(按照场景法进行测试) 基本业务流，备选业务流程</p>
+<p>安装过程文档的测试(找项目经理或产品经理要文档)</p>
+<p>安装过程输入框测试 (依照需求进行测试)</p>
+<p>第三、安装后的测试</p>
+<p>检查程序安装的位置: 桌面，安装目录，开始菜单，控制面板，注册表（HKEY_LOCAL_MACHINE/SOFTWARE/最下一项），服务</p>
+<h3 id="兼容性测试"><a href="#兼容性测试" class="headerlink" title="兼容性测试"></a>兼容性测试</h3><p>案例<br>浏览器打开软件遇到的问题</p>
+<p>下载一个软件，安装不上或是安装过程中报错</p>
+<p>安装完成之后打不开</p>
+<p>上网笔记本电脑，很小</p>
+<p>拉手网:系统升级之后不有考虑与老数据之前的兼容性</p>
+<p>什么兼容性测试<br>检测试被测试的软件在特定的硬件平台，不同的应用软件之间，不同的操作系统平台，不同的网络环境中是否能很好的运行。</p>
+<p>第一、 与<strong>操作系统平台</strong>的兼容性测试<br>1、操作系统的种类选择:(1)常用操作系统(在线查询一下操作系统的排名)。(2) 根据用户来定<br>2、操作系统版本的选择: (1) 常用操作版本。(2) 根据用户来定。</p>
+<p>3、测试思路:(1)安装和卸载测试。(2) 主要功能的测试 (主要功能的用例拿过来执行一下就可以了</p>
+<p>4、 适合软件: <strong>C/S</strong> 模式的软件</p>
+<p>备注<br>1、能否在虚拟机上进行测试?<strong>禁止在虚拟机上进行测试</strong>2、安装系统，U 盘安装系统</p>
+<p>第二、与浏览器之间的兼容性测试<br>1、浏览器的种类选择: (1) 常用浏览器。(2) 根据用户来定。<br>2、浏览器版本的选择:(1) 常用浏览器版本。(2) 根据用户来定。(3) 选择最低版本和最高版本进行测试。(稳定版本)<br>3、测试思路:(1)软件大小界面显示规范测试。(执行界面用例)。(2) 主要功能的使用测试<br>4、适合软件: B/S<br>备注:<br>推荐一款工具: IEtest 工具</p>
+<p>第三、与 office 办公软件之间的兼容性测试</p>
+<p>1、office 办公软件种类的选择: 1) 根据用户来定。2) 常办公软件: 微软 office,金山 wps</p>
+<p>2、office 办公软件版本的选择: 1) 常用版本。2) 根据用户来定。3) 选择一个最低版本和最高版本。(稳定版本)</p>
+<p>3、测试思路:<br>1)导出: 正常调用(3 种)，正常保存，正常打开，数据显示与软件中的保持一致</p>
+<ol start="2">
+<li>导入: 正常附加，导入数据与文档里面的数据显示一致，正常使用<br>4、适合: C/S，B/S</li>
+</ol>
+<p>第四、 与杀毒软件之间的兼容性测试</p>
+<p>1、杀毒软件的种类选择: 1) 根据用户来定。2) 常用杀毒软件</p>
+<p>2、杀毒软件的版本: 保证病毒库是最新的就可以了。</p>
+<p>3、测试思路: (1) 安装卸载测试。(2) 主要功能的测试。</p>
+<p>4、适合软件: C/S 模式的软件</p>
+<p>第五、与同类软件的之间的兼容性测试</p>
+<p>MSN    qq    微软    windows</p>
+<p>1、同类软件种类的选择: 排前三</p>
+<p>2、同类软件版本的选择: 选择稳定的版本</p>
+<p>3、测思路: 安装卸载测试</p>
+<p>第六、与网络之间的兼容性测试<br>1、网络环境: 局域网，广域网<br>2、测试思路: 识别出系统哪些功能涉及到网络。1) 有局域网的环境测试。2) 在广域网环境测试。<br>3、适合软件: C/S，B/S</p>
+<p>第七、 与显示器分辨率之间的兼容性测试<br>显示器的尺寸: 根据用来定<br>测试思路: 1) 常用显示器分辨率。2) 软件大小界面显示规范。3) 主要功能的使用适合软件: C/S,B/S</p>
+<p>第八、 与数据库之间的兼容性测试</p>
+<p>数据库种类: SQL server ,mysql,oradle</p>
+<p>测试思路:<br>同一个数据库不同的表之间的数据兼容性</p>
+<p>不同数据库之间: 接收，存储，正常使用</p>
+<p>同一个数据库新老数据兼容性</p>
+<p>总结: </p>
+<p>兼容性测试的意义</p>
+<p>提高软件的质量</p>
+<p>保证软件在不同的环境中正常运行</p>
+<p>软件销路更好</p>
+<h3 id="冒烟测试"><a href="#冒烟测试" class="headerlink" title="冒烟测试"></a>冒烟测试</h3><p>(1) 冒烟测试的来源: 来致硬件行业</p>
+<p>(2) 冒烟测试<br>针对软件中修改了一些典型问题及时验证是否真正的解决称为冒烟测备注:<br>冒烟测试的最大应用是验证软件版本是否稳定,版本稳定性测试</p>
+<p>冒烟测试的特点<br>优点:</p>
+<p>周期短</p>
+<p>人员分配灵活</p>
+<p>缺点:</p>
+<p>覆盖率很低<br>随意性强</p>
+<p>(4) 冒烟测试与回归测试<br>第一、冒烟工作量少<br>第二、冒烟覆盖率小<br>第三、测试环境: 冒烟测试可以在开发环境中进行<br>第四、测试方法</p>
+<h3 id="易用性测试"><a href="#易用性测试" class="headerlink" title="易用性测试"></a>易用性测试</h3><p>易用性<br><strong>站在用户角度考虑</strong>软件是否好用</p>
+<p>易用性测试</p>
+<p>第一、基础功能的易用性《参照用例》</p>
+<p>第二、易用性测试注意事项:</p>
+<p>1、站在用户的角度去考虑问题，最好去用户现场体验一下</p>
+<p>2、分析同行软件的优点，能复用的直接复用。</p>
+<p>3、参照现行的标准和规范。(微软，apple.IBM)</p>
+<h3 id="测试用例设计主要采用那些方式"><a href="#测试用例设计主要采用那些方式" class="headerlink" title="测试用例设计主要采用那些方式"></a>测试用例设计主要采用那些方式</h3><p>用例的设计流程</p>
+<ul>
+<li>需求分析</li>
+<li>确定测试范围</li>
+<li>选择测试方法(用例的设计方法)<br>等价类划分，边界值分析，因果图法，正交实验法，场景法，错误推法…</li>
+<li>设计测试用例</li>
+<li>评审和修改</li>
+<li>执行测试用例</li>
+<li>缺陷跟踪和报告</li>
+</ul>
+<h3 id="怎么证明测试用例的覆盖率"><a href="#怎么证明测试用例的覆盖率" class="headerlink" title="怎么证明测试用例的覆盖率"></a>怎么证明测试用例的覆盖率</h3><ul>
+<li><p>全面的需求分析（明显需求，隐形需求，用户主观感受，市场主流观点，不同需求进行划分，每一点进行测试分析 ，确定测试范围，生成完善的需求文档）</p>
+</li>
+<li><p>采用多种测试方法（输入输出，异常情况，边界条件）</p>
+</li>
+<li><p>单功能的测试用例与测试场景设计</p>
+<ul>
+<li>保证单功能的细节，也考虑整体业务流程的连贯性</li>
+</ul>
+</li>
+<li><p>用例评审与跟踪缺陷</p>
+</li>
+<li><p>使用用例覆盖率工具，allure,禅道，jiara</p>
+</li>
+<li><p>持续监控与改进</p>
+</li>
+</ul>
+<h3 id="绝大多数用例是功能还是自动化为主"><a href="#绝大多数用例是功能还是自动化为主" class="headerlink" title="绝大多数用例是功能还是自动化为主"></a>绝大多数用例是功能还是自动化为主</h3><p>接口<br>全面自动化测试:搭建接口自动化测试框织用例盖率可以达到99%及以上<br>web<br>搭建过web自动化测试恒架，覆养率:10-30%6</p>
+<p>在实际项目中，主要结合手工测试及自动化一起实现用例执行</p>
+<h3 id="有没有接触过库级别的测试"><a href="#有没有接触过库级别的测试" class="headerlink" title="有没有接触过库级别的测试"></a>有没有接触过库级别的测试</h3><p>功能库是软件测试中一个重要环境，主要目的是验证功能库中的各个功能是否按照预期工作，确保能够正确，稳定提供所需的服务。</p>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>如何查看自己的防火墙属于 iptables 还是 firewalld<br>运行命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> firewall-cmd --state 
+</code></pre>
+<p>iptables防火墙,则会出现内容：</p>
+<p>iptables: Firewall is not running.<br>iptables: Firewall is running.            //如果启动了会出现这个<br>firewalld 防火墙,则会出现内容：running</p>
+<p>停止防火墙：（iptables是centos7之前常用的防火墙，在centos7上使用了firewall）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> iptables stop
+<span class="token function">chkconfig</span> iptables off
+</code></pre>
+<p>对于 firewalld 防火墙：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl stop firewalld
+<span class="token function">sudo</span> systemctl disable firewalld
+</code></pre>
+<p><strong>永久关闭防火墙（通过配置文件）</strong>：<br>1、对于 iptables 防火墙：<br>然后将文件中的所有规则都删除，保存并退出文件。这将完全禁用 iptables 防火墙。</p>
+<p>sudo vi /etc/sysconfig/iptables<br>1<br>2、对于 firewalld 防火墙：<br>在该文件中找到 Enabled 字段，并将其值从 yes 修改为 no。然后保存并退出文件。这将完全禁用 firewalld 防火墙</p>
+<p>sudo vi /etc/firewalld/firewalld.conf</p>
+<h3 id="bugfree使用"><a href="#bugfree使用" class="headerlink" title="bugfree使用"></a>bugfree使用</h3><p><strong>指派给：</strong>Bug 的当前处理人（开发人员）。如果不知道 Bug 的处理人，可以 指派给 Active，项目或模块负责人再重新分发、指派给具体人员。如果设定 了邮件通知，被指派者会收到邮件通知。状态为 Closed 的 Bug，默认会指派 给 Closed，表示 Bug 生命周期的结束。 </p>
+<p><strong>抄送给：</strong>需要通知相关人员时填写，例如测试主管、该产品负责人或开发 主管等。可以同时指派多个，人员之间用逗号分隔。如果设定了邮件通知， 当 Bug 有任何更新时，被指派者都会收到邮件通知。</p>
+<p>  <strong>严重程度：</strong>Bug 的严重程度。由 Bug 的创建者视情况来指定，其中 1 为<strong>致命</strong>最严重的问题，4 为最小的问题。一般 1 级为系统崩溃或者数据丢失或、冒烟测试及每次测试都需执行的用例的问题；2 级为<strong>严重</strong>主要功能的问题；3 级为<strong>一般</strong>次要功能的问题；4 级为<strong>轻微</strong>细微的问题。 </p>
+<p> <strong>优先级：</strong>Bug 处理的优先级。由 Bug 的处理人员按照当前业务需求、开发计 划和资源状态指定，其中 1 的优先级最高，4 的优先级最低。一般 1 级为需 要立即解决的问题；2 级为需要在指定时间内解决的问题；3 级为项目开发 计划内解决的问题；4 级为资源充沛时解决的问题。  相关 Bug：填写 Bug 的 ID 号（1、2、3……），与当前 Bug 相关的 Bug。例如， 相同代码产生的不同问题，可以在相关 Bug 注明。 </p>
+<p> <strong>相关 Case：</strong>填写 Case 的 ID 号（1、2、3……），与当前 Bug 相关的 Case。例 如，测试遗漏的 Bug 可以在补充了 Case 之后，在 Bug 的相关 Case 注明。 </p>
+<p> <strong>上传附件：</strong>上传 Bug 的屏幕截图，Log 日志等，方便 Bug 处理人员。 </p>
+<p><strong>注释：</strong>填写测试相关的事宜</p>
+<p><strong>三种无效的 Bug</strong> </p>
+<p>By Design 设计需求就是这么设计的 </p>
+<p>Duplicate 这个问题别人已经发现，如果解决方案选择该项，需 要指定重复 bug 的编号 </p>
+<p>Not Repro 无法复现的问题 </p>
+<p><strong>四种有效的 Bug</strong> </p>
+<p>Fixed 问题被修复 </p>
+<p>External 外部原因（比如浏览器、 操作系统、其他第三方软 件）造成的问题</p>
+<p>Postponed 发现的太晚了，下一个版本讨论是否解决</p>
+<p> Won’t Fix 是个问题，但是不值得修复</p>
+<p><strong>Bug 的三种状态</strong> </p>
+<p>在 Bugfree 中，一个 Bug 只有 3 种状态：Active（活动）、Resolved（已解决）、 Closed（关闭）。</p>
+<p> Active （ 活 动） Bug 的初始状态。也是 Bug 激活的状态。任何新建的 Bug 状态都 是 Active。可以通过编辑修改 Bug 的内容，并指派给合适的人员 解决。 Resolved（已解决) 解决 Bug 之后的状态。</p>
+<p>Closed（已关闭） 已修复 Bug 在验证无误之后关闭，该 Bug 处理完毕。如果没有 真正解决或者重新复现，可以重新激活，Bug 状态重新变为 Active</p>
+<p><strong>执行结果</strong>：</p>
+<p>Passed 运行成功的 Test Case </p>
+<p>Failed 运行失败的 Test Case </p>
+<p>Blocked 当前 Test Case 因为其他原因，无法正常运行。 </p>
+<p>N/A 对当前 Test Case 不适用</p>
+<p> <strong>状态：</strong></p>
+<p>Completed 已完成的 Test Result </p>
+<p>Investigating 待研究确认的 Test Result </p>
+<p>Resolved 已解决的 Test Result</p>
+<p>写用例的注意事项:<br>第一、思路有多少种情况，就写多少条测试用例覆盖</p>
+<p>第二、保持用例步与步之间的独立性</p>
+<p>第三、用例中该用数据的地方必须使用数据</p>
+<p>第四、每一条测试用例必须有明确的输入和预期结果</p>
+<p>第五、写用例时一定要参照软件的界面来写。</p>
+<p>第六、用例的输入，怎么操作的就怎么写。</p>
+<p>第七、用例中使用的数据不能关联。</p>
+<p><strong>启动bugfree:</strong></p>
+<p>/opt/lampp/lampp start</p>
+<p>将xampp添加到系统启动项</p>
+<p>ln -s /opt/lampp/lampp /etc/rc.d/init.d/lampp</p>
+<p>chkconfig命令可以用来检查、设置系统的各种服务</p>
+<p>chkconfig –add lampp</p>
+<p>chkconfig –list | grep lampp</p>
+<p>若上述的3、4、5为ON表示设置系统启动项成功</p>
+<p>lampp设置安全密码</p>
+<p>/opt/lampp/lampp security</p>
+<h3 id="bug跟踪流程"><a href="#bug跟踪流程" class="headerlink" title="bug跟踪流程"></a><strong>bug跟踪流程</strong></h3><p>[面试题] 你们公司 bug 管理流程是什么? bug 跟踪流程是什么?</p>
+<p> bug 跟踪流程 (200 以上字) </p>
+<p>框架：软件测试工程师提交一个 bug–》测试组长进行审核–》开发组长在开发环境验证是否能复现-》开发工程师进行修复–》测试程师进行验证-》closed</p>
+<p>错误推测法: 根据测试经验，推测系统里面可能的模块存在大量的 bug，因此测试时对该模块进行详细的测试。<br>微信的视频聊天功能，语音功能测试等等。</p>
+<p>[面试题] 你是如何发现 bug 的? 测试用例如何设计出来的? 什么是测试思路? 你是如何理解需求的? 思考: 所有的 bug 都是用例发现的吗? 有的 bug 是用例之外发现的，说明我们的用例设计不全，需要下一个版本进行完善。</p>
+<p>你们公司的测试人员与开发人员发生过矛盾吗? 你们公司测试和开发的关系怎么? )–[面试题]<br>第一步: 查一下有没有言语不当地方。</p>
+<p>第二步:确认是不是程序问题 (界面问题，硬件问题，数据库问题，架构问题等等)</p>
+<p>第三步: 明确不修改的原因是什么? 一锁定争议的焦点。</p>
+<p>不好复现——解决方案<br>不影响主要功能——解决方案</p>
+<p>存在技术难点一-解决方案</p>
+<p>调用第三方问题——解决方案<br>第四步:<br>充分利用: PM,测试经理，QA(质量管理员)</p>
+<p><strong>如何定位 bug?</strong></p>
+<p>产品设计问题</p>
+<p>需求问题</p>
+<p>架构问题</p>
+<p>数据库问题</p>
+<p>源代码问题</p>
+<p>硬件问题</p>
+<p>界面问题</p>
+<p>如果你遇到一个不能复现的问题该怎么处理?</p>
+<p>第一、截图</p>
+<p>第二、日志</p>
+<p>第三、利用自动化工具进行复现</p>
+<h3 id="OSI分层"><a href="#OSI分层" class="headerlink" title="OSI分层"></a>OSI分层</h3><p>1.应用层（Application layer）<br>应用层（Application layer）是OSI模型的第7层，应用层是最靠近用户的OSI层。这一层为用户的应用程序（例如电子邮件、文件传输和终端仿真）提供网络服务。</p>
+<p>它是计算机用户，以及各种应用程序和网络之间的接口，其功能是直接向用户提供服务，完成用户希望在网络上完成的各种工作。它在其他6层工作的基础上，负责完成网络中应用程序与网络操作系统之间的联系，建立与结束使用者之间的联系，并完成网络用户提出的各种网络服务及应用所需的监督、管理和服务等各种协议。此外，该层还负责协调各个应用程序间的工作。</p>
+<p>协议：HTTP、TFTP、FTP、NFS、WAIS、SMTP</p>
+<p>2.表示层（Presentation Layer）<br>表示层(Presentation Layer)是OSI模型的第六层，数据的表示、安全、压缩。可确保一个系统的应用层所发送的信息可以被另一个系统的应用层读取。</p>
+<p>主要功能：处理用户信息的表示问题，如编码、数据格式转换和加密解密等。</p>
+<p>协议：Telnet、Rlogin、</p>
+<p>3.会话层(Presentation Layer)<br>会话层(Presentation Layer)是OSI模型的第五层，建立、管理、终止会话，对应主机进程，指本地主机与远程主机正在进行的会话。</p>
+<p>主要任务是：向两个实体的表示层提供建立和使用连接的方法。将不同实体之间的表示层的连接称为会话。因此会话层的任务就是组织和协调两个会话进程之间的通信，并对数据交换进行管理。</p>
+<p>协议：SMTP，DNS，</p>
+<p>4.传输层(Transport Layer)<br>传输层(Transport Layer)是OSI模型的第四层，定义传输数据的协议端口号，以及流控和差错校验。</p>
+<p>主要任务是：向用户提供可靠的端到端的差错和流量控制，保证报文的正确传输。传输层的作用是向高层屏蔽下层数据通信的细节，即向用户透明地传送报文。</p>
+<p>协议：TCP，UDP</p>
+<p>5.网络层(Network Layer)<br>网络层(Network Layer)是OSI模型的第三层，进行逻辑地址寻址，实现不同网络之间的路径选择。</p>
+<p>其主要任务是：通过路由选择算法，为报文或分组通过通信子网选择最适当的路径。该层控制数据链路层与传输层之间的信息转发，建立、维持和终止网络的连接。具体地说，数据链路层的数据在这一层被转换为数据包，然后通过路径选择、分段组合、顺序、进/出路由等控制，将信息从一个网络设备传送到另一个网络设备。</p>
+<p>协议：IP，ICMP，ARP，RARP，AKP，UUCP</p>
+<p>6.数据链路层(Data Link Layer)<br>数据链路层(Data Link Layer)是OSI模型的第二层，建立逻辑连接、进行硬件地址寻址、差错校验等功能。（由底层网络定义协议）</p>
+<p>主要功能：通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路。在计算机网络中由于各种干扰的存在，物理链路是不可靠的。因此，这一层的主要功能是在物理层提供的比特流的基础上，通过差错控制、流量控制方法，使有差错的物理线路变为无差错的数据链路，即提供可靠的通过物理介质传输数据的方法。</p>
+<p>协议：FDDI，Ethernet，Arpanet，PDN，SLIP，PPP</p>
+<p>7.物理层(Physical Layer)<br>物理层(Physical Layer)是OSI模型的最底层，也是第一层。建立、维护、断开物理连接。</p>
+<p>主要功能：利用传输介质为数据链路层提供物理连接，实现比特流的透明传输。<br>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。使其上面的数据链路层不必考虑网络的具体传输介质是什么。“透明传送比特流”表示经实际电路传送后的比特流没有发生变化，对传送的比特流来说，这个电路好像是看不见的。</p>
+<p>应用数据（应用层，表示层，会话层）-报文</p>
+<p>传输层-段-端口号-服务进程到服务进程</p>
+<p>网络层-包-IP地址-端到端</p>
+<p>数据链路层-帧-MAC地址-跳到跳</p>
+<p>物理层-比特</p>
+<h3 id="传输层中，最常用的两个协议是TCP（Transmission-Control-Protocol）和UDP（User-Datagram-Protocol）"><a href="#传输层中，最常用的两个协议是TCP（Transmission-Control-Protocol）和UDP（User-Datagram-Protocol）" class="headerlink" title="传输层中，最常用的两个协议是TCP（Transmission Control Protocol）和UDP（User Datagram Protocol）"></a>传输层中，最常用的两个协议是TCP（Transmission Control Protocol）和UDP（User Datagram Protocol）</h3><p>TCP与UDP基本区别<br> 1.tcp基于连接的传输层协议与udp无连接<br> 2.TCP要求系统资源较多，UDP较少；<br> 3.UDP程序结构较简单<br> 4.tcp流模式:数据分解为多个小的数据报文进行发送,udp数据报模式,整个报文发送出去;<br> 5.TCP有三次握手,保证数据正确性，UDP可能丢包<br> 6.TCP保证数据顺序，UDP不保证 </p>
+<p> 7.tcp只支持点对点通讯，udp支持一对一、一对多、多对多通讯</p>
+<p> 8.tcp有拥塞机制,udp无</p>
+<p> 9.tcp要求实时性低，准确度高,udp反之</p>
+<p>http协议与tcp协议区别<br>1、性质不同：<br>http是一个简单的请求-响应协议。TCP是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p>2、连接不同：<br>TCP连接到不同但互连的计算机通信网络的主计算机中的成对进程之间依靠TCP提供可靠的通信服务。http通常运行在TCP之上。指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。</p>
+<p>3、功能不同：<br>当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分割成适当长度的报文段，最大传输段大小（MSS）通常受该计算机连接的网络的数据链路层的最大传送单元（MTU）限制。HTTP协议是基于请求/响应范式的。</p>
+<p>4、HTTP：<br>超文本传输协议，是应用层的协议，以TCP为基础<br>TCP：传输控制协议，是传输层的协议，以IP协议为基础</p>
+<p>5、从本质上说:<br>Http协议是建立在TCP协议基础之上的。当浏览器需要从服务器 获取网页数据的时候，会发出一次http请求。Http通过TCP建立起一个到服务器的通道。<br>当一个网页完成之后，客户端和服务器端之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个页面时，会继续使用这一条已经建立的连接Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件中设定这个时间，</p>
+<p>6、连接状态<br>Http是无转态的连接，TCP是有状态的长连接</p>
+<h3 id="HTTPS和HTTP的主要区别"><a href="#HTTPS和HTTP的主要区别" class="headerlink" title="HTTPS和HTTP的主要区别"></a>HTTPS和HTTP的主要区别</h3><p><strong>100 Continue</strong><br><strong>客户端应当继续发送请求。</strong><br><strong>101 Switching Protocols</strong><br><strong>切换协议</strong><br>102 Processing<br>WebDAV（RFC 2518）扩展的状态码，代表处理将被继续执行</p>
+<p><strong>200 OK请求成功</strong></p>
+<p>201 Created请求成功，已创建新资源</p>
+<p>202 Accepted已接受请求，但尚未处理完成</p>
+<p><strong>301 永久重定向</strong></p>
+<p><strong>302 临时重定向</strong></p>
+<p><strong>400 Bad Request 客户端请求的语法错误</strong>，服务器无法理解</p>
+<p><strong>401Unauthorized 未授权，请求要求用户的身份认证，没注册的用户登录失败</strong></p>
+<p>402 Payment Required 为了将来可能的需求而预留的</p>
+<p><strong>403 Forbidden 请求没权限，服务器拒绝执行</strong>，已登录的用户，无法执行管理员的功能</p>
+<p><strong>404 Not Found 服务器无法根据客户端的请求找到资源 (网页)</strong> </p>
+<p><strong>405 Method Not Allowed 请求方式错误</strong></p>
+<p>406 Not Acceptable 请求的内容特性无法满足请求头中的条件，不被接受</p>
+<p>407 Proxy Authentication Required 代理授权请求</p>
+<p><strong>408 Request Timeout 请求超时</strong></p>
+<p>409 Conflict 请求资源的当前状态之间存在冲突</p>
+<p>410 Gone 请求资源不可用</p>
+<p>411 Length Required 请求没有内容长度</p>
+<p>412 Precondition Failed 请求头字段先决条件不满足</p>
+<p>413 Request Entity Too Large请求实体太大</p>
+<p><strong>414 Request-URI Too Long 请求url太长</strong></p>
+<p>415 Unsupported Media Type请求实体格式不支持</p>
+<p>451 Unavailable For Legal Reasons该请求因法律原因不可用</p>
+<p><strong>500 Internal Server Error 服务器内部错误</strong>，无法完成请求</p>
+<p>501 Not Implemented 服务器不支持请求的功能，无法完成请求</p>
+<p><strong>502 Bad Gateway</strong> <strong>作为网关或者代理工作的服务器</strong>尝试执行请求时从远程服务器接收到了一个无效的响应<br>503 Service Unavailable 由于超载或系统维护，服务器暂时的无法处理客户端的请求。<br>504 Gateway Time-out 充当网关或代理的服务器，未及时从远端服务器获取请求</p>
+<p>  1、证书：https协议需要到CA申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>  2、安全性：http是超文本传输协议，信息是明文传输，https则是HTTP协议+SSL协议构建加密传输协议。</p>
+<p>3、端口：http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<h3 id="Jmeter-JDBC参数化"><a href="#Jmeter-JDBC参数化" class="headerlink" title="Jmeter JDBC参数化"></a>Jmeter JDBC参数化</h3><table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Driver class</th>
+<th>Database URL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL</td>
+<td>com.mysql.jdbc.Driver</td>
+<td>jdbc:mysql://host:port/{dbname}</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>org.postgresql.Driver</td>
+<td>jdbc:postgresql:{dbname}</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>oracle.jdbc.driver.OracleDriver</td>
+<td>jdbc:oracle:thin:user/pass@//host:port/service</td>
+</tr>
+<tr>
+<td>Ingres (2006)</td>
+<td>ingres.jdbc.IngresDriver</td>
+<td>jdbc:ingres://host:port/db[;attr=value]</td>
+</tr>
+<tr>
+<td>MSSQL</td>
+<td>com.microsoft.sqlserver.jdbc.SQLServerDriver或者net.sourceforge.jtds.jdbc.Driver</td>
+<td>jdbc:sqlserver://IP:1433;databaseName=DBname或者jdbc:jtds:sqlserver://localhost:1433/“+”library”</td>
+</tr>
+</tbody></table>
+<p>Variables names 参数使用方法<br>jmeter官网给的解释是：如果给这个参数设置了值，它会保存sql语句返回的数据和返回数据的总行数。假如，sql语句返回2行，3列，且variables names设置为A,,C，那么如下变量会被设置为：</p>
+<pre class=" language-txt"><code class="language-txt">A_#=2 (总行数)
+A_1=第1列, 第1行
+A_2=第1列, 第2行
+C_#=2 (总行数)
+C_1=第3列, 第1行
+C_2=第3列, 第2行
+</code></pre>
+<p>如果返回结果为0，那么A_#和C_#会被设置为0，其它变量不会设置值。<br>如果第一次返回6行数据，第二次只返回3行数据，那么第一次那多的3行数据变量会被清除。<br>可以使用${A_# }、${A_1}获取相应的值</p>
+<h3 id="Jmeter正则表达式提取器"><a href="#Jmeter正则表达式提取器" class="headerlink" title="Jmeter正则表达式提取器"></a>Jmeter正则表达式提取器</h3><p>Apply to：应用范围，选默认的main sample only就行了<br>要检查的响应字段：要提取的字段范围<br>主体：响应体，不包含响应头；最常用<br>body(unescaped)：响应体，替换了所有HTML转义符；不建议使用<br>body as a Document：从不同类型的文件中提取文本；影响性能<br>信息头：响应头<br>Requeste Headers：请求头<br>URL：URL<br>响应代码：响应码(Response code)<br>响应信息：响应信息(Response message)<br>引用名称：接收提取值的变量名，*必传<br>正则表达式：正则表达式<br>模板：从找到的匹配项中创建字符串的模板<br>如果一条正则表达式有多个提取结果，则提取结果是数组形式<br>模板1、2…表示把解析到的第几个值赋值给变量，从1开始匹配<br>0表示整个表达式匹配的内容<br>若只有一个结果，只能是1<br>匹配数字（0代表随机)：取第几个值(0:随机，默认；-1所有；1第一个值)，非必传<br>缺省值：缺省值，匹配不到值的时候取该值，非必传<br>Use empty default value：勾选后，提取不到值时，则返回空字符串</p>
+<ul>
+<li><pre class=" language-txt"><code class="language-txt">- 变量=截取的全部字段，彼此字段间以空格相隔
+- 变量_g：应代表截取的变量个数？
+- 变量_g0: 根据正则表达式匹配到的（截取前的）完整字段。
+- 变量_g1:截取到的第一个字段，使用时${变量名_g1}。
+- 变量_g2:截取到的第二个字段，使用时${变量名_g2}，如下图所示
+</code></pre>
+</li>
+</ul>
+<p>$0$指全文匹配，$1$ $2$指同时获取第一个和第二个提取点。</p>
+<p>Match No.(第几个匹配成功的)<br>Default Value（当未匹配到时，使用此值返回）</p>
+<p>mumu模拟器:旧端口7555，新端口号16384</p>
+<h3 id="clumsy模拟弱网工具"><a href="#clumsy模拟弱网工具" class="headerlink" title="clumsy模拟弱网工具"></a>clumsy模拟弱网工具</h3><p>设置参数</p>
+<p>1.延迟(Lag)，把数据包缓存一段时间后再发出，这样能够模拟网络延迟的状况。</p>
+<p>2.掉包(Drop)，随机丢弃一些数据。</p>
+<p>3.节流(Throttle)，把一小段时间内的数据拦截下来后再在之后的同一时间一同发出去。</p>
+<p>4.重发(Duplicate)，随机复制一些数据并与其本身一同发送。</p>
+<p>5.乱序(Outof order)，打乱数据包发送的顺序。</p>
+<p>6.篡改(Tamper)，随机修改小部分的包裹内容</p>
+<h3 id="ConfigParser模块"><a href="#ConfigParser模块" class="headerlink" title="ConfigParser模块"></a>ConfigParser模块</h3><p>ini配置文件格式</p>
+<pre class=" language-ini"><code class="language-ini"># 这是注释
+<span class="token comment" spellcheck="true">; 这也是注释</span>
+<span class="token selector">[section1]</span>
+<span class="token constant">name</span> <span class="token attr-value"><span class="token punctuation">=</span> wang</span>
+<span class="token constant">age</span> <span class="token attr-value"><span class="token punctuation">=</span> 18</span>
+<span class="token constant">heigth</span> <span class="token attr-value"><span class="token punctuation">=</span> 180</span>
+<span class="token selector">[section2]</span>
+<span class="token constant">name</span> <span class="token attr-value"><span class="token punctuation">=</span> python</span>
+<span class="token constant">age</span> <span class="token attr-value"><span class="token punctuation">=</span> 19</span>
+</code></pre>
+<p>初始化对象并读取文件<br>import configparser<br>import os</p>
+<p>创建对象</p>
+<p>config = configparser.ConfigParser()<br>dirPath = os.path.dirname(os.path.realpath(<strong>file</strong>))<br>inipath = os.path.join(dirPath,’test.ini’)</p>
+<p>读取配置文件，如果配置文件不存在则创建</p>
+<p>config.read(inipath,encoding=’utf-8’)<br>获取指定节点的所有key<br>option = config.options(‘section1’)<br>print(option)</p>
+<p>获取指定节点的键值对<br>item_list = config.items(‘section2’)<br>print(item_list)</p>
+<p>获取指定节点的指定key的value<br>val = config.get(‘section1’,’age’)<br>print(‘section1的age值为：’,val)</p>
+<p><strong>将获取到值转换为int\bool\浮点型</strong></p>
+<p>Attributes = config.getint(‘section2’,’age’)<br>print(type(config.get(‘section2’,’age’)))<br>print(type(Attributes))</p>
+<p>检查section或option是否存在，返回bool值<br>has_sec = config.has_section(‘section1’)<br>print(has_sec)</p>
+<p>has_opt = config.has_option(‘section1’,’name’)<br>print(has_opt)</p>
+<p>添加一个section和option<br>if not config.has_section(‘node1’):<br>    config.add_section(‘node1’)</p>
+<p>不需判断key存不存在，如果key不存在则新增，若已存在,则修改value</p>
+<p>config.set(‘section1’,’weight’,’100’)  </p>
+<p>将添加的节点node1写入配置文件</p>
+<p>config.write(open(inipath,’w’))<br>print(config.sections())<br>print(config.options(‘section1’))</p>
+<p> 删除section和option</p>
+<p>删除option</p>
+<p>print(‘删除前的option：’,config.items(‘node1’))<br>config.remove_option(‘node1’,’dd’)</p>
+<p>将删除节点node1后的内容写回配置文件</p>
+<p>config.write(open(inipath,’w’))<br>print(‘删除后的option：’,config.items(‘node1’))</p>
+<p>删除section</p>
+<p>print(‘删除前的section: ‘,config.sections())<br>config.remove_section(‘node1’)<br>config.write(open(inipath,’w’))<br>print(‘删除后的section: ‘,config.sections())</p>
+<p>写入方式<br>1、write写入有两种方式，一种是删除源文件内容，重新写入：w</p>
+<p>config.write(open(inipath,’w’))</p>
+<p>另一种是在原文基础上继续写入内容，追加模式写入：a</p>
+<p>config.write(open(inipath,’a’))</p>
+<p>需要注意的是，config.read(inipath,encoding=’utf-8’)只是将文件内容读取到内存中，即使经过一系列的增删改操作，只有执行了以上的写入代码后，操作过的内容才会被写回文件，才能生效。</p>
+<h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><p>1.接口?<br>单元测试之后，接口，功能之前，功能自动化</p>
+<p>2.目前web系统大部分都是用前后端分离的开发模式开发，导致后端的接口都对所有人暴露的。安全性，和完整性要进行校验。<br>3.<strong>流程:</strong><br>前期:<br>    <strong>1.分析接口说明书</strong></p>
+<pre><code>http协议包含四个部分:
+
+请求：
+
+    请求行、请求头、请求空行、请求体
+响应:
+    响应行、响应头、响应空行、响应体
+</code></pre>
+<p>http 状态码:<br>1xx:    请求正在处理中<br>2xx:    成功<br>3xx:    重定向，会访问多个请求<br>        302    304<br>4xx:    浏览器问题<br>        404    405<br>5xx:    服务器–&gt;<br>        日志分析:查看日志信息 –&gt; tail -f 监控日志</p>
+<pre><code>    python :open a.log
+    500    505    503
+</code></pre>
+<p><strong>2.按照接口说明书编写用例</strong></p>
+<pre><code>1.企业
+
+    1.开发那边有接口说明书，直接对着接口说明书开发用例即可
+
+    2.没有，自己去抓包分析: fiddler，charles
+
+2.fiddler:（抓包，断点，弱网）
+    断点: rules --&gt;automatic breakpoint(before regeust ,afterresponse)
+    弱网
+
+customes rules
+            if (m SimulateModem) {
+
+// Delay sends by 300ms per KB uploaded.
+
+oSession["request-trickle-delay"] =9000";
+
+// Delay receives by 150ms per KB downloaded
+
+oSession["response-trickle-delayn] = 5000";
+
+}
+
+preformance    --&gt; 第一项生效
+
+丢包操作:
+</code></pre>
+<ul>
+<li><p>fiddler 模拟app,web弱网访问的环境<br>clumsy</p>
+<p>3.接口<strong>用例设计</strong>方法<br>1.业务逻辑角度(等价类，边界值，场景法，因果图)<br>场景法:正确用户名，正确密码看返回数据是否是成功报文 :code:100</p>
+<p>正确用户名，错误密码看返回数据是否是正常处理的报文: code:200</p>
+<p>边界值:用户名至少3位</p>
+<p>可以设计2、3、4位的用户名进行登陆，看接口返回结果是否是code:100或者200<br>2.参数异常 （多参，少参，空参，空值，参数值类型）：用户名数据:li si</p>
+<p>空格数据传参:    传入一堆空格<br>3.安全性校验（sql注入，越权访问）:<br>1‘ or ‘1’ = ’1传入sq1片段脚本，或者while True等病毒性脚本来校验</p>
+</li>
+</ul>
+<p><strong>3、开发脚本</strong></p>
+<p>准备接口测试场景:</p>
+<p>登陆、预备接口名称、url地址、请求方式、请求头、入参、出参</p>
+<p>jmeter配置:    线程组、http请求、响应断言</p>
+<p>csv data set config 引入外部文件进行参数化</p>
+<p>先造数据:将用例的数据 –&gt; 存储在txt中<br>使用csv data set config 引入外部文件进行参数化</p>
+<pre><code>Filename
+
+编码集:utf-8
+
+变量名称:
+
+切割规则:
+</code></pre>
+<p>线程组<br>   http请求<br>          响应 断言 </p>
+<p>   查看结果树</p>
+<pre><code>jmeter的高级配置:
+
+关联:接口测试中，如果一个接口的请求需要用到上一步的数据才能进行下一步操作，可以使用正则表达式提取器来提取重要数据
+
+jessionsid = (.+?)
+.:任意字符
++:一个或者多个
+?:匹配最后一个字符结束
+():提取的数据当成一组
+</code></pre>
+<p>然后在下一步使用${sid}，引入刚才提取的jsessionid数据即可</p>
+<p>中期:</p>
+<pre><code>造数据
+
+执行测试    
+</code></pre>
+<p>后期:</p>
+<pre><code>分析接口的bug
+</code></pre>
+<h3 id="jmeter生成测试报告"><a href="#jmeter生成测试报告" class="headerlink" title="jmeter生成测试报告"></a>jmeter生成测试报告</h3><p>汇总报告与聚合报告类似，但是相比聚合报告，汇总报告使用更少的内存</p>
+<p>一、怎么生成jtl文件</p>
+<p>创建存储jtl类型文件的文件夹和存储html测试报告的文件夹</p>
+<p>在jtl文件夹中创建空的result.jtl文件</p>
+<p>方法一：创建result.jtl文件的方式：新建txt空白文件–&gt;点击文件，另存为–&gt; 输入文件名为result.jtl –&gt; 文件类型选为 所有文件–&gt;编码选为utf-8–&gt;点击保存</p>
+<p>二、使用jmeter中的GUI生成测试报告</p>
+<p>在jmeter脚本的查看结果树中，在所有数据写入一个文件，点击浏览，获取result.jtl文件的地址</p>
+<p>获取文件地址之后会报错，是因为log文件为空，没有关系，点击ok即可；</p>
+<p>然后启动脚本；</p>
+<p>启动jmeter脚本后，会有如下提示，在jtl中已经存在result.jtl文件，因为现在为空文件，选择附加到现在文件，选择overwrite existing file 也可；若不是空文件，想增加log日志，则选择附加到现有文件；只显示本次脚本运行的日志，则选择overwriter existing file</p>
+<p>之后result.jtl文件会存储测试数据</p>
+<p>Jmeter脚本执行完成后，点击工具，点击Generate HTML report</p>
+<p>result file ：选择刚刚生成的result.jtl文件的路径</p>
+<p>user.properties file : 选择 jmeter安装目录下bin文件内 jmeter.properties</p>
+<p>output directory : 选择报告输出的路径</p>
+<p>点击Generate report</p>
+<p>如果报告输出的文件夹不是空的，则会出现如下提示，需要将报告输出的文件夹清空，再次点击Generate report，即成功生成报告</p>
+<p><strong>三、jmeter CLI模式</strong></p>
+<p>CLI = Command Line，命令行模式</p>
+<p><strong>CLI 模式可选参数</strong></p>
+<p>-n 指定 JMeter 将在 cli 模式下运行</p>
+<p>-t 包含测试计划的 jmx 文件名称</p>
+<p>-l 记录测试结果的 jtl 文件名称</p>
+<p>-j 记录 Jmeter 运行日志的文件名称</p>
+<p>-g 输出报告文件（ .csv 文件）</p>
+<p>-e 生成 html 格式的测试报表</p>
+<p>-o 生成测试报表的文件夹/文件夹不存在或为空</p>
+<p><strong>服务器相关参数</strong></p>
+<p>-r 指定所有远程服务器中运行测试</p>
+<p>-R 在指定的远程服务器中运行测试</p>
+<p>-X 服务器运行完脚本后自动停止 jmeter-server(用的少)</p>
+<p><strong>1.使用命令行生成测试报告</strong></p>
+<p>进入D:\apache-jmeter-5.5\bin，点击地址，输入cmd，点击回车，进入命令控制台</p>
+<p>jmeter -n -t D:\ JmeterTest\test.jmx -l result.jtl -e -o D:\jmeter_report\report</p>
+<p>命令执行之后，在报告文件文件夹中生成测试报告，在jmeter安装文件夹的bin文件夹中自动生成result.jtl文件。</p>
+<p><strong>2.使用Windows批处理文件自动生成测试报告</strong></p>
+<p>因每次使用命令行生成测试报告之前，都要将存储报告的文件夹中的内容以及命令行执行后自动生成的result.jtl文件清空，故可以使用Windows批处理文件自动生成测试报告。操作步骤如下：</p>
+<ol>
+<li>新建空白文件，文件类型为.bat。在文件中输入以下命令：</li>
+</ol>
+<p>del /s /Q D:\apache-jmeter-5.5\bin\result.jtl</p>
+<p>rd /s /Q D:\jmeter_report\report</p>
+<p>md D:\jmeter_report\report</p>
+<p>jmeter -n -t D:\jmeter_demo\yozo_file_upload.jmx -l result.jtl -e -o D:\jmeter_report\report</p>
+<ol>
+<li>然后将编译好的bat文件，放入jmeter安装文件夹中的bin文件夹中</li>
+<li>点击bin文件夹中的bat文件，即可自动生成测试报告</li>
+</ol>
+<p>命令含义：</p>
+<p>删除文件</p>
+<p>Del表示删除文件</p>
+<p>/s 删除该文件</p>
+<p>/q 删除前不确认</p>
+<p>删除文件夹</p>
+<p>Rd 表示文件夹</p>
+<p>/s 删除该目录及其下的所有内容</p>
+<p>/q 删除前不确认</p>
+<p>创建文件夹</p>
+<p>Md (mkdir)表示创建文件夹</p>
+<p>echo &gt; 文件名 表示创建文件</p>
+<p>echo 内容 &gt;&gt; 文件名 表示追加文件</p>
+<p>dir /S 搜索的路径\文件名</p>
+<p>搜索文件中包含要搜内容的行并显示行号：find /I /N “要搜的内容” 文件名</p>
+<p>打开文件：start 文件名.后缀名<br>打开文件夹：start 文件夹名</p>
+<p>查看指定文件中的内容：type 文件名.后缀名</p>
+<h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h3><p>在请求的主机中添加代理，才可正常访问</p>
+<p><a target="_blank" rel="noopener" href="http://localhost.charlesproxy.com:90/">http://localhost.charlesproxy.com:90</a></p>
+<h3 id="悲观锁，乐观锁定义"><a href="#悲观锁，乐观锁定义" class="headerlink" title="悲观锁，乐观锁定义"></a>悲观锁，乐观锁定义</h3><p>悲观锁：悲观锁认为被它保护的数据是极其不安全的，每时每刻都有可能变动，一个事务拿到悲观锁后（可以理解为一个用户），其他任何事务都不能对该数据进行修改，只能等待锁被释放才可以执行。</p>
+<p>乐观锁：乐观锁的“乐观情绪”体现在，它认为数据的变动不会太频繁。因此，它允许多个事务同时对数据进行变动，通过在表中增加一个版本(version)或时间戳(timestamp)来实现</p>
+<p>xshell </p>
+<p>rz: 从主机上传到linux</p>
+<p>sz :从linux下载文件到主机</p>
+<p>1个汉字 = 2个字符= 4个字节 = 32bit（ACSII码下）</p>
+<h3 id="Jmeter跨线程组传递参数-token"><a href="#Jmeter跨线程组传递参数-token" class="headerlink" title="Jmeter跨线程组传递参数(token)"></a>Jmeter跨线程组传递参数(token)</h3><p>在登录接口下，添加json提取器采用$.token提取token,beanshell后置处理器 使用函数助手中${__setProperty(key,value,true)}，将提取出来的token设置为全局变量，再使用${__P(key)}在其他线程组使用</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">bubble_sort_optimized</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        swapped <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token operator">-</span>i<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                swapped <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> swapped<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">return</span> arr
+<span class="token keyword">def</span> <span class="token function">bubble_sort_recursive</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> arr
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    bubble_sort_recursive<span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> arr
+</code></pre>
+<p>时间复杂度仍然为 O(n^2)</p>
+<h3 id="聚簇索引和非聚簇索引区别"><a href="#聚簇索引和非聚簇索引区别" class="headerlink" title="聚簇索引和非聚簇索引区别"></a>聚簇索引和非聚簇索引区别</h3><p>数量：聚集索引一个表只能有一个，而非聚集索引一个表可以存在多个</p>
+<p>聚簇索引：索引的叶节点就是数据节点。而非聚簇索引的叶节点仍然是索引节点，只不过有一个指针指向对应的数据块</p>
+<h3 id="mysql慢查询如何优化？"><a href="#mysql慢查询如何优化？" class="headerlink" title="mysql慢查询如何优化？"></a>mysql慢查询如何优化？</h3><p>1.用索引</p>
+<p>2.用最优索引</p>
+<p>3.去多余的字段</p>
+<p>4.分库分表</p>
+<p>5.数据库的服务器性能</p>
+<h3 id="测试生命周期"><a href="#测试生命周期" class="headerlink" title="测试生命周期"></a>测试生命周期</h3><p>1.产品经理进行市场调研，整理产品需求</p>
+<p>2.需求分析，开需求评审会，由产品经理、开发人员、测试人员共同参加</p>
+<p>3.开发编写开发计划，测试人员编写测试计划</p>
+<p>4.开发人员与测试人员根据产品需求书分别开始开发产品与编写测试用例，期间开展用例评审会</p>
+<p>5.开发人员完成代码编写，运维人员完成测试环境部署，交由测试人员测试</p>
+<p>6.若测试人员发现代码漏洞，则交由开发人员修改，开发人员修改完毕后，重复上述步骤，直至测试通过，测试人员提交测试报告</p>
+<p>7.产品交于产品经理验收，验收完毕后交付用户。</p>
+<h3 id="给你一个杯子，你怎么测试"><a href="#给你一个杯子，你怎么测试" class="headerlink" title="给你一个杯子，你怎么测试"></a>给你一个杯子，你怎么测试</h3><p>1.功能测试:主要关注水杯基本功能</p>
+<p>2.界面测试:主要关注水杯外观、颜色、设计等方面</p>
+<p>3.易用性测试：主要关注水杯使用是否方便</p>
+<p>4.性能测试:最大使用次数</p>
+<p>5.兼容性测试：主要关注水杯是否可以装其他液体，如果汁、汽油、酒精等</p>
+<p>6.可移植性测试：主要关注水杯放置环境等</p>
+<p>7.安全性测试：主要关注水杯外观和各种异常条件下是否释放有毒物质等</p>
+<h3 id="软件生命周期："><a href="#软件生命周期：" class="headerlink" title="软件生命周期："></a>软件生命周期：</h3><p> 从软件最初构思到最终消亡(退役)的过程。</p>
+<ol>
+<li>软件生命周期</li>
+</ol>
+<p>立项 —需求分析 —设计、编码、测试 —发布 —运行维护 —淘汰</p>
+<p>软件立项===》可行性研究 ===》需求分析 ===》概要设计 ===》详细设计 ===》编码实现 ===》单元测试 ===》集成测试 ===》系统测试 ===》验收测试 ==》运行维护</p>
+<h3 id="常见的请求头以及它们的作用是什么？"><a href="#常见的请求头以及它们的作用是什么？" class="headerlink" title="常见的请求头以及它们的作用是什么？"></a>常见的请求头以及它们的作用是什么？</h3><p>Accept: （客户端可以接收的数据格式）</p>
+<p>X-Requested-With:（ajax请求，异步请求） User-Agent: （客户端的用户）</p>
+<p>Content-Type: application/x-www-form-urlencoded; charset=UTF-8（内容的格式）</p>
+<p>Cookie: csrf_token=2c76c391ab3922fe; （cookie信息）</p>
+<h3 id="工作中常用的jmeter自带函数有哪些"><a href="#工作中常用的jmeter自带函数有哪些" class="headerlink" title="工作中常用的jmeter自带函数有哪些"></a>工作中常用的jmeter自带函数有哪些</h3><p>1） random()：随机数函数</p>
+<p>2） randomString()：随机字符串函数3） time()：获取当前时间戳函数</p>
+<p>4） md5()：加密函数</p>
+<p>5） setpropty()：跨线程组设置属性值函数</p>
+<h3 id="自动化常见的异常"><a href="#自动化常见的异常" class="headerlink" title="自动化常见的异常"></a><strong>自动化常见的异常</strong></h3><p>NoSuchElementException： 没有如此元素异常NoSuchAttributeException ： 没有如此属性异常NoSuchFrameException ： 没有如此frame异常ElementNotSelectableException ：元素不能选择异常ElementNotVisibleException ：元素不可见异常Element not visible at this point ：在当前点元素不可见TimeoutException ： 超时异常</p>
+<h3 id="有哪些方法可以减少资源的大小"><a href="#有哪些方法可以减少资源的大小" class="headerlink" title="有哪些方法可以减少资源的大小"></a>有哪些方法可以减少资源的大小</h3><p>gzip压缩<br>js混淆<br>css压缩<br>图片压缩</p>
+<h3 id="外联CSS或JavaScript的优点"><a href="#外联CSS或JavaScript的优点" class="headerlink" title="外联CSS或JavaScript的优点"></a>外联CSS或JavaScript的优点</h3><p>如果JavaScript和CSS被多个页面调用时，这样修改更方便，只要修改一个文件就可以。<br>分离HTML、CSS和Javascript可以更容易操纵它们，方便协同工作。<br>外置Javascript文件可以被浏览器缓存</p>
+<h3 id="减少HTTP请求通常有以下方法："><a href="#减少HTTP请求通常有以下方法：" class="headerlink" title="减少HTTP请求通常有以下方法："></a>减少HTTP请求通常有以下方法：</h3><p>内联图片<br>CSS Sprites<br>合并脚本与样式<br>图上映射</p>
+<p>JavaScript建议放在底部将JavaScripte放在底部的目的是防止JavaScript禁止浏览器并行下载的功能。</p>
+<h3 id="chrome设置并发下载的方法："><a href="#chrome设置并发下载的方法：" class="headerlink" title="chrome设置并发下载的方法："></a><strong>chrome设置并发下载的方法：</strong></h3><p>URL地址中输入chrome://flags/进行设置参数界面</p>
+<p>Parallel downloading选项用于设置是否开始并行下载</p>
+<h3 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h3><p>内容一般包含测试范围、测试角色、<strong>测试方法</strong>、测试工具、测试层级、测试类型、验证环境、风险和处理方案、测试指标和测试可交付成果等内容。如何来理解这些内容呢？我们可以将其简化为四个问题：测什么？由谁测？什么时候测？怎么测？</p>
+<h3 id="Android-ANR日志路径在哪？"><a href="#Android-ANR日志路径在哪？" class="headerlink" title="Android ANR日志路径在哪？"></a>Android ANR日志路径在哪？</h3><p>文件路径：/data/anr/traces.txt</p>
+<p>adb shell monkey -p 包名 -s seed值（回归测试）-v(vv) 次数</p>
+<h3 id="monkey跑10万次需要多久"><a href="#monkey跑10万次需要多久" class="headerlink" title="monkey跑10万次需要多久"></a>monkey跑10万次需要多久</h3><p>参考答案：一般先计算跑一万次花费的时间，然后在x10根据以往经验，忽略超时的情况下，一般在10小时左右</p>
+<h3 id="那如果monkey测试过程中，出现crash你怎么定位"><a href="#那如果monkey测试过程中，出现crash你怎么定位" class="headerlink" title="那如果monkey测试过程中，出现crash你怎么定位"></a>那如果monkey测试过程中，出现crash你怎么定位</h3><p>参考答案：crash一般是空指针导致的，在logcat日志中输入“nullpoint”搜索到相关的日志，然后把日志给开发定位</p>
+<h3 id="用MONKEY做APP测，怎么做的-如果有问题的话怎么定位"><a href="#用MONKEY做APP测，怎么做的-如果有问题的话怎么定位" class="headerlink" title="用MONKEY做APP测，怎么做的/如果有问题的话怎么定位"></a>用MONKEY做APP测，怎么做的/如果有问题的话怎么定位</h3><p>(1)我们是使用monkey来做稳定性测试，测试前先用adb logcat -c清空服务器上原有的日志，再用adb logcat -v time命令，将logcat日志导出到本地电脑上保存。(2)再使用monkey命令adb shell monkey -p 包名 -v 次数，然后跑10万次；跑完后就看monkey日志,如果说它跑的次数跟我设的次数不一样.就说明monkey中途跑失败了。</p>
+<p>那我就要去看看logcat日志有没有null point或anr in的关键字。如果有null point，就表示app在测试过程中crash了；然后把null point前后的日志截取下来，发给开发定位；如果有anr in，表示app在测试过程中出现了ANR(程序无响应)</p>
+<p>我们要把/data/anr/traces.txt文件取下下来，再把ANR进程号对应的日志发给开发定位问题</p>
+<h3 id="APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？"><a href="#APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？" class="headerlink" title="APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？"></a>APP测试常见的严重问题有（例Crash）？分别引起的原因有哪些？</h3><p>1）、Wifi和移动数据之间切换，没有提示；2）、长时间使用，内存不足，可能是内存泄露；3）、前后台切换，app 崩溃；4）、敏感数据没有加密，如：用户名和密码</p>
+<h3 id="你对软件测试的理解"><a href="#你对软件测试的理解" class="headerlink" title="你对软件测试的理解"></a>你对软件测试的理解</h3><p>软件测试是指通过对软件进行各种测试手段的验证与评估，以发现软件中存在的问题和缺陷，并尽可能地提高软件质量和可靠性的过程。它包括功能测试、性能测试、安全测试、兼容性测试、易用性测试等多个方面，旨在确保软件的正确性、完整性、可靠性、安全性、性能等方面的要求。</p>
+<h3 id="设计微信视频聊天的用例"><a href="#设计微信视频聊天的用例" class="headerlink" title="设计微信视频聊天的用例"></a>设计微信视频聊天的用例</h3><p><strong>用例1</strong>：启动视频聊天<br>参与者：用户A，用户B<br>前置条件：用户A和用户B已添加为微信好友<br>后置条件：进入视频聊天界面<br>操作步骤：</p>
+<ol>
+<li>用户A在微信聊天列表中找到用户B，点击进入聊天界面。</li>
+<li>用户A点击聊天界面下方的“+”按钮，选择“视频聊天”。</li>
+<li>用户B收到视频聊天邀请，点击接受。</li>
+<li>双方进入视频聊天界面。</li>
+</ol>
+<p><strong>用例2</strong>：关闭视频聊天<br>参与者：用户A，用户B<br>前置条件：用户A和用户B正在进行视频聊天<br>后置条件：退出视频聊天界面<br>操作步骤：</p>
+<ol>
+<li>用户A在视频聊天界面点击右上角的“结束”按钮。</li>
+<li>用户B收到视频聊天结束通知。</li>
+<li>双方退出视频聊天界面。</li>
+</ol>
+<p><strong>用例3</strong>：切换前后摄像头<br>参与者：用户A，用户B<br>前置条件：用户A和用户B正在进行视频聊天<br>后置条件：摄像头切换成功<br>操作步骤：</p>
+<ol>
+<li>用户A在视频聊天界面点击下方的摄像头图标。</li>
+<li>系统自动切换到前置摄像头。</li>
+<li>用户A再次点击摄像头图标，切换到后置摄像头。</li>
+<li>用户B看到用户A的摄像头已经切换。</li>
+</ol>
+<p><strong>用例4</strong>：发送表情包<br>参与者：用户A，用户B<br>前置条件：用户A和用户B正在进行视频聊天<br>后置条件：表情包发送成功<br>操作步骤：</p>
+<ol>
+<li>用户A在视频聊天界面点击下方的表情包图标。</li>
+<li>系统显示表情包列表，用户A选择一个表情包。</li>
+<li>用户A点击选中的表情包，发送给用户B。</li>
+<li>用户B收到表情包，显示在聊天界面中。</li>
+</ol>
+<h3 id="使用过哪些测试工具"><a href="#使用过哪些测试工具" class="headerlink" title="使用过哪些测试工具"></a>使用过哪些测试工具</h3><p>作为一个认知智能模型，我本身并不使用测试工具。但是，我可以为您提供一些建议和推荐一些常用的测试工具，这些工具可以帮助您完成各种类型的软件测试。</p>
+<ol>
+<li><p>Jira：这是一个广泛使用的项目管理和问题跟踪工具，可以用于测试计划、缺陷跟踪和测试用例管理。</p>
+</li>
+<li><p>TestRail：这是一个灵活的测试管理工具，可以帮助您创建、组织和管理测试用例、测试计划和测试运行。</p>
+</li>
+<li><p>Selenium：这是一个自动化测试工具，可以用于Web应用程序的自动化测试。它可以模拟用户操作浏览器的行为，如点击按钮、输入文本等。</p>
+</li>
+<li><p>Appium：这是一个用于移动应用程序自动化测试的工具，支持Android和iOS平台。它可以模拟用户操作手机或平板的行为，如点击按钮、滑动屏幕等。</p>
+</li>
+<li><p>Postman：这是一个用于API测试的工具，可以用于发送HTTP请求并检查响应。它支持多种格式的请求和响应，如JSON、XML等。</p>
+</li>
+<li><p>LoadRunner：这是一个性能测试工具，可以模拟大量用户并发访问Web应用程序，以评估系统的性能和稳定性。</p>
+</li>
+<li><p>SoapUI：这是一个用于Web服务测试的工具，可以用于验证SOAP和REST Web服务的功能性和非功能性需求。</p>
+</li>
+<li><p>Jenkins：这是一个持续集成和持续交付工具，可以自动化构建、测试和部署软件。它可以与各种测试工具集成，以实现自动化测试流程。</p>
+</li>
+<li><p>Git：这是一个版本控制系统，可以用于代码管理和团队协作。它可以帮助开发人员跟踪代码更改，以便在需要时进行回滚和合并。</p>
+</li>
+</ol>
+<h3 id="软件发版前发现一例bug，怎么处理？"><a href="#软件发版前发现一例bug，怎么处理？" class="headerlink" title="软件发版前发现一例bug，怎么处理？"></a>软件发版前发现一例bug，怎么处理？</h3><p>采取以下步骤来处理：</p>
+<ol>
+<li><p>确认bug：包括复现bug、查看相关日志和代码，以及与开发团队讨论。</p>
+</li>
+<li><p>评估影响：评估bug对软件功能和用户体验的影响。严重的后果（例如数据丢失或系统崩溃）立即采取行动。</p>
+</li>
+<li><p>优先级排序：根据bug的严重程度和影响范围</p>
+</li>
+<li><p>通知相关团队</p>
+</li>
+<li><p>修复bug</p>
+</li>
+<li><p>重新测试</p>
+</li>
+<li><p>发布更新</p>
+</li>
+<li><p>跟踪和反馈</p>
+</li>
+</ol>
+<h3 id="bug记录应该包含哪些内容"><a href="#bug记录应该包含哪些内容" class="headerlink" title="bug记录应该包含哪些内容"></a>bug记录应该包含哪些内容</h3><ul>
+<li><p>Bug编号：唯一标识符，方便跟踪和管理；</p>
+<ul>
+<li>Bug描述：对Bug的详细描述，包括出现的环境、触发条件、现象表现等；</li>
+<li>Bug级别：根据Bug的影响程度和严重程度进行分类，如致命、严重、一般、轻微等；</li>
+<li>Bug状态：包括已发现、已确认、已修复、已验证等状态，方便跟踪和管理Bug的处理过程；</li>
+<li>Bug截图：提供Bug出现的截图或录屏，方便开发人员和测试人员理解Bug的情况；</li>
+<li>Bug重现步骤：提供重现Bug的详细步骤，方便开发人员复现Bug并进行修复；</li>
+<li>Bug处理说明：包括Bug的修复过程、测试过程、验证过程等，方便管理和跟踪Bug的处理流程。</li>
+</ul>
+</li>
+<li><p>预期结果，实际结果</p>
+<p>这些内容可以帮助开发人员和测试人员更好地理解和处理Bug，同时也方便管理和跟踪Bug的处理过程。</p>
+</li>
+</ul>
+<h3 id="熟悉的linux和adb命令"><a href="#熟悉的linux和adb命令" class="headerlink" title="熟悉的linux和adb命令"></a>熟悉的linux和adb命令</h3><p>查看硬盘大小：df -h</p>
+<p>内存：free -h</p>
+<p>操作系统的信息：Uname -a</p>
+<p>linux发行版本 cat /proc/version</p>
+<p>cpu概要信息：cat /proc/cpuinfo</p>
+<p>系统的整体性能运行情况：top</p>
+<h3 id="iOS-证书有哪些？"><a href="#iOS-证书有哪些？" class="headerlink" title="iOS 证书有哪些？"></a>iOS 证书有哪些？</h3><ol>
+<li>iOS开发证书：这种类型的证书主要用于在开发过程中将应用程序安装到苹果手机真机上，以便测试应用程序的运行情况。</li>
+<li>iOS发布证书：当应用程序经过开发测试并准备上线时，就需要使用发布证书。只有用发布证书打包的ipa文件才能上传到App Store进行审核和发布。</li>
+<li>iOS推送证书：主要用于配置和启用苹果设备的推送通知服务</li>
+</ol>
+<p><strong>灰度测试</strong>，以选定的特定人群为对象，在他们中使用即将正式发布的产品或应用，然后逐步扩大试用者数量。这一过程主要是为了及时发现和纠正产品中存在的问题。</p>
+<p><strong>集成测试</strong>，也叫组装测试或联合测试，是软件测试的一种类型。该测试是在单元测试的基础上进行，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，然后对其进行检查。集成测试的目的是检查软件模块之间的数据通信和功能，适用于不同的场景和需求。</p>
+<p>软件测试主要分为功能测试、性能测试、安全测试和特性测试四大类。其中，功能测试(逻辑功能测试、界面测试、易用性测试、安装测试和兼容性测试等)。性能测试(负载测试、压力测试、容量测试等)。安全测试(非法入侵XSS和数据泄露SQL注入）。特性测试则是对软件的特殊功能或特性进行专门的测试。</p>
+<p>软件测试还包括单元测试、集成测试、系统测试、健全性测试、冒烟测试、接口测试和回归测试等。同样，从测试阶段来看，有Alpha测试和Beta/验收测试。这些不同类型的测试方法旨在全面检验软件的质量，确保其满足用户的需求和期望。</p>
+<p>团队协作：include控制器+测试片段（一个线程组中一ge测试片段）</p>
+<p>http请求默认值：常见必须的请求头：Accept，XMLhttprequest,Content-Type</p>
+<p>用户定义变量：自定义变量全局提取</p>
+<p>http cookie管理器：管理cookie</p>
+<h3 id="重定向和跳转区别："><a href="#重定向和跳转区别：" class="headerlink" title="重定向和跳转区别："></a>重定向和跳转区别：</h3><ol>
+<li><p><strong>定义</strong>：请求转发，也被称为跳转，客户端发送一次请求后，服务器端接收此<strong>请求并将其转交给另一个资源处理</strong>，然后将该资源的内容返回给客户端。而重定向则是服务端向客户端发送一个指示，要求客户端<strong>重新发起一个新的请求</strong>，以获取其所需的资源或信息。</p>
+</li>
+<li><p><strong>请求方不同</strong>：在转发中，原始请求者和目标资源享有<strong>同一会话</strong>；而在重定向中，由于客户端<strong>重新发起请求，会话可能会发生</strong>变化。</p>
+</li>
+<li><p><strong>数据共享</strong>：转发允许原始<strong>请求的参数、数据等被一同传递到目标资源</strong>，这意味着目标资源可以访问和处理这些数据；而重定向则不会，因为<strong>数据是在新的请求中发送的</strong>。</p>
+</li>
+<li><p><strong>URL地址</strong>：转发操作后，显示的URL与实际访问的资源<strong>URL相同</strong>；相反，重定向操作会导致浏览器地址栏中的<strong>URL发生改变</strong>，显示的是重定向后的URL。</p>
+</li>
+<li><p><strong>实现方式</strong>：在Servlet/JSP中，可以使用<code>request.getRequestDispatcher()</code>方法实现请求转发。而重定向可以通过多种方式实现，例如使用<code>response.sendRedirect()</code>方法。</p>
+</li>
+</ol>
+<h3 id="预估tps"><a href="#预估tps" class="headerlink" title="预估tps:"></a>预估tps:</h3><p>找运维拿过去的数据，若没有，就参考同类产品的数据，</p>
+<p>比如:按去年的经营数据，2022年最高的一天有10万笔交易。预测2023年TPS需要多少合格?</p>
+<p>总事务数=10万，时间=24<em>60</em>60=86400秒</p>
+<p>理论上TPS =100000/86400=1.2<br>(1)没有更详细的数据: 根据二八定律(80%的事务在20%的时间完成)计算:</p>
+<p>TPS =100000X0.8/86400X0.2=80000/17280=4.6</p>
+<p>(2)如果有更详细的数据: 5万笔交易是晚上的8-9点完成的<br>TPS=50000/3600=13.9</p>
+<p>业务的增长: 30%<br>TPS=50000+50000*0.3/3600=18</p>
+<h3 id="tps-rps-qps-hps区别"><a href="#tps-rps-qps-hps区别" class="headerlink" title="tps,rps,qps,hps区别"></a>tps,rps,qps,hps区别</h3><p>衡量服务器端性能：tps（每秒事务数）,rps（每秒请求数）,qps(每秒查询数，一般是数据库)</p>
+<p>客户端的性能：hps(每秒点击数)</p>
+<p>当一个事务中只有一个接口，tps=rps</p>
+<p>当一个事务中只有一个接口，且是查询的接口，tps=rps=qps</p>
+<p>吞吐量：每秒里两种不同介质之间传输的数量，byte/s</p>
+<p>当一个事务中只有一个接口,tps=吞吐量</p>
+<p>urlencode: %3D-&gt;=</p>
+<p>%3A-&gt;:</p>
+<p>%2F-&gt;/</p>
+<h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>TPS 是由 RPS 、网络延迟 、服务端本身的处理速度 这3个因素决定的</p>
+<p>EPS (error per second) 是 服务端 每秒处理出错的数量，也包含在TPS中</p>
+<p>TOPS (timeout per second) 是 服务端 每秒处理超时的数量</p>
+<p>超时时间具体是多少，应该由产品需求定义</p>
+<p>总RPS = 客户端1 RPS * 客户端1数量 + 客户端2 RPS * 客户端2数量 + …</p>
+<p>并发连接数 是 服务端 和客户端 建立的 <code>TCP连接的数量</code></p>
+<p>并发用户数 是 服务端 同时服务的 <code>用户的数量</code> 。</p>
+<p>用户的一个操作可能引发多个并发连接</p>
+<p>Linux下 可以通过 如下命令 查看并发连接的数量</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">netstat</span> -an <span class="token operator">|</span> <span class="token function">grep</span> ESTABLISHED <span class="token operator">|</span> <span class="token function">grep</span> -w 80 <span class="token operator">|</span> <span class="token function">wc</span> -l
+</code></pre>
+<h3 id="处理cookie的几种方式"><a href="#处理cookie的几种方式" class="headerlink" title="处理cookie的几种方式"></a>处理cookie的几种方式</h3><p>1.直接在请求中传递cookies参数<br>import requests</p>
+<p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
+<p>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = requests.request(‘POST’,url=url,data=data) #登录<br>cookies = res.cookies #获取登录cookies<br>data1 = {‘msg_type’:0,’msg_title’:’aaaaaaa’,’msg_content’:’1111111111’,’act’:’act_add_message’}<br>r = requests.request(‘POST’,url=url,data=data1,cookies=cookies) #发表留言,直接将获取的登录cookies添加到请求中<br>结果：发表留言成功</p>
+<p>2.将获取的登录cookie添加到headers中<br>import requests</p>
+<p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
+<p>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = requests.request(‘POST’,url=url,data=data) #登录<br>cookies = res.cookies #获取登录cookies</p>
+<p>cookies_str  = ‘’ #将获取的登录cookies拼接为字符串<br>for k,v in cookies.items():<br>    cookies_str += f’{k}={v};’ #key=value;的方式拼接<br>headers = {‘cookie’:cookies_str} #组装headers</p>
+<p>data1 = {‘msg_type’:0,’msg_title’:’bbbbb’,’msg_content’:’22222’,’act’:’act_add_message’}<br>r = requests.request(‘POST’,url=url,data=data1,headers=headers) #发送留言请求<br>结果：发表留言成功</p>
+<p>3.通过RequestsCookieJar构造cookies<br>import requests</p>
+<p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
+<p>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = requests.request(‘POST’,url=url,data=data) #登录<br>cookies = res.cookies #获取登录cookies</p>
+<p>jar = requests.cookies.RequestsCookieJar() #创建RequestsCookieJar对象<br>for k,v in cookies.items():<br>    jar.set(k,v) #通过RequestsCookieJar对象构造cookies</p>
+<p>data1 = {‘msg_type’:0,’msg_title’:’cccccc’,’msg_content’:’33333’,’act’:’act_add_message’}<br>r = requests.request(‘POST’,url=url,data=data1,cookies=jar) #发送留言请求<br>结果：发表留言成功</p>
+<p>4.通过session会话处理<br>import requests</p>
+<p>host = ‘<a target="_blank" rel="noopener" href="http://119.91.144.93:82'">http://119.91.144.93:82'</a><br>api = r’/ecshop/user.php’<br>url = host + api</p>
+<p>s = requests.session() #创建会话s<br>data = {‘username’:’wangke’,’password’:’123456’,’act’:’act_login’,’back_act’:’./index.php’,’submit’:None}<br>res = s.request(‘POST’,url=url,data=data) #通过会话发送登录请求</p>
+<p>data1 = {‘msg_type’:0,’msg_title’:’dddddd’,’msg_content’:’44444’,’act’:’act_add_message’}<br>r = s.request(‘POST’,url=url,data=data1) #通过会话发送留言请求，不需要处理cookie，自动关联<br>结果：发表留言成功</p>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p>HTTP 有好几个版本，包括： <code>0.9</code> 、 <code>1.0</code> 、 <code>1.1</code> 、 <code>2</code> 、 <code>3</code> ，当前最广泛使用的是 <code>HTTP/1.1</code> 版本。</p>
+<p>HTTP 协议最大的特点是 通讯双方 分为 <code>客户端</code> 和 <code>服务端</code> 。</p>
+<p>HTTP3 以前版本 （除了HTTP3） , 都是 基于 TCP 协议的， 所以要进行通讯，客户端 必须先 和服务端 创建 TCP 连接。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2023/11/09/50556.html">https://bigworldxld.github.io/2023/11/09/50556.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">测试</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/01/21786.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/ZAP.jpg" class="responsive-img" alt="安全测试ZAP工具">
+                        
+                        <span class="card-title">安全测试ZAP工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ZAP/">
+                        <span class="chip bg-color">ZAP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/09/30/52951.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD.jpg" class="responsive-img" alt="hexo删除历史大文件">
+                        
+                        <span class="card-title">hexo删除历史大文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

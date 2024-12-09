@@ -1,0 +1,1623 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="随记SRC, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="整数问题int类型-有符号无符号Dword(Double Word):-2147483648-4294967295涉及到支付时，例如微信、支付宝
+大多数app都支持微信和支付宝支付:而这两者有很大的区别，支付宝在支付时做了校验不支持金额超运">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>随记SRC | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/SRC%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">随记SRC</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SRC/">
+                                <span class="chip bg-color">SRC</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/analysis/" class="post-category">
+                                analysis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-06-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="整数问题"><a href="#整数问题" class="headerlink" title="整数问题"></a>整数问题</h3><p>int类型-有符号<br>无符号Dword(Double Word):-2147483648-4294967295<br>涉及到支付时，例如微信、支付宝</p>
+<p>大多数app都支持微信和支付宝支付:<br>而这两者有很大的区别，支付宝在支付时做了校验不支持金额超运2147483647也就是int类型最大值<br>而微信支付则没有这个限制，所以当你使用微信支付时，将金额超过最大值后微信会自动从0开始计算，也就是你支付2147483649，微信只需要支付1元即可完成支付。<br>0~2147483647，2147483648=0，2147483649=1<br>第三方支付时没有负数–无符号int<br>正常购买存在负数</p>
+<p>16进制<br>FFFF FFFF</p>
+<p>科学计数法<br>10000000000000=1x10^13<br>计算器或电脑表达10的幂是一般是用E或e，也就是1E+13=10000000000000<br>1E-1是0.1</p>
+<p>四舍五入<br>充值0.016=到账0.02<br>还有一种情况是充值0.014支付时显示0.01，到账还是0.014<br>由于前端给后端发起的请求是0.014，但是第三方支付工具最小支付单位为分导致的</p>
+<p>Pirce<br>金额是比较常见的参数。<br>购买物品时经常会遇到我们可以将金额改成-1,0.01,0.019这样的值<br>很少能遇到，因为金额参数最好不要前端来发送给后端</p>
+<h3 id="越权"><a href="#越权" class="headerlink" title="越权"></a>越权</h3><p>横向越权和纵向越权<br>横向越权指的是你可以操作其他权限和你相同的账户<br>纵向越权指的是你可以对你未拥有的权限进行操作</p>
+<p>越权不只是修改id这样来越权，比如我们知道管理员权限的请求包<br>用一个普通用户的身份也使用这个包来做一些操作，那也是越权。<br>越权就是我们能做到正常这个用户不能做到的事情，并且对系统产生了危害<br>后端忘记针对某功能做权限校验，导致了该漏洞的出现。</p>
+<h3 id="支付漏洞："><a href="#支付漏洞：" class="headerlink" title="支付漏洞："></a>支付漏洞：</h3><p>1.修改支付状态，比如：购买A商品，支付时，bp抓包，观察包中是否有字段a来表明A商品是否被支付，a=1时，代表支付成功，a=2时，支付不成功，此时我们就可以修改a=1；</p>
+<p>2.修改支付价格，购买商品到支付有三个步骤，订购-&gt;确认信息-&gt;付款，这三个步骤我们都可以抓包修改商品价格，看是否能成功，若是不成功，我们可以尝试修改运费价格，将运费价格修改为负，以此来抵消商品价格；</p>
+<p>3.修改支付接口，像微信支付，支付宝支付这样的就是支付接口，不同接口值是不同的，如果设计不当，没有对支付接口不存在这一情况做处理，有可能会支付成功；</p>
+<p>4.修改支付id值，金额，假设：a商品价格是50元，id=1，b为200元，id=2，那么我们可以将b的id换成a的，也可以修改a的金额为-50，然后a和b一起提交，看总金额是否是150</p>
+<p>特权号(新号)</p>
+<p>游戏平台跟游戏角色id分开的</p>
+<h3 id="签约漏洞"><a href="#签约漏洞" class="headerlink" title="签约漏洞"></a>签约漏洞</h3><p>名字的由来因为很多服务都叫做签约续费所以给他起了这个名字<br>场景:<br>月神视频首月优惠1元/月，次月自动续费8元一月。正常开通包月10元一月。可以使用支付宝和微信或自带钱包支付。<br>思考:<br>1.想重复使用1元1月支付该如何操作?<br>过程:<br>手机A、B、C三部。A、B、C同时登陆同一个账号，分别发起微信和支付宝的购买请求，停留在请求页面，依次支付，然后到账6个月(根据发起的支付页面来决定到账数量)理论上可以无限次</p>
+<p>签约进阶场景:<br>会员10元/月，高级会员20/月(结合签约漏洞，这回应该怎么做?)游戏首充礼包、直播平台充值优惠等等<br>开多个会员订单页面，支付一个订单看是否会开通高级会员</p>
+<p>补充会员<br>说明:<br>开多个订单使用余额+第三方支付补足剩余余额的方式</p>
+<p>创新:<br>如果先支付微信的签约，在支付支付宝的签约，那么只有一个会扣款，他会扣哪个?答案是不一定，有可能扣第一个支付的有可能扣第二个支付的。<br>那么如果把扣款的取消掉，保留不扣款的那个签约会出现什么情况呢?<br>曾经出现过永久会员”因为签约顺序的bug导致的该漏洞。所以要加要在基础上不断创新才行</p>
+<h3 id="并发漏洞"><a href="#并发漏洞" class="headerlink" title="并发漏洞"></a>并发漏洞</h3><p>遇到sign该怎么办?<br>并发时经常会遇到带有sign的包，这时并发会导致后面的包全部并发失败<br>如何生成不同sign的包?<br>客户端点击生成多个包即可生成不同的签名的数据包</p>
+<p>有个钱包提现功能<br>已知点1，钱包余额有100元<br>已知点2，可以添加不同的提现账户进来<br>已知点3，可以设置提现金额<br>已知点4，存在并发漏洞，但是并发提现到A账户时失败了<br>问题:并发失败了但是存在漏洞，你该如何复现?<br>有时候并发提现同一账户时会导致失败可能是对同一账户提现做了校验，只要对AB两个不同账户提现就可以了。这里想说的是在并发时如果有不同云账户·云的参数尽量并发不同的参数转账红包</p>
+<p>商家端核验代金券时+用户端退款代金券<br>钱包提现+支付<br>优惠券赠送+使用</p>
+<h3 id="外卖漏洞"><a href="#外卖漏洞" class="headerlink" title="外卖漏洞"></a>外卖漏洞</h3><p>如何才能做到优惠购买这个商品呢?<br>6份起购改为1份起购ID:1, num<br>将商品id分开多个参数来写，例如:1D:1,num:6改为[ID:1, num:1},(ID:1, num:1},{ID:1, num:1}]<br>因为大多数后端会对商品总数不能为负数做校验，这样就可以绕过他做的校验</p>
+<p>“addr longitude”:12534905,”addr latitude”:4389861,wm poi id”:85992236642475,”user id”:1778432765,”foodlist”:[{“spu id”:151633512,”id”:172803372,”count1, “cart——id”:0,”attrs”:[1847012552,1847012558,1847012550,1847012559,1847012549,1847012555,1847012561]<br>通过添加attrs的参数值，来实现在奶茶里加各种的料，实现低价买多材料的奶茶</p>
+<p>节日活动<br>1.抓包修改id提前领取2.领取过期活动的代金券<br>危害:大额代金券是平台补贴，所以理论可以套现刷钱</p>
+<p>订单备注漏洞<br>无限添加订单备注文字会导致打印机一直处于工作中无法出票，用餐高峰期无法出票会导致订单不能正常配送。</p>
+<p>商家-活动-补贴<br>shippingCharge    配送补贴<br>poiCharge    文件补贴<br>agentCharge    代理商补贴<br>mtCharge    美团补贴<br>brandCharge    品牌补贴<br>“brandChargeCode”:2496,”brandCharge”:5</p>
+<h3 id="盲盒漏洞"><a href="#盲盒漏洞" class="headerlink" title="盲盒漏洞"></a>盲盒漏洞</h3><p>有些APP都会盲盒业务，比如哔哩哔哩会员购，腾讯的草场地、漫画盒，微博的盲盒，还有些是临时上线的盲盒活动玩法。<br>抽奖<br>抽奖结果通常是后端绝对的，前端只是给后端传了个抽奖类型，比如Type:<br>盲盒<br>盲盒的内容是已经确定好的，后端会给你返回5个盲盒，你选择之前内容就已经确定了<br>透视<br>找到各个接口看是否有泄漏盲盒内容的接口。<br>退款<br>盲盒不支持退款，是否可以用其他方式进行退款操作。</p>
+<p>加载页面泄露<br>在加载盲盒的时候，加载页面的返回值暴漏的每个盲盒的内容，活动相关id，如果这个id是固定的那我们就可以通过id来判断内容是什么。<br>订单泄露<br>1.创建商品时，还未点击支付时，是否泄漏的商品<br>内容<br>2.创建订单后，订单详情的返回值处是否泄漏了商品内容</p>
+<p>查询功能<br>很多盲盒会有查询功能，比如购买后，点击查询该订单号的结果。我们要看他是否有这个功能，没有的话看一下抽奖后是否会给服务器请求一个订单号。<br>我们通过替换这两处的订单号来查询还未支付的订单号<br>筛选<br>很多盲盒会有提示功能，每个盲盒可以获取1-3个提示</p>
+<p>抽到盲盒后可以选择发货、回收<br>1.回收时并发回收，多次返还金额<br>2.发货时进入到运费支付页面，这时发包对商品进行回收，在支付订单<br>3.通过支付时生成的多个订单号的返回值来重复支付<br>4.发货时通常有盲盒id，例如:<br>[“1001”,”1002”]可以改为[“1001”,”1001”,”1001”]这样有可能同时发3件1001的商品同时盲盒基本都是满足N件可以不支付运费用此方法也可以绕过运费支付环节。</p>
+<p>规则：番赏比如有80个奖池内容，里面包含2个A赏、2个B赏、10个C赏、和一堆D赏，而购买最后一个时，会赠送给该用户最终赏(大奖)，假设50元一抽<br>溢出<br>修改抽奖次数让金额最大值溢出<br>(2147483647/50+1)*50=2147483650,即支付2147483650实际付款为2元<br>全包<br>抽奖1次时将参数改为全包</p>
+<h3 id="直播短视频漏洞"><a href="#直播短视频漏洞" class="headerlink" title="直播短视频漏洞"></a>直播短视频漏洞</h3><p>炸房<br>炸房其实就是利用各种方式让直播的房间或是主播卡死而这个漏洞一般分为2种，一种是针对后端的攻击,一种是针对前端的攻击<br>哪些功能让客户端卡死<br>1.快速出入房间(攻击后端)<br>2.发送大量点赞信息(攻击前后端)<br>3.通过快速对主播进行关注和取消<br>4.通过私聊发送大量消息或图片</p>
+<p>优惠卷的利用<br>活动中自动给用户下发一张10-9的推广优惠券，你应该如何利用?</p>
+<p>1：支付时替换直播间的id，替其他主播支付<br>2：进入支付页面后，取消订单，在进行支付<br>3：使用优惠券并发下单或创建多个订单或优惠券进行叠加使用</p>
+<p>直播间加了密码限制<br>1：爆破密码<br>2：修改返回值，例如将false改为true<br>3：自己开个房间然后，越权重置密码</p>
+<p>关于礼物和游戏<br>介绍<br>直播间中会有很多不同效果的礼物，还会有可以进行游戏的礼物，有些礼物是根据游戏结果进行的分级<br>游戏<br>例如抽奖，盲盒、还有各种小游戏来决定的奖品，记住一点，他玩法设计的越夏示，有漏河的可能性就越大，因为他是做直播的不懂游戏。</p>
+<p>礼物<br>礼物中会存在看例如:新用户体验价格0.01元类似的礼物，但是赠送给主播可能是个1元的礼物，这时就需要抓包去尝试是否可以重复购买这个礼物</p>
+<p>总结<br>1.如果目标平台做了不属于他的产品，那么出漏洞的可能性很大<br>2.玩法越复杂漏洞越多</p>
+<p>返回值相关<br>经纬度<br>有些直播在查看主播资料时会把主播的经纬度返回给用户，可以通过返回值抓到这些数据。<br>手机号<br>还可以通过返回值看是否有其他用户的手机号<br>返回值越权<br>将自己的uid替换为其他用户或主播的uid，前端会认为你有其他用户的权限(例如高级财富权限)或房主，房管的权限</p>
+<p>关于草稿箱<br>假如你发了一个比较私密的视频，存在了草稿箱里面会有什么问题?<br>草稿箱泄露是一个严重的问题</p>
+<p>关于并发大家想一下，在短视频场景下应该如何应用<br>1：并发点赞(低危或忽略)<br>如果可以并发点赞评论而且评论是根据点赞数量排名的那么危害可以升级，因为可以在热门视频下让自己的评置顶了<br>2：并发评论(低危动忽略<br>3：并发提现</p>
+<p>看视频领金币<br>很多app的极速版都有看视频领金币。<br>先想想他的步骤是如何完成的?<br>你觉得他有什么漏洞?<br>解答<br>很多短视频都忘记校验了看视频的时间，在看完视频的时候会给后端发一个包，抓到这个包然后遍历taskid就可能无限刷金币</p>
+<p>某用户可以强行连麦任意主播，请问他是如何做到的?<br>抓个同意邀请的包，把邀请人替换成自己，被邀请人替换为对方同理，游戏组队中越权替对方同意，交易时替换邀请人为对方加入群组时，将同意进群的ID修改为其他人强行拉入群组<br>总结:把发起人和被邀请人的角色互换</p>
+<p>平台赠送了一张曝光券，我们该如何对这张曝光券进行测试!<br>1.将曝光券的ID多次叠加。<br>2.对曝光券的使用进行并发<br>3.使用曝光券后，取消曝光</p>
+<p>如果不可取消曝光订单怎么办?<br>关闭直播后马上在开启为什么这样做可以中断订单?<br>我们站在设计者的角度来看我们设计了这个功能，当主播下播，曝光券又没用完那一定是要把剩余的流量退还给主播。</p>
+<p>有主播像我们发起了一场PK，但是我们不想和他PK，挂断后又会被系统惩罚怎么办?<br>取消时抓包将取消的ID修改为对方的id</p>
+<p>APP&amp;/小程序&amp;PC抓包HTTP/S数据–Charles、Fiddler、Burpsuit;<br>程序进程&amp;.网络接口&amp;其他协议抓包–Wireshark、科来网络分析系统、TCPDump(linux);<br>通讯类应用封包分析发送接收–WPE四件套封包、科来网络分析系统</p>
+<h3 id="游戏测试"><a href="#游戏测试" class="headerlink" title="游戏测试"></a>游戏测试</h3><p>手游常规漏洞检测分为内存修改和抓包，但是我们要达成的效果都是影响到后端<br>和挖掘逻辑漏洞一样，我们不能直接修改后端的数据，但是我们可以通过改变前端的请求去影响到后端的结果。</p>
+<p>抓包工具：WPE，抓到都是16进制<br>10进制：1         16进制：00 00 00 01<br>10进制：-1        16进制：FF FF FF FF<br>内存修改工具：CE修改器</p>
+<p>加密手段<br>游戏公司都非常喜欢用加密作为防护手段，想尽办法让其他玩家无法从众多数值里面找到要修改的数值<br>反作弊手段<br>针对外挂进行各种检测，检测用户行为，大部分的安全问题要靠玩家举报才能检测<br>接收游戏漏洞的SRC：腾讯、完美世界、快手、阿里、网易、陌陌,哔哩哔哩、竞技世界。</p>
+<p>瞬移<br>游戏中基本都会出现的漏洞，并且做成外挂的话是可以对游戏造成很大影响(但是SRC不懂)。</p>
+<p>秒杀<br>秒杀一般都出现在副本为本地数据的游戏中，例如卡牌游戏，进入副本。<br>透视<br>棋牌透视，moba透视，射击透视，都是因为我们接收到了其他玩家的相关信息导致的。</p>
+<p>游戏中的商城<br>游戏中有很多不同的商城，A商城没有漏洞并不能代表B商城没有漏洞，所以我们都要去尝试。<br>数量:小数、负数、int类型最大值溢出、突破限购<br>道具ID:隐藏道具、活动道具、等级限制</p>
+<p>副本id<br>修改id:<br>进入活动副本<br>进入限制副本<br>进入测试副本</p>
+<p>副本扫荡<br>有体力，副本支持扫荡<br>高级副本不支持扫荡</p>
+<p>技能<br>1.隐藏id<br>2.未携带、战斗中、副本切换<br>3.CD重置<br>4.切换重置CD<br>5.普攻3连</p>
+<h3 id="酒店漏洞"><a href="#酒店漏洞" class="headerlink" title="酒店漏洞"></a>酒店漏洞</h3><p>代金卷<br>场景1:<br>优惠券A:满1000-10<br>优惠券B:无门槛100元(每人限领1张)优惠券C:会员优惠券10-5<br>1.遍历代金券id(为什么要遍历)?<br>2.并发领取、下单、取消(并发取消的目的是什么)3.非会员领取会员优惠券<br>4.领取优惠券时用逗号来领取多张5.使用时用逗号进行金额叠加<br>6.修改代金券金额(很少能遇到，为什么? )<br>7.将限制条件的代金券替换到其他订单</p>
+<p>对于套餐方面能想到哪些<br>可修改的点?<br>1.套餐内容<br>2.套餐数量修改</p>
+<p>一个关于取消预定的小故事<br>提示1:酒店支持30分钟内无条件取消。」<br>提示2:这是一个超过30分钟内的订单。<br>提示3:用户和商家协商是否能推后一天入住。<br>商家同意了该请求。<br>由于后台将订单日期修改后，变成了新订单，所以用户<br>钻漏洞进行了30分钟内免费取消,这就是闲鱼上那些<br>代取消的套路。</p>
+<p>修改房间数量溢出<br>1.将房间数量改为0后有危害吗?<br>酒店会同意入住吗?那么危害点在哪里?<br>刷单，酒店正常刷单一单需要10元成本+ 12%的服务费，所以刷一-单的<br>话需要扣除酒店大概30元50元不等。<br>审核如果说:那可以调低房间价格也能达到一样的效果。<br>并不能，因为酒店后端有风控不会让商家随意修改价格，而当价格低于<br>-定值时会将房间自动下架。<br>所以需要清楚的了解规则才能了解危害。</p>
+<p>额外服务购买的问题<br>修改商品id来查看是否有一些其他的特殊商品，比如测试<br>商品但是价格是0.01这种。<br>或者将数量叠加进行int类型最大值溢出。<br>也可以尝试修改为负数来抵扣订单的总金额。</p>
+<h3 id="推广漏洞"><a href="#推广漏洞" class="headerlink" title="推广漏洞"></a>推广漏洞</h3><p>推广功能详细介绍<br>CPC：单次点击扣费<br>CPM：千次曝光扣费<br>推广都有的功能:<br>1.单次点击扣费金额<br>2.日预算–设置日上限，达到上限，停止推广<br>3.创建新的推广–针对不同人群<br>4.充值/提现<br>5.推广场景<br>开启推广-》查看-》推广金额-》手机端看到广告-》用户点击-》后台扣费<br>思考方向：<br>推广需要做的事情就是用最少的钱做到最大的效果<br>如果余额只有1元，但是单次点击价格为2元通过这个提示，你能想到什么利用方式吗?<br>开启推广后，用户点击但是推广被关闭了，能想到什么利用方式?<br>通过修改充值金额让余额一直保持为0.01<br>通过转账让自己的余额保持为最低余额</p>
+<h3 id="CE修改器"><a href="#CE修改器" class="headerlink" title="CE修改器"></a>CE修改器</h3><p>1.CE原理概览<br>游戏进程的数据会保存在内存中，以供CPU读写。<br>数据分两种:<br>1.是什么–“数值”<br>2.做什么–“操作码”<br>CE能让用户方便地:<br>(1)查找和修改内存中的数值<br>(2)以及，CPU寄存器中的数值最终实现修改游戏的目的<br>2.基本数值修改方法<br>打开游戏之后:<br>1.操作系统会创建一个或多个游戏的进程(Process)，一般只有一个<br>2.操作系统会给一个进程分配一个内存“地址空间”(Address Space)<br>3. CPU通过“内存地址”(Memory Address)定位地址空间中的“数值”(Value)</p>
+<p>CE中，要做的是:<br>(1)打开游戏的“进程”/“地址空间”点击右图中的按钮根据指引操作即可<br>(2)根据“数值”，找到“内存地址”<br>(3)根据“内存地址”修改“数值”</p>
+<p>2.1.CE软件界面<br>搜索工具栏<br>    -限定要搜索的内存地址的“数值”<br>    -其他功能<br>搜索结果栏<br>    显示数值符合要求的“内存地址的各项信息<br>作弊表格栏<br>    -汇集作弊成果，成果可保存为文件</p>
+<p>2.3.数值类型的注意事项<br>模拟器游戏，可能需要启用“Big Endian”类数值类型，以及“MEN_MAPPED:Memory that ismapped into the view of asection.(E.g:File mappingemulator memory, slow)相关选项位于:<br>“Edit &gt; Settings &gt; Extra CustomTypes“Edit &gt; Settings &gt; Scan Settings</p>
+<p>Binary数值类型常用于存储“状态”其取值范围只有0或1，但实际中跟常见的是用Bvte来存储状态<br>4 Byte是CE默认的也是当代游戏中最常见的数值类型，Float跟Double也比较常见。<br>Double常用来保存角色位置的数值<br>“AIl”不是真的所有数值类型它是可以自定义的<br>补充：<br>Bit(BinaryInformation Digit，二进制信息数位一般叫作“比特”)，1 bit取值范围只能是0或1,8 bit = 1 Byte<br>1个Byte(字节)的取值范围转换成10进制的为0~255间的整数(包括0和255)<br>4 Byte(4字节)，只能存储整数的数值类型，比如-12、0、69<br>Float(浮点)全称4-Byte Floating Point:种可以存储非整数数值类型，可以理解为带小数点的数字<br>Double(双精度浮点)，全称8-Byte FloatingPoint<br>“AIl”的修改路径:“Edit&gt;Settings&gt;ScanSettings</p>
+<p>3.1.使用别人制作的作弊表格<br>1.到“Edit &gt; Settings &gt;CEShare<br>2.点击“CEShare community URL:”下方方框右侧的下拉按钮，然后选中“Fearless …<br>“Fearless Revolution”论坛，简称FRF，可视为CE的一部分，它是ESA在2017年起诉CECE被迫下架社区脚本服务后，CE用户自发组建的<br>别人的作弊表格是很好的学习资源</p>
+<p>3.2.修改游戏的速度(Speedhack)<br>手动启动，不推荐推荐设置快捷键比如:Ctrl+Shift+1、3、5分别调1、3、5倍速2、4调0.5、0.25倍速<br>Settings &gt; Hotkeys</p>
+<p>3.3.自定义作弊表格专用快捷键<br>入口:<br>1.对作弊表格栏中的想通过快捷键控制的一行点击右键<br>2.点击弹出菜单中的“Set hotkeys，进入设置窗口，根据指引操作</p>
+<p>3.4.让数值只增不降或只减不增<br>入口:<br>1.点方框锁定数值<br>2.锁定后，点方框右边一点的地方，绿色向上为只增部件，红色向下为只减不增</p>
+<p>3.5.找出着不到的数值的内存地址3.6.快速找到关联数值的内存地址<br>“New Scan-Unknown initial value’“New Scan-increased /Decreased /Unchanged value”的“搜索类型(Scan Type)结合快捷键搜索<br>Memory Viewer(内存查看器)</p>
+<p>3.7.找到网页游戏的进程<br>以Chrome为例，通过“Shift+Esc”的快捷键，调出Chrome的任务管理器，在里面根据网页的标题找到对应PID在CE的“Process List”(进程列表)窗口中，选择“Processes然后根据PID找进程<br>PID(Process ldentifier)，“进程ID”或“进程标识符<br>Decimal，十进制的</p>
+<p>3.8.JavaScript游戏的修改<br>1.即用JS/JavaScript/ECMAScript/Node.js/nw.js/Electron /HTML5/谷歌V8引擎等制作的游戏<br>2.由于JavaScript的特性，用CE修改比较麻烦，要找多个进程，比如《Vampire Survivors》(吸血鬼幸存者)<br>3.可以通过修改游戏的JavaScript源文件，以及游戏的数据库内的数据来修改游戏</p>
+<p>3.9.游戏一修改数值就退出<br>1.很有可能是因为游戏有在反作弊，比如使用Easy Anti-Cheat、Xlive等<br>2.一般情况下可以通过修改特殊的数值“操作码”(opcode)来实现修改，这需要后面讲到的知识</p>
+<p>3.11.自定义准心(Hook D3D)<br>前提:游戏有调用微软的Direct3D API(即DX12等)，而绝大多数射击游戏都会调用D3D<br>原理:让D3D在游戏画面中央渲染一张图支持.png等格式，不一定是准心图在何图片都可以<br>方法:-打开游戏进程-D3D&gt;Hook D3D(勾选)D3D&gt;Set custom crosshair,后面根据贡面提示操作即可</p>
+<p>入门教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_55854679/article/details/127040666?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171912540016800222884456%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=171912540016800222884456&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-127040666-null-null.142%5Ev100%5Epc_search_result_base7&amp;utm_term=CE%E4%BF%AE%E6%94%B9%E5%99%A8&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/m0_55854679/article/details/127040666?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171912540016800222884456%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=171912540016800222884456&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-127040666-null-null.142^v100^pc_search_result_base7&amp;utm_term=CE%E4%BF%AE%E6%94%B9%E5%99%A8&amp;spm=1018.2226.3001.4187</a><br>注意事项：<br>代码注入：上下两处都需要修改代码，锁定地址执行<br>多级指针，需要记录每级的偏移量，在自己添加地址中，填入基址，和对应的偏移量</p>
+<h3 id="上传下载"><a href="#上传下载" class="headerlink" title="上传下载"></a>上传下载</h3><p>直链：下载app的url链接</p>
+<p>p2p(peer to peer):下载app文件从其他已下载app的用户那下载</p>
+<p>3个人同时下载一个app,各自下载一部分，再相互交换，形成一个完整的app,各自一份使用。</p>
+<p>磁力：magnet:?xt=urn:btih:768e1c88d765ef51772768d78fdc268be087eb63&amp;dn</p>
+<p>DUT网络，图搜索</p>
+<p>bt: 找一个固定的tracker服务器，</p>
+<p>pt：tracker服务器（保存已下载的用户信息）+规则（积分机制，不能只下载不上传）</p>
+<p>ssrf:服务端请求伪造，攻击者通过前端的输入使服务器产生了一个向该服务器内网或其它网站的请求。<br>url跳转:攻击者通过往url里写入一个链接，然后发给受害者，受害者打开后跳转到了攻击者设置好的钓鱼网站。</p>
+<p>为什么新手师傅会产生误区?<br>因为url跳转漏洞在测试过程中，需要把存在url的地方替换成其它网站。可能在测试过程中会产生没有向其它网站跳转，但通过浏览器本地，向外产生了一个请求，这时候，新手时候通过外带平台进行测试就会误以为这个请求是ssrf产生的。但其实是本地产生的</p>
+<p>实际环境中区分最简单的方法<br>1、url跳转会让网页直接跳转向另一个网站<br>2、ssrf网页不会跳转向其它网页，可回显的ssrf会在当前页面加载，盲的没有任何反应</p>
+<p>brup工具：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Arvin_FH/article/details/131946130">https://blog.csdn.net/Arvin_FH/article/details/131946130</a><br>Collaborator功能：说白了就和dnslog、cyce差不多，只不过是burp自带的外带平台，一般的<br>外带会收到两种请求dns和http我们可以从http的请求ip，结合<a target="_blank" rel="noopener" href="http://www.ip138.com网站/">www.ip138.com网站</a><br>(ssrf)发出的请求<br>判断出我们是浏览器(本地)发出的请求还是，服务端  </p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2024/06/22/65280.html">https://bigworldxld.github.io/2024/06/22/65280.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/SRC/">
+                                    <span class="chip bg-color">SRC</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/07/06/38446.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/BrupSuite.jpg" class="responsive-img" alt="BrupSuite使用">
+                        
+                        <span class="card-title">BrupSuite使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/BrupSuite/">
+                        <span class="chip bg-color">BrupSuite</span>
+                    </a>
+                    
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/06/09/25192.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E5%B8%B8%E8%A7%81%E7%9A%84curl%E5%91%BD%E4%BB%A4.jpg" class="responsive-img" alt="常见的curl命令">
+                        
+                        <span class="card-title">常见的curl命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/wget/">
+                        <span class="chip bg-color">wget</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

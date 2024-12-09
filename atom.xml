@@ -1,0 +1,3904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>读序</title>
+  <icon>https://bigworldxld.github.io/icon.png</icon>
+  <subtitle>读序</subtitle>
+  <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://bigworldxld.github.io/"/>
+  <updated>2024-12-08T08:14:18.620Z</updated>
+  <id>https://bigworldxld.github.io/</id>
+  
+  <author>
+    <name>读序</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DOM模型</title>
+    <link href="https://bigworldxld.github.io/2024/12/07/42423.html"/>
+    <id>https://bigworldxld.github.io/2024/12/07/42423.html</id>
+    <published>2024-12-07T15:36:17.000Z</published>
+    <updated>2024-12-08T08:14:18.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="js" scheme="https://bigworldxld.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NoSQL 注入</title>
+    <link href="https://bigworldxld.github.io/2024/11/29/10113.html"/>
+    <id>https://bigworldxld.github.io/2024/11/29/10113.html</id>
+    <published>2024-11-29T15:36:17.000Z</published>
+    <updated>2024-11-29T15:40:01.043Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="nosql" scheme="https://bigworldxld.github.io/tags/nosql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub Action&amp;Pages</title>
+    <link href="https://bigworldxld.github.io/2024/11/17/23237.html"/>
+    <id>https://bigworldxld.github.io/2024/11/17/23237.html</id>
+    <published>2024-11-17T06:36:17.000Z</published>
+    <updated>2024-11-18T14:42:52.710Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="github" scheme="https://bigworldxld.github.io/tags/github/"/>
+    
+    <category term="yaml" scheme="https://bigworldxld.github.io/tags/yaml/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Elasticsearch基础</title>
+    <link href="https://bigworldxld.github.io/2024/11/10/23237.html"/>
+    <id>https://bigworldxld.github.io/2024/11/10/23237.html</id>
+    <published>2024-11-10T06:36:17.000Z</published>
+    <updated>2024-11-17T09:53:13.202Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OPL" scheme="https://bigworldxld.github.io/categories/OPL/"/>
+    
+    
+    <category term="Elasticsearch" scheme="https://bigworldxld.github.io/tags/Elasticsearch/"/>
+    
+    <category term="Kibana" scheme="https://bigworldxld.github.io/tags/Kibana/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket协议</title>
+    <link href="https://bigworldxld.github.io/2024/11/03/60745.html"/>
+    <id>https://bigworldxld.github.io/2024/11/03/60745.html</id>
+    <published>2024-11-03T12:38:25.000Z</published>
+    <updated>2024-11-03T12:45:20.559Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="WebSocket" scheme="https://bigworldxld.github.io/tags/WebSocket/"/>
+    
+    <category term="CSWSH" scheme="https://bigworldxld.github.io/tags/CSWSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件共享</title>
+    <link href="https://bigworldxld.github.io/2024/11/03/31031.html"/>
+    <id>https://bigworldxld.github.io/2024/11/03/31031.html</id>
+    <published>2024-11-03T03:15:10.000Z</published>
+    <updated>2024-11-03T03:55:10.859Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OPL" scheme="https://bigworldxld.github.io/categories/OPL/"/>
+    
+    
+    <category term="BT" scheme="https://bigworldxld.github.io/tags/BT/"/>
+    
+    <category term="qbEE" scheme="https://bigworldxld.github.io/tags/qbEE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跨站和SameSite</title>
+    <link href="https://bigworldxld.github.io/2024/10/26/52081.html"/>
+    <id>https://bigworldxld.github.io/2024/10/26/52081.html</id>
+    <published>2024-10-26T08:42:30.000Z</published>
+    <updated>2024-11-03T01:45:04.592Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="Cookie" scheme="https://bigworldxld.github.io/tags/Cookie/"/>
+    
+    <category term="SameSite" scheme="https://bigworldxld.github.io/tags/SameSite/"/>
+    
+    <category term="CSRF" scheme="https://bigworldxld.github.io/tags/CSRF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信息存储</title>
+    <link href="https://bigworldxld.github.io/2024/10/20/1746.html"/>
+    <id>https://bigworldxld.github.io/2024/10/20/1746.html</id>
+    <published>2024-10-20T09:56:09.000Z</published>
+    <updated>2024-10-22T14:08:19.002Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="blog" scheme="https://bigworldxld.github.io/categories/blog/"/>
+    
+    
+    <category term="阅读" scheme="https://bigworldxld.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常问题杂记</title>
+    <link href="https://bigworldxld.github.io/2024/10/19/40847.html"/>
+    <id>https://bigworldxld.github.io/2024/10/19/40847.html</id>
+    <published>2024-10-19T14:24:02.000Z</published>
+    <updated>2024-11-16T12:48:40.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>api备忘单</title>
+    <link href="https://bigworldxld.github.io/2024/10/18/17046.html"/>
+    <id>https://bigworldxld.github.io/2024/10/18/17046.html</id>
+    <published>2024-10-18T15:52:43.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="api" scheme="https://bigworldxld.github.io/tags/api/"/>
+    
+    <category term="LLM" scheme="https://bigworldxld.github.io/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wireshark使用</title>
+    <link href="https://bigworldxld.github.io/2024/10/09/43829.html"/>
+    <id>https://bigworldxld.github.io/2024/10/09/43829.html</id>
+    <published>2024-10-09T10:55:36.000Z</published>
+    <updated>2024-11-16T12:48:34.163Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="wireshark" scheme="https://bigworldxld.github.io/tags/wireshark/"/>
+    
+    <category term="ISO" scheme="https://bigworldxld.github.io/tags/ISO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>payload备忘单</title>
+    <link href="https://bigworldxld.github.io/2024/09/21/19154.html"/>
+    <id>https://bigworldxld.github.io/2024/09/21/19154.html</id>
+    <published>2024-09-21T03:29:53.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="front-end" scheme="https://bigworldxld.github.io/categories/front-end/"/>
+    
+    
+    <category term="js" scheme="https://bigworldxld.github.io/tags/js/"/>
+    
+    <category term="html" scheme="https://bigworldxld.github.io/tags/html/"/>
+    
+    <category term="csrf" scheme="https://bigworldxld.github.io/tags/csrf/"/>
+    
+    <category term="csp" scheme="https://bigworldxld.github.io/tags/csp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql备忘表</title>
+    <link href="https://bigworldxld.github.io/2024/09/14/17654.html"/>
+    <id>https://bigworldxld.github.io/2024/09/14/17654.html</id>
+    <published>2024-09-14T09:47:27.000Z</published>
+    <updated>2024-10-21T14:49:08.792Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+    <category term="pgsql" scheme="https://bigworldxld.github.io/tags/pgsql/"/>
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+    <category term="oracle" scheme="https://bigworldxld.github.io/tags/oracle/"/>
+    
+    <category term="Microsoft" scheme="https://bigworldxld.github.io/tags/Microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNSlog平台</title>
+    <link href="https://bigworldxld.github.io/2024/08/31/8726.html"/>
+    <id>https://bigworldxld.github.io/2024/08/31/8726.html</id>
+    <published>2024-08-31T04:32:22.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="OAST" scheme="https://bigworldxld.github.io/tags/OAST/"/>
+    
+    <category term="DNS" scheme="https://bigworldxld.github.io/tags/DNS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php入门</title>
+    <link href="https://bigworldxld.github.io/2024/08/17/54868.html"/>
+    <id>https://bigworldxld.github.io/2024/08/17/54868.html</id>
+    <published>2024-08-17T04:00:12.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OPL" scheme="https://bigworldxld.github.io/categories/OPL/"/>
+    
+    
+    <category term="php" scheme="https://bigworldxld.github.io/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>glob表达式</title>
+    <link href="https://bigworldxld.github.io/2024/08/10/58369.html"/>
+    <id>https://bigworldxld.github.io/2024/08/10/58369.html</id>
+    <published>2024-08-10T13:07:42.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="glob" scheme="https://bigworldxld.github.io/tags/glob/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ios自签安装ipa</title>
+    <link href="https://bigworldxld.github.io/2024/07/20/49857.html"/>
+    <id>https://bigworldxld.github.io/2024/07/20/49857.html</id>
+    <published>2024-07-20T08:41:15.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
+    
+    <category term="ipa" scheme="https://bigworldxld.github.io/tags/ipa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>amis使用</title>
+    <link href="https://bigworldxld.github.io/2024/07/13/3751.html"/>
+    <id>https://bigworldxld.github.io/2024/07/13/3751.html</id>
+    <published>2024-07-13T10:05:56.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="front-end" scheme="https://bigworldxld.github.io/categories/front-end/"/>
+    
+    
+    <category term="amis" scheme="https://bigworldxld.github.io/tags/amis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BrupSuite使用</title>
+    <link href="https://bigworldxld.github.io/2024/07/06/38446.html"/>
+    <id>https://bigworldxld.github.io/2024/07/06/38446.html</id>
+    <published>2024-07-06T06:33:59.000Z</published>
+    <updated>2024-10-21T14:49:08.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="BrupSuite" scheme="https://bigworldxld.github.io/tags/BrupSuite/"/>
+    
+    <category term="http" scheme="https://bigworldxld.github.io/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随记SRC</title>
+    <link href="https://bigworldxld.github.io/2024/06/22/65280.html"/>
+    <id>https://bigworldxld.github.io/2024/06/22/65280.html</id>
+    <published>2024-06-22T15:10:29.000Z</published>
+    <updated>2024-10-21T14:49:10.739Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="SRC" scheme="https://bigworldxld.github.io/tags/SRC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见的curl命令</title>
+    <link href="https://bigworldxld.github.io/2024/06/09/25192.html"/>
+    <id>https://bigworldxld.github.io/2024/06/09/25192.html</id>
+    <published>2024-06-09T14:22:10.000Z</published>
+    <updated>2024-10-21T14:49:10.409Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="http" scheme="https://bigworldxld.github.io/tags/http/"/>
+    
+    <category term="linux" scheme="https://bigworldxld.github.io/tags/linux/"/>
+    
+    <category term="wget" scheme="https://bigworldxld.github.io/tags/wget/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用ChatGPT网站</title>
+    <link href="https://bigworldxld.github.io/2024/05/17/3943.html"/>
+    <id>https://bigworldxld.github.io/2024/05/17/3943.html</id>
+    <published>2024-05-17T13:09:44.000Z</published>
+    <updated>2024-10-21T14:49:10.409Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="chatgpt" scheme="https://bigworldxld.github.io/tags/chatgpt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ios测试</title>
+    <link href="https://bigworldxld.github.io/2024/05/03/28235.html"/>
+    <id>https://bigworldxld.github.io/2024/05/03/28235.html</id>
+    <published>2024-05-03T06:30:49.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="xcode" scheme="https://bigworldxld.github.io/tags/xcode/"/>
+    
+    <category term="sream" scheme="https://bigworldxld.github.io/tags/sream/"/>
+    
+    <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js前端</title>
+    <link href="https://bigworldxld.github.io/2024/05/01/28075.html"/>
+    <id>https://bigworldxld.github.io/2024/05/01/28075.html</id>
+    <published>2024-05-01T06:18:41.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="front-end" scheme="https://bigworldxld.github.io/categories/front-end/"/>
+    
+    
+    <category term="js" scheme="https://bigworldxld.github.io/tags/js/"/>
+    
+    <category term="css" scheme="https://bigworldxld.github.io/tags/css/"/>
+    
+    <category term="html" scheme="https://bigworldxld.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化测试框架Playwright</title>
+    <link href="https://bigworldxld.github.io/2024/04/19/2116.html"/>
+    <id>https://bigworldxld.github.io/2024/04/19/2116.html</id>
+    <published>2024-04-19T08:34:13.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="playwright" scheme="https://bigworldxld.github.io/tags/playwright/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>chrome浏览器窗口（高级版）</title>
+    <link href="https://bigworldxld.github.io/2024/04/05/23024.html"/>
+    <id>https://bigworldxld.github.io/2024/04/05/23024.html</id>
+    <published>2024-04-05T08:02:30.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="chrome" scheme="https://bigworldxld.github.io/tags/chrome/"/>
+    
+    <category term="requestium" scheme="https://bigworldxld.github.io/tags/requestium/"/>
+    
+    <category term="network" scheme="https://bigworldxld.github.io/tags/network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chrome常用选项</title>
+    <link href="https://bigworldxld.github.io/2024/03/29/19662.html"/>
+    <id>https://bigworldxld.github.io/2024/03/29/19662.html</id>
+    <published>2024-03-29T14:36:40.000Z</published>
+    <updated>2024-10-21T14:49:08.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="chrome" scheme="https://bigworldxld.github.io/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AirtestIDE使用</title>
+    <link href="https://bigworldxld.github.io/2024/03/13/35131.html"/>
+    <id>https://bigworldxld.github.io/2024/03/13/35131.html</id>
+    <published>2024-03-13T15:17:32.000Z</published>
+    <updated>2024-10-21T14:49:08.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="airtest" scheme="https://bigworldxld.github.io/tags/airtest/"/>
+    
+    <category term="poco" scheme="https://bigworldxld.github.io/tags/poco/"/>
+    
+    <category term="tidevice" scheme="https://bigworldxld.github.io/tags/tidevice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>各类app常见测试点</title>
+    <link href="https://bigworldxld.github.io/2024/03/03/60703.html"/>
+    <id>https://bigworldxld.github.io/2024/03/03/60703.html</id>
+    <published>2024-03-03T15:28:00.000Z</published>
+    <updated>2024-10-21T14:49:08.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="测试" scheme="https://bigworldxld.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="游戏" scheme="https://bigworldxld.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试日常笔记</title>
+    <link href="https://bigworldxld.github.io/2024/03/01/44020.html"/>
+    <id>https://bigworldxld.github.io/2024/03/01/44020.html</id>
+    <published>2024-03-01T14:52:51.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游戏专业术语</title>
+    <link href="https://bigworldxld.github.io/2024/02/24/28091.html"/>
+    <id>https://bigworldxld.github.io/2024/02/24/28091.html</id>
+    <published>2024-02-24T14:54:43.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="游戏" scheme="https://bigworldxld.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UI自动化测试之Airtest</title>
+    <link href="https://bigworldxld.github.io/2023/12/10/30584.html"/>
+    <id>https://bigworldxld.github.io/2023/12/10/30584.html</id>
+    <published>2023-12-10T07:58:20.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="Airtest" scheme="https://bigworldxld.github.io/tags/Airtest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常问题笔记</title>
+    <link href="https://bigworldxld.github.io/2023/12/03/49911.html"/>
+    <id>https://bigworldxld.github.io/2023/12/03/49911.html</id>
+    <published>2023-12-03T10:36:16.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安全测试ZAP工具</title>
+    <link href="https://bigworldxld.github.io/2023/12/01/21786.html"/>
+    <id>https://bigworldxld.github.io/2023/12/01/21786.html</id>
+    <published>2023-12-01T07:06:18.000Z</published>
+    <updated>2024-10-21T14:49:10.409Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="ZAP" scheme="https://bigworldxld.github.io/tags/ZAP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软测笔记</title>
+    <link href="https://bigworldxld.github.io/2023/11/09/50556.html"/>
+    <id>https://bigworldxld.github.io/2023/11/09/50556.html</id>
+    <published>2023-11-09T11:24:18.000Z</published>
+    <updated>2024-10-21T14:49:10.739Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="测试" scheme="https://bigworldxld.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo删除历史大文件</title>
+    <link href="https://bigworldxld.github.io/2023/09/30/52951.html"/>
+    <id>https://bigworldxld.github.io/2023/09/30/52951.html</id>
+    <published>2023-09-30T08:58:48.000Z</published>
+    <updated>2024-11-10T07:40:44.923Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="blog" scheme="https://bigworldxld.github.io/categories/blog/"/>
+    
+    
+    <category term="git" scheme="https://bigworldxld.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>App自动化测试</title>
+    <link href="https://bigworldxld.github.io/2023/09/19/52919.html"/>
+    <id>https://bigworldxld.github.io/2023/09/19/52919.html</id>
+    <published>2023-09-19T12:00:06.000Z</published>
+    <updated>2024-10-21T14:49:08.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="android" scheme="https://bigworldxld.github.io/tags/android/"/>
+    
+    <category term="appium" scheme="https://bigworldxld.github.io/tags/appium/"/>
+    
+    <category term="adb" scheme="https://bigworldxld.github.io/tags/adb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬取全国各省某网各项数据</title>
+    <link href="https://bigworldxld.github.io/2023/09/03/57342.html"/>
+    <id>https://bigworldxld.github.io/2023/09/03/57342.html</id>
+    <published>2023-09-03T15:42:39.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="爬虫" scheme="https://bigworldxld.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ai文字绘画</title>
+    <link href="https://bigworldxld.github.io/2023/09/02/4794.html"/>
+    <id>https://bigworldxld.github.io/2023/09/02/4794.html</id>
+    <published>2023-09-02T10:03:21.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="AI" scheme="https://bigworldxld.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口测试工具</title>
+    <link href="https://bigworldxld.github.io/2023/08/12/35630.html"/>
+    <id>https://bigworldxld.github.io/2023/08/12/35630.html</id>
+    <published>2023-08-12T15:27:16.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="postman" scheme="https://bigworldxld.github.io/tags/postman/"/>
+    
+    <category term="jemter" scheme="https://bigworldxld.github.io/tags/jemter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《数据化管理》摘记</title>
+    <link href="https://bigworldxld.github.io/2023/07/16/34344.html"/>
+    <id>https://bigworldxld.github.io/2023/07/16/34344.html</id>
+    <published>2023-07-16T03:29:35.000Z</published>
+    <updated>2024-10-21T14:49:08.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="阅读" scheme="https://bigworldxld.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口自动化测试框架</title>
+    <link href="https://bigworldxld.github.io/2023/07/15/19295.html"/>
+    <id>https://bigworldxld.github.io/2023/07/15/19295.html</id>
+    <published>2023-07-15T04:42:50.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    
+    
+    <category term="requests" scheme="https://bigworldxld.github.io/tags/requests/"/>
+    
+    <category term="Python" scheme="https://bigworldxld.github.io/tags/Python/"/>
+    
+    <category term="Yaml" scheme="https://bigworldxld.github.io/tags/Yaml/"/>
+    
+    <category term="Pytest" scheme="https://bigworldxld.github.io/tags/Pytest/"/>
+    
+    <category term="Allure" scheme="https://bigworldxld.github.io/tags/Allure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据运营体系</title>
+    <link href="https://bigworldxld.github.io/2023/07/02/30754.html"/>
+    <id>https://bigworldxld.github.io/2023/07/02/30754.html</id>
+    <published>2023-07-02T09:17:14.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="数据运营" scheme="https://bigworldxld.github.io/tags/%E6%95%B0%E6%8D%AE%E8%BF%90%E8%90%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>运营需求思维</title>
+    <link href="https://bigworldxld.github.io/2023/03/28/56902.html"/>
+    <id>https://bigworldxld.github.io/2023/03/28/56902.html</id>
+    <published>2023-03-28T13:59:32.000Z</published>
+    <updated>2024-10-21T14:49:10.739Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="分析思维" scheme="https://bigworldxld.github.io/tags/%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas中用SQL来查询数据</title>
+    <link href="https://bigworldxld.github.io/2023/03/25/47623.html"/>
+    <id>https://bigworldxld.github.io/2023/03/25/47623.html</id>
+    <published>2023-03-25T13:43:38.000Z</published>
+    <updated>2024-10-21T14:49:08.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="pandas" scheme="https://bigworldxld.github.io/tags/pandas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页搜索技巧</title>
+    <link href="https://bigworldxld.github.io/2023/03/24/48039.html"/>
+    <id>https://bigworldxld.github.io/2023/03/24/48039.html</id>
+    <published>2023-03-24T08:32:02.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="chatgpt" scheme="https://bigworldxld.github.io/tags/chatgpt/"/>
+    
+    <category term="search" scheme="https://bigworldxld.github.io/tags/search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python操作pdf文件</title>
+    <link href="https://bigworldxld.github.io/2023/03/22/15114.html"/>
+    <id>https://bigworldxld.github.io/2023/03/22/15114.html</id>
+    <published>2023-03-22T07:45:07.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL规范和技巧</title>
+    <link href="https://bigworldxld.github.io/2023/03/21/21687.html"/>
+    <id>https://bigworldxld.github.io/2023/03/21/21687.html</id>
+    <published>2023-03-21T03:08:18.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cursor全自动代码生成器</title>
+    <link href="https://bigworldxld.github.io/2023/03/19/38571.html"/>
+    <id>https://bigworldxld.github.io/2023/03/19/38571.html</id>
+    <published>2023-03-19T10:59:09.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="chatgpt" scheme="https://bigworldxld.github.io/tags/chatgpt/"/>
+    
+    <category term="Corsor" scheme="https://bigworldxld.github.io/tags/Corsor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>京东用户行为分析</title>
+    <link href="https://bigworldxld.github.io/2023/03/18/8317.html"/>
+    <id>https://bigworldxld.github.io/2023/03/18/8317.html</id>
+    <published>2023-03-18T05:11:11.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python操作XML文件</title>
+    <link href="https://bigworldxld.github.io/2023/03/11/59546.html"/>
+    <id>https://bigworldxld.github.io/2023/03/11/59546.html</id>
+    <published>2023-03-11T09:38:01.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pgsql表继承和分区</title>
+    <link href="https://bigworldxld.github.io/2023/03/09/22230.html"/>
+    <id>https://bigworldxld.github.io/2023/03/09/22230.html</id>
+    <published>2023-03-09T07:27:37.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="pgsql" scheme="https://bigworldxld.github.io/tags/pgsql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas高频操作技巧</title>
+    <link href="https://bigworldxld.github.io/2023/03/08/19160.html"/>
+    <id>https://bigworldxld.github.io/2023/03/08/19160.html</id>
+    <published>2023-03-08T03:39:25.000Z</published>
+    <updated>2024-10-21T14:49:08.651Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="pandas" scheme="https://bigworldxld.github.io/tags/pandas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql常见问题</title>
+    <link href="https://bigworldxld.github.io/2023/03/05/62776.html"/>
+    <id>https://bigworldxld.github.io/2023/03/05/62776.html</id>
+    <published>2023-03-05T08:35:59.000Z</published>
+    <updated>2024-10-21T14:49:08.792Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python字典处理技巧</title>
+    <link href="https://bigworldxld.github.io/2023/02/19/5870.html"/>
+    <id>https://bigworldxld.github.io/2023/02/19/5870.html</id>
+    <published>2023-02-19T01:55:25.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Excel函数大全</title>
+    <link href="https://bigworldxld.github.io/2023/02/18/37841.html"/>
+    <id>https://bigworldxld.github.io/2023/02/18/37841.html</id>
+    <published>2023-02-18T01:15:43.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="excel" scheme="https://bigworldxld.github.io/tags/excel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PostgreSQL与MySQL语法对比</title>
+    <link href="https://bigworldxld.github.io/2023/01/15/65482.html"/>
+    <id>https://bigworldxld.github.io/2023/01/15/65482.html</id>
+    <published>2023-01-15T07:42:09.000Z</published>
+    <updated>2024-10-21T14:49:08.651Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="pgsql" scheme="https://bigworldxld.github.io/tags/pgsql/"/>
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL与Excel相关的数据分析</title>
+    <link href="https://bigworldxld.github.io/2023/01/14/54434.html"/>
+    <id>https://bigworldxld.github.io/2023/01/14/54434.html</id>
+    <published>2023-01-14T07:41:07.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据仓库概念</title>
+    <link href="https://bigworldxld.github.io/2023/01/13/31518.html"/>
+    <id>https://bigworldxld.github.io/2023/01/13/31518.html</id>
+    <published>2023-01-13T10:14:39.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="数仓" scheme="https://bigworldxld.github.io/tags/%E6%95%B0%E4%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql实用小命令</title>
+    <link href="https://bigworldxld.github.io/2022/12/23/24232.html"/>
+    <id>https://bigworldxld.github.io/2022/12/23/24232.html</id>
+    <published>2022-12-23T13:14:59.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础面试题</title>
+    <link href="https://bigworldxld.github.io/2022/12/12/6063.html"/>
+    <id>https://bigworldxld.github.io/2022/12/12/6063.html</id>
+    <published>2022-12-12T13:43:09.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL数据分析题</title>
+    <link href="https://bigworldxld.github.io/2022/12/11/24233.html"/>
+    <id>https://bigworldxld.github.io/2022/12/11/24233.html</id>
+    <published>2022-12-11T13:08:39.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实用的Python 特性</title>
+    <link href="https://bigworldxld.github.io/2022/12/07/20317.html"/>
+    <id>https://bigworldxld.github.io/2022/12/07/20317.html</id>
+    <published>2022-12-07T08:33:19.000Z</published>
+    <updated>2024-10-21T14:49:10.409Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL查询技巧</title>
+    <link href="https://bigworldxld.github.io/2022/11/30/32795.html"/>
+    <id>https://bigworldxld.github.io/2022/11/30/32795.html</id>
+    <published>2022-11-30T08:29:36.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写SQL的30条注意</title>
+    <link href="https://bigworldxld.github.io/2022/11/28/48175.html"/>
+    <id>https://bigworldxld.github.io/2022/11/28/48175.html</id>
+    <published>2022-11-28T13:19:23.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用html转canvas并下载图片</title>
+    <link href="https://bigworldxld.github.io/2022/11/07/37458.html"/>
+    <id>https://bigworldxld.github.io/2022/11/07/37458.html</id>
+    <published>2022-11-07T07:23:13.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="front-end" scheme="https://bigworldxld.github.io/categories/front-end/"/>
+    
+    
+    <category term="html" scheme="https://bigworldxld.github.io/tags/html/"/>
+    
+    <category term="javascript" scheme="https://bigworldxld.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Easyexcel导入导出多个sheet</title>
+    <link href="https://bigworldxld.github.io/2022/11/05/50078.html"/>
+    <id>https://bigworldxld.github.io/2022/11/05/50078.html</id>
+    <published>2022-11-05T14:34:20.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="Easyexcel" scheme="https://bigworldxld.github.io/tags/Easyexcel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态规划计算</title>
+    <link href="https://bigworldxld.github.io/2022/10/11/33060.html"/>
+    <id>https://bigworldxld.github.io/2022/10/11/33060.html</id>
+    <published>2022-10-11T03:57:53.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="DP" scheme="https://bigworldxld.github.io/tags/DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>练习springboot自定义starter</title>
+    <link href="https://bigworldxld.github.io/2022/10/04/16497.html"/>
+    <id>https://bigworldxld.github.io/2022/10/04/16497.html</id>
+    <published>2022-10-04T09:37:50.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="springboot" scheme="https://bigworldxld.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hive-sql,spark sql,sql区别</title>
+    <link href="https://bigworldxld.github.io/2022/10/01/14464.html"/>
+    <id>https://bigworldxld.github.io/2022/10/01/14464.html</id>
+    <published>2022-10-01T09:27:57.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贪心算法</title>
+    <link href="https://bigworldxld.github.io/2022/09/27/51855.html"/>
+    <id>https://bigworldxld.github.io/2022/09/27/51855.html</id>
+    <published>2022-09-27T14:42:06.000Z</published>
+    <updated>2024-10-21T14:49:10.739Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="贪心算法" scheme="https://bigworldxld.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JUC高并发入门</title>
+    <link href="https://bigworldxld.github.io/2022/09/21/63325.html"/>
+    <id>https://bigworldxld.github.io/2022/09/21/63325.html</id>
+    <published>2022-09-21T15:39:09.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="JUC" scheme="https://bigworldxld.github.io/tags/JUC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单k线图买卖策略可视化</title>
+    <link href="https://bigworldxld.github.io/2022/09/05/37128.html"/>
+    <id>https://bigworldxld.github.io/2022/09/05/37128.html</id>
+    <published>2022-09-05T13:53:51.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="finance" scheme="https://bigworldxld.github.io/tags/finance/"/>
+    
+    <category term="pyecharts" scheme="https://bigworldxld.github.io/tags/pyecharts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树计算</title>
+    <link href="https://bigworldxld.github.io/2022/09/02/65353.html"/>
+    <id>https://bigworldxld.github.io/2022/09/02/65353.html</id>
+    <published>2022-09-02T04:32:10.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="binary tree" scheme="https://bigworldxld.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>栈和队列计算</title>
+    <link href="https://bigworldxld.github.io/2022/08/29/36007.html"/>
+    <id>https://bigworldxld.github.io/2022/08/29/36007.html</id>
+    <published>2022-08-29T15:16:43.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="stack" scheme="https://bigworldxld.github.io/tags/stack/"/>
+    
+    <category term="queue" scheme="https://bigworldxld.github.io/tags/queue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原创毕设雏形之问卷答题实时分析系统</title>
+    <link href="https://bigworldxld.github.io/2022/08/25/31792.html"/>
+    <id>https://bigworldxld.github.io/2022/08/25/31792.html</id>
+    <published>2022-08-25T15:35:09.000Z</published>
+    <updated>2024-10-21T14:49:08.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="毕设" scheme="https://bigworldxld.github.io/tags/%E6%AF%95%E8%AE%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器部署项目</title>
+    <link href="https://bigworldxld.github.io/2022/08/23/32892.html"/>
+    <id>https://bigworldxld.github.io/2022/08/23/32892.html</id>
+    <published>2022-08-22T16:00:36.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="ruoyi" scheme="https://bigworldxld.github.io/tags/ruoyi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>哈希表和字符串计算</title>
+    <link href="https://bigworldxld.github.io/2022/08/20/51450.html"/>
+    <id>https://bigworldxld.github.io/2022/08/20/51450.html</id>
+    <published>2022-08-20T14:07:19.000Z</published>
+    <updated>2024-10-21T14:49:08.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Hash table" scheme="https://bigworldxld.github.io/tags/Hash-table/"/>
+    
+    <category term="String" scheme="https://bigworldxld.github.io/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数组和链表计算</title>
+    <link href="https://bigworldxld.github.io/2022/08/19/8782.html"/>
+    <id>https://bigworldxld.github.io/2022/08/19/8782.html</id>
+    <published>2022-08-19T09:43:07.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Linked List" scheme="https://bigworldxld.github.io/tags/Linked-List/"/>
+    
+    <category term="Array" scheme="https://bigworldxld.github.io/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回溯算法</title>
+    <link href="https://bigworldxld.github.io/2022/08/14/60033.html"/>
+    <id>https://bigworldxld.github.io/2022/08/14/60033.html</id>
+    <published>2022-08-14T04:45:24.000Z</published>
+    <updated>2024-10-21T14:49:08.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="回溯算法" scheme="https://bigworldxld.github.io/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot常用注解</title>
+    <link href="https://bigworldxld.github.io/2022/08/05/58497.html"/>
+    <id>https://bigworldxld.github.io/2022/08/05/58497.html</id>
+    <published>2022-08-05T10:54:30.000Z</published>
+    <updated>2024-10-21T14:49:08.792Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="springboot" scheme="https://bigworldxld.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker入门</title>
+    <link href="https://bigworldxld.github.io/2022/08/03/11205.html"/>
+    <id>https://bigworldxld.github.io/2022/08/03/11205.html</id>
+    <published>2022-08-03T01:56:08.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="docker" scheme="https://bigworldxld.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式</title>
+    <link href="https://bigworldxld.github.io/2022/07/31/41682.html"/>
+    <id>https://bigworldxld.github.io/2022/07/31/41682.html</id>
+    <published>2022-07-31T09:56:03.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="设计模式" scheme="https://bigworldxld.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于PyTorch的QDN强化学习</title>
+    <link href="https://bigworldxld.github.io/2022/07/30/21869.html"/>
+    <id>https://bigworldxld.github.io/2022/07/30/21869.html</id>
+    <published>2022-07-30T14:08:11.000Z</published>
+    <updated>2024-10-21T14:49:08.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="pyTorch" scheme="https://bigworldxld.github.io/tags/pyTorch/"/>
+    
+    <category term="DQN" scheme="https://bigworldxld.github.io/tags/DQN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单Q-learning算法</title>
+    <link href="https://bigworldxld.github.io/2022/07/28/12725.html"/>
+    <id>https://bigworldxld.github.io/2022/07/28/12725.html</id>
+    <published>2022-07-28T10:10:30.000Z</published>
+    <updated>2024-10-21T14:49:10.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="Q-Learning" scheme="https://bigworldxld.github.io/tags/Q-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flask Web框架入门</title>
+    <link href="https://bigworldxld.github.io/2022/07/17/3291.html"/>
+    <id>https://bigworldxld.github.io/2022/07/17/3291.html</id>
+    <published>2022-07-17T14:10:25.000Z</published>
+    <updated>2024-10-21T14:49:08.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="Flask" scheme="https://bigworldxld.github.io/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark常用RDD算子</title>
+    <link href="https://bigworldxld.github.io/2022/07/10/54025.html"/>
+    <id>https://bigworldxld.github.io/2022/07/10/54025.html</id>
+    <published>2022-07-10T12:01:11.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="RDD" scheme="https://bigworldxld.github.io/tags/RDD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas数据分析</title>
+    <link href="https://bigworldxld.github.io/2022/07/02/19241.html"/>
+    <id>https://bigworldxld.github.io/2022/07/02/19241.html</id>
+    <published>2022-07-02T05:56:15.000Z</published>
+    <updated>2024-10-21T14:49:08.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="pandas" scheme="https://bigworldxld.github.io/tags/pandas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python数据清洗方法</title>
+    <link href="https://bigworldxld.github.io/2022/06/30/35380.html"/>
+    <id>https://bigworldxld.github.io/2022/06/30/35380.html</id>
+    <published>2022-06-30T13:02:09.000Z</published>
+    <updated>2024-10-21T14:49:08.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql和oracle的区别</title>
+    <link href="https://bigworldxld.github.io/2022/06/24/40731.html"/>
+    <id>https://bigworldxld.github.io/2022/06/24/40731.html</id>
+    <published>2022-06-24T09:26:05.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="mysql" scheme="https://bigworldxld.github.io/tags/mysql/"/>
+    
+    <category term="oracle" scheme="https://bigworldxld.github.io/tags/oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot+Vue前后端分离后台管理系统</title>
+    <link href="https://bigworldxld.github.io/2022/06/22/48605.html"/>
+    <id>https://bigworldxld.github.io/2022/06/22/48605.html</id>
+    <published>2022-06-22T10:45:00.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="vue" scheme="https://bigworldxld.github.io/tags/vue/"/>
+    
+    <category term="springboot" scheme="https://bigworldxld.github.io/tags/springboot/"/>
+    
+    <category term="nginx" scheme="https://bigworldxld.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql真题</title>
+    <link href="https://bigworldxld.github.io/2022/06/12/21735.html"/>
+    <id>https://bigworldxld.github.io/2022/06/12/21735.html</id>
+    <published>2022-06-12T13:14:59.000Z</published>
+    <updated>2024-10-21T14:49:08.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>go小型通讯系统</title>
+    <link href="https://bigworldxld.github.io/2022/04/27/5123.html"/>
+    <id>https://bigworldxld.github.io/2022/04/27/5123.html</id>
+    <published>2022-04-27T07:59:35.000Z</published>
+    <updated>2024-10-21T14:49:08.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OPL" scheme="https://bigworldxld.github.io/categories/OPL/"/>
+    
+    
+    <category term="tcp" scheme="https://bigworldxld.github.io/tags/tcp/"/>
+    
+    <category term="Reids" scheme="https://bigworldxld.github.io/tags/Reids/"/>
+    
+    <category term="GoLang" scheme="https://bigworldxld.github.io/tags/GoLang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>go语言基础</title>
+    <link href="https://bigworldxld.github.io/2022/04/21/25470.html"/>
+    <id>https://bigworldxld.github.io/2022/04/21/25470.html</id>
+    <published>2022-04-21T14:15:20.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OPL" scheme="https://bigworldxld.github.io/categories/OPL/"/>
+    
+    
+    <category term="GoLang" scheme="https://bigworldxld.github.io/tags/GoLang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之电影推荐系统7</title>
+    <link href="https://bigworldxld.github.io/2022/04/17/37912.html"/>
+    <id>https://bigworldxld.github.io/2022/04/17/37912.html</id>
+    <published>2022-04-17T07:16:17.000Z</published>
+    <updated>2024-10-21T14:49:09.106Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+    <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
+    
+    <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
+    
+    <category term="AngularJS2" scheme="https://bigworldxld.github.io/tags/AngularJS2/"/>
+    
+    <category term="spring" scheme="https://bigworldxld.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之电影推荐系统6</title>
+    <link href="https://bigworldxld.github.io/2022/04/16/21721.html"/>
+    <id>https://bigworldxld.github.io/2022/04/16/21721.html</id>
+    <published>2022-04-16T14:39:14.000Z</published>
+    <updated>2024-10-21T14:49:09.090Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+    <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
+    
+    <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
+    
+    <category term="AngularJS2" scheme="https://bigworldxld.github.io/tags/AngularJS2/"/>
+    
+    <category term="spring" scheme="https://bigworldxld.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之电影推荐系统5</title>
+    <link href="https://bigworldxld.github.io/2022/04/15/21913.html"/>
+    <id>https://bigworldxld.github.io/2022/04/15/21913.html</id>
+    <published>2022-04-15T07:09:11.000Z</published>
+    <updated>2024-10-21T14:49:09.075Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+    <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
+    
+    <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
+    
+    <category term="AngularJS2" scheme="https://bigworldxld.github.io/tags/AngularJS2/"/>
+    
+    <category term="spring" scheme="https://bigworldxld.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之电影推荐系统4</title>
+    <link href="https://bigworldxld.github.io/2022/04/14/38232.html"/>
+    <id>https://bigworldxld.github.io/2022/04/14/38232.html</id>
+    <published>2022-04-14T06:41:20.000Z</published>
+    <updated>2024-10-21T14:49:09.059Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+    <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
+    
+    <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
+    
+    <category term="AngularJS2" scheme="https://bigworldxld.github.io/tags/AngularJS2/"/>
+    
+    <category term="spring" scheme="https://bigworldxld.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之电影推荐系统3</title>
+    <link href="https://bigworldxld.github.io/2022/04/12/22297.html"/>
+    <id>https://bigworldxld.github.io/2022/04/12/22297.html</id>
+    <published>2022-04-12T09:45:16.000Z</published>
+    <updated>2024-10-21T14:49:09.028Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+    <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
+    
+    <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
+    
+    <category term="AngularJS2" scheme="https://bigworldxld.github.io/tags/AngularJS2/"/>
+    
+    <category term="spring" scheme="https://bigworldxld.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习和推荐系统2</title>
+    <link href="https://bigworldxld.github.io/2022/04/11/64383.html"/>
+    <id>https://bigworldxld.github.io/2022/04/11/64383.html</id>
+    <published>2022-04-11T09:05:41.000Z</published>
+    <updated>2024-10-21T14:49:10.440Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+    <category term="Machine learning" scheme="https://bigworldxld.github.io/tags/Machine-learning/"/>
+    
+    <category term="jupyternobook" scheme="https://bigworldxld.github.io/tags/jupyternobook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习和推荐系统1</title>
+    <link href="https://bigworldxld.github.io/2022/04/09/64063.html"/>
+    <id>https://bigworldxld.github.io/2022/04/09/64063.html</id>
+    <published>2022-04-09T07:25:01.000Z</published>
+    <updated>2024-10-21T14:49:10.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="recommendation system" scheme="https://bigworldxld.github.io/categories/recommendation-system/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+    <category term="Machine learning" scheme="https://bigworldxld.github.io/tags/Machine-learning/"/>
+    
+    <category term="jupyternobook" scheme="https://bigworldxld.github.io/tags/jupyternobook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis</title>
+    <link href="https://bigworldxld.github.io/2022/04/03/61918.html"/>
+    <id>https://bigworldxld.github.io/2022/04/03/61918.html</id>
+    <published>2022-04-03T07:11:44.000Z</published>
+    <updated>2024-10-21T14:49:08.588Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="MyBatis" scheme="https://bigworldxld.github.io/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC</title>
+    <link href="https://bigworldxld.github.io/2022/03/31/4780.html"/>
+    <id>https://bigworldxld.github.io/2022/03/31/4780.html</id>
+    <published>2022-03-31T14:07:11.000Z</published>
+    <updated>2024-10-21T14:49:08.682Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="springMVC" scheme="https://bigworldxld.github.io/tags/springMVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring5框架</title>
+    <link href="https://bigworldxld.github.io/2022/03/26/7610.html"/>
+    <id>https://bigworldxld.github.io/2022/03/26/7610.html</id>
+    <published>2022-03-26T14:12:04.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://bigworldxld.github.io/categories/java/"/>
+    
+    
+    <category term="Spring" scheme="https://bigworldxld.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Scala</title>
+    <link href="https://bigworldxld.github.io/2022/03/20/24330.html"/>
+    <id>https://bigworldxld.github.io/2022/03/20/24330.html</id>
+    <published>2022-03-20T08:11:50.000Z</published>
+    <updated>2024-10-21T14:49:08.980Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Scala" scheme="https://bigworldxld.github.io/tags/Scala/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫自动填写“问卷网”问卷</title>
+    <link href="https://bigworldxld.github.io/2022/03/02/43476.html"/>
+    <id>https://bigworldxld.github.io/2022/03/02/43476.html</id>
+    <published>2022-03-02T05:58:28.000Z</published>
+    <updated>2024-10-21T14:49:08.666Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://bigworldxld.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Flink</title>
+    <link href="https://bigworldxld.github.io/2022/03/01/11524.html"/>
+    <id>https://bigworldxld.github.io/2022/03/01/11524.html</id>
+    <published>2022-03-01T03:46:15.000Z</published>
+    <updated>2024-10-21T14:49:08.949Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="flink" scheme="https://bigworldxld.github.io/tags/flink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（11数据质量管理）</title>
+    <link href="https://bigworldxld.github.io/2022/02/16/36201.html"/>
+    <id>https://bigworldxld.github.io/2022/02/16/36201.html</id>
+    <published>2022-02-16T05:55:33.000Z</published>
+    <updated>2024-10-21T14:49:09.216Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（10元数据管理Atlas）</title>
+    <link href="https://bigworldxld.github.io/2022/02/15/14181.html"/>
+    <id>https://bigworldxld.github.io/2022/02/15/14181.html</id>
+    <published>2022-02-15T05:51:56.000Z</published>
+    <updated>2024-10-21T14:49:09.153Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（9权限管理Ranger）</title>
+    <link href="https://bigworldxld.github.io/2022/02/14/28194.html"/>
+    <id>https://bigworldxld.github.io/2022/02/14/28194.html</id>
+    <published>2022-02-14T05:48:57.000Z</published>
+    <updated>2024-10-21T14:49:10.346Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（8安全环境实战）</title>
+    <link href="https://bigworldxld.github.io/2022/02/13/16192.html"/>
+    <id>https://bigworldxld.github.io/2022/02/13/16192.html</id>
+    <published>2022-02-13T03:52:49.000Z</published>
+    <updated>2024-10-21T14:49:10.346Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（7用户认证Kerberos）</title>
+    <link href="https://bigworldxld.github.io/2022/02/12/34552.html"/>
+    <id>https://bigworldxld.github.io/2022/02/12/34552.html</id>
+    <published>2022-02-12T14:47:22.000Z</published>
+    <updated>2024-10-21T14:49:10.331Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（6集群监控Zabbix）</title>
+    <link href="https://bigworldxld.github.io/2022/02/11/29176.html"/>
+    <id>https://bigworldxld.github.io/2022/02/11/29176.html</id>
+    <published>2022-02-11T12:17:29.000Z</published>
+    <updated>2024-10-21T14:49:10.158Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（5即席查询Presto&amp;Kylin）</title>
+    <link href="https://bigworldxld.github.io/2022/02/10/37074.html"/>
+    <id>https://bigworldxld.github.io/2022/02/10/37074.html</id>
+    <published>2022-02-10T03:26:36.000Z</published>
+    <updated>2024-10-21T14:49:09.938Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（4可视化报表Superset）</title>
+    <link href="https://bigworldxld.github.io/2022/02/09/25261.html"/>
+    <id>https://bigworldxld.github.io/2022/02/09/25261.html</id>
+    <published>2022-02-09T15:02:13.000Z</published>
+    <updated>2024-10-21T14:49:09.875Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Azkaban</title>
+    <link href="https://bigworldxld.github.io/2022/02/08/16820.html"/>
+    <id>https://bigworldxld.github.io/2022/02/08/16820.html</id>
+    <published>2022-02-08T14:08:19.000Z</published>
+    <updated>2024-10-21T14:49:08.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（3数据仓库系统）</title>
+    <link href="https://bigworldxld.github.io/2022/02/07/10237.html"/>
+    <id>https://bigworldxld.github.io/2022/02/07/10237.html</id>
+    <published>2022-02-07T12:46:55.000Z</published>
+    <updated>2024-10-21T14:49:09.609Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇（2业务数据采集平台)</title>
+    <link href="https://bigworldxld.github.io/2022/02/06/41690.html"/>
+    <id>https://bigworldxld.github.io/2022/02/06/41690.html</id>
+    <published>2022-02-06T12:46:55.000Z</published>
+    <updated>2024-10-21T14:49:09.452Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Flume</title>
+    <link href="https://bigworldxld.github.io/2022/02/05/57156.html"/>
+    <id>https://bigworldxld.github.io/2022/02/05/57156.html</id>
+    <published>2022-02-05T15:19:34.000Z</published>
+    <updated>2024-10-21T14:49:08.980Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Kafka</title>
+    <link href="https://bigworldxld.github.io/2022/02/04/5272.html"/>
+    <id>https://bigworldxld.github.io/2022/02/04/5272.html</id>
+    <published>2022-02-04T15:12:53.000Z</published>
+    <updated>2024-10-21T14:49:08.980Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Zookeeper</title>
+    <link href="https://bigworldxld.github.io/2022/02/03/6898.html"/>
+    <id>https://bigworldxld.github.io/2022/02/03/6898.html</id>
+    <published>2022-02-03T14:55:25.000Z</published>
+    <updated>2024-10-21T14:49:09.028Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="Zookeeper" scheme="https://bigworldxld.github.io/tags/Zookeeper/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Hadoop（入门）</title>
+    <link href="https://bigworldxld.github.io/2022/02/02/40282.html"/>
+    <id>https://bigworldxld.github.io/2022/02/02/40282.html</id>
+    <published>2022-02-02T12:49:19.000Z</published>
+    <updated>2024-10-21T14:49:08.980Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hadoop生态圈" scheme="https://bigworldxld.github.io/categories/hadoop%E7%94%9F%E6%80%81%E5%9C%88/"/>
+    
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据项目之尚品汇数仓4.0</title>
+    <link href="https://bigworldxld.github.io/2022/02/01/33173.html"/>
+    <id>https://bigworldxld.github.io/2022/02/01/33173.html</id>
+    <published>2022-02-01T07:03:13.000Z</published>
+    <updated>2024-10-21T14:49:09.263Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="data warehouse" scheme="https://bigworldxld.github.io/categories/data-warehouse/"/>
+    
+    
+    <category term="hive" scheme="https://bigworldxld.github.io/tags/hive/"/>
+    
+    <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
+    
+    <category term="zookeeper" scheme="https://bigworldxld.github.io/tags/zookeeper/"/>
+    
+    <category term="flume" scheme="https://bigworldxld.github.io/tags/flume/"/>
+    
+    <category term="sqoop" scheme="https://bigworldxld.github.io/tags/sqoop/"/>
+    
+    <category term="superset" scheme="https://bigworldxld.github.io/tags/superset/"/>
+    
+    <category term="hbase" scheme="https://bigworldxld.github.io/tags/hbase/"/>
+    
+    <category term="Presto" scheme="https://bigworldxld.github.io/tags/Presto/"/>
+    
+    <category term="kylin" scheme="https://bigworldxld.github.io/tags/kylin/"/>
+    
+    <category term="zabbix" scheme="https://bigworldxld.github.io/tags/zabbix/"/>
+    
+    <category term="Kerberos" scheme="https://bigworldxld.github.io/tags/Kerberos/"/>
+    
+    <category term="ranger" scheme="https://bigworldxld.github.io/tags/ranger/"/>
+    
+    <category term="atlas" scheme="https://bigworldxld.github.io/tags/atlas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据技术之Shell</title>
+    <link href="https://bigworldxld.github.io/2022/01/31/32648.html"/>
+    <id>https://bigworldxld.github.io/2022/01/31/32648.html</id>
+    <published>2022-01-31T09:48:35.000Z</published>
+    <updated>2024-10-21T14:49:09.012Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Shell" scheme="https://bigworldxld.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之树结构实际应用</title>
+    <link href="https://bigworldxld.github.io/2022/01/11/60474.html"/>
+    <id>https://bigworldxld.github.io/2022/01/11/60474.html</id>
+    <published>2022-01-11T14:51:06.000Z</published>
+    <updated>2024-10-21T14:49:10.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="binary tree" scheme="https://bigworldxld.github.io/tags/binary-tree/"/>
+    
+    <category term="Heap" scheme="https://bigworldxld.github.io/tags/Heap/"/>
+    
+    <category term="HuffmanTree" scheme="https://bigworldxld.github.io/tags/HuffmanTree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之树结构的基础部分</title>
+    <link href="https://bigworldxld.github.io/2022/01/10/21325.html"/>
+    <id>https://bigworldxld.github.io/2022/01/10/21325.html</id>
+    <published>2022-01-10T06:12:20.000Z</published>
+    <updated>2024-10-21T14:49:10.550Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="binary tree" scheme="https://bigworldxld.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之哈希表</title>
+    <link href="https://bigworldxld.github.io/2022/01/09/63544.html"/>
+    <id>https://bigworldxld.github.io/2022/01/09/63544.html</id>
+    <published>2022-01-09T06:02:45.000Z</published>
+    <updated>2024-10-21T14:49:10.472Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Hash table" scheme="https://bigworldxld.github.io/tags/Hash-table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之查找算法</title>
+    <link href="https://bigworldxld.github.io/2022/01/08/24736.html"/>
+    <id>https://bigworldxld.github.io/2022/01/08/24736.html</id>
+    <published>2022-01-08T05:22:11.000Z</published>
+    <updated>2024-10-21T14:49:10.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Lookup algorithm" scheme="https://bigworldxld.github.io/tags/Lookup-algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之排序算法</title>
+    <link href="https://bigworldxld.github.io/2022/01/07/19254.html"/>
+    <id>https://bigworldxld.github.io/2022/01/07/19254.html</id>
+    <published>2022-01-07T02:35:11.000Z</published>
+    <updated>2024-10-21T14:49:10.472Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Sort Algorithm" scheme="https://bigworldxld.github.io/tags/Sort-Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之递归</title>
+    <link href="https://bigworldxld.github.io/2022/01/06/19549.html"/>
+    <id>https://bigworldxld.github.io/2022/01/06/19549.html</id>
+    <published>2022-01-06T01:58:26.000Z</published>
+    <updated>2024-10-21T14:49:10.566Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Recursion" scheme="https://bigworldxld.github.io/tags/Recursion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之栈</title>
+    <link href="https://bigworldxld.github.io/2022/01/05/39393.html"/>
+    <id>https://bigworldxld.github.io/2022/01/05/39393.html</id>
+    <published>2022-01-05T09:05:53.000Z</published>
+    <updated>2024-10-21T14:49:10.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="stack" scheme="https://bigworldxld.github.io/tags/stack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之链表</title>
+    <link href="https://bigworldxld.github.io/2022/01/04/4041.html"/>
+    <id>https://bigworldxld.github.io/2022/01/04/4041.html</id>
+    <published>2022-01-04T08:02:26.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Linked List" scheme="https://bigworldxld.github.io/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之队列</title>
+    <link href="https://bigworldxld.github.io/2022/01/03/45480.html"/>
+    <id>https://bigworldxld.github.io/2022/01/03/45480.html</id>
+    <published>2022-01-03T07:19:14.000Z</published>
+    <updated>2024-10-21T14:49:10.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="queue" scheme="https://bigworldxld.github.io/tags/queue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构之稀疏矩阵</title>
+    <link href="https://bigworldxld.github.io/2022/01/02/46490.html"/>
+    <id>https://bigworldxld.github.io/2022/01/02/46490.html</id>
+    <published>2022-01-02T06:18:49.000Z</published>
+    <updated>2024-10-21T14:49:10.566Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://bigworldxld.github.io/categories/algorithm/"/>
+    
+    
+    <category term="sparsearray" scheme="https://bigworldxld.github.io/tags/sparsearray/"/>
+    
+    <category term="java" scheme="https://bigworldxld.github.io/tags/java/"/>
+    
+    <category term="scala" scheme="https://bigworldxld.github.io/tags/scala/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bigworldxld的个人学习博客</title>
+    <link href="https://bigworldxld.github.io/2022/01/01/20694.html"/>
+    <id>https://bigworldxld.github.io/2022/01/01/20694.html</id>
+    <published>2022-01-01T06:18:49.000Z</published>
+    <updated>2024-10-21T14:49:08.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="blog" scheme="https://bigworldxld.github.io/categories/blog/"/>
+    
+    
+    <category term="study blog" scheme="https://bigworldxld.github.io/tags/study-blog/"/>
+    
+  </entry>
+  
+</feed>

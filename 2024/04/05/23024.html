@@ -1,0 +1,2152 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="chrome浏览器窗口（高级版）, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="chrome浏览器窗口（高级版）查看浏览器信息在 chrome浏览器的地址栏中输入 chrome://version
+到 chrome浏览器 安装的文件夹下，打开 cmd窗口，输入以下内容：
+chrome.exe --remote-debu">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>chrome浏览器窗口（高级版） | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/requestium.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">chrome浏览器窗口（高级版）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/chrome/">
+                                <span class="chip bg-color">chrome</span>
+                            </a>
+                        
+                            <a href="/tags/requestium/">
+                                <span class="chip bg-color">requestium</span>
+                            </a>
+                        
+                            <a href="/tags/network/">
+                                <span class="chip bg-color">network</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-05
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="chrome浏览器窗口（高级版）"><a href="#chrome浏览器窗口（高级版）" class="headerlink" title="chrome浏览器窗口（高级版）"></a>chrome浏览器窗口（高级版）</h2><h3 id="查看浏览器信息"><a href="#查看浏览器信息" class="headerlink" title="查看浏览器信息"></a>查看浏览器信息</h3><p>在 chrome浏览器的地址栏中输入 <code>chrome://version</code></p>
+<p>到 <strong>chrome浏览器</strong> 安装的文件夹下，打开 <strong>cmd窗口</strong>，输入以下内容：</p>
+<pre class=" language-python"><code class="language-python">chrome<span class="token punctuation">.</span>exe <span class="token operator">-</span><span class="token operator">-</span>remote<span class="token operator">-</span>debugging<span class="token operator">-</span>port<span class="token operator">=</span><span class="token number">9527</span> <span class="token operator">-</span><span class="token operator">-</span>user<span class="token operator">-</span>data<span class="token operator">-</span>dir<span class="token operator">=</span><span class="token string">"C:\Users\21173\AppData\Local\Google\Chrome\User Data"</span>
+</code></pre>
+<p>启动 <strong>chrome浏览器</strong> 的调试模式，</p>
+<ul>
+<li><strong>user-data-dirr=“F:\selenium\AutomationProfile”</strong> 是在单独的配置文件中启动 <strong>chrome浏览器</strong>，可以是chrome安装目录下现有的用户数据文件,使用的话就可以跳过一些页面的登录状态；也可以理解为新的浏览器，创建对应文件夹；</li>
+<li>其中 <strong>9527</strong> 为端口号，可自行指定</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+options<span class="token punctuation">.</span>add_experimental_option<span class="token punctuation">(</span><span class="token string">"debuggerAddress"</span><span class="token punctuation">,</span> <span class="token string">"127.0.0.1:9527"</span><span class="token punctuation">)</span>
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+
+url <span class="token operator">=</span> <span class="token string">'https://www.bilibili.com'</span>
+browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>browser<span class="token punctuation">.</span>title<span class="token punctuation">)</span>    
+</code></pre>
+<pre class=" language-python"><code class="language-python">    option <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--headless'</span><span class="token punctuation">)</span>
+    option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--user-data-dir=C:\\Users\\21173\\AppData\\Local\\Google\\Chrome\\User Data"</span><span class="token punctuation">)</span>
+    option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--remote-debugging-port=9222"</span><span class="token punctuation">)</span>
+    option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"</span><span class="token punctuation">)</span>
+    driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>option<span class="token punctuation">)</span>
+    driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="执行cmd命令"><a href="#执行cmd命令" class="headerlink" title="执行cmd命令"></a>执行cmd命令</h3><p>使用os.popen即可执行cmd命令~（os.popen包装了sunprocess.Popen方法）</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+os<span class="token punctuation">.</span>popen<span class="token punctuation">(</span><span class="token string">'start chrome --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 方法二</span>
+<span class="token comment" spellcheck="true"># 先切换到chrome的可执行文件路径，再执行cmd命令。注意这里没有 start</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>r<span class="token string">"C:\Program Files\Google\Chrome\Application"</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>popen<span class="token punctuation">(</span><span class="token string">'chrome --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>os.system</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true"># 方法一</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>r<span class="token string">'start chrome --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 方法二</span>
+<span class="token comment" spellcheck="true"># 先切换到chrome的可执行文件路径，再执行cmd命令。注意这里没有 start</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>r<span class="token string">"C:\Program Files\Google\Chrome\Application"</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>r<span class="token string">'chrome --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>subprocess.Popen</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> subprocess
+
+<span class="token comment" spellcheck="true"># 先切换到chrome可执行文件的路径</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>r<span class="token string">"C:\Program Files\Google\Chrome\Application"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 然后使用Popen执行cmd命令，这里的chrome.exe 可替换为 chrome，注意这里没有 start</span>
+subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span><span class="token string">'chrome.exe --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="selenium操作chrome调试"><a href="#selenium操作chrome调试" class="headerlink" title="selenium操作chrome调试"></a>selenium操作chrome调试</h3><p><a target="_blank" rel="noopener" href="https://chromedevtools.github.io/devtools-protocol/tot/Network/">Chrome Devtools Protocal</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.csdn.net/'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 获取远程链接的地址</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'remote_url:'</span><span class="token punctuation">,</span> browser<span class="token punctuation">.</span>caps<span class="token punctuation">[</span><span class="token string">'goog:chromeOptions'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'debuggerAddress'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'session_id:'</span><span class="token punctuation">,</span> browser<span class="token punctuation">.</span>session_id<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>browser<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+</code></pre>
+<p>用调试模式执行以上代码，看到下图</p>
+<ul>
+<li><strong><code>{'debuggerAddress': 'localhost:64829'}</code></strong> </li>
+</ul>
+<p>查看当前窗口的页面连接</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:64829/json">http://localhost:64829/json</a></p>
+<p>点击 <code>devtoolsFrontendUrl(开发工具前端Url)</code>，可以到调试界面，这个可以用作于远程调试</p>
+<p>查看窗口远程链接</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:64829/json/version">http://localhost:64829/json/version</a></p>
+<ul>
+<li>圈出来的<code>webSocketDebuggerUrl(调试器Url)</code>，是远程链接的地址，若使用 <strong>puppeteer</strong>的话能用到</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>r<span class="token string">'start chrome --remote-debugging-port=9527 --user-data-dir="F:\selenium"'</span><span class="token punctuation">)</span>    
+    <span class="token comment" spellcheck="true"># 完成登录扫码验证或者手机短信验证后，回车进入下一步</span>
+    input<span class="token punctuation">(</span><span class="token string">'输入空格继续程序...'</span><span class="token punctuation">)</span>
+    options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  options<span class="token punctuation">.</span>add_experimental_option<span class="token punctuation">(</span><span class="token string">"debuggerAddress"</span><span class="token punctuation">,</span> <span class="token string">"127.0.0.1:9527"</span><span class="token punctuation">)</span>
+    browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>browser<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="获取Network数据"><a href="#获取Network数据" class="headerlink" title="获取Network数据"></a>获取Network数据</h3><p>通过selenium去拿网页数据，往往是两个途径：</p>
+<ol>
+<li>selenium.page_source，通过解析HTML</li>
+<li>通过中间人进行数据截获</li>
+</ol>
+<p>应用场景</p>
+<blockquote>
+<p>Chrome浏览器-&gt; 开发者工具 -&gt; Network 中所有的数据包</p>
+</blockquote>
+<p>Selenium3获取Network</p>
+<blockquote>
+<p><strong>这里指定9527端口打开浏览器，也可以不指定</strong></p>
+</blockquote>
+<p>Selenium4获取Network</p>
+<blockquote>
+<p>在Selenium 4中，<code>desired_capabilities</code> 已经被弃用，所以不能再在<code>webdriver.Chrome()</code>中使用它。需要将 <code>desired_capabilities</code> 转换为 <code>options</code></p>
+</blockquote>
+<p>日志没有response.body</p>
+<p>步骤：通过Chromedriver获取到network日志。network 的response日志类型Network.responseReceived，里面有个参数 requestId ， chrome devtool Network.getResponseBody方法可以通过requestId 获取到response</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>'level'<span class="token operator">:</span>'INFO'<span class="token punctuation">,</span>'message'<span class="token operator">:</span>
+<span class="token punctuation">{</span>
+    <span class="token property">"message"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"method"</span><span class="token operator">:</span><span class="token string">"Network.responseReceived"</span><span class="token punctuation">,</span>
+        <span class="token property">"params"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+            <span class="token property">"frameId"</span><span class="token operator">:</span><span class="token string">"35489C704F5D95B9D01BD99C00BA3AFA"</span><span class="token punctuation">,</span>
+            <span class="token property">"loaderId"</span><span class="token operator">:</span><span class="token string">"BA3FE8EAD2BB30562343F3940AEB8CBC"</span><span class="token punctuation">,</span>
+            <span class="token property">"requestId"</span><span class="token operator">:</span><span class="token string">"BA3FE8EAD2BB30562343F3940AEB8CBC"</span><span class="token punctuation">,</span>
+            <span class="token property">"response"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                <span class="token property">"connectionId"</span><span class="token operator">:</span><span class="token number">12</span><span class="token punctuation">,</span>
+                <span class="token property">"connectionReused"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"encodedDataLength"</span><span class="token operator">:</span><span class="token number">230</span><span class="token punctuation">,</span>
+                <span class="token property">"fromDiskCache"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"fromPrefetchCache"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"fromServiceWorker"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"headers"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token property">"Access-Control-Allow-Credentials"</span><span class="token operator">:</span><span class="token string">"true"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Access-Control-Allow-Origin"</span><span class="token operator">:</span><span class="token string">"*"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Connection"</span><span class="token operator">:</span><span class="token string">"keep-alive"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Content-Length"</span><span class="token operator">:</span><span class="token string">"571"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Content-Type"</span><span class="token operator">:</span><span class="token string">"application/json"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Date"</span><span class="token operator">:</span><span class="token string">"Tue, 24 Nov 2020 01:59:03 GMT"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Server"</span><span class="token operator">:</span><span class="token string">"gunicorn/19.9.0"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"headersText"</span><span class="token operator">:</span><span class="token string">"HTTP/1.1 200 OK,
+                    Date: Tue, 24 Nov 2020 01:59:03 GMT
+                    Content-Type: application/json
+                    Content-Length: 571
+                    Connection: keep-alive
+                    Server: gunicorn/19.9.0
+                    Access-Control-Allow-Origin: *
+                    Access-Control-Allow-Credentials: true"</span><span class="token punctuation">,</span>
+                <span class="token property">"mimeType"</span><span class="token operator">:</span><span class="token string">"application/json"</span><span class="token punctuation">,</span>
+                <span class="token property">"protocol"</span><span class="token operator">:</span><span class="token string">"http/1.1"</span><span class="token punctuation">,</span>
+                <span class="token property">"remoteIPAddress"</span><span class="token operator">:</span><span class="token string">"3.211.1.78"</span><span class="token punctuation">,</span>
+                <span class="token property">"remotePort"</span><span class="token operator">:</span><span class="token number">80</span><span class="token punctuation">,</span>
+                <span class="token property">"requestHeaders"</span><span class="token operator">:</span><span class="token punctuation">{</span>                      <span class="token property">"Accept"</span><span class="token operator">:</span><span class="token string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Accept-Encoding"</span><span class="token operator">:</span><span class="token string">"gzip, deflate"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Accept-Language"</span><span class="token operator">:</span><span class="token string">"en-US"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Connection"</span><span class="token operator">:</span><span class="token string">"keep-alive"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Host"</span><span class="token operator">:</span><span class="token string">"httpbin.org"</span><span class="token punctuation">,</span>
+                    <span class="token property">"Upgrade-Insecure-Requests"</span><span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+                    <span class="token property">"User-Agent"</span><span class="token operator">:</span><span class="token string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:55.0) Gecko/20100101 Firefox/55.0"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"requestHeadersText"</span><span class="token operator">:</span><span class="token string">"GET /get HTTP/1.1
+                    Host: httpbin.org
+                    Connection: keep-alive
+                    Upgrade-Insecure-Requests: 1
+                    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:55.0) Gecko/20100101 Firefox/55.0
+            Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+                    Accept-Encoding: gzip, deflate
+                    Accept-Language: en-US
+"</span><span class="token punctuation">,</span>
+                <span class="token property">"responseTime"</span><span class="token operator">:</span><span class="token number">1606183143651.414</span><span class="token punctuation">,</span>
+                <span class="token property">"securityState"</span><span class="token operator">:</span><span class="token string">"insecure"</span><span class="token punctuation">,</span>
+                <span class="token property">"status"</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">,</span>
+                <span class="token property">"statusText"</span><span class="token operator">:</span><span class="token string">"OK"</span><span class="token punctuation">,</span>
+                <span class="token property">"timing"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token property">"connectEnd"</span><span class="token operator">:</span><span class="token number">282.386</span><span class="token punctuation">,</span>
+                    <span class="token property">"connectStart"</span><span class="token operator">:</span><span class="token number">47.972</span><span class="token punctuation">,</span>
+                    <span class="token property">"dnsEnd"</span><span class="token operator">:</span><span class="token number">47.972</span><span class="token punctuation">,</span>
+                    <span class="token property">"dnsStart"</span><span class="token operator">:</span><span class="token number">46.748</span><span class="token punctuation">,</span>
+                    <span class="token property">"proxyEnd"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"proxyStart"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"pushEnd"</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+                    <span class="token property">"pushStart"</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+                    <span class="token property">"receiveHeadersEnd"</span><span class="token operator">:</span><span class="token number">519.16</span><span class="token punctuation">,</span>
+                    <span class="token property">"requestTime"</span><span class="token operator">:</span><span class="token number">43961290.624483</span><span class="token punctuation">,</span>
+                    <span class="token property">"sendEnd"</span><span class="token operator">:</span><span class="token number">282.616</span><span class="token punctuation">,</span>
+                    <span class="token property">"sendStart"</span><span class="token operator">:</span><span class="token number">282.547</span><span class="token punctuation">,</span>
+                    <span class="token property">"sslEnd"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"sslStart"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"workerFetchStart"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"workerReady"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"workerRespondWithSettled"</span><span class="token operator">:</span>-<span class="token number">1</span><span class="token punctuation">,</span>
+                    <span class="token property">"workerStart"</span><span class="token operator">:</span>-<span class="token number">1</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+               <span class="token property">"url"</span><span class="token operator">:</span><span class="token string">"http://httpbin.org/get"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"timestamp"</span><span class="token operator">:</span><span class="token number">43961291.145069</span><span class="token punctuation">,</span>
+            <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"Document"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token property">"webview"</span><span class="token operator">:</span><span class="token string">"35489C704F5D95B9D01BD99C00BA3AFA"</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p>过滤请求包，一般来说，像图片、css&amp;js文件等，往往是不需要的，所以可以对它们过滤</p>
+<p>最后是获取数据包的 requestId，好比每个网络数据包的身份证。<br>在Selenium中调用cdp时候，需要传入 requestId，浏览器会验证是否存在该 requestId，</p>
+<p>如果存在，则响应并返回数据；<br>如果不存在，则会抛出 WebDriverException 异常</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exceptions <span class="token keyword">import</span> WebDriverException
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+caps <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"browserName"</span><span class="token punctuation">:</span> <span class="token string">"chrome"</span><span class="token punctuation">,</span>
+    <span class="token string">'goog:loggingPrefs'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'performance'</span><span class="token punctuation">:</span> <span class="token string">'ALL'</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true"># 开启日志性能监听</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 将caps添加到options中</span>
+<span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> caps<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    options<span class="token punctuation">.</span>set_capability<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 启动浏览器</span>
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.baidu.com'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">filter_type</span><span class="token punctuation">(</span>_type<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    types <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">'application/javascript'</span><span class="token punctuation">,</span> <span class="token string">'application/x-javascript'</span><span class="token punctuation">,</span> <span class="token string">'text/css'</span><span class="token punctuation">,</span> <span class="token string">'webp'</span><span class="token punctuation">,</span> <span class="token string">'image/png'</span><span class="token punctuation">,</span> <span class="token string">'image/gif'</span><span class="token punctuation">,</span>
+        <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span> <span class="token string">'image/x-icon'</span><span class="token punctuation">,</span> <span class="token string">'application/octet-stream'</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">if</span> _type <span class="token operator">not</span> <span class="token keyword">in</span> types<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+performance_log <span class="token operator">=</span> browser<span class="token punctuation">.</span>get_log<span class="token punctuation">(</span><span class="token string">'performance'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取名称为 performance 的日志</span>
+<span class="token keyword">for</span> packet <span class="token keyword">in</span> performance_log<span class="token punctuation">:</span>
+    message <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>packet<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取message的数据</span>
+    <span class="token keyword">if</span> message<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'method'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">'Network.responseReceived'</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 如果method 不是 responseReceived 类型就不往下执行</span>
+        <span class="token keyword">continue</span>
+    packet_type <span class="token operator">=</span> message<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'params'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'mimeType'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取该请求返回的type</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> filter_type<span class="token punctuation">(</span>_type<span class="token operator">=</span>packet_type<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 过滤type</span>
+        <span class="token keyword">continue</span>
+    requestId <span class="token operator">=</span> message<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'params'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'requestId'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 唯一的请求标识符。相当于该请求的身份证</span>
+    url <span class="token operator">=</span> message<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'params'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'response'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取 该请求  url</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        resp <span class="token operator">=</span> browser<span class="token punctuation">.</span>execute_cdp_cmd<span class="token punctuation">(</span><span class="token string">'Network.getResponseBody'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'requestId'</span><span class="token punctuation">:</span> requestId<span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># selenium调用 cdp</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'type: {packet_type} url: {url}'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'response: {resp}'</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> WebDriverException<span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 忽略异常</span>
+        <span class="token keyword">pass</span>
+</code></pre>
+<p>注意事项：</p>
+<ul>
+<li>CDP主要关注<strong>HTTP</strong>和<strong>HTTPS</strong>请求，其它协议的可能无法捕获</li>
+<li>页面加载过程中的限制或<strong>动态加载的内容</strong>，等待一段时间，等页面完全加载好，再获取 CDP 日志</li>
+<li><strong>资源策略和跨域限制</strong></li>
+</ul>
+<h3 id="Python字符串前缀u、r、b、f含义"><a href="#Python字符串前缀u、r、b、f含义" class="headerlink" title="Python字符串前缀u、r、b、f含义"></a><strong>Python字符串前缀u、r、b、f含义</strong></h3><p><strong>1、字符串前加 u</strong></p>
+<p><strong>例子：</strong></p>
+<p>u”字符串中有中文”</p>
+<p><strong>含义：</strong></p>
+<p>前缀u表示该字符串是unicode编码，Python2中用，用在含有中文字符的字符串前，防止因为编码问题，导致中文出现乱码。另外一般要在文件开关标明编码方式采用utf8。Python3中，所有字符串默认都是unicode字符串。</p>
+<p><strong>2、字符串前加 r</strong></p>
+<p><strong>例子：</strong></p>
+<p>r”\n\t”</p>
+<p><strong>含义：</strong></p>
+<p>在普通字符串中，反斜线是转义符，代表一些特殊的内容，如换行符\n。</p>
+<p>前缀r表示该字符串是原始字符串，即\不是转义符，只是单纯的一个符号。</p>
+<p>常用于特殊的字符如换行符、正则表达式、文件路径。</p>
+<p>注意不能在原始字符串结尾输入反斜线，否则Python不知道这是一个字符还是换行符(字符串最后用\表示换行)，会报错：</p>
+<p>SyntaxError: EOL while scanning string literal</p>
+<p> 那如果是一个文件夹路径就是以\结尾怎么办呢，可以再接一个转义\的字符串：</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span><span class="token keyword">print</span> r<span class="token string">'C:\Program File\my\path'</span><span class="token string">'\\'</span>
+C<span class="token punctuation">:</span>\Program File\my\path\
+</code></pre>
+<p><strong>3、字符串前加 b</strong></p>
+<p><strong>例子：</strong></p>
+<pre><code>b'&lt;h1&gt;Hello World!&lt;/h1&gt;'
+</code></pre>
+<p><strong>含义：</strong></p>
+<p>前缀b表示该字符串是bytes类型。用在Python3中，Python3里默认的str是unicode类。Python2的str本身就是bytes类，所以可不用。<br>常用在如网络编程中，服务器和浏览器只认bytes类型数据。如：send 函数的参数和 recv 函数的返回值都是 bytes 类型。<br>在 Python3 中，bytes 和 str 的互相转换方式是</p>
+<pre class=" language-python"><code class="language-python">str<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+bytes<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="频繁更换ip"><a href="#频繁更换ip" class="headerlink" title="频繁更换ip"></a>频繁更换ip</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>desired_capabilities  <span class="token keyword">import</span> DesiredCapabilities
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>proxy <span class="token keyword">import</span> Proxy
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>proxy <span class="token keyword">import</span> ProxyType
+option <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--no-sandbox'</span><span class="token punctuation">)</span>
+option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--headless'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#设置user-agent</span>
+option<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:55.0) Gecko/20100101 Firefox/55.0'</span><span class="token punctuation">)</span>
+caps <span class="token operator">=</span> DesiredCapabilities<span class="token punctuation">.</span>CHROME
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>option<span class="token punctuation">,</span>desired_capabilities<span class="token operator">=</span>caps<span class="token punctuation">)</span>
+p <span class="token operator">=</span> <span class="token string">'222.185.28.38:32374'</span>
+proxy <span class="token operator">=</span> Proxy<span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'proxyType'</span><span class="token punctuation">:</span>ProxyType<span class="token punctuation">.</span>MANUAL<span class="token punctuation">,</span>
+        <span class="token string">'httpProxy'</span><span class="token punctuation">:</span><span class="token string">'{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+proxy<span class="token punctuation">.</span>add_to_capabilities<span class="token punctuation">(</span>caps<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>start_session<span class="token punctuation">(</span>caps<span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/get'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>driver<span class="token punctuation">.</span>page_source<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#更换proxy后 重新执行proxy.add_to_capabilities(caps) 和 driver.start_session(caps)即可。不用重启driver更新代理成功。</span>
+</code></pre>
+<h3 id="Selenium-Webdriver常用方法"><a href="#Selenium-Webdriver常用方法" class="headerlink" title="Selenium Webdriver常用方法"></a>Selenium Webdriver常用方法</h3><p>操作Element对象</p>
+<pre class=" language-python"><code class="language-python">find_element_by_id<span class="token punctuation">(</span><span class="token string">"user_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 清楚元素内容</span>
+find_element_by_id<span class="token punctuation">(</span><span class="token string">"user_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 按键输入</span>
+find_element_by_id<span class="token punctuation">(</span><span class="token string">"dl_an_submit"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 单机元素</span>
+find_element_by_id<span class="token punctuation">(</span><span class="token string">"dl_an_submit"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>submit<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 提交表单</span>
+</code></pre>
+<ul>
+<li>Element常用方法</li>
+</ul>
+<pre class=" language-python"><code class="language-python">driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'tj_trnews'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>size  <span class="token comment" spellcheck="true"># 元素尺寸</span>
+driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'tj_trnews'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text  <span class="token comment" spellcheck="true"># 返回元素文本</span>
+driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'tj_trnews'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取属性值</span>
+driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'tj_trnews'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>is_displayed<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 是否用户可见</span>
+</code></pre>
+<p>鼠标事件</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>action_chains <span class="token keyword">import</span> ActionChains
+
+ el <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'tj_trnews'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 目标元素</span>
+
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span>context_click<span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 右击目标元素</span>
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span>double_click<span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 双击目标元素</span>
+
+source <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'lg'</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 目标元素原始位置</span>
+target <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'kw'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 拖动的目标位置</span>
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span>drag_and_drop<span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 拖动元素</span>
+
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span>move_to_element<span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 鼠标移动的目标元素上</span>
+ActionChains<span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span>click_and_hold<span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 移动到目标元素按下鼠标左键</span>
+</code></pre>
+<p>键盘事件</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>keys <span class="token keyword">import</span> Keys
+
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.baidu.com/"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"selenium"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输入框输入内容</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>BACK_SPACE<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 从后删除一个字符（删除键）</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>SPACE<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输入空格</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>CONTROL<span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># ctrl + a 全选输入框内容 </span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>CONTROL<span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># ctrl + x 剪切输入框内容</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>CONTROL<span class="token punctuation">,</span><span class="token string">'v'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># ctrl + v 粘贴</span>
+driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"su"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>ENTER<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 回车</span>
+</code></pre>
+<p>设置等待时间</p>
+<ul>
+<li> 强制等待sleep() 强制等待比较暴力，调用time模块的sleep()方法 </li>
+<li> 隐性等待implicitly_wait()是设置了最大等待时间，如果在规定时间内加载完成，则继续执行下面操作，否则一直等到时间截止再执行下一步。如果需要的元素已经加载出来了，但是页面整体还没有加载完成，程序也会一直等待，也并不智能。 </li>
+<li> 显性等待WebDriverWait() 需要传入一个判断条件的匿名函数，每隔一段时间去判断条件函数，如果条件成立则继续下一步，如果不成立则继续等待。</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> WebDriverWait
+<span class="token keyword">import</span> time
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 强制等待</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 隐形等待</span>
+driver<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 显性等待</span>
+element<span class="token operator">=</span>WebDriverWait<span class="token punctuation">(</span>driver<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>until<span class="token punctuation">(</span><span class="token keyword">lambda</span> driver<span class="token punctuation">:</span>driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"kw"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 当找到id为kw的元素时才执行下一步。超时时间为10秒，默认每0.5秒检测一次。</span>
+</code></pre>
+<p>定位frame中的对象</p>
+<pre class=" language-javascript"><code class="language-javascript">driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">frame</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+frame方法接收三种参数<span class="token punctuation">:</span>frame name、index 和webelement
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">frame</span><span class="token punctuation">(</span><span class="token string">'frame_name'</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">frame</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> #第一个frame
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">default_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span> #回到主体框架
+driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">frame</span><span class="token punctuation">(</span>driver<span class="token punctuation">.</span><span class="token function">find_elements_by_tag_name</span><span class="token punctuation">(</span><span class="token string">"iframe"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>多窗口切换</p>
+<p>要想在多个窗口之间切换，首先要获得每一个窗口的唯一标识符号（句柄）。通过获得的句柄来区别分不同的窗口，从而切换不同窗。</p>
+<pre class=" language-javascript"><code class="language-javascript">driver<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"http://example.com"</span><span class="token punctuation">)</span>  # 打开一个窗口
+now_handle <span class="token operator">=</span> drvier<span class="token punctuation">.</span>current_window_handle  # 获取当前窗口句柄
+
+driver<span class="token punctuation">.</span><span class="token function">find_element_by_name</span><span class="token punctuation">(</span><span class="token string">'example'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  # <span class="token function">点击某个元素打开新的窗口</span><span class="token punctuation">(</span>target<span class="token operator">=</span><span class="token string">"_black"</span>的元素<span class="token punctuation">)</span>
+all_handle <span class="token operator">=</span> drvier<span class="token punctuation">.</span>window_handles  # 获取所有窗口句柄
+drvier<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span>now_handle<span class="token punctuation">)</span>  # 切换为第一窗口
+driver<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  # 关闭当前窗口
+</code></pre>
+<p>下拉框处理</p>
+<p>webdriver处理下拉框首先定位到下拉框内容，然后click某个option即可</p>
+<pre class=" language-python"><code class="language-python">m<span class="token operator">=</span>driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"ShippingMethod"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 首先定位到下拉框</span>
+m<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"//option[@value='10.69']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 然后点击下拉框选项</span>
+</code></pre>
+<p>执行JavaScrapt</p>
+<pre class=" language-python"><code class="language-python">driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">'Java Scrapt Code'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 例如下拉浏览器滚动条</span>
+driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">'window.scrollTo(0, document.body.scrollHeight)'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Cookie处理</p>
+<p>webdriver可以对cookie进行读取、增加、删除</p>
+<pre class=" language-python"><code class="language-python">get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 获得所有 cookie 信息</span>
+get_cookie<span class="token punctuation">(</span>name<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 返回特定 name 有 cookie 信息</span>
+add_cookie<span class="token punctuation">(</span>cookie_dict<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 添加 cookie，必须有 name 和 value 值</span>
+delete_cookie<span class="token punctuation">(</span>name<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 删除特定(部分)的 cookie 信息</span>
+delete_all_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 删除所有 cookie 信息</span>
+</code></pre>
+<p>处理弹出窗口和警告：使用Selenium的方法来处理网页中的弹出窗口和警告。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session
+s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'path/to/your/webdriver'</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://example.com'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击会导致弹出窗口的按钮</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'my-button'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 接受弹出的确认对话框</span>
+alert <span class="token operator">=</span> s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>alert
+alert<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 或者，如果要取消对话框</span>
+<span class="token comment" spellcheck="true"># alert.dismiss()</span>
+<span class="token comment" spellcheck="true"># 处理警告消息</span>
+s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://example.com'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 执行会导致警告的JavaScript代码</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">"window.alert('Hello, World!');"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取并接受警告</span>
+alert <span class="token operator">=</span> s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>alert
+alert<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>截图和录像：使用Selenium的方法来截取网页的屏幕截图或录制视频。录制视频功能可能需要额外的库（如ffmpeg）和配置</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session
+<span class="token keyword">import</span> time
+s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'path/to/your/webdriver'</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://example.com'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 截取屏幕截图并保存为图片文件</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get_screenshot_as_file<span class="token punctuation">(</span><span class="token string">'screenshot.png'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 或者，获取截图的Base64编码</span>
+screenshot_base64 <span class="token operator">=</span> s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get_screenshot_as_base64<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 录制网页操作的视频（需要安装额外的库如ffmpeg）</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>start_recording_screen<span class="token punctuation">(</span>video_name<span class="token operator">=</span><span class="token string">'recording.mp4'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 进行一些操作...</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 操作持续5秒</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>stop_recording_screen<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="requestium模块"><a href="#requestium模块" class="headerlink" title="requestium模块"></a>requestium模块</h3><p>可以使用requestium模块,由于Requestium是基于Selenium和Requests的，使用前确保安装这两个库</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session<span class="token punctuation">,</span> Keys
+firefox_driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s <span class="token operator">=</span> Session<span class="token punctuation">(</span>driver<span class="token operator">=</span>firefox_driver<span class="token punctuation">)</span>
+</code></pre>
+<p>不需要解析响应，当调用 xpath，css 或 re 时，它会自动完成</p>
+<pre class=" language-python"><code class="language-python">response <span class="token operator">=</span> s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://samplesite.com/sample_path'</span><span class="token punctuation">)</span>
+cmnt_karma <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//span[@class='karma comment-karma']//text()"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Extracts the first match</span>
+identifier <span class="token operator">=</span> response<span class="token punctuation">.</span>re_first<span class="token punctuation">(</span>r<span class="token string">'ID_\d\w\d'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">'ID_1A1'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Extracts all matches as a list</span>
+users <span class="token operator">=</span> response<span class="token punctuation">.</span>re<span class="token punctuation">(</span>r<span class="token string">'user_\d\d\d'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>添加 Cookie</strong></p>
+<p>ensure_add_cookie 方法使得添加 Cookie 更加稳健。Selenium 需要浏览器在能够添加 Cookie 之前处于 Cookie 的域中。</p>
+<p>此方法提供了几种解决方法。</p>
+<ul>
+<li>如果浏览器不在 Cookie 域中，它会先获取域然后再添加 Cookie。</li>
+<li>它还允许你在添加 Cookie 之前覆盖域，并避免执行此 GET。域可以被覆盖为 ‘ ’，这将把 Cookie 的域设置为驱动程序当前所在的任何域。</li>
+<li>如果无法添加 cookie，它会尝试使用限制性较小的域（例如：home.site.com -&gt; site.com）进行添加，然后在失败之前</li>
+</ul>
+<pre class=" language-python"><code class="language-python">cookie <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"domain"</span><span class="token punctuation">:</span> <span class="token string">"www.site.com"</span><span class="token punctuation">,</span>
+          <span class="token string">"secure"</span><span class="token punctuation">:</span> false<span class="token punctuation">,</span>
+          <span class="token string">"value"</span><span class="token punctuation">:</span> <span class="token string">"sd2451dgd13"</span><span class="token punctuation">,</span>
+          <span class="token string">"expiry"</span><span class="token punctuation">:</span> <span class="token number">1516824855.759154</span><span class="token punctuation">,</span>
+          <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+          <span class="token string">"httpOnly"</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
+          <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"sessionid"</span><span class="token punctuation">}</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_add_cookie<span class="token punctuation">(</span>cookie<span class="token punctuation">,</span> override_domain<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+</code></pre>
+<p>处理Cookies和Headers：使用Requests的方式设置和管理Cookies和Headers</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session
+s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'path/to/your/webdriver'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 设置请求头</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'My User Agent'</span><span class="token punctuation">}</span>
+s<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>update<span class="token punctuation">(</span>headers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 发送带Header的GET请求</span>
+s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://example.com'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取并保存Cookies</span>
+cookies <span class="token operator">=</span> s<span class="token punctuation">.</span>cookies
+<span class="token comment" spellcheck="true"># 在后续请求中使用已保存的Cookies</span>
+s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://another-example.com'</span><span class="token punctuation">,</span> cookies<span class="token operator">=</span>cookies<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>等待元素</strong></p>
+<p>ensure_element_by_ 方法等待元素在浏览器中加载，并在加载后立即返回。它以 Selenium的 find_element_by_ 方法命名（如果找不到元素，它们会立即引发异常）</p>
+<p>Requestium 可以等待一个元素处于以下任何状态：</p>
+<ul>
+<li>存在（默认）</li>
+<li>可点击，clickable</li>
+<li>看得见的，visible</li>
+<li>不可见（可用于等待加载… GIF 消失等）</li>
+</ul>
+<p>这些方法对于单页面 Web 应用程序非常有用，其中站点动态地更改其元素。通常用 ensure_element_by_ 调用替换我们的 find_element_by_ 调用，因为它们更灵活。使用这些方法获取的元素具有新的 ensure_click 方法，这使得点击不太容易失败</p>
+<p>s.driver.ensure_element_by_xpath(“//li[@class=’b1’]”, state=’clickable’, timeout=5).ensure_click()</p>
+<p>state=’clickable’；</p>
+<p>异步请求和多线程处理：虽然Requestium本身不直接支持异步请求或多线程处理，但你可以结合其他库（如asyncio或concurrent.futures）来实现这些功能。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
+<span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">fetch_page</span><span class="token punctuation">(</span>session<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    session<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> session<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>page_source
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'E:\python\chromedriver.exe'</span><span class="token punctuation">)</span>
+
+    tasks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https://www.baidu.com'</span><span class="token punctuation">,</span> <span class="token string">'https://www.bilibili.com/'</span><span class="token punctuation">,</span> <span class="token string">'https://www.jd.com'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> url <span class="token keyword">in</span> urls<span class="token punctuation">:</span>
+        tasks<span class="token punctuation">.</span>append<span class="token punctuation">(</span>fetch_page<span class="token punctuation">(</span>s<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    results <span class="token operator">=</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>gather<span class="token punctuation">(</span><span class="token operator">*</span>tasks<span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> result <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>问题：</p>
+<ul>
+<li>python异步协程爬虫报错：【TypeError: object int can‘t be used in ‘await‘ expression】</li>
+</ul>
+<p>错误的原因可能是在async函数中使用了一个整数类型的变量作为await的参数。await只能用于返回协程对象的异步函数，无法使用在普通的同步操作上</p>
+<p>解决这个问题，需要确保await的参数是一个异步函数的返回值。如果我们只是想等待一个时间段后再执行下一个操作，可以使用asyncio.sleep()函数作为协程对象来等待一定的时间</p>
+<ul>
+<li>OSError: [WinError 6] 句柄无效的解决办法</li>
+</ul>
+<p>解决方案：<br>关闭driver 时 ， 使用 driver.quit()代替 driver.close()</p>
+<p>区别<br>close：只会关闭焦点所在的当前窗口<br>quit：会关闭所有关联的窗口</p>
+<hr>
+<p>webdriver和requests相互切换</p>
+<p>切换回使用 Requests:transfer_driver_cookies_to_session()</p>
+<p>切换到使用 Selenium Webdriver 来运行:</p>
+<p>transfer_session_cookies_to_driver()提升效率</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> time<span class="token punctuation">,</span>sys<span class="token punctuation">,</span>os
+<span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session<span class="token punctuation">,</span> Keys
+s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'/Users/lib/Documents/chromedriver'</span><span class="token punctuation">,</span>
+            browser<span class="token operator">=</span><span class="token string">'chrome'</span><span class="token punctuation">,</span>
+            default_timeout<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span>
+            webdriver_options<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'arguments'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'disable-gpu'</span><span class="token punctuation">,</span><span class="token string">"--user-agent=Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; ja-jp) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#webdriver_options={'arguments': ['headless','--proxy-server=http://user:pwd@ip2.hahado.cn:40275']})</span>
+            <span class="token comment" spellcheck="true">#webdriver_options={'arguments': ['headless','--proxy-server=http://116.11.254.37:80']})</span>
+<span class="token comment" spellcheck="true">#url = 'https://icanhazip.com/'</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.che300.com/pinggu/v9c9m30614r2016-06g2.8'</span>
+url <span class="token operator">=</span> <span class="token string">'https://magi.com/search?q=%E6%96%B0%E5%86%A0'</span>
+url <span class="token operator">=</span> <span class="token string">'http://m.baidu.com/s?word=%E6%88%BF%E5%B1%B1%E6%96%B0%E7%9B%98'</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+html <span class="token operator">=</span>  s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>page_source
+<span class="token keyword">print</span> <span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#pic = response.xpath('//img/@src').extract_first()</span>
+pic <span class="token operator">=</span> None
+<span class="token comment" spellcheck="true">#if pic is not None:</span>
+<span class="token keyword">if</span> u<span class="token string">'访问太过于频繁,请输入验证码后再次访问'</span> <span class="token keyword">in</span> html<span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true">#print pic</span>
+  code <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">'请输入验证码:'</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'您输入的验证码是：%s'</span> <span class="token operator">%</span> code<span class="token punctuation">)</span>
+  s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"//input[@name='code']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>code<span class="token punctuation">,</span>Keys<span class="token punctuation">.</span>ENTER<span class="token punctuation">)</span>
+  time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_xpath<span class="token punctuation">(</span><span class="token string">"//input[@type='submit']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">#self.s.transfer_driver_cookies_to_session()</span>
+
+<span class="token comment" spellcheck="true">#s.transfer_session_cookies_to_driver()</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>page_source<span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="requestium实现自动登录获取网页cookie信息并爬取数据"><a href="#requestium实现自动登录获取网页cookie信息并爬取数据" class="headerlink" title="requestium实现自动登录获取网页cookie信息并爬取数据"></a>requestium实现自动登录获取网页cookie信息并爬取数据</h3><p>（1）有些网站设置了反爬机制，我们需要手动添加headers，加入user-agent参数</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requestium <span class="token keyword">import</span> Session<span class="token punctuation">,</span> Keys
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> requests
+
+<span class="token comment" spellcheck="true">#将cookie信息添加进requests组件中    </span>
+<span class="token keyword">def</span> <span class="token function">add_cookies</span><span class="token punctuation">(</span>cookie<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    u<span class="token string">"往session添加cookies"</span>
+    c <span class="token operator">=</span> requests<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>RequestsCookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> cookie<span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#添加cookie到CookieJar</span>
+        <span class="token comment" spellcheck="true">#print(i)</span>
+        c<span class="token punctuation">.</span>set<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">[</span><span class="token string">"value"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>update<span class="token punctuation">(</span>c<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#更新session里的cookie</span>
+    <span class="token keyword">return</span> s
+    
+<span class="token comment" spellcheck="true">#获取cookie信息</span>
+<span class="token keyword">def</span> <span class="token function">getCookie</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#webdriver驱动地址根据实际修改</span>
+    s <span class="token operator">=</span> Session<span class="token punctuation">(</span>webdriver_path<span class="token operator">=</span><span class="token string">'D:/chromedriver_win32/chromedriver.exe'</span><span class="token punctuation">,</span>
+        browser<span class="token operator">=</span><span class="token string">'chrome'</span><span class="token punctuation">,</span>
+        default_timeout<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span>
+        webdriver_options<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'arguments'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'headless'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'填写登录网址'</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_id<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_id<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'用户名'</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_id<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_id<span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'密码'</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>ensure_element_by_id<span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>current_url
+    cookie <span class="token operator">=</span> s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(cookie)</span>
+    jsonCookies <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>cookie<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#转字符串</span>
+    s<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> cookie
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>  
+    s <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cookie <span class="token operator">=</span> getCookie<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#为requests组件加入cookie信息</span>
+    add_cookies<span class="token punctuation">(</span>cookie<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#请求需要的数据</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'response_data'</span><span class="token punctuation">:</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response_data<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'filter_condition_key'</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span> 
+        <span class="token string">'_search'</span><span class="token punctuation">:</span> <span class="token string">'False'</span><span class="token punctuation">,</span>
+        <span class="token string">'nd'</span><span class="token punctuation">:</span> <span class="token number">1576549859948</span><span class="token punctuation">,</span>
+        <span class="token string">'rows'</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        <span class="token string">'page'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token string">'sidx'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> 
+        <span class="token string">'sord'</span><span class="token punctuation">:</span> <span class="token string">'asc'</span><span class="token punctuation">,</span>
+        <span class="token string">'Q^ALERT_TIME_START_^DL'</span><span class="token punctuation">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span>
+        <span class="token string">'Q^ALERT_TIME_START_^DG'</span><span class="token punctuation">:</span> <span class="token string">'xxx'</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">#反爬破解机制，加入自己网页的user-agent</span>
+    headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36 SLBrowser/6.0.1.4221'</span><span class="token punctuation">}</span>
+    response <span class="token operator">=</span> s<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'需要抓取数据的网址'</span><span class="token punctuation">,</span> headers<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>content<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p><a target="_blank" rel="noopener" href="https://selenium-python-zh.readthedocs.io/en/latest/">selenium官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29404831/article/details/110086552?app_version=6.3.1&amp;code=app_1562916241&amp;csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22110086552%22,%22source%22:%22airgzne%22%7D&amp;uLinkId=usr1mkqgl919blen&amp;utm_source=app">参考</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-41OaGfrS6A9iKVsKFLAjw">参考1</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2024/04/05/23024.html">https://bigworldxld.github.io/2024/04/05/23024.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/chrome/">
+                                    <span class="chip bg-color">chrome</span>
+                                </a>
+                            
+                                <a href="/tags/requestium/">
+                                    <span class="chip bg-color">requestium</span>
+                                </a>
+                            
+                                <a href="/tags/network/">
+                                    <span class="chip bg-color">network</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/19/2116.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/playwright.jpg" class="responsive-img" alt="自动化测试框架Playwright">
+                        
+                        <span class="card-title">自动化测试框架Playwright</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/test/" class="post-category">
+                                    test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/playwright/">
+                        <span class="chip bg-color">playwright</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/29/19662.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/chrome.jpg" class="responsive-img" alt="Chrome常用选项">
+                        
+                        <span class="card-title">Chrome常用选项</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/chrome/">
+                        <span class="chip bg-color">chrome</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2024</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>
