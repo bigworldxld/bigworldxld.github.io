@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2024-12-08T08:14:18.620Z</updated>
+  <updated>2024-12-14T10:06:35.651Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebDriverAgent配置</title>
+    <link href="https://bigworldxld.github.io/2024/12/14/42207.html"/>
+    <id>https://bigworldxld.github.io/2024/12/14/42207.html</id>
+    <published>2024-12-14T10:36:17.000Z</published>
+    <updated>2024-12-14T10:06:35.651Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="xcode" scheme="https://bigworldxld.github.io/tags/xcode/"/>
+    
+    <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
+    
+    <category term="WebDriverAgent" scheme="https://bigworldxld.github.io/tags/WebDriverAgent/"/>
+    
+  </entry>
   
   <entry>
     <title>DOM模型</title>
@@ -611,7 +640,7 @@
     <link href="https://bigworldxld.github.io/2024/05/03/28235.html"/>
     <id>https://bigworldxld.github.io/2024/05/03/28235.html</id>
     <published>2024-05-03T06:30:49.000Z</published>
-    <updated>2024-10-21T14:49:08.761Z</updated>
+    <updated>2024-12-14T09:41:24.046Z</updated>
     
     
       

@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="blogs,互联网,测试,大数据,生活,记录">
-    <meta name="description" content="我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。">
+    <meta name="keywords" content="WebDriverAgent配置, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="关于WebDriverAgentWebDriverAgent是Facebook开发的IOS端自动化测试工具，在Github上开源： 
+facebookarchive/WebDriverAgentAppium项目采用WebDriverAgen">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>读序</title>
+    <title>WebDriverAgent配置 | 读序</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -498,727 +499,761 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                读序
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "亲情是序言，友情是目录，爱、恨、恋、想是感情故事的主题。",
-                            
-                                "Affection is the preface, friendship is the catalogue, and love, hate, love and longing are the themes of emotional stories",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
 </script>
 
 
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://bigworldxld.github.io/picx-images-hosting/images/WebDriverAgent.webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">WebDriverAgent配置</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<main class="content">
 
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/xcode/">
+                                <span class="chip bg-color">xcode</span>
+                            </a>
+                        
+                            <a href="/tags/ios/">
+                                <span class="chip bg-color">ios</span>
+                            </a>
+                        
+                            <a href="/tags/WebDriverAgent/">
+                                <span class="chip bg-color">WebDriverAgent</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-12-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="关于WebDriverAgent"><a href="#关于WebDriverAgent" class="headerlink" title="关于WebDriverAgent"></a>关于WebDriverAgent</h2><p>WebDriverAgent是Facebook开发的IOS端自动化测试工具，在Github上开源： </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookarchive/WebDriverAgent">facebookarchive/WebDriverAgent</a>Appium项目采用WebDriverAgent作为IOS端App自动化的引擎（类似于Android平台上的UIAutomator作用），WebDriverAgent通过在IOS端实现了WebDriver协议能够远程控制IOS设备，通过它能够进行启动、杀死应用，点击或者滚动等操作。</p>
+<p>WebDriver协议</p>
+<blockquote>
+<p>WebDriver是一套基于HTTP协议的JSON格式规范，因为Android、IOS、web网页端都有自己的UI操作实现逻辑，所以需要统一的规范能够对这些平台进行操作来屏蔽平台的差异。通过WebDriverAgent我们可以通过相同的API来对这些平台进行自动化操作，比如我们熟悉的Selenium、Appium都是实现了WebDriver协议</p>
+</blockquote>
+<p>在Appium和IOS系统迭代发展过程中，Appium并不是一直使用WebDriverAgent作为IOS端的自动化测试引擎。</p>
+<ul>
+<li>在IOS 9之前使用UIAutomation作为自动化引擎，该引擎有许多缺陷，比如只能在单台Mac电脑上测试单台设备</li>
+<li>IOS 9.3使用了XCUITest</li>
+<li>IOS 9.3之后Appium就开始采用WebDriverAgent方案了</li>
+</ul>
+<p>需要注意的是：目前官方Facebook已经没有在维护WebDriverAgent了，所以如果使用Facebook的WebDriverAgent有可能不适配后续的IOS版本及Appium</p>
+<p>Appium项目有内置了WebDriverAgent，而且也在同步修复BUG更新中，<strong>所以强烈建议使用Appium内置的WebDriverAgent ：</strong><a target="_blank" rel="noopener" href="https://github.com/appium/WebDriverAgent">appium的webdriveragent</a></p>
+<h2 id="相关库安装"><a href="#相关库安装" class="headerlink" title="相关库安装"></a>相关库安装</h2><p><strong>Homebrew</strong></p>
+<p>Homebrew是Mac平台的软件管理软件，它可以使我们更加容易安装一些其他软件，仅需要执行简单的安装命令，就能下载安装所需要的软件，省去了下载、解压、拖拽等繁琐的步骤。</p>
+<p>官方提供了Homebrew的安装命令，但是因为国内网络的问题导致不能成功</p>
+<pre class=" language-bash"><code class="language-bash">/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span>
+</code></pre>
+<p>通过镜像安装方式：</p>
+<pre class=" language-bash"><code class="language-bash">/bin/zsh -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span>curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh<span class="token variable">)</span></span>"</span>
+</code></pre>
+<p>（推荐使用中科大的镜像源）</p>
+<p><strong>Carthage</strong></p>
+<p>Carthage用来管理项目依赖， 类似于 Java 中的 Maven；后面编译WebDriverAgent项目时就需要用到它</p>
+<pre class=" language-bash"><code class="language-bash">brew <span class="token function">install</span> carthage carthage version
+</code></pre>
+<p><strong>ios-deploy</strong></p>
+<p>ios-deploy一个不需要用Xcode安装和调试应用的命令行工具。需要一个有效的开发者证书，需要 Xcode 7以上的版本。终端输入命令进行安装：</p>
+<pre class=" language-bash"><code class="language-bash">brew <span class="token function">install</span> ios-deploy 
+</code></pre>
+<p><strong>ideviceinstaller</strong></p>
+<p>ideviceinstaller是一个与iOS设备的installation_proxy交互的工具，允许安装、升级、卸载、存档、还原和列举已安装或存档的app。此工具用于在真机上运行测试，默认是都安装的。</p>
+<pre class=" language-bash"><code class="language-bash">brew <span class="token function">install</span> ideviceinstaller
+</code></pre>
+<p><strong>libimobiledevice</strong></p>
+<p>libimobiledevice是一个跨平台的软件库 ； 不依赖任何已有的私有库，不需要越狱。应用软件可以通过这个开发包轻松访问设备的文件系统、获取设备信息，备份和恢复设备，管理 SpringBoard 图标，管理已安装应用，获取通讯录、日程、备注和书签等信息</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#安装最新版本libimobiledevice</span>
+brew <span class="token function">install</span> libimobiledevice --HEAD
+</code></pre>
+<p><strong>Node&amp;npm</strong></p>
+<p>Node是一个javascript运行时环境，npm是节点包管理器。我们需要这些，因为Appium是一个node应用程序。</p>
+<pre class=" language-bash"><code class="language-bash">brew <span class="token function">install</span> node
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://github.com/appium/appium-desktop/releases">appium desktop版</a>官网不在维护了，现在都是命令行版</p>
+<p>Appium Server命令行版本</p>
+<p>Appium server通过npm可以下载管理</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g appium
+</code></pre>
+<p>默认将会安装最新版本，如果需要指定版本，通过以下命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g appium@1.7.2
+</code></pre>
+<p>检查appium版本</p>
+<pre class=" language-bash"><code class="language-bash">appium -v
+</code></pre>
+<p>启动appium服务</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># -a参数：设置appium工作地址</span>
+<span class="token comment" spellcheck="true"># -p参数，设置appium工作端口号</span>
+appium -a 127.0.0.1 -p 4723
+</code></pre>
+<p>安装Appium doctor</p>
+<p>Appium doctor可以用于检测Appium所需要的依赖环境是否是成功的</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> appium-doctor -g
+<span class="token comment" spellcheck="true">#检测iOS环境是否安装成功</span>
+appium-doctor --ios
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://github.com/appium/appium-inspector/releases">安装appium-inspector</a></p>
+<h2 id="配置运行WebDriverAgent"><a href="#配置运行WebDriverAgent" class="headerlink" title="配置运行WebDriverAgent"></a>配置运行WebDriverAgent</h2><p>前面我们说过WebDriverAgent是Appium测试IOS应用的自动化引擎，新版本Appium和IOS最好使用Appium内置的WebDriverAgent，当Appium（Appium桌面版或者命令行版本）安装好之后我们可以使用Xcode来编译运行WebDriverAgent。</p>
+<p>对于Appium命令行版本，WebDriverAgent在<code>/usr/local/lib/node_modules/appium/node_modules/appium-webdriveragent/</code>路径下</p>
+<p>对于Appium桌面版本，WebDriverAgent在<code>/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-webdriveragent</code>路径下</p>
+<p>这里以命令行版本为例，点击WebDriverAgent.xcodeproj使用Xcode打开WebDriverAgent工程</p>
+<h2 id="xcode运运行WebDriverAgent"><a href="#xcode运运行WebDriverAgent" class="headerlink" title="xcode运运行WebDriverAgent"></a>xcode运运行WebDriverAgent</h2><p>这里以命令行版本为例，点击WebDriverAgent.xcodeproj使用Xcode打开WebDriverAgent工程</p>
+<p>配置好account+asign,就commond+u运行，在命令行运行appium即可</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2024/12/14/42207.html">https://bigworldxld.github.io/2024/12/14/42207.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/xcode/">
+                                    <span class="chip bg-color">xcode</span>
+                                </a>
+                            
+                                <a href="/tags/ios/">
+                                    <span class="chip bg-color">ios</span>
+                                </a>
+                            
+                                <a href="/tags/WebDriverAgent/">
+                                    <span class="chip bg-color">WebDriverAgent</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/21/63325.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/JUC.jpg" class="responsive-img" alt="JUC高并发入门">
-                            
-                            <span class="card-title">JUC高并发入门</span>
-                        </div>
-                    </a>
+</div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、线程基础1、Java多线程相关概念1、进程是程序的⼀次执⾏，是系统进⾏资源分配和调度的独⽴单位，每⼀个进程都有它⾃⼰的内存空间和系统资源
-进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JUC/">
-                            <span class="chip bg-color">JUC</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/05/37128.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E9%87%8F%E5%8C%96%E9%87%91%E8%9E%8D.jpg" class="responsive-img" alt="简单k线图买卖策略可视化">
-                            
-                            <span class="card-title">简单k线图买卖策略可视化</span>
-                        </div>
-                    </a>
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                记录最近用到的金融买卖策略框架，在给定时间段k线图上叠加显示买点、卖点、收益等信息，用pyecharts可视化标注符合业务逻辑的买点和买点信息以及收益率。
-前提事先可了解pyecharts官网
-由于在K 线图 Candlestick上，要标
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/finance/">
-                            <span class="chip bg-color">finance</span>
-                        </a>
-                        
-                        <a href="/tags/pyecharts/">
-                            <span class="chip bg-color">pyecharts</span>
-                        </a>
-                        
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
-                    
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/02/65353.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.gif" class="responsive-img" alt="二叉树计算">
-                            
-                            <span class="card-title">二叉树计算</span>
-                        </div>
-                    </a>
+        </div>
+    </div>
+</div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                二叉树的种类在我们解题过程中二叉树有两种主要的形式：满二叉树和完全二叉树。
-满二叉树满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。
-如图所示：
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
 
-这棵二叉树为满二叉树，也可以说深
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/binary-tree/">
-                            <span class="chip bg-color">binary tree</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/29/36007.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97.gif" class="responsive-img" alt="栈和队列计算">
-                            
-                            <span class="card-title">栈和队列计算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                原理队列是先进先出，栈是先进后出。
-
-栈提供push 和 pop 等等接口，所有元素必须符合先进后出规则，所以栈不提供走访功能，也不提供迭代器(iterator)。 不像是set 或者map 提供迭代器iterator来遍历所有元素。
-栈是
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/stack/">
-                            <span class="chip bg-color">stack</span>
-                        </a>
-                        
-                        <a href="/tags/queue/">
-                            <span class="chip bg-color">queue</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/25/31792.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E6%AF%95%E8%AE%BE.jpg" class="responsive-img" alt="原创毕设雏形之问卷答题实时分析系统">
-                            
-                            <span class="card-title">原创毕设雏形之问卷答题实时分析系统</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关联XXXXX话题的问卷调查
-持续更新中…
-一、项目介绍本项目分为六个模块，第一个为java语言基于springboot实现的问卷答题模块，具体包含问题的校对统计，echarts,bootstrap,click,jquery等前端模块，第二
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                读序
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%AF%95%E8%AE%BE/">
-                            <span class="chip bg-color">毕设</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/23/32892.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/ruoyi.jpg" class="responsive-img" alt="服务器部署项目">
-                            
-                            <span class="card-title">服务器部署项目</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1 在本地修改对应若依配置
-用idea打开若依项目
-目录结构
-
-
-
-配置文件
-
-ruoyi-admin/src/main/resources
-
-1、logback.xml日志配置
-
-修改日志输出编码格式，使用UTF-8
-
-
-
-
-
-2、app
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                读序
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/ruoyi/">
-                            <span class="chip bg-color">ruoyi</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/20/51450.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E5%93%88%E5%B8%8C%E8%A1%A8%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2.jpg" class="responsive-img" alt="哈希表和字符串计算">
-                            
-                            <span class="card-title">哈希表和字符串计算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                哈希表哈希表是根据关键码的值而直接进行访问的数据结构。
-
-那么哈希表能解决什么问题呢，一般哈希表都是用来快速判断一个元素是否出现集合里。
-哈希函数
-通过hashCode把名字转化为数值，一般hashcode是通过特定编码方式，可以将其他数据
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Hash-table/">
-                            <span class="chip bg-color">Hash table</span>
-                        </a>
-                        
-                        <a href="/tags/String/">
-                            <span class="chip bg-color">String</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/19/8782.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8.jpg" class="responsive-img" alt="数组和链表计算">
-                            
-                            <span class="card-title">数组和链表计算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                数组数组下标都是从0开始的。
-数组内存空间的地址是连续的
-正是因为数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移动其他元素的地址。
-例如删除下标为3的元素，需要对下标为3的元素后面的所有元素都要做移动操作，如图
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Linked-List/">
-                            <span class="chip bg-color">Linked List</span>
-                        </a>
-                        
-                        <a href="/tags/Array/">
-                            <span class="chip bg-color">Array</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/14/60033.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.jpg" class="responsive-img" alt="回溯算法">
-                            
-                            <span class="card-title">回溯算法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是回溯法回溯法也可以叫做回溯搜索法，它是一种搜索的方式。
-回溯法的效率
-因为回溯的本质是穷举，穷举所有可能，然后选出我们想要的答案
-回溯法解决的问题回溯法，一般可以解决如下几种问题：
-
-组合问题：N个数里面按一定规则找出k个数的集合
-切
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">回溯算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/05/58497.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/springboot.jpg" class="responsive-img" alt="springboot常用注解">
-                            
-                            <span class="card-title">springboot常用注解</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                SpringBoot注解使用注解的优势：
-   1.采用纯java代码，不在需要配置繁杂的xml文件
-   2.在配置中也可享受面向对象带来的好处
-   3.类型安全对重构可以提供良好的支持
-   4.减少复杂配置文件的同时亦能享受到spr
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/springboot/">
-                            <span class="chip bg-color">springboot</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/03/11205.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/docker.jpg" class="responsive-img" alt="Docker入门">
-                            
-                            <span class="card-title">Docker入门</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                docker 入门
-Docker的思想就来自于集装箱！
-JRE – 多个应用(端口冲突) – 原来都是交叉的！隔离：Docker核心思想！打包装箱！每个箱子是互相隔离的。
-Docker通过隔离机制，可以将服务器利用到极致！
-Docker的基
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/docker/">
-                            <span class="chip bg-color">docker</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/31/41682.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.jpg" class="responsive-img" alt="设计模式">
-                            
-                            <span class="card-title">设计模式</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                23种设计模式什么是设计模式
-设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 
-模式：在某些场景下，针对某类
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                读序
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                            <span class="chip bg-color">设计模式</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
             
         </div>
-    </article>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/12/14/42207.html">
+                    <div class="card-image">
+                        
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/WebDriverAgent.webp" class="responsive-img" alt="WebDriverAgent配置">
+                        
+                        <span class="card-title">WebDriverAgent配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/xcode/">
+                        <span class="chip bg-color">xcode</span>
+                    </a>
+                    
+                    <a href="/tags/ios/">
+                        <span class="chip bg-color">ios</span>
+                    </a>
+                    
+                    <a href="/tags/WebDriverAgent/">
+                        <span class="chip bg-color">WebDriverAgent</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/12/07/42423.html">
+                    <div class="card-image">
+                        
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/DOM.webp" class="responsive-img" alt="DOM模型">
+                        
+                        <span class="card-title">DOM模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/test/" class="post-category">
+                                    test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
 
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/6/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 12</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/8/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
