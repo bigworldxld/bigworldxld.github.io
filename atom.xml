@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2024-12-14T10:06:35.651Z</updated>
+  <updated>2024-12-22T15:35:53.358Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>跨源资源共享</title>
+    <link href="https://bigworldxld.github.io/2024/12/22/54788.html"/>
+    <id>https://bigworldxld.github.io/2024/12/22/54788.html</id>
+    <published>2024-12-22T10:36:17.000Z</published>
+    <updated>2024-12-22T15:35:53.358Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="http" scheme="https://bigworldxld.github.io/tags/http/"/>
+    
+    <category term="cors" scheme="https://bigworldxld.github.io/tags/cors/"/>
+    
+  </entry>
   
   <entry>
     <title>WebDriverAgent配置</title>
@@ -50,7 +77,7 @@
     <link href="https://bigworldxld.github.io/2024/12/07/42423.html"/>
     <id>https://bigworldxld.github.io/2024/12/07/42423.html</id>
     <published>2024-12-07T15:36:17.000Z</published>
-    <updated>2024-12-08T08:14:18.620Z</updated>
+    <updated>2024-12-22T15:05:36.734Z</updated>
     
     
       
@@ -63,7 +90,7 @@
     
     
     
-    <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
+    <category term="front-end" scheme="https://bigworldxld.github.io/categories/front-end/"/>
     
     
     <category term="js" scheme="https://bigworldxld.github.io/tags/js/"/>
