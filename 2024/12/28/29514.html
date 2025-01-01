@@ -925,6 +925,26 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 </code></pre>
 <p>QA</p>
 <p>需要注意点击操作后强制睡眠几秒，不然会出现控制台异常</p>
+<h3 id="使用jest-html-reporter生成报告"><a href="#使用jest-html-reporter生成报告" class="headerlink" title="使用jest-html-reporter生成报告"></a>使用jest-html-reporter生成报告</h3><p>使用官方模板只需要修改</p>
+<pre class=" language-j's"><code class="language-j's">/** @type {import('jest').Config} */
+module.exports = {
+  testEnvironment: 'node',js
+  testTimeout: 60000,
+  reporters: [
+    'default',
+    ['jest-html-reporters', {
+      publicPath: './reports',
+      filename: 'report.html',
+      inlineSource: true,
+      pageTitle: '测试报告',
+      expand: true
+    }]
+  ]
+};
+</code></pre>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A1.webp" alt="测试报告模板截图1"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A2.webp" alt="测试报告模板截图2"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A3.webp" alt="测试报告模板截图3"></p>
 
                 
             </div>
@@ -1406,7 +1426,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2024</span>
+                <span id="year">2021-2025</span>
             
             <a href="/about" target="_blank">读序</a>
             |&nbsp;Author&nbsp;<a href="https://bigworldxld.github.io/" target="_blank">bigworldxld</a>
