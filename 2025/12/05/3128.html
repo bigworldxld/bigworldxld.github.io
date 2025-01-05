@@ -670,14 +670,14 @@ CPUPROFILE - CPU性能分析文件，通常包含CPU">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    19 分
                 </div>
                 
 
@@ -778,6 +778,158 @@ del<span class="token punctuation">(</span><span class="token punctuation">)</sp
 </code></pre>
 <p>jsonArgument<br>args：一个JSON对象，包含了传递给executeScriptCommand的参数。这些参数将在JavaScript代码中作为局部变量使用。</p>
 <p>type：参数的数据类型，如String、Number、Boolean、Object、Array等。<br>value：参数的实际值，根据type指定的数据类型进行解析</p>
+<p>在JavaScript中，导入模块或文件的方法有多种：<br>1: 使用import关键字导入ES6模块<br>命名导出：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 导出（export）</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Hello, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 导入（import）</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> sayHello <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./greetings.js'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: Hello, Alice!</span>
+</code></pre>
+<p>默认导出：        </p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 导出（export）</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">sayGoodbye</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Goodbye, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 导入（import）</span>
+<span class="token keyword">import</span> sayGoodbye <span class="token keyword">from</span> <span class="token string">'./farewells.js'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayGoodbye</span><span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: Goodbye, Bob!</span>
+</code></pre>
+<p>同时导入默认导出和命名导出：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> abc<span class="token punctuation">,</span> <span class="token punctuation">{</span> def <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./example.js'</span><span class="token punctuation">;</span>
+<span class="token function">abc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">def</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>导入所有导出内容：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> example <span class="token keyword">from</span> <span class="token string">'./example.js'</span><span class="token punctuation">;</span>
+example<span class="token punctuation">.</span><span class="token function">method1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+example<span class="token punctuation">.</span><span class="token function">method2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>2: 使用CommonJS规范的require函数</p>
+<p>导出模块：        </p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// math.js</span>
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> add <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>导入模块：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: 3</span>
+</code></pre>
+<p>3: 在HTML中使用模块化</p>
+<p>通过<script type="module">标签引入JavaScript模块：</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>模块化示例<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>4: 动态导入（适用于ES6模块）</p>
+<p>使用import()表达式动态加载模块：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">loadModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> module <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  module<span class="token punctuation">.</span><span class="token function">someFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>5: 利用构建工具（如Webpack、Rollup）</p>
+<p>通过配置文件定义入口文件、输出文件以及处理规则：<br>假设我们的项目结构如下：</p>
+<p>my-webpack-project/<br>├── dist/<br>├── src/<br>│   ├── index.js<br>│   ├── math.js<br>│   └── greet.js<br>├── package.json<br>└── webpack.config.js</p>
+<ol>
+<li>初始化项目<br>首先，我们需要初始化一个Node.js项目并安装Webpack及其相关依赖：</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> my-webpack-project
+<span class="token function">cd</span> my-webpack-project
+<span class="token function">npm</span> init -y
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack webpack-cli babel-loader @babel/core @babel/preset-env
+</code></pre>
+<ol start="2">
+<li>创建源文件<br>在src目录下创建以下文件：</li>
+</ol>
+<p>src/index.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> add <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./math'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> sayHello <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./greet'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: 5</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: Hello, Alice!</span>
+</code></pre>
+<p>src/math.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>src/greet.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Hello, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>配置Webpack<br>在项目根目录下创建webpack.config.js文件：</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    entry<span class="token punctuation">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 入口文件</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 输出文件名</span>
+        path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 输出路径</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 匹配所有.js文件</span>
+                exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 排除node_modules目录</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 使用babel-loader处理JavaScript文件</span>
+                    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// 使用@babel/preset-env预设</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    mode<span class="token punctuation">:</span> <span class="token string">'development'</span> <span class="token comment" spellcheck="true">// 开发模式</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="4">
+<li>配置Babel<br>在项目根目录下创建.babelrc文件：</li>
+</ol>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"presets"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@babel/preset-env"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="5">
+<li><p>构建项目<br>在package.json中添加一个脚本来运行Webpack：</p>
+<p>​     </p>
+</li>
+</ol>
+<pre class=" language-json"><code class="language-json"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"webpack"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>然后运行以下命令进行构建：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> run build
+</code></pre>
+<ol start="6">
+<li>查看结果<br>构建完成后，你会在dist目录下看到生成的bundle.js文件。这个文件包含了所有被导入的模块，并且可以在HTML文件中引用：</li>
+</ol>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Webpack Example<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dist/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
 <h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>tmux（Terminal Multiplexer）是一个开源的终端复用工具，它允许用户在单个终端窗口中运行多个会话、窗口和分屏<br>docling - 文档解析工具</p>
 <ul>
 <li>GitHub 链接：<a target="_blank" rel="noopener" href="https://github.com/DS4SD/docling">https://github.com/DS4SD/docling</a><br>Chat2DB - AI数据库工具</li>
@@ -810,9 +962,9 @@ del<span class="token punctuation">(</span><span class="token punctuation">)</sp
 <h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p>__name__在直接运行（python XXX.py）时值为”<strong>main</strong>“<br>__name__被导入(imoprt XX)时值为所在的文件名</p>
 <p>钩子函数（hook function）通常用于拦截或修改某些操作的行为。它们可以在特定事件发生时自动执行一些代码。钩子函数广泛应用于各种场景，如事件驱动编程、调试、日志记录等</p>
 <ol>
-<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。<br>```python<br>def my_decorator(func):<br> def wrapper(*args, **kwargs):<pre><code> print("Something is happening before the function is called.")
+<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。<br>```python<br>def my_decorator(func):<br> def wrapper(*args, **kwargs):<pre><code> print(&quot;Something is happening before the function is called.&quot;)
  result = func(*args, **kwargs)
- print("Something is happening after the function is called.")
+ print(&quot;Something is happening after the function is called.&quot;)
  return result
 </code></pre>
  return wrapper</li>
@@ -826,14 +978,14 @@ del<span class="token punctuation">(</span><span class="token punctuation">)</sp
 ```python
 class MyContextManager:
     def __enter__(self):
-        print("Entering the context")
+        print(&quot;Entering the context&quot;)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        print("Exiting the context")
+        print(&quot;Exiting the context&quot;)
 
 with MyContextManager():
-    print("Inside the context")
+    print(&quot;Inside the context&quot;)
 </code></pre>
 <ol start="3">
 <li>信号处理（Signal Handling）<br>在Unix系统中，可以使用信号来处理异步事件。Python的signal模块提供了对信号的支持。</li>
@@ -878,11 +1030,11 @@ do_something<span class="token punctuation">(</span>callback_function<span class
 <p>1：默认开启的文件夹是项目的根目录<br>2：明确谨慎地表达需求内容<br>3：让cusor帮忙维护readme文档<br>4：写清楚代码注释<br>5：使用git做版本管理 git tag v1.0.0<br>6：调试使用save all<br>7：多用@codebase<br>8：添加常用的文档api链接<br>9：设置Rules for AI 在Cursor Settings<br>10：delete 账号重注册</p>
 <h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub只允许上传的文件类型</p>
 <p>Try again with GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, CPUPROFILE, CSV, DMP, DOCX, FODG, FODP, FODS, FODT, GZ, JSON, JSONC, LOG, MD, ODF, ODG, ODP, ODS, ODT, PATCH, PDF, PPTX, TGZ, TXT, XLS, XLSX or ZIP</p>
-<p>git restore 是 Git 中用于恢复文件或目录状态的命令。它可以用来撤销对工作区和暂存区的更改，或者从特定的提交中恢复文件<br>git restore [options] <file><br>–staged: 仅恢复暂存区中的文件，而不改变工作区的文件。<br>–worktree: 仅恢复工作区中的文件，而不改变暂存区的文件。<br>–source=<commit>: 从指定的提交中恢复文件。<br>–source=<branch>: 从指定的分支中恢复文件</branch></commit></file></p>
+<p>git restore 是 Git 中用于恢复文件或目录状态的命令。它可以用来撤销对工作区和暂存区的更改，或者从特定的提交中恢复文件<br>git restore [options] <file><br>–staged: 仅恢复暂存区中的文件，而不改变工作区的文件。<br>–worktree: 仅恢复工作区中的文件，而不改变暂存区的文件。<br>–source=<commit>: 从指定的提交中恢复文件。<br>–source=<branch>: 从指定的分支中恢复文件</p>
 <p>git clone … –depth 10 最近10次提交内容<br>git submodule update –init –recursive 对于一些很久的分支，更新一下子模块<br>git graph(左旧右新)<br>git reset –soft HEAD^ 回退到上一次提交，在暂存区点“-”下放到代码区，点“discard change”放弃代码区的更改</p>
 <p>git push -f 强制将提交推送到远端库<br>git remote -v 获取已配置的远端仓库地址<br>git fetch origin –depth 10 获取远端仓库最近10个提交</p>
 <p>git cherry-pick允许用户从一个分支中选择一个或多个提交，并将这些提交应用到另一个分支上，而无需合并整个分支<br>git log命令查看提交历史并获取哈希值。例如，git cherry-pick abcdef123456会将哈希值为abcdef123456的提交应用到当前分支<br>遇到冲突，Git会停止并等待你解决冲突。使用git add命令标记已解决的冲突文件，然后使用git cherry-pick –continue继续cherry-pick过程<br>如果需要放弃cherry-pick操作，可以使用git cherry-pick –abort</p>
-
+</script></p>
                 
             </div>
             <hr/>
