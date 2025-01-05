@@ -819,7 +819,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: 3</span>
 </code></pre>
 <p>3: 在HTML中使用模块化</p>
-<p>通过<script type="module">标签引入JavaScript模块：</p>
+<p>通过<code>&lt;script type="module"&gt;</code>标签引入JavaScript模块：</p>
 <pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -962,9 +962,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p>__name__在直接运行（python XXX.py）时值为”<strong>main</strong>“<br>__name__被导入(imoprt XX)时值为所在的文件名</p>
 <p>钩子函数（hook function）通常用于拦截或修改某些操作的行为。它们可以在特定事件发生时自动执行一些代码。钩子函数广泛应用于各种场景，如事件驱动编程、调试、日志记录等</p>
 <ol>
-<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。<br>```python<br>def my_decorator(func):<br> def wrapper(*args, **kwargs):<pre><code> print(&quot;Something is happening before the function is called.&quot;)
+<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。<br>```python<br>def my_decorator(func):<br> def wrapper(*args, **kwargs):<pre><code> print("Something is happening before the function is called.")
  result = func(*args, **kwargs)
- print(&quot;Something is happening after the function is called.&quot;)
+ print("Something is happening after the function is called.")
  return result
 </code></pre>
  return wrapper</li>
@@ -978,14 +978,14 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 ```python
 class MyContextManager:
     def __enter__(self):
-        print(&quot;Entering the context&quot;)
+        print("Entering the context")
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        print(&quot;Exiting the context&quot;)
+        print("Exiting the context")
 
 with MyContextManager():
-    print(&quot;Inside the context&quot;)
+    print("Inside the context")
 </code></pre>
 <ol start="3">
 <li>信号处理（Signal Handling）<br>在Unix系统中，可以使用信号来处理异步事件。Python的signal模块提供了对信号的支持。</li>
@@ -1030,11 +1030,11 @@ do_something<span class="token punctuation">(</span>callback_function<span class
 <p>1：默认开启的文件夹是项目的根目录<br>2：明确谨慎地表达需求内容<br>3：让cusor帮忙维护readme文档<br>4：写清楚代码注释<br>5：使用git做版本管理 git tag v1.0.0<br>6：调试使用save all<br>7：多用@codebase<br>8：添加常用的文档api链接<br>9：设置Rules for AI 在Cursor Settings<br>10：delete 账号重注册</p>
 <h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub只允许上传的文件类型</p>
 <p>Try again with GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, CPUPROFILE, CSV, DMP, DOCX, FODG, FODP, FODS, FODT, GZ, JSON, JSONC, LOG, MD, ODF, ODG, ODP, ODS, ODT, PATCH, PDF, PPTX, TGZ, TXT, XLS, XLSX or ZIP</p>
-<p>git restore 是 Git 中用于恢复文件或目录状态的命令。它可以用来撤销对工作区和暂存区的更改，或者从特定的提交中恢复文件<br>git restore [options] <file><br>–staged: 仅恢复暂存区中的文件，而不改变工作区的文件。<br>–worktree: 仅恢复工作区中的文件，而不改变暂存区的文件。<br>–source=<commit>: 从指定的提交中恢复文件。<br>–source=<branch>: 从指定的分支中恢复文件</p>
+<p>git restore 是 Git 中用于恢复文件或目录状态的命令。它可以用来撤销对工作区和暂存区的更改，或者从特定的提交中恢复文件<br>git restore [options] <file><br>–staged: 仅恢复暂存区中的文件，而不改变工作区的文件。<br>–worktree: 仅恢复工作区中的文件，而不改变暂存区的文件。<br>–source=<commit>: 从指定的提交中恢复文件。<br>–source=<branch>: 从指定的分支中恢复文件</branch></commit></file></p>
 <p>git clone … –depth 10 最近10次提交内容<br>git submodule update –init –recursive 对于一些很久的分支，更新一下子模块<br>git graph(左旧右新)<br>git reset –soft HEAD^ 回退到上一次提交，在暂存区点“-”下放到代码区，点“discard change”放弃代码区的更改</p>
 <p>git push -f 强制将提交推送到远端库<br>git remote -v 获取已配置的远端仓库地址<br>git fetch origin –depth 10 获取远端仓库最近10个提交</p>
 <p>git cherry-pick允许用户从一个分支中选择一个或多个提交，并将这些提交应用到另一个分支上，而无需合并整个分支<br>git log命令查看提交历史并获取哈希值。例如，git cherry-pick abcdef123456会将哈希值为abcdef123456的提交应用到当前分支<br>遇到冲突，Git会停止并等待你解决冲突。使用git add命令标记已解决的冲突文件，然后使用git cherry-pick –continue继续cherry-pick过程<br>如果需要放弃cherry-pick操作，可以使用git cherry-pick –abort</p>
-</script></p>
+
                 
             </div>
             <hr/>
