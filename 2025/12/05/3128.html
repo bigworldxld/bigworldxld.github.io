@@ -670,14 +670,14 @@ CPUPROFILE - CPU性能分析文件，通常包含CPU">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    16 分
                 </div>
                 
 
@@ -728,13 +728,7 @@ CPUPROFILE - CPU性能分析文件，通常包含CPU">
 <p>Talkatone申请美国实体电话卡（不易受限，通用性强）：需要静态住宅IP<br>Google Voice申请的是虚拟的VOIP（虚拟电话号）<br>talkatone官网:<a target="_blank" rel="noopener" href="https://www.talkatone.com/">https://www.talkatone.com</a><br>(实体卡检验)<a target="_blank" rel="noopener" href="https://www.freecarrierlookup.com/">https://www.freecarrierlookup.com</a><br>(实体卡检验)<a target="_blank" rel="noopener" href="https://phonevalidator.com/index.aspx">https://phonevalidator.com/index.aspx</a></p>
 <p>粉丝专属福利<br>美区id共享(注:id并不是永久的会改密码 用完请记得退出)<br>账号:<a href="mailto:gsl13842@icloud.com">gsl13842@icloud.com</a><br>密码:315Gongzhonghaoios365365<br>第一：登陆app store下载东西 和你设置里面的iCloud账号是两回事 第二：下载东西也根本不需要退掉iCloud，只需要切换app store账号就行了，下完以后换回自己的ID就可以了。第三：锁机的情况是别人诱导你登陆设置里面的iCloud，然后远程锁机，让你出高价钱才给你解开，奈斯这里是绝对不会干这种事儿，也不会诱导别人登陆iCloud</p>
 <p>WildCard官网：大陆可申请的美国信用卡<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Q3UoYkEpA/">https://www.bilibili.com/video/BV1Q3UoYkEpA/</a></p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>css换行元素：<br>1.word-break:break-all; 只对英文起作用，以字母作为换行依据</p>
-<ol start="2">
-<li>word-wrap:break-word; 只对英文起作用，以单词作为换行依据</li>
-<li>white-space:pre-wrap; 只对中文起作用，强制换行</li>
-<li>white-space:nowrap; 强制不换行，都起作用</li>
-<li>white-space:nowrap; overflow:hidden; text-overflow:ellipsis; 不换行，超出部分隐藏且以省略号形式出现<br>注意：一定要指定容器的宽度(width)，否则没用</li>
-</ol>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>css换行元素：<br>1.word-break:break-all; 只对英文起作用，以字母作为换行依据<br>2. word-wrap:break-word; 只对英文起作用，以单词作为换行依据<br>3. white-space:pre-wrap; 只对中文起作用，强制换行<br>4. white-space:nowrap; 强制不换行，都起作用<br>5. white-space:nowrap; overflow:hidden; text-overflow:ellipsis; 不换行，超出部分隐藏且以省略号形式出现<br>注意：一定要指定容器的宽度(width)，否则没用</p>
 <p>history.pushState是HTML5中新增的API，用于在浏览器历史记录中添加新的状态，允许改变浏览器的URL而不刷新页面，从而创建一种无刷新页面的交互体验</p>
 <p>基本用法<br>history.pushState方法接受三个参数：<br>状态对象（state object）一个JavaScript对象，与用pushState()方法创建的新历史记录条目关联。无论何时用户导航到新创建的状态，popstate事件都会被触发，并且事件对象的state属性包含历史记录条目的状态对象的拷贝</p>
 <p>标题（title）大多数浏览器目前忽略这个参数，最好用null代替23。<br>URL：定义了新的历史URL记录。调用pushState()后浏览器并不会立即加载这个URL，但可能会在稍后某些情况下加载这个URL，比如在用户重新打开浏览器</p>
@@ -812,33 +806,25 @@ del<span class="token punctuation">(</span><span class="token punctuation">)</sp
 <p>from scapy.all import *<br>data =”\x17\x00\x03\x2a”+”\x0”*44 # NTP monlist packet</p>
 <p>data =”HELL0”.encode(“utf-8”)</p>
 <p>packet = IP(dst=”221.179.53.116”) / UDP(sport=12345, dport=123) / Raw(load=data)<br>send(packet)</p>
-<p> word-break:break-all; 只对英文起作用，以字母作为换行依据<br>2. word-wrap:break-word; 只对英文起作用，以单词作为换行依据<br>3. white-space:pre-wrap; 只对中文起作用，强制换行<br>4. white-space:nowrap; 强制不换行，都起作用<br>5. white-space:nowrap; overflow:hidden; text-overflow:ellipsis; 不换行，超出部分隐藏且以省略号形式出现<br>注意：一定要指定容器的宽度(width)，否则没用</p>
 <p>PHP中的 -&gt; 相当于python的 .<br>:: 表示引用静态的属性<br>“=&gt;”符号用于定义一个键值对，即将一个键和一个值关联在一起<br>使用点号（.）将多个字符串连接起来<br>以0开头的代表是八进制的数，所以010=0<em>8^0+1</em>8^1=8。此外，以0x开头的是十六进制的数</p>
-<p>tmux（Terminal Multiplexer）是一个开源的终端复用工具，它允许用户在单个终端窗口中运行多个会话、窗口和分屏</p>
 <h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p>__name__在直接运行（python XXX.py）时值为”<strong>main</strong>“<br>__name__被导入(imoprt XX)时值为所在的文件名</p>
-<p>PHP中的 -&gt; 相当于python的 .<br>:: 表示引用静态的属性<br>“=&gt;”符号用于定义一个键值对，即将一个键和一个值关联在一起<br>使用点号（.）将多个字符串连接起来<br>以0开头的代表是八进制的数，所以010=0<em>8^0+1</em>8^1=8。此外，以0x开头的是十六进制的数</p>
 <p>钩子函数（hook function）通常用于拦截或修改某些操作的行为。它们可以在特定事件发生时自动执行一些代码。钩子函数广泛应用于各种场景，如事件驱动编程、调试、日志记录等</p>
 <ol>
-<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。</li>
-</ol>
-<pre><code>def my_decorator(func):
-    def wrapper(*args, **kwargs):
-        print("Something is happening before the function is called.")
-        result = func(*args, **kwargs)
-        print("Something is happening after the function is called.")
-        return result
-    return wrapper
-
-@my_decorator
-def say_hello():
-    print("Hello!")
-
-say_hello()
+<li>装饰器（Decorators）<br>装饰器是Python中一种非常强大的工具，可以用来修改函数或方法的行为。装饰器本质上就是一个高阶函数，它接受一个函数作为参数并返回一个新的函数。<br>```python<br>def my_decorator(func):<br> def wrapper(*args, **kwargs):<pre><code> print("Something is happening before the function is called.")
+ result = func(*args, **kwargs)
+ print("Something is happening after the function is called.")
+ return result
 </code></pre>
-<ol start="2">
-<li>上下文管理器（Context Managers）<br>上下文管理器允许你在进入和退出某个代码块时执行特定的代码。with语句常用于资源管理，比如文件操作、网络连接等。</li>
+ return wrapper</li>
 </ol>
-<pre><code>class MyContextManager:
+<p>@my_decorator<br>def say_hello():<br>    print(“Hello!”)</p>
+<p>say_hello()</p>
+<pre><code>
+2. 上下文管理器（Context Managers）
+上下文管理器允许你在进入和退出某个代码块时执行特定的代码。with语句常用于资源管理，比如文件操作、网络连接等。
+
+```python
+class MyContextManager:
     def __enter__(self):
         print("Entering the context")
         return self
@@ -852,41 +838,41 @@ with MyContextManager():
 <ol start="3">
 <li>信号处理（Signal Handling）<br>在Unix系统中，可以使用信号来处理异步事件。Python的signal模块提供了对信号的支持。</li>
 </ol>
-<pre><code>import signal
-import time
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> signal
+<span class="token keyword">import</span> time
 
-def handler(signum, frame):
-    print(f"Signal {signum} received")
+<span class="token keyword">def</span> <span class="token function">handler</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Signal {signum} received"</span><span class="token punctuation">)</span>
 
-# Register the signal handler for SIGINT (Ctrl+C)
-signal.signal(signal.SIGINT, handler)
+<span class="token comment" spellcheck="true"># Register the signal handler for SIGINT (Ctrl+C)</span>
+signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGINT<span class="token punctuation">,</span> handler<span class="token punctuation">)</span>
 
-print("Press Ctrl+C to trigger the signal handler")
-while True:
-    time.sleep(1)
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Press Ctrl+C to trigger the signal handler"</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 </code></pre>
 <ol start="4">
 <li>回调函数（Callback Functions）<br>回调函数是一种通过函数指针传递的函数，当某个事件发生时调用该函数。这在GUI编程、异步编程中非常常见。</li>
 </ol>
-<pre><code>def callback_function():
-    print("Callback function called")
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">callback_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Callback function called"</span><span class="token punctuation">)</span>
 
-def do_something(callback):
-    print("Doing something...")
-    callback()
+<span class="token keyword">def</span> <span class="token function">do_something</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Doing something..."</span><span class="token punctuation">)</span>
+    callback<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-do_something(callback_function)
+do_something<span class="token punctuation">(</span>callback_function<span class="token punctuation">)</span>
 </code></pre>
 <ol start="5">
 <li>元类（Metaclasses）<br>元类是创建类的“类”，可以控制类的创建过程。通过自定义元类，你可以在类被创建时插入自己的逻辑。</li>
 </ol>
-<pre><code>class MyMeta(type):
-    def __new__(cls, name, bases, dct):
-        print(f"Creating class {name}")
-        return super().__new__(cls, name, bases, dct)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyMeta</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__new__</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> name<span class="token punctuation">,</span> bases<span class="token punctuation">,</span> dct<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Creating class {name}"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>cls<span class="token punctuation">,</span> name<span class="token punctuation">,</span> bases<span class="token punctuation">,</span> dct<span class="token punctuation">)</span>
 
-class MyClass(metaclass=MyMeta):
-    pass
+<span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span>metaclass<span class="token operator">=</span>MyMeta<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
 </code></pre>
 <p>cusor十大技巧</p>
 <p>1：默认开启的文件夹是项目的根目录<br>2：明确谨慎地表达需求内容<br>3：让cusor帮忙维护readme文档<br>4：写清楚代码注释<br>5：使用git做版本管理 git tag v1.0.0<br>6：调试使用save all<br>7：多用@codebase<br>8：添加常用的文档api链接<br>9：设置Rules for AI 在Cursor Settings<br>10：delete 账号重注册</p>
