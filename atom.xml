@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-01-05T12:29:34.664Z</updated>
+  <updated>2025-01-19T07:08:52.845Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>日常问题随记</title>
-    <link href="https://bigworldxld.github.io/2025/12/05/3128.html"/>
-    <id>https://bigworldxld.github.io/2025/12/05/3128.html</id>
-    <published>2025-12-05T03:24:02.000Z</published>
-    <updated>2025-01-05T12:29:34.664Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
-    
-    
-    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SeleniumBase</title>
     <link href="https://bigworldxld.github.io/2025/01/18/26887.html"/>
     <id>https://bigworldxld.github.io/2025/01/18/26887.html</id>
     <published>2025-01-18T03:24:02.000Z</published>
-    <updated>2025-01-18T14:44:37.576Z</updated>
+    <updated>2025-01-19T07:08:52.845Z</updated>
     
     
       
@@ -171,6 +146,31 @@
     
     
     <category term="js" scheme="https://bigworldxld.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常问题随记</title>
+    <link href="https://bigworldxld.github.io/2024/12/05/3128.html"/>
+    <id>https://bigworldxld.github.io/2024/12/05/3128.html</id>
+    <published>2024-12-05T03:24:02.000Z</published>
+    <updated>2025-01-19T07:03:34.614Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
