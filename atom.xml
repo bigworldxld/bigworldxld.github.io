@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-01-19T07:08:52.845Z</updated>
+  <updated>2025-01-30T16:18:20.768Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于node.js的appium简化操作平台</title>
+    <link href="https://bigworldxld.github.io/2025/01/31/6571.html"/>
+    <id>https://bigworldxld.github.io/2025/01/31/6571.html</id>
+    <published>2025-01-31T03:24:02.000Z</published>
+    <updated>2025-01-30T16:18:20.768Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="appium" scheme="https://bigworldxld.github.io/tags/appium/"/>
+    
+    <category term="node.js" scheme="https://bigworldxld.github.io/tags/node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>SeleniumBase</title>
@@ -38,33 +65,6 @@
     
     
     <category term="test" scheme="https://bigworldxld.github.io/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于node.js的appium简化操作平台</title>
-    <link href="https://bigworldxld.github.io/2025/01/18/6571.html"/>
-    <id>https://bigworldxld.github.io/2025/01/18/6571.html</id>
-    <published>2025-01-18T03:24:02.000Z</published>
-    <updated>2025-01-30T16:11:34.184Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
-    
-    
-    <category term="appium" scheme="https://bigworldxld.github.io/tags/appium/"/>
-    
-    <category term="node.js" scheme="https://bigworldxld.github.io/tags/node-js/"/>
     
   </entry>
   
