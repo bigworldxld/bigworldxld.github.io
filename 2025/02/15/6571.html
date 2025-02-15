@@ -685,7 +685,7 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -720,11 +720,10 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 <p>无论是从渲染进程直接访问 Node.js 接口，亦或者是从主进程访问 HTML 文档对象模型 (DOM)，都是不可能的</p>
 <p>使用进程间通信 (IPC)。可以使用 Electron 的 ipcMain 模块和 ipcRenderer 模块来进行进程间通信。 为了从你的网页向主进程发送消息，你可以使用 ipcMain.handle 设置一个主进程处理程序（handler），然后在预处理脚本中暴露一个被称为 ipcRenderer.invoke 的函数来触发该处理程序（handler）。</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>主进程：</p>
-<p>JavaScript</p>
-<pre><code>const { app, BrowserWindow, ipcMain } = require('electron/main')
+<pre class=" language-JavaScript"><code class="language-JavaScript">const { app, BrowserWindow, ipcMain } = require('electron/main')
 const path = require('node:path')
 
-const createWindow = () =&gt; {
+const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -736,119 +735,122 @@ const createWindow = () =&gt; {
   win.loadFile('index.html')
 }
 
-app.whenReady().then(() =&gt; {
-  ipcMain.handle('ping', () =&gt; 'pong')
+app.whenReady().then(() => {
+  ipcMain.handle('ping', () => 'pong')
   createWindow()
 
-  app.on('activate', () =&gt; {
+  app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }
   })
 })
 
-app.on('window-all-closed', () =&gt; {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 </code></pre>
 <p>预加载</p>
-<p>javascript</p>
-<pre><code>const { contextBridge, ipcRenderer } = require('electron')
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> contextBridge<span class="token punctuation">,</span> ipcRenderer <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'electron'</span><span class="token punctuation">)</span>
 
-contextBridge.exposeInMainWorld('versions', {
-  node: () =&gt; process.versions.node,
-  chrome: () =&gt; process.versions.chrome,
-  electron: () =&gt; process.versions.electron
-  ping: () =&gt; ipcRenderer.invoke('ping')
-})
+contextBridge<span class="token punctuation">.</span><span class="token function">exposeInMainWorld</span><span class="token punctuation">(</span><span class="token string">'versions'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  node<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> process<span class="token punctuation">.</span>versions<span class="token punctuation">.</span>node<span class="token punctuation">,</span>
+  chrome<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> process<span class="token punctuation">.</span>versions<span class="token punctuation">.</span>chrome<span class="token punctuation">,</span>
+  electron<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> process<span class="token punctuation">.</span>versions<span class="token punctuation">.</span>electron
+  ping<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> ipcRenderer<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token string">'ping'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<p>HTML页面<br>JavaScript</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
+<p>HTML页面</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
-    &lt;title&gt;Hello World!&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello from Electron renderer!&lt;/h1&gt;
-    &lt;p id="info"&gt;&lt;/p&gt;
-  &lt;/body&gt;
-  &lt;script src="./renderer.js"&gt;&lt;/script&gt;
-&lt;/html&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Hello World!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello from Electron renderer!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./renderer.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre>
-<p>渲染器<br>render.js<br>javascript</p>
-<pre><code>const information = document.getElementById('info')
-information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`
-const func = async () =&gt; {
-  const response = await window.versions.ping()
-  console.log(response) // 打印 'pong'
-}
+<p>渲染器<br>render.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> information <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'info'</span><span class="token punctuation">)</span>
+information<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token template-string"><span class="token string">`This app is using Chrome (v</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>window<span class="token punctuation">.</span>versions<span class="token punctuation">.</span><span class="token function">chrome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">), Node.js (v</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>window<span class="token punctuation">.</span>versions<span class="token punctuation">.</span><span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">), and Electron (v</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>window<span class="token punctuation">.</span>versions<span class="token punctuation">.</span><span class="token function">electron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)`</span></span>
+<span class="token keyword">const</span> func <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> window<span class="token punctuation">.</span>versions<span class="token punctuation">.</span><span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 打印 'pong'</span>
+<span class="token punctuation">}</span>
 
-func()
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="打包应用程序"><a href="#打包应用程序" class="headerlink" title="打包应用程序"></a>打包应用程序</h2><p>Electron 的核心模块中没有捆绑任何用于打包或分发文件的工具。 如果您在开发模式下完成了一个 Electron 应用，需要使用额外的工具来打包应用程序 (也称为可分发文件) 并分发给用户 。 可分发文件可以是安装程序 (例如 Windows 上的 MSI) 或者绿色软件 (例如 macOS 上的 .app 文件)</p>
 <p>electron-builder：一个完整的解决方案，用于打包和构建适用于 macOS、Windows 和 Linux 的 Electron、Proton Native 应用程序，并支持开箱即用的“自动更新”<a target="_blank" rel="noopener" href="https://www.electron.build/">https://www.electron.build/</a></p>
 <p>所有平台： 7z ， zip ， tar.xz ， tar.7z ， tar.lz ， tar.gz ， tar.bz2 ， dir （解压目录）。<br>macOS: dmg ， pkg ， mas 。<br>Linux: AppImage, snap, Debian 软件包（ deb ）， rpm ， freebsd ， pacman ， p5p ， apk 。<br>Windows: nsis （安装程序）， nsis-web （网络安装程序）， portable （无需安装的便携式应用程序），AppX（Windows 商店），MSI，Squirrel.Windows。</p>
 <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>使用 electron.resourcesPath 获取真实路径<br>在主进程中通过 app.getAppPath() 或 process.resourcesPath 获取资源路径：</p>
-<p>javascript</p>
-<pre><code>const { app, process } = require('electron');
-const path = require('path');
-const pythonScriptPath = path.join(process.resourcesPath, 'python_scripts/your_script.py');
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> app<span class="token punctuation">,</span> process <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'electron'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> pythonScriptPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>resourcesPath<span class="token punctuation">,</span> <span class="token string">'python_scripts/your_script.py'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>排除 asar 打包<br>在 electron-builder 配置中将 Python 脚本标记为非 asar 资源：</p>
-<p>json</p>
-<pre><code>// package.json
-"build": {
-  "asar": true,
-  "files": [
-    "!python_scripts/**/*"  // 排除 Python 脚本
-  ],
-  "extraResources": [
-    "python_scripts/**/*"    // 复制到资源目录
-  ]
-}
+<pre class=" language-json"><code class="language-json">// package.json
+<span class="token property">"build"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"asar"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"files"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"!python_scripts/**/*"</span>  // 排除 Python 脚本
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"extraResources"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"python_scripts/**/*"</span>    // 复制到资源目录
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>二、环境变量缺失<br>现象分析：<br>打包后的应用可能丢失系统环境变量（如 PATH 中的 Python/Appium 路径）。</p>
 <p>解决方案：<br>显式指定二进制路径<br>在调用 Python 或 Appium 时使用绝对路径：</p>
-<p>javascript</p>
-<pre><code>const { spawn } = require('child_process');
-const pythonProcess = spawn('/usr/local/bin/python', [pythonScriptPath]);
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> spawn <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> pythonProcess <span class="token operator">=</span> <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'/usr/local/bin/python'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pythonScriptPath<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>动态注入环境变量<br>在主进程中设置环境变量：<br>const env = {<br>  …process.env,<br>  PATH: <code>${process.env.PATH}:/usr/local/bin</code><br>};<br>const pythonProcess = spawn(‘python’, [scriptPath], { env });<br>三、子进程生命周期管理<br>现象分析：<br>未正确处理子进程的 I/O 或错误事件可能导致进程静默退出。</p>
+<p>动态注入环境变量<br>在主进程中设置环境变量：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  <span class="token operator">...</span>process<span class="token punctuation">.</span>env<span class="token punctuation">,</span>
+  PATH<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>PATH<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:/usr/local/bin`</span></span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> pythonProcess <span class="token operator">=</span> <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'python'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scriptPath<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> env <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>三、子进程生命周期管理<br>现象分析：<br>未正确处理子进程的 I/O 或错误事件可能导致进程静默退出。</p>
+<p>三、子进程生命周期管理<br>现象分析：<br>未正确处理子进程的 I/O 或错误事件可能导致进程静默退出。</p>
 <p>解决方案：<br>强制处理 stdout/stderr 并监听错误事件：</p>
-<p>javascript</p>
-<pre><code>const pythonProcess = spawn('python', [scriptPath]);
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> pythonProcess <span class="token operator">=</span> <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'python'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scriptPath<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-pythonProcess.stdout.on('data', (data) =&gt; {
-  console.log(`stdout: ${data}`);
-});
+pythonProcess<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`stdout: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-pythonProcess.stderr.on('data', (data) =&gt; {
-  console.error(`stderr: ${data}`);
-});
-pythonProcess.on('error', (err) =&gt; {
-  console.error('Failed to start subprocess:', err);
-});
+pythonProcess<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`stderr: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pythonProcess<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Failed to start subprocess:'</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-pythonProcess.on('close', (code) =&gt; {
-  console.log(`子进程退出，代码：${code}`);
-});
+pythonProcess<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>code<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`子进程退出，代码：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>code<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>四、权限问题<br>现象分析：<br>打包后的应用可能因权限不足无法执行脚本或启动服务。<br>解决方案：<br>赋予脚本可执行权限<br>在打包后通过 chmod 修改权限：</p>
 <p>javascript</p>
-<pre><code>const { chmod } = require('fs');
-chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> chmod <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">chmod</span><span class="token punctuation">(</span>pythonScriptPath<span class="token punctuation">,</span> <span class="token number">0o755</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 以管理员权限运行应用
-在 electron-builder 中配置请求管理员权限（仅限必要场景）：
+在 electron<span class="token operator">-</span>builder 中配置请求管理员权限（仅限必要场景）：
 </code></pre>
 <p>json</p>
-<pre><code>"build": {
-  "win": {
-    "requestedExecutionLevel": "requireAdministrator"
-  }
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"win"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"requestedExecutionLevel"</span><span class="token punctuation">:</span> <span class="token string">"requireAdministrator"</span>
+  <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%BA%94%E7%94%A81.webp" alt="截图1"></p>
 <p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%BA%94%E7%94%A82.webp" alt="截图2"></p>
