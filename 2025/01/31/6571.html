@@ -4,9 +4,22 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第一个桌面应用, blogs,互联网,测试,大数据,生活,记录">
-    <meta name="description" content="第一个桌面应用将项目打包为自己的桌面应用
-Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 嵌入 Chromium 和 Node.js 到 二进制的 Electron 允许您保持一个 Java">
+    <meta name="keywords" content="基于node.js的appium简化操作平台, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="基于node.js的appium简化操作平台一个自己摸索开发的基于node.js的appium简化操作平台
+效果截图：
+
+
+
+
+
+
+
+
+
+
+技术栈概述1. 自动化测试框架
+Appium: 移动端自动化测试框架
+unittest: Pytho">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +31,7 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第一个桌面应用 | 读序</title>
+    <title>基于node.js的appium简化操作平台 | 读序</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -515,12 +528,12 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://bigworldxld.github.io/picx-images-hosting/images/eletron.webp')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://bigworldxld.github.io/picx-images-hosting/images/appium简化操作平台.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第一个桌面应用</h1>
+                    <h1 class="description center-align post-title">基于node.js的appium简化操作平台</h1>
                 </div>
             </div>
         </div>
@@ -644,10 +657,6 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
                                 <span class="chip bg-color">node.js</span>
                             </a>
                         
-                            <a href="/tags/eletron/">
-                                <span class="chip bg-color">eletron</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -678,14 +687,14 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    843
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    3 分
                 </div>
                 
 
@@ -708,150 +717,94 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一个桌面应用"><a href="#第一个桌面应用" class="headerlink" title="第一个桌面应用"></a>第一个桌面应用</h2><p>将项目打包为自己的桌面应用</p>
-<p>Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 嵌入 <a target="_blank" rel="noopener" href="https://www.chromium.org/">Chromium</a> 和 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> 到 二进制的 Electron 允许您保持一个 JavaScript 代码代码库并创建 在Windows上运行的跨平台应用 macOS和Linux</p>
-<p>参考官网：<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/">https://www.electronjs.org/zh/docs/latest/</a></p>
-<p>将 Electron 安装为您项目的 devDependencies，即仅在开发环境需要的额外依赖</p>
-<p>在 package.json 中指定的 main 文件是 Electron 应用的入口。 这个文件控制 主程序 (main process)，它运行在 Node.js 环境里，负责控制您应用的生命周期、显示原生界面、执行特殊操作并管理渲染器进程 (renderer processes)</p>
-<p>通常我们使用触发器的 .on 函数来监听 Node.js 事件</p>
-<p>应用中的每个页面都在一个单独的进程中运行，我们称这些进程为 渲染器 (renderer) 。 渲染进程使用与常规Web开发相同的JavaScript API和工具，例如使用 webpack来打包和压缩您的代码，或使用 React 构建用户界面。</p>
-<p>通过检查 Node.js 的 process.platform 变量，您可以针对特定平台运行特定代码。 请注意，Electron 目前只支持三个平台：win32 (Windows), linux (Linux) 和 darwin (macOS)</p>
-<p>什么是预加载脚本？<br>Electron 的主进程是一个拥有着完全操作系统访问权限的 Node.js 环境，另一方面，出于安全原因，渲染进程默认跑在网页页面上，而并非 Node.js里。</p>
-<p>无论是从渲染进程直接访问 Node.js 接口，亦或者是从主进程访问 HTML 文档对象模型 (DOM)，都是不可能的</p>
-<p>使用进程间通信 (IPC)。可以使用 Electron 的 ipcMain 模块和 ipcRenderer 模块来进行进程间通信。 为了从你的网页向主进程发送消息，你可以使用 ipcMain.handle 设置一个主进程处理程序（handler），然后在预处理脚本中暴露一个被称为 ipcRenderer.invoke 的函数来触发该处理程序（handler）。</p>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>主进程：</p>
-<p>JavaScript</p>
-<pre><code>const { app, BrowserWindow, ipcMain } = require('electron/main')
-const path = require('node:path')
-
-const createWindow = () =&gt; {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
-
-  win.loadFile('index.html')
-}
-
-app.whenReady().then(() =&gt; {
-  ipcMain.handle('ping', () =&gt; 'pong')
-  createWindow()
-
-  app.on('activate', () =&gt; {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
-})
-
-app.on('window-all-closed', () =&gt; {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
+                <h2 id="基于node-js的appium简化操作平台"><a href="#基于node-js的appium简化操作平台" class="headerlink" title="基于node.js的appium简化操作平台"></a>基于node.js的appium简化操作平台</h2><p>一个自己摸索开发的基于node.js的appium简化操作平台</p>
+<p>效果截图：</p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/appium%E7%AE%80%E5%8C%96%E6%93%8D%E4%BD%9C%E5%B9%B3%E5%8F%B0.webp" alt="appium简化操作平台"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/appium%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF.webp" alt="appium服务器控制面板"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/yaml%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.webp" alt="yaml配置管理"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/yaml%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%861.webp" alt="yaml配置管理1"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%AE%A1%E7%90%86.webp" alt="测试用例管理"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E7%AE%A1%E7%90%86.webp" alt="图片上传管理"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86.webp" alt="数据文件管理"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%88%A0%E9%99%A4%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A.webp" alt="删除测试报告"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%B0%83%E8%AF%95.webp" alt="测试用例调试"></p>
+<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E7%94%A8%E4%BE%8B%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B.webp" alt="用例调试日志查看"></p>
+<h2 id="技术栈概述"><a href="#技术栈概述" class="headerlink" title="技术栈概述"></a>技术栈概述</h2><h3 id="1-自动化测试框架"><a href="#1-自动化测试框架" class="headerlink" title="1. 自动化测试框架"></a>1. 自动化测试框架</h3><ul>
+<li><strong>Appium</strong>: 移动端自动化测试框架</li>
+<li><strong>unittest</strong>: Python单元测试框架</li>
+<li><strong>HTMLTestRunner</strong>: 测试报告生成工具</li>
+<li><strong>ddt</strong>: 数据驱动测试库</li>
+</ul>
+<h3 id="2-主要第三方库"><a href="#2-主要第三方库" class="headerlink" title="2. 主要第三方库"></a>2. 主要第三方库</h3><ul>
+<li><strong>appium-python-client</strong>: Appium Python客户端</li>
+<li><strong>PyYAML</strong>: YAML配置文件解析</li>
+<li><strong>opencv-python</strong>: 图像处理</li>
+<li><strong>numpy</strong>: 数值计算</li>
+<li><strong>requests</strong>: HTTP请求</li>
+<li>python.min.js</li>
+</ul>
+<h3 id="3-核心功能模块"><a href="#3-核心功能模块" class="headerlink" title="3. 核心功能模块"></a>3. 核心功能模块</h3><h4 id="3-1-基础配置管理-YamlHelper-py"><a href="#3-1-基础配置管理-YamlHelper-py" class="headerlink" title="3.1 基础配置管理 (YamlHelper.py)"></a>3.1 基础配置管理 (YamlHelper.py)</h4><ul>
+<li>使用PyYAML读取配置文件</li>
+<li>主要配置文件:<ul>
+<li>config_android.yaml: Android测试配置</li>
+<li>config_ios.yaml: iOS测试配置</li>
+<li>el_imges_b64.yaml: 图像元素base64编码<br>主要函数:<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">read_yaml</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 读取YAML文件</span>
+<span class="token keyword">def</span> <span class="token function">write_yaml</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 写入YAML文件</span>
+<span class="token keyword">def</span> <span class="token function">read_yamlhelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 读取主配置文件</span>
+<span class="token keyword">def</span> <span class="token function">read_el_images_b64</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 读取图像元素配置</span>
 </code></pre>
-<p>预加载</p>
-<p>javascript</p>
-<pre><code>const { contextBridge, ipcRenderer } = require('electron')
-
-contextBridge.exposeInMainWorld('versions', {
-  node: () =&gt; process.versions.node,
-  chrome: () =&gt; process.versions.chrome,
-  electron: () =&gt; process.versions.electron
-  ping: () =&gt; ipcRenderer.invoke('ping')
-})
-</code></pre>
-<p>HTML页面<br>JavaScript</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
-
-    &lt;title&gt;Hello World!&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello from Electron renderer!&lt;/h1&gt;
-    &lt;p id="info"&gt;&lt;/p&gt;
-  &lt;/body&gt;
-  &lt;script src="./renderer.js"&gt;&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
-<p>渲染器<br>render.js<br>javascript</p>
-<pre><code>const information = document.getElementById('info')
-information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`
-const func = async () =&gt; {
-  const response = await window.versions.ping()
-  console.log(response) // 打印 'pong'
-}
-
-func()
-</code></pre>
-<h2 id="打包应用程序"><a href="#打包应用程序" class="headerlink" title="打包应用程序"></a>打包应用程序</h2><p>Electron 的核心模块中没有捆绑任何用于打包或分发文件的工具。 如果您在开发模式下完成了一个 Electron 应用，需要使用额外的工具来打包应用程序 (也称为可分发文件) 并分发给用户 。 可分发文件可以是安装程序 (例如 Windows 上的 MSI) 或者绿色软件 (例如 macOS 上的 .app 文件)</p>
-<p>electron-builder：一个完整的解决方案，用于打包和构建适用于 macOS、Windows 和 Linux 的 Electron、Proton Native 应用程序，并支持开箱即用的“自动更新”<a target="_blank" rel="noopener" href="https://www.electron.build/">https://www.electron.build/</a></p>
-<p>所有平台： 7z ， zip ， tar.xz ， tar.7z ， tar.lz ， tar.gz ， tar.bz2 ， dir （解压目录）。<br>macOS: dmg ， pkg ， mas 。<br>Linux: AppImage, snap, Debian 软件包（ deb ）， rpm ， freebsd ， pacman ， p5p ， apk 。<br>Windows: nsis （安装程序）， nsis-web （网络安装程序）， portable （无需安装的便携式应用程序），AppX（Windows 商店），MSI，Squirrel.Windows。</p>
-<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>使用 electron.resourcesPath 获取真实路径<br>在主进程中通过 app.getAppPath() 或 process.resourcesPath 获取资源路径：</p>
-<p>javascript</p>
-<pre><code>const { app, process } = require('electron');
-const path = require('path');
-const pythonScriptPath = path.join(process.resourcesPath, 'python_scripts/your_script.py');
-</code></pre>
-<p>排除 asar 打包<br>在 electron-builder 配置中将 Python 脚本标记为非 asar 资源：</p>
-<p>json</p>
-<pre><code>// package.json
-"build": {
-  "asar": true,
-  "files": [
-    "!python_scripts/**/*"  // 排除 Python 脚本
-  ],
-  "extraResources": [
-    "python_scripts/**/*"    // 复制到资源目录
-  ]
-}
-</code></pre>
-<p>二、环境变量缺失<br>现象分析：<br>打包后的应用可能丢失系统环境变量（如 PATH 中的 Python/Appium 路径）。</p>
-<p>解决方案：<br>显式指定二进制路径<br>在调用 Python 或 Appium 时使用绝对路径：</p>
-<p>javascript</p>
-<pre><code>const { spawn } = require('child_process');
-const pythonProcess = spawn('/usr/local/bin/python', [pythonScriptPath]);
-</code></pre>
-<p>动态注入环境变量<br>在主进程中设置环境变量：<br>const env = {<br>  …process.env,<br>  PATH: <code>${process.env.PATH}:/usr/local/bin</code><br>};<br>const pythonProcess = spawn(‘python’, [scriptPath], { env });<br>三、子进程生命周期管理<br>现象分析：<br>未正确处理子进程的 I/O 或错误事件可能导致进程静默退出。</p>
-<p>解决方案：<br>强制处理 stdout/stderr 并监听错误事件：</p>
-<p>javascript</p>
-<pre><code>const pythonProcess = spawn('python', [scriptPath]);
-
-pythonProcess.stdout.on('data', (data) =&gt; {
-  console.log(`stdout: ${data}`);
-});
-
-pythonProcess.stderr.on('data', (data) =&gt; {
-  console.error(`stderr: ${data}`);
-});
-pythonProcess.on('error', (err) =&gt; {
-  console.error('Failed to start subprocess:', err);
-});
-
-pythonProcess.on('close', (code) =&gt; {
-  console.log(`子进程退出，代码：${code}`);
-});
-</code></pre>
-<p>四、权限问题<br>现象分析：<br>打包后的应用可能因权限不足无法执行脚本或启动服务。<br>解决方案：<br>赋予脚本可执行权限<br>在打包后通过 chmod 修改权限：</p>
-<p>javascript</p>
-<pre><code>const { chmod } = require('fs');
-chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
-以管理员权限运行应用
-在 electron-builder 中配置请求管理员权限（仅限必要场景）：
-</code></pre>
-<p>json</p>
-<pre><code>"build": {
-  "win": {
-    "requestedExecutionLevel": "requireAdministrator"
-  }
-</code></pre>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%BA%94%E7%94%A81.webp" alt="截图1"></p>
-<p><img src="https://bigworldxld.github.io/picx-images-hosting/images/%E5%BA%94%E7%94%A82.webp" alt="截图2"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2-页面操作助手-PageOpertionHelper-py"><a href="#3-2-页面操作助手-PageOpertionHelper-py" class="headerlink" title="3.2 页面操作助手 (PageOpertionHelper.py)"></a>3.2 页面操作助手 (PageOpertionHelper.py)</h4><ul>
+<li>封装常用的页面操作方法</li>
+<li>支持OCR文本识别</li>
+<li>支持图像对比定位</li>
+</ul>
+<p>主要函数:<br>def init_page(): # 初始化页面<br>def move_drown(): # 向下滑动<br>def move_up(): # 向上滑动<br>def click_element(): # 点击元素<br>def getImage_step(): # 截图<br>def el_images_find_clk(): # 图像识别点击<br>def check_pageExprired(): # 检查页面过期</p>
+<h2 id="元素查看器"><a href="#元素查看器" class="headerlink" title="元素查看器"></a>元素查看器</h2><p>元素检查器：<a target="_blank" rel="noopener" href="https://inspector.appiumpro.com/">https://inspector.appiumpro.com/</a></p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>npm install -g express</p>
+<p>需要安装 ast-parser 包来更好地解析 Python 代码</p>
+<h2 id="重置依赖"><a href="#重置依赖" class="headerlink" title="重置依赖"></a>重置依赖</h2><p>首先删除 node_modules 文件夹（如果存在）：<br>rm -rf node_modules<br>删除 package-lock.json（如果存在）：<br>rm package-lock.json<br>清除 npm 缓存：<br>npm cache clean –force<br>重新安装依赖：<br>npm install<br>启动应用：<br>npm start</p>
+<h2 id="设置gthub"><a href="#设置gthub" class="headerlink" title="设置gthub"></a>设置gthub</h2><p>启用GitHub Pages：</p>
+<ul>
+<li>进入GitHub仓库设置,找到”Pages”选项,在”Source”部分选择”gh-pages”分支</li>
+<li>保存设置<br>验证部署：等待GitHub Actions完成部署（可以在Actions标签页查看进度）</li>
+</ul>
+<p>部署完成后，访问 https://<your-github-username>.github.io/<repository-name></repository-name></your-github-username></p>
+<p>如果是个人站点，直接访问 https://<your-github-username>.github.io</your-github-username></p>
+<ul>
+<li><p>注意事项：<br>确保仓库设置中的Actions权限已启用,第一次部署可能需要等待几分钟,如果遇到问题，检查+</p>
+</li>
+<li><p>GitHub Actions日志<br>然后你需要在 GitHub 仓库设置中进行以下配置：<br>a. 进入你的仓库设置（Settings）<br>b. 点击左侧菜单的 “Pages”<br>c. 在 “Build and deployment” 部分：<br>Source: 选择 “GitHub Actions”<br>d. 回到左侧菜单，点击 “Actions” -&gt; “General”<br>e. 在 “Workflow permissions” 部分：<br>选择 “Read and write permissions”<br>勾选 “Allow GitHub Actions to create and approve pull requests”<br>f. 点击 “Save” 保存更改</p>
+</li>
+</ul>
+<h2 id="添加token"><a href="#添加token" class="headerlink" title="添加token"></a>添加token</h2><ol>
+<li>登录 GitHub</li>
+<li>点击右上角头像 -&gt; Settings</li>
+<li>滚动到底部，点击左侧菜单 “Developer settings”</li>
+<li>点击左侧菜单 “Personal access tokens” -&gt; “Tokens (classic)”</li>
+<li>点击 “Generate new token” -&gt; “Generate new token (classic)”</li>
+<li>设置 Token：</li>
+</ol>
+<ul>
+<li>Note: 填写描述，如 “Appium Control Token”</li>
+<li>Expiration: 选择过期时间，建议选择 “No expiration”</li>
+<li>勾选以下权限：repo (完整的仓库访问权限)workflow (允许管理 GitHub Actions 工作流)</li>
+<li>点击 “Generate token”<br>立即复制生成的 token（这是唯一一次看到完整 token 的机会）<br>将 Token 添加到仓库的 Secrets：</li>
+</ul>
+<ol start="7">
+<li>进入你的仓库</li>
+</ol>
+<ul>
+<li>点击 “Settings” 标签</li>
+<li>点击左侧 “Secrets and variables” -&gt; “Actions”</li>
+<li>点击 “New repository secret”</li>
+<li>添加 secret：Name: APPIUM_CONTROL_TOKEN；Value: 粘贴刚才复制的 token</li>
+<li>点击 “Add secret”<h2 id="杀进程"><a href="#杀进程" class="headerlink" title="杀进程"></a>杀进程</h2>Windows下<br>netstat -ano | findstr :4723<br>taskkill /F /PID ${PID}<br>Linux/mac下<br>lsof -i:4723 | grep LISTEN<br>kill -9 ${pid}</li>
+</ul>
+<h2 id="内网穿透ngork"><a href="#内网穿透ngork" class="headerlink" title="内网穿透ngork"></a>内网穿透ngork</h2><p><a target="_blank" rel="noopener" href="https://dashboard.ngrok.com/get-started/setup/windows">登录ngork</a><br>下载对应系统的执行文件<br>运行即可：<br>ngrok http –url=hedgehog-pleasing-hound.ngrok-free.app 8081</p>
 
                 
             </div>
@@ -922,10 +875,6 @@ chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
                             
                                 <a href="/tags/node-js/">
                                     <span class="chip bg-color">node.js</span>
-                                </a>
-                            
-                                <a href="/tags/eletron/">
-                                    <span class="chip bg-color">eletron</span>
                                 </a>
                             
                         </div>
@@ -1103,12 +1052,12 @@ chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/01/31/6571.html">
+                <a href="/2025/02/15/6571.html">
                     <div class="card-image">
                         
-                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/appium简化操作平台.webp" class="responsive-img" alt="基于node.js的appium简化操作平台">
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/eletron.webp" class="responsive-img" alt="第一个桌面应用">
                         
-                        <span class="card-title">基于node.js的appium简化操作平台</span>
+                        <span class="card-title">第一个桌面应用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1119,7 +1068,7 @@ chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-01-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-15
                         </span>
                         <span class="publish-author">
                             
@@ -1142,6 +1091,10 @@ chmod(pythonScriptPath, 0o755, (err) =&gt; { /* ... */ });
                     
                     <a href="/tags/node-js/">
                         <span class="chip bg-color">node.js</span>
+                    </a>
+                    
+                    <a href="/tags/eletron/">
+                        <span class="chip bg-color">eletron</span>
                     </a>
                     
                 </div>
