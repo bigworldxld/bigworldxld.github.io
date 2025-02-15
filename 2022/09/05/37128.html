@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="简单k线图买卖策略可视化, blogs,互联网,测试,大数据,生活,记录">
     <meta name="description" content="记录最近用到的金融买卖策略框架，在给定时间段k线图上叠加显示买点、卖点、收益等信息，用pyecharts可视化标注符合业务逻辑的买点和买点信息以及收益率。
-前提事先可了解pyecharts官网
-由于在K 线图 Candlestick上，要标">
+前提事先可了解pyecharts官网pyecharts官网1由于在K 线图 Cand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -675,7 +674,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    284
+                    285
                 </div>
                 
 
@@ -706,8 +705,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>记录最近用到的金融买卖策略框架，在给定时间段k线图上叠加显示买点、卖点、收益等信息，用pyecharts可视化标注符合业务逻辑的买点和买点信息以及收益率。</p>
-<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>事先可了解<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/">pyecharts官网</a></p>
-<p>由于在<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/Candlestick/README">K 线图 Candlestick</a>上，要标注买卖点，收益率等等信息，是不连续的，需要再上面叠加<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/EffectScatter/README">涟漪散点图 EffectScatter</a>,使用overlap方法叠加两种图层，详细代码如下：</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>事先可了解<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/">pyecharts官网</a><br><a target="_blank" rel="noopener" href="https://pyecharts.org/#/zh-cn/intro">pyecharts官网1</a><br>由于在<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/Candlestick/README">K 线图 Candlestick</a>上，要标注买卖点，收益率等等信息，是不连续的，需要再上面叠加<a target="_blank" rel="noopener" href="https://gallery.pyecharts.org/#/EffectScatter/README">涟漪散点图 EffectScatter</a>,使用overlap方法叠加两种图层，详细代码如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">.</span>add_xaxis<span class="token punctuation">(</span>buy_date<span class="token punctuation">)</span>
             <span class="token punctuation">.</span>add_yaxis<span class="token punctuation">(</span><span class="token string">"买入操作"</span><span class="token punctuation">,</span> buy_price<span class="token punctuation">,</span> symbol<span class="token operator">=</span>SymbolType<span class="token punctuation">.</span>ARROW<span class="token punctuation">,</span>tooltip_opts<span class="token operator">=</span>opts<span class="token punctuation">.</span>TooltipOpts<span class="token punctuation">(</span> formatter<span class="token operator">=</span><span class="token string">"{a} &lt;br/>时间：{b}&lt;br/>详情：{c}"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span>add_xaxis<span class="token punctuation">(</span>sell_date<span class="token punctuation">)</span>
