@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-03-02T09:58:41.496Z</updated>
+  <updated>2025-03-15T04:19:49.535Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日常问题笔记5</title>
+    <link href="https://bigworldxld.github.io/2025/03/15/37187.html"/>
+    <id>https://bigworldxld.github.io/2025/03/15/37187.html</id>
+    <published>2025-03-15T03:24:02.000Z</published>
+    <updated>2025-03-15T04:19:49.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP 主机头攻击</title>
+    <link href="https://bigworldxld.github.io/2025/03/15/54805.html"/>
+    <id>https://bigworldxld.github.io/2025/03/15/54805.html</id>
+    <published>2025-03-15T02:24:02.000Z</published>
+    <updated>2025-03-15T04:20:30.033Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="http" scheme="https://bigworldxld.github.io/tags/http/"/>
+    
+    <category term="host" scheme="https://bigworldxld.github.io/tags/host/"/>
+    
+  </entry>
   
   <entry>
     <title>ai提示词设计</title>
@@ -231,11 +283,11 @@
   </entry>
   
   <entry>
-    <title>日常问题随记</title>
+    <title>日常问题笔记4</title>
     <link href="https://bigworldxld.github.io/2024/12/05/3128.html"/>
     <id>https://bigworldxld.github.io/2024/12/05/3128.html</id>
     <published>2024-12-05T03:24:02.000Z</published>
-    <updated>2025-01-19T07:03:34.614Z</updated>
+    <updated>2025-03-15T03:25:29.512Z</updated>
     
     
       
@@ -443,11 +495,11 @@
   </entry>
   
   <entry>
-    <title>日常问题杂记</title>
+    <title>日常问题笔记3</title>
     <link href="https://bigworldxld.github.io/2024/10/19/40847.html"/>
     <id>https://bigworldxld.github.io/2024/10/19/40847.html</id>
     <published>2024-10-19T14:24:02.000Z</published>
-    <updated>2024-11-16T12:48:40.456Z</updated>
+    <updated>2025-03-15T03:25:02.466Z</updated>
     
     
       
@@ -1014,11 +1066,11 @@
   </entry>
   
   <entry>
-    <title>测试日常笔记</title>
+    <title>日常问题笔记2</title>
     <link href="https://bigworldxld.github.io/2024/03/01/44020.html"/>
     <id>https://bigworldxld.github.io/2024/03/01/44020.html</id>
     <published>2024-03-01T14:52:51.000Z</published>
-    <updated>2024-10-21T14:49:10.456Z</updated>
+    <updated>2025-03-15T03:24:41.800Z</updated>
     
     
       
@@ -1089,11 +1141,11 @@
   </entry>
   
   <entry>
-    <title>日常问题笔记</title>
+    <title>日常问题笔记1</title>
     <link href="https://bigworldxld.github.io/2023/12/03/49911.html"/>
     <id>https://bigworldxld.github.io/2023/12/03/49911.html</id>
     <published>2023-12-03T10:36:16.000Z</published>
-    <updated>2024-10-21T14:49:10.425Z</updated>
+    <updated>2025-03-15T03:24:08.843Z</updated>
     
     
       
