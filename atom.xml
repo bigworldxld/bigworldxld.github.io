@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-03-15T04:19:49.535Z</updated>
+  <updated>2025-03-23T08:07:42.817Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日常问题笔记6</title>
+    <link href="https://bigworldxld.github.io/2025/03/23/36867.html"/>
+    <id>https://bigworldxld.github.io/2025/03/23/36867.html</id>
+    <published>2025-03-23T02:24:02.000Z</published>
+    <updated>2025-03-23T08:07:42.817Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="笔记" scheme="https://bigworldxld.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="开源框架" scheme="https://bigworldxld.github.io/tags/%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>日常问题笔记5</title>
