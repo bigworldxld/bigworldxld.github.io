@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="blogs,互联网,测试,大数据,生活,记录">
-    <meta name="description" content="我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。">
+    <meta name="keywords" content="Deepseek提示词技巧, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="Deepseek提示词技巧模型基础模型（V3）：通用模型（2024.12），高效便捷，适用于绝大多数任务
+深度思考（R1）：推理模型，复杂推理和深度分析任务，如数理逻辑推理和编程代码，“ ”任务 
+联网搜索：RAG（检索增强生成）
+ 基础模">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>读序</title>
+    <title>Deepseek提示词技巧 | 读序</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -498,721 +501,752 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                读序
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "亲情是序言，友情是目录，爱、恨、恋、想是感情故事的主题。",
-                            
-                                "Affection is the preface, friendship is the catalogue, and love, hate, love and longing are the themes of emotional stories",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
 </script>
 
 
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://pic.yupi.icu/yuyi/1739500038914-7946aa0b-99c8-461e-968c-e5d74908cf7a.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Deepseek提示词技巧</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<main class="content">
 
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/deepseek/">
+                                <span class="chip bg-color">deepseek</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-03-30
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Deepseek提示词技巧"><a href="#Deepseek提示词技巧" class="headerlink" title="Deepseek提示词技巧"></a>Deepseek提示词技巧</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a><strong>模型</strong></h3><p>基础模型（V3）：通用模型（2024.12），高效便捷，适用于绝大多数任务</p>
+<p>深度思考（R1）：推理模型，复杂推理和深度分析任务，如数理逻辑推理和编程代码，“ ”任务 </p>
+<p>联网搜索：RAG（检索增强生成）</p>
+<p> 基础模型（V3）：“过程-结果”清晰（指令） </p>
+<p>深度思考（R1）：目标清晰，结果可以模糊（推理）</p>
+<p> 推理模型                                     </p>
+<p> •   提示语更简洁， 只需明确任务目标和  需求（因其已内化推理逻辑） </p>
+<p> •   无需逐步指导， 模型自动生成结构化  推理过程（若强行拆解步骤， 反而可  能限制其能力） </p>
+<p>  通用模型</p>
+<p>•   需显式引导推理步骤（如通过CoT提示） ， 否则可能跳过关键逻辑 </p>
+<p>•   依赖提示语补偿能力短板（如要求分  步思考 、提供示例）</p>
+<p>提示语 (Prompt)   </p>
+<p>是用户输入给Al 系统的指令或信息， 用于引导Al生成特定的输出或执行特定的任务。简单来说，提 示语 就是我们与Al“对话”时所使用的语言，它可以是一个简单 的问 题，一段详细的指令，也可以是一个复杂的任务描述。</p>
+<p> 提示语的基本结构包括指令、上下文和期望</p>
+<p> • 指令 (Instruction):    这是提示语的核心，明确告诉Al你希 望 它执行什么任务。 </p>
+<p>• 上下文 (Context):    为Al提供背景信息，帮助它更准确地理 解和执行任务 。 </p>
+<p>• 期望 (Expectation):    明确或隐含地表达你对Al输出的要求 和 预 期 。</p>
+<h3 id="RTGO提示语结构"><a href="#RTGO提示语结构" class="headerlink" title="RTGO提示语结构"></a><strong>RTGO</strong>提示语结构</h3><p> Role（角色） 定义AI的角色： 经验丰富的数据分析师 具备十年销售经验的SaaS系统商务 ……</p>
+<p> Task（任务） 具体任务描述： 写一份关于XXX活动的小红书宣推文案 写一份关于XX事件的舆论分析报告 （XX活动/事件相关背景信息如下……） </p>
+<p>Goal（目标） 期望达成什么目标效果： 通过该文案吸引潜在客户，促成消 费……通过该报告为相关企业管理 者提供……策略支撑 </p>
+<p>Objective（操作要 求） 字数要求、段落结构、用词风格</p>
+<h3 id="“全维度智能体提示框架”"><a href="#“全维度智能体提示框架”" class="headerlink" title="“全维度智能体提示框架”"></a>“全维度智能体提示框架”</h3><p>  (Comprehensive Agent Prompting Framework, CAP Framework)</p>
+<p>角色 +功能 + 技能 + 约束 + 工作流程 + 输出格式 </p>
+<p>核心层：1.身份定义 (Identity) •角色属性 •专业背景 •交互特征 </p>
+<p>执行层:  2. 能力矩阵 (Capability Matrix) •功能范围 •专业技能 •决策权限 </p>
+<p>约束层:  3. 边界系统 (Boundary System) •伦理规范 •安全限制 •资源约束 </p>
+<p>操作层:  4. 工作引擎 (Operation Engine) •输入处理 •执行流程 •输出规范</p>
+<p>利用DeepSeek实现人机高效协作？</p>
+<p> 基本操作技巧+人机协作意识+能动意识 +边界意识</p>
+<h3 id="什么是AI幻觉？"><a href="#什么是AI幻觉？" class="headerlink" title="什么是AI幻觉？"></a>什么是AI幻觉？</h3><p>学术：指模型生成与事实不符、逻辑断裂或脱离上下文的内容，本质是统计概率驱动的“合理猜测” </p>
+<p>说人话：一本正经地胡说八道 </p>
+<p>事实性幻觉：指模型生成的内容与可验证的现实世界事实不一致 </p>
+<p>忠实性幻觉：指模型生成的内容与用户的指令或上下文不一致</p>
+<p>AI为什么会产生幻觉？</p>
+<p>  数据偏差：训练数据中的错误或片面性被模型放大（如医学领域过时论文导致错误结论）</p>
+<p>  泛化困境：模型难以处理训练集外的复杂场景（如南极冰层融化对非洲农业的影响预测） </p>
+<p> 知识固化：模型过度依赖参数化记忆，缺乏动态更新能力（如2023年后的事件完全虚构） </p>
+<p> 意图误解：用户提问模糊时，模型易“自由发挥”（如“介绍深度学习”可能偏离实际需求</p>
+<p>音乐为什么没有幻觉？</p>
+<p>  音乐的主观性和多样性：音乐是一种高度主观的艺术形式，人们对音乐的审美和理解有很大的 差异。一段音乐是否“合理”或“正确”，往往取决于文化背景、个人偏好和上下文  音乐的抽象性：音乐本质上是抽象的，不像文本或图像那样直接对应现实世界的具体事物。文 本中的“幻觉”通常是因为模型生成的内容与事实不符，而音乐本身往往缺少明确的事实基础 </p>
+<p> 音乐的可感知性差异：音乐是时间性的艺术形式，即使某些部分听起来不协调或不符合预期， 它们也可能在整个作品的上下文中变得合理。相比之下，文本或图像中的问题往往是瞬间可见 的，容易引起注意</p>
+<p>  音乐“幻觉”的潜在表现：逻辑断裂的歌词、结构混乱的旋律、风格混杂的编曲</p>
+<h3 id="AI幻觉的潜在风险"><a href="#AI幻觉的潜在风险" class="headerlink" title="AI幻觉的潜在风险"></a><strong>AI</strong>幻觉的潜在风险</h3><p>  信息污染风险：由于DeepSeek的低门槛和普及度高，大量AI生成内容涌入中文互联网，加剧 了虚假信息传播的“雪球效应”，甚至污染下一代模型训练数据 </p>
+<p> 信任危机：普通用户难以辨别AI内容的真实性，可能对医疗建议、法律咨询等专业场景的可 靠性产生长期怀疑</p>
+<p>  控制欠缺：DeepSeek的对齐工作较其他闭源大模型有所欠缺，其开源特性也允许使用者随意 使用，可能会成为恶意行为的工具</p>
+<p>  安全漏洞：若错误信息被用于自动化系统（如金融分析、工业控制），可能引发连锁反应</p>
+<h3 id="AI幻觉评测"><a href="#AI幻觉评测" class="headerlink" title="AI幻觉评测"></a>AI幻觉评测</h3><p> 测试1：随机生成100条通用提示语，模仿普通用户的真实使用场景，获取大模型回答后 进行人工判断与标注，并进行交叉验证</p>
+<p>事实性幻觉评测  测试2：随机抽取300道事实性幻觉测试题，涵盖健康、科学、历史、文化、音乐等等多 个领域，获取大模型回答后与正确答案比对，人工标注幻觉类型，并进行交叉验证</p>
+<h3 id="应对AI幻觉的三种方式"><a href="#应对AI幻觉的三种方式" class="headerlink" title="应对AI幻觉的三种方式"></a>应对AI幻觉的三种方式</h3><p> ”请使用联网功能“、联网功能选项</p>
+<p>双AI验证/大模型协作 例如，利用DeepSeek生成答案后，再应用其他大模型进行审查，相互监督，交叉验证</p>
+<p> 提示词工程 </p>
+<p>• 知识边界限定：通过时空维度约束降低虚构可能性（本质：约束大模型）</p>
+<ol>
+<li>时间锚定法：“基于2023年之前的公开学术文献，分步骤解释量子纠缠现象” → 规避未来时态虚构 </li>
+<li> 知识锚定法：”基于《中国药典》回答，若信息不明确请注明“暂无可靠数据支持” →限定权威来源 </li>
+<li>领域限定符：“作为临床医学专家，请列举FDA批准的5种糖尿病药物” → 添加专业身份限定 </li>
+<li>置信度声明：“如果存在不确定性，请用[推测]标签标注相关陈述“ → 减少绝对化错误断言 </li>
+<li>上下文提示：“根据《2024全球能源转型报告》（国际能源署，2024年1月发布）显示：”2030年 光伏发电成本预计降至0.02美元/千瓦时，但储能技术突破仍是普及瓶颈。“请基于此数据，分析中国 西部光伏基地发展的三个关键挑战，并标注每个挑战与原文结论的逻辑关联。 → 嵌入权威数据片段 </li>
+<li>生成参数协同控制：“请以temperature=0.3的严谨模式，列举2024年《柳叶刀》发表的传染病研究”</li>
+</ol>
+<p> 对抗性提示：强制暴露推理脆弱点，用户可见潜在错误路径（本质：大模型自我审查） 1. 植入反幻觉检测机制： “请用以下格式回答：- 主要答案（严格基于公开可验证信息）- [反 事实检查] 部分（列出可能导致此答案错误的3种假设)“</p>
+<p>2.预设验证条件，迫使模型交叉检查信息：“请先回答“量子纠缠能否证明灵魂存在？”，然 后从以下角度验证答案的可靠性：  1. 物理学界主流观点；  2. 近五年相关论文数量；  3.  是否存在可重复实验证据。 ” </p>
+<ol start="3">
+<li>链式验证：请完成以下验证链：1. 陈述观点：______2. 列出支撑该观点的三个权威数据源 3. 检查每个数据源是否存在矛盾信息4. 最终结论（标注可信度等级）</li>
+</ol>
+<h3 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h3><p>缺乏迭代陷阱：期待一次性完美结果 </p>
+<p>陷阱症状：</p>
+<p> ▪ 过度复杂的初始提示语 </p>
+<p>▪ 对初次输出结果不满意就放弃 </p>
+<p>▪ 缺乏对AI输出的分析和反馈</p>
+<p> 应对策略： </p>
+<p>▪ 采用增量方法： 从基础提示语开始， 逐步添加细节和要求 。</p>
+<p> ▪ 主动寻求反馈： 要求AI对其输出进行自我评估， 并提供改进建议 。 </p>
+<p>▪ 准备多轮对话： 设计一系列后续问题， 用于澄清和改进初始输出 。 </p>
+<p>过度指令和模糊指令陷阱： 当细节淹没重点或意图不明确 </p>
+<p>陷阱症状： </p>
+<p>▪ 提示语异常冗长或过于简短 </p>
+<p>▪ AI输出与期望严重不符</p>
+<p> ▪ 频繁需要澄清或重新解释需求 </p>
+<p>应对策略：</p>
+<p> ▪ 平衡详细度： 提供足够的上下文， 但避免过多限制 。 </p>
+<p>▪ 明确关键点： 突出最重要的2-3个要求 。 </p>
+<p>▪ 使用结构化格式： 采用清晰的结构来组织需求 。 </p>
+<p>▪ 提供示例： 如果可能， 给出期望输出的简短示例</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2025/03/30/57744.html">https://bigworldxld.github.io/2025/03/30/57744.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/deepseek/">
+                                    <span class="chip bg-color">deepseek</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/12/12/6063.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/python%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98.jpg" class="responsive-img" alt="python基础面试题">
-                            
-                            <span class="card-title">python基础面试题</span>
-                        </div>
-                    </a>
+</div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                *1、一行代码实现1–100之和*利用sum()函数求和
-
-*2、如何在一个函数内部修**改全局变量*
-函数内部global声明 修改全局变量
-
-*3、列出5个python标准库*
-os：提供了不少与操作系统相关联的函数
-sys:  通常用
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/12/11/24233.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/SQL%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%98.jpg" class="responsive-img" alt="SQL数据分析题">
-                            
-                            <span class="card-title">SQL数据分析题</span>
-                        </div>
-                    </a>
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                题目1 找出每个部门工资第二高的员工现有一张公司员工信息表employee，表中包含如下4个字段。
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
 
-employee_id（员工ID）：VARCHAR。
-employee_name（员工姓名）：VARCHAR。
-employee_sala
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/database/" class="post-category">
-                                    database
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SQL/">
-                            <span class="chip bg-color">SQL</span>
-                        </a>
-                        
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
-                    
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/12/07/20317.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/Python%E7%89%B9%E6%80%A7.jpg" class="responsive-img" alt="实用的Python 特性">
-                            
-                            <span class="card-title">实用的Python 特性</span>
-                        </div>
-                    </a>
+        </div>
+    </div>
+</div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1 一行 For 循环for 循环是一个多行语句，但是在 Python 中，我们可以使用列表推导式方法在一行中编写 for 循环。以过滤小于250的值为例
-#For循环在一行
-mylist = [200, 300, 400, 500]
-#正
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/11/30/32795.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/mysql%E6%8A%80%E5%B7%A7.jpg" class="responsive-img" alt="SQL查询技巧">
-                            
-                            <span class="card-title">SQL查询技巧</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1.列转行导入数据
-DROP TABLE IF EXISTS `t_student`;
-CREATE TABLE `t_student` (
-  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-30
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/database/" class="post-category">
-                                    database
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/mysql/">
-                            <span class="chip bg-color">mysql</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/11/28/48175.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/sql%E4%BC%98%E5%8C%96.jpg" class="responsive-img" alt="写SQL的30条注意">
-                            
-                            <span class="card-title">写SQL的30条注意</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、查询SQL尽量不要使用select *，而是select具体字段。反例子：
-select * from employee;
-
-正例子：
-select id，name from employee;
-
-理由：
-
-只取需要的字段，节省资源、减
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/database/" class="post-category">
-                                    database
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SQL/">
-                            <span class="chip bg-color">SQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/11/07/37458.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/html2canvas.jpg" class="responsive-img" alt="使用html转canvas并下载图片">
-                            
-                            <span class="card-title">使用html转canvas并下载图片</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                单一图片转换html2canvas.js可以将html代码转换为一个canvas，我们可以直接下载这个canvas来实现将浏览器一部分转为图片并下载，很多业务场景下的切图功能是多次的.
-将已知的某个div直接切成图片并下载图片
-&lt;!D
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/front-end/" class="post-category">
-                                    front-end
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/html/">
-                            <span class="chip bg-color">html</span>
-                        </a>
-                        
-                        <a href="/tags/javascript/">
-                            <span class="chip bg-color">javascript</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/11/05/50078.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/Easyexcel.jpg" class="responsive-img" alt="使用Easyexcel导入导出多个sheet">
-                            
-                            <span class="card-title">使用Easyexcel导入导出多个sheet</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                EasyExcel对于导入导出的操作十分简洁
-对于多个sheet且内容不一致的导入导出
-1、引入 easyExcel依赖&lt;dependency>
-&lt;groupId>com.alibaba&lt;/groupId>
-&lt;art
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Easyexcel/">
-                            <span class="chip bg-color">Easyexcel</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/11/33060.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.gif" class="responsive-img" alt="动态规划计算">
-                            
-                            <span class="card-title">动态规划计算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是动态规划动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。
-所以动态规划中每一个状态一定是由上一个状态推导出来的，这一点就区分于贪心，贪心没有状态推导，而是从局部直
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/DP/">
-                            <span class="chip bg-color">DP</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/04/16497.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%AF%E5%8A%A8%E5%99%A8.jpg" class="responsive-img" alt="练习springboot自定义starter">
-                            
-                            <span class="card-title">练习springboot自定义starter</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1.自定义启动器hello-spring-boot-starter（启动器）hello-spring-boot-starter-autoconfigure（自动配置包）
-1.1 创建一个空项目
-1.2 在空项目的基础上，添加maven空项目
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/springboot/">
-                            <span class="chip bg-color">springboot</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/14464.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/hivesql_sparksql.jpg" class="responsive-img" alt="Hive-sql,spark sql,sql区别">
-                            
-                            <span class="card-title">Hive-sql,spark sql,sql区别</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Hive-sql和sql的区别是什么？区别：1、Hive-sql不支持等值连接，而sql支持；2、Hive-sql不支持“Insert into 表 Values()”、UPDATA、DELETE操作，而sql支持；3、Hive-sql不支
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/database/" class="post-category">
-                                    database
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/hive/">
-                            <span class="chip bg-color">hive</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/27/51855.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95.gif" class="responsive-img" alt="贪心算法">
-                            
-                            <span class="card-title">贪心算法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是贪心贪心的本质是选择每一阶段的局部最优，从而达到全局最优。
-贪心算法一般分为如下四步：
-
-将问题分解为若干个子问题
-找出适合的贪心策略
-求解每一个子问题的最优解
-将局部最优解堆叠成全局最优解
-
-贪心没有套路，说白了就是常识性推导加上举
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">贪心算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/21/63325.html">
-                        <div class="card-image">
-                            
-                            <img src="/images/JUC.jpg" class="responsive-img" alt="JUC高并发入门">
-                            
-                            <span class="card-title">JUC高并发入门</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、线程基础1、Java多线程相关概念1、进程是程序的⼀次执⾏，是系统进⾏资源分配和调度的独⽴单位，每⼀个进程都有它⾃⼰的内存空间和系统资源
-进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JUC/">
-                            <span class="chip bg-color">JUC</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
             
         </div>
-    </article>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/03/30/57744.html">
+                    <div class="card-image">
+                        
+                        <img src="https://pic.yupi.icu/yuyi/1739500038914-7946aa0b-99c8-461e-968c-e5d74908cf7a.png" class="responsive-img" alt="Deepseek提示词技巧">
+                        
+                        <span class="card-title">Deepseek提示词技巧</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/deepseek/">
+                        <span class="chip bg-color">deepseek</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/03/23/36867.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg" class="responsive-img" alt="日常问题笔记6">
+                        
+                        <span class="card-title">日常问题笔记6</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">开源框架</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
 
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/6/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 13</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/8/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
