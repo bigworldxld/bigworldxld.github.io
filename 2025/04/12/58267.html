@@ -717,24 +717,24 @@ t2<span class="token punctuation">.</span>join<span class="token punctuation">(<
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
 </code></pre>
 <p>代码封装</p>
-<pre><code>import unittest
-from concurrent.futures.thread import ThreadPoolExecutor
-from case_test.test_case import TestLogin, TestRegister
-def run_test(suite, thread_count=1):
-res = unittest.TestResult()
-# 创建一个线程池，执行测试用例
-with ThreadPoolExecutor(max_workers=thread_count) as ts:
-    for case in suite:
-    # 将用例的执行任务提交到线程池中
-    ts.submit(case.run, result=res)
-    return res
-if __name__ == '__main__':
-    # 创建两个套件
-    suite1 = unittest.defaultTestLoader.loadTestsFromTestCase(TestRegister)
-    # 给根据套件的数量，每个套件创建一个线程去执行
-    res = run_test(suite=suite1, thread_count=3)
-    # 打印测试结果
-    print(res)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>thread <span class="token keyword">import</span> ThreadPoolExecutor
+<span class="token keyword">from</span> case_test<span class="token punctuation">.</span>test_case <span class="token keyword">import</span> TestLogin<span class="token punctuation">,</span> TestRegister
+<span class="token keyword">def</span> <span class="token function">run_test</span><span class="token punctuation">(</span>suite<span class="token punctuation">,</span> thread_count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+res <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestResult<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 创建一个线程池，执行测试用例</span>
+<span class="token keyword">with</span> ThreadPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span>thread_count<span class="token punctuation">)</span> <span class="token keyword">as</span> ts<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> case <span class="token keyword">in</span> suite<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 将用例的执行任务提交到线程池中</span>
+    ts<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>case<span class="token punctuation">.</span>run<span class="token punctuation">,</span> result<span class="token operator">=</span>res<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建两个套件</span>
+    suite1 <span class="token operator">=</span> unittest<span class="token punctuation">.</span>defaultTestLoader<span class="token punctuation">.</span>loadTestsFromTestCase<span class="token punctuation">(</span>TestRegister<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 给根据套件的数量，每个套件创建一个线程去执行</span>
+    res <span class="token operator">=</span> run_test<span class="token punctuation">(</span>suite<span class="token operator">=</span>suite1<span class="token punctuation">,</span> thread_count<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 打印测试结果</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
 </code></pre>
 <p>多线程执行如何生成测试报告呢？目前 unittest 生成测试报告使用的几个开源的库，比如 BeautifulReport，HTMLTestRunner 都不支持多线程,但是可以自己定制化改造呢，实现多线程</p>
 <p><strong>unittestreport 多线程执行用例</strong></p>
@@ -1043,17 +1043,16 @@ if __name__ == '__main__':
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/04/12/58267.html">
+                <a href="/2025/04/13/40175.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg" class="responsive-img" alt="多线程执行测试用例">
+                        <img src="https://docs.scriptcat.org/img/logo.png" class="responsive-img" alt="脚本猫">
                         
-                        <span class="card-title">多线程执行测试用例</span>
+                        <span class="card-title">脚本猫</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1063,27 +1062,26 @@ if __name__ == '__main__':
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-04-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/analysis/" class="post-category">
-                                    analysis
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/ScriptCat/">
+                        <span class="chip bg-color">ScriptCat</span>
                     </a>
                     
                 </div>
