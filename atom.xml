@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-04-26T14:33:16.384Z</updated>
+  <updated>2025-04-26T14:51:37.741Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://bigworldxld.github.io/2025/04/26/38149.html"/>
     <id>https://bigworldxld.github.io/2025/04/26/38149.html</id>
     <published>2025-04-26T03:24:02.000Z</published>
-    <updated>2025-04-26T14:33:16.384Z</updated>
+    <updated>2025-04-26T14:51:37.741Z</updated>
     
     
       
@@ -40,6 +40,8 @@
     <category term="LLM" scheme="https://bigworldxld.github.io/tags/LLM/"/>
     
     <category term="MCP" scheme="https://bigworldxld.github.io/tags/MCP/"/>
+    
+    <category term="smithery" scheme="https://bigworldxld.github.io/tags/smithery/"/>
     
   </entry>
   
