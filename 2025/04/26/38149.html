@@ -685,14 +685,14 @@ MCP（模型控制面板）">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    10 分
                 </div>
                 
 
@@ -782,12 +782,23 @@ MCP（模型控制面板）">
 <p> <strong>MCP的通信机制:SSE方式</strong><br>场景<br>SSE方式适用于客户端和服务器位于不同物理位置的场景，适用于实时数据更新、消息推送、轻量级监控和实时日志流等场景对于分布式或远程部署的场景，基于 HTTP 和 SSE 的传输方式则更为合适<br>优点<br>配置方式非常简单，基本上就一个链接就行，直接复制他的链接填上就行</p>
 <h3 id="安装uvx环境"><a href="#安装uvx环境" class="headerlink" title="安装uvx环境"></a>安装uvx环境</h3><p>python</p>
 <p>方法1：pip install uv<br>方法2：<br>powershell -ExecutionPolicy ByPass -c “irm <a target="_blank" rel="noopener" href="https://astral.sh/uv/install.ps1">https://astral.sh/uv/install.ps1</a> | iex “<br>uv –version<br>uv –help</p>
-<p>TypeScript<br>VS Code 安装Cline<br>安装node.js即可</p>
+<p>TypeScript<br>VS Code 安装Cline<br>安装node.js即可<br>npx（bun）<br>Bun: <a target="_blank" rel="noopener" href="https://github.com/oven-sh/bun/releases">https://github.com/oven-sh/bun/releases</a><br>UV: <a target="_blank" rel="noopener" href="https://github,com/astral-sh/uv/releases">https://github,com/astral-sh/uv/releases</a></p>
 <p>MCP 遵循客户端-服务器架构(client-server)，其中包含以下几个核心概念<br>MCP 主机(MCP Hosts)<br>MCP 客户端( MCP clients )<br>MCP 服务器( MCP Servers )<br>本地资源( Local Resources)<br>远程资源( Remote Resources )</p>
 <p>1：MCP Host<br>作为运行 MCP 的主应用程序，例如 claude Desktop、cursor、 cline 或 AI 工具。<br>为用户提供与LLM交互的接口，同时集成 MCP client 以连接 MCP Server。</p>
 <p>2：MCP Client<br>MCP client 充当 LLM 和 MCP server 之间的桥梁，嵌入在主机程序中，主要负责<br>接收来自LLM的请求;<br>将请求转发到相应的 MCP server<br>将 MCP server 的结果返回给 LLM</p>
 <p>有哪些常用的clients<br>MCP 官网(<a target="_blank" rel="noopener" href="https://modelcontextprotocol.io/clients">https://modelcontextprotocol.io/clients</a>) 列出来一些支持 MCP 的 clients。<br>分为两类:<br>AI编程IDE:Cursor、Cline、Continue、Sourcegraph、Windsurf等聊天客户端:Cherry Studio、Claude、Librechat、chatwise等<br>更多的client参考这里:MCP Clients: <a target="_blank" rel="noopener" href="https://www.pulsemcp.com/clients">https://www.pulsemcp.com/clients</a><br>Awesome MCP Clients: <a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-clients/">https://github.com/punkpeye/awesome-mcp-clients/</a></p>
 <p>3：MCP Server<br>stdio的方式<br>与传统的远程 API 服务器不同，MCP 服务器既可以作为本地应用程序在用户设备上运行，也可部署至远程服务器。SSE的方式<br>比如你让助手“帮我査航班信息”&gt;它调用航班査询 API<br>“算一下 37% 折扣后多少钱” →它运行计算器函数<br>作用:让 LLM 不仅能“说”，还能“做”(执行代码、查询数据等)</p>
+<h2 id="cherry-studio"><a href="#cherry-studio" class="headerlink" title="cherry studio"></a>cherry studio</h2><p>cherry studio 是一款集多模型对话、知识库管理、AI绘画、翻译等功能于一体的全能 AI 助手平台。支持 windows，Linux和 Mac。<br>同时，cherrystudio提供了一个简洁便于操作的可视化页面，通过简单的配置即可开启MCP服务。非常适合大众用户用于构建“低代码智能流程“<br>Cherry Studio的下载地址:<a target="_blank" rel="noopener" href="https://cherry-ai.com/">https://cherry-ai.com/</a></p>
+<p>热门MCP Servers推荐<br>推荐1:文件系统 filesystem<br>Filesystem McP 旨在为大型语言模型(LLM)和 AI 助手提供对本地文件系统的安全、受控访问。<br>主要功能:<br>文件读写:允许读取和写入文件内容，支持创建新文件或覆盖现有文件。<br>目录管理:支持创建、列出和删除目录，以及移动文件或目录。<br>文件搜索:能够在指定路径中搜索匹配特定模式的文件或目录。<br>元数据获取:提供获取文件或目录的详细元数据，包括大小、创建时间、修改时间、访问时间类 型和权限等信息。</p>
+<p>推荐2:数据库 mysqldb-mcp-server<br>-种模型上下文协议(MCP)实现，支持与 MySaL数据库进行安全交互。此服务器组件可促进 AI应用程序(主机/客户端)与 MySQL数据库之间的通信，提供安全的 MvSQL数据库操作，通过受控接口使数据库探索和分析更安全、更有条理。</p>
+<p>推荐3:高德地图 amap-maps<br>官<br>高德地图是一个支持任何 MCP 协议客户端的服务器，允许用户轻松地利用高德地图 MCP 服务器进行各种基于位置的服务。<br>高德地图的主要特点<br>支持多种位置服务，包括地理编码、天气和距离测量<br>提供步行、驾车、公交等多种交通方式的 API<br>允许根据关键字或位置详细搜索兴趣点(POI)</p>
+<p>推荐4:网页数据采集 Firecrawl<br>Firecrawl MCP 工具是一款基于模型上下文协议(MCP)的企业级网页数据采集服务器。能够为大型语言模型(LLM)提供强大的网页抓取能力。<br>主要功能<br>Javascript 渲染:能够处理动态网页内容，突破传统抓取工具的局限，获取更全面的数据批量处理:支持并行处理和队列管理，提高数据抓取效率。<br>智能限速:根据网络状况和任务需求智能调整抓取速度，避免对目标网站造成过大压力。多种输出格式:支持将抓取的内容转换为 Markdown、HTML等格式，满足不同场景的需求<br>说明:去firecrawl官网注册后即可查看自己的apikey</p>
+<p>推荐5:Github<br>GitHub MCP 服务器是一个模型上下文协议 (MCP)提供与 GitHub API无缝集成的服务器，从而实现面向开发人员的高级自动化工具和交互功能<br>使用案例:<br>自动化 GitHub 工作流程和流程<br>从 GitHub 存储库中提取和分析数据:<br>构建与 GitHub 生态系统交互的 A驱动的工具和应用程序。<br>说明:去<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> 申请自己的token</p>
+<p>推荐6:Git<br>用于 Git 存储库交互和自动化的模型上下文协议服务器<br>直接的Git仓库操作，包括读取、搜索和分析本地仓库</p>
+<p>推荐7:记忆图谱 memory<br>基于知识图谱的长期记忆系统用于维护上下文<br>使用本地知识图谱的持久内存的基本实现。这使 claude 可以在聊天中记住有关用户的信息。</p>
+<p>推荐8:控制台 desktop-commander<br>在计算机上无缝执行终端命令和管理流程。使用强大的命令执行和文件作工具简化您的开发任务。</p>
+<p>推荐9:社交软件 slack<br>用于 slack API的 MCP 服务器，个使 LLM 能够与 slack 工作区进行交互，用于频道管理和消息传递。<br>说明:去<a target="_blank" rel="noopener" href="https://app.slack.com/intl/zh-cn%E6%B3%A8%E5%86%8C%E5%B9%B6%E8%8E%B7%E5%8F%96%E8%87%AA%E5%B7%B1%E7%9A%84team">https://app.slack.com/intl/zh-cn注册并获取自己的team</a> id</p>
+<h2 id="A2A"><a href="#A2A" class="headerlink" title="A2A"></a>A2A</h2><p>谷歌，25年4月10日发布开源的、应用层协议A2A(Agent-to-Agent协议)，即Agent-to-Agent。其设计目的是使智能体(Agent)间能够以一种自然的模态进行协作，类似于人与人之间的互动。<br>Github 地址:<a target="_blank" rel="noopener" href="https://github.com/google/A2A">https://github.com/google/A2A</a></p>
 
                 
             </div>
