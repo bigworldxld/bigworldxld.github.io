@@ -681,14 +681,14 @@ MCP（模型控制面板）">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -772,13 +772,18 @@ MCP（模型控制面板）">
 <li><strong>Traefik</strong>适合定制化开发（需技术基础），<strong>Cursor</strong>适合快速搭建（拖拽操作）。</li>
 </ul>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="哪些平台支持MCP查询"><a href="#哪些平台支持MCP查询" class="headerlink" title="哪些平台支持MCP查询"></a>哪些平台支持MCP查询</h3><p>github查看:<br>MCP官方资源<a target="_blank" rel="noopener" href="https://github.com/modelcontextprotocol/servers">https://github.com/modelcontextprotocol/servers</a><br>MCP热门资源:<a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-servers">https://github.com/punkpeye/awesome-mcp-servers</a><br>其它平台<br>Glama: <a target="_blank" rel="noopener" href="https://glama.ai/mcp/servers">https://glama.ai/mcp/servers</a><br>Smithery:<a target="_blank" rel="noopener" href="https://smithery.ai/">https://smithery.ai</a><br>cursor: <a target="_blank" rel="noopener" href="https://cursor.directory/">https://cursor.directory</a><br>MCPso(高德地图): <a target="_blank" rel="noopener" href="https://mcp.so/zh">https://mcp.so/zh</a><br>阿里云百炼:<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=mcp#/mcp-market">https://bailian.console.aliyun.com/?tab=mcp#/mcp-market</a></p>
-<p><strong>MCP的通信机制</strong></p>
+<p>配置模型apikey：<br>硅基流动：<a target="_blank" rel="noopener" href="https://siliconflow.cn/zh-cn/models">https://siliconflow.cn/zh-cn/models</a><br>deepseek:<a target="_blank" rel="noopener" href="https://platform.deepseek.com/">https://platform.deepseek.com/</a><br><strong>MCP的通信机制</strong></p>
 <p>根据 MCP 的规范，当前支持两种通信机制(传输方式)<br>stdio(标准输入输出):主要用在本地服务上，操作你本地的软件或者本地的文件。比如 Blender 这种就只能用 Stdio 因为他没有在线服务。 MCP默认通信方式<br>SSE(Server-Sent Events服务器发送事件):主要用在远程通信服务上，这个服务本身就有在线的 API，比如访问你的谷歌邮件，天气情况等</p>
 <p><strong>MCP的通信机制:stdio方式</strong><br>优点<br>这种方式适用于客户端和服务器在同一台机器上运行的场景，简单,stdio模式无需外部网络依赖，通信速度快，适合快速响应的本地应用。<br>可靠性高，且易于调试<br>缺点<br>stdio 的配置比较复杂，我们需要做些准备工作，你需要提前安装需要的命令行工具。stdio模式为单进程通信，，无法并行处理多个客户端请求，同时由于进程资源开销较大，不适合在本地运行大量服务。(限制了其在更复杂分布式场景中的使用)</p>
 <p> <strong>MCP的通信机制:SSE方式</strong><br>场景<br>SSE方式适用于客户端和服务器位于不同物理位置的场景，适用于实时数据更新、消息推送、轻量级监控和实时日志流等场景对于分布式或远程部署的场景，基于 HTTP 和 SSE 的传输方式则更为合适<br>优点<br>配置方式非常简单，基本上就一个链接就行，直接复制他的链接填上就行</p>
 <h3 id="安装uvx环境"><a href="#安装uvx环境" class="headerlink" title="安装uvx环境"></a>安装uvx环境</h3><p>python</p>
 <p>方法1：pip install uv<br>方法2：<br>powershell -ExecutionPolicy ByPass -c “irm <a target="_blank" rel="noopener" href="https://astral.sh/uv/install.ps1">https://astral.sh/uv/install.ps1</a> | iex “<br>uv –version<br>uv –help</p>
-<p>TypeScript<br>安装node.js即可</p>
+<p>TypeScript<br>VS Code 安装Cline<br>安装node.js即可</p>
+<p>MCP 遵循客户端-服务器架构(client-server)，其中包含以下几个核心概念<br>MCP 主机(MCP Hosts)<br>MCP 客户端( MCP clients )<br>MCP 服务器( MCP Servers )<br>本地资源( Local Resources)<br>远程资源( Remote Resources )</p>
+<p>1：MCP Host<br>作为运行 MCP 的主应用程序，例如 claude Desktop、cursor、 cline 或 AI 工具。<br>为用户提供与LLM交互的接口，同时集成 MCP client 以连接 MCP Server。</p>
+<p>2：MCP Client<br>MCP client 充当 LLM 和 MCP server 之间的桥梁，嵌入在主机程序中，主要负责<br>接收来自LLM的请求;<br>将请求转发到相应的 MCP server<br>将 MCP server 的结果返回给 LLM</p>
+<p>有哪些常用的clients<br>MCP 官网(<a target="_blank" rel="noopener" href="https://modelcontextprotocol.io/clients">https://modelcontextprotocol.io/clients</a>) 列出来一些支持 MCP 的 clients。<br>分为两类:<br>AI编程IDE:Cursor、Cline、Continue、Sourcegraph、Windsurf等聊天客户端:Cherry Studio、Claude、Librechat、chatwise等<br>更多的client参考这里:MCP Clients: <a target="_blank" rel="noopener" href="https://www.pulsemcp.com/clients">https://www.pulsemcp.com/clients</a><br>Awesome MCP Clients: <a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-clients/">https://github.com/punkpeye/awesome-mcp-clients/</a></p>
+<p>3：MCP Server<br>stdio的方式<br>与传统的远程 API 服务器不同，MCP 服务器既可以作为本地应用程序在用户设备上运行，也可部署至远程服务器。SSE的方式<br>比如你让助手“帮我査航班信息”&gt;它调用航班査询 API<br>“算一下 37% 折扣后多少钱” →它运行计算器函数<br>作用:让 LLM 不仅能“说”，还能“做”(执行代码、查询数据等)</p>
 
                 
             </div>
