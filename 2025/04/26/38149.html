@@ -685,7 +685,7 @@ MCP（模型控制面板）">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
@@ -781,7 +781,7 @@ MCP（模型控制面板）">
 <p><strong>MCP的通信机制:stdio方式</strong><br>优点<br>这种方式适用于客户端和服务器在同一台机器上运行的场景，简单,stdio模式无需外部网络依赖，通信速度快，适合快速响应的本地应用。<br>可靠性高，且易于调试<br>缺点<br>stdio 的配置比较复杂，我们需要做些准备工作，你需要提前安装需要的命令行工具。stdio模式为单进程通信，，无法并行处理多个客户端请求，同时由于进程资源开销较大，不适合在本地运行大量服务。(限制了其在更复杂分布式场景中的使用)</p>
 <p> <strong>MCP的通信机制:SSE方式</strong><br>场景<br>SSE方式适用于客户端和服务器位于不同物理位置的场景，适用于实时数据更新、消息推送、轻量级监控和实时日志流等场景对于分布式或远程部署的场景，基于 HTTP 和 SSE 的传输方式则更为合适<br>优点<br>配置方式非常简单，基本上就一个链接就行，直接复制他的链接填上就行</p>
 <h3 id="安装uvx环境"><a href="#安装uvx环境" class="headerlink" title="安装uvx环境"></a>安装uvx环境</h3><p>python</p>
-<p>方法1：pip install uv<br>方法2：<br>powershell -ExecutionPolicy ByPass -c “irm <a target="_blank" rel="noopener" href="https://astral.sh/uv/install.ps1">https://astral.sh/uv/install.ps1</a> | iex “<br>uv –version<br>uv –help</p>
+<p>方法1：pip install uv<br>方法2：<br>powershell -ExecutionPolicy ByPass -c “irm <a target="_blank" rel="noopener" href="https://astral.sh/uv/install.ps1">https://astral.sh/uv/install.ps1</a> | iex “<br>uv –version<br>uv –help<br>uv python find 3.13<br>uv python install 3.13<br>uv项目：<br>uv init<br>uv add geopandas<br>uv tree    查看包依赖<br>uv remove geopandas<br>uv sync    同步解析<br>uv tool install mypy    语法检查<br>uv tool run mypy<br>nvx flake8(uv tool run flake8)    格式检查<br>uv tool run ruff check    语法检查</p>
 <p>TypeScript<br>VS Code 安装Cline<br>安装node.js即可<br>npx（bun）<br>Bun: <a target="_blank" rel="noopener" href="https://github.com/oven-sh/bun/releases">https://github.com/oven-sh/bun/releases</a><br>UV: <a target="_blank" rel="noopener" href="https://github,com/astral-sh/uv/releases">https://github,com/astral-sh/uv/releases</a></p>
 <p>MCP 遵循客户端-服务器架构(client-server)，其中包含以下几个核心概念<br>MCP 主机(MCP Hosts)<br>MCP 客户端( MCP clients )<br>MCP 服务器( MCP Servers )<br>本地资源( Local Resources)<br>远程资源( Remote Resources )</p>
 <p>1：MCP Host<br>作为运行 MCP 的主应用程序，例如 claude Desktop、cursor、 cline 或 AI 工具。<br>为用户提供与LLM交互的接口，同时集成 MCP client 以连接 MCP Server。</p>
@@ -1046,17 +1046,16 @@ MCP（模型控制面板）">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/04/26/38149.html">
+                <a href="/2025/05/02/14366.html">
                     <div class="card-image">
                         
-                        <img src="https://smithery.ai/logo.svg" class="responsive-img" alt="LLM&amp;MCP">
+                        <img src="https://oauth.net/images/oauth-logo-square.png" class="responsive-img" alt="OAuth授权">
                         
-                        <span class="card-title">LLM&amp;MCP</span>
+                        <span class="card-title">OAuth授权</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1066,9 +1065,9 @@ MCP（模型控制面板）">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1081,20 +1080,11 @@ MCP（模型控制面板）">
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LLM/">
-                        <span class="chip bg-color">LLM</span>
-                    </a>
-                    
-                    <a href="/tags/MCP/">
-                        <span class="chip bg-color">MCP</span>
-                    </a>
-                    
-                    <a href="/tags/smithery/">
-                        <span class="chip bg-color">smithery</span>
+                    <a href="/tags/OAuth/">
+                        <span class="chip bg-color">OAuth</span>
                     </a>
                     
                 </div>

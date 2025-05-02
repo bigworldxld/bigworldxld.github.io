@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-04-26T15:38:29.123Z</updated>
+  <updated>2025-05-02T09:04:47.981Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OAuth授权</title>
+    <link href="https://bigworldxld.github.io/2025/05/02/14366.html"/>
+    <id>https://bigworldxld.github.io/2025/05/02/14366.html</id>
+    <published>2025-05-02T09:24:02.000Z</published>
+    <updated>2025-05-02T09:04:47.981Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="OAuth" scheme="https://bigworldxld.github.io/tags/OAuth/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LLM&amp;MCP</title>
     <link href="https://bigworldxld.github.io/2025/04/26/38149.html"/>
     <id>https://bigworldxld.github.io/2025/04/26/38149.html</id>
     <published>2025-04-26T03:24:02.000Z</published>
-    <updated>2025-04-26T15:38:29.123Z</updated>
+    <updated>2025-05-02T02:42:34.960Z</updated>
     
     
       
