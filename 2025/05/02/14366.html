@@ -758,7 +758,7 @@
 <p>一旦确定可以设置为重定向 URI 的其他页面，您应该对这些页面进行审计，以发现可能用于泄露代码或令牌的额外漏洞。对于授权码流程，您需要找到一个可以访问查询参数的漏洞，而对于隐式授权类型，则需要提取 URL 片段</p>
 <p>注意，对于隐式授权类型，窃取访问令牌不仅使您能够登录到受害者的客户端应用程序账户，由于整个隐式流程都通过浏览器进行，您还可以使用该令牌向 OAuth 服务的资源服务器发起自己的 API 调用。这可能会使您能够获取通常无法从客户端应用程序的 Web UI 访问的敏感用户数据</p>
 <p>由于 <code>HTTPOnly</code> 属性通常用于会话 cookie，攻击者通常也无法通过 XSS 直接访问它们。然而，通过窃取 OAuth 代码或令牌，攻击者可以在自己的浏览器中访问用户的账户。这给了他们更多的时间来探索用户数据并执行有害操作，从而显著增加了 XSS 漏洞的严重性</p>
-<p>在无法注入 JavaScript 的情况下（例如，由于 CSP 限制或严格的过滤），您仍然可能能够使用简单的 HTML 注入来窃取授权码。如果您可以将 <code>redirect_uri</code> 参数指向一个可以注入您自己的 HTML 内容的页面，您可能能够通过 <code>Referer</code> 头泄露代码。例如，考虑以下 <code>img</code> 元素： <code>&lt;img src="/2025/05/02/undefined.htmlundefined" &gt;</code> 。当尝试获取此图像时，一些浏览器（如 Firefox）将在请求的 <code>Referer</code> 头中发送完整的 URL，包括查询字符串</p>
+<p>在无法注入 JavaScript 的情况下（例如，由于 CSP 限制或严格的过滤），您仍然可能能够使用简单的 HTML 注入来窃取授权码。如果您可以将 <code>redirect_uri</code> 参数指向一个可以注入您自己的 HTML 内容的页面，您可能能够通过 <code>Referer</code> 头泄露代码。例如，考虑以下 <code>img</code> 元素： <code>&lt;img src="/2025/05/02/14366.htmlundefined" &gt;</code> 。当尝试获取此图像时，一些浏览器（如 Firefox）将在请求的 <code>Referer</code> 头中发送完整的 URL，包括查询字符串</p>
 <p>范围升级：<strong>授权码流程</strong></p>
 <p>例如，假设攻击者的恶意客户端应用程序最初请求使用 <code>openid email</code> 范围访问用户的电子邮件地址。在用户批准此请求后，恶意客户端应用程序接收授权码。由于攻击者控制自己的客户端应用程序，他们可以在代码/令牌交换请求中添加另一个 <code>scope</code> 参数，包含额外的 <code>profile</code> 范围：</p>
 <pre class=" language-txt"><code class="language-txt">POST /token Host: oauth-authorization-server.com … client_id=12345&client_secret=SECRET&redirect_uri=https://client-app.com/callback&grant_type=authorization_code&code=a1b2c3d4e5f6g7h8&scope=openid%20 email%20profile
@@ -1101,17 +1101,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/02/14366.html">
+                <a href="/2025/05/11/30224.html">
                     <div class="card-image">
                         
-                        <img src="https://oauth.net/images/oauth-logo-square.png" class="responsive-img" alt="OAuth授权">
+                        <img src="/images/%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.jpg" class="responsive-img" alt="测试框架">
                         
-                        <span class="card-title">OAuth授权</span>
+                        <span class="card-title">测试框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1121,9 +1120,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1136,12 +1135,23 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OAuth/">
-                        <span class="chip bg-color">OAuth</span>
+                    <a href="/tags/monkey/">
+                        <span class="chip bg-color">monkey</span>
+                    </a>
+                    
+                    <a href="/tags/robotium/">
+                        <span class="chip bg-color">robotium</span>
+                    </a>
+                    
+                    <a href="/tags/pypress/">
+                        <span class="chip bg-color">pypress</span>
+                    </a>
+                    
+                    <a href="/tags/jtest/">
+                        <span class="chip bg-color">jtest</span>
                     </a>
                     
                 </div>

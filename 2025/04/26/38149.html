@@ -685,14 +685,14 @@ MCP（模型控制面板）">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -723,7 +723,7 @@ MCP（模型控制面板）">
 <li><strong>用途</strong>：写文章、回答问题、翻译、聊天机器人等。比如客服系统用它自动回复用户问题。</li>
 </ul>
 <ol start="2">
-<li><strong>MCP（模型控制面板）</strong></li>
+<li><strong>MCP（模型控制面板）</strong><br>控制ai agent（mcp client）和tool服务(mcp server)之间的交互</li>
 </ol>
 <ul>
 <li><strong>是什么</strong>：一个管理模型的“控制台”，类似手机的设置菜单，用来配置模型参数、分配任务。</li>
@@ -736,7 +736,7 @@ MCP（模型控制面板）">
 <li><strong>是什么</strong>：多个智能体（Agent）互相配合完成任务，像团队分工合作。</li>
 <li><strong>用途</strong>：复杂任务拆分。例如电商场景：A智能体分析用户需求，B智能体查库存，C智能体生成订单，协作完成购物流程。</li>
 </ul>
-<hr>
+<p>System Prompt系统提示词（ai扮演角色）<br>User Prompt用户提示词（用户提问）<br>AI agent(类型)</p>
 <h2 id="二、部署智能体环境"><a href="#二、部署智能体环境" class="headerlink" title="二、部署智能体环境"></a>二、部署智能体环境</h2><ul>
 <li><p><strong>角色</strong>：Traefik 是一个“交通警察”，负责管理不同服务之间的请求路由（比如把用户请求导向正确的模型）</p>
 <p>部署步骤</p>
@@ -799,6 +799,19 @@ MCP（模型控制面板）">
 <p>推荐8:控制台 desktop-commander<br>在计算机上无缝执行终端命令和管理流程。使用强大的命令执行和文件作工具简化您的开发任务。</p>
 <p>推荐9:社交软件 slack<br>用于 slack API的 MCP 服务器，个使 LLM 能够与 slack 工作区进行交互，用于频道管理和消息传递。<br>说明:去<a target="_blank" rel="noopener" href="https://app.slack.com/intl/zh-cn%E6%B3%A8%E5%86%8C%E5%B9%B6%E8%8E%B7%E5%8F%96%E8%87%AA%E5%B7%B1%E7%9A%84team">https://app.slack.com/intl/zh-cn注册并获取自己的team</a> id</p>
 <h2 id="A2A"><a href="#A2A" class="headerlink" title="A2A"></a>A2A</h2><p>谷歌，25年4月10日发布开源的、应用层协议A2A(Agent-to-Agent协议)，即Agent-to-Agent。其设计目的是使智能体(Agent)间能够以一种自然的模态进行协作，类似于人与人之间的互动。<br>Github 地址:<a target="_blank" rel="noopener" href="https://github.com/google/A2A">https://github.com/google/A2A</a></p>
+<h2 id="Dify"><a href="#Dify" class="headerlink" title="Dify"></a>Dify</h2><p>是一款开源的大语言模型应用开发平台，专注于帮助开发者快速构建、部署和管理生成式 AI 应用。以下是其核心特性及应用场景的详细介绍：</p>
+<p>‌<strong>核心功能</strong>‌</p>
+<ol>
+<li>‌<strong>可视化开发与低代码支持</strong>‌<br>Dify 提供拖拽式界面和可视化工作流编排功能，用户无需编写代码即可通过配置提示词、上下文参数及插件等模块构建 AI 应用。支持文本生成、问答、翻译等多种任务类型38。</li>
+<li>‌<strong>多模型兼容架构</strong>‌<br>支持对接 GPT-4、Claude、Llama、讯飞星火等主流大模型，并允许混合部署商业模型与开源模型，满足不同场景需求45。</li>
+<li>‌<strong>高级技术组件</strong>‌<ul>
+<li>‌<strong>检索增强生成（RAG）</strong>‌：支持从 PDF、PPT 等文档中提取文本构建知识库，提升模型输出的准确性58。</li>
+<li>‌<strong>Agent 智能体</strong>‌：通过函数调用或 React 框架定义智能体，可调用 Google 搜索、DALL·E 等 50+ 内置工具处理复杂任务58。</li>
+<li>‌<strong>提示词优化</strong>‌：内置 Prompt Engineering 工具，支持少样本学习（Few-shot Learning）优化模型输出质量37。</li>
+</ul>
+</li>
+<li>‌<strong>企业级管理能力</strong>‌<br>提供私有化部署、数据安全管控、API 集成及全链路性能监控（请求日志、效果分析等），适合企业级应用场景</li>
+</ol>
 
                 
             </div>
