@@ -1,0 +1,1930 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="常用工具库, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="mplfinance库的主要作用mplfinance是一个基于Matplotlib的金融数据可视化库，专注于生成金融时间序列图表，尤其适用于股票、加密货币等市场的分析。其核心功能包括：
+
+绘制K线图（蜡烛图）：展示开盘价、最高价、最低价、收">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>常用工具库 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/python.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">常用工具库</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/flask/">
+                                <span class="chip bg-color">flask</span>
+                            </a>
+                        
+                            <a href="/tags/akshare/">
+                                <span class="chip bg-color">akshare</span>
+                            </a>
+                        
+                            <a href="/tags/mplfinance/">
+                                <span class="chip bg-color">mplfinance</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-06-03
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="mplfinance库的主要作用"><a href="#mplfinance库的主要作用" class="headerlink" title="mplfinance库的主要作用"></a><strong>mplfinance库的主要作用</strong></h2><p><code>mplfinance</code>是一个基于Matplotlib的金融数据可视化库，专注于生成<strong>金融时间序列图表</strong>，尤其适用于股票、加密货币等市场的分析。其核心功能包括：</p>
+<ol>
+<li><p>绘制K线图（蜡烛图）：展示开盘价、最高价、最低价、收盘价（OHLC）的波动形态</p>
+</li>
+<li><p>技术指标叠加：支持移动平均线（MA）、布林带（Bollinger Bands）、成交量柱状图等</p>
+</li>
+<li><p>多子图与自定义样式：通过外部轴模式（子图）同时展示价格与成交量，或自定义颜色、网格线等视觉元素</p>
+</li>
+<li><p>动态图表与动画</p>
+<p>：支持实时数据更新和动态展示（需结合其他库如matplotlib.animation</p>
+</li>
+</ol>
+<hr>
+<h3 id="常用函数及参数"><a href="#常用函数及参数" class="headerlink" title="常用函数及参数"></a><strong>常用函数及参数</strong></h3><h4 id="1-核心函数：mpf-plot"><a href="#1-核心函数：mpf-plot" class="headerlink" title="1. 核心函数：mpf.plot()"></a><strong>1. 核心函数：<code>mpf.plot()</code></strong></h4><p>用于绘制基础金融图表，核心参数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>data</code></td>
+<td align="center">包含OHLC数据的Pandas DataFrame，索引需为<code>DatetimeIndex</code>，列名需包含<code>Open</code>、<code>High</code>、<code>Low</code>、<code>Close</code>（必选），<code>Volume</code>（可选）</td>
+<td align="center"><code>mpf.plot(data, type='candle')</code></td>
+</tr>
+<tr>
+<td align="center"><code>type</code></td>
+<td align="center">图表类型：<code>'candle'</code>（K线图）、<code>'line'</code>（折线图）、<code>'renko'</code>（砖型图）、<code>'pnf'</code>（点数图）</td>
+<td align="center"><code>type='candle'</code></td>
+</tr>
+<tr>
+<td align="center"><code>volume</code></td>
+<td align="center">是否显示成交量柱状图（需数据含<code>Volume</code>列）</td>
+<td align="center"><code>volume=True</code></td>
+</tr>
+<tr>
+<td align="center"><code>mav</code></td>
+<td align="center">移动平均线周期（整数或元组）：<code>mav=10</code>（单条均线）、<code>mav=(5,20)</code>（多条均线）</td>
+<td align="center"><code>mav=(5,10,30)</code></td>
+</tr>
+<tr>
+<td align="center"><code>style</code></td>
+<td align="center">预设样式：<code>'yahoo'</code>、<code>'classic'</code>、<code>'charles'</code>等，或自定义样式</td>
+<td align="center"><code>style='yahoo'</code></td>
+</tr>
+<tr>
+<td align="center"><code>title</code></td>
+<td align="center">图表标题（需避免中文，需额外设置字体）</td>
+<td align="center"><code>title='AAPL Stock Price'</code></td>
+</tr>
+<tr>
+<td align="center"><code>ylabel</code></td>
+<td align="center">主图Y轴标签（默认显示价格）</td>
+<td align="center"><code>ylabel='Price ($)'</code></td>
+</tr>
+<tr>
+<td align="center"><code>ylabel_lower</code></td>
+<td align="center">成交量子图Y轴标签</td>
+<td align="center"><code>ylabel_lower='Volume'</code></td>
+</tr>
+<tr>
+<td align="center"><code>show_nontrading</code></td>
+<td align="center">是否显示非交易日（默认<code>False</code>，数据间无间隔）</td>
+<td align="center"><code>show_nontrading=True</code></td>
+</tr>
+<tr>
+<td align="center"><code>savefig</code></td>
+<td align="center">保存图表路径（如<code>savefig='chart.png'</code>）</td>
+<td align="center"><code>savefig='output.png'</code></td>
+</tr>
+</tbody></table>
+<p><strong>示例代码</strong>：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> mplfinance <span class="token keyword">as</span> mpf
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+<span class="token comment" spellcheck="true"># 示例数据（需包含OHLC和Volume列）</span>
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">'Open'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">102</span><span class="token punctuation">,</span> <span class="token number">101</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'High'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">,</span> <span class="token number">106</span><span class="token punctuation">,</span> <span class="token number">107</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'Low'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">101</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'Close'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">102</span><span class="token punctuation">,</span> <span class="token number">103</span><span class="token punctuation">,</span> <span class="token number">104</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'Volume'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">10000</span><span class="token punctuation">,</span> <span class="token number">12000</span><span class="token punctuation">,</span> <span class="token number">9000</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>set_index<span class="token punctuation">(</span>pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'2023-01-01'</span><span class="token punctuation">,</span> periods<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 绘制K线图+成交量+均线</span>
+mpf<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>
+    data<span class="token punctuation">,</span>
+    type<span class="token operator">=</span><span class="token string">'candle'</span><span class="token punctuation">,</span>
+    volume<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    mav<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    style<span class="token operator">=</span><span class="token string">'yahoo'</span><span class="token punctuation">,</span>
+    title<span class="token operator">=</span><span class="token string">'示例K线图'</span><span class="token punctuation">,</span>
+    ylabel<span class="token operator">=</span><span class="token string">'Price'</span><span class="token punctuation">,</span>
+    ylabel_lower<span class="token operator">=</span><span class="token string">'Volume'</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h4 id="2-扩展函数"><a href="#2-扩展函数" class="headerlink" title="2. 扩展函数"></a><strong>2. 扩展函数</strong></h4><h5 id="1-mpf-make-addplot"><a href="#1-mpf-make-addplot" class="headerlink" title="(1) mpf.make_addplot()"></a><strong>(1) <code>mpf.make_addplot()</code></strong></h5><p>用于在主图上叠加附加图表（如均线、技术指标）：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 添加EMA20均线</span>
+apds <span class="token operator">=</span> <span class="token punctuation">[</span>mpf<span class="token punctuation">.</span>make_addplot<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'EMA20'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span> panel<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+mpf<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>data<span class="token punctuation">,</span> addplot<span class="token operator">=</span>apds<span class="token punctuation">)</span>
+</code></pre>
+<h5 id="2-mpf-make-mpf-style"><a href="#2-mpf-make-mpf-style" class="headerlink" title="(2) mpf.make_mpf_style()"></a><strong>(2) <code>mpf.make_mpf_style()</code></strong></h5><p>自定义图表样式（颜色、网格线等）：</p>
+<pre class=" language-python"><code class="language-python">custom_style <span class="token operator">=</span> mpf<span class="token punctuation">.</span>make_mpf_style<span class="token punctuation">(</span>
+    base_mpf_style<span class="token operator">=</span><span class="token string">'yahoo'</span><span class="token punctuation">,</span>
+    rc<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'axes.labelcolor'</span><span class="token punctuation">:</span> <span class="token string">'blue'</span><span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+mpf<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>data<span class="token punctuation">,</span> style<span class="token operator">=</span>custom_style<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><strong>关键使用注意事项</strong></p>
+<ol>
+<li><p><strong>数据格式要求</strong>：</p>
+<ul>
+<li>DataFrame必须包含<code>Open</code>、<code>High</code>、<code>Low</code>、<code>Close</code>列，索引为<code>DatetimeIndex</code>。</li>
+<li>若需成交量，需包含Volume列</li>
+</ul>
+</li>
+<li><p><strong>中文显示问题</strong>：</p>
+<ul>
+<li><p>需提前设置Matplotlib字体参数：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 黑体</span>
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'axes.unicode_minus'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>    <span class="token comment" spellcheck="true"># 解决负号显示问题</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong>：</p>
+<ul>
+<li><p>大数据集建议使用downsample=’mean’</p>
+<p>参数降采样，或限制显示时间范围</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="MarkupSafe库的核心作用"><a href="#MarkupSafe库的核心作用" class="headerlink" title="MarkupSafe库的核心作用"></a><strong>MarkupSafe库的核心作用</strong></h2><p><code>MarkupSafe</code>是一个专注于<strong>安全字符串处理</strong>的Python库，主要用于防止Web开发中的<strong>跨站脚本攻击（XSS）</strong>。其核心功能包括：</p>
+<ol>
+<li><strong>自动转义危险字符</strong>：将<code>&lt;</code>、<code>&gt;</code>、<code>&amp;</code>等字符转换为HTML实体（如<code>&lt;</code>、<code>&gt;</code>、<code>&amp;</code>），避免恶意代码注入。</li>
+<li><strong>安全字符串标记</strong>：通过<code>Markup</code>类标记已转义的字符串为“安全”，防止模板引擎二次转义。</li>
+<li>与模板引擎集成：无缝支持Jinja2、Flask等框架，确保动态内容渲染时的安全性</li>
+</ol>
+<hr>
+<h3 id="常用函数与类"><a href="#常用函数与类" class="headerlink" title="常用函数与类"></a><strong>常用函数与类</strong></h3><h4 id="1-核心函数"><a href="#1-核心函数" class="headerlink" title="1. 核心函数"></a><strong>1. 核心函数</strong></h4><ul>
+<li><p><strong><code>escape(s)</code></strong><br>将字符串中的危险字符转义为HTML实体，返回转义后的字符串。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> markupsafe <span class="token keyword">import</span> escape
+escaped <span class="token operator">=</span> escape<span class="token punctuation">(</span><span class="token string">'&lt;script>alert("XSS")&lt;/script>'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>escaped<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输出: &amp;lt;script&amp;gt;alert(&amp;quot;XSS&amp;quot;)&amp;lt;/script&amp;gt;</span>
+</code></pre>
+</li>
+<li><p><strong><code>Markup(s)</code></strong><br>创建一个“安全字符串”对象，标记内容为已转义且无需二次处理。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> markupsafe <span class="token keyword">import</span> Markup
+safe_html <span class="token operator">=</span> Markup<span class="token punctuation">(</span><span class="token string">'&lt;b>Bold Text&lt;/b>'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>safe_html<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输出: &lt;b>Bold Text&lt;/b>（直接输出原始字符）</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="2-字符串操作方法"><a href="#2-字符串操作方法" class="headerlink" title="2. 字符串操作方法"></a><strong>2. 字符串操作方法</strong></h4><ul>
+<li><p><strong><code>__add__</code>（拼接）</strong><br>支持安全字符串的拼接，结果仍为安全字符串。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">part1 <span class="token operator">=</span> Markup<span class="token punctuation">(</span><span class="token string">'&lt;h1>标题&lt;/h1>'</span><span class="token punctuation">)</span>
+part2 <span class="token operator">=</span> Markup<span class="token punctuation">(</span><span class="token string">'&lt;p>内容&lt;/p>'</span><span class="token punctuation">)</span>
+combined <span class="token operator">=</span> part1 <span class="token operator">+</span> part2  <span class="token comment" spellcheck="true"># 结果为安全字符串</span>
+</code></pre>
+</li>
+<li><p><strong><code>format(\*args, \**kwargs)</code></strong><br>安全地格式化字符串，自动转义占位符中的危险字符。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">template <span class="token operator">=</span> Markup<span class="token punctuation">(</span><span class="token string">'Hello, {name}!'</span><span class="token punctuation">)</span>
+rendered <span class="token operator">=</span> template<span class="token punctuation">.</span>format<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'&lt;script>alert("XSS")&lt;/script>'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rendered<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输出: Hello, &amp;lt;script&amp;gt;alert(&amp;quot;XSS&amp;quot;)&amp;lt;/script&amp;gt;!</span>
+</code></pre>
+</li>
+<li><p><strong><code>unescape()</code></strong><br>将安全字符串还原为原始字符串（需谨慎使用）。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">safe_str <span class="token operator">=</span> Markup<span class="token punctuation">(</span><span class="token string">'&lt;em>Hello&lt;/em>'</span><span class="token punctuation">)</span>
+raw_str <span class="token operator">=</span> safe_str<span class="token punctuation">.</span>unescape<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输出: &lt;em>Hello&lt;/em></span>
+</code></pre>
+</li>
+</ul>
+<h4 id="3-高级功能"><a href="#3-高级功能" class="headerlink" title="3. 高级功能"></a><strong>3. 高级功能</strong></h4><p>自定义转义规则</p>
+<p>通过传递自定义函数给escape()</p>
+<p>覆盖默认转义行为。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">custom_escape</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&amp;'</span><span class="token punctuation">,</span> <span class="token string">'&amp;amp;'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&lt;'</span><span class="token punctuation">,</span> <span class="token string">'&amp;lt;'</span><span class="token punctuation">)</span>
+escaped <span class="token operator">=</span> escape<span class="token punctuation">(</span><span class="token string">'&lt;&amp;>'</span><span class="token punctuation">,</span> custom_escape<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 输出: &amp;lt;&amp;amp;</span>
+</code></pre>
+<hr>
+<p><strong>实际应用场景</strong></p>
+<h4 id="1-防止用户输入注入"><a href="#1-防止用户输入注入" class="headerlink" title="1. 防止用户输入注入"></a><strong>1. 防止用户输入注入</strong></h4><p>在Web表单中处理用户评论或搜索内容时，自动转义危险字符：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> request
+<span class="token keyword">from</span> markupsafe <span class="token keyword">import</span> escape
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/comment'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">post_comment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_comment <span class="token operator">=</span> request<span class="token punctuation">.</span>form<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'comment'</span><span class="token punctuation">)</span>
+    safe_comment <span class="token operator">=</span> escape<span class="token punctuation">(</span>user_comment<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 转义用户输入</span>
+    <span class="token keyword">return</span> f<span class="token string">"&lt;div>Comment: {safe_comment}&lt;/div>"</span>
+</code></pre>
+<h4 id="2-模板引擎安全渲染"><a href="#2-模板引擎安全渲染" class="headerlink" title="2. 模板引擎安全渲染"></a><strong>2. 模板引擎安全渲染</strong></h4><p>与Jinja2集成，自动转义模板变量：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> jinja2 <span class="token keyword">import</span> Template
+<span class="token keyword">from</span> markupsafe <span class="token keyword">import</span> Markup
+template <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">"Profile: {{ user_input }}"</span><span class="token punctuation">)</span>
+rendered <span class="token operator">=</span> template<span class="token punctuation">.</span>render<span class="token punctuation">(</span>user_input<span class="token operator">=</span>Markup<span class="token punctuation">(</span><span class="token string">'&lt;script>alert("XSS")&lt;/script>'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 输出: Profile: &lt;script>alert("XSS")&lt;/script>（安全显示）</span>
+</code></pre>
+<h4 id="3-动态生成HTML内容"><a href="#3-动态生成HTML内容" class="headerlink" title="3. 动态生成HTML内容"></a><strong>3. 动态生成HTML内容</strong></h4><p>构建安全的HTML列表或表格：</p>
+<pre class=" language-python"><code class="language-python">items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'&lt;script>alert("XSS")&lt;/script>'</span><span class="token punctuation">]</span>
+safe_items <span class="token operator">=</span> <span class="token punctuation">[</span>Markup<span class="token punctuation">(</span>f<span class="token string">"&lt;li>{item}&lt;/li>"</span><span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> items<span class="token punctuation">]</span>
+html <span class="token operator">=</span> <span class="token string">"&lt;ul>"</span> <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>safe_items<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&lt;/ul>"</span>
+<span class="token comment" spellcheck="true"># 输出: &lt;ul>&lt;li>1&lt;/li>&lt;li>2&lt;/li>&lt;li>&amp;lt;script&amp;gt;alert("XSS")&amp;lt;/script&amp;gt;&lt;/li>&lt;/ul></span>
+</code></pre>
+<hr>
+<p><strong>注意事项</strong></p>
+<ol>
+<li><p>类型限制:escape()</p>
+<p>仅接受字符串或Markup对象，传递其他类型会报错</p>
+</li>
+<li><p><strong>性能优化</strong>：对大量数据频繁转义时，建议复用<code>Markup</code>对象以减少开销。</p>
+</li>
+<li><p><strong>与模板引擎配合</strong>：Jinja2默认自动转义变量，但显式使用<code>Markup</code>可明确标记安全内容</p>
+</li>
+</ol>
+<p>以下是关于Python的<code>Flask</code>库的核心功能、常用装饰器及函数的详细解析，结合其轻量级Web框架的设计特点：</p>
+<hr>
+<h2 id="Flask库的主要作用"><a href="#Flask库的主要作用" class="headerlink" title="Flask库的主要作用"></a><strong>Flask库的主要作用</strong></h2><p>Flask是一个<strong>轻量级Web框架</strong>，核心作用包括：</p>
+<ol>
+<li><strong>快速构建Web应用</strong>：通过路由、模板引擎和请求处理机制简化开发流程。</li>
+<li>模块化设计：支持蓝图（Blueprint）划分功能模块，适合中大型项目</li>
+<li><strong>扩展性强</strong>：通过扩展（如Flask-SQLAlchemy、Flask-Login）集成数据库、认证等功能。</li>
+<li><strong>灵活性高</strong>：开发者可自由选择组件（如模板引擎、数据库ORM）。</li>
+</ol>
+<hr>
+<h3 id="常用装饰器"><a href="#常用装饰器" class="headerlink" title="常用装饰器"></a><strong>常用装饰器</strong></h3><h4 id="1-路由与请求处理"><a href="#1-路由与请求处理" class="headerlink" title="1. 路由与请求处理"></a><strong>1. 路由与请求处理</strong></h4><ul>
+<li><p><strong><code>@app.route()</code></strong><br>定义URL路由，绑定视图函数。支持动态路由参数和HTTP方法限制。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/user/&lt;username>'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 动态路由</span>
+<span class="token keyword">def</span> <span class="token function">show_user</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> f<span class="token string">"User: {username}"</span>
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/submit'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 限制请求方法</span>
+<span class="token keyword">def</span> <span class="token function">submit_form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">"处理表单提交"</span>
+</code></pre>
+</li>
+<li><p><strong><code>@app.before_request</code> &amp; <code>@app.after_request</code></strong><br>在请求处理前/后执行函数，用于权限校验、日志记录等。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">@app<span class="token punctuation">.</span>before_request
+<span class="token keyword">def</span> <span class="token function">check_auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Authorization'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"未授权"</span><span class="token punctuation">,</span> <span class="token number">401</span>
+
+@app<span class="token punctuation">.</span>after_request
+<span class="token keyword">def</span> <span class="token function">add_header</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    response<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'X-Custom-Header'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'FlaskDemo'</span>
+    <span class="token keyword">return</span> response
+</code></pre>
+</li>
+<li><p><strong><code>@app.errorhandler()</code></strong><br>处理特定HTTP错误（如404、500）。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python">@app<span class="token punctuation">.</span>errorhandler<span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">page_not_found</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'404.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">404</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="2-认证与权限"><a href="#2-认证与权限" class="headerlink" title="2. 认证与权限"></a><strong>2. 认证与权限</strong></h4><ul>
+<li><p><code>@login_required</code>（Flask-Login扩展）</p>
+<p>保护路由，仅允许已登录用户访问。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask_login <span class="token keyword">import</span> login_required
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/dashboard'</span><span class="token punctuation">)</span>
+@login_required
+<span class="token keyword">def</span> <span class="token function">dashboard</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">"控制面板"</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="3-上下文管理"><a href="#3-上下文管理" class="headerlink" title="3. 上下文管理"></a><strong>3. 上下文管理</strong></h4><ul>
+<li><p><code>@app.context_processor</code></p>
+<p>向所有模板注入全局变量。</p>
+<pre class=" language-python"><code class="language-python">@app<span class="token punctuation">.</span>context_processor
+<span class="token keyword">def</span> <span class="token function">inject_user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> dict<span class="token punctuation">(</span>current_user<span class="token operator">=</span>get_current_user<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="三、常用函数"><a href="#三、常用函数" class="headerlink" title="三、常用函数"></a><strong>三、常用函数</strong></h3><h4 id="1-请求处理相关"><a href="#1-请求处理相关" class="headerlink" title="1. 请求处理相关"></a><strong>1. 请求处理相关</strong></h4><ul>
+<li><p><strong><code>request</code></strong><br>获取客户端请求数据（如参数、表单、JSON）。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> request
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/search'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    keyword <span class="token operator">=</span> request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取查询参数</span>
+    <span class="token keyword">return</span> f<span class="token string">"搜索关键词：{keyword}"</span>
+</code></pre>
+</li>
+<li><p><strong><code>render_template()</code></strong><br>渲染HTML模板并返回响应。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> render_template
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'首页'</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="2-响应生成相关"><a href="#2-响应生成相关" class="headerlink" title="2. 响应生成相关"></a><strong>2. 响应生成相关</strong></h4><ul>
+<li><p><strong><code>jsonify()</code></strong><br>将Python对象转换为JSON响应。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> jsonify
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/data'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">}</span>
+    <span class="token keyword">return</span> jsonify<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p><strong><code>redirect()</code></strong><br>重定向到指定URL。<br>​<strong>​示例​</strong>​：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> redirect<span class="token punctuation">,</span> url_for
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/old-page'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">old_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'new_page'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 重定向到新路由</span>
+</code></pre>
+</li>
+</ul>
+<h4 id="3-应用配置相关"><a href="#3-应用配置相关" class="headerlink" title="3. 应用配置相关"></a><strong>3. 应用配置相关</strong></h4><ul>
+<li><p><code>app.config.from_pyfile()</code></p>
+<p>从配置文件加载设置</p>
+<p>示例</p>
+<pre class=" language-python"><code class="language-python">app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_pyfile<span class="token punctuation">(</span><span class="token string">'config.cfg'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 加载config.cfg中的配置</span>
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="四、自定义装饰器示例"><a href="#四、自定义装饰器示例" class="headerlink" title="四、自定义装饰器示例"></a><strong>四、自定义装饰器示例</strong></h3><h4 id="1-参数校验装饰器"><a href="#1-参数校验装饰器" class="headerlink" title="1. 参数校验装饰器"></a><strong>1. 参数校验装饰器</strong></h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> wraps
+<span class="token keyword">from</span> flask <span class="token keyword">import</span> request<span class="token punctuation">,</span> jsonify
+
+<span class="token keyword">def</span> <span class="token function">validate_json</span><span class="token punctuation">(</span><span class="token operator">*</span>expected_keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        @wraps<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            data <span class="token operator">=</span> request<span class="token punctuation">.</span>get_json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> all<span class="token punctuation">(</span>key <span class="token keyword">in</span> data <span class="token keyword">for</span> key <span class="token keyword">in</span> expected_keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> jsonify<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"error"</span><span class="token punctuation">:</span> <span class="token string">"缺少参数"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">400</span>
+            <span class="token keyword">return</span> func<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> wrapper
+    <span class="token keyword">return</span> decorator
+
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/api/data'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@validate_json<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'password'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">create_user</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 处理用户创建逻辑</span>
+    <span class="token keyword">return</span> jsonify<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"用户创建成功"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="2-认证装饰器"><a href="#2-认证装饰器" class="headerlink" title="2. 认证装饰器"></a><strong>2. 认证装饰器</strong></h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> wraps
+<span class="token keyword">from</span> flask <span class="token keyword">import</span> request<span class="token punctuation">,</span> abort
+<span class="token keyword">def</span> <span class="token function">api_key_required</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @wraps<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        api_key <span class="token operator">=</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'X-API-Key'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> api_key <span class="token operator">!=</span> <span class="token string">'SECRET_KEY'</span><span class="token punctuation">:</span>
+            abort<span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 禁止访问</span>
+        <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wrapper
+
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/secure-endpoint'</span><span class="token punctuation">)</span>
+@api_key_required
+<span class="token keyword">def</span> <span class="token function">secure_endpoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">"授权访问成功"</span>
+</code></pre>
+<h3 id="akshare库的主要作用"><a href="#akshare库的主要作用" class="headerlink" title="akshare库的主要作用"></a><strong>akshare库的主要作用</strong></h3><p><code>akshare</code>是一个<strong>开源的金融数据接口库</strong>，专注于提供多市场、多周期的金融数据获取功能，其核心作用包括：</p>
+<ol>
+<li>覆盖广泛的数据类型：包括股票、期货、基金、外汇、数字货币、宏观经济等</li>
+<li>支持实时与历史数据：提供实时行情（如A股、期货）和历史数据（日线、分钟线）</li>
+<li>数据格式标准化：返回Pandas DataFrame，便于后续分析与可视化</li>
+<li><strong>本地化数据源适配</strong>：整合国内主流财经平台（如东方财富、新浪财经）的数据接口</li>
+</ol>
+<h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a target="_blank" rel="noopener" href="https://github.com/matplotlib/mplfinance">mplfinance</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/matplotlib/mplfinance/tree/master/examples">matplotlib</a></p>
+<p><a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/">flask</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2025/06/03/19635.html">https://bigworldxld.github.io/2025/06/03/19635.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/flask/">
+                                    <span class="chip bg-color">flask</span>
+                                </a>
+                            
+                                <a href="/tags/akshare/">
+                                    <span class="chip bg-color">akshare</span>
+                                </a>
+                            
+                                <a href="/tags/mplfinance/">
+                                    <span class="chip bg-color">mplfinance</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/06/03/19635.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/python.jpg" class="responsive-img" alt="常用工具库">
+                        
+                        <span class="card-title">常用工具库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/flask/">
+                        <span class="chip bg-color">flask</span>
+                    </a>
+                    
+                    <a href="/tags/akshare/">
+                        <span class="chip bg-color">akshare</span>
+                    </a>
+                    
+                    <a href="/tags/mplfinance/">
+                        <span class="chip bg-color">mplfinance</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/05/18/33251.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/python.jpg" class="responsive-img" alt="python工具库">
+                        
+                        <span class="card-title">python工具库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqlmodel/">
+                        <span class="chip bg-color">sqlmodel</span>
+                    </a>
+                    
+                    <a href="/tags/collections/">
+                        <span class="chip bg-color">collections</span>
+                    </a>
+                    
+                    <a href="/tags/mock/">
+                        <span class="chip bg-color">mock</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Author&nbsp;<a href="https://bigworldxld.github.io/" target="_blank">bigworldxld</a>
+            |&nbsp;Dailylife&nbsp;<a href="https://bigworldxld.github.io/duxu-dailylife/" target="_blank">blog</a>
+			|&nbsp;Desktop&nbsp;<a href="https://bigworldxld.github.io/desktop/" target="_blank">desktop</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>
