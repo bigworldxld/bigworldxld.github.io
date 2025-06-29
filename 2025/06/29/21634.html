@@ -1,0 +1,1796 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="日常问题笔记8, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="Redis一、Redis 主要作用与核心特性‌‌高性能内存存储‌数据存储在内存中，读写速度极快（微秒级响应），支持高并发访问。‌持久化能力‌支持 RDB（快照）和 AOF（追加日志）两种持久化方式，确保重启后数据不丢失。‌丰富的数据类型‌字">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>日常问题笔记8 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">日常问题笔记8</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/analysis/" class="post-category">
+                                analysis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-06-29
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>一、Redis 主要作用与核心特性‌<br>‌高性能内存存储‌<br>数据存储在内存中，读写速度极快（微秒级响应），支持高并发访问。<br>‌持久化能力‌<br>支持 RDB（快照）和 AOF（追加日志）两种持久化方式，确保重启后数据不丢失。<br>‌丰富的数据类型‌<br>字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，满足不同业务需求。<br>‌分布式支持‌<br>支持主从复制、哨兵（Sentinel）、集群（Cluster）模式，实现高可用与水平扩展</p>
+<p>二、典型应用场景‌<br>‌场景‌    ‌说明‌    ‌数据结构‌<br>‌缓存‌    加速热点数据访问（如商品信息、页面内容），减轻数据库压力    String/Hash<br>‌会话存储‌    存储用户登录状态（如购物车数据），支持分布式服务共享会话    Hash/String<br>‌分布式锁‌    通过 SETNX 实现跨服务资源互斥访问    String<br>‌排行榜/计数器‌    利用有序集合（ZSet）实现实时排序（如游戏排名），INCR 统计访问量    ZSet/String<br>‌消息队列‌    列表（List）实现简单队列（生产者-消费者模型）    List<br>‌实时数据分析‌    统计在线用户数、实时点击量等    Set/HyperLogLog</p>
+<p>常用命令速查‌</p>
+<p>命令        作用                    示例<br>KEYS pattern    匹配键名（生产慎用，建议用 SCAN 替代）    KEYS user:*<br>EXISTS key    检查键是否存在                EXISTS user:1001<br>DEL key        删除键                    DEL cache:data<br>EXPIRE key sec    设置键过期时间（秒）811            EXPIRE session 3600<br>TTL key        查看剩余过期时间                TTL session</p>
+<p>数据类型操作‌<br>‌String（字符串）‌<br>SET key value      # 设置值<br>GET key            # 获取值<br>INCR key           # 数值自增1（计数器）<br>INCRBY key 5       # 数值增加5<br>MSET k1 v1 k2 v2   # 批量设置键值<br>‌典型场景‌：缓存热点数据、计数器（如文章阅读量）</p>
+<p>‌Hash（哈希）‌<br>HSET user:1001 name “Alice”   # 设置字段<br>HGET user:1001 name           # 获取字段<br>HGETALL user:1001             # 获取所有字段<br>HINCRBY user:1001 score 10   # 字段值递增<br>典型场景‌：存储对象属性（如用户信息）</p>
+<p>‌List（列表）‌<br>LPUSH tasks “task1”     # 左端插入<br>RPOP tasks              # 右端弹出<br>LRANGE tasks 0 -1       # 获取全部元素<br>典型场景‌：消息队列、最新消息列表</p>
+<p>Sorted Set（有序集合）‌<br>ZADD rank 100 “PlayerA”  # 添加成员及分数<br>ZRANGE rank 0 9 WITHSCORES  # 获取前10名（带分数）<br>典型场景‌：实时排行榜、优先级任务队列</p>
+<p>SCAN 命令<br>功能与特点‌<br>‌迭代式查询‌：基于游标（cursor）分批次遍历数据库中的键，避免阻塞 Redis 单线程<br>‌非阻塞设计‌：每次返回少量键，游标为 0 时表示遍历完成<br>‌模式匹配‌：支持 MATCH 参数过滤键名（如 user:*）<br>‌弱一致性‌：遍历期间数据修改可能导致重复或遗漏</p>
+<p>‌命令语法‌<br>SCAN cursor [MATCH pattern] [COUNT count] [TYPE type]<br>‌cursor‌：起始游标（首次为 0）<br>‌COUNT‌：建议返回的键数量（实际可能不一致）<br>‌TYPE‌：过滤键类型（如 string、hash）</p>
+<p>‌典型场景‌<br>替代 KEYS * 查询海量键名<br>定期清理符合特定模式的键（如过期缓存）</p>
+<p>‌场景‌：遍历所有以 user: 开头的键</p>
+<p>#第一次迭代（游标从0开始）</p>
+<p>127.0.0.1:6379&gt; SCAN 0 MATCH user:* COUNT 5</p>
+<ol>
+<li>“12”              # 下次迭代的游标</li>
+<li><ol>
+<li>“user:1001”    # 匹配到的键</li>
+<li>“user:1002”</li>
+</ol>
+</li>
+</ol>
+<p>#第二次迭代（使用返回的游标12继续）</p>
+<p>127.0.0.1:6379&gt; SCAN 12 MATCH user:* COUNT 5</p>
+<ol>
+<li>“0”               # 游标为0表示遍历完成</li>
+<li><ol>
+<li>“user:1003”</li>
+<li>“user:1004”</li>
+</ol>
+</li>
+</ol>
+<p>HSCAN 命令‌<br>‌功能与特点‌<br>‌哈希表迭代‌：专用于遍历 Hash 类型中的字段和值<br>‌增量式获取‌：避免一次性获取大 Hash 导致内存压力<br>‌游标控制‌：与 SCAN 类似，通过游标分批次返回数据</p>
+<p>‌命令语法‌<br>HSCAN key cursor [MATCH pattern] [COUNT count]<br>‌key‌：目标 Hash 键名。<br>‌MATCH‌：过滤字段名（如 user:*）<br>‌<br>典型场景‌<br>替代 HGETALL 获取大 Hash 数据<br>统计 Hash 中部分字段（如用户属性子集）</p>
+<p>SCAN 与 HSCAN 对比‌<br>‌特性‌    ‌SCAN‌    ‌HSCAN‌<br>‌作用对象‌    整个数据库的键    指定 Hash 键的字段<br>‌复杂度‌    O(N)（分批次）    O(N)（分批次）<br>‌适用场景‌    全局键管理    大 Hash 字段遍历</p>
+<p>‌场景‌：遍历 Hash 键 user:profile 中的字段</p>
+<p>#设置测试数据</p>
+<p>127.0.0.1:6379&gt; HSET user:profile name “Alice” age 28 email “<a href="mailto:alice@example.com">alice@example.com</a>“</p>
+<p>#第一次迭代</p>
+<p>127.0.0.1:6379&gt; HSCAN user:profile 0 MATCH n*  # 匹配以n开头的字段</p>
+<ol>
+<li>“0”                   # 游标0表示一次遍历完成（数据量小）</li>
+<li><ol>
+<li>“name”             # 字段名</li>
+<li>“Alice”            # 字段值</li>
+</ol>
+</li>
+</ol>
+<p>#遍历所有字段（分批次）</p>
+<p>127.0.0.1:6379&gt; HSCAN user:profile 0 COUNT 1</p>
+<ol>
+<li>“2”                   # 下次游标</li>
+<li><ol>
+<li>“name”</li>
+<li>“Alice”</li>
+</ol>
+</li>
+</ol>
+<p>127.0.0.1:6379&gt; HSCAN user:profile 2 COUNT 1</p>
+<ol>
+<li>“0”                   # 遍历结束</li>
+<li><ol>
+<li>“age”</li>
+<li>“28”</li>
+<li>“email”</li>
+<li>“<a href="mailto:alice@example.com">alice@example.com</a>“</li>
+</ol>
+</li>
+</ol>
+<p>高阶应用命令‌</p>
+<ol>
+<li>‌分布式锁‌</li>
+</ol>
+<p>SET lock:res1 UUID NX EX 30  # 原子获取锁（30秒自动释放）<br>DEL lock:res1                # 释放锁<br>‌关键点‌：需配合唯一标识符避免误删，推荐 Lua 脚本保证原子性</p>
+<ol start="2">
+<li><p>‌发布订阅‌<br>SUBSCRIBE news               # 订阅频道<br>PUBLISH news “Hello”         # 发布消息<br>‌典型场景‌：实时通知系统</p>
+</li>
+<li><p>‌事务‌</p>
+</li>
+</ol>
+<p>MULTI                        # 开启事务<br>SET a 100<br>INCR b<br>EXEC                         # 执行事务<br>‌注意‌：Redis 事务无回滚机制，命令错误仍会继续执行</p>
+<h2 id="MaFka-vs-Kafka‌"><a href="#MaFka-vs-Kafka‌" class="headerlink" title="MaFka vs Kafka‌"></a>MaFka vs Kafka‌</h2><p>‌特性‌    ‌    Kafka‌    ‌MaFka‌<br>‌开发方‌    Apache开源    阿里云优化版<br>‌适用场景‌    通用消息队列、流处理    高可用、强一致性的金融场景<br>‌命令兼容性‌    原生Kafka命令    兼容Kafka，部分扩展API</p>
+<p>核心运用场景‌<br>‌异步处理‌<br>‌场景‌：用户注册后异步发送邮件/短信，提升响应速度<br>‌示例‌：订单系统生成订单后，通过Kafka通知库存系统扣减库存</p>
+<p>‌应用解耦‌<br>‌场景‌：电商系统中，支付成功事件通过Kafka通知物流、积分等子系统，避免直接调用</p>
+<p>‌流量削峰‌<br>‌场景‌：秒杀活动中，请求先写入Kafka，后端服务按能力消费，避免系统崩溃</p>
+<p>‌日志收集与实时分析‌<br>‌场景‌：收集服务器日志，通过Flink/Spark实时分析</p>
+<p>‌事件驱动架构‌<br>‌场景‌：微服务间通过Kafka传递事件（如库存变更、用户行为）</p>
+<h2 id="http和thrift核心区别‌"><a href="#http和thrift核心区别‌" class="headerlink" title="http和thrift核心区别‌"></a>http和thrift核心区别‌</h2><p>‌维度‌    ‌    HTTP‌    ‌            Thrift‌<br>‌协议类型‌        应用层协议 (文本/二进制传输)        跨语言 ‌RPC 框架‌ (强制二进制传输)<br>‌设计目标‌        Web 资源传输 (如网页、API)     高效 ‌服务间通信‌ (微服务、内部系统)<br>‌数据编码‌        支持文本 (JSON/XML) 或二进制    ‌二进制编码‌ (体积小，解析快)<br>‌协议开销‌        头部较大 (如 Cookie/User-Agent)     精简二进制头部 (节省带宽)<br>‌跨语言支持‌    通用 (所有语言原生支持)        通过 IDL 生成多语言代码 (Java/Python/C++ 等) 14</p>
+<p>二、主要用途‌<br>‌HTTP/HTTPS‌<br>‌Web 交互‌：浏览器-服务器通信 (如加载网页、API 调用)<br>‌开放 API‌：第三方服务集成 (如支付接口、地图服务)<br>‌内容分发‌：传输静态资源 (图片、CSS/JS 文件) </p>
+<p>‌Thrift‌<br>‌微服务通信‌：服务间高性能数据交换 (如订单服务调用库存服务)<br>‌大数据管道‌：跨语言数据流转 (如 Java 服务向 Python 分析模块传输日志)<br>‌内部系统集成‌：统一通信协议替代 RESTful (降低序列化开销) </p>
+<p> ‌三、请求方式与示例‌<br>‌HTTP 请求方式‌<br>方法    用途            示例<br>GET    获取资源            curl <a target="_blank" rel="noopener" href="http://api.com/users?id=1">http://api.com/users?id=1</a><br>POST    提交数据 (如创建资源)    POST /users Body: {“name”:”Alice”}<br>PUT    更新完整资源        PUT /users/1 Body: {“name”:”Bob”}<br>DELETE    删除资源            DELETE /users/1<br>HEAD    获取响应头 (不含 body)    HEAD /users → 返回状态码 200</p>
+<p>‌Thrift 请求方式‌<br>‌无固定方法名，由 IDL 定义接口‌</p>
+<p>‌定义接口文件 (user.thrift)‌：</p>
+<p>service UserService {<br>  User getUser(1:i32 id),          // 类似 GET 请求<br>  void createUser(1:User user),    // 类似 POST 请求<br>  bool deleteUser(1:i32 id)        // 类似 DELETE 请求<br>}</p>
+<p>‌客户端调用 (Python 示例)‌：<br>client = UserService.Client(protocol)<br>user = client.getUser(1)            # 调用 getUser 方法<br>client.deleteUser(1)                # 调用 deleteUser 方法</p>
+<p>四、关键总结‌<br>‌选 HTTP 场景‌：<br>需浏览器兼容性 (如前端调用 API)<br>开放生态集成 (如 OAuth 认证)<br>‌选 Thrift 场景‌：<br>服务间 ‌高性能通信‌ (延迟敏感型系统)<br>跨语言团队协作 (统一 IDL 减少沟通成本)<br>示例对比：传输 1KB 数据时，Thrift 比 HTTP/JSON 节省约 ‌40%‌ 带宽，解析速度快 ‌3-5 倍</p>
+<p>跨语言 ‌RPC 框架，Remote Procedure Call‌（远程过程调用）<br>一、主要用途‌<br>‌微服务通信‌；支持不同语言编写的服务相互调用（如Java订单服务调用Python库存服务）<br>‌分布式系统集成‌：跨团队协作时统一通信协议（如C++数据分析模块与Go日志服务交互）48。<br>‌高性能数据交换‌：二进制协议减少序列化开销（如金融交易系统要求低延迟）<br>二、主流框架与示例‌<br>‌1. Thrift‌<br>‌用途‌：Facebook开源，支持15+语言，适用于大规模跨语言服务（如Hive底层通信）<br>‌示例‌：</p>
+<pre class=" language-thrift"><code class="language-thrift">// 定义接口（IDL文件）
+service UserService {
+  string getUserName(1:i32 userId)
+}
+</code></pre>
+<p>Java服务端实现接口，Python客户端直接调用<br>‌2. gRPC‌<br>‌用途‌：Google开发，基于HTTP/2，适合云原生（如Kubernetes组件通信）<br>‌示例‌：</p>
+<pre class=" language-proto"><code class="language-proto">// Protobuf定义
+rpc SayHello (HelloRequest) returns (HelloReply) {}
+</code></pre>
+<p>Go服务端与Node.js客户端双向流通信<br>‌3. Dubbo‌<br>‌用途‌：阿里开源，扩展性强（如电商系统多语言服务治理）<br>‌示例‌：<br>Java服务暴露接口，通过Zookeeper注册，PHP消费者调用<br>⚖️ ‌三、关键优势‌<br>‌框架‌    ‌核心优势‌<br>Thrift    轻量级，多语言支持完善<br>gRPC    流式传输，HTTP/2天然支持<br>Dubbo    服务治理能力强（熔断、负载均衡）<br>注：选择时需权衡语言支持、性能需求及生态集成</p>
+<h2 id="Squirrel-协议和-Thrift-协议"><a href="#Squirrel-协议和-Thrift-协议" class="headerlink" title="Squirrel 协议和 Thrift 协议"></a>Squirrel 协议和 Thrift 协议</h2><p>‌特性‌    ‌    Thrift 协议‌    ‌        Squirrel 协议‌<br>‌协议类型‌    ‌    跨语言 RPC 框架‌（含序列化+传输层）    ‌分布式通信优化协议‌（聚焦传输层性能）<br>‌主要用途‌        跨语言服务调用（如微服务接口）    大数据系统内部数据传输（如 Spark shuffle）<br>‌技术栈‌        包含 IDL 编译器、序列化库、传输协议    专注于 ‌零拷贝、流式压缩、内存管理‌<br>‌典型应用系统‌    Hive、Cassandra、Facebook 内部服务     Apache Spark（替代 Netty 的传输模块）<br>‌数据格式‌        支持二进制/JSON/Compact 等序列化    原生二进制流（无序列化概念）</p>
+<p>一、Thrift 协议详解‌<br>‌核心用途‌<br>‌跨语言服务通信‌<br>通过 ‌IDL 定义接口‌ → 生成多语言（Java/Python/C++）的 RPC 客户端/服务端代码 → 实现异构系统调用。<br>‌高效序列化传输‌<br>支持二进制编码，减少数据体积，提升传输效率。<br>‌常用命令/操作示例‌</p>
+<pre class=" language-thrift"><code class="language-thrift">// 定义接口 (user_service.thrift)
+service UserService {
+  string getUserName(1:i32 userId),
+  bool updateUser(1:User user)
+}
+
+struct User {
+  1: i32 id,
+  2: string name
+}
+</code></pre>
+<p>‌生成 Java 代码‌：</p>
+<pre class=" language-bash"><code class="language-bash">thrift --gen java user_service.thrift  <span class="token comment" spellcheck="true"># 生成 UserService 客户端调用类</span>
+</code></pre>
+<p>‌调用示例（Java）‌：</p>
+<pre class=" language-java"><code class="language-java">TTransport transport <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TSocket</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token number">9090</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+transport<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+TProtocol protocol <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TBinaryProtocol</span><span class="token punctuation">(</span>transport<span class="token punctuation">)</span><span class="token punctuation">;</span>
+UserService<span class="token punctuation">.</span>Client client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserService<span class="token punctuation">.</span>Client</span><span class="token punctuation">(</span>protocol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 调用远程方法</span>
+String name <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">getUserName</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 输出 "Alice"</span>
+</code></pre>
+<p>二、Squirrel 协议详解‌<br>‌核心用途‌<br>‌大数据引擎内部数据传输优化‌<br>用于 ‌Spark/Flink 等计算引擎的 Shuffle 阶段‌，替代传统 TCP 传输：<br>‌零拷贝‌：避免 JVM 堆内外内存复制<br>‌流式压缩‌：实时压缩传输中的数据块<br>‌内存池化‌：减少 GC 压力<br>‌技术实现特征‌<br>‌无 IDL 定义‌：直接传输二进制内存块（如 Spark 的 ManagedBuffer）<br>‌基于 Netty 改造‌：扩展了 TransportClient/TransportServer<br>‌Spark 中的示例（源码层面）‌<br>scala<br>Copy Code<br>// Spark 使用 Squirrel 传输 shuffle 数据<br>val blockData = shuffleBlockManager.getBlockData(blockId)<br>val buffer = blockData.toByteBuffer() </p>
+<p>// 通过 Squirrel 协议发送<br>transportClient.sendRpc(buffer, callback)</p>
+<p>三、典型场景对比‌<br>‌场景 1：微服务 API 调用（Thrift）‌<br>‌架构‌：</p>
+<pre class=" language-mermaid"><code class="language-mermaid">graph LR
+  Web[Java Web App] -- Thrift RPC --> UserService[Python UserService]
+  UserService --> DB[(MySQL)]
+​```‌
+流程‌：
+Java 应用通过 Thrift 生成的客户端调用 Python 服务的 getUserName() 接口。
+
+‌场景 2：Spark Shuffle 数据传输（Squirrel）‌
+‌架构‌：
+​```mermaid
+graph LR
+  Executor1[Spark Executor 1] -- Squirrel协议 --> Executor2[Spark Executor 2]
+  Executor2 -- 处理shuffle数据 --> Task[计算任务]
+</code></pre>
+<p>‌优化效果‌：<br>100 GB 的 Shuffle 数据，经流式压缩后传输体积降至 40 GB，传输耗时减少 60%</p>
+<p>Q：两者能否替代使用？‌<br>→ ‌不能‌！<br>Thrift 解决 ‌跨语言服务调用‌（类似 gRPC）<br>Squirrel 解决 ‌大数据引擎内部高性能传输‌（类似 RDMA 优化）</p>
+<p>‌Q：实际项目中如何识别？‌<br>‌Thrift‌：存在 .thrift 接口定义文件，生成多语言 SDK<br>‌Squirrel‌：出现在 Spark/Flink 等引擎的 ‌网络传输模块配置‌中（如 spark.shuffle.squirrel.enabled=true）<br>💡 ‌性能对比‌：在 Spark Shuffle 场景下，Squirrel 较传统 TCP 协议降低 30%~50% 延迟，同时减少 50% CPU 占用（来源：Databricks 性能报告）</p>
+<h2 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h2><p>一、核心用途‌<br>‌大数据分析平台‌：提供 ‌类SQL（HiveQL）接口‌，将结构化数据文件（如日志、CSV）映射为表结构，支持海量数据分析 → 适合网站PV/UV统计、用户行为分析</p>
+<p>‌Hadoop 数据仓库‌<br>基于 ‌HDFS 存储‌，通过元数据管理（Metastore）统一管理表结构、分区等属性 → 避免直接操作分布式文件系统。</p>
+<p>‌简化 MapReduce 开发‌<br>‌自动转换 HQL 为 MapReduce 任务‌（或 Spark/Tez），降低分布式计算门槛 → 开发者无需编写 Java 代码</p>
+<p>二、常用命令与示例‌</p>
+<p>‌1. 数据定义（DDL）‌<br>‌命令‌    ‌说明‌    ‌    示例‌<br>创建库    新建数据库    CREATE DATABASE user_db;<br>切换库    选择操作库    USE user_db;<br>创建表（含复杂类型）    定义表结构：CREATE TABLE users (name STRING,friends ARRAY<string>,address STRUCT&lt;street:STRING, city:STRING&gt;);</string></p>
+<p>‌2. 数据操作（DML）‌<br>‌命令‌    ‌        说明‌    ‌    示例‌<br>加载本地数据到Hive表    导入数据        LOAD DATA LOCAL INPATH ‘/data/users.txt’ INTO TABLE users;<br>查询数据            执行分析        SELECT name, address.city FROM users WHERE size(friends) &gt; 10;<br>动态分区插入        按字段值自动分区    INSERT INTO page_view PARTITION (dt, country) SELECT url, dt, country FROM raw_log;</p>
+<p>‌3. 元数据与运维‌<br>‌命令‌    ‌        说明‌    ‌    示例‌<br>查看表结构        显示字段和类型    DESCRIBE FORMATTED users;<br>修复分区            更新元数据分区信息    MSCK REPAIR TABLE page_view;<br>查看HDFS文件        直接操作HDFS    dfs -ls /user/hive/warehouse/user_db;</p>
+<p>三、典型示例场景‌<br>‌场景：分析网站日活用户（DAU）‌</p>
+<p>‌创建分区表存储访问日志‌</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> user_access <span class="token punctuation">(</span>
+  user_id <span class="token keyword">INT</span><span class="token punctuation">,</span>
+  access_time <span class="token keyword">TIMESTAMP</span><span class="token punctuation">,</span>
+  page_url STRING
+<span class="token punctuation">)</span> PARTITIONED <span class="token keyword">BY</span> <span class="token punctuation">(</span>dt STRING<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">-- 按日期分区</span>
+</code></pre>
+<p>‌加载日志数据到对应分区‌</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> INPATH <span class="token string">'/logs/20230621.log'</span> 
+<span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> user_access <span class="token keyword">PARTITION</span> <span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">'20230621'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>‌统计当日活跃用户数‌</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> dt<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> dau 
+<span class="token keyword">FROM</span> user_access 
+<span class="token keyword">WHERE</span> dt <span class="token operator">=</span> <span class="token string">'20230621'</span> 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> dt<span class="token punctuation">;</span>
+</code></pre>
+<p>→ 输出结果：<code>20230621 | 1543200</code> </p>
+<h2 id="Elasticsearch（ES）‌-与-‌分库分表架构（如Cellars模式）‌-的核心区别"><a href="#Elasticsearch（ES）‌-与-‌分库分表架构（如Cellars模式）‌-的核心区别" class="headerlink" title="Elasticsearch（ES）‌ 与 ‌分库分表架构（如Cellars模式）‌ 的核心区别"></a>Elasticsearch（ES）‌ 与 ‌分库分表架构（如Cellars模式）‌ 的核心区别</h2><p>一、核心区别对比‌<br>‌维度‌    ‌Elasticsearch（ES）‌    ‌            分库分表架构（如Cellars模式）‌<br>‌数据模型‌    文档型数据库（JSON格式），无固定模式（Schema-free）    关系型数据库（行/列结构），强模式约束<br>‌核心能力‌    全文搜索、实时分析、聚合计算                高并发事务处理、强一致性保证（ACID）<br>‌扩展方式‌    天然分布式，自动分片（Shard）与副本（Replica）    手动分库分表（如按用户ID分片），需应用层管理<br>‌索引机制‌    倒排索引（全文检索） + 列式存储（聚合分析）        B+树索引（精确查询/范围查询）<br>‌一致性‌    最终一致性（写入延迟≈1秒）                强一致性（事务隔离）</p>
+<p>二、主要用途‌<br>‌1. Elasticsearch（ES）‌<br>‌全文搜索‌：支持关键词、模糊匹配、语义分析（如电商商品搜索）<br>‌实时分析‌：日志聚合（ELK栈）、用户行为分析（如点击率统计）<br>‌非结构化数据处理‌：文本、日志、JSON文档的存储与检索</p>
+<p>‌2. 分库分表架构（如Cellars模式）‌<br>‌高并发事务处理‌：支付订单、库存扣减（如电商交易系统）<br>‌结构化数据强一致性‌：银行转账、航班订票（需ACID事务）<br>‌水平扩展瓶颈突破‌：单表亿级数据拆分（如用户分库）</p>
+<p>三、典型场景举例‌<br>‌案例1：电商平台‌<br>‌组件‌    ‌    ES的作用‌    ‌                        分库分表的作用‌<br>‌商品搜索页‌    用户输入“夏季连衣裙” → 实时返回相关商品（全文检索 + 排序）    ❌ 不适用<br>‌订单支付‌        ❌ 不适用                        处理10万笔/秒的支付请求（分库分表分散负载）</p>
+<p>‌案例2：日志监控系统‌<br>‌组件‌    ‌    ES的作用‌    ‌                    分库分表的作用‌<br>‌错误日志分析‌    实时聚合服务器错误日志 → 生成TOP10错误类型报表        ❌ 不适用<br>‌用户操作审计‌    ❌ 不适用                    存储用户操作记录（强一致性事务保障）</p>
+<p>‌案例3：社交平台‌<br>‌组件‌    ‌    ES的作用‌    ‌                    分库分表的作用‌<br>‌朋友圈全文搜索‌    搜索“去年旅行的照片” → 返回相关动态（语义匹配）        ❌ 不适用<br>‌好友关系存储‌    ❌ 不适用                    存储亿级用户关系（按用户ID分库）</p>
+<p>⚠️ ‌四、选型建议‌<br>‌选择ES‌：需全文检索/实时分析 ‌且‌ 可接受最终一致性（如日志、商品搜索）<br>‌选择分库分表‌：需强一致性事务 ‌且‌ 高并发写入（如支付、库存系统）<br>互补方案：大型系统常组合使用——分库分表处理交易，ES提供搜索分析（如淘宝订单库 + 商品ES索引）</p>
+<h2 id="Groovy-中常用的-Java-语法和函数"><a href="#Groovy-中常用的-Java-语法和函数" class="headerlink" title="Groovy 中常用的 Java 语法和函数"></a>Groovy 中常用的 Java 语法和函数</h2><p>‌一、基础语法兼容‌<br>‌变量定义与类型‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 风格（显式类型）</span>
+String name <span class="token operator">=</span> <span class="token string">"Groovy"</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Groovy 风格（动态类型）</span>
+<span class="token keyword">def</span> dynamicVar <span class="token operator">=</span> <span class="token string">"Dynamic"</span>  <span class="token comment" spellcheck="true">// 类型自动推断</span>
+‌循环与条件‌
+</code></pre>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 的 for 循环</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Groovy 增强：范围迭代</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">..</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">.</span>each <span class="token punctuation">{</span> <span class="token function">println</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">// 闭包简化</span>
+</code></pre>
+<p>‌二、常用 Java 函数/类‌<br>‌字符串处理‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 的 String 方法</span>
+<span class="token keyword">def</span> str <span class="token operator">=</span> <span class="token string">"Hello"</span>
+str<span class="token operator">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">// Java 方法</span>
+str<span class="token operator">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 转为大写</span>
+
+<span class="token comment" spellcheck="true">// Groovy 扩展：GString</span>
+<span class="token keyword">def</span> name <span class="token operator">=</span> <span class="token string">"World"</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, ${name}!"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>‌集合操作‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 的 ArrayList</span>
+List<span class="token operator">&lt;</span>String<span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+list<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span>
+list<span class="token operator">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>// Groovy 简化语法<br>def groovyList = [“A”, “B”, “C”]<br>groovyList.each { println(it) }  // 闭包遍历</p>
+<p>‌文件读写‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 的 File 类</span>
+File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">)</span>
+file<span class="token operator">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Groovy 增强方法</span>
+<span class="token keyword">def</span> content <span class="token operator">=</span> file<span class="token operator">.</span>text  <span class="token comment" spellcheck="true">// 直接读取文本</span>
+</code></pre>
+<p>‌三、Groovy 特有增强‌</p>
+<p>‌安全导航操作符‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token keyword">def</span> obj <span class="token operator">=</span> null
+<span class="token function">println</span><span class="token punctuation">(</span>obj<span class="token operator">?.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 避免 NPE（Java 需判空）</span>
+
+‌Elvis 操作符‌
+​```groovy
+<span class="token keyword">def</span> value <span class="token operator">=</span> input <span class="token operator">?:</span> <span class="token string">"default"</span>  <span class="token comment" spellcheck="true">// 等价于 Java 的三元表达式</span>
+</code></pre>
+<p>‌闭包（替代函数式接口）‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// Java 的 Runnable</span>
+<span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Java thread"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Groovy 闭包简化</span>
+<span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Groovy thread"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>‌四、混合调用示例‌</p>
+<pre class=" language-groovy"><code class="language-groovy"><span class="token comment" spellcheck="true">// 调用 Java 的 Math 类</span>
+<span class="token keyword">def</span> sqrt <span class="token operator">=</span> Math<span class="token operator">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 输出 4.0</span>
+
+<span class="token comment" spellcheck="true">// 调用 Java 的日期类（Groovy 扩展了简便方法）</span>
+<span class="token keyword">def</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span>now<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 输出格式化日期</span>
+</code></pre>
+<p>‌<br>关键区别总结‌<br>‌特性‌    ‌    Java‌    ‌        Groovy‌<br>‌类型定义‌        必须显式声明（强类型）    支持 def 动态类型推断<br>‌集合操作‌        需手动迭代或 Stream API    内置 each/collect 等方法<br>‌空安全‌        需手动判空        支持 ?. 安全导航操作符<br>‌语法简洁性‌    代码冗余较多        闭包、运算符重载等简化语法<br>Groovy 完全兼容 Java 语法，同时通过动态特性和语法糖大幅提升开发效率，适合规则引擎（如 Jenkins Pipeline）、脚本编写等场景</p>
+<h2 id="CAT、Eagle（EMonitor）与-LogCenter‌："><a href="#CAT、Eagle（EMonitor）与-LogCenter‌：" class="headerlink" title="CAT、Eagle（EMonitor）与 LogCenter‌："></a>CAT、Eagle（EMonitor）与 LogCenter‌：</h2><p>一、核心定位与功能差异‌<br>‌系统‌    ‌核心定位‌    ‌主要用途‌    ‌典型数据指标‌<br>‌CAT‌    ‌分布式实时监控系统‌    应用层性能追踪：记录调用链路、异常诊断、服务拓扑可视化    调用耗时、错误率、JVM 状态<br>‌Eagle（EMonitor）‌    ‌统一监控平台‌    全栈监控：覆盖系统/容器/中间件/业务层指标，支持海量数据存储与查询    CPU/内存、网络流量、业务 QPS<br>‌LogCenter‌    ‌日志中枢系统‌（通用概念）    日志聚合分析：采集多源日志（网络设备/服务器/应用），实现故障定位与安全审计    日志格式解析、关键字告警、行为审计 </p>
+<p>二、主要用途详解‌<br>‌1. CAT（Central Application Tracking）‌<br>‌用途‌：<br>‌实时链路追踪‌：记录微服务调用路径（如订单创建涉及多少服务节点）<br>‌性能瓶颈分析‌：统计 SQL/RPC 调用耗时，定位慢查询（如支付接口超时问题）<br>‌异常告警‌：主动捕获代码异常（如空指针错误），推送至运维群<br>‌案例‌：<br>美团支付服务通过 CAT 发现某数据库节点响应延迟突增（耗时 &gt;500ms），快速切换备用节点避免业务中断 </p>
+<p>‌2. Eagle（EMonitor）‌<br>‌用途‌：<br>‌资源监控‌：实时跟踪容器 CPU/内存使用率（如 Kubernetes 集群资源水位）<br>‌业务指标可视化‌：定制业务看板（如外卖日订单量趋势图）<br>‌多数据源支持‌：整合 Zabbix/Prometheus 等监控数据，统一展示<br>‌案例‌：<br>饿了么通过 EMonitor 检测到某区域 API 网关流量异常（较均值 +300%），及时扩容避免服务雪崩 </p>
+<p>‌3. LogCenter‌<br>‌用途‌：<br>‌日志集中管理‌：采集交换机/防火墙等设备日志，统一存储分析（如用户登录行为审计）<br>‌安全威胁检测‌：通过规则引擎识别攻击模式（如暴力破解登录）<br>‌故障回溯‌：关联多设备日志定位网络中断根因（如防火墙策略误阻断）<br>‌案例‌：<br>某企业通过 LogCenter 分析 H3C 交换机日志，发现端口频繁闪断（因网线接触不良），缩短排障时间 70% </p>
+<p>三、技术架构对比‌<br>‌维度‌    ‌CAT‌    ‌Eagle（EMonitor）‌    ‌LogCenter‌<br>‌数据处理‌    实时计算（秒级延迟）    近实时（分钟级聚合）    准实时（依赖采集频率）<br>‌存储规模‌    日处理 3200 亿+ 消息     日处理 PB 级数据         支持 TB 级日志存储<br>‌集成扩展性‌    多语言客户端（Java/Go/Python）    兼容开源监控工具（Zabbix 等）    支持 Syslog/API 等多协议接入 </p>
+<p> 总结应用场景‌<br>‌选 CAT‌：需深度追踪微服务调用链，定位性能瓶颈（如电商交易系统）<br>‌选 Eagle‌：需统一监控混合架构（容器+物理机+业务指标），如云原生平台<br>‌选 LogCenter‌：需集中分析网络设备/安全日志，满足合规审计要求（如金融行业</p>
+<p>一、数据仓库分层架构​​<br>数据仓库通常采用分层设计，每层职责明确，便于数据治理和复用。主流分层如下（不同企业可能有差异）：</p>
+<p>​1. 基础层（数据接入与原始存储）​​<br>​​STG（暂存层）​​：<br>临时存储从业务系统抽取的​​原始数据​​，仅做基础清洗（如去重、格式校验），不保留历史。一般与源系统表结构一致。<br>​​ODS（操作数据存储层）​​：<br>存储​​业务系统镜像数据​​，保留原始信息，支持增量/全量同步。表名常以 ods_ 开头（如 ods_order）。生命周期管理需明确（如日志类数据保留7天）。<br>​​2. 中间层（数据整合与模型化）​​<br>​​DWD（明细数据层）​​：<br>对ODS数据​​清洗、标准化、维度退化​​，生成细粒度事实表（如订单明细）。表名示例：dwd_fact_order。此层需统一字段命名、处理空值。<br>​​DIM（公共维度层）​​：<br>存储​​一致性维度表​​（如用户、商品维度），通过缓慢变化维（SCD）技术处理历史变更。表名前缀 dim_（如 dim_user）。<br>​​DWS（汇总数据层）​​：<br>按主题域（如销售、用户）​​聚合指标​​，生成宽表供上层复用。表名如 dws_sales_daily。<br>​​3. 应用层（业务导向数据集市）​​<br>​​ADS/APP（应用数据层）​​：<br>面向报表、API等​​具体场景​​，存放高度汇总或个性化指标。表名前缀 ads_ 或 app_（如 ads_user_retention）。<br>​​DM（数据集市）​​：<br>部门级数据子集（如财务、营销数据集市），结构与DWS类似但更垂直。<br>✅ ​​分层核心价值​​：</p>
+<p>​解耦​​：层间依赖清晰（如ADS仅依赖DWS/DIM），变更影响可控。<br>​​复用​​：中间层模型减少重复计算（如DWS被多个ADS复用）。<br>​​效率​​：分层优化存储（ODS存原始，DWS存聚合，降低查询开销）。<br>​​二、数据库对象常用前缀规范​​<br>前缀用于快速识别对象类型，提升可维护性。常见前缀如下：</p>
+<p>​对象类型​​    ​​常用前缀​​    ​​示例​​            ​​    说明​​<br>​​表​​        tbl_ dim_    tbl_user_info        普通表<br>        fact_        fact_sales            事实表<br>​​视图​​        v_ vw_    v_order_summary        简化复杂查询<br>​​存储过程​​    proc_ sp_    proc_calculate_bonus    处理业务逻辑<br>​​函数​​        func_ fn_    func_get_age        自定义计算<br>​​索引​​        idx_        idx_user_name        普通索引<br>        pk_        pk_order_id            主键索引<br>        fk_        fk_user_dept        外键索引<br>​​触发器​​    trig_        trig_update_log        自动化审计/逻辑<br>​​序列​​        seq_        seq_order_id        自增序列生成</p>
+<p>​表（Table）​​<br>​​前缀​​：tbl_（如 tbl_user）或直接业务缩写（如 order）。<br>​​规范​​：避免使用保留字，优先采用小写字母 。<br>2. ​视图（View）​​<br>​​前缀​​：vw_（如 vw_order_summary）或 view_ 。<br>3. ​索引（Index）​​<br>​​前缀​​：idx_（如 idx_user_id），主键索引可额外标注 pk_（如 pk_user）。<br>4. ​存储过程（Stored Procedure）​​<br>​​前缀​​：sp_（系统存储过程）或 up_（自定义，如 up_insert_order）。<br>5. ​触发器（Trigger）​​<br>​​前缀​​：tr_，后接操作类型（_I 插入、_D 删除、_U 更新），例如 tr_order_I 。<br>6. ​约束与规则​​<br>​​主键约束​​：pk_（如 pk_product）。<br>​​外键约束​​：fk_（如 fk_order_user）。<br>​​检查约束​​：ck_（如 ck_age_positive）。<br>7. ​自定义对象​​<br>​​函数​​：fn_（如 fn_calculate_total）。<br>​​序列​​：seq_（如 seq_order_id）</p>
+<p>​命名规范核心原则​​：<br>​​一致性​​：全库统一前缀风格（如全用小写 dim_ 或全大写 DIM_）。<br>​​描述性​​：前缀+业务含义（如 fact_sales 而非 tbl_01）。<br>​​长度控制​​：表/字段名 ≤ 30字符（部分数据库有长度限制）。<br>​​三、关键设计建议​​<br>​​数仓分层​​：<br>避免跨层引用（如DWD直接调ODS），确保数据血缘清晰。<br>维度层（DIM）独立建设，确保跨主题一致性。<br>​​前缀使用​​：<br>索引按类型+表名+字段命名（如 idx_user_name）。<br>禁用保留字（如 index、transaction），避免语法冲突</p>
+<p>##‌ 常用系统ß设置<br>打开系统偏好设置‌<br>点击屏幕左上角苹果菜单 &gt; 系统偏好设置。</p>
+<p>‌进入辅助功能‌<br>在偏好设置界面，点击 辅助功能 &gt; 左侧选择 指针控制 &gt; 右侧点击 触控板选项… 按钮5。</p>
+<p>‌启用拖移功能‌<br>在弹出的窗口中：<br>✅ 勾选 启用拖移</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2025/06/29/21634.html">https://bigworldxld.github.io/2025/06/29/21634.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/06/29/63049.html">
+                    <div class="card-image">
+                        
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/jsonpath.webp" class="responsive-img" alt="jsonpath">
+                        
+                        <span class="card-title">jsonpath</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/json/">
+                        <span class="chip bg-color">json</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/06/15/20674.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.jpg" class="responsive-img" alt="日常问题笔记7">
+                        
+                        <span class="card-title">日常问题笔记7</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/analysis/" class="post-category">
+                                    analysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Author&nbsp;<a href="https://bigworldxld.github.io/" target="_blank">bigworldxld</a>
+            |&nbsp;Dailylife&nbsp;<a href="https://bigworldxld.github.io/duxu-dailylife/" target="_blank">blog</a>
+			|&nbsp;Desktop&nbsp;<a href="https://bigworldxld.github.io/desktop/" target="_blank">desktop</a>
+            <br>
+			
+            
+            
+            
+                
+            
+           
+			      
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>
