@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-06-29T13:49:21.194Z</updated>
+  <updated>2025-07-06T06:40:22.139Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>mockjs使用</title>
+    <link href="https://bigworldxld.github.io/2025/07/06/14286.html"/>
+    <id>https://bigworldxld.github.io/2025/07/06/14286.html</id>
+    <published>2025-07-06T13:24:02.000Z</published>
+    <updated>2025-07-06T06:40:22.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="mockjs" scheme="https://bigworldxld.github.io/tags/mockjs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jsonpath</title>
     <link href="https://bigworldxld.github.io/2025/06/29/63049.html"/>
     <id>https://bigworldxld.github.io/2025/06/29/63049.html</id>
     <published>2025-06-29T13:24:02.000Z</published>
-    <updated>2025-06-29T13:49:21.194Z</updated>
+    <updated>2025-06-29T13:51:34.062Z</updated>
     
     
       
@@ -46,7 +71,7 @@
     <link href="https://bigworldxld.github.io/2025/06/29/21634.html"/>
     <id>https://bigworldxld.github.io/2025/06/29/21634.html</id>
     <published>2025-06-29T03:24:02.000Z</published>
-    <updated>2025-06-29T13:41:40.622Z</updated>
+    <updated>2025-06-29T14:05:01.879Z</updated>
     
     
       
