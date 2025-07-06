@@ -834,8 +834,7 @@ os.system('终端命令')
 <h3 id="faker自定义数据集"><a href="#faker自定义数据集" class="headerlink" title="faker自定义数据集"></a>faker自定义数据集</h3><p>from faker import Faker</p>
 <p>faker=Faker(locale=‘zh_CN’)</p>
 <p>faker.add_provider(CustomPrvider)    #自定义数据</p>
-<p>faker.random_element((‘男’,’女‘))    #在提供范围中选择<br>faker.random_int(18,40)    #在指定数字中随机数字</p>
-<p>自定义数据集造数据</p>
+<p>faker.random_element((‘男’,’女‘))    #在提供范围中选择<br>faker.random_int(18,40)    #在指定数字中随机数字<br>faker.address()<br>faker.name()<br>自定义数据集造数据</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> faker<span class="token punctuation">.</span>providers <span class="token keyword">import</span> DynamicProvider
 <span class="token keyword">class</span> <span class="token class-name">MyProvider</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>

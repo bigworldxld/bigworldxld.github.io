@@ -701,20 +701,20 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Mockjs"><a href="#Mockjs" class="headerlink" title="Mockjs"></a>Mockjs</h2><p>Mock.js 是一个用于生成模拟数据和拦截 AJAX 请求的 JavaScript 库，特别适用于前后端分离的开发模式，允许前端开发者在后端接口未完成时独立进行开发和测试，抓包代理工具时，进行数据mock处理</p>
-<h3 id="开始-amp-安装"><a href="#开始-amp-安装" class="headerlink" title="开始 &amp; 安装"></a>开始 &amp; 安装</h3><h4 id="Node-CommonJS"><a href="#Node-CommonJS" class="headerlink" title="Node (CommonJS)"></a>Node (CommonJS)</h4><pre><code># 安装
-npm install mockjs
+<h3 id="开始-amp-安装"><a href="#开始-amp-安装" class="headerlink" title="开始 &amp; 安装"></a>开始 &amp; 安装</h3><h4 id="Node-CommonJS"><a href="#Node-CommonJS" class="headerlink" title="Node (CommonJS)"></a>Node (CommonJS)</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> mockjs
 </code></pre>
-<pre><code>// 使用 Mock
-var Mock = require('mockjs')
-var data = Mock.mock({
-    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
-    'list|1-10': [{
-        // 属性 id 是一个自增数，起始值为 1，每次增 1
-        'id|+1': 1
-    }]
-})
-// 输出结果
-console.log(JSON.stringify(data, null, 4))
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 使用 Mock</span>
+<span class="token keyword">var</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 属性 list 的值是一个数组，其中含有 1 到 10 个元素</span>
+    <span class="token string">'list|1-10'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 属性 id 是一个自增数，起始值为 1，每次增 1</span>
+        <span class="token string">'id|+1'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 输出结果</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 安装</span>
 <span class="token function">npm</span> <span class="token function">install</span> -g bower
