@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-07-06T07:57:28.604Z</updated>
+  <updated>2025-07-13T06:46:15.829Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql常见问题</title>
+    <link href="https://bigworldxld.github.io/2025/07/13/62776.html"/>
+    <id>https://bigworldxld.github.io/2025/07/13/62776.html</id>
+    <published>2025-07-13T08:35:59.000Z</published>
+    <updated>2025-07-13T06:46:15.829Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://bigworldxld.github.io/categories/database/"/>
+    
+    
+    <category term="SQL" scheme="https://bigworldxld.github.io/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>mockjs使用</title>
@@ -121,7 +146,7 @@
     <link href="https://bigworldxld.github.io/2025/06/14/32762.html"/>
     <id>https://bigworldxld.github.io/2025/06/14/32762.html</id>
     <published>2025-06-14T03:24:02.000Z</published>
-    <updated>2025-06-14T04:20:31.531Z</updated>
+    <updated>2025-07-13T06:12:43.535Z</updated>
     
     
       
