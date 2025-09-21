@@ -672,14 +672,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9k
+                    11.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    41 分
                 </div>
                 
 
@@ -1263,6 +1263,267 @@
 <p>​​STAR法则​​：描述情境(Situation)、任务(Task)、行动(Action)、结果(Result)。</p>
 <p>​​你对未来音视频技术趋势有什么了解？（如AV1、WebRTC、低延迟直播）​​</p>
 <p>​​答​​：展示你的学习能力。可以聊​​AV1​​的开源和压缩效率优势及其对测试的挑战（CPU解码开销大）；​​WebRTC​​在实时互动场景（视频会议、教育）的应用；​​HLS/DASH​​在点播和直播中的原理等。</p>
+<h3 id="一、-视频类页面详细测试点"><a href="#一、-视频类页面详细测试点" class="headerlink" title="一、 视频类页面详细测试点"></a>一、 视频类页面详细测试点</h3><p>视频页面通常用于播放课程录像、动画讲解、配音短片等。</p>
+<h4 id="1-功能测试"><a href="#1-功能测试" class="headerlink" title="1. 功能测试"></a>1. 功能测试</h4><ul>
+<li><strong>核心播放功能</strong>：<ul>
+<li>播放/暂停、进度条拖拽、快进/快退（如双击/滑动）、音量调节、全屏/退出全屏切换是否正常。</li>
+<li>清晰度切换（如720P, 1080P）、播放速度切换（0.5x, 1.0x, 1.5x, 2.0x）功能是否有效。</li>
+</ul>
+</li>
+<li><strong>交互功能</strong>：<ul>
+<li>横竖屏切换时，画面是否自适应，有无黑边、拉伸或卡顿。</li>
+<li>全屏模式下，手势调节音量和亮度是否生效。</li>
+<li>锁屏或切换到后台，音频是否继续播放（画中画功能是否支持）。</li>
+<li>视频播放时，来电、通知中断，处理是否正常（暂停播放，结束后可恢复）。</li>
+</ul>
+</li>
+<li><strong>UI与状态</strong>：<ul>
+<li>播放器控制栏是否自动显示/隐藏。</li>
+<li>播放开始、播放中、播放结束、加载缓冲、播放错误等不同状态下的UI提示是否正确（如加载旋转图标、缓冲进度、错误重试按钮）。</li>
+<li>视频标题、时长、当前播放时间显示是否正确。</li>
+</ul>
+</li>
+<li><strong>附加功能</strong>：<ul>
+<li><strong>字幕切换</strong>：如果有字幕，切换不同语言或关闭字幕是否正常。</li>
+<li><strong>弹幕功能</strong>：发送和接收弹幕是否实时，有无遮挡重要内容。</li>
+<li><strong>收藏/点赞</strong>：操作后状态是否立即更新并同步到服务器。</li>
+<li><strong>关联推荐</strong>：视频播放结束或暂停时，推荐的关联视频列表是否正确。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-兼容性测试"><a href="#2-兼容性测试" class="headerlink" title="2. 兼容性测试"></a>2. 兼容性测试</h4><ul>
+<li><strong>操作系统</strong>：覆盖主流iOS和Android版本（如iOS 14-17, Android 10-13）。</li>
+<li><strong>设备型号</strong>：不同屏幕尺寸和分辨率（刘海屏、折叠屏、平板）的适配，控制栏是否被遮挡。</li>
+<li><strong>硬件差异</strong>：不同芯片（如高通、联发科）、不同性能的设备上播放是否流畅，解码能力如何。</li>
+<li><strong>网络类型</strong>：在Wi-Fi、4G/5G、弱网（高延迟、低带宽）环境下，视频的加载速度、自动降级清晰度、卡顿处理是否合理。</li>
+</ul>
+<h4 id="3-H5-WebView-测试"><a href="#3-H5-WebView-测试" class="headerlink" title="3. H5 (WebView) 测试"></a>3. H5 (WebView) 测试</h4><p>如果视频页面是内嵌的H5：</p>
+<ul>
+<li><strong>内核兼容</strong>：测试不同系统WebView内核和浏览器内核（如Chrome）下的表现是否一致。</li>
+<li><strong>JS接口</strong>：H5页面与Native App的通信（JSBridge）是否正常，例如全屏切换、获取设备网络状态等。</li>
+<li><strong>混合交互</strong>：H5页面内的按钮、链接调用Native功能（如登录、支付）是否正常工作。</li>
+</ul>
+<h4 id="4-接口测试"><a href="#4-接口测试" class="headerlink" title="4. 接口测试"></a>4. 接口测试</h4><ul>
+<li><strong>视频信息接口</strong>：请求视频的元数据（标题、时长、清晰度列表、播放URL）是否正确。</li>
+<li><strong>播放地址接口</strong>：返回的M3U8或MP4地址是否有效，是否有防盗链机制（如Token、Referer校验）。</li>
+<li><strong>状态上报接口</strong>：播放、暂停、结束、卡顿、退出等行为的上报时机和数据（如播放进度）是否准确。</li>
+<li><strong>心跳/进度上报接口</strong>：是否定时向服务器发送心跳包或播放进度，用于记录学习时长和进度同步。</li>
+<li><strong>弹幕/评论接口</strong>：获取和发送弹幕/评论的API是否正常，实时性如何。</li>
+<li><strong>安全与性能</strong>：接口是否有防刷机制，响应时间是否在要求范围内。</li>
+</ul>
+<h4 id="5-数据库测试"><a href="#5-数据库测试" class="headerlink" title="5. 数据库测试"></a>5. 数据库测试</h4><ul>
+<li><strong>播放记录存储</strong>：观看进度、观看时长是否准确记录到本地数据库，并在不同设备间通过账号同步。</li>
+<li><strong>缓存管理</strong>：视频缓存文件是否有效存储和清理（根据App设置），避免占用过多存储空间。</li>
+<li><strong>资源关联性</strong>：视频与作业、课程、用户数据的关联关系在数据库中是否正确。</li>
+</ul>
+<hr>
+<h3 id="二、-音频类页面详细测试点"><a href="#二、-音频类页面详细测试点" class="headerlink" title="二、 音频类页面详细测试点"></a>二、 音频类页面详细测试点</h3><p>音频页面通常用于英语听力、课文朗读、单词发音等。</p>
+<h4 id="1-功能测试-1"><a href="#1-功能测试-1" class="headerlink" title="1. 功能测试"></a>1. 功能测试</h4><ul>
+<li><strong>核心播放功能</strong>：<ul>
+<li>播放/暂停、进度条拖拽、快进/快退、播放速度切换（对英语学习尤其重要）。</li>
+<li>后台播放：App切到后台或锁屏后，音频能否持续播放。</li>
+<li>音频中断处理：来电、其他App播放音频、插入耳机等场景下，行为是否符合预期（暂停、压低音量、切换声道）。</li>
+</ul>
+</li>
+<li><strong>交互与UI</strong>：<ul>
+<li>桌面控件（通知栏/锁屏界面）的播放控制是否有效。</li>
+<li>播放页面的波形图或频谱显示是否正常（如果有）。</li>
+</ul>
+</li>
+<li><strong>学习功能</strong>：<ul>
+<li><strong>AB循环复读</strong>：设置起点和终点进行循环播放的功能是否精准。</li>
+<li><strong>跟读模式</strong>：播放一句后自动暂停，等待用户跟读，录音并播放对比，该流程是否顺畅。</li>
+<li>显示字幕（听力原文）并高亮当前播放的句子，同步是否准确。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-兼容性测试-1"><a href="#2-兼容性测试-1" class="headerlink" title="2. 兼容性测试"></a>2. 兼容性测试</h4><ul>
+<li><strong>音频通道</strong>：在蓝牙耳机、有线耳机、外放等不同输出设备间切换时，音频能否无缝切换，无爆音或延迟。</li>
+<li><strong>系统音频冲突</strong>：与系统其他音频App（如音乐播放器、地图导航）共存时，音量调节和焦点处理是否正常。</li>
+<li><strong>操作系统</strong>：同样需要覆盖主流OS版本，重点关注后台播放策略差异（如iOS和Android的后台省电限制）。</li>
+</ul>
+<h4 id="3-H5-WebView-测试-1"><a href="#3-H5-WebView-测试-1" class="headerlink" title="3. H5 (WebView) 测试"></a>3. H5 (WebView) 测试</h4><ul>
+<li>与视频类似，主要测试H5音频播放器与Native的交互，例如在后台播放时，H5能否保持活动状态（通常需要Native支持）。</li>
+</ul>
+<h4 id="4-接口测试-1"><a href="#4-接口测试-1" class="headerlink" title="4. 接口测试"></a>4. 接口测试</h4><ul>
+<li><strong>音频信息接口</strong>：获取音频元数据（标题、原文文本、分段时间戳）是否正确。</li>
+<li><strong>音频文件接口</strong>：获取MP3等音频文件的URL是否有效。</li>
+<li><strong>跟读录音接口</strong>：上传用户录音文件的接口是否稳定，耗电量如何。</li>
+<li><strong>进度同步接口</strong>：音频播放进度的上报和同步是否准确，用于记录学习进度。</li>
+</ul>
+<h4 id="5-数据库测试-1"><a href="#5-数据库测试-1" class="headerlink" title="5. 数据库测试"></a>5. 数据库测试</h4><ul>
+<li><strong>播放进度</strong>：音频播放位置的本地存储和同步是否准确。</li>
+<li><strong>录音文件管理</strong>：用户跟读产生的录音文件在本地和服务器端的存储、索引和管理是否正确。</li>
+<li><strong>离线下载</strong>：如果支持下载音频离线学习，下载任务管理、文件完整性校验和存储路径是否正确。</li>
+</ul>
+<hr>
+<h3 id="总结与核心关注点"><a href="#总结与核心关注点" class="headerlink" title="总结与核心关注点"></a>总结与核心关注点</h3><table>
+<thead>
+<tr>
+<th align="left">测试类型</th>
+<th align="left">视频类页面核心关注点</th>
+<th align="left">音频类页面核心关注点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">播放控制、清晰度、全屏、中断恢复</td>
+<td align="left">播放控制、速度、后台播放、跟读复读</td>
+</tr>
+<tr>
+<td align="left"><strong>兼容性</strong></td>
+<td align="left">设备适配、网络适配、解码能力</td>
+<td align="left">音频通道适配、后台策略、OS差异</td>
+</tr>
+<tr>
+<td align="left"><strong>H5</strong></td>
+<td align="left">JSBridge通信、全屏切换</td>
+<td align="left">后台播放保活、与Native交互</td>
+</tr>
+<tr>
+<td align="left"><strong>接口</strong></td>
+<td align="left">播放地址、状态上报、防盗链</td>
+<td align="left">音频地址、录音上传、进度同步</td>
+</tr>
+<tr>
+<td align="left"><strong>数据库</strong></td>
+<td align="left">播放记录、缓存管理</td>
+<td align="left">播放进度、录音文件管理</td>
+</tr>
+</tbody></table>
+<p><strong>性能与体验专项测试</strong>：</p>
+<ul>
+<li><strong>启动速度</strong>：点击后到第一帧画面/声音出现的时间。</li>
+<li><strong>能耗</strong>：长时间播放视频/音频的电量消耗和发热情况。</li>
+<li><strong>流量</strong>：在不同清晰度下播放的流量消耗是否符合预期。</li>
+<li><strong>卡顿率</strong>：播放过程中卡顿的次数和时长。</li>
+<li><strong>崩溃率</strong>：播放器相关功能的崩溃情况。<br>在 Java 中反转整数数字</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReverseInteger</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> reversed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 检查是否溢出</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>reversed <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">||</span> 
+                reversed <span class="token operator">&lt;</span> Integer<span class="token punctuation">.</span>MIN_VALUE <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 溢出时返回0</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token comment" spellcheck="true">// 反转数字</span>
+            <span class="token keyword">int</span> digit <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            reversed <span class="token operator">=</span> reversed <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> digit<span class="token punctuation">;</span>
+            x <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> reversed<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 321</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// -654</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 21 (前导零被忽略)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">1534236469</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0 (溢出)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReverseInteger</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 处理特殊情况</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 转换为字符串并反转</span>
+        String str <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String reversedStr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 处理负号</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            reversedStr <span class="token operator">=</span> reversedStr<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> reversedStr<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 处理前导零</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>reversedStr<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            reversedStr <span class="token operator">=</span> reversedStr<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 转换回整数并处理溢出</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> result <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>reversedStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> x <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token operator">-</span>result <span class="token operator">:</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 溢出时返回0</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 321</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// -654</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 21</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">1534236469</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Java 实现数组拼接最大整数<br>将[234,65,9,1111]数组中的数字，拼接成最大整数，为9652341111</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Arrays<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Comparator<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LargestNumber</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">234</span><span class="token punctuation">,</span> <span class="token number">65</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1111</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">largestNumber</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: 9652341111</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">largestNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 1. 将整数数组转换为字符串数组</span>
+        String<span class="token punctuation">[</span><span class="token punctuation">]</span> strArr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            strArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 2. 自定义排序规则：比较两个字符串拼接后的结果</span>
+        Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>strArr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                String order1 <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+                String order2 <span class="token operator">=</span> b <span class="token operator">+</span> a<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> order2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>order1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 降序排序</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 3. 处理特殊情况：如果最大数字是0，则直接返回"0"</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>strArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 4. 拼接排序后的字符串数组</span>
+        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>String str <span class="token operator">:</span> strArr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>方法二：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">largestNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 转换为字符串数组</span>
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strArr <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+                           <span class="token punctuation">.</span><span class="token function">mapToObj</span><span class="token punctuation">(</span>String<span class="token operator">:</span><span class="token operator">:</span>valueOf<span class="token punctuation">)</span>
+                           <span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment" spellcheck="true">// 使用Lambda表达式自定义排序</span>
+    Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>strArr<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">(</span>b <span class="token operator">+</span> a<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment" spellcheck="true">// 处理全0情况</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>strArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment" spellcheck="true">// 拼接结果</span>
+    <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> strArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
                 
             </div>
@@ -1502,17 +1763,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/09/15/37955.html">
+                <a href="/2025/10/21/53861.html">
                     <div class="card-image">
                         
-                        <img src="/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg" class="responsive-img" alt="日常问题笔记9">
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/maven.webp" class="responsive-img" alt="maven命令使用">
                         
-                        <span class="card-title">日常问题笔记9</span>
+                        <span class="card-title">maven命令使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1522,27 +1782,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/analysis/" class="post-category">
-                                    analysis
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/maven/">
+                        <span class="chip bg-color">maven</span>
                     </a>
                     
                 </div>
@@ -1559,7 +1818,7 @@
                 <a href="/2025/09/14/17553.html">
                     <div class="card-image">
                         
-                        <img src="https://portswigger.net/web-security/file-upload/images/file-upload-vulnerabilities.jpg" class="responsive-img" alt="文件上传漏洞">
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/uploadfile.webp" class="responsive-img" alt="文件上传漏洞">
                         
                         <span class="card-title">文件上传漏洞</span>
                     </div>
