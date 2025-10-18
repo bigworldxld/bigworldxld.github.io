@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-10-02T03:35:34.371Z</updated>
+  <updated>2025-10-18T08:48:04.800Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>音视频系列1</title>
+    <link href="https://bigworldxld.github.io/2025/10/18/50894.html"/>
+    <id>https://bigworldxld.github.io/2025/10/18/50894.html</id>
+    <published>2025-10-18T05:24:02.000Z</published>
+    <updated>2025-10-18T08:48:04.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="video" scheme="https://bigworldxld.github.io/tags/video/"/>
+    
+    <category term="audio" scheme="https://bigworldxld.github.io/tags/audio/"/>
+    
+    <category term="ssa" scheme="https://bigworldxld.github.io/tags/ssa/"/>
+    
+  </entry>
   
   <entry>
     <title>FFmpeg使用</title>
@@ -50,7 +79,7 @@
     <link href="https://bigworldxld.github.io/2025/09/22/15144.html"/>
     <id>https://bigworldxld.github.io/2025/09/22/15144.html</id>
     <published>2025-09-22T05:24:02.000Z</published>
-    <updated>2025-10-02T04:14:39.909Z</updated>
+    <updated>2025-10-02T04:34:44.236Z</updated>
     
     
       
