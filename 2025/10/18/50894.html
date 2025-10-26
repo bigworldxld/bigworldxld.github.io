@@ -679,14 +679,14 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -990,7 +990,14 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
 <td align="left">解决不同品牌网络安防设备（如摄像头、录像机）之间的互操作性问题 。</td>
 </tr>
 </tbody></table>
-<p>在实际应用中，选择哪种协议通常取决于你的具体需求：</p>
+<p>流媒体数据-&gt;解协议(RTMP,HLS,HTTP-FLV)-&gt;封装格式数据（AVI,FLV,TS,mp4,）-&gt;解封装-&gt;音频压缩数据（ACC,mp3）-音频解码-音频原始数据（PCM）：视频压缩数据（H.264,H.265,vp8,vp9）-视频解码-视频源视数据（YUV,RGB）-&gt;音视频同步-&gt;播放（SDL）。</p>
+<p>解封装-&gt;解码-&gt;编码-&gt;封装。逻辑如下：</p>
+<p>◆ 解封装：将音视频文件的封装格式去掉，获取视频流（H.264）和音频流（AAC）</p>
+<p>◆ 解码：将视频流解码成原始图像数据（YUV），将音频流解码成原始音频数据（PCM）</p>
+<p>◆ 编码：将原始图像（YUV）进行编码（MPG2），将音频流进行编码（MP3）</p>
+<p>◆ 封装：将视频流和音频流封装成视频文件</p>
+<p>音视频库：FFmpeg,WebRTC</p>
+<p><strong>FFmpeg地址</strong><br>FFmpeg源码地址：<a target="_blank" rel="noopener" href="https://github.com/FFmpeg/FFmpeg">https://github.com/FFmpeg/FFmpeg</a><br>FFmpeg可执行文件地址：<a target="_blank" rel="noopener" href="https://ffmpeg.org/download.html">https://ffmpeg.org/download.html</a></p>
 <ul>
 <li><strong>追求最低延迟的实时互动</strong>（如视频会议、连麦）：<strong>WebRTC</strong> 是首选 </li>
 <li><strong>需要稳定可靠的直播推流</strong>：<strong>RTMP</strong> 仍然非常常用 </li>
@@ -1246,17 +1253,16 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/10/18/50894.html">
+                <a href="/2025/10/26/51086.html">
                     <div class="card-image">
                         
-                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/音视频.webp" class="responsive-img" alt="音视频系列1">
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/音视频.webp" class="responsive-img" alt="音视频系列2">
                         
-                        <span class="card-title">音视频系列1</span>
+                        <span class="card-title">音视频系列2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1266,9 +1272,9 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1281,7 +1287,6 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1293,8 +1298,8 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
                         <span class="chip bg-color">audio</span>
                     </a>
                     
-                    <a href="/tags/ssa/">
-                        <span class="chip bg-color">ssa</span>
+                    <a href="/tags/yuv/">
+                        <span class="chip bg-color">yuv</span>
                     </a>
                     
                 </div>
