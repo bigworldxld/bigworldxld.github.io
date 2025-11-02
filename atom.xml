@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-10-26T06:21:27.271Z</updated>
+  <updated>2025-11-02T07:57:14.368Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>音视频系列3</title>
+    <link href="https://bigworldxld.github.io/2025/11/02/1871.html"/>
+    <id>https://bigworldxld.github.io/2025/11/02/1871.html</id>
+    <published>2025-11-02T05:24:02.000Z</published>
+    <updated>2025-11-02T07:57:14.368Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="ffmpeg" scheme="https://bigworldxld.github.io/tags/ffmpeg/"/>
+    
+    <category term="rtmp" scheme="https://bigworldxld.github.io/tags/rtmp/"/>
+    
+    <category term="hls" scheme="https://bigworldxld.github.io/tags/hls/"/>
+    
+  </entry>
+  
+  <entry>
     <title>音视频系列2</title>
     <link href="https://bigworldxld.github.io/2025/10/26/51086.html"/>
     <id>https://bigworldxld.github.io/2025/10/26/51086.html</id>
     <published>2025-10-26T05:24:02.000Z</published>
-    <updated>2025-10-26T06:21:27.271Z</updated>
+    <updated>2025-10-26T09:54:00.853Z</updated>
     
     
       
@@ -50,7 +79,7 @@
     <link href="https://bigworldxld.github.io/2025/10/18/50894.html"/>
     <id>https://bigworldxld.github.io/2025/10/18/50894.html</id>
     <published>2025-10-18T05:24:02.000Z</published>
-    <updated>2025-10-18T13:54:50.701Z</updated>
+    <updated>2025-10-26T09:58:36.140Z</updated>
     
     
       
