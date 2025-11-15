@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-11-02T07:57:14.368Z</updated>
+  <updated>2025-11-15T08:26:43.042Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>时间延迟</title>
+    <link href="https://bigworldxld.github.io/2025/11/15/38897.html"/>
+    <id>https://bigworldxld.github.io/2025/11/15/38897.html</id>
+    <published>2025-11-15T05:24:02.000Z</published>
+    <updated>2025-11-15T08:26:43.042Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="pts" scheme="https://bigworldxld.github.io/tags/pts/"/>
+    
+    <category term="cdn" scheme="https://bigworldxld.github.io/tags/cdn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>音视频系列3</title>
     <link href="https://bigworldxld.github.io/2025/11/02/1871.html"/>
     <id>https://bigworldxld.github.io/2025/11/02/1871.html</id>
     <published>2025-11-02T05:24:02.000Z</published>
-    <updated>2025-11-02T07:57:14.368Z</updated>
+    <updated>2025-11-09T14:46:29.985Z</updated>
     
     
       
@@ -282,13 +309,13 @@
     <category term="tool" scheme="https://bigworldxld.github.io/categories/tool/"/>
     
     
-    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
-    
     <category term="TestNG" scheme="https://bigworldxld.github.io/tags/TestNG/"/>
     
     <category term="Mysql" scheme="https://bigworldxld.github.io/tags/Mysql/"/>
+    
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
+    <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
     
   </entry>
   
@@ -409,7 +436,7 @@
     <link href="https://bigworldxld.github.io/2025/06/29/63049.html"/>
     <id>https://bigworldxld.github.io/2025/06/29/63049.html</id>
     <published>2025-06-29T13:24:02.000Z</published>
-    <updated>2025-06-29T13:51:34.062Z</updated>
+    <updated>2025-10-02T03:22:44.806Z</updated>
     
     
       
@@ -966,7 +993,7 @@
     <link href="https://bigworldxld.github.io/2024/12/14/42207.html"/>
     <id>https://bigworldxld.github.io/2024/12/14/42207.html</id>
     <published>2024-12-14T10:36:17.000Z</published>
-    <updated>2024-12-14T10:06:35.651Z</updated>
+    <updated>2025-11-15T15:10:59.957Z</updated>
     
     
       
@@ -982,11 +1009,11 @@
     <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
     
     
-    <category term="xcode" scheme="https://bigworldxld.github.io/tags/xcode/"/>
-    
     <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
     
     <category term="WebDriverAgent" scheme="https://bigworldxld.github.io/tags/WebDriverAgent/"/>
+    
+    <category term="xcode" scheme="https://bigworldxld.github.io/tags/xcode/"/>
     
   </entry>
   
@@ -1273,9 +1300,9 @@
     <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
     
     
-    <category term="api" scheme="https://bigworldxld.github.io/tags/api/"/>
-    
     <category term="LLM" scheme="https://bigworldxld.github.io/tags/LLM/"/>
+    
+    <category term="api" scheme="https://bigworldxld.github.io/tags/api/"/>
     
   </entry>
   
@@ -1626,11 +1653,11 @@
     <category term="test" scheme="https://bigworldxld.github.io/categories/test/"/>
     
     
+    <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
+    
     <category term="xcode" scheme="https://bigworldxld.github.io/tags/xcode/"/>
     
     <category term="sream" scheme="https://bigworldxld.github.io/tags/sream/"/>
-    
-    <category term="ios" scheme="https://bigworldxld.github.io/tags/ios/"/>
     
   </entry>
   
@@ -3486,13 +3513,13 @@
     
     <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
     
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
     <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
     
     <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
     
     <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
     
     <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
     
@@ -3525,13 +3552,13 @@
     
     <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
     
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
     <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
     
     <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
     
     <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
     
     <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
     
@@ -3564,13 +3591,13 @@
     
     <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
     
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
     <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
     
     <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
     
     <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
     
     <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
     
@@ -3603,13 +3630,13 @@
     
     <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
     
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
     <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
     
     <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
     
     <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
     
     <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
     
@@ -3642,13 +3669,13 @@
     
     <category term="Spark" scheme="https://bigworldxld.github.io/tags/Spark/"/>
     
+    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
+    
     <category term="Flume" scheme="https://bigworldxld.github.io/tags/Flume/"/>
     
     <category term="MongDB" scheme="https://bigworldxld.github.io/tags/MongDB/"/>
     
     <category term="ElasticSearch" scheme="https://bigworldxld.github.io/tags/ElasticSearch/"/>
-    
-    <category term="Redis" scheme="https://bigworldxld.github.io/tags/Redis/"/>
     
     <category term="Kafka" scheme="https://bigworldxld.github.io/tags/Kafka/"/>
     
@@ -3889,9 +3916,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -3944,9 +3971,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -3999,9 +4026,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4054,9 +4081,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4109,9 +4136,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4164,9 +4191,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4219,9 +4246,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4274,9 +4301,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4354,9 +4381,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4409,9 +4436,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
@@ -4564,9 +4591,9 @@
     
     <category term="spark" scheme="https://bigworldxld.github.io/tags/spark/"/>
     
-    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
-    
     <category term="kafka" scheme="https://bigworldxld.github.io/tags/kafka/"/>
+    
+    <category term="Azkaban" scheme="https://bigworldxld.github.io/tags/Azkaban/"/>
     
     <category term="hadoop" scheme="https://bigworldxld.github.io/tags/hadoop/"/>
     
