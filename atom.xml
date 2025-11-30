@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-11-15T08:26:43.042Z</updated>
+  <updated>2025-11-30T14:31:19.888Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RTSP协议抓包</title>
+    <link href="https://bigworldxld.github.io/2025/11/30/5677.html"/>
+    <id>https://bigworldxld.github.io/2025/11/30/5677.html</id>
+    <published>2025-11-30T05:24:02.000Z</published>
+    <updated>2025-11-30T14:31:19.888Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="rtsp" scheme="https://bigworldxld.github.io/tags/rtsp/"/>
+    
+    <category term="easyshark" scheme="https://bigworldxld.github.io/tags/easyshark/"/>
+    
+  </entry>
   
   <entry>
     <title>时间延迟</title>
@@ -106,7 +133,7 @@
     <link href="https://bigworldxld.github.io/2025/10/18/50894.html"/>
     <id>https://bigworldxld.github.io/2025/10/18/50894.html</id>
     <published>2025-10-18T05:24:02.000Z</published>
-    <updated>2025-10-26T09:58:36.140Z</updated>
+    <updated>2025-11-29T09:45:03.548Z</updated>
     
     
       

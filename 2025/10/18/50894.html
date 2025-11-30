@@ -679,14 +679,14 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
 
@@ -711,7 +711,8 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
             <div id="articleContent">
                 <h2 id="YUV和RGB"><a href="#YUV和RGB" class="headerlink" title="YUV和RGB"></a><strong>YUV和RGB</strong></h2><p>YUV，RGB，包括YcbCr是色彩空间的模型，而平常所说的BMP、PNG、JPEG是文件的存储形式。而YUV是音视频（编解码）最常用的格式。</p>
 <p><strong>1.YUV的数据格式是如何呢？</strong></p>
-<p>YUV有两种分类方式，即“空间-间”和“空间-内”。“空间-间”的划分方式主要体现在Y、U、V的比例不同；“空间-内”的划分方式主要体现在Y、U、V的比例一定，存储格式不同。</p>
+<p>YUV有两种分类方式，即“空间-间”和“空间-内”。“空间-间”的划分方式主要体现在Y、U、V的比例不同；“空间-内”的划分方式主要体现在Y、U、V的比例一定，存储格式不同。<br>YUV按照“空间-间”的划分方式，分为YUV444、YUV422、YUV420<br>假设图像为1920<em>1080<br>YUV444(size=1920</em>1080<em>3)<br>YUV422(size=1920</em>1080+1920<em>1080</em>0.5+1920<em>1080</em>0.5)<br>YUV420（size=1920<em>1080+1920</em>1080<em>0.25+1920</em>1080*0.25）</p>
+<p>YUV按照“空间-内”的划分方式，主要分为packet、planar、semi-planar三种：<br>◆ packet：打包格式，即先存储一个yuv，再存储下一个yuv；<br>◆ planar：平面格式，即先存储y平面，再存储u平面，再存储v平面；<br>◆ semi-planar：先存储y平面，再存储uv平面；</p>
 <p>RGB：即red，green，blue三色存储空间，因音视频主要用的是YUV的色彩空间，感兴趣的小伙伴可以拓展下RGB相关知识，本文不再详述。介绍下RGB和YUV的转换公式：</p>
 <p>◆ RGB 转 YUV：</p>
 <p>  Y = 0.299R + 0.587G + 0.114B</p>
@@ -818,6 +819,7 @@ YUV有两种分类方式，即“空间-间”和“空间-内”">
 <p>◆ bento4：<a target="_blank" rel="noopener" href="http://www.bento4.com/">http://www.bento4.com</a></p>
 <p>◆ mp4info：<a target="_blank" rel="noopener" href="https://www.greenxf.com/soft/179781.html">https://www.greenxf.com/soft/179781.html</a></p>
 <p>◆qtauomviewer：<a target="_blank" rel="noopener" href="https://api.256file.com/download/378144_qtatomviewer.exe">https://api.256file.com/download/378144_qtatomviewer.exe</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp4ra.org/search">https://mp4ra.org/search</a></p>
 <h2 id="音视频核心参数"><a href="#音视频核心参数" class="headerlink" title="音视频核心参数"></a>音视频核心参数</h2><p>理解音视频，首先要掌握其核心参数，它们直接决定了媒体的体积、质量和体验。</p>
 <table>
 <thead>
