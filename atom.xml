@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-12-07T12:47:32.333Z</updated>
+  <updated>2025-12-13T13:56:28.422Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>电脑的主板</title>
+    <link href="https://bigworldxld.github.io/2025/12/13/25329.html"/>
+    <id>https://bigworldxld.github.io/2025/12/13/25329.html</id>
+    <published>2025-12-13T13:33:15.459Z</published>
+    <updated>2025-12-13T13:56:28.422Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="analysis" scheme="https://bigworldxld.github.io/categories/analysis/"/>
+    
+    
+    <category term="硬件" scheme="https://bigworldxld.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RTMP协议抓包</title>
     <link href="https://bigworldxld.github.io/2025/12/07/2099.html"/>
     <id>https://bigworldxld.github.io/2025/12/07/2099.html</id>
     <published>2025-12-07T05:24:02.000Z</published>
-    <updated>2025-12-07T12:47:32.333Z</updated>
+    <updated>2025-12-13T13:56:18.594Z</updated>
     
     
       
