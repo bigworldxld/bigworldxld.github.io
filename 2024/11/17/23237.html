@@ -1326,9 +1326,18 @@ GitHub Pages 是通过 GitHub 托管和发布的公共网页。 启动和运行�
             
                 <!-  ->
                 <script>
-                var busuanzi_config = {
-                    siteid: 'bigworldxld_blog_2021'  // 唯一站点标识
-                };
+               
+					// 获取旧域名的最终统计数据
+					var oldDomainStats = {
+						pv: 10000,  // 替换为旧域名最终总访问量
+						uv: 3210       // 替换为旧域名最终总访客数
+					};
+
+					var busuanzi_config = {
+						siteid: 'bigworldxld_blog',  // 相同的站点ID
+						site_pv: oldDomainStats.pv,  // 设置基准访问量
+						site_uv: oldDomainStats.uv   // 设置基准访客数
+					};
                 </script>
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             
