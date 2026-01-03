@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2025-12-20T13:38:37.514Z</updated>
+  <updated>2026-01-03T09:27:17.928Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ffpmeg使用1</title>
+    <link href="https://bigworldxld.github.io/2026/01/03/17291.html"/>
+    <id>https://bigworldxld.github.io/2026/01/03/17291.html</id>
+    <published>2026-01-03T14:24:02.000Z</published>
+    <updated>2026-01-03T09:27:17.928Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="ffpmeg" scheme="https://bigworldxld.github.io/tags/ffpmeg/"/>
+    
+  </entry>
   
   <entry>
     <title>豆包手机：首个高完成度GUI Agent的机制全解析</title>
