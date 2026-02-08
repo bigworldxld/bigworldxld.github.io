@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-01-18T08:38:49.892Z</updated>
+  <updated>2026-02-08T14:44:18.892Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>视频播放器合集</title>
+    <link href="https://bigworldxld.github.io/2026/02/08/52433.html"/>
+    <id>https://bigworldxld.github.io/2026/02/08/52433.html</id>
+    <published>2026-02-08T14:24:02.000Z</published>
+    <updated>2026-02-08T14:44:18.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="video" scheme="https://bigworldxld.github.io/tags/video/"/>
+    
+  </entry>
+  
+  <entry>
     <title>视频质量检测系统</title>
     <link href="https://bigworldxld.github.io/2026/01/18/60433.html"/>
     <id>https://bigworldxld.github.io/2026/01/18/60433.html</id>
     <published>2026-01-18T14:24:02.000Z</published>
-    <updated>2026-01-18T08:38:49.892Z</updated>
+    <updated>2026-01-18T08:47:06.578Z</updated>
     
     
       
@@ -123,7 +148,7 @@
     <link href="https://bigworldxld.github.io/2025/12/07/2099.html"/>
     <id>https://bigworldxld.github.io/2025/12/07/2099.html</id>
     <published>2025-12-07T05:24:02.000Z</published>
-    <updated>2025-12-13T13:56:18.594Z</updated>
+    <updated>2026-01-18T09:23:15.739Z</updated>
     
     
       
@@ -150,7 +175,7 @@
     <link href="https://bigworldxld.github.io/2025/11/30/5677.html"/>
     <id>https://bigworldxld.github.io/2025/11/30/5677.html</id>
     <published>2025-11-30T05:24:02.000Z</published>
-    <updated>2025-11-30T14:34:42.506Z</updated>
+    <updated>2026-01-18T09:23:55.905Z</updated>
     
     
       

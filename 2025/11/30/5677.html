@@ -534,7 +534,7 @@ RTSP 协议的语法和操作参考了 HTTP/1.1，基于文本的协议，采用
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://online.easytshark.com/logo.ico')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/img_convert/5d79046a395f18069507d2f7abb5abbe.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1110,17 +1110,17 @@ a=control:track2
 </tr>
 </tbody></table>
 <ol start="3">
-<li><p>SSRC 定义<br>推流场景：由 客户端（Client） 生成，用于标识推流的媒体流源（如摄像头采集的视频流）。RTP 包中携带客户端生成的 SSRC（如 0x57efa63f），服务器通过此识别推流来源。<br>拉流场景：由 服务器（Server） 生成，用于标识拉流的媒体流源（如服务器转发的直播流）。RTP 包中携带服务器生成的 SSRC（如 0x174EADA），客户端通过此区分不同拉流轨道。<br>作用：唯一标识媒体流，避免服务器混淆多推流端的流，或客户端混淆多轨道的拉流数据（如音视频轨道分别有独立 SSRC）。</p>
+<li><p>SSRC 定义<br> 推流场景：由 客户端（Client） 生成，用于标识推流的媒体流源（如摄像头采集的视频流）。RTP 包中携带客户端生成的 SSRC（如 0x57efa63f），服务器通过此识别推流来源。<br> 拉流场景：由 服务器（Server） 生成，用于标识拉流的媒体流源（如服务器转发的直播流）。RTP 包中携带服务器生成的 SSRC（如 0x174EADA），客户端通过此区分不同拉流轨道。<br> 作用：唯一标识媒体流，避免服务器混淆多推流端的流，或客户端混淆多轨道的拉流数据（如音视频轨道分别有独立 SSRC）。</p>
 </li>
-<li><p>Session ID 来源<br>推流：客户端发送 ANNOUNCE 后，服务器（Server） 在响应中分配 Session ID（如 e0CEYZFLTePM）。后续 SETUP、RECORD、TEARDOWN 均需携带此 ID，确保推流会话的上下文一致性（如端口协商、资源释放绑定到同一会话）。<br>拉流：客户端发送 DESCRIBE 后，服务器（Server） 在响应中分配 Session ID（如 iTZh5j8EIkgx）。后续 SETUP、PLAY、TEARDOWN 携带，绑定拉流会话（如媒体描述、通道协商属于同一拉流任务）。<br>作用：跟踪会话生命周期，管理资源（如端口、缓存），避免跨会话操作（如误终止其他推流/拉流任务）。</p>
+<li><p>Session ID 来源<br> 推流：客户端发送 ANNOUNCE 后，服务器（Server） 在响应中分配 Session ID（如 e0CEYZFLTePM）。后续 SETUP、RECORD、TEARDOWN 均需携带此 ID，确保推流会话的上下文一致性（如端口协商、资源释放绑定到同一会话）。<br> 拉流：客户端发送 DESCRIBE 后，服务器（Server） 在响应中分配 Session ID（如 iTZh5j8EIkgx）。后续 SETUP、PLAY、TEARDOWN 携带，绑定拉流会话（如媒体描述、通道协商属于同一拉流任务）。<br> 作用：跟踪会话生命周期，管理资源（如端口、缓存），避免跨会话操作（如误终止其他推流/拉流任务）。</p>
 </li>
-<li><p>Transport 字段解析<br>格式示例（推流）：<br>RTP/AVP/UDP;unicast;client_port=33354-33355;server_port=33712-33713;ssrc=0x57efa63f<br>协议：RTP/AVP/UDP 表示 UDP 传输 RTP 载荷（音频/视频）。<br>模式：unicast 单播（一对一传输，适合直播场景）。<br>端口：<br>client_port：客户端 发送端口（推流数据从这里发出，如 33354 为 RTP，33355 为 RTCP）。<br>server_port：服务器 接收端口（如 33712 为 RTP，33713 为 RTCP，接收推流数据）。<br>SSRC：客户端生成的推流 SSRC（标识此流来源）。<br>拉流格式示例：<br>RTP/AVP/UDP;unicast;client_port=19354-19355;server_port=32708-32709;ssrc=0x174EADA<br>端口方向反转：client_port 为客户端 接收端口（拉流数据到这里），server_port 为服务器 发送端口（拉流数据从这里发出）。<br>作用：协商 RTP/RTCP 的 传输协议、模式、端口对，明确数据流向（推流：C→S；拉流：S→C），是媒体通道建立的核心配置。</p>
+<li><p>Transport 字段解析<br> 格式示例（推流）：<br> RTP/AVP/UDP;unicast;client_port=33354-33355;server_port=33712-33713;ssrc=0x57efa63f<br> 协议：RTP/AVP/UDP 表示 UDP 传输 RTP 载荷（音频/视频）。<br> 模式：unicast 单播（一对一传输，适合直播场景）。<br> 端口：<br> client_port：客户端 发送端口（推流数据从这里发出，如 33354 为 RTP，33355 为 RTCP）。<br> server_port：服务器 接收端口（如 33712 为 RTP，33713 为 RTCP，接收推流数据）。<br> SSRC：客户端生成的推流 SSRC（标识此流来源）。<br> 拉流格式示例：<br> RTP/AVP/UDP;unicast;client_port=19354-19355;server_port=32708-32709;ssrc=0x174EADA<br> 端口方向反转：client_port 为客户端 接收端口（拉流数据到这里），server_port 为服务器 发送端口（拉流数据从这里发出）。<br> 作用：协商 RTP/RTCP 的 传输协议、模式、端口对，明确数据流向（推流：C→S；拉流：S→C），是媒体通道建立的核心配置。</p>
 </li>
-<li><p>RTP 时间戳与 rtptime<br>时间戳单位：RTP 时间戳以 90kHz 为单位（1 单位 = 1/90000 秒），适用于视频帧同步（H.264 等编码的时间基准）。<br>作用：<br>流内时序：RTP 包时间戳递增（如 23439 → 23440），确保媒体帧按序播放（避免乱序导致的画面卡顿）。<br>抖动缓冲：客户端计算时间戳间隔（ΔT = (当前时间戳 - 前一时间戳)/90000），调整缓冲大小（如 ΔT 过大时增加缓冲，减少丢包影响）。<br>rtptime：在 PLAY 响应的 RTP-Info 中（如 rtptime=0），表示 RTP 流的 初始时间戳。客户端以此为基准，解析后续包的时间戳（避免时间戳偏移，确保流起始同步）。</p>
+<li><p>RTP 时间戳与 rtptime<br> 时间戳单位：RTP 时间戳以 90kHz 为单位（1 单位 = 1/90000 秒），适用于视频帧同步（H.264 等编码的时间基准）。<br> 作用：<br> 流内时序：RTP 包时间戳递增（如 23439 → 23440），确保媒体帧按序播放（避免乱序导致的画面卡顿）。<br> 抖动缓冲：客户端计算时间戳间隔（ΔT = (当前时间戳 - 前一时间戳)/90000），调整缓冲大小（如 ΔT 过大时增加缓冲，减少丢包影响）。<br> rtptime：在 PLAY 响应的 RTP-Info 中（如 rtptime=0），表示 RTP 流的 初始时间戳。客户端以此为基准，解析后续包的时间戳（避免时间戳偏移，确保流起始同步）。</p>
 </li>
-<li><p>音视频同步（AV Sync）<br>时间戳统一：音视频流的 RTP 包使用 同一时间戳源（如推流端的系统时钟），确保音频和视频帧的时间戳一致（如音频 T_audio 与视频 T_video 同步，|T_audio - T_video| &lt; 阈值）。<br>客户端处理：<br>缓冲调整：对音频和视频分别设置缓冲，根据时间戳差异调整播放顺序（如先播放时间戳小的帧，后播放大的，实现唇音同步）。<br>RTSP 辅助：PLAY 响应的 Range 字段（如 npt=0.000-）定义播放范围，客户端基于此初始化同步（从时间戳 0 开始，避免流进度偏移）。</p>
+<li><p>音视频同步（AV Sync）<br> 时间戳统一：音视频流的 RTP 包使用 同一时间戳源（如推流端的系统时钟），确保音频和视频帧的时间戳一致（如音频 T_audio 与视频 T_video 同步，|T_audio - T_video| &lt; 阈值）。<br> 客户端处理：<br> 缓冲调整：对音频和视频分别设置缓冲，根据时间戳差异调整播放顺序（如先播放时间戳小的帧，后播放大的，实现唇音同步）。<br> RTSP 辅助：PLAY 响应的 Range 字段（如 npt=0.000-）定义播放范围，客户端基于此初始化同步（从时间戳 0 开始，避免流进度偏移）。</p>
 </li>
-<li><p>NPT（Normal Play Time）<br>定义：标准化播放时间（以秒为单位），用于 RTSP 控制媒体流的播放范围（如 SEEK npt=10.0 跳转到第 10 秒）。<br>作用：<br>会话控制：在 PLAY（启动播放）、PAUSE（暂停）、SEEK（跳转）中，通过 NPT 精确控制播放位置（如直播回放的时间跳转）。<br>时间映射：NPT 与 RTP 时间戳通过 SDP 中的 clock-rate 关联（NPT = RTP 时间戳 / clock-rate），实现逻辑时间（NPT）与物理时间（RTP 时间戳）的转换，确保用户可见的播放时间与编码层时间一致。<br>总结<br>SSRC：推流由客户端定义，拉流由服务器定义，唯一标识流源。<br>Session ID：由服务器在媒体描述阶段（ANNOUNCE/DESCRIBE）分配，绑定会话。<br>Transport：协商 RTP 传输的协议、端口和方向，是媒体通道建立的关键。<br>RTP 时间戳：确保流内时序和音视频同步，rtptime 初始化流时间基准。<br>NPT：标准化播放时间，实现流的进度控制和时间映射，提升用户体验</p>
+<li><p>NPT（Normal Play Time）<br> 定义：标准化播放时间（以秒为单位），用于 RTSP 控制媒体流的播放范围（如 SEEK npt=10.0 跳转到第 10 秒）。<br> 作用：<br> 会话控制：在 PLAY（启动播放）、PAUSE（暂停）、SEEK（跳转）中，通过 NPT 精确控制播放位置（如直播回放的时间跳转）。<br> 时间映射：NPT 与 RTP 时间戳通过 SDP 中的 clock-rate 关联（NPT = RTP 时间戳 / clock-rate），实现逻辑时间（NPT）与物理时间（RTP 时间戳）的转换，确保用户可见的播放时间与编码层时间一致。<br> 总结<br> SSRC：推流由客户端定义，拉流由服务器定义，唯一标识流源。<br> Session ID：由服务器在媒体描述阶段（ANNOUNCE/DESCRIBE）分配，绑定会话。<br> Transport：协商 RTP 传输的协议、端口和方向，是媒体通道建立的关键。<br> RTP 时间戳：确保流内时序和音视频同步，rtptime 初始化流时间基准。<br> NPT：标准化播放时间，实现流的进度控制和时间映射，提升用户体验</p>
 </li>
 </ol>
 <h3 id="常用分析工具"><a href="#常用分析工具" class="headerlink" title="常用分析工具"></a>常用分析工具</h3><table>
@@ -1408,7 +1408,7 @@ a=control:track2
                 <a href="/2025/12/07/2099.html">
                     <div class="card-image">
                         
-                        <img src="https://online.easytshark.com/logo.ico" class="responsive-img" alt="RTMP协议抓包">
+                        <img src="https://img-blog.csdnimg.cn/img_convert/5d79046a395f18069507d2f7abb5abbe.png" class="responsive-img" alt="RTMP协议抓包">
                         
                         <span class="card-title">RTMP协议抓包</span>
                     </div>
