@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-02-08T15:02:11.201Z</updated>
+  <updated>2026-03-01T07:29:11.646Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Agent Skills 快速入门</title>
+    <link href="https://bigworldxld.github.io/2026/02/28/34185.html"/>
+    <id>https://bigworldxld.github.io/2026/02/28/34185.html</id>
+    <published>2026-02-28T14:24:02.000Z</published>
+    <updated>2026-03-01T07:29:11.646Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="ai" scheme="https://bigworldxld.github.io/tags/ai/"/>
+    
+  </entry>
   
   <entry>
     <title>视频播放器合集</title>
