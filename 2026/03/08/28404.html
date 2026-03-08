@@ -6,9 +6,13 @@
     <meta charset="utf-8">
     <meta name="keywords" content="OpenClaw 新手指南, blogs,互联网,测试,大数据,生活,记录">
     <meta name="description" content="OpenClaw 新手指南
+官方文档
+GitHub Issues
+Discord 社区
+
+
 OpenClaw 新手指南：https://vercel-deploy-livid-nine.vercel.app/
-ClawHub Skills 市场：https://clawhub.ai/
-Vercel Sk">
+ClawHub Skills ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -33,9 +37,9 @@ Vercel Sk">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -691,14 +695,14 @@ Vercel Sk">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    14 分
                 </div>
                 
 
@@ -721,7 +725,12 @@ Vercel Sk">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="OpenClaw-新手指南"><a href="#OpenClaw-新手指南" class="headerlink" title="OpenClaw 新手指南"></a>OpenClaw 新手指南</h2><ol>
+                <h2 id="OpenClaw-新手指南"><a href="#OpenClaw-新手指南" class="headerlink" title="OpenClaw 新手指南"></a>OpenClaw 新手指南</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/">官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw/issues">GitHub Issues</a></li>
+<li><a target="_blank" rel="noopener" href="https://discord.gg/clawd">Discord 社区</a></li>
+</ul>
+<ol>
 <li><strong>OpenClaw 新手指南</strong>：<a target="_blank" rel="noopener" href="https://vercel-deploy-livid-nine.vercel.app/">https://vercel-deploy-livid-nine.vercel.app/</a></li>
 <li><strong>ClawHub Skills 市场：</strong><a target="_blank" rel="noopener" href="https://clawhub.ai/">https://clawhub.ai/</a></li>
 <li><strong>Vercel Skills：</strong><a target="_blank" rel="noopener" href="https://github.com/vercel-labs/skills">https://github.com/vercel-labs/skills</a></li>
@@ -829,8 +838,111 @@ openclaw skill uninstall <span class="token operator">&lt;</span>skill-name<span
 
 <span class="token comment" spellcheck="true"># 列出已安装技能</span>
 openclaw skill list
+
+<span class="token comment" spellcheck="true"># 安装 Skill 到工作区</span>
+clawhub <span class="token function">install</span> <span class="token operator">&lt;</span>skill-slug<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true"># 更新所有已安装的 Skills</span>
+clawhub update --all
+
+<span class="token comment" spellcheck="true"># 同步（扫描 + 发布更新）</span>
+clawhub <span class="token function">sync</span> --all
 </code></pre>
 <h3 id="技能开发"><a href="#技能开发" class="headerlink" title="技能开发"></a>技能开发</h3><p>如果你想开发自己的技能，可以参考官方文档，使用 YAML 或 JavaScript 编写技能。开发完成后，可以上传到 ClawHub 分享给其他用户。</p>
+<h3 id="Skills-优先级"><a href="#Skills-优先级" class="headerlink" title="Skills 优先级"></a>Skills 优先级</h3><p>Skills 从三个地方加载，优先级从高到低：</p>
+<pre><code>&lt;workspace&gt;/skills  (工作区 Skills)
+    ↓ 覆盖
+~/.openclaw/skills  (本地管理 Skills)
+    ↓ 覆盖
+bundled skills      (内置 Skills)
+</code></pre>
+<h3 id="Skills-配置结构"><a href="#Skills-配置结构" class="headerlink" title="Skills 配置结构"></a>Skills 配置结构</h3><p><strong>SKILL.md 格式示例：</strong></p>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token hr punctuation">---</span>
+name: summarize
+<span class="token title important">description: 使用 summarize CLI 进行文本/图片/音频/视频总结
+<span class="token punctuation">---</span></span>
+
+<span class="token title important"><span class="token punctuation">#</span> 使用 summarize CLI 进行内容总结</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 命令格式</span>
+
+​```bash
+summarize <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input_file</span><span class="token punctuation">></span></span> [options]
+</code></pre>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 总结 PDF 文档</span>
+summarize document.pdf
+
+<span class="token comment" spellcheck="true"># 总结网页内容</span>
+summarize https://example.com
+</code></pre>
+<pre><code>### 4.4 Skills 前置条件（Gating）
+
+可以在 `metadata` 中定义 Skills 的前置条件，例如：
+
+​```yaml
+---
+name: gemini
+description: 使用 Gemini CLI 进行编程辅助
+metadata:
+  openclaw:
+    emoji: ♊️
+    requires:
+      bins:
+        - gemini
+      env:
+        - GEMINI_API_KEY
+      config:
+        - browser.enabled
+    primaryEnv: GEMINI_API_KEY
+    install:
+      - id: brew
+        kind: brew
+        formula: gemini-cli
+        bins:
+          - gemini
+        label: Install Gemini CLI (brew)
+---
+</code></pre>
+<p><strong>支持的 gating 字段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>metadata.openclaw.always</code></td>
+<td>始终启用（跳过其他条件）</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>metadata.openclaw.emoji</code></td>
+<td>macOS Skills UI 中显示的图标</td>
+<td><code>♊️</code></td>
+</tr>
+<tr>
+<td><code>metadata.openclaw.os</code></td>
+<td>平台限制</td>
+<td><code>["darwin", "linux"]</code></td>
+</tr>
+<tr>
+<td><code>metadata.openclaw.requires.bins</code></td>
+<td>需要的二进制文件</td>
+<td><code>["node", "python"]</code></td>
+</tr>
+<tr>
+<td><code>metadata.openclaw.requires.env</code></td>
+<td>需要的环境变量</td>
+<td><code>["OPENAI_API_KEY"]</code></td>
+</tr>
+<tr>
+<td><code>metadata.openclaw.install</code></td>
+<td>自动安装脚本</td>
+<td>见下方</td>
+</tr>
+</tbody></table>
 <h2 id="四、接入飞书"><a href="#四、接入飞书" class="headerlink" title="四、接入飞书"></a>四、接入飞书</h2><h3 id="第一步-创建飞书应用"><a href="#第一步-创建飞书应用" class="headerlink" title="第一步: 创建飞书应用"></a>第一步: 创建飞书应用</h3><ol>
 <li><strong>打开飞书开放平台</strong>：访问 <a target="_blank" rel="noopener" href="https://open.feishu.cn/">飞书开放平台</a>，使用飞书账号登录</li>
 <li><strong>创建新应用</strong>：点击“创建企业自建应用”，填写应用名称、描述等信息</li>
@@ -907,7 +1019,7 @@ openclaw skill list
 <li><strong>全局配置</strong>：设置 OpenClaw 的全局参数和选项</li>
 <li><strong>安全设置</strong>：配置安全策略和权限</li>
 <li><strong>通知设置</strong>：配置通知方式和接收人</li>
-<li><strong>备份与恢复</strong>：备份和恢复配置文件</li>
+<li><strong>备份与恢复</strong>：备份和恢复配置文件<br>├── MEMORY.md       # 长期记忆<br>├── SOUL.md         # 人格设定<br>├── USER.md         # 用户信息<br>├── TOOLS.md        # 工具笔记<br>└── HEARTBEAT.md    # 心跳任务</li>
 </ul>
 <h2 id="六、常见问题"><a href="#六、常见问题" class="headerlink" title="六、常见问题"></a>六、常见问题</h2><h3 id="1-API-速率限制错误"><a href="#1-API-速率限制错误" class="headerlink" title="1. API 速率限制错误"></a>1. API 速率限制错误</h3><p>当出现 <code>⚠️ API rate limit reached. Please try again later.</code> 报错时，停止执行任务，并返回信息提示：”API速率限制已达到，请稍后再试。”</p>
 <h3 id="2-飞书连接失败"><a href="#2-飞书连接失败" class="headerlink" title="2. 飞书连接失败"></a>2. 飞书连接失败</h3><ul>
@@ -991,6 +1103,54 @@ openclaw skill list
 <li>可以通过 API 访问记忆</li>
 <li>可以通过技能扩展记忆功能</li>
 </ul>
+<h3 id="多-Agent-配置"><a href="#多-Agent-配置" class="headerlink" title="多 Agent 配置"></a>多 Agent 配置</h3><p><strong>Per-agent Skills：</strong></p>
+<ul>
+<li>每个Agent有独立的工作区</li>
+<li>Agent 特定 Skills 存放在 <code>&lt;workspace&gt;/skills</code></li>
+</ul>
+<p><strong>Shared Skills：</strong></p>
+<ul>
+<li>共享 Skills 存放在 <code>~/.openclaw/skills</code></li>
+<li>所有Agent可见</li>
+</ul>
+<p><strong>示例：</strong></p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"agents"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"coding-agent"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"workspace"</span><span class="token operator">:</span> <span class="token string">"/path/to/coding-workspace"</span><span class="token punctuation">,</span>
+      <span class="token property">"skills"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"coding-tools"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"personal-agent"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"workspace"</span><span class="token operator">:</span> <span class="token string">"/path/to/personal-workspace"</span><span class="token punctuation">,</span>
+      <span class="token property">"skills"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"personal-tools"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="使用-Cron-Jobs"><a href="#使用-Cron-Jobs" class="headerlink" title="使用 Cron Jobs"></a>使用 Cron Jobs</h3><p><strong>示例：每日天气报告：</strong></p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"cron"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"jobs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"daily-weather"</span><span class="token punctuation">,</span>
+        <span class="token property">"schedule"</span><span class="token operator">:</span> <span class="token string">"0 9 * * *"</span><span class="token punctuation">,</span>
+        <span class="token property">"action"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"session-send"</span><span class="token punctuation">,</span>
+          <span class="token property">"message"</span><span class="token operator">:</span> <span class="token string">"今天北京天气如何？"</span><span class="token punctuation">,</span>
+          <span class="token property">"sessionKey"</span><span class="token operator">:</span> <span class="token string">"weather-report"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>或者使用 HEARTBEAT.md：</strong></p>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 心跳任务</span>
+<span class="token title important"><span class="token punctuation">##</span> 每日检查（每天 9:00）</span>
+<span class="token list punctuation">-</span> 检查邮件
+<span class="token list punctuation">-</span> 检查天气
+<span class="token list punctuation">-</span> 检查股市行情
+</code></pre>
 <h2 id="八、参考资料"><a href="#八、参考资料" class="headerlink" title="八、参考资料"></a>八、参考资料</h2><ol>
 <li><strong>OpenClaw 官方文档</strong>：<a target="_blank" rel="noopener" href="https://openclaw.io/docs">https://openclaw.io/docs</a></li>
 <li><strong>飞书开放平台文档</strong>：<a target="_blank" rel="noopener" href="https://open.feishu.cn/document">https://open.feishu.cn/document</a></li>
@@ -1016,18 +1176,155 @@ openclaw skill list
 <li><strong>问题</strong>：openclaw skill install <skill-name> 失败</skill-name></li>
 <li><strong>解决方案</strong>：检查网络连接，技能名称是否正确</li>
 </ul>
-<h2 id="十、更新日志"><a href="#十、更新日志" class="headerlink" title="十、更新日志"></a>十、更新日志</h2><h3 id="2026-3-2"><a href="#2026-3-2" class="headerlink" title="2026.3.2"></a>2026.3.2</h3><ul>
-<li>支持飞书、微信、QQ 多平台集成</li>
-<li>新增插件系统，支持自定义插件开发</li>
-<li>优化记忆系统，支持长期记忆</li>
-<li>修复已知 bug</li>
+<h3 id="中文视频教程"><a href="#中文视频教程" class="headerlink" title="中文视频教程"></a>中文视频教程</h3><table>
+<thead>
+<tr>
+<th>视频标题</th>
+<th>时长</th>
+<th>观看次数</th>
+<th>频道</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>【保姆级】OpenClaw 全网最细教学</strong></td>
+<td>53分钟</td>
+<td>13万+</td>
+<td>AI学长小林</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2ZZCyHzo9as">观看</a></td>
+</tr>
+<tr>
+<td><strong>OpenClaw小龙虾保姆级安装教程！</strong></td>
+<td>9:50</td>
+<td>8,103</td>
+<td>林粒粒呀</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=A4PLqwDligE">观看</a></td>
+</tr>
+<tr>
+<td><strong>100小时 OpenClaw 课程精华版</strong></td>
+<td>35分钟</td>
+<td>19万+</td>
+<td>Alex Finn</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_kZCoW-Qxnc">观看</a></td>
+</tr>
+<tr>
+<td><strong>OpenClaw + LM Studio 本地 AI</strong></td>
+<td>6:56</td>
+<td>-</td>
+<td>LowtechLLC</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Bn_hkXCwO-U">观看</a></td>
+</tr>
+</tbody></table>
+<p><strong>推荐顺序：</strong></p>
+<ol>
+<li>先看中文保姆级教程（最适合新手）</li>
+<li>再看 Alex Finn 的精华版（快速了解核心功能）</li>
+<li>最后看英文完整教程（深入理解）</li>
+</ol>
+<h3 id="英文视频教程"><a href="#英文视频教程" class="headerlink" title="英文视频教程"></a>英文视频教程</h3><table>
+<thead>
+<tr>
+<th>视频标题</th>
+<th>时长</th>
+<th>观看次数</th>
+<th>频道</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>OpenClaw Full Tutorial: Installation, Setup &amp; Real Automation Use</strong></td>
+<td>25分钟</td>
+<td>4.2万+</td>
+<td>The AI Doctor</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=P6XWQ_CcAt0">观看</a></td>
+</tr>
+<tr>
+<td><strong>How to Setup OpenClaw on a Mac (Step-by-Step)</strong></td>
+<td>25分钟</td>
+<td>2.7万+</td>
+<td>ProgrammingKnowledge</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YSJ61RiO7As">观看</a></td>
+</tr>
+<tr>
+<td><strong>OpenClaw Full Tutorial for Beginners</strong></td>
+<td>15分钟</td>
+<td>8.9万+</td>
+<td>Bart Slodyczka</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BoC5MY_7aDk">观看</a></td>
+</tr>
+<tr>
+<td><strong>OpenClaw Full Course: Setup, Skills, Voice, Memory &amp; More</strong></td>
+<td>46分钟</td>
+<td>9.7万+</td>
+<td>Tech With Tim</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vte-fDoZczE">观看</a></td>
+</tr>
+<tr>
+<td><strong>ClawdBot Full Tutorial for Beginners: SECURE Setup Guide</strong></td>
+<td>50分钟</td>
+<td>30万+</td>
+<td>Tech With Tim</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tnsrnsy_Lus">观看</a></td>
+</tr>
+<tr>
+<td><strong>OpenClaw Setup Tutorial (Simple &amp; Secure)</strong></td>
+<td>5:59</td>
+<td>2万+</td>
+<td>Metics Media</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ko_uSu-sXrI">观看</a></td>
+</tr>
+<tr>
+<td><strong>Deploy Your Own AI Agent in 45 Minutes</strong></td>
+<td>43分钟</td>
+<td>8.2万+</td>
+<td>JavaScript Mastery</td>
+<td><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=sO6NSSOWDO0">观看</a></td>
+</tr>
+</tbody></table>
+<p><strong>技术类推荐：</strong></p>
+<ul>
+<li><strong>Tech With Tim</strong>: 最详细的安全设置教程，包含 VPS 配置、防火墙、SSH 等进阶内容</li>
+<li><strong>ProgrammingKnowledge</strong>: macOS 系统级安装教程</li>
+<li><strong>JavaScript Mastery</strong>: 完整的 VPS 部署流程</li>
 </ul>
-<h3 id="2026-3-1"><a href="#2026-3-1" class="headerlink" title="2026.3.1"></a>2026.3.1</h3><ul>
-<li>初始版本发布</li>
-<li>支持 OpenClaw CLI 指令</li>
-<li>支持 ClawHub Skills 市场</li>
-<li>支持飞书集成</li>
+<h3 id="视频教程列表（按主题）"><a href="#视频教程列表（按主题）" class="headerlink" title="视频教程列表（按主题）"></a>视频教程列表（按主题）</h3><h4 id="安装配置类"><a href="#安装配置类" class="headerlink" title="安装配置类"></a>安装配置类</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=P6XWQ_CcAt0">OpenClaw Full Tutorial: Installation, Setup &amp; Real Automation Use</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ko_uSu-sXrI">OpenClaw Setup Tutorial (Simple &amp; Secure)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IpJqAW8F4Lk">Secure OpenClaw AI Setup on Hetzner VPS</a></li>
 </ul>
+<h4 id="Skills-开发类"><a href="#Skills-开发类" class="headerlink" title="Skills 开发类"></a>Skills 开发类</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/tools/creating-skills">Creating Custom Skills in OpenClaw</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/tools/skills">Skills 完整指南</a></li>
+</ul>
+<h4 id="高级功能类"><a href="#高级功能类" class="headerlink" title="高级功能类"></a>高级功能类</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_kZCoW-Qxnc">100 hours of OpenClaw lessons in 35 minutes</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2udlMLtEdcg">How to Build a PREMIUM OpenClaw Mission Control Dashboard</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=egofv8c7oEk">OpenClaw + Ollama 本地模型设置</a></li>
+</ul>
+<h2 id="学习路线图"><a href="#学习路线图" class="headerlink" title="学习路线图"></a>学习路线图</h2><h3 id="第一阶段：基础入门（1-2天）"><a href="#第一阶段：基础入门（1-2天）" class="headerlink" title="第一阶段：基础入门（1-2天）"></a>第一阶段：基础入门（1-2天）</h3><ol>
+<li>✅ 阅读 <a target="_blank" rel="noopener" href="https://docs.openclaw.ai/start/getting-started">Getting Started</a></li>
+<li>✅ 运行 <code>openclaw onboard</code> 向导</li>
+<li>✅ 连接 Telegram/WhatsApp</li>
+<li>✅ 完成<a target="_blank" rel="noopener" href="https://docs.openclaw.ai/start/showcase">第一个 Skills</a></li>
+</ol>
+<h3 id="第二阶段：深入配置（3-5天）"><a href="#第二阶段：深入配置（3-5天）" class="headerlink" title="第二阶段：深入配置（3-5天）"></a>第二阶段：深入配置（3-5天）</h3><ol>
+<li>✅ 学习 Skills 系统详解</li>
+<li>✅ 安装并配置常用 Skills</li>
+<li>✅ 设置 Memory 和 HEARTBEAT</li>
+<li>✅ 了解多 Agent 配置</li>
+</ol>
+<h3 id="第三阶段：自动化开发（1周-）"><a href="#第三阶段：自动化开发（1周-）" class="headerlink" title="第三阶段：自动化开发（1周+）"></a>第三阶段：自动化开发（1周+）</h3><ol>
+<li>✅ 学习 Cron Jobs</li>
+<li>✅ 创建自定义 Skills</li>
+<li>✅ 集成外部服务（Google Workspace、Notion 等）</li>
+<li>✅ 部署到 VPS</li>
+</ol>
+<h3 id="第四阶段：高级功能"><a href="#第四阶段：高级功能" class="headerlink" title="第四阶段：高级功能"></a>第四阶段：高级功能</h3><ol>
+<li>✅ 学习沙箱安全</li>
+<li>✅ 开发 Plugin</li>
+<li>✅ 部署到生产环境</li>
+<li>✅ 监控和故障排查</li>
+</ol>
 
                 
             </div>
