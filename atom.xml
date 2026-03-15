@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-03-08T14:27:51.997Z</updated>
+  <updated>2026-03-15T15:29:30.851Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>视频异常检测 Skill</title>
+    <link href="https://bigworldxld.github.io/2026/03/15/19508.html"/>
+    <id>https://bigworldxld.github.io/2026/03/15/19508.html</id>
+    <published>2026-03-15T14:24:02.000Z</published>
+    <updated>2026-03-15T15:29:30.851Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="ffmpeg" scheme="https://bigworldxld.github.io/tags/ffmpeg/"/>
+    
+    <category term="video" scheme="https://bigworldxld.github.io/tags/video/"/>
+    
+    <category term="openclaw" scheme="https://bigworldxld.github.io/tags/openclaw/"/>
+    
+    <category term="opencv-python" scheme="https://bigworldxld.github.io/tags/opencv-python/"/>
+    
+    <category term="pillow" scheme="https://bigworldxld.github.io/tags/pillow/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenClaw 新手指南</title>
