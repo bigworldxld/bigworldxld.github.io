@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="视频异常检测 Skill, blogs,互联网,测试,大数据,生活,记录">
-    <meta name="description" content="
-name: video-anomaly-detectordescription: 视频异常检测工具 - 全维度视觉质量问题识别，包括花屏、绿屏、黑屏、马赛克、偏色、HDR异常、人脸异常，卡顿，解码错误等
-metadata: {“clawd">
+    <meta name="description" content="视频异常检测工具 v4.0.0📦 简介全维度视频视觉异常检测工具，支持单视频检测、对比检测、批量检测和Excel批量对比检测。
+最新功能：✨ Excel批量对比检测 - 自动下载原片并批量对比转码视频
+
+🎯 核心功能1️⃣ 单视频检测检">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -706,7 +707,7 @@ metadata: {“clawd">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
@@ -736,531 +737,434 @@ metadata: {“clawd">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>name: video-anomaly-detector<br>description: 视频异常检测工具 - 全维度视觉质量问题识别，包括花屏、绿屏、黑屏、马赛克、偏色、HDR异常、人脸异常，卡顿，解码错误等</p>
-<p>metadata: {“clawdbot”:{“emoji”:”🎬”,”requires”:{“bins”:[“python3”,”ffmpeg”],”packages”:[“opencv-python”,”numpy”,”pillow”]}}}</p>
+                <h1 id="视频异常检测工具-v4-0-0"><a href="#视频异常检测工具-v4-0-0" class="headerlink" title="视频异常检测工具 v4.0.0"></a>视频异常检测工具 v4.0.0</h1><h2 id="📦-简介"><a href="#📦-简介" class="headerlink" title="📦 简介"></a>📦 简介</h2><p>全维度视频视觉异常检测工具，支持单视频检测、对比检测、批量检测和Excel批量对比检测。</p>
+<p><strong>最新功能</strong>：✨ Excel批量对比检测 - 自动下载原片并批量对比转码视频</p>
 <hr>
-<h1 id="视频异常检测工具"><a href="#视频异常检测工具" class="headerlink" title="视频异常检测工具"></a>视频异常检测工具</h1><p>对视频文件进行全维度视觉异常检测，识别并定位视频中存在的各类视觉质量问题。</p>
-<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><ul>
-<li>🎥 视频帧提取与分析</li>
-<li>🔍 多维度异常检测（花屏、绿屏、黑屏、马赛克、偏色，卡顿，解码错误等）</li>
-<li>📍 精确定位异常位置（时间段、区域坐标）</li>
-<li>📊 详细的检测报告和判断依据</li>
-<li>🖼️ 异常帧自动保存</li>
-</ul>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 检测视频中的所有异常</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4
-
-<span class="token comment" spellcheck="true"># 指定输出目录</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4 --output /path/to/output
-
-<span class="token comment" spellcheck="true"># 仅检测特定类型的异常</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4 --types black_screen,green_screen,mosaic
-
-<span class="token comment" spellcheck="true"># 设置采样间隔（每N帧检测一次，提高速度）</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4 --sample-interval 30
-
-<span class="token comment" spellcheck="true"># 生成详细报告</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4 --detailed-report
+<h2 id="🎯-核心功能"><a href="#🎯-核心功能" class="headerlink" title="🎯 核心功能"></a>🎯 核心功能</h2><h3 id="1️⃣-单视频检测"><a href="#1️⃣-单视频检测" class="headerlink" title="1️⃣ 单视频检测"></a>1️⃣ 单视频检测</h3><p>检测单个视频的质量异常（黑屏、绿屏、马赛克、卡顿等）</p>
+<pre class=" language-bash"><code class="language-bash">python3 detect.py video.mp4
 </code></pre>
-<h2 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h2><p>支持的异常检测类型：</p>
-<table>
+<hr>
+<h3 id="2️⃣-视频对比检测"><a href="#2️⃣-视频对比检测" class="headerlink" title="2️⃣ 视频对比检测"></a>2️⃣ 视频对比检测</h3><p>对比转码视频和原片，智能判断转码是否引入新问题</p>
+<pre class=" language-bash"><code class="language-bash">python3 detect.py transcoded.mp4 --original original.mp4
+</code></pre>
+<hr>
+<h3 id="3️⃣-Excel批量检测"><a href="#3️⃣-Excel批量检测" class="headerlink" title="3️⃣ Excel批量检测"></a>3️⃣ Excel批量检测</h3><p>从Excel批量检测转码视频</p>
+<pre class=" language-bash"><code class="language-bash">python3 detect.py data.xlsx
+</code></pre>
+<hr>
+<h3 id="4️⃣-Excel批量对比检测-✨-新功能"><a href="#4️⃣-Excel批量对比检测-✨-新功能" class="headerlink" title="4️⃣ Excel批量对比检测 ✨ 新功能"></a>4️⃣ Excel批量对比检测 ✨ 新功能</h3><p>从Excel批量对比检测，自动下载原片并与转码视频对比</p>
+<pre class=" language-bash"><code class="language-bash">python3 detect.py data.xlsx --compare --start 0 --stop 10
+</code></pre>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>✅ 自动使用bucket命令下载原片</li>
+<li>✅ 自动生成转码视频URL</li>
+<li>✅ 支持行号范围（start/stop）</li>
+<li>✅ 批量对比报告</li>
+</ul>
+<hr>
+<h2 id="🔍-检测类型"><a href="#🔍-检测类型" class="headerlink" title="🔍 检测类型"></a>🔍 检测类型</h2><ul>
+<li>✅ <strong>黑屏</strong>（black_screen）- 画面完全或大部分为黑色</li>
+<li>✅ <strong>绿屏</strong>（green_screen）- 绿幕或绿色异常</li>
+<li>✅ <strong>马赛克/模糊</strong>（mosaic）- 画面模糊、马赛克</li>
+<li>✅ <strong>HDR异常</strong>（hdr_anomaly）- 过曝/欠曝</li>
+<li>✅ <strong>视频卡顿</strong>（freeze）- 画面静止/卡顿</li>
+<li>✅ <strong>解码错误</strong>（decode_error）- 视频解码失败</li>
+<li>⚠️ <strong>偏色</strong>（color_cast）- 色彩失衡（默认关闭）</li>
+<li>⚠️ <strong>人脸异常</strong>（face_anomaly）- 人脸模糊（默认关闭）</li>
+</ul>
+<hr>
+<h2 id="🚀-快速开始"><a href="#🚀-快速开始" class="headerlink" title="🚀 快速开始"></a>🚀 快速开始</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre class=" language-bash"><code class="language-bash">pip3 <span class="token function">install</span> opencv-python numpy pandas openpyxl
+</code></pre>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 单视频检测</span>
+python3 detect.py video.mp4 -s 30
+
+<span class="token comment" spellcheck="true"># 对比检测</span>
+python3 detect.py transcoded.mp4 --original original.mp4 -s 15
+
+<span class="token comment" spellcheck="true"># Excel批量对比（前5个视频）</span>
+python3 detect.py data.xlsx --compare --start 0 --stop 5 -s 30
+</code></pre>
+<hr>
+<h2 id="📊-使用场景"><a href="#📊-使用场景" class="headerlink" title="📊 使用场景"></a>📊 使用场景</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单视频质检</td>
+<td><code>detect.py video.mp4 -s 30</code></td>
+<td>快速检测单个视频</td>
+</tr>
+<tr>
+<td>转码验证</td>
+<td><code>detect.py transcoded.mp4 --original original.mp4</code></td>
+<td>验证转码质量</td>
+</tr>
+<tr>
+<td>批量质检</td>
+<td><code>detect.py data.xlsx --limit 10</code></td>
+<td>批量检测转码视频</td>
+</tr>
+<tr>
+<td>批量转码验证</td>
+<td><code>detect.py data.xlsx --compare --start 0 --stop 20</code></td>
+<td>批量对比原片和转码</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📚-文档"><a href="#📚-文档" class="headerlink" title="📚 文档"></a>📚 文档</h2><h3 id="核心文档"><a href="#核心文档" class="headerlink" title="核心文档"></a>核心文档</h3><ul>
+<li><a href="./USAGE.md">完整使用指南</a> - 详细的功能说明和参数</li>
+<li><a href="./QUICK_REFERENCE.md">快速参考</a> - 常用命令速查</li>
+<li><a href="./COMPLETE_SUMMARY.md">完整功能总结</a> - 所有功能汇总</li>
+</ul>
+<h3 id="对比检测"><a href="#对比检测" class="headerlink" title="对比检测"></a>对比检测</h3><ul>
+<li><a href="./COMPARISON_DETECTION.md">对比检测完整指南</a></li>
+<li><a href="./COMPARISON_QUICK_START.md">对比检测快速开始</a></li>
+<li><a href="./COMPARISON_SUMMARY.md">对比检测实现总结</a></li>
+</ul>
+<h3 id="Excel批量对比"><a href="#Excel批量对比" class="headerlink" title="Excel批量对比"></a>Excel批量对比</h3><ul>
+<li><a href="./EXCEL_BATCH_COMPARE.md">Excel批量对比完整指南</a> ✨</li>
+<li><a href="./EXCEL_BATCH_COMPARE_QUICK_START.md">Excel批量对比快速开始</a> ✨</li>
+<li><a href="./EXCEL_BATCH_COMPARE_SUMMARY.md">Excel批量对比实现总结</a> ✨</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><a href="./CHANGELOG.md">更新日志</a></li>
+<li><a href="./VERIFICATION_REPORT.md">验证报告</a></li>
+</ul>
+<hr>
+<h2 id="🎯-参数说明"><a href="#🎯-参数说明" class="headerlink" title="🎯 参数说明"></a>🎯 参数说明</h2><h3 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h3><pre class=" language-bash"><code class="language-bash">-o, --output           <span class="token comment" spellcheck="true"># 输出目录（默认：./video_anomaly_output）</span>
+-t, --types            <span class="token comment" spellcheck="true"># 检测类型，逗号分隔</span>
+-s, --sample-interval  <span class="token comment" spellcheck="true"># 采样间隔（帧）</span>
+--threshold            <span class="token comment" spellcheck="true"># 异常阈值（0-1）</span>
+</code></pre>
+<h3 id="对比检测-1"><a href="#对比检测-1" class="headerlink" title="对比检测"></a>对比检测</h3><pre class=" language-bash"><code class="language-bash">--original             <span class="token comment" spellcheck="true"># 原片视频路径</span>
+--compare              <span class="token comment" spellcheck="true"># Excel批量对比模式</span>
+--start                <span class="token comment" spellcheck="true"># 起始行号（从0开始）</span>
+--stop                 <span class="token comment" spellcheck="true"># 结束行号（不包含）</span>
+</code></pre>
+<h3 id="批量检测"><a href="#批量检测" class="headerlink" title="批量检测"></a>批量检测</h3><pre class=" language-bash"><code class="language-bash">--limit                <span class="token comment" spellcheck="true"># 限制处理数量</span>
+--batch-output         <span class="token comment" spellcheck="true"># 批量报告路径</span>
+</code></pre>
+<h3 id="输出控制"><a href="#输出控制" class="headerlink" title="输出控制"></a>输出控制</h3><pre class=" language-bash"><code class="language-bash">--save-frames          <span class="token comment" spellcheck="true"># 保存检测帧</span>
+--json                 <span class="token comment" spellcheck="true"># JSON格式输出</span>
+--keep-downloaded      <span class="token comment" spellcheck="true"># 保留下载的视频</span>
+</code></pre>
+<hr>
+<h2 id="💡-使用建议"><a href="#💡-使用建议" class="headerlink" title="💡 使用建议"></a>💡 使用建议</h2><h3 id="首次使用"><a href="#首次使用" class="headerlink" title="首次使用"></a>首次使用</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 1. 测试单视频</span>
+python3 detect.py test.mp4 -s 30
+
+<span class="token comment" spellcheck="true"># 2. 测试对比检测</span>
+python3 detect.py transcoded.mp4 --original original.mp4 -s 30
+
+<span class="token comment" spellcheck="true"># 3. 测试Excel批量对比（前3个）</span>
+python3 detect.py data.xlsx --compare --start 0 --stop 3 -s 30
+</code></pre>
+<h3 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 批量对比检测（分批处理）</span>
+python3 detect.py data.xlsx --compare --start 0 --stop 50 -s 15 \
+  --batch-output batch1.json
+
+python3 detect.py data.xlsx --compare --start 50 --stop 100 -s 15 \
+  --batch-output batch2.json
+</code></pre>
+<h3 id="夜间批处理"><a href="#夜间批处理" class="headerlink" title="夜间批处理"></a>夜间批处理</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 后台运行，处理所有视频</span>
+<span class="token function">nohup</span> python3 detect.py data.xlsx --compare -s 15 \
+  --batch-output full_report.json <span class="token operator">></span> log.txt 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
+</code></pre>
+<hr>
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><h3 id="Excel批量对比检测前置要求"><a href="#Excel批量对比检测前置要求" class="headerlink" title="Excel批量对比检测前置要求"></a>Excel批量对比检测前置要求</h3><ol>
+<li><p><strong>Bucket命令</strong></p>
+<ul>
+<li>必须已安装bucket命令行工具</li>
+<li>必须配置PATH环境变量</li>
+<li>必须有访问video-def bucket的权限</li>
+</ul>
+<p>验证：</p>
+<pre class=" language-bash"><code class="language-bash">bucket --help
+</code></pre>
+</li>
+<li><p><strong>Excel文件格式</strong></p>
+<ul>
+<li>必需列：<code>photo_id</code></li>
+<li>必需列：<code>blob_store_key</code></li>
+</ul>
+</li>
+<li><p><strong>网络要求</strong></p>
+<ul>
+<li>需要公司网络或VPN</li>
+<li>转码视频URL需要可访问</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="🆘-故障排除"><a href="#🆘-故障排除" class="headerlink" title="🆘 故障排除"></a>🆘 故障排除</h2><h3 id="问题1：bucket命令不存在"><a href="#问题1：bucket命令不存在" class="headerlink" title="问题1：bucket命令不存在"></a>问题1：bucket命令不存在</h3><p><strong>解决</strong>：安装bucket命令并配置PATH环境变量</p>
+<h3 id="问题2：原片下载失败"><a href="#问题2：原片下载失败" class="headerlink" title="问题2：原片下载失败"></a>问题2：原片下载失败</h3><p><strong>解决</strong>：检查photo_id是否正确，确认bucket中是否存在该文件</p>
+<h3 id="问题3：检测速度太慢"><a href="#问题3：检测速度太慢" class="headerlink" title="问题3：检测速度太慢"></a>问题3：检测速度太慢</h3><p><strong>解决</strong>：使用 <code>-s 30</code> 或更大的采样间隔加快速度</p>
+<h3 id="问题4：Excel列名不匹配"><a href="#问题4：Excel列名不匹配" class="headerlink" title="问题4：Excel列名不匹配"></a>问题4：Excel列名不匹配</h3><p><strong>解决</strong>：检查Excel列名是否完全一致，确认没有多余的空格</p>
+<hr>
+<h1 id="视频异常检测工具-v4-3-0"><a href="#视频异常检测工具-v4-3-0" class="headerlink" title="视频异常检测工具 v4.3.0"></a>视频异常检测工具 v4.3.0</h1><p>全自动视频质量检测工具，支持多种输入源和检测模式。</p>
+<h2 id="✨-核心功能"><a href="#✨-核心功能" class="headerlink" title="✨ 核心功能"></a>✨ 核心功能</h2><h3 id="输入支持"><a href="#输入支持" class="headerlink" title="输入支持"></a>输入支持</h3><ul>
+<li>✅ <strong>本地视频文件</strong> - 直接检测本地视频</li>
+<li>✅ <strong>视频URL</strong> - 自动下载并检测（支持保留/清理）</li>
+<li>✅ <strong>Excel数据源</strong> - 批量检测多个视频</li>
+<li>✅ <strong>原片对比</strong> - 判断转码是否引入新问题</li>
+</ul>
+<h3 id="检测模式"><a href="#检测模式" class="headerlink" title="检测模式"></a>检测模式</h3><ol>
+<li><strong>单视频检测</strong> - 检测一个视频的所有异常</li>
+<li><strong>对比检测</strong> - 对比转码视频和原片，识别转码引入的问题</li>
+<li><strong>Excel批量检测</strong> - 从Excel批量检测转码视频</li>
+<li><strong>Excel批量对比</strong> - 从Excel批量下载原片并对比检测</li>
+</ol>
+<h3 id="异常类型（8种）"><a href="#异常类型（8种）" class="headerlink" title="异常类型（8种）"></a>异常类型（8种）</h3><table>
 <thead>
 <tr>
 <th>类型</th>
 <th>说明</th>
-<th>检测依据</th>
+<th>检测条件</th>
+<th>状态</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>black_screen</code></td>
-<td>黑屏检测</td>
-<td>帧平均亮度低于阈值</td>
+<td>黑屏</td>
+<td>持续≥3秒，亮度&lt;20</td>
+<td>✅ 启用</td>
 </tr>
 <tr>
 <td><code>green_screen</code></td>
-<td>绿屏检测</td>
-<td>绿色通道占比异常高</td>
-</tr>
-<tr>
-<td><code>花屏</code></td>
-<td>花屏检测</td>
-<td>高频噪声、色块异常分布</td>
+<td>绿屏</td>
+<td>持续≥3秒，绿色通道&gt;1.5x</td>
+<td>✅ 启用</td>
 </tr>
 <tr>
 <td><code>mosaic</code></td>
 <td>马赛克/模糊</td>
-<td>图像清晰度、边缘检测</td>
-</tr>
-<tr>
-<td><code>color_cast</code></td>
-<td>偏色检测</td>
-<td>RGB通道平衡分析</td>
+<td>持续≥2秒，清晰度&lt;100</td>
+<td>✅ 启用</td>
 </tr>
 <tr>
 <td><code>hdr_anomaly</code></td>
 <td>HDR异常</td>
-<td>过曝/欠曝区域检测</td>
+<td>持续≥5秒，异常像素&gt;30%</td>
+<td>✅ 启用</td>
 </tr>
 <tr>
 <td><code>freeze</code></td>
 <td>视频卡顿</td>
-<td>连续帧相似度检测</td>
+<td>持续≥3秒，帧间MSE&lt;10</td>
+<td>✅ 启用</td>
 </tr>
 <tr>
 <td><code>decode_error</code></td>
 <td>解码错误</td>
-<td>帧读取失败、帧跳过检测</td>
+<td>帧读取失败</td>
+<td>✅ 启用</td>
+</tr>
+<tr>
+<td><code>color_cast</code></td>
+<td>偏色</td>
+<td>RGB偏差&gt;0.50</td>
+<td>⚠️ 默认关闭</td>
 </tr>
 <tr>
 <td><code>face_anomaly</code></td>
-<td>人脸异常（默认关闭）</td>
-<td>人脸模糊、遮挡、光照异常</td>
+<td>人脸异常</td>
+<td>持续≥2秒，清晰度&lt;100</td>
+<td>⚠️ 默认关闭</td>
 </tr>
 </tbody></table>
-<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ul>
-<li><code>--output, -o</code>: 输出目录（默认：<code>./video_anomaly_output</code>）</li>
-<li><code>--types, -t</code>: 指定检测类型，逗号分隔（默认：全部）</li>
-<li><code>--sample-interval, -s</code>: 采样间隔，每N帧检测一次（默认：1，即每帧都检测）</li>
-<li><code>--threshold</code>: 异常判定阈值（默认：0.7）</li>
-<li><code>--save-frames</code>: 保存所有检测帧图片（默认不保存，节省磁盘空间）</li>
-<li><code>--json</code>: 输出JSON格式结果</li>
-</ul>
-<h2 id="输出说明"><a href="#输出说明" class="headerlink" title="输出说明"></a>输出说明</h2><p>检测完成后会在输出目录生成：</p>
-<pre><code>video_anomaly_output/
-├── report.json              # JSON格式的检测报告
-├── report.html              # 可视化HTML报告（需--detailed-report）
-├── frames/                  # 提取的帧图片
-│   ├── frame_0000.jpg
-│   ├── frame_0030.jpg
-│   └── ...
-├── anomalies/               # 异常帧
-│   ├── black_screen_0120.jpg
-│   ├── green_screen_0240.jpg
-│   └── ...
-└── summary.txt              # 文本摘要报告
-</code></pre>
-<h2 id="报告格式示例"><a href="#报告格式示例" class="headerlink" title="报告格式示例"></a>报告格式示例</h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"video_info"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/path/to/video.mp4"</span><span class="token punctuation">,</span>
-    <span class="token property">"duration"</span><span class="token operator">:</span> <span class="token number">120.5</span><span class="token punctuation">,</span>
-    <span class="token property">"fps"</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-    <span class="token property">"total_frames"</span><span class="token operator">:</span> <span class="token number">3615</span><span class="token punctuation">,</span>
-    <span class="token property">"resolution"</span><span class="token operator">:</span> <span class="token string">"1920x1080"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"anomalies"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"black_screen"</span><span class="token punctuation">,</span>
-      <span class="token property">"frame_number"</span><span class="token operator">:</span> <span class="token number">120</span><span class="token punctuation">,</span>
-      <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"4.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"time_range"</span><span class="token operator">:</span> <span class="token string">"3.8s - 4.2s"</span><span class="token punctuation">,</span>
-      <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"全屏"</span><span class="token punctuation">,</span>
-      <span class="token property">"confidence"</span><span class="token operator">:</span> <span class="token number">0.95</span><span class="token punctuation">,</span>
-      <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"avg_brightness"</span><span class="token operator">:</span> <span class="token number">5.2</span><span class="token punctuation">,</span>
-        <span class="token property">"threshold"</span><span class="token operator">:</span> <span class="token number">20</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"recommendation"</span><span class="token operator">:</span> <span class="token string">"视频在4秒处出现黑屏，持续约0.4秒"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"mosaic"</span><span class="token punctuation">,</span>
-      <span class="token property">"frame_number"</span><span class="token operator">:</span> <span class="token number">450</span><span class="token punctuation">,</span>
-      <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"15.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"time_range"</span><span class="token operator">:</span> <span class="token string">"14.5s - 16.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"中心区域 (40%-60%, 40%-60%)"</span><span class="token punctuation">,</span>
-      <span class="token property">"confidence"</span><span class="token operator">:</span> <span class="token number">0.82</span><span class="token punctuation">,</span>
-      <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"sharpness_score"</span><span class="token operator">:</span> <span class="token number">12.5</span><span class="token punctuation">,</span>
-        <span class="token property">"threshold"</span><span class="token operator">:</span> <span class="token number">30</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"recommendation"</span><span class="token operator">:</span> <span class="token string">"视频在15秒处中心区域出现模糊/马赛克，建议检查编码质量"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"color_cast"</span><span class="token punctuation">,</span>
-      <span class="token property">"frame_number"</span><span class="token operator">:</span> <span class="token number">900</span><span class="token punctuation">,</span>
-      <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"30.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"time_range"</span><span class="token operator">:</span> <span class="token string">"28.0s - 35.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"顶部20%区域"</span><span class="token punctuation">,</span>
-      <span class="token property">"confidence"</span><span class="token operator">:</span> <span class="token number">0.78</span><span class="token punctuation">,</span>
-      <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"dominant_color"</span><span class="token operator">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span>
-        <span class="token property">"rgb_ratio"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0.35</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token property">"deviation"</span><span class="token operator">:</span> <span class="token number">0.25</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"recommendation"</span><span class="token operator">:</span> <span class="token string">"视频在30秒处顶部区域出现蓝色偏色"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"summary"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"total_anomalies"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
-    <span class="token property">"frames_checked"</span><span class="token operator">:</span> <span class="token number">3615</span><span class="token punctuation">,</span>
-    <span class="token property">"anomaly_types"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token property">"black_screen"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-      <span class="token property">"mosaic"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-      <span class="token property">"color_cast"</span><span class="token operator">:</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul>
-<li>Python 3.7+</li>
-<li>ffmpeg</li>
-<li>opencv-python</li>
-<li>numpy</li>
-<li>pillow</li>
-<li>scikit-image (可选，用于更精确的图像质量评估)</li>
-</ul>
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre class=" language-bash"><code class="language-bash">pip3 <span class="token function">install</span> opencv-python numpy pillow scikit-image
-brew <span class="token function">install</span> ffmpeg  <span class="token comment" spellcheck="true"># macOS</span>
-</code></pre>
-<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="批量检测"><a href="#批量检测" class="headerlink" title="批量检测"></a>批量检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 检测目录中的所有视频</span>
-<span class="token keyword">for</span> video <span class="token keyword">in</span> /path/to/videos/*.mp4<span class="token punctuation">;</span> <span class="token keyword">do</span>
-  python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py <span class="token string">"<span class="token variable">$video</span>"</span> --output <span class="token string">"./output/$(basename "</span><span class="token variable">$video</span><span class="token string">" .mp4)"</span>
-<span class="token keyword">done</span>
-</code></pre>
-<h3 id="自定义检测阈值"><a href="#自定义检测阈值" class="headerlink" title="自定义检测阈值"></a>自定义检测阈值</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 使用配置文件</span>
-python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4 --config custom_config.json
-</code></pre>
-<p>配置文件示例：</p>
-<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"black_screen"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"brightness_threshold"</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
-    <span class="token property">"min_duration_frames"</span><span class="token operator">:</span> <span class="token number">3</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"mosaic"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"sharpness_threshold"</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
-    <span class="token property">"detection_area"</span><span class="token operator">:</span> <span class="token string">"center"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"face_anomaly"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"enable_blur_detection"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">"blur_threshold"</span><span class="token operator">:</span> <span class="token number">100</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
-<li>使用 <code>--sample-interval</code> 降低检测频率，提高速度</li>
-<li>使用 <code>--types</code> 仅检测需要的异常类型</li>
-<li>默认不保存帧图片，节省磁盘空间和IO时间（如需保存使用 <code>--save-frames</code>）</li>
-<li>多线程处理：脚本自动使用多核CPU</li>
-</ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>视频文件较大时，完整检测可能耗时较长，建议使用采样间隔</li>
-<li>某些异常检测（如人脸异常）需要额外的模型文件</li>
-<li>HDR视频可能需要特殊处理，建议先转换为SDR</li>
-<li>默认不保存帧图片，如需保存请添加 <code>--save-frames</code> 参数</li>
-</ol>
-<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><p><strong>Q: 提示缺少OpenCV模块</strong></p>
-<pre class=" language-bash"><code class="language-bash">pip3 <span class="token function">install</span> opencv-python opencv-contrib-python
-</code></pre>
-<p><strong>Q: ffmpeg未找到</strong></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># macOS</span>
-brew <span class="token function">install</span> ffmpeg
+<p><strong>注意</strong>：所有检测自动忽略视频末尾3秒。</p>
+<h2 id="🚀-快速开始-1"><a href="#🚀-快速开始-1" class="headerlink" title="🚀 快速开始"></a>🚀 快速开始</h2><h3 id="1-单视频检测"><a href="#1-单视频检测" class="headerlink" title="1. 单视频检测"></a>1. 单视频检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 检测本地视频</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py /path/to/video.mp4
 
-<span class="token comment" spellcheck="true"># Ubuntu/Debian</span>
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ffmpeg
+<span class="token comment" spellcheck="true"># 检测URL视频（自动下载）</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py https://example.com/video.mp4
+
+<span class="token comment" spellcheck="true"># 快速检测（每30帧采样）</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py video.mp4 -s 30
 </code></pre>
-<p><strong>Q: 检测速度太慢</strong></p>
+<h3 id="2-对比检测"><a href="#2-对比检测" class="headerlink" title="2. 对比检测"></a>2. 对比检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 对比转码视频和原片</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py transcoded.mp4 --original original.mp4
+
+<span class="token comment" spellcheck="true"># 快速对比（推荐）</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py transcoded.mp4 --original original.mp4 -s 15
+
+<span class="token comment" spellcheck="true"># 对比URL视频</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py <span class="token string">"https://example.com/transcoded.mp4"</span> \
+  --original <span class="token string">"https://example.com/original.mp4"</span>
+</code></pre>
+<p><strong>对比逻辑</strong>（v4.1.0+）：</p>
 <ul>
-<li>使用 <code>--sample-interval 30</code> 每秒检测1帧</li>
-<li>使用 <code>--types</code> 仅启用需要的检测类型</li>
-<li>确保SSD硬盘，避免机械硬盘IO瓶颈</li>
+<li>按异常类型分组对比</li>
+<li>转码有某类型，原片也有 → ✅ 不是新异常</li>
+<li>转码有某类型，原片没有 → ⚠️ 新异常</li>
+<li>解码错误特殊处理</li>
 </ul>
-<h1 id="视频异常检测-Skill-使用指南"><a href="#视频异常检测-Skill-使用指南" class="headerlink" title="视频异常检测 Skill 使用指南"></a>视频异常检测 Skill 使用指南</h1><h2 id="📦-Skill信息"><a href="#📦-Skill信息" class="headerlink" title="📦 Skill信息"></a>📦 Skill信息</h2><ul>
-<li><strong>名称</strong>: video-anomaly-detector</li>
-<li><strong>版本</strong>: 1.0.0</li>
-<li><strong>作者</strong>: bigworldxld</li>
-<li><strong>功能</strong>: 全维度视频视觉异常检测</li>
-</ul>
-<h2 id="🎯-功能特性"><a href="#🎯-功能特性" class="headerlink" title="🎯 功能特性"></a>🎯 功能特性</h2><h3 id="支持的异常检测类型"><a href="#支持的异常检测类型" class="headerlink" title="支持的异常检测类型"></a>支持的异常检测类型</h3><table>
-<thead>
-<tr>
-<th>检测类型</th>
-<th>说明</th>
-<th>技术原理</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>黑屏 (black_screen)</td>
-<td>检测画面完全或大部分为黑色</td>
-<td>持续≥3秒，亮度&lt;20，忽略视频末尾3秒</td>
-</tr>
-<tr>
-<td>绿屏 (green_screen)</td>
-<td>检测绿幕或绿色异常</td>
-<td>绿色通道占比 &gt; 1.5倍其他通道</td>
-</tr>
-<tr>
-<td>马赛克/模糊 (mosaic)</td>
-<td>检测画面模糊、马赛克</td>
-<td>Laplacian清晰度 &lt; 100</td>
-</tr>
-<tr>
-<td>偏色 (color_cast)</td>
-<td>检测色彩失衡</td>
-<td>RGB通道偏差 &gt; 0.15</td>
-</tr>
-<tr>
-<td>HDR异常 (hdr_anomaly)</td>
-<td>检测过曝/欠曝</td>
-<td>持续≥5秒，异常像素&gt;30%</td>
-</tr>
-<tr>
-<td>视频卡顿 (freeze)</td>
-<td>检测画面静止/卡顿</td>
-<td>连续帧MSE &lt; 10</td>
-</tr>
-<tr>
-<td>解码错误 (decode_error)</td>
-<td>检测视频解码失败</td>
-<td>帧读取失败、帧跳过</td>
-</tr>
-<tr>
-<td>人脸异常 (face_anomaly) ⚠️</td>
-<td>检测人脸模糊、异常（默认关闭）</td>
-<td>Haar级联 + 人脸清晰度 &lt; 350</td>
-</tr>
-</tbody></table>
-<h3 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息"></a>输出信息</h3><p>每个检测到的异常包含：</p>
-<ul>
-<li>✅ <strong>异常类型</strong> - 具体是什么问题</li>
-<li>✅ <strong>时间位置</strong> - 精确到帧号和秒数</li>
-<li>✅ <strong>时间段</strong> - 连续异常会合并为时间段（如”5.0s - 10.2s”）</li>
-<li>✅ <strong>空间位置</strong> - 区域描述（如”顶部20%区域”、”中心区域(30%-70%)”）</li>
-<li>✅ <strong>置信度</strong> - 0-1之间，表示检测可靠性</li>
-<li>✅ <strong>判断依据</strong> - 详细的技术指标和阈值</li>
-<li>✅ <strong>建议</strong> - 人类可读的问题描述</li>
-</ul>
-<h2 id="🚀-快速开始"><a href="#🚀-快速开始" class="headerlink" title="🚀 快速开始"></a>🚀 快速开始</h2><h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 进入skill目录</span>
-<span class="token function">cd</span> ~/.openclaw/workspace/skills/video-anomaly-detector-1.0.0
+<h3 id="3-Excel批量检测"><a href="#3-Excel批量检测" class="headerlink" title="3. Excel批量检测"></a>3. Excel批量检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 批量检测转码视频</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --limit 10
 
-<span class="token comment" spellcheck="true"># 检测视频</span>
-python3 scripts/detect.py /path/to/video.mp4
-
-<span class="token comment" spellcheck="true"># 使用快捷脚本（自动检查依赖）</span>
-<span class="token function">bash</span> scripts/detect.sh /path/to/video.mp4
+<span class="token comment" spellcheck="true"># 快速批量检测</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --limit 10 -s 30
 </code></pre>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 指定输出目录</span>
-python3 scripts/detect.py video.mp4 --output ./my_results
-
-<span class="token comment" spellcheck="true"># 快速检测（每30帧检测一次，约1秒1次）</span>
-python3 scripts/detect.py video.mp4 --sample-interval 30
-
-<span class="token comment" spellcheck="true"># 仅检测特定类型</span>
-python3 scripts/detect.py video.mp4 --types black_screen,green_screen,mosaic
-
-<span class="token comment" spellcheck="true"># 调整检测灵敏度（阈值越低越敏感）</span>
-python3 scripts/detect.py video.mp4 --threshold 0.5
-
-<span class="token comment" spellcheck="true"># 保存所有检测帧（默认不保存，节省空间）</span>
-python3 scripts/detect.py video.mp4 --save-frames
-
-<span class="token comment" spellcheck="true"># 输出JSON格式</span>
-python3 scripts/detect.py video.mp4 --json
-
-<span class="token comment" spellcheck="true"># 启用人脸异常检测（默认关闭）</span>
-python3 scripts/detect.py video.mp4 --types black_screen,green_screen,mosaic,color_cast,hdr_anomaly,face_anomaly
-</code></pre>
-<p><strong>注意</strong>：</p>
+<p><strong>Excel要求</strong>：</p>
 <ul>
-<li>默认不保存帧图片以节省磁盘空间，如需保存请添加 <code>--save-frames</code> 参数</li>
-<li><code>face_anomaly</code>（人脸异常检测）默认已关闭，如需使用请通过<code>--types</code>参数手动启用</li>
+<li>必需列：<code>media_processing_detect_result.blob_store_key</code></li>
+<li>格式：JSON字符串，包含 <code>key</code> 字段</li>
 </ul>
-<h2 id="📊-输出示例"><a href="#📊-输出示例" class="headerlink" title="📊 输出示例"></a>📊 输出示例</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code>video_anomaly_output/
-├── report.json              # 详细JSON报告
+<h3 id="4-Excel批量对比（自动下载原片）"><a href="#4-Excel批量对比（自动下载原片）" class="headerlink" title="4. Excel批量对比（自动下载原片）"></a>4. Excel批量对比（自动下载原片）</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Excel批量对比检测</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --compare
+
+<span class="token comment" spellcheck="true"># 测试前3个视频（推荐首次使用）</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --compare --start 0 --stop 3 -s 30
+
+<span class="token comment" spellcheck="true"># 批量处理指定范围</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --compare --start 0 --stop 20 -s 15
+
+<span class="token comment" spellcheck="true"># 保存批量对比报告</span>
+python3 <span class="token punctuation">{</span>baseDir<span class="token punctuation">}</span>/scripts/detect.py data.xlsx --compare --start 0 --stop 10 \
+  --batch-output comparison_report.json
+</code></pre>
+<p><strong>Excel要求</strong>：</p>
+<ul>
+<li>必需列1：<code>media_processing_detect_result.photo_id</code>（用于下载原片）</li>
+<li>必需列2：<code>media_processing_detect_result.blob_store_key</code>（生成转码URL）</li>
+<li><strong>前置要求</strong>：需要安装并配置 <code>bucket</code> 命令</li>
+</ul>
+<p><strong>Bucket下载重试</strong>（v4.3.0）：</p>
+<ul>
+<li>命令成功但文件不存在时，等待5秒后重试</li>
+<li>最多重试2次（共3次尝试）</li>
+<li>提高下载成功率</li>
+</ul>
+<h2 id="🎯-参数说明-1"><a href="#🎯-参数说明-1" class="headerlink" title="🎯 参数说明"></a>🎯 参数说明</h2><h3 id="基本参数-1"><a href="#基本参数-1" class="headerlink" title="基本参数"></a>基本参数</h3><pre class=" language-bash"><code class="language-bash">-o, --output DIR              <span class="token comment" spellcheck="true"># 输出目录（默认：./video_anomaly_output）</span>
+-t, --types TYPES             <span class="token comment" spellcheck="true"># 检测类型（逗号分隔）</span>
+-s, --sample-interval N       <span class="token comment" spellcheck="true"># 采样间隔（帧）</span>
+--threshold FLOAT             <span class="token comment" spellcheck="true"># 异常阈值（0-1）</span>
+</code></pre>
+<h3 id="对比检测参数"><a href="#对比检测参数" class="headerlink" title="对比检测参数"></a>对比检测参数</h3><pre class=" language-bash"><code class="language-bash">--original PATH               <span class="token comment" spellcheck="true"># 原片视频路径（启用对比检测）</span>
+</code></pre>
+<h3 id="Excel批量检测参数"><a href="#Excel批量检测参数" class="headerlink" title="Excel批量检测参数"></a>Excel批量检测参数</h3><pre class=" language-bash"><code class="language-bash">--limit N                     <span class="token comment" spellcheck="true"># 限制处理数量（用于调试）</span>
+--batch-output PATH           <span class="token comment" spellcheck="true"># 批量报告路径（JSON格式）</span>
+</code></pre>
+<h3 id="Excel批量对比参数"><a href="#Excel批量对比参数" class="headerlink" title="Excel批量对比参数"></a>Excel批量对比参数</h3><pre class=" language-bash"><code class="language-bash">--compare                     <span class="token comment" spellcheck="true"># 启用Excel批量对比模式</span>
+--start N                     <span class="token comment" spellcheck="true"># 起始行号（从0开始）</span>
+--stop N                      <span class="token comment" spellcheck="true"># 结束行号（不包含）</span>
+</code></pre>
+<h3 id="输出控制-1"><a href="#输出控制-1" class="headerlink" title="输出控制"></a>输出控制</h3><pre class=" language-bash"><code class="language-bash">--save-frames                 <span class="token comment" spellcheck="true"># 保存检测帧</span>
+--keep-downloaded             <span class="token comment" spellcheck="true"># 保留下载的视频</span>
+--json                        <span class="token comment" spellcheck="true"># JSON格式输出</span>
+</code></pre>
+<h2 id="📊-输出格式"><a href="#📊-输出格式" class="headerlink" title="📊 输出格式"></a>📊 输出格式</h2><h3 id="单视频检测"><a href="#单视频检测" class="headerlink" title="单视频检测"></a>单视频检测</h3><pre><code>video_anomaly_output/
+├── report.json              # 详细检测报告
 ├── summary.txt              # 文本摘要
 ├── frames/                  # 正常帧（可选）
-│   ├── frame_000000.jpg
-│   ├── frame_000030.jpg
-│   └── ...
 └── anomalies/               # 异常帧
-    ├── black_screen_000120.jpg
-    ├── mosaic_000450.jpg
-    └── color_cast_000900.jpg
+    ├── freeze_first_*.jpg   # 异常开始帧
+    └── freeze_last_*.jpg    # 异常结束帧
 </code></pre>
-<h3 id="JSON报告示例"><a href="#JSON报告示例" class="headerlink" title="JSON报告示例"></a>JSON报告示例</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"video_info"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/path/to/video.mp4"</span><span class="token punctuation">,</span>
-    <span class="token property">"duration"</span><span class="token operator">:</span> <span class="token number">120.5</span><span class="token punctuation">,</span>
-    <span class="token property">"fps"</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-    <span class="token property">"total_frames"</span><span class="token operator">:</span> <span class="token number">3615</span><span class="token punctuation">,</span>
-    <span class="token property">"resolution"</span><span class="token operator">:</span> <span class="token string">"1920x1080"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"anomalies"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"black_screen"</span><span class="token punctuation">,</span>
-      <span class="token property">"frame_number"</span><span class="token operator">:</span> <span class="token number">120</span><span class="token punctuation">,</span>
-      <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"4.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"time_range"</span><span class="token operator">:</span> <span class="token string">"3.8s - 4.2s"</span><span class="token punctuation">,</span>
-      <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"全屏"</span><span class="token punctuation">,</span>
-      <span class="token property">"confidence"</span><span class="token operator">:</span> <span class="token number">0.95</span><span class="token punctuation">,</span>
-      <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"avg_brightness"</span><span class="token operator">:</span> <span class="token number">5.2</span><span class="token punctuation">,</span>
-        <span class="token property">"threshold"</span><span class="token operator">:</span> <span class="token number">20</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"recommendation"</span><span class="token operator">:</span> <span class="token string">"视频在4.0s处出现黑屏（亮度:5.2/255）"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"color_cast"</span><span class="token punctuation">,</span>
-      <span class="token property">"frame_number"</span><span class="token operator">:</span> <span class="token number">900</span><span class="token punctuation">,</span>
-      <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"30.0s"</span><span class="token punctuation">,</span>
-      <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"顶部20%区域"</span><span class="token punctuation">,</span>
-      <span class="token property">"confidence"</span><span class="token operator">:</span> <span class="token number">0.78</span><span class="token punctuation">,</span>
-      <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"dominant_color"</span><span class="token operator">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span>
-        <span class="token property">"rgb_ratio"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0.35</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token property">"deviation"</span><span class="token operator">:</span> <span class="token number">0.25</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"recommendation"</span><span class="token operator">:</span> <span class="token string">"视频在30.0s处顶部20%区域出现blue偏色"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"summary"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"total_anomalies"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-    <span class="token property">"frames_checked"</span><span class="token operator">:</span> <span class="token number">3615</span><span class="token punctuation">,</span>
-    <span class="token property">"anomaly_types"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token property">"black_screen"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-      <span class="token property">"color_cast"</span><span class="token operator">:</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<h3 id="对比检测-2"><a href="#对比检测-2" class="headerlink" title="对比检测"></a>对比检测</h3><pre><code>video_anomaly_output/comparison_190420198652/
+├── transcoded/              # 转码视频检测结果
+│   ├── report.json
+│   └── summary.txt
+├── original/                # 原片检测结果
+│   ├── report.json
+│   └── summary.txt
+└── comparison_report.json   # 对比分析报告
 </code></pre>
-<h2 id="💡-使用场景"><a href="#💡-使用场景" class="headerlink" title="💡 使用场景"></a>💡 使用场景</h2><h3 id="1-会议录像质量检查"><a href="#1-会议录像质量检查" class="headerlink" title="1. 会议录像质量检查"></a>1. 会议录像质量检查</h3><pre class=" language-bash"><code class="language-bash">python3 scripts/detect.py meeting.mp4 \
-  --types black_screen,face_anomaly \
-  --sample-interval 30 \
-  --output ./meeting_check
+<h3 id="Excel批量检测"><a href="#Excel批量检测" class="headerlink" title="Excel批量检测"></a>Excel批量检测</h3><pre><code>batch_test_output/
+├── video_190384180549/      # 单个视频结果
+│   ├── report.json
+│   └── summary.txt
+├── video_190392576468/
+│   └── ...
+└── batch_summary.json       # 批量汇总报告
 </code></pre>
-<h3 id="2-批量视频检测"><a href="#2-批量视频检测" class="headerlink" title="2. 批量视频检测"></a>2. 批量视频检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token keyword">for</span> video <span class="token keyword">in</span> /path/to/videos/*.mp4<span class="token punctuation">;</span> <span class="token keyword">do</span>
-  output_dir<span class="token operator">=</span><span class="token string">"./output/$(basename "</span><span class="token variable">$video</span><span class="token string">" .mp4)"</span>
-  python3 scripts/detect.py <span class="token string">"<span class="token variable">$video</span>"</span> \
-    --output <span class="token string">"<span class="token variable">$output_dir</span>"</span> \
-    --sample-interval 30 \
-    --save-frames
-<span class="token keyword">done</span>
+<h2 id="🔧-高级功能"><a href="#🔧-高级功能" class="headerlink" title="🔧 高级功能"></a>🔧 高级功能</h2><h3 id="OpenCV失败时的备用检测（v4-2-0-）"><a href="#OpenCV失败时的备用检测（v4-2-0-）" class="headerlink" title="OpenCV失败时的备用检测（v4.2.0+）"></a>OpenCV失败时的备用检测（v4.2.0+）</h3><p>当OpenCV无法打开视频时，自动切换到ffmpeg_atlas检测：</p>
+<p><strong>支持的检测</strong>（v4.3.0+）：</p>
+<ul>
+<li>✅ 解码错误检测</li>
+<li>✅ 黑屏检测（持续≥3秒，使用blackdetect过滤器）</li>
+<li>✅ 冻结帧检测（持续≥3秒，使用freezedetect过滤器）</li>
+</ul>
+<p><strong>无法检测</strong>：</p>
+<ul>
+<li>❌ 绿屏、马赛克、HDR异常、人脸异常、偏色</li>
+</ul>
+<p><strong>自动切换示例</strong>：</p>
+<pre><code>⚠️  无法打开视频文件: video.mp4
+切换到ffmpeg_atlas备用检测方案...
+
+🔍 使用ffmpeg_atlas检测黑屏...
+   ⚠️  发现黑屏: 5.5s-10.2s (持续4.7秒)
+
+🔍 使用ffmpeg_atlas检测冻结帧...
+   ⚠️  发现冻结帧: 22.4s-26.4s (持续4.0秒)
+
+🔍 使用ffmpeg_atlas检测解码错误...
+   ✅ 视频可以正常解码
 </code></pre>
-<h3 id="3-直播录制质量监控"><a href="#3-直播录制质量监控" class="headerlink" title="3. 直播录制质量监控"></a>3. 直播录制质量监控</h3><pre class=" language-bash"><code class="language-bash">python3 scripts/detect.py live_stream.mp4 \
-  --types black_screen,green_screen,hdr_anomaly \
-  --sample-interval 60 \
-  --threshold 0.8
+<h3 id="对比检测逻辑（v4-1-0）"><a href="#对比检测逻辑（v4-1-0）" class="headerlink" title="对比检测逻辑（v4.1.0）"></a>对比检测逻辑（v4.1.0）</h3><p><strong>按异常类型分组对比</strong>：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 规则1：解码错误特殊处理</span>
+转码有decode_error，原片无 → 新异常
+转码有decode_error，原片也有 → 不是新异常
+
+<span class="token comment" spellcheck="true"># 规则2：质量异常按类型判断</span>
+转码有某类型异常，原片也有该类型 → 不是新异常
+转码有某类型异常，原片没有该类型 → 新异常
+
+<span class="token comment" spellcheck="true"># 规则3：原片异常更多</span>
+原片异常类型比转码多 → 转码改善了质量
 </code></pre>
-<h2 id="⚙️-性能优化"><a href="#⚙️-性能优化" class="headerlink" title="⚙️ 性能优化"></a>⚙️ 性能优化</h2><h3 id="提速技巧"><a href="#提速技巧" class="headerlink" title="提速技巧"></a>提速技巧</h3><ol>
-<li><p><strong>使用采样间隔</strong></p>
-<pre class=" language-bash"><code class="language-bash">--sample-interval 30  <span class="token comment" spellcheck="true"># 每30帧检测一次（1秒/次 for 30fps视频）</span>
+<h2 id="💡-使用技巧"><a href="#💡-使用技巧" class="headerlink" title="💡 使用技巧"></a>💡 使用技巧</h2><h3 id="1-快速检测"><a href="#1-快速检测" class="headerlink" title="1. 快速检测"></a>1. 快速检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 每30帧采样，约1秒1次，速度快30倍</span>
+python3 scripts/detect.py video.mp4 -s 30
 </code></pre>
-</li>
-<li><p><strong>限制检测类型</strong></p>
-<pre class=" language-bash"><code class="language-bash">--types black_screen,green_screen  <span class="token comment" spellcheck="true"># 只检测最关键的异常</span>
+<h3 id="2-关键检测"><a href="#2-关键检测" class="headerlink" title="2. 关键检测"></a>2. 关键检测</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只检测最重要的问题</span>
+python3 scripts/detect.py video.mp4 -t freeze,decode_error
 </code></pre>
-</li>
-<li><p><strong>保存帧</strong></p>
-<pre class=" language-bash"><code class="language-bash">--save-frames  <span class="token comment" spellcheck="true"># 保存图片</span>
+<h3 id="3-分批处理"><a href="#3-分批处理" class="headerlink" title="3. 分批处理"></a>3. 分批处理</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Excel批量对比时分批处理，避免单次时间过长</span>
+python3 scripts/detect.py data.xlsx --compare --start 0 --stop 50 -s 15
+python3 scripts/detect.py data.xlsx --compare --start 50 --stop 100 -s 15
 </code></pre>
-</li>
+<h3 id="4-夜间批处理"><a href="#4-夜间批处理" class="headerlink" title="4. 夜间批处理"></a>4. 夜间批处理</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 后台运行</span>
+<span class="token function">nohup</span> python3 scripts/detect.py data.xlsx --compare -s 15 \
+  --batch-output full_report.json <span class="token operator">></span> log.txt 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
+</code></pre>
+<h2 id="📚-相关文档"><a href="#📚-相关文档" class="headerlink" title="📚 相关文档"></a>📚 相关文档</h2><ul>
+<li><strong>USAGE.md</strong> - 完整使用指南</li>
+<li><strong>QUICK_REFERENCE.md</strong> - 快速参考</li>
+<li><strong>UPDATE_v4.3.0.md</strong> - v4.3.0更新说明</li>
+<li><strong>CHANGELOG.md</strong> - 版本更新历史</li>
+</ul>
+<h2 id="🔄-版本历史"><a href="#🔄-版本历史" class="headerlink" title="🔄 版本历史"></a>🔄 版本历史</h2><ul>
+<li><strong>v4.3.0</strong> (2026-03-26) - Bucket下载重试 + 增强ffmpeg检测（黑屏/冻结帧）</li>
+<li><strong>v4.2.0</strong> (2026-03-18) - ffmpeg_atlas备用检测</li>
+<li><strong>v4.1.0</strong> (2026-03-18) - 优化对比检测逻辑</li>
+<li><strong>v4.0.0</strong> (2026-03-18) - Excel批量对比检测</li>
+<li><strong>v3.0.0</strong> (2026-03-17) - 视频对比检测</li>
+<li><strong>v2.0.0</strong> (2026-03-17) - Excel批量检测</li>
+<li><strong>v1.0.0</strong> - 初始版本</li>
+</ul>
+<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p><strong>核心能力</strong>：</p>
+<ol>
+<li>✅ 多种输入：本地文件、URL、Excel</li>
+<li>✅ 多种模式：单视频、对比、批量、批量对比</li>
+<li>✅ 8种异常：黑屏、绿屏、马赛克、HDR、卡顿、解码错误、偏色、人脸</li>
+<li>✅ 备用检测：OpenCV失败时自动切换ffmpeg</li>
+<li>✅ 智能重试：Bucket下载自动重试提高成功率</li>
 </ol>
-<h3 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h3><ul>
-<li>脚本逐帧处理，内存占用稳定（约200-500MB）</li>
-<li>大视频建议使用SSD，避免IO瓶颈</li>
-</ul>
-<h3 id="处理大文件"><a href="#处理大文件" class="headerlink" title="处理大文件"></a>处理大文件</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 2小时4K视频建议配置</span>
-python3 scripts/detect.py big_video.mp4 \
-  --sample-interval 60 \
-  --types black_screen,green_screen \
-  --save-frames \
-  --threshold 0.8
-</code></pre>
-<h2 id="🔧-高级配置"><a href="#🔧-高级配置" class="headerlink" title="🔧 高级配置"></a>🔧 高级配置</h2><h3 id="使用配置文件"><a href="#使用配置文件" class="headerlink" title="使用配置文件"></a>使用配置文件</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 复制示例配置</span>
-<span class="token function">cp</span> config.example.json my_config.json
+<p><strong>典型命令</strong>：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 单视频快速检测</span>
+python3 scripts/detect.py video.mp4 -s 30
 
-<span class="token comment" spellcheck="true"># 编辑配置（调整各项阈值）</span>
-vim my_config.json
+<span class="token comment" spellcheck="true"># 对比检测</span>
+python3 scripts/detect.py transcoded.mp4 --original original.mp4 -s 15
 
-<span class="token comment" spellcheck="true"># 使用配置文件（功能待实现）</span>
-python3 scripts/detect.py video.mp4 --config my_config.json
+<span class="token comment" spellcheck="true"># Excel批量对比</span>
+python3 scripts/detect.py data.xlsx --compare --start 0 --stop 10 -s 15
 </code></pre>
-<h3 id="自定义阈值"><a href="#自定义阈值" class="headerlink" title="自定义阈值"></a>自定义阈值</h3><p>编辑 <code>scripts/detect.py</code>，修改检测类内的阈值：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 黑屏检测阈值（第66行附近）</span>
-<span class="token keyword">if</span> avg_brightness <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 改为10更敏感，改为30更宽松</span>
-
-<span class="token comment" spellcheck="true"># 模糊检测阈值（第107行附近）</span>
-<span class="token keyword">if</span> sharpness <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 改为50更敏感，改为200更宽松</span>
-
-<span class="token comment" spellcheck="true"># 偏色检测阈值（第144行附近）</span>
-<span class="token keyword">if</span> deviation <span class="token operator">></span> <span class="token number">0.15</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 改为0.10更敏感，改为0.25更宽松</span>
-</code></pre>
-<h2 id="❓-常见问题"><a href="#❓-常见问题" class="headerlink" title="❓ 常见问题"></a>❓ 常见问题</h2><h3 id="Q1-检测速度很慢怎么办？"><a href="#Q1-检测速度很慢怎么办？" class="headerlink" title="Q1: 检测速度很慢怎么办？"></a>Q1: 检测速度很慢怎么办？</h3><p><strong>A</strong>: 使用采样间隔参数</p>
-<pre class=" language-bash"><code class="language-bash">--sample-interval 30  <span class="token comment" spellcheck="true"># 每30帧检测一次</span>
-</code></pre>
-<h3 id="Q2-误报太多怎么办？"><a href="#Q2-误报太多怎么办？" class="headerlink" title="Q2: 误报太多怎么办？"></a>Q2: 误报太多怎么办？</h3><p><strong>A</strong>: 提高置信度阈值</p>
-<pre class=" language-bash"><code class="language-bash">--threshold 0.85  <span class="token comment" spellcheck="true"># 默认0.7，提高到0.85减少误报</span>
-</code></pre>
-<h3 id="Q3-漏检问题怎么办？"><a href="#Q3-漏检问题怎么办？" class="headerlink" title="Q3: 漏检问题怎么办？"></a>Q3: 漏检问题怎么办？</h3><p><strong>A</strong>: 降低阈值或减少采样间隔</p>
-<pre class=" language-bash"><code class="language-bash">--threshold 0.5 --sample-interval 10
-</code></pre>
-<h3 id="Q4-磁盘空间不足？"><a href="#Q4-磁盘空间不足？" class="headerlink" title="Q4: 磁盘空间不足？"></a>Q4: 磁盘空间不足？</h3><p><strong>A</strong>: 不保存帧图片</p>
-<pre class=" language-bash"><code class="language-bash">--no-save-frames
-</code></pre>
-<h3 id="Q5-ImportError-No-module-named-‘cv2’"><a href="#Q5-ImportError-No-module-named-‘cv2’" class="headerlink" title="Q5: ImportError: No module named ‘cv2’"></a>Q5: ImportError: No module named ‘cv2’</h3><p><strong>A</strong>: 安装依赖</p>
-<pre class=" language-bash"><code class="language-bash">pip3 <span class="token function">install</span> opencv-python numpy pillow
-</code></pre>
-<h1 id="1-环境检查"><a href="#1-环境检查" class="headerlink" title="1. 环境检查"></a>1. 环境检查</h1><p>cd workspace/skills/video-anomaly-detector-1.0.0<br>bash test.sh</p>
-<h1 id="2-基本检测"><a href="#2-基本检测" class="headerlink" title="2. 基本检测"></a>2. 基本检测</h1><p>python3 scripts/detect.py /path/to/video.mp4</p>
-<h1 id="3-快速检测（推荐）"><a href="#3-快速检测（推荐）" class="headerlink" title="3. 快速检测（推荐）"></a>3. 快速检测（推荐）</h1><p>python3 scripts/detect.py video.mp4 –sample-interval 30 –types black_screen,green_screen</p>
-<h1 id="4-批量检测"><a href="#4-批量检测" class="headerlink" title="4. 批量检测"></a>4. 批量检测</h1><p>for video in *.mp4; do<br>  python3 scripts/detect.py “$video” –output “./output/${video%.mp4}”<br>done</p>
-<p>示例1：会议录像质量检查<br>python3 scripts/detect.py meeting.mp4 <br>  –types black_screen,face_anomaly <br>  –sample-interval 30 <br>  –output ./meeting_check<br>示例2：直播录制监控<br>python3 scripts/detect.py stream.mp4 <br>  –types black_screen,green_screen,hdr_anomaly <br>  –sample-interval 60 <br>  –threshold 0.8</p>
-<h1 id="创建黑屏测试视频"><a href="#创建黑屏测试视频" class="headerlink" title="创建黑屏测试视频"></a>创建黑屏测试视频</h1><p>ffmpeg -f lavfi -i color=black:s=1920x1080:d=5 test_black.mp4</p>
-<h1 id="创建绿屏测试视频"><a href="#创建绿屏测试视频" class="headerlink" title="创建绿屏测试视频"></a>创建绿屏测试视频</h1><p>ffmpeg -f lavfi -i color=green:s=1920x1080:d=5 test_green.mp4</p>
-<h2 id="📈-技术细节"><a href="#📈-技术细节" class="headerlink" title="📈 技术细节"></a>📈 技术细节</h2><h3 id="检测算法"><a href="#检测算法" class="headerlink" title="检测算法"></a>检测算法</h3><table>
-<thead>
-<tr>
-<th>检测类型</th>
-<th>算法</th>
-<th>复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>黑屏</td>
-<td>灰度均值</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>绿屏</td>
-<td>RGB通道统计</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>模糊</td>
-<td>Laplacian方差</td>
-<td>O(n log n)</td>
-</tr>
-<tr>
-<td>偏色</td>
-<td>RGB比例分析</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>HDR</td>
-<td>像素统计</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>人脸</td>
-<td>Haar Cascade</td>
-<td>O(n²)</td>
-</tr>
-</tbody></table>
-<h3 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h3><ul>
-<li><strong>opencv-python</strong> &gt;= 4.5.0 - 图像处理核心</li>
-<li><strong>numpy</strong> &gt;= 1.19.0 - 数值计算</li>
-<li><strong>pillow</strong> &gt;= 8.0.0 - 图像读写（可选）</li>
-</ul>
-<h2 id="📝-开发计划"><a href="#📝-开发计划" class="headerlink" title="📝 开发计划"></a>📝 开发计划</h2><ul>
-<li><input disabled="" type="checkbox"> 支持GPU加速（CUDA）</li>
-<li><input disabled="" type="checkbox"> 添加深度学习模型检测</li>
-<li><input disabled="" type="checkbox"> 支持实时视频流检测</li>
-<li><input disabled="" type="checkbox"> Web界面可视化</li>
-<li><input disabled="" type="checkbox"> 更多异常类型（音频同步、闪烁等）</li>
-</ul>
-<h2 id="📄-许可"><a href="#📄-许可" class="headerlink" title="📄 许可"></a>📄 许可</h2><p>MIT License</p>
-<hr>
-<p><strong>创建时间</strong>: 2026-03-15<br><strong>版本</strong>: 1.0.0</p>
 
                 
             </div>
