@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Android上运行OpenClaw, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="keywords" content="Android上运行OpenClaw或hermes, blogs,互联网,测试,大数据,生活,记录">
     <meta name="description" content="Flutter 应用（推荐）
  官网从“发布”栏目下载最新的 APK 文件
 
@@ -32,7 +32,7 @@ OpenCl">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Android上运行OpenClaw | 读序</title>
+    <title>Android上运行OpenClaw或hermes | 读序</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -553,7 +553,7 @@ OpenCl">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Android上运行OpenClaw</h1>
+                    <h1 class="description center-align post-title">Android上运行OpenClaw或hermes</h1>
                 </div>
             </div>
         </div>
@@ -677,6 +677,10 @@ OpenCl">
                                 <span class="chip bg-color">openclaw</span>
                             </a>
                         
+                            <a href="/tags/hermes/">
+                                <span class="chip bg-color">hermes</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -707,14 +711,14 @@ OpenCl">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -908,6 +912,28 @@ cd openclaw-termux
 <li>openclaw 第一次安装时 <strong>resolv.conf 文件生成失败</strong></li>
 <li>系统杀后台 → 终端文件描述符丢失（<code>/proc/self/fd</code>）</li>
 </ol>
+<h2 id="安装Hermes"><a href="#安装Hermes" class="headerlink" title="安装Hermes"></a>安装Hermes</h2><p>Linux / macOS / WSL2/Android / Termux 安装<a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">Hermes</a></p>
+<pre class=" language-bash"><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh <span class="token operator">|</span> <span class="token function">bash</span>
+</code></pre>
+<p>安装程序会自动检测到 Termux 并切换到经过测试的 Android 流程：</p>
+<ul>
+<li>使用 Termux<code>pkg</code>来管理系统依赖项（，，，，，<code>git</code>构建工具）<code>python``nodejs``ripgrep``ffmpeg</code></li>
+<li>创建虚拟环境<code>python -m venv</code></li>
+<li>自动导出<code>ANDROID_API_LEVEL</code>Android wheel 构建版本</li>
+<li>安装精选的<code>.[termux]</code>额外功能<code>pip</code></li>
+<li>默认跳过未经测试的浏览器/WhatsApp引导程序</li>
+</ul>
+<h3 id="安装后"><a href="#安装后" class="headerlink" title="安装后"></a>安装后</h3><p>重新加载你的游戏脚本，开始聊天吧：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> ~/.bashrc   <span class="token comment" spellcheck="true"># or: source ~/.zshrc</span>
+hermes             <span class="token comment" spellcheck="true"># Start chatting!</span>
+</code></pre>
+<p>如需稍后重新配置个别设置，请使用专用命令：</p>
+<pre class=" language-bash"><code class="language-bash">hermes model          <span class="token comment" spellcheck="true"># Choose your LLM provider and model</span>
+hermes tools          <span class="token comment" spellcheck="true"># Configure which tools are enabled</span>
+hermes gateway setup  <span class="token comment" spellcheck="true"># Set up messaging platforms</span>
+hermes config <span class="token keyword">set</span>     <span class="token comment" spellcheck="true"># Set individual config values</span>
+hermes setup
+</code></pre>
 
                 
             </div>
@@ -934,7 +960,7 @@ cd openclaw-termux
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://bigworldxld.github.io/2026/04/18/21296.html">https://bigworldxld.github.io/2026/04/18/21296.html</a>
+                    <a href="https://bigworldxld.github.io/2026/04/18/29608.html">https://bigworldxld.github.io/2026/04/18/29608.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -978,6 +1004,10 @@ cd openclaw-termux
                             
                                 <a href="/tags/openclaw/">
                                     <span class="chip bg-color">openclaw</span>
+                                </a>
+                            
+                                <a href="/tags/hermes/">
+                                    <span class="chip bg-color">hermes</span>
                                 </a>
                             
                         </div>
@@ -1156,12 +1186,12 @@ cd openclaw-termux
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2026/04/18/21296.html">
+                <a href="/2026/04/18/29608.html">
                     <div class="card-image">
                         
-                        <img src="https://www.freedidi.com/wp-content/uploads/2026/03/20260331_1774953961-2048x1152.webp" class="responsive-img" alt="Android上运行OpenClaw">
+                        <img src="https://www.freedidi.com/wp-content/uploads/2026/03/20260331_1774953961-2048x1152.webp" class="responsive-img" alt="Android上运行OpenClaw或hermes">
                         
-                        <span class="card-title">Android上运行OpenClaw</span>
+                        <span class="card-title">Android上运行OpenClaw或hermes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1196,6 +1226,10 @@ cd openclaw-termux
                     
                     <a href="/tags/openclaw/">
                         <span class="chip bg-color">openclaw</span>
+                    </a>
+                    
+                    <a href="/tags/hermes/">
+                        <span class="chip bg-color">hermes</span>
                     </a>
                     
                 </div>
