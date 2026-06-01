@@ -1,0 +1,2369 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="日常问题笔记9, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="前端技术栈‌1. MRN（Mobile React Native）‌
+‌定义‌：基于React Native的移动端开发框架，支持跨平台（iOS/Android）开发，通过JavaScript编写原生组件。
+‌特点‌：
+高性能：直接调用原生">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>日常问题笔记9 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/my_nav">
+          
+          <i class="fas fa-search" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Nav</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/my_nav " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-search" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Nav</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/%E6%89%8B%E6%9C%BA%E9%AB%98%E7%BA%A7%E9%80%89%E9%A1%B9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">日常问题笔记9</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/analysis/" class="post-category">
+                                analysis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-09-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    41 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a>前端技术栈</h2><h3 id="‌1-MRN（Mobile-React-Native）‌"><a href="#‌1-MRN（Mobile-React-Native）‌" class="headerlink" title="‌1. MRN（Mobile React Native）‌"></a>‌<strong>1. MRN（Mobile React Native）</strong>‌</h3><ul>
+<li>‌<strong>定义</strong>‌：基于React Native的移动端开发框架，支持跨平台（iOS/Android）开发，通过JavaScript编写原生组件。</li>
+<li>‌特点‌：<ul>
+<li>高性能：直接调用原生API，接近原生应用的体验。</li>
+<li>热更新：无需应用商店审核即可推送更新。</li>
+<li>生态丰富：兼容React生态（如Redux、React Router）。</li>
+</ul>
+</li>
+<li>‌<strong>示例</strong>‌：Facebook、Instagram等应用的部分模块采用MRN开发。</li>
+</ul>
+<hr>
+<h3 id="‌2-H5框架‌"><a href="#‌2-H5框架‌" class="headerlink" title="‌2. H5框架‌"></a>‌<strong>2. H5框架</strong>‌</h3><ul>
+<li>‌<strong>定义</strong>‌：基于HTML5技术的跨平台开发框架，如Ionic、Framework7，用于构建移动端Web应用或混合应用</li>
+<li>‌特点‌：<ul>
+<li>跨平台：一套代码适配多端（Web/iOS/Android）。</li>
+<li>开发效率高：利用Web技术栈（HTML/CSS/JS）。</li>
+<li>依赖WebView：性能略低于原生应用25。</li>
+</ul>
+</li>
+<li>‌<strong>示例</strong>‌：Ionic开发的医疗管理应用，支持离线数据同步。</li>
+</ul>
+<hr>
+<h3 id="‌3-MachPro‌"><a href="#‌3-MachPro‌" class="headerlink" title="‌3. MachPro‌"></a>‌<strong>3. MachPro</strong>‌</h3><ul>
+<li>‌<strong>定义</strong>‌：企业级全栈前端框架，整合UI组件库、状态管理和构建工具，适用于复杂后台系统1。</li>
+<li>‌特点‌：<ul>
+<li>模块化：支持微前端架构，便于团队协作。</li>
+<li>内置工具链：集成代码生成、自动化测试。</li>
+<li>高性能：虚拟DOM优化和懒加载1。</li>
+</ul>
+</li>
+<li>‌<strong>示例</strong>‌：某金融系统的风控管理平台采用MachPro实现动态表单和实时图表。</li>
+</ul>
+<hr>
+<h3 id="‌4-MMP（Mini-Program-Platform）‌"><a href="#‌4-MMP（Mini-Program-Platform）‌" class="headerlink" title="‌4. MMP（Mini Program Platform）‌"></a>‌<strong>4. MMP（Mini Program Platform）</strong>‌</h3><ul>
+<li>‌<strong>定义</strong>‌：小程序开发框架（如微信、支付宝小程序），提供封闭的运行时环境和API2。</li>
+<li>‌特点‌：<ul>
+<li>轻量化：无需安装，即用即走。</li>
+<li>平台限制：依赖宿主App（如微信）的API能力。</li>
+<li>快速迭代：支持灰度发布和A/B测试2。</li>
+</ul>
+</li>
+<li>‌<strong>示例</strong>‌：美团外卖小程序使用MMP框架实现订单实时跟踪。</li>
+</ul>
+<hr>
+<h3 id="‌对比总结‌"><a href="#‌对比总结‌" class="headerlink" title="‌对比总结‌"></a>‌<strong>对比总结</strong>‌</h3><table>
+<thead>
+<tr>
+<th>‌<strong>框架</strong>‌</th>
+<th>‌<strong>技术栈</strong>‌</th>
+<th>‌<strong>适用场景</strong>‌</th>
+<th>‌<strong>性能</strong>‌</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‌<strong>MRN</strong>‌</td>
+<td>React Native</td>
+<td>高性能跨平台App</td>
+<td>接近原生</td>
+</tr>
+<tr>
+<td>‌<strong>H5</strong>‌</td>
+<td>HTML5/JS/CSS</td>
+<td>轻量级Web应用或混合App</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>‌<strong>MachPro</strong>‌</td>
+<td>全栈整合</td>
+<td>复杂企业级后台系统</td>
+<td>高</td>
+</tr>
+<tr>
+<td>‌<strong>MMP</strong>‌</td>
+<td>小程序语法</td>
+<td>平台内轻应用（如微信生态）</td>
+<td>依赖宿主环境</td>
+</tr>
+</tbody></table>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p> <strong>Wappalyzer</strong></p>
+<p><strong>用途</strong>：分析网站使用的技术栈。它可以检测出服务器类型、编程语言、JavaScript 框架、数据库、CMS 系统等。</p>
+<p><strong>对 Java 开发者的用途</strong>：当你看到一个网站时，可以用它来快速判断其后台是否是 Java 技术（如 Tomcat, Jetty, Spring）驱动的，用于技术调研和学习。</p>
+<p> <strong>Octotree</strong></p>
+<ul>
+<li>•<strong>用途</strong>：当你浏览 GitHub 上的 Java 项目时，这个插件会在左侧提供一个类似 IDE 的文件树视图，让你可以轻松地浏览项目结构，跳转文件，而无需不停地点击进入文件夹。</li>
+<li>•**为什么需​​手机开发者选项/工程模式​​：</li>
+</ul>
+<p>​​Android​​: 启用开发者选项，可以看到实时网速、Wi-Fi查看信号强度（RSSI）。</p>
+<p>​​iOS​​: 拨号盘输入*3001#12345#*进入Field Test模式，可以查看RSRP等真实信号值。要**：极大地提升了在 GitHub 上阅读和探索开源 Java 项目源码的效率。</p>
+<h2 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h2><p>正向测试 (Positive Testing)​​</p>
+<p>​​目标​​：验证系统在​​正常、有效​​的输入和条件下，是否能够按照需求规格正确工作。</p>
+<p>​​思想​​：“Happy Path” —— 用户按照预期的方式使用功能。</p>
+<p>​​关注点​​：功能是否实现，业务逻辑是否正确。</p>
+<p>​​逆向测试 (Negative Testing)​​</p>
+<p>​​目标​​：验证系统在​​无效、异常​​的输入或用户操作下，是否能够​​优雅地失败​​，而不是崩溃或产生不可预知的行为。</p>
+<p>​​思想​​：用户会以各种意想不到的错误方式使用系统。</p>
+<p>​​关注点​​：系统的健壮性、错误处理能力、用户体验（友好的错误提示）。</p>
+<p>​​异常测试 (Edge/Corner Case Testing)​​</p>
+<p>​​目标​​：验证系统在​​边界条件​​或​​极端情况​​下的行为。</p>
+<p>​​思想​​： bugs 最喜欢藏在边界附近。</p>
+<p>​​关注点​​：系统的稳定性和逻辑完整性。它通常是逆向测试的一个子集，但更侧重于“边界”。</p>
+<p>具体示例：用户登录功能<br>假设我们有一个简单的用户登录功能，要求如下：</p>
+<p>用户名：6-20位字符（只能使用字母、数字、下划线）</p>
+<p>密码：8-16位字符（至少包含字母和数字）</p>
+<p>登录成功则跳转到首页，失败则提示具体错误信息。</p>
+<ol>
+<li>正向测试用例 (Positive Test Cases)<br>用例编号</li>
+</ol>
+<p>测试描述</p>
+<p>输入数据</p>
+<p>预期结果</p>
+<p>POS-LOGIN-001</p>
+<p>使用正确的用户名和密码登录</p>
+<p>用户名: test_user123密码: pass123word</p>
+<p>登录成功，跳转到首页</p>
+<ol start="2">
+<li>逆向测试用例 (Negative Test Cases)<br>用例编号</li>
+</ol>
+<p>测试描述</p>
+<p>输入数据</p>
+<p>预期结果</p>
+<p>NEG-LOGIN-001</p>
+<p>用户名为空</p>
+<p>用户名: `` (空) 密码: pass123word</p>
+<p>提示“用户名不能为空”</p>
+<p>NEG-LOGIN-002</p>
+<p>密码为空</p>
+<p>用户名: test_user123密码: `` (空)</p>
+<p>提示“密码不能为空”</p>
+<p>NEG-LOGIN-003</p>
+<p>用户名不存在</p>
+<p>用户名: non_existent_user密码: anypassword</p>
+<p>提示“用户名或密码错误” (不明确提示是用户名错误，出于安全考虑)</p>
+<p>NEG-LOGIN-004</p>
+<p>密码错误</p>
+<p>用户名: test_user123密码: wrongpassword</p>
+<p>提示“用户名或密码错误”</p>
+<p>NEG-LOGIN-005</p>
+<p>用户名格式错误（包含特殊字符）</p>
+<p>用户名: test-user@密码: pass123word</p>
+<p>提示“用户名格式不正确，只能使用字母、数字、下划线”</p>
+<p>NEG-LOGIN-006</p>
+<p>密码格式错误（纯数字）</p>
+<p>用户名: test_user123密码: 12345678</p>
+<p>提示“密码强度不足，需包含字母和数字”</p>
+<ol start="3">
+<li>异常/边界测试用例 (Edge Case Test Cases)<br>用例编号</li>
+</ol>
+<p>测试描述</p>
+<p>输入数据</p>
+<p>预期结果</p>
+<p>EDGE-LOGIN-001</p>
+<p>用户名长度在边界上（6位）</p>
+<p>用户名: abc123(6位) 密码: pass123word</p>
+<p>登录成功</p>
+<p>EDGE-LOGIN-002</p>
+<p>用户名长度在边界上（20位）</p>
+<p>用户名: abcdefghij1234567890(20位) 密码: pass123word</p>
+<p>登录成功</p>
+<p>EDGE-LOGIN-003</p>
+<p>用户名长度刚超过边界（21位）</p>
+<p>用户名: abcdefghij12345678901(21位) 密码: pass123word</p>
+<p>提示“用户名长度需在6-20位之间”</p>
+<p>EDGE-LOGIN-004</p>
+<p>密码长度在边界上（8位）</p>
+<p>用户名: test_user123密码: pass1234(8位，含字母和数字)</p>
+<p>登录成功</p>
+<p>EDGE-LOGIN-005</p>
+<p>密码长度刚超过边界（17位）</p>
+<p>用户名: test_user123密码: thisisaverylongpass1(17位)</p>
+<p>提示“密码长度需在8-16位之间”</p>
+<p>EDGE-LOGIN-006</p>
+<p>SQL注入攻击尝试</p>
+<p>用户名: ‘ OR ‘1’=’1’–密码: anything</p>
+<p>登录失败，提示“用户名或密码错误”，​​且后端数据库不应报错或被执行​​</p>
+<p>EDGE-LOGIN-007</p>
+<p>XSS攻击尝试</p>
+<p>用户名: `` 密码: anything</p>
+<p>输入应被过滤或转义，页面不弹出警告框</p>
+<p>三、设计技巧与总结<br>​​需求分析是基础​​：彻底理解业务需求和功能规格说明（SRS），从中提取出所有的规则、约束和条件。</p>
+<p>​​等价类划分和边界值分析​​：这是设计正向、逆向、异常用例最核心的技术。</p>
+<p>​​等价类​​：将输入域划分为若干集合，从每个集合中选取​​一个有代表性​​的数据进行测试。</p>
+<p>​​有效等价类​​：用于正向测试（如：符合格式的用户名）。</p>
+<p>​​无效等价类​​：用于逆向测试（如：为空、格式错误、类型错误）。</p>
+<p>​​边界值分析​​：重点关注输入条件的边界（如：长度字段的“最小-1”、“最小”、“最大”、“最大+1”），用于异常测试。</p>
+<p>​​考虑用户行为和异常流程​​：想象一个“调皮”的用户会怎么做？</p>
+<p>快速连续点击提交按钮。</p>
+<p>输入超长字符串。</p>
+<p>复制粘贴特殊字符。</p>
+<p>在网络提交过程中突然断开连接。</p>
+<p>​​错误提示信息​​：逆向和异常测试不仅要验证系统不崩溃，更要验证​​错误提示是否准确、友好、安全​​。</p>
+<p>​​自动化​​：正向用例通常是自动化回归测试的重点。而一些复杂的逆向和异常场景（如安全测试、性能测试）也可能需要自动化</p>
+<p>两个标准都属于​​国家军用标准​​（Guójiā Jūnyòng Biāozhǔn, GJB），简称“国军标”。它们共同构成了中国军用软件开发和文档编制的强制性规范体系。</p>
+<p>​​GJB 2786A​​： 关注的是​​软件开发过程​​的管理和要求。它规定了“做什么”和“做到什么程度”。</p>
+<p>​​GJB 438B/C​​： 关注的是​​软件开发过程的输出物​​。它规定了“要写什么文档”和“文档里要写什么内容”。</p>
+<p>可以做一个形象的比喻：</p>
+<p>​​GJB 2786A​​ 像是 ​​“烹饪指南”​​，它详细规定了做一道菜（开发软件）需要经历哪些步骤（如需求分析、设计、编码、测试），每个步骤要注意什么卫生和安全标准（管理要求）。</p>
+<p>​​GJB 438B/C​​ 像是 ​​“菜谱模板”​​ 和 ​​“食材清单格式”​​，它规定了每个烹饪步骤完成后，需要记录下什么样的文档（如需求规格说明书、设计文档、测试用例报告），并且给出了这些文档的标准格式和必须包含的内容。</p>
+<p>分项详解</p>
+<ol>
+<li>GJB 2786A《军用软件开发通用要求》<br>​​含义​​：</li>
+</ol>
+<p>它的前身是GJB 2786-96，A代表第一次修订版。</p>
+<p>这个标准全面采纳了国际公认的​​软件工程​​最佳实践，并将其应用于军用领域。</p>
+<p>它明确规定了军用软件在​​整个生命周期​​（从概念到退役）中必须遵循的​​过程、活动和任务​​。其核心是确保软件开发是​​受控的、可追溯的、高质量​​的。</p>
+<p>​​核心内容（运用）​​：</p>
+<p>​​过程管理​​： 要求建立一套规范的软件开发流程，包括​​系统要求分析、软件需求分析、设计、编码与调试、测试、集成、验收与交付​​等阶段。</p>
+<p>​​风险管理​​： 强调在整个生命周期中必须进行风险识别、分析和 mitigation（缓解）。</p>
+<p>​​评审与审计​​： 规定在关键阶段节点（如需求评审、设计评审）必须进行正式的技术和管理评审，以确保质量。</p>
+<p>​​配置管理​​： 要求对软件代码、文档等所有产出物进行严格的版本控制和变更管理。</p>
+<p>​​质量保证​​： 要求有独立于开发团队的QA人员对过程和产品进行监督和检查。</p>
+<p>​​可追溯性​​： 要求从系统需求-&gt;软件需求-&gt;设计-&gt;代码-&gt;测试用例之间建立双向可追溯矩阵，确保任何需求都被实现和测试，任何代码都有据可依。</p>
+<p>​​谁在用？怎么用？​​</p>
+<p>​​运用对象​​： 承担军用软件研制的​​总体单位、承研单位（软件开发方）​​。</p>
+<p>​​如何运用​​：</p>
+<p>根据GJB 2786A的要求，建立本单位的​​军用软件质量管理体系​​。</p>
+<p>在具体项目中，严格遵循标准规定的流程开展活动。</p>
+<p>项目管理和质量部门依据该标准对项目进行监督和审查。</p>
+<p>它是​​军方（甲方）对承研单位（乙方）进行监督和验收​​的重要依据。</p>
+<ol start="2">
+<li>GJB 438B《军用软件开发文档通用要求》 和 GJB 438C<br>​​含义​​：</li>
+</ol>
+<p>这是中国军用领域最著名的文档标准之一，常被直接称为 ​​“438文档”​​。</p>
+<p>B版是较早的版本，C版（2019年发布）是最新版本。​​目前新项目普遍要求遵循GJB 438C​​。</p>
+<p>该标准规定了在GJB 2786A定义的软件开发过程中，​​需要产生的各类文档的种类、内容要求和编写规范​​。</p>
+<p>​​核心内容（运用）​​：</p>
+<p>​​文档体系​​： 标准定义了一套完整的文档体系，通常包括但不限于：</p>
+<p>​​《软件需求规格说明》（SRS）​​</p>
+<p>​​《软件设计文档》（SDD）​​： 包括概要设计和详细设计。</p>
+<p>​​《软件测试计划》​​</p>
+<p>​​《软件测试说明》​​</p>
+<p>​​《软件测试报告》​​</p>
+<p>​​《软件用户手册》​​</p>
+<p>​​《软件配置管理计划》​​</p>
+<p>​​《软件质量保证计划》​​</p>
+<p>​​内容模板​​： 对每一种文档，标准都提供了非常详细的​​章节结构和内容要求​​，告诉编写者每一章应该写什么。例如，《软件需求规格说明》中必须包含功能需求、性能需求、接口需求、安全性需求等。</p>
+<p>​​谁在用？怎么用？​​</p>
+<p>​​运用对象​​： ​​软件开发人员、系统工程师、测试工程师、技术文档工程师​​。</p>
+<p>​​如何运用​​：</p>
+<p>在项目启动时，根据项目类型和合同要求，从GJB 438C中​​剪裁​​出本项目需要编写的文档清单（不是所有文档都是必须的）。</p>
+<p>在开发过程中，相关人员按照标准提供的模板和要求编写相应的文档。</p>
+<p>这些文档是​​开发过程的记录​​，是​​阶段评审的输入​​，也是​​最终交付物的重要组成部分​​。软件交付时，必须同时交付全套符合要求的文档。</p>
+<p>军方验收时，​​“文实相符”（文档与软件实际功能相符）​​ 是一项极其重要的检查项。</p>
+<p>两个标准的关系与协同运用<br>​​过程与产物的关系​​： GJB 2786A规定了“做”的过程，GJB 438B/C规定了“记”的要求。​​2786A的每一个关键活动，其输出通常都对应着一份或多份438文档​​。</p>
+<p>例如：完成了“软件需求分析”活动（2786A要求），就要产出《软件需求规格说明》（438要求）。</p>
+<p>​​项目实践中的流程​​：</p>
+<p>依据 ​​GJB 2786A​​ 管理项目流程。</p>
+<p>在流程的每个阶段，依据 ​​GJB 438C​​ 编写相应的文档。</p>
+<p>用文档来证明流程得到了有效执行，并作为下一阶段活动的输入。</p>
+<p>最终，通过​​完整的文档包​​来证明软件是按要求、按流程开发的，是可靠、可信的。</p>
+<p>总结<br>​​GJB 2786A​​ 和 ​​GJB 438B/C​​ 是中国军用软件研制领域的​​基石性标准​​，具有强制性。</p>
+<p>它们的目的是确保军用软件的​​高质量、高可靠性和高安全性​​，满足国防装备的严苛要求。</p>
+<p>对于军工行业从业者来说，理解和熟练运用这两个标准是​​基本要求​​。整个项目的管理和技术活动基本都是围绕着满足这两个标准的要求来展开的。</p>
+<p>​​GJB 438C​​ 相比B版，更加灵活，支持迭代开发模型，并优化了文档结构，是现代军用软件开发的首选</p>
+<h2 id="广告召回流程"><a href="#广告召回流程" class="headerlink" title="广告召回流程"></a>广告召回流程</h2><p>1：用户打开页面-》业务方系统-》2：请求广告-》网关-》3：流量分发-》业务层-》4：检索广告-》检索层-》5：广告召回-》业务层-》返回业务层结果-》网关-》返回广告-》业务方系统-》8：加载广告-》用户手机-》9：打点计费-》计费系统-》10：投放上下线-》广告数据-》引擎索引-》索引层</p>
+<h2 id="客户端测试责任范围"><a href="#客户端测试责任范围" class="headerlink" title="客户端测试责任范围"></a>客户端测试责任范围</h2><p>客户端（广告侧+自然侧）：</p>
+<p>​    核心逻辑：</p>
+<p>​        广告请求：请求时机（首次、刷新、翻页等），请求内容（参数）</p>
+<p>​        展示/渲染：广告标（时候展示、展示样式），样式，交互</p>
+<p>​        计费埋点：上报时机，上报内容（计费上报字段）</p>
+<p>​        灵犀埋点：上报时机，上报内容（uuid,dpid等）</p>
+<p>​        页面跳转：schema链接，跳转锚点</p>
+<p>服务端（自然侧）：</p>
+<p>​    广告请求：广告请求（参数），翻页请求（第二页，最后一页），请求个数（一页个数）</p>
+<p>​    自然与广告merge逻辑：合并代码逻辑，位次代码逻辑（纯广告，固定位，灵活位次，浮动位），位次实验逻辑（不仅仅位次实验，有其他实验进行补充），刷新代码逻辑（页面刷新广告请求），计费字段拼接    </p>
+<p>QCPS是一种以“按实际销售效果付费”为核心的广告计费模式，强调广告主仅需为实际达成的有效销售（如订单成交）支付费用，通常与转化质量挂钩</p>
+<p>与CPA（按行动付费）类似，但更聚焦于“高质量转化”（如剔除无效订单）</p>
+<p>oCPX是“优化版按X付费”的统称，其中“X”代表传统计费模式（如CPC、CPM、CPA等），通过算法动态优化广告投放，以达成预设的转化成本目标</p>
+<h2 id="客户端测试-amp-服务端测试区别"><a href="#客户端测试-amp-服务端测试区别" class="headerlink" title="客户端测试 &amp;服务端测试区别"></a>客户端测试 &amp;服务端测试区别</h2><p>​​测试对象​​</p>
+<p>​​用户直接交互的界面和逻辑​​</p>
+<ul>
+<li>Web: 浏览器中的网页 (HTML, CSS, JavaScript)</li>
+<li>App: 安装在手机上的应用程序 (Android, iOS)</li>
+<li>桌面应用： 如PC软件</li>
+</ul>
+<p>​​应用程序的后台核心​​</p>
+<ul>
+<li>服务器程序 (如用Java, Python, Go等编写的API)</li>
+<li>数据库 (MySQL, Redis等)</li>
+<li>其他中间件和服务</li>
+</ul>
+<p>​​核心目标​​</p>
+<p>​​确保用户体验良好​​</p>
+<ul>
+<li>功能符合预期</li>
+<li>界面美观易用</li>
+<li>运行流畅稳定</li>
+</ul>
+<p>​​确保业务逻辑正确、数据安全、服务稳定​​</p>
+<ul>
+<li>数据处理准确</li>
+<li>性能高效可靠</li>
+<li>系统安全无漏洞</li>
+</ul>
+<p>​​主要关注点​​</p>
+<p>​​1. UI测试：​​ 布局、字体、颜色、元素对齐等是否与设计稿一致。<br>​​2. 功能测试：​​ 页面上的按钮、链接、表单、滑动等交互是否正常工作。<br>​​3. 兼容性测试：​​</p>
+<ul>
+<li>​​浏览器兼容性​​ (Chrome, Firefox, Safari, Edge等)</li>
+<li>​​操作系统兼容性​​ (Windows, macOS, Linux)</li>
+<li>​​设备兼容性​​ (不同型号手机、平板、屏幕尺寸、分辨率)</li>
+<li>​​APP还需关注​​系统版本(Android/iOS版本)和硬件(摄像头、GPS等)兼容。<br>​​4. 性能测试：​​ ​​前端性能​​，如页面加载速度、渲染速度、帧率(FPS)、内存占用等。<br>​​5. 交互体验：​​ 动画是否流畅，操作反馈是否及时。</li>
+</ul>
+<p>​​1. API接口测试：​​ ​​核心中的核心​​。测试接口能否正确接收请求、返回预期响应、处理异常参数、遵守协议(如RESTful)。<br>​​2. 业务逻辑测试：​​ 验证后台处理的业务规则是否正确。例如，支付流程的计算、订单状态的流转。<br>​​3. 数据库测试：​​</p>
+<ul>
+<li>数据是否被正确​​增删改查​​ (CRUD)。</li>
+<li>数据库 schema 设计是否合理。</li>
+<li>查询语句是否高效，有无慢查询。<br>​​4. 性能测试：​​ ​​后端性能​​，如接口响应时间、吞吐量(每秒处理请求数)、并发用户支持能力、系统资源消耗(CPU、内存)。<br>​​5. 安全测试：​​</li>
+<li>SQL注入</li>
+<li>身份认证和授权漏洞</li>
+<li>数据泄露</li>
+<li>加密机制</li>
+<li>防重放攻击等。<br>​​6. 集成测试：​​ 测试与其他第三方服务（如支付网关、短信服务、地图服务）的集成是否稳定。</li>
+</ul>
+<p>​​常用工具​​</p>
+<ul>
+<li><p>​​自动化：​​ Selenium, Cypress, Playwright, Appium, Jest, Puppeteer</p>
+</li>
+<li><p>​​性能：​​ Lighthouse, Chrome DevTools</p>
+</li>
+<li><p>​​兼容性：​​ BrowserStack, Sauce Labs</p>
+</li>
+<li><p>​​API测试：​​ Postman, JMeter, Rest-Assured</p>
+</li>
+<li><p>​​性能/压力测试：​​ JMeter, LoadRunner, Gatling</p>
+</li>
+<li><p>​​安全测试：​​ OWASP ZAP, SQLMap</p>
+</li>
+<li><p>​​单元测试：​​ JUnit, TestNG, Pytest</p>
+</li>
+</ul>
+<p>​​测试环境​​</p>
+<p>依赖多种浏览器、操作系统和真机设备。</p>
+<p>依赖服务器环境（测试服、预发布服），需要配置数据库和网络。</p>
+<p>三、一个例子来说明（以电商“加入购物车”功能为例）<br>​​客户端测试关注：​​</p>
+<p>点击“加入购物车”按钮，按钮颜色是否会变化？是否有“已加入”的动画或提示？</p>
+<p>购物车图标上的数字是否立即更新？</p>
+<p>在不同手机浏览器上（如iPhone的Safari和安卓的Chrome），这个功能是否都正常？</p>
+<p>页面加载慢吗？是因为图片太大还是JS文件加载慢？</p>
+<p>​​服务端测试关注：​​</p>
+<p>客户端点击按钮后，发出的 ​​API请求​​ 格式是否正确？（例如：POST /api/cart {item_id: 123, quantity: 1}）</p>
+<p>服务端是否正确接收了请求？是否正确地将商品ID和用户ID关联起来并​​存入数据库​​？</p>
+<p>如果用户没登录，是否返回了正确的​​错误码​​（如401）？</p>
+<p>如果库存为0，是否返回了“库存不足”的提示？</p>
+<p>这个“加入购物车”的API接口，能否在1秒内处理1000个并发请求？</p>
+<p>请求参数中尝试传入item_id: ‘ OR 1=1 –，是否会引发SQL注入漏洞？</p>
+<p>总结与核心要点<br>​​分工不同​​：客户端测试是​​面向用户​​的，服务端测试是​​面向逻辑和数据​​的。</p>
+<p>​​技能侧重​​：</p>
+<p>​​客户端测试​​需要更了解​​前端技术​​（HTML/JS）、​​用户体验​​和​​多环境兼容​​。</p>
+<p>​​服务端测试​​需要更深入的​​业务逻辑理解​​、​​数据库操作​​知识、​​API测试技巧​​和​​安全/性能测试​​能力。</p>
+<p>一、音视频编解码（Codec）核心知识<br>​​1. 为什么需要编解码？​​</p>
+<p>原始的音视频数据量巨大，无法直接存储和网络传输。</p>
+<p>​​示例​​：一首3分钟的无压缩立体声音频，文件大小约 ​​30MB​​。一秒未压缩的1080p/30fps视频，数据量可达 ​​100MB​​。直接存一部电影需要几百个G，根本无法流畅在线观看。</p>
+<p>​​2. 编解码是什么？​​</p>
+<p>​​编码（Encode）​​：利用特定的​​压缩算法​​，将原始音视频数据转换为体积小得多的码流（Bitstream）的过程。​​为了传输和存储。​​</p>
+<p>​​解码（Decode）​​：将压缩后的码流重新解压缩，转换为可以播放的原始数据的过程。​​为了播放和编辑。​​</p>
+<p>​​“Codec”​​ 一词就是 ​​Co​​der（编码器） + ​​Dec​​oder（解码器） 的合成词。</p>
+<p>​​3. 压缩的两种基本方式​​</p>
+<p>​​无损压缩​​：压缩后可以100%还原原始数据。压缩率较低。常用于专业领域，如音频的FLAC，视频的Apple ProRes。</p>
+<p>​​有损压缩​​：通过丢弃人眼/人耳不敏感的信息，获得极高的压缩率。​​绝大多数网络视频和流媒体都采用有损压缩​​，如H.264, AAC。</p>
+<p>​​4. 视频编码原理（简要）​​</p>
+<p>视频压缩的核心是​​消除冗余​​。</p>
+<p>​​空间冗余​​：一帧图像内，相邻的像素往往很相似（如蓝色的天空）。利用算法（如DCT变换）记录这些相似块，而不是每个像素点。</p>
+<p>​​时间冗余​​：相邻帧之间，大部分内容是基本不变的（如背景）。只需记录运动物体的​​变化部分和运动矢量​​即可，这就是 ​​P帧​​ 和 ​​B帧​​ 的原理，它们参考前面的 ​​I帧​​（关键帧，完整画面）。</p>
+<p>​​I帧（Intra-frame）​​：关键帧，包含完整的图像信息，不参考其他帧。是解码的起点和参考点。</p>
+<p>​​P帧（Predicted-frame）​​：预测帧，只记录与前一帧（I帧或P帧）的差异信息。体积比I帧小。</p>
+<p>​​B帧（Bidirectional-frame）​​：双向预测帧，记录与前后帧的差异，压缩率最高。</p>
+<p>二、常见的视频编码格式（Codec）<br>编码格式</p>
+<p>发布方/性质</p>
+<p>特点与应用</p>
+<p>备注</p>
+<p>​​H.264 / AVC​​</p>
+<p>MPEG, ITU-T</p>
+<p>​​目前最通用、兼容性最好的编码​​。在保证良好画质下，压缩率高。广泛应用于在线视频、蓝光碟、广播电视、视频会议等。</p>
+<p>王者级别，几乎所有设备都支持。</p>
+<p>​​H.265 / HEVC​​</p>
+<p>MPEG, ITU-T</p>
+<p>H.264的继任者，​​压缩效率比H.264高约50%​​（同等画质下体积减半）。支持4K/8K超高清。但专利授权复杂，兼容性略差于H.264。</p>
+<p>需要更强的硬件解码能力。</p>
+<p>​​AV1​​</p>
+<p>开放媒体联盟 (AOM)</p>
+<p>​​开源、免版权费​​的下一代编码格式。压缩效率与H.265相当甚至更好。被YouTube、Netflix、Facebook等巨头大力推广，用于节省带宽成本。</p>
+<p>未来趋势，但需要新硬件支持才能流畅解码。</p>
+<p>​​VP9​​</p>
+<p>​​开源、免版权费​​的下一代编码格式。压缩效率与H.265相当甚至更好。被YouTube、Netflix、Facebook等巨头大力推广，用于节省带宽成本。</p>
+<p>主要用于Web端，是AV1的前身。</p>
+<p>​​MPEG-4​​</p>
+<p>MPEG</p>
+<p>早期编码，压缩效率不如H.264，但现在较少见。</p>
+<p>常见于一些老旧设备和视频。</p>
+<p>三、常见的音频编码格式（Codec）<br>编码格式</p>
+<p>特点与应用</p>
+<p>备注</p>
+<p>​​AAC​​</p>
+<p>​​目前最主流的音频编码​​。相比MP3，在相同码率下音质更好。是H.264视频的“标准搭档”。</p>
+<p>苹果 iTunes、YouTube、各大流媒体平台都在用。</p>
+<p>​​MP3​​</p>
+<p>​​最著名的有损音频编码​​。极大地推动了数字音乐的发展，但现在逐渐被AAC取代。</p>
+<p>​​Opus​​</p>
+<p>​​非常高效的开源编码​​，专为网络交互设计（如语音聊天、直播）。在低延迟和低码率下表现极佳。</p>
+<p>是WebRTC技术的默认音频编码。</p>
+<p>​​FLAC​​</p>
+<p>​​无损音频压缩​​。可以完全还原CD音质，但体积比原始WAV小。</p>
+<p>音乐发烧友首选。</p>
+<p>​​AC-3 (Dolby Digital)​​</p>
+<p>多声道环绕声编码，常用于电影、家庭影院（5.1声道）。</p>
+<p>四、常见的容器格式（Container）<br>​​重要：容器 ≠ 编码格式！​​</p>
+<p>容器是一个“盒子”，里面可以包裹着​​视频流​​、​​音频流​​、​​字幕​​、​​元数据​​等。一个容器可以容纳多种不同编码的视频和音频。</p>
+<p>容器格式</p>
+<p>常见编码组合</p>
+<p>特点与应用</p>
+<p>​​MP4​​</p>
+<p>视频：H.264, H.265, MPEG-4<br>音频：AAC, AC-3</p>
+<p>​​万金油容器​​，兼容性极好。适用于网络传播和存储。</p>
+<p>​​MKV​​</p>
+<p>几乎支持所有编码格式</p>
+<p>​​功能强大的开源容器​​。支持多音轨、多字幕、章节信息等。常用于收藏高清电影。</p>
+<p>​​AVI​​</p>
+<p>比较老旧，兼容性虽好但效率低</p>
+<p>微软早期的容器格式，现在已不常用。</p>
+<p>​​MOV​​</p>
+<p>专业编辑常用编码（ProRes, DNxHD）</p>
+<p>​​苹果公司的容器格式​​。常用于专业视频编辑和Mac生态系统。</p>
+<p>​​WebM​​</p>
+<p>视频：VP8, VP9, AV1<br>音频：Opus, Vorbis</p>
+<p>​​为Web而生的开放容器格式​​。由Google主导，旨在提供高质量、免版税的网络视频。</p>
+<p>​​TS​​</p>
+<p>视频：H.264, H.265<br>音频：AAC, AC-3</p>
+<p>​​传输流容器​​。常用于数字广播电视和实时流媒体（如直播），抗误码能力强。</p>
+<p>五、分辨率（Resolution）<br>分辨率指视频画面包含的像素数量，通常表示为 ​​宽度像素数 × 高度像素数​​。分辨率越高，画面越清晰细腻。</p>
+<p>名称</p>
+<p>分辨率 (宽x高)</p>
+<p>常见叫法/应用</p>
+<p>​​SD​​</p>
+<p>720 × 480 (NTSC) 或 720 × 576 (PAL)</p>
+<p>​​标清​​，早期DVD标准。</p>
+<p>​​HD​​</p>
+<p>1280 × 720</p>
+<p>​​高清​​，是高清的入门标准。</p>
+<p>​​Full HD (FHD)​​</p>
+<p>1920 × 1080</p>
+<p>​​全高清​​，目前最主流的标准。蓝光碟、大多数网络视频的标准。</p>
+<p>​​2K​​</p>
+<p>2560 × 1440</p>
+<p>​​ Quad HD (QHD)​​，常见于高端手机和显示器。</p>
+<p>​​4K / UHD​​</p>
+<p>3840 × 2160</p>
+<p>​​超高清​​，主流高端标准。电视、电影、专业视频领域普及。</p>
+<p>​​8K / FUHD​​</p>
+<p>7680 × 4320</p>
+<p>​​8K超高清​​，是4K的4倍。目前处于前沿阶段，主要用于专业拍摄和顶级显示设备。</p>
+<p>​​注​​：电影行业的2K（2048×1080）和4K（4096×2160）与消费电子领域的标准略有不同。</p>
+<p>六、帧率（Frame Rate, FPS）<br>帧率指​​每秒显示的图像帧数​​，单位是FPS（Frames Per Second）。帧率越高，画面越流畅，动态细节越清晰。</p>
+<p>帧率 (FPS)</p>
+<p>常见应用场景</p>
+<p>​​24 fps​​</p>
+<p>​​电影感​​的标准帧率。人眼感觉最自然、有艺术感的帧率。</p>
+<p>​​25 fps​​</p>
+<p>PAL制式广播电视标准（中国、欧洲等地区）。</p>
+<p>​​30 fps​​</p>
+<p>NTSC制式广播电视标准（美国、日本等地区），也是早期网络视频的常见标准。</p>
+<p>​​60 fps​​</p>
+<p>​​高帧率​​。非常适合拍摄高速运动场景（体育赛事、游戏录像），能提供极其流畅的观感。</p>
+<p>​​90/120/144 fps+​​</p>
+<p>​​超高帧率​​。主要用于高端游戏（电竞显示器）和部分超高规格的视频拍摄，追求极致的流畅性。</p>
+<p>总结与关联<br>​​选择编码格式​​是在​​文件体积​​和​​视频质量​​之间做权衡。</p>
+<p>​​选择容器​​是为了​​兼容性​​和​​功能​​（如多字幕）。</p>
+<p>​​分辨率​​决定了画面的​​清晰度​​。</p>
+<p>​​帧率​​决定了画面的​​流畅度​​。</p>
+<p>一个典型的视频文件可能是：​​一个MP4容器（.mp4），里面封装了用H.264编码的视频流和用AAC编码的音频流，分辨率是1920x1080（Full HD），帧率为30fps。​</p>
+<p>当然，准备音视频测试面试时，面试官会从​​基础概念、测试方法论、工具使用、问题排查和编程能力​​等多个维度进行考察。以下是分类整理的高频面试题及回答思路，可以帮助你更好地准备。</p>
+<p>一、基础概念与原理题<br>这类问题考察你对音视频领域核心知识的理解深度。</p>
+<p>​​解释一下视频编解码的基本原理。为什么要编码？​​</p>
+<p>​​答​​：核心目的是​​压缩​​。原始视频数据量巨大（举例：一幅1920x1080的未压缩图像约6MB，一秒30帧就是180MB/s）。编码通过消除​​空间冗余​​（如一帧内的蓝天）和​​时间冗余​​（如相邻帧之间不变的背景）来大幅减小体积，使其便于存储和网络传输。解码则是逆过程。</p>
+<p>​​说说你熟悉的视频编码格式（Codec）和容器格式（Container），并说明它们的区别。​​</p>
+<p>​​答​​：</p>
+<p>​​编码格式​​：H.264/AVC（最通用）、H.265/HEVC（更高压缩率）、AV1（开源免版税）。​​作用是压缩数据​​。</p>
+<p>​​容器格式​​：MP4（通用）、MKV（功能多，多用于本地）、TS（流媒体常用）。​​作用是打包​​，将视频流、音频流、字幕、元数据等封装在一起。</p>
+<p>​​关键区别​​：Codec是​​压缩算法​​，Container是​​包装盒​​。一个MP4文件里的视频可以是H.264编码，音频可以是AAC编码。</p>
+<p>​​解释一下分辨率、帧率（FPS）、码率（Bitrate）的含义和它们之间的关系。​​</p>
+<p>​​答​​：</p>
+<p>​​分辨率​​：像素数量（如1920x1080），决定清晰度。</p>
+<p>​​帧率(FPS)​​：每秒帧数（如30fps），决定流畅度。</p>
+<p>​​码率​​：每秒数据传输的比特数（如1Mbps），决定体积和整体质量。</p>
+<p>​​关系​​：在编码器设置中，​​分辨率 ↑ + 帧率 ↑ = 所需码率 ↑​​。为在有限带宽下获得最佳体验，需要在三者间做权衡（即码率分配策略）。</p>
+<p>​​什么是I帧、P帧、B帧？​​</p>
+<p>​​答​​：</p>
+<p>​​I帧​​：关键帧，包含完整图像信息，是解码的基准点。</p>
+<p>​​P帧​​：参考前面的I帧或P帧，只存储与参考帧的差异信息，体积更小。</p>
+<p>​​B帧​​：双向参考帧，参考前后帧，压缩率最高，但编解码更复杂，延迟稍高。</p>
+<p>​​常见的音频编码格式有哪些？​​</p>
+<p>​​答​​：AAC（最主流，用于在线视频）、MP3（经典）、Opus（低延迟，WebRTC默认）、FLAC（无损）。</p>
+<p>二、测试方法论与思维题<br>这类问题考察你如何系统性地设计和执行测试。</p>
+<p>​​你会从哪些维度来测试一个视频播放器/视频通话App？​​</p>
+<p>​​答​​：这是一个经典问题，考察测试思维的全面性。可以从以下维度展开：</p>
+<p>​​功能测试​​：基础播放/暂停/seek、音量调节、全屏切换、不同格式/编码的视频文件兼容性、网络切换（Wi-Fi/4G/5G）、后台播放、耳机插拔、来电中断等。</p>
+<p>​​性能测试​​：</p>
+<p>​​启动速度​​：首次启动、冷启动、热启动时间。</p>
+<p>​​首帧时间/首帧渲染时间​​：点击播放到看到第一画面的时间。</p>
+<p>​​播放成功率​​。</p>
+<p>​​卡顿率​​：播放过程中卡顿的次数和时长。</p>
+<p>​​耗电量​​、​​CPU/内存占用​​、​​发热情况​​。</p>
+<p>​​兼容性测试​​：不同机型（品牌、芯片）、不同OS版本、不同分辨率/屏幕比例。</p>
+<p>​​网络测试​​：</p>
+<p>​​弱网测试​​：高延迟、高丢包、低带宽下的表现（是否卡顿、花屏、自动降级清晰度）。</p>
+<p>​​码率自适应​​：网络变好时是否能无缝切换回更高清晰度。</p>
+<p>​​用户体验测试​​：主观感受下的画质清晰度、音画同步、色彩是否正常等。</p>
+<p>​​安全与稳定性​​：长时间播放是否崩溃、恶意文件测试等。</p>
+<p>​​如何测试音画同步问题？​​</p>
+<p>​​答​​：</p>
+<p>​​主观测试​​：使用有规律口型或拍手声的测试视频，人眼观察和耳听。</p>
+<p>​​客观测试​​：使用专业工具或开发插桩代码，在特定时间点（如拍手瞬间）在视频和音频流中打上相同的时间戳日志，分析日志计算差值。</p>
+<p>​​测试点​​： seek后、网络抖动后、长时间播放后、不同机型上是否同步。</p>
+<p>​​如何模拟和测试弱网络环境？​​</p>
+<p>​​答​​：</p>
+<p>​​工具​​：使用网络模拟工具，如​​Charles、Network Link Conditioner (macOS)、Facebook的ATC、Wireshark​​等。</p>
+<p>​​模拟场景​​：设置不同的​​带宽（带宽）、延迟（latency）、丢包率（packet loss）、抖动（jitter）​​ 参数组合。</p>
+<p>​​观察指标​​：App是否卡顿、花屏、自动降级清晰度、延迟升高、或给出友好提示（如“网络不佳”）。</p>
+<p>​​如果用户反馈“看视频很卡”，你会如何排查定位问题？​​</p>
+<p>​​答​​：这考察问题排查思路。遵循从外到内、从大到小的原则：</p>
+<p>​​确认现象​​：是某个视频卡还是所有视频卡？是特定网络下卡？是特定机型卡？</p>
+<p>​​检查网络​​：用户网络环境如何？是否在弱网下？</p>
+<p>​​查看服务端​​：检查CDN带宽、服务器负载是否正常。</p>
+<p>​​查看客户端数据​​：拉取该用户的​​播放日志​​，重点关注：</p>
+<p>​​卡顿日志​​：卡顿时长、次数。</p>
+<p>​​播放器状态​​：当前缓冲大小、下载速度、设定的码率和实际码率。</p>
+<p>​​播放策略​​：是否因为网络差一直在切换低清晰度？</p>
+<p>​​最终定位​​：综合日志判断是​​网络原因​​、​​服务端下发策略原因​​还是​​播放器本地策略/bug​​。</p>
+<p>三、工具与编程题<br>这类问题考察你的实践能力和自动化水平。</p>
+<p>​​你用过哪些音视频测试工具？​​</p>
+<p>​​答​​：</p>
+<p>​​分析工具​​：​​FFmpeg/FFprobe​​（分析文件信息、编码格式、码率等）、​​Elecard StreamEye​​（分析视频码流，看I/P/B帧分布）、​​VQAnalyzer​​（客观画质分析）。</p>
+<p>​​性能工具​​：​​Perfetto/Systrace​​（分析Android性能）、​​Instruments​​（分析iOS性能）、​​adb​​命令。</p>
+<p>​​网络模拟工具​​：Charles、Wireshark、ATC。</p>
+<p>​​自动化测试​​：Appium、Airtest。</p>
+<p>​​如何用FFmpeg做一个简单的视频转码？​​</p>
+<p>​​答​​：ffmpeg -i input.mp4 -c:v libx264 -c:a aac output.mp4</p>
+<p>-i input.mp4： 指定输入文件。</p>
+<p>-c:v libx264： 指定视频编码器为libx264（H.264）。</p>
+<p>-c:a aac： 指定音频编码器为AAC。</p>
+<p>output.mp4： 输出文件名。</p>
+<p>​​如何用ADB命令获取Android应用的CPU占用？​​</p>
+<p>​​答​​：adb shell top -n 1 | grep com.package.name</p>
+<p>​​写一段Python脚本，遍历目录下的所有视频文件，并用FFprobe输出它们的时长和编码格式。​​</p>
+<p>​​答​​：考察基本的脚本能力和对FFprobejson输出的解析。</p>
+<p>import json<br>import subprocess<br>import os</p>
+<p>video_dir = “/path/to/your/videos”<br>for filename in os.listdir(video_dir):<br>    if filename.endswith((“.mp4”, “.mkv”)):<br>        filepath = os.path.join(video_dir, filename)<br>        cmd = f”ffprobe -v quiet -print_format json -show_format -show_streams {filepath}”<br>        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)<br>        info = json.loads(result.stdout)</p>
+<pre><code>    # 获取时长
+    duration = info['format']['duration']
+    # 获取视频流编码
+    video_codec = None
+    for stream in info['streams']:
+        if stream['codec_type'] == 'video':
+            video_codec = stream['codec_name']
+            break
+
+    print(f"File: {filename}, Duration: {duration}s, Video Codec: {video_codec}")
+</code></pre>
+<p>四、开放与项目经验题<br>​​你过去在音视频测试项目中遇到的最大挑战是什么？如何解决的？​​</p>
+<p>​​答​​：（结合自身经历）示例：遇到低端机上播放4K视频卡顿严重。解决方法：通过​​Systrace分析​​发现解码器线程耗时过长。定位原因是播放器策略问题，没有根据设备性能主动降级到1080P。推动开发增加了设备性能白名单和动态降级逻辑，问题得以解决。</p>
+<p>​​STAR法则​​：描述情境(Situation)、任务(Task)、行动(Action)、结果(Result)。</p>
+<p>​​你对未来音视频技术趋势有什么了解？（如AV1、WebRTC、低延迟直播）​​</p>
+<p>​​答​​：展示你的学习能力。可以聊​​AV1​​的开源和压缩效率优势及其对测试的挑战（CPU解码开销大）；​​WebRTC​​在实时互动场景（视频会议、教育）的应用；​​HLS/DASH​​在点播和直播中的原理等。</p>
+<h3 id="一、-视频类页面详细测试点"><a href="#一、-视频类页面详细测试点" class="headerlink" title="一、 视频类页面详细测试点"></a>一、 视频类页面详细测试点</h3><p>视频页面通常用于播放课程录像、动画讲解、配音短片等。</p>
+<h4 id="1-功能测试"><a href="#1-功能测试" class="headerlink" title="1. 功能测试"></a>1. 功能测试</h4><ul>
+<li><strong>核心播放功能</strong>：<ul>
+<li>播放/暂停、进度条拖拽、快进/快退（如双击/滑动）、音量调节、全屏/退出全屏切换是否正常。</li>
+<li>清晰度切换（如720P, 1080P）、播放速度切换（0.5x, 1.0x, 1.5x, 2.0x）功能是否有效。</li>
+</ul>
+</li>
+<li><strong>交互功能</strong>：<ul>
+<li>横竖屏切换时，画面是否自适应，有无黑边、拉伸或卡顿。</li>
+<li>全屏模式下，手势调节音量和亮度是否生效。</li>
+<li>锁屏或切换到后台，音频是否继续播放（画中画功能是否支持）。</li>
+<li>视频播放时，来电、通知中断，处理是否正常（暂停播放，结束后可恢复）。</li>
+</ul>
+</li>
+<li><strong>UI与状态</strong>：<ul>
+<li>播放器控制栏是否自动显示/隐藏。</li>
+<li>播放开始、播放中、播放结束、加载缓冲、播放错误等不同状态下的UI提示是否正确（如加载旋转图标、缓冲进度、错误重试按钮）。</li>
+<li>视频标题、时长、当前播放时间显示是否正确。</li>
+</ul>
+</li>
+<li><strong>附加功能</strong>：<ul>
+<li><strong>字幕切换</strong>：如果有字幕，切换不同语言或关闭字幕是否正常。</li>
+<li><strong>弹幕功能</strong>：发送和接收弹幕是否实时，有无遮挡重要内容。</li>
+<li><strong>收藏/点赞</strong>：操作后状态是否立即更新并同步到服务器。</li>
+<li><strong>关联推荐</strong>：视频播放结束或暂停时，推荐的关联视频列表是否正确。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-兼容性测试"><a href="#2-兼容性测试" class="headerlink" title="2. 兼容性测试"></a>2. 兼容性测试</h4><ul>
+<li><strong>操作系统</strong>：覆盖主流iOS和Android版本（如iOS 14-17, Android 10-13）。</li>
+<li><strong>设备型号</strong>：不同屏幕尺寸和分辨率（刘海屏、折叠屏、平板）的适配，控制栏是否被遮挡。</li>
+<li><strong>硬件差异</strong>：不同芯片（如高通、联发科）、不同性能的设备上播放是否流畅，解码能力如何。</li>
+<li><strong>网络类型</strong>：在Wi-Fi、4G/5G、弱网（高延迟、低带宽）环境下，视频的加载速度、自动降级清晰度、卡顿处理是否合理。</li>
+</ul>
+<h4 id="3-H5-WebView-测试"><a href="#3-H5-WebView-测试" class="headerlink" title="3. H5 (WebView) 测试"></a>3. H5 (WebView) 测试</h4><p>如果视频页面是内嵌的H5：</p>
+<ul>
+<li><strong>内核兼容</strong>：测试不同系统WebView内核和浏览器内核（如Chrome）下的表现是否一致。</li>
+<li><strong>JS接口</strong>：H5页面与Native App的通信（JSBridge）是否正常，例如全屏切换、获取设备网络状态等。</li>
+<li><strong>混合交互</strong>：H5页面内的按钮、链接调用Native功能（如登录、支付）是否正常工作。</li>
+</ul>
+<h4 id="4-接口测试"><a href="#4-接口测试" class="headerlink" title="4. 接口测试"></a>4. 接口测试</h4><ul>
+<li><strong>视频信息接口</strong>：请求视频的元数据（标题、时长、清晰度列表、播放URL）是否正确。</li>
+<li><strong>播放地址接口</strong>：返回的M3U8或MP4地址是否有效，是否有防盗链机制（如Token、Referer校验）。</li>
+<li><strong>状态上报接口</strong>：播放、暂停、结束、卡顿、退出等行为的上报时机和数据（如播放进度）是否准确。</li>
+<li><strong>心跳/进度上报接口</strong>：是否定时向服务器发送心跳包或播放进度，用于记录学习时长和进度同步。</li>
+<li><strong>弹幕/评论接口</strong>：获取和发送弹幕/评论的API是否正常，实时性如何。</li>
+<li><strong>安全与性能</strong>：接口是否有防刷机制，响应时间是否在要求范围内。</li>
+</ul>
+<h4 id="5-数据库测试"><a href="#5-数据库测试" class="headerlink" title="5. 数据库测试"></a>5. 数据库测试</h4><ul>
+<li><strong>播放记录存储</strong>：观看进度、观看时长是否准确记录到本地数据库，并在不同设备间通过账号同步。</li>
+<li><strong>缓存管理</strong>：视频缓存文件是否有效存储和清理（根据App设置），避免占用过多存储空间。</li>
+<li><strong>资源关联性</strong>：视频与作业、课程、用户数据的关联关系在数据库中是否正确。</li>
+</ul>
+<hr>
+<h3 id="二、-音频类页面详细测试点"><a href="#二、-音频类页面详细测试点" class="headerlink" title="二、 音频类页面详细测试点"></a>二、 音频类页面详细测试点</h3><p>音频页面通常用于英语听力、课文朗读、单词发音等。</p>
+<h4 id="1-功能测试-1"><a href="#1-功能测试-1" class="headerlink" title="1. 功能测试"></a>1. 功能测试</h4><ul>
+<li><strong>核心播放功能</strong>：<ul>
+<li>播放/暂停、进度条拖拽、快进/快退、播放速度切换（对英语学习尤其重要）。</li>
+<li>后台播放：App切到后台或锁屏后，音频能否持续播放。</li>
+<li>音频中断处理：来电、其他App播放音频、插入耳机等场景下，行为是否符合预期（暂停、压低音量、切换声道）。</li>
+</ul>
+</li>
+<li><strong>交互与UI</strong>：<ul>
+<li>桌面控件（通知栏/锁屏界面）的播放控制是否有效。</li>
+<li>播放页面的波形图或频谱显示是否正常（如果有）。</li>
+</ul>
+</li>
+<li><strong>学习功能</strong>：<ul>
+<li><strong>AB循环复读</strong>：设置起点和终点进行循环播放的功能是否精准。</li>
+<li><strong>跟读模式</strong>：播放一句后自动暂停，等待用户跟读，录音并播放对比，该流程是否顺畅。</li>
+<li>显示字幕（听力原文）并高亮当前播放的句子，同步是否准确。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-兼容性测试-1"><a href="#2-兼容性测试-1" class="headerlink" title="2. 兼容性测试"></a>2. 兼容性测试</h4><ul>
+<li><strong>音频通道</strong>：在蓝牙耳机、有线耳机、外放等不同输出设备间切换时，音频能否无缝切换，无爆音或延迟。</li>
+<li><strong>系统音频冲突</strong>：与系统其他音频App（如音乐播放器、地图导航）共存时，音量调节和焦点处理是否正常。</li>
+<li><strong>操作系统</strong>：同样需要覆盖主流OS版本，重点关注后台播放策略差异（如iOS和Android的后台省电限制）。</li>
+</ul>
+<h4 id="3-H5-WebView-测试-1"><a href="#3-H5-WebView-测试-1" class="headerlink" title="3. H5 (WebView) 测试"></a>3. H5 (WebView) 测试</h4><ul>
+<li>与视频类似，主要测试H5音频播放器与Native的交互，例如在后台播放时，H5能否保持活动状态（通常需要Native支持）。</li>
+</ul>
+<h4 id="4-接口测试-1"><a href="#4-接口测试-1" class="headerlink" title="4. 接口测试"></a>4. 接口测试</h4><ul>
+<li><strong>音频信息接口</strong>：获取音频元数据（标题、原文文本、分段时间戳）是否正确。</li>
+<li><strong>音频文件接口</strong>：获取MP3等音频文件的URL是否有效。</li>
+<li><strong>跟读录音接口</strong>：上传用户录音文件的接口是否稳定，耗电量如何。</li>
+<li><strong>进度同步接口</strong>：音频播放进度的上报和同步是否准确，用于记录学习进度。</li>
+</ul>
+<h4 id="5-数据库测试-1"><a href="#5-数据库测试-1" class="headerlink" title="5. 数据库测试"></a>5. 数据库测试</h4><ul>
+<li><strong>播放进度</strong>：音频播放位置的本地存储和同步是否准确。</li>
+<li><strong>录音文件管理</strong>：用户跟读产生的录音文件在本地和服务器端的存储、索引和管理是否正确。</li>
+<li><strong>离线下载</strong>：如果支持下载音频离线学习，下载任务管理、文件完整性校验和存储路径是否正确。</li>
+</ul>
+<hr>
+<h3 id="总结与核心关注点"><a href="#总结与核心关注点" class="headerlink" title="总结与核心关注点"></a>总结与核心关注点</h3><table>
+<thead>
+<tr>
+<th align="left">测试类型</th>
+<th align="left">视频类页面核心关注点</th>
+<th align="left">音频类页面核心关注点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">播放控制、清晰度、全屏、中断恢复</td>
+<td align="left">播放控制、速度、后台播放、跟读复读</td>
+</tr>
+<tr>
+<td align="left"><strong>兼容性</strong></td>
+<td align="left">设备适配、网络适配、解码能力</td>
+<td align="left">音频通道适配、后台策略、OS差异</td>
+</tr>
+<tr>
+<td align="left"><strong>H5</strong></td>
+<td align="left">JSBridge通信、全屏切换</td>
+<td align="left">后台播放保活、与Native交互</td>
+</tr>
+<tr>
+<td align="left"><strong>接口</strong></td>
+<td align="left">播放地址、状态上报、防盗链</td>
+<td align="left">音频地址、录音上传、进度同步</td>
+</tr>
+<tr>
+<td align="left"><strong>数据库</strong></td>
+<td align="left">播放记录、缓存管理</td>
+<td align="left">播放进度、录音文件管理</td>
+</tr>
+</tbody></table>
+<p><strong>性能与体验专项测试</strong>：</p>
+<ul>
+<li><strong>启动速度</strong>：点击后到第一帧画面/声音出现的时间。</li>
+<li><strong>能耗</strong>：长时间播放视频/音频的电量消耗和发热情况。</li>
+<li><strong>流量</strong>：在不同清晰度下播放的流量消耗是否符合预期。</li>
+<li><strong>卡顿率</strong>：播放过程中卡顿的次数和时长。</li>
+<li><strong>崩溃率</strong>：播放器相关功能的崩溃情况。<br>在 Java 中反转整数数字</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReverseInteger</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> reversed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 检查是否溢出</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>reversed <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">||</span> 
+                reversed <span class="token operator">&lt;</span> Integer<span class="token punctuation">.</span>MIN_VALUE <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 溢出时返回0</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token comment" spellcheck="true">// 反转数字</span>
+            <span class="token keyword">int</span> digit <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            reversed <span class="token operator">=</span> reversed <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> digit<span class="token punctuation">;</span>
+            x <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> reversed<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 321</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// -654</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 21 (前导零被忽略)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">1534236469</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0 (溢出)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReverseInteger</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 处理特殊情况</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 转换为字符串并反转</span>
+        String str <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String reversedStr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 处理负号</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            reversedStr <span class="token operator">=</span> reversedStr<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> reversedStr<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 处理前导零</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>reversedStr<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            reversedStr <span class="token operator">=</span> reversedStr<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 转换回整数并处理溢出</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> result <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>reversedStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> x <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token operator">-</span>result <span class="token operator">:</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 溢出时返回0</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 321</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// -654</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 21</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">1534236469</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Java 实现数组拼接最大整数<br>将[234,65,9,1111]数组中的数字，拼接成最大整数，为9652341111</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Arrays<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Comparator<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LargestNumber</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">234</span><span class="token punctuation">,</span> <span class="token number">65</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1111</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">largestNumber</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: 9652341111</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">largestNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 1. 将整数数组转换为字符串数组</span>
+        String<span class="token punctuation">[</span><span class="token punctuation">]</span> strArr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            strArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 2. 自定义排序规则：比较两个字符串拼接后的结果</span>
+        Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>strArr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                String order1 <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+                String order2 <span class="token operator">=</span> b <span class="token operator">+</span> a<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> order2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>order1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 降序排序</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">// 3. 处理特殊情况：如果最大数字是0，则直接返回"0"</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>strArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment" spellcheck="true">// 4. 拼接排序后的字符串数组</span>
+        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>String str <span class="token operator">:</span> strArr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>方法二：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">largestNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 转换为字符串数组</span>
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strArr <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+                           <span class="token punctuation">.</span><span class="token function">mapToObj</span><span class="token punctuation">(</span>String<span class="token operator">:</span><span class="token operator">:</span>valueOf<span class="token punctuation">)</span>
+                           <span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment" spellcheck="true">// 使用Lambda表达式自定义排序</span>
+    Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>strArr<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">(</span>b <span class="token operator">+</span> a<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment" spellcheck="true">// 处理全0情况</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>strArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment" spellcheck="true">// 拼接结果</span>
+    <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> strArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2025/09/15/37955.html">https://bigworldxld.github.io/2025/09/15/37955.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/09/21/53861.html">
+                    <div class="card-image">
+                        
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/maven.webp" class="responsive-img" alt="maven命令使用">
+                        
+                        <span class="card-title">maven命令使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/maven/">
+                        <span class="chip bg-color">maven</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/09/14/17553.html">
+                    <div class="card-image">
+                        
+                        <img src="https://bigworldxld.github.io/picx-images-hosting/images/uploadfile.webp" class="responsive-img" alt="文件上传漏洞">
+                        
+                        <span class="card-title">文件上传漏洞</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/File-upload/">
+                        <span class="chip bg-color">File upload</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Author&nbsp;<a href="https://blog.bigworldxld.dpdns.org/" target="_blank">bigworldxld</a>
+            |&nbsp;Dailylife&nbsp;<a href="https://bigworldxld.github.io/duxu-dailylife/" target="_blank">blog</a>
+			|&nbsp;Desktop&nbsp;<a href="https://bigworldxld.github.io/desktop/" target="_blank">desktop</a>
+            <br>
+			
+            
+            
+            
+                
+
+            
+
+			 
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span class="white-color">8783</span><span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span class="white-color">125</span><span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<!- <div class="progress-bar"></div>->
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303710785278710"
+     crossorigin="anonymous"></script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,2404 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="LangChain使用, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="LangChain使用一、 LangChain Deep Agents 框架详解Deep Agents 被官方定义为一个 “Batteries-included”（开箱即用）的 Agent Harness（智能体编排框架）。它底层基于 La">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>LangChain使用 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/my_nav">
+          
+          <i class="fas fa-search" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Nav</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/my_nav " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-search" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Nav</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/langchain-ai/deepagents/raw/main/.github/images/logo-light.svg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">LangChain使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/LangChain/">
+                                <span class="chip bg-color">LangChain</span>
+                            </a>
+                        
+                            <a href="/tags/LangGraph/">
+                                <span class="chip bg-color">LangGraph</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-05-21
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    25 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="LangChain使用"><a href="#LangChain使用" class="headerlink" title="LangChain使用"></a>LangChain使用</h2><h3 id="一、-LangChain-Deep-Agents-框架详解"><a href="#一、-LangChain-Deep-Agents-框架详解" class="headerlink" title="一、 LangChain Deep Agents 框架详解"></a>一、 LangChain Deep Agents 框架详解</h3><p><strong>Deep Agents</strong> 被官方定义为一个 <strong>“Batteries-included”（开箱即用）的 Agent Harness（智能体编排框架）</strong>。它底层基于 LangChain 和 LangGraph 构建，内置了任务规划、虚拟文件系统、子智能体委派等能力。开发者无需再从零搭建提示词和工具链，只需几行代码就能拉起一个具备长上下文管理能力的复杂 Agent。</p>
+<ul>
+<li><strong>🌐 官方文档</strong>：<a target="_blank" rel="noopener" href="https://docs.langchain.com/deepagents">https://docs.langchain.com/deepagents</a></li>
+<li><strong>💻 GitHub 仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/langchain-ai/deepagents">https://github.com/langchain-ai/deepagents</a></li>
+</ul>
+<p>特点：</p>
+<ul>
+<li><p>提供模型统一接口</p>
+</li>
+<li><p>支持创建Agent/DeepAgent</p>
+</li>
+<li><p>工具调用，skill  -模块开发</p>
+</li>
+<li><p>记忆管理</p>
+<ul>
+<li>LLM模型-无记忆，需要自己维护，工具：不能主动调用，只是知道调用方法，需要人工触发调用</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> langchain<span class="token punctuation">.</span>chat_models <span class="token keyword">import</span> init_chat_model
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>messages <span class="token keyword">import</span> HumanMessage<span class="token punctuation">,</span> ToolMessage
+<span class="token keyword">from</span> langchain_deepseek <span class="token keyword">import</span> ChatDeepSeek
+<span class="token keyword">from</span> ZhipuAIChatModel <span class="token keyword">import</span> ZhipuAIChatModel
+<span class="token keyword">import</span> sys
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+_root <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parents<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">if</span> str<span class="token punctuation">(</span>_root<span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token keyword">in</span> sys<span class="token punctuation">.</span>path<span class="token punctuation">:</span>
+    sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>_root<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> env_utils <span class="token keyword">import</span> ZAI_API_KEY<span class="token punctuation">,</span>DEEPSEEK_API_KEY<span class="token punctuation">,</span>DEEPSEEK_BASE_URL
+
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>tools <span class="token keyword">import</span> tool
+llm <span class="token operator">=</span> ZhipuAIChatModel<span class="token punctuation">(</span>api_key<span class="token operator">=</span>ZAI_API_KEY<span class="token punctuation">,</span> model_name<span class="token operator">=</span><span class="token string">"glm-4.7-flash"</span><span class="token punctuation">)</span>
+
+messages <span class="token operator">=</span> <span class="token punctuation">[</span>
+    HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"作为一名ai专家，请为我的产品创作一个吸引人的口号"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"langchain"</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># response = llm.invoke(messages)</span>
+<span class="token comment" spellcheck="true"># print(response.content)</span>
+@tool
+<span class="token keyword">def</span> <span class="token function">get_weather</span><span class="token punctuation">(</span>location<span class="token punctuation">:</span>str<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>str<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""查询指定城市的天气情况。"""</span>
+    <span class="token keyword">return</span> f<span class="token string">"{location}的天气晴朗的"</span>
+<span class="token comment" spellcheck="true"># 1:给模型绑定工具</span>
+model_with_tools <span class="token operator">=</span> llm<span class="token punctuation">.</span>bind_tools<span class="token punctuation">(</span><span class="token punctuation">[</span>get_weather<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 2：调用模型，模型返回工具调用请求</span>
+message<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+mes<span class="token operator">=</span><span class="token string">"上海今天天气怎么样？"</span>
+message<span class="token punctuation">.</span>append<span class="token punctuation">(</span>HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span>mes<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ai_result = model_with_tools.invoke(message)</span>
+<span class="token comment" spellcheck="true"># message.append(ai_result)</span>
+
+<span class="token comment" spellcheck="true"># 3： 手动执行工具，获取工具执行结果</span>
+
+<span class="token comment" spellcheck="true"># for tool_call in ai_result.tool_calls:</span>
+<span class="token comment" spellcheck="true">#     if tool_call["name"] == "get_weather":</span>
+<span class="token comment" spellcheck="true">#         tool_result = get_weather.invoke(tool_call["args"])</span>
+<span class="token comment" spellcheck="true">#         print(tool_result)</span>
+<span class="token comment" spellcheck="true">#         message.append(</span>
+<span class="token comment" spellcheck="true">#             ToolMessage(</span>
+<span class="token comment" spellcheck="true">#                 content=str(tool_result),</span>
+<span class="token comment" spellcheck="true">#                 tool_call_id=tool_call["id"],</span>
+<span class="token comment" spellcheck="true">#             )</span>
+<span class="token comment" spellcheck="true">#         )</span>
+<span class="token comment" spellcheck="true"># 3： 循环执行工具，获取工具执行结果</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    ai_result <span class="token operator">=</span> model_with_tools<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+    message<span class="token punctuation">.</span>append<span class="token punctuation">(</span>ai_result<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ai_result<span class="token punctuation">.</span>tool_calls<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> tool_call <span class="token keyword">in</span> ai_result<span class="token punctuation">.</span>tool_calls<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> tool_call<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"get_weather"</span><span class="token punctuation">:</span>
+                tool_result <span class="token operator">=</span> get_weather<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span>tool_call<span class="token punctuation">[</span><span class="token string">"args"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                message<span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    ToolMessage<span class="token punctuation">(</span>
+                        content<span class="token operator">=</span>str<span class="token punctuation">(</span>tool_result<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        tool_call_id<span class="token operator">=</span>tool_call<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">)</span>
+                <span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"无工具调用"</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+
+<span class="token comment" spellcheck="true"># 4:将工具执行结果再次交给大模型，模型返回最终结果</span>
+end<span class="token operator">=</span>model_with_tools<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+message<span class="token punctuation">.</span>append<span class="token punctuation">(</span>end<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>end<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=============="</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>Agent智能体-有记忆（短期和长期记忆），工具：能主动调用，不需要人工触发调用</li>
+<li>DeepAgent 有skill概念</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> sys
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+<span class="token keyword">from</span> deepagents <span class="token keyword">import</span> create_deep_agent
+<span class="token keyword">from</span> ZhipuAIChatModel <span class="token keyword">import</span> ZhipuAIChatModel
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>tools <span class="token keyword">import</span> tool
+
+_root <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parents<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">if</span> str<span class="token punctuation">(</span>_root<span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token keyword">in</span> sys<span class="token punctuation">.</span>path<span class="token punctuation">:</span>
+    sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>_root<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> env_utils <span class="token keyword">import</span> ZAI_API_KEY
+llm <span class="token operator">=</span> ZhipuAIChatModel<span class="token punctuation">(</span>api_key<span class="token operator">=</span>ZAI_API_KEY<span class="token punctuation">,</span> model_name<span class="token operator">=</span><span class="token string">"glm-4.7-flash"</span><span class="token punctuation">)</span>
+
+@tool
+<span class="token keyword">def</span> <span class="token function">get_weather</span><span class="token punctuation">(</span>location<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""查询指定城市的天气情况。"""</span>
+    <span class="token keyword">return</span> f<span class="token string">"{location}的天气晴朗的"</span>
+
+agent <span class="token operator">=</span> create_deep_agent<span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true"># model="google_genai:gemini-3.5-flash",</span>
+    model<span class="token operator">=</span>llm<span class="token punctuation">,</span>
+    tools<span class="token operator">=</span><span class="token punctuation">[</span>get_weather<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    system_prompt<span class="token operator">=</span><span class="token string">"你是一个全能助手"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Run the agent</span>
+resp<span class="token operator">=</span>agent<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span>
+    <span class="token punctuation">{</span><span class="token string">"messages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"北京今天天气怎么样"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">)</span>
+</code></pre>
+<p>大模型开发内容：</p>
+<p>1：工具内容：</p>
+<ul>
+<li>编程工具：Claude code ,trae,cursor,codex,opencode</li>
+<li>应用开发工具：Coze,dify,n8n,Ragflow</li>
+</ul>
+<p>2:应用开发内容：</p>
+<ul>
+<li>python开发，langchain,langgraph框架，RAG，workflow，模型私有化部署，MCP工具开发</li>
+<li>多agent,deepagent开发，skill技能开发，上下文工程，状态管理，向量数据库，数据重排，评估结果，问题重写，前后端内容</li>
+</ul>
+<p>3：算法微调内容：</p>
+<ul>
+<li>模型微调，蒸馏，量化，0-1 MOE架构训练模型</li>
+<li>线性回归，逻辑回归，决策树，xgbost,随机森林，深度神经网络</li>
+</ul>
+<p>就业方向：</p>
+<ul>
+<li>存发模型开发： 特征工程处理，偏算法，综合</li>
+<li>XXX +大模型开发 增量最多， java/前端/大数据/数据分析  +大模型</li>
+</ul>
+<p>自定义方式创建大模型</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> List<span class="token punctuation">,</span> Optional<span class="token punctuation">,</span> Sequence
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>language_models <span class="token keyword">import</span> BaseChatModel<span class="token punctuation">,</span> LanguageModelInput
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>messages <span class="token keyword">import</span> <span class="token punctuation">(</span>
+    AIMessage<span class="token punctuation">,</span>
+    BaseMessage<span class="token punctuation">,</span>
+    HumanMessage<span class="token punctuation">,</span>
+    SystemMessage<span class="token punctuation">,</span>
+    ToolMessage<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>output_parsers<span class="token punctuation">.</span>openai_tools <span class="token keyword">import</span> <span class="token punctuation">(</span>
+    make_invalid_tool_call<span class="token punctuation">,</span>
+    parse_tool_call<span class="token punctuation">,</span>
+
+<span class="token punctuation">)</span>
+
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>outputs <span class="token keyword">import</span> ChatGeneration<span class="token punctuation">,</span> ChatResult
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>runnables <span class="token keyword">import</span> Runnable
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>tools <span class="token keyword">import</span> BaseTool
+<span class="token keyword">from</span> langchain_core<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>function_calling <span class="token keyword">import</span> convert_to_openai_tool
+<span class="token keyword">from</span> zai <span class="token keyword">import</span> ZhipuAiClient
+<span class="token keyword">def</span> <span class="token function">_lc_tool_call_to_openai</span><span class="token punctuation">(</span>tool_call<span class="token punctuation">:</span> dict<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> dict<span class="token punctuation">:</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"function"</span><span class="token punctuation">,</span>
+        <span class="token string">"id"</span><span class="token punctuation">:</span> tool_call<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"function"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"name"</span><span class="token punctuation">:</span> tool_call<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"arguments"</span><span class="token punctuation">:</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>tool_call<span class="token punctuation">[</span><span class="token string">"args"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">def</span> <span class="token function">_format_tool_choice</span><span class="token punctuation">(</span>
+    tool_choice<span class="token punctuation">:</span> dict <span class="token operator">|</span> str <span class="token operator">|</span> bool <span class="token operator">|</span> None<span class="token punctuation">,</span>
+    tool_names<span class="token punctuation">:</span> list<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str <span class="token operator">|</span> dict <span class="token operator">|</span> None<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> tool_choice<span class="token punctuation">:</span>
+
+        <span class="token keyword">return</span> None
+
+    <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>tool_choice<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">if</span> tool_choice <span class="token keyword">in</span> tool_names<span class="token punctuation">:</span>
+
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"function"</span><span class="token punctuation">,</span> <span class="token string">"function"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> tool_choice<span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> tool_choice <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">"any"</span><span class="token punctuation">,</span> <span class="token string">"required"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token keyword">return</span> <span class="token string">"auto"</span>
+
+        <span class="token keyword">return</span> tool_choice
+
+    <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>tool_choice<span class="token punctuation">,</span> bool<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">return</span> <span class="token string">"auto"</span>
+
+    <span class="token keyword">return</span> tool_choice
+
+
+
+
+
+<span class="token keyword">class</span> <span class="token class-name">ZhipuAIChatModel</span><span class="token punctuation">(</span>BaseChatModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token triple-quoted-string string">"""LangChain chat model wrapper for Zhipu AI (zai SDK) with OpenAI-style tool calling."""</span>
+
+
+
+    client<span class="token punctuation">:</span> ZhipuAiClient
+
+    model_name<span class="token punctuation">:</span> str
+
+
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> api_key<span class="token punctuation">:</span> str<span class="token punctuation">,</span> model_name<span class="token punctuation">:</span> str <span class="token operator">=</span> <span class="token string">"glm-4.7-flash"</span><span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        client <span class="token operator">=</span> ZhipuAiClient<span class="token punctuation">(</span>api_key<span class="token operator">=</span>api_key<span class="token punctuation">)</span>
+
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>client<span class="token operator">=</span>client<span class="token punctuation">,</span> model_name<span class="token operator">=</span>model_name<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+
+
+    <span class="token keyword">def</span> <span class="token function">bind_tools</span><span class="token punctuation">(</span>
+
+        self<span class="token punctuation">,</span>
+
+        tools<span class="token punctuation">:</span> Sequence<span class="token punctuation">[</span>dict<span class="token punctuation">[</span>str<span class="token punctuation">,</span> Any<span class="token punctuation">]</span> <span class="token operator">|</span> type <span class="token operator">|</span> Callable <span class="token operator">|</span> BaseTool<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+        <span class="token operator">*</span><span class="token punctuation">,</span>
+
+        tool_choice<span class="token punctuation">:</span> dict <span class="token operator">|</span> str <span class="token operator">|</span> bool <span class="token operator">|</span> None <span class="token operator">=</span> None<span class="token punctuation">,</span>
+
+        <span class="token operator">**</span>kwargs<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Runnable<span class="token punctuation">[</span>LanguageModelInput<span class="token punctuation">,</span> AIMessage<span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+        formatted_tools <span class="token operator">=</span> <span class="token punctuation">[</span>convert_to_openai_tool<span class="token punctuation">(</span>tool<span class="token punctuation">)</span> <span class="token keyword">for</span> tool <span class="token keyword">in</span> tools<span class="token punctuation">]</span>
+
+        tool_names <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+            t<span class="token punctuation">[</span><span class="token string">"function"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span>
+
+            <span class="token keyword">for</span> t <span class="token keyword">in</span> formatted_tools
+
+            <span class="token keyword">if</span> <span class="token string">"function"</span> <span class="token keyword">in</span> t <span class="token operator">and</span> <span class="token string">"name"</span> <span class="token keyword">in</span> t<span class="token punctuation">[</span><span class="token string">"function"</span><span class="token punctuation">]</span>
+
+        <span class="token punctuation">]</span>
+
+        formatted_choice <span class="token operator">=</span> _format_tool_choice<span class="token punctuation">(</span>tool_choice<span class="token punctuation">,</span> tool_names<span class="token punctuation">)</span>
+
+        bind_kwargs<span class="token punctuation">:</span> dict<span class="token punctuation">[</span>str<span class="token punctuation">,</span> Any<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"tools"</span><span class="token punctuation">:</span> formatted_tools<span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> formatted_choice <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+
+            bind_kwargs<span class="token punctuation">[</span><span class="token string">"tool_choice"</span><span class="token punctuation">]</span> <span class="token operator">=</span> formatted_choice
+
+        bind_kwargs<span class="token punctuation">.</span>update<span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token operator">**</span>bind_kwargs<span class="token punctuation">)</span>
+
+
+
+    <span class="token keyword">def</span> <span class="token function">_convert_messages</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> messages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>BaseMessage<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> list<span class="token punctuation">[</span>dict<span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+        converted<span class="token punctuation">:</span> list<span class="token punctuation">[</span>dict<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> m <span class="token keyword">in</span> messages<span class="token punctuation">:</span>
+
+            <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> HumanMessage<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                converted<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> m<span class="token punctuation">.</span>content <span class="token operator">or</span> <span class="token string">""</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> SystemMessage<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                converted<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"system"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> m<span class="token punctuation">.</span>content <span class="token operator">or</span> <span class="token string">""</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> AIMessage<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                msg<span class="token punctuation">:</span> dict<span class="token punctuation">[</span>str<span class="token punctuation">,</span> Any<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+                    <span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"assistant"</span><span class="token punctuation">,</span>
+
+                    <span class="token string">"content"</span><span class="token punctuation">:</span> m<span class="token punctuation">.</span>content <span class="token operator">or</span> None<span class="token punctuation">,</span>
+
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">if</span> m<span class="token punctuation">.</span>tool_calls<span class="token punctuation">:</span>
+
+                    msg<span class="token punctuation">[</span><span class="token string">"tool_calls"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+                        _lc_tool_call_to_openai<span class="token punctuation">(</span>tc<span class="token punctuation">)</span> <span class="token keyword">for</span> tc <span class="token keyword">in</span> m<span class="token punctuation">.</span>tool_calls
+
+                    <span class="token punctuation">]</span>
+
+                    <span class="token keyword">if</span> <span class="token operator">not</span> msg<span class="token punctuation">[</span><span class="token string">"content"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+                        msg<span class="token punctuation">[</span><span class="token string">"content"</span><span class="token punctuation">]</span> <span class="token operator">=</span> None
+
+                converted<span class="token punctuation">.</span>append<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+
+            <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> ToolMessage<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                converted<span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+
+                    <span class="token punctuation">{</span>
+
+                        <span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"tool"</span><span class="token punctuation">,</span>
+
+                        <span class="token string">"content"</span><span class="token punctuation">:</span> m<span class="token punctuation">.</span>content<span class="token punctuation">,</span>
+
+                        <span class="token string">"tool_call_id"</span><span class="token punctuation">:</span> m<span class="token punctuation">.</span>tool_call_id<span class="token punctuation">,</span>
+
+                    <span class="token punctuation">}</span>
+
+                <span class="token punctuation">)</span>
+
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+                converted<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> str<span class="token punctuation">(</span>m<span class="token punctuation">.</span>content<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> converted
+
+
+
+    <span class="token keyword">def</span> <span class="token function">_response_to_aimessage</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response_message<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> AIMessage<span class="token punctuation">:</span>
+
+        content <span class="token operator">=</span> response_message<span class="token punctuation">.</span>content <span class="token operator">or</span> <span class="token string">""</span>
+
+        <span class="token keyword">if</span> <span class="token operator">not</span> getattr<span class="token punctuation">(</span>response_message<span class="token punctuation">,</span> <span class="token string">"tool_calls"</span><span class="token punctuation">,</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token keyword">return</span> AIMessage<span class="token punctuation">(</span>content<span class="token operator">=</span>content<span class="token punctuation">)</span>
+
+
+
+        tool_calls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        invalid_tool_calls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> tc <span class="token keyword">in</span> response_message<span class="token punctuation">.</span>tool_calls<span class="token punctuation">:</span>
+
+            raw <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+                <span class="token string">"id"</span><span class="token punctuation">:</span> tc<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+
+                <span class="token string">"type"</span><span class="token punctuation">:</span> tc<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+                <span class="token string">"function"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">"name"</span><span class="token punctuation">:</span> tc<span class="token punctuation">.</span>function<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+                    <span class="token string">"arguments"</span><span class="token punctuation">:</span> tc<span class="token punctuation">.</span>function<span class="token punctuation">.</span>arguments<span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                parsed <span class="token operator">=</span> parse_tool_call<span class="token punctuation">(</span>raw<span class="token punctuation">,</span> return_id<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> parsed<span class="token punctuation">:</span>
+                    tool_calls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>parsed<span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                invalid_tool_calls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>make_invalid_tool_call<span class="token punctuation">(</span>raw<span class="token punctuation">,</span> str<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> AIMessage<span class="token punctuation">(</span>
+            content<span class="token operator">=</span>content<span class="token punctuation">,</span>
+            tool_calls<span class="token operator">=</span>tool_calls<span class="token punctuation">,</span>
+            invalid_tool_calls<span class="token operator">=</span>invalid_tool_calls<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">_generate</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        messages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>BaseMessage<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        stop<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span>
+        run_manager<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span>
+        <span class="token operator">**</span>kwargs<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ChatResult<span class="token punctuation">:</span>
+        api_kwargs<span class="token punctuation">:</span> dict<span class="token punctuation">[</span>str<span class="token punctuation">,</span> Any<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"model"</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>model_name<span class="token punctuation">,</span>
+            <span class="token string">"messages"</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_convert_messages<span class="token punctuation">(</span>messages<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">"max_tokens"</span><span class="token punctuation">:</span> kwargs<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"max_tokens"</span><span class="token punctuation">,</span> <span class="token number">65536</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">"temperature"</span><span class="token punctuation">:</span> kwargs<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"temperature"</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> stop<span class="token punctuation">:</span>
+            api_kwargs<span class="token punctuation">[</span><span class="token string">"stop"</span><span class="token punctuation">]</span> <span class="token operator">=</span> stop
+        <span class="token keyword">if</span> <span class="token string">"tools"</span> <span class="token keyword">in</span> kwargs<span class="token punctuation">:</span>
+            api_kwargs<span class="token punctuation">[</span><span class="token string">"tools"</span><span class="token punctuation">]</span> <span class="token operator">=</span> kwargs<span class="token punctuation">[</span><span class="token string">"tools"</span><span class="token punctuation">]</span>
+            api_kwargs<span class="token punctuation">[</span><span class="token string">"thinking"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"disabled"</span><span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            api_kwargs<span class="token punctuation">[</span><span class="token string">"thinking"</span><span class="token punctuation">]</span> <span class="token operator">=</span> kwargs<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"thinking"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"enabled"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token string">"tool_choice"</span> <span class="token keyword">in</span> kwargs<span class="token punctuation">:</span>
+            api_kwargs<span class="token punctuation">[</span><span class="token string">"tool_choice"</span><span class="token punctuation">]</span> <span class="token operator">=</span> kwargs<span class="token punctuation">[</span><span class="token string">"tool_choice"</span><span class="token punctuation">]</span>
+        response <span class="token operator">=</span> self<span class="token punctuation">.</span>client<span class="token punctuation">.</span>chat<span class="token punctuation">.</span>completions<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token operator">**</span>api_kwargs<span class="token punctuation">)</span>
+        message <span class="token operator">=</span> self<span class="token punctuation">.</span>_response_to_aimessage<span class="token punctuation">(</span>response<span class="token punctuation">.</span>choices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ChatResult<span class="token punctuation">(</span>generations<span class="token operator">=</span><span class="token punctuation">[</span>ChatGeneration<span class="token punctuation">(</span>message<span class="token operator">=</span>message<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    @property
+    <span class="token keyword">def</span> <span class="token function">_llm_type</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"zhipu-ai"</span>
+</code></pre>
+<p>速率限制：rate_limiter参数设置</p>
+<p>Langchain内置InMemoryRateLimiter</p>
+<pre class=" language-langchain"><code class="language-langchain">from langchain_core.rate_limiters import InMemoryRateLimiter
+
+rate_limiter = InMemoryRateLimiter(
+    requests_per_second=0.1,  # 1 request every 10s
+    check_every_n_seconds=0.1,  # Check every 100ms whether allowed to make a request
+    max_bucket_size=10,  # Controls the maximum burst size.
+)
+
+model = init_chat_model(
+    model="gpt-5.4",
+    model_provider="openai",
+    rate_limiter=rate_limiter  
+)
+</code></pre>
+<h3 id="核心能力（为什么要用它？）"><a href="#核心能力（为什么要用它？）" class="headerlink" title="核心能力（为什么要用它？）"></a>核心能力（为什么要用它？）</h3><p>传统的 Agent 往往只能处理简单的“一问一答”或单一工具调用，而 Deep Agents 专为解决复杂、长周期任务设计：</p>
+<ol>
+<li><strong>📝 自主规划与任务分解</strong>：内置 <code>write_todos</code>工具，Agent 收到复杂需求后会先拆解成 Checklist，步步为营。</li>
+<li><strong>📂 虚拟文件系统与上下文管理</strong>：自带 <code>read_file</code>, <code>write_file</code>等工具。面对海量搜索结果或大段代码，Agent 能将其暂存至文件系统中，防止大模型“内存溢出”（Context Window 超限），并支持自动摘要压缩。</li>
+<li>**🪄 子智能体委派 (Sub-agents)**：遇到特别专精的子任务，主 Agent 可以生成独立的“子 Agent”去处理，实现完美的上下文隔离。</li>
+<li><strong>🖥️ 沙盒化终端执行</strong>：在配置沙盒后端后，Agent 可获得 <code>execute</code>权限运行 Shell 命令，真正实现代码测试、环境部署等自动化。</li>
+<li>**🛡️ 人工干预机制 (HITL)**：针对高风险操作（如删库、大额退款），可配置人工审批工作流</li>
+</ol>
+<h3 id="环境安装步骤-使用-uv"><a href="#环境安装步骤-使用-uv" class="headerlink" title="环境安装步骤 (使用 uv)"></a>环境安装步骤 (使用 <code>uv</code>)</h3><p>现在的 LangChain 采用了高度模块化的设计，核心功能在 <code>langchain-core</code>，具体的模型接入（如 OpenAI、DeepSeek、通义千问等）和高级功能则在各自的扩展包中。</p>
+<p>打开你的 Win11 终端，在项目虚拟环境中执行以下命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 1. 安装 LangChain 核心库以及常用的社区库</span>
+uv pip <span class="token function">install</span> langchain-core langchain langchain-community
+
+<span class="token comment" spellcheck="true"># 2. 安装你想要使用的大模型提供者 SDK (以 OpenAI 兼容接口为例，DeepSeek/通义千问等均通用)</span>
+uv pip <span class="token function">install</span> langchain-openai
+</code></pre>
+<h4 id="初始化大模型-init-chat-model-🌟-最推荐"><a href="#初始化大模型-init-chat-model-🌟-最推荐" class="headerlink" title="初始化大模型 (init_chat_model) 🌟 最推荐"></a>初始化大模型 (<code>init_chat_model</code>) 🌟 <em>最推荐</em></h4><p>以前我们需要针对不同平台写不同的类（如 <code>ChatOpenAI</code>, <code>ChatDeepSeek</code>），现在官方推荐统一使用 <code>init_chat_model</code>来一键初始化任意模型：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> langchain<span class="token punctuation">.</span>chat_models <span class="token keyword">import</span> init_chat_model
+
+<span class="token comment" spellcheck="true"># 示例：初始化 DeepSeek 模型 (需提前设置 DEEPSEEK_API_KEY 环境变量)</span>
+llm <span class="token operator">=</span> init_chat_model<span class="token punctuation">(</span><span class="token string">"deepseek-chat"</span><span class="token punctuation">,</span>
+ model_provider<span class="token operator">=</span><span class="token string">"deepseek"</span><span class="token punctuation">,</span>
+ api_key<span class="token operator">=</span>DEEPSEEK_API_KEY<span class="token punctuation">,</span>
+ base_url<span class="token operator">=</span>DEEPSEEK_BASE_URL<span class="token punctuation">,</span>
+ extra_body<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"thinking"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"disabled"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 示例：初始化 OpenAI 模型 (需提前设置 OPENAI_API_KEY 环境变量)</span>
+<span class="token comment" spellcheck="true"># llm = init_chat_model("gpt-4o", model_provider="openai")</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> zai <span class="token keyword">import</span> ZhipuAiClient
+client <span class="token operator">=</span> ZhipuAiClient<span class="token punctuation">(</span>api_key<span class="token operator">=</span><span class="token string">"your-api-key"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 请填写您自己的 API Key</span>
+response <span class="token operator">=</span> client<span class="token punctuation">.</span>chat<span class="token punctuation">.</span>completions<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+    model<span class="token operator">=</span><span class="token string">"glm-4.7-flash"</span><span class="token punctuation">,</span>
+    messages<span class="token operator">=</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"作为一名营销专家，请为我的产品创作一个吸引人的口号"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"assistant"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"当然，要创作一个吸引人的口号，请告诉我一些关于您产品的信息"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"智谱开放平台"</span><span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    thinking<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"enabled"</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true"># 启用深度思考模式</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    max_tokens<span class="token operator">=</span><span class="token number">65536</span><span class="token punctuation">,</span>          <span class="token comment" spellcheck="true"># 最大输出 tokens</span>
+    temperature<span class="token operator">=</span><span class="token number">1.0</span>           <span class="token comment" spellcheck="true"># 控制输出的随机性</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 获取完整回复</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>choices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+</code></pre>
+<p>uv通过 Pip 安装（适合已配置好 Python 环境的用户）</p>
+<p>如果你机器上已经有 Python 环境，并且懒得折腾，直接用 pip 一键安装即可：</p>
+<pre class=" language-powershell"><code class="language-powershell">pip install uv
+</code></pre>
+<p>uv –version</p>
+<p>为了方便你直观对比，我把最常用的场景列成了表格：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>传统 Pip 命令</th>
+<th>⚡️ Uv 极速命令</th>
+<th>额外亮点说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>创建虚拟环境</strong></td>
+<td><code>python -m venv .venv</code></td>
+<td><code>uv venv</code></td>
+<td>秒级创建，无需记忆冗长参数</td>
+</tr>
+<tr>
+<td><strong>安装单个包</strong></td>
+<td><code>pip install requests</code></td>
+<td><code>uv pip install requests</code></td>
+<td>自动利用全局缓存，速度飞起</td>
+</tr>
+<tr>
+<td><strong>安装指定版本</strong></td>
+<td><code>pip install flask==2.2.2</code></td>
+<td><code>uv pip install "flask==2.2.2"</code></td>
+<td>版本锁定同样迅速</td>
+</tr>
+<tr>
+<td><strong>批量安装依赖</strong></td>
+<td><code>pip install -r req.txt</code></td>
+<td><code>uv pip install -r req.txt</code></td>
+<td>并行下载解析，告别漫长等待</td>
+</tr>
+<tr>
+<td><strong>卸载包</strong></td>
+<td><code>pip uninstall requests</code></td>
+<td><code>uv pip uninstall requests</code></td>
+<td>支持同时卸载多个包</td>
+</tr>
+<tr>
+<td><strong>生成依赖清单</strong></td>
+<td><code>pip freeze &gt; req.txt</code></td>
+<td><code>uv pip freeze &gt; req.txt</code></td>
+<td>瞬间导出当前环境快照</td>
+</tr>
+</tbody></table>
+<ol>
+<li>环境同步（Synchronize）</li>
+</ol>
+<p>如果你想让当前的 Python 虚拟环境与 <code>requirements.txt</code>文件<strong>强制保持完全一致</strong>（多退少补），<code>uv</code>提供了一个非常硬核的命令。它会自动安装文件里有但环境中缺失的包，并<strong>无情卸载</strong>环境中存在但文件里没有的冗余包：</p>
+<pre class=" language-bash"><code class="language-bash">uv pip <span class="token function">sync</span> requirements.txt
+</code></pre>
+<ol start="2">
+<li>依赖锁定（Lock / Compile）</li>
+</ol>
+<p>在团队协作中，为了保证大家用的依赖版本绝对一致，<code>uv</code>可以读取一个只有顶层依赖的 <code>requirements.in</code>文件，快速计算出所有嵌套依赖的确切版本，并生成锁定的 <code>requirements.txt</code>（支持 <code>--universal</code>跨平台解析）：</p>
+<pre class=" language-bash"><code class="language-bash">uv pip compile requirements.in --output-file requirements.txt
+</code></pre>
+<ol start="3">
+<li>免激活运行脚本（Run）</li>
+</ol>
+<p>这是 <code>uv</code>非常讨喜的一个现代特性。你可以直接在项目根目录运行 Python 脚本，如果脚本带有内联的依赖元数据（比如声明了需要 <code>requests</code>库），<code>uv</code>会在临时的虚拟环境里自动帮你装上依赖并立刻执行，连手动激活环境都省了：</p>
+<pre class=" language-bash"><code class="language-bash">uv run main.py
+</code></pre>
+<p>指定 Python 版本创建（超实用）</p>
+<p>假设你当前系统装的是 Python 3.12，但这老项目非得用 Python 3.9 才能跑，你可以直接指定版本：</p>
+<pre class=" language-bash"><code class="language-bash">uv venv --python 3.9
+</code></pre>
+<p>如果系统里没有 3.9，<code>uv</code>会在命令行里提示你，你只需按一下 <code>y</code>确认，它就会自动下载安装，接着无缝创建出 3.9 的虚拟环境。</p>
+<ol start="3">
+<li>指定虚拟环境名称</li>
+</ol>
+<p>默认生成的文件夹名叫 <code>.venv</code>，如果你不喜欢这个名字（比如想叫 <code>my_env</code>），可以加个参数：</p>
+<pre class=" language-bash"><code class="language-bash">uv venv my_env
+</code></pre>
+<hr>
+<p>二、 不同虚拟环境的跳转 (Activate &amp; Deactivate)</p>
+<p>“跳转”在官方术语里叫<strong>激活（Activate）</strong>。在 Win11 的终端里，激活环境的命令和以前使用 <code>venv</code>或 <code>virtualenv</code>时<strong>完全一样</strong>。</p>
+<ol>
+<li>进入（激活）虚拟环境</li>
+</ol>
+<p>根据你使用的终端不同，命令略有区别：</p>
+<ul>
+<li><p><strong>如果你用 PowerShell：</strong></p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token punctuation">.</span>\<span class="token punctuation">.</span>venv\Scripts\Activate<span class="token punctuation">.</span>ps1
+</code></pre>
+<p><em>(注意开头的点和反斜杠)</em></p>
+</li>
+<li><p><strong>如果你用 Command Prompt (CMD) 或 Git Bash：</strong></p>
+<pre class=" language-bash"><code class="language-bash">.venv\Scripts\activate
+</code></pre>
+</li>
+</ul>
+<p><strong>激活成功后，你会明显看到终端提示符的最前面多了一个括号，里面显示环境名称</strong>，比如 <code>(.venv) C:\MyProject&gt;</code>。这就代表你已经成功“走进”了这个小房间，接下来运行 <code>python</code>或 <code>pip</code>都是在这个隔离环境里生效。</p>
+<ol start="2">
+<li>退出（跳转回全局环境）</li>
+</ol>
+<p>无论你在哪个目录下，只要你想跳出当前的虚拟环境，回到系统的全局 Python 环境，只需简单输入：</p>
+<pre class=" language-bash"><code class="language-bash">deactivate
+</code></pre>
+<p>输入后，你会发现终端前面的 <code>(.venv)</code>消失了，这就代表你成功“跳出”了该虚拟环境</p>
+<p>剔除无关依赖（重要）</p>
+<p>系统全局环境（<code>base</code>）中往往包含 <code>pip</code>, <code>setuptools</code>, <code>wheel</code>等基础包，或者是某些 IDE 偷偷安装的插件。你可以使用 <code>-X</code>参数（uv）或 <code>--exclude</code>参数（pip）来过滤它们，保持文件的纯净：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 使用 uv 剔除特定包</span>
+uv pip freeze -X pip -X setuptools -X wheel <span class="token operator">></span> requirements.txt
+
+<span class="token comment" spellcheck="true"># 或者使用 pip 剔除</span>
+pip freeze <span class="token operator">|</span> findstr /V <span class="token string">"pip setuptools wheel"</span> <span class="token operator">></span> requirements.txt
+</code></pre>
+<p>检查依赖情况</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">**</span>python<span class="token operator">**</span> <span class="token operator">-</span>c <span class="token string">"from dotenv import load_dotenv; print('**python**-dotenv OK')"</span> <span class="token number">2</span><span class="token operator">></span><span class="token operator">&amp;</span><span class="token number">1</span>
+</code></pre>
+<h3 id="常用函数与核心-API-详解"><a href="#常用函数与核心-API-详解" class="headerlink" title="常用函数与核心 API 详解"></a>常用函数与核心 API 详解</h3><p>Deep Agents 秉持“约定大于配置”的原则，核心入口只有一个，但通过参数提供了极高的定制化自由度。</p>
+<h4 id="1-核心构造函数：create-deep-agent"><a href="#1-核心构造函数：create-deep-agent" class="headerlink" title="1. 核心构造函数：create_deep_agent()"></a>1. 核心构造函数：<code>create_deep_agent()</code></h4><p>这是创建 Agent 的唯一主函数，其最常用参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>model</code></td>
+<td><code>str</code>或 LangChain Model</td>
+<td>否</td>
+<td>指定底层大模型。推荐使用支持 Tool Calling 的前沿模型（如 <code>openai:gpt-4o</code>, <code>anthropic:claude-3-5-sonnet</code>）。</td>
+</tr>
+<tr>
+<td><code>tools</code></td>
+<td><code>List[Callable]</code></td>
+<td>否</td>
+<td>注入自定义工具函数列表（只需是标准的 Python 函数，加上类型提示和 DocString 即可）。</td>
+</tr>
+<tr>
+<td><code>system_prompt</code></td>
+<td><code>str</code></td>
+<td>否</td>
+<td>覆盖默认的 System Prompt，赋予 Agent 特定的角色设定或工作流指引。</td>
+</tr>
+<tr>
+<td><code>middleware</code></td>
+<td><code>List[AgentMiddleware]</code></td>
+<td>否</td>
+<td>注入自定义中间件，可用于高级的 Prompt 拼接或生命周期钩子（Lifecycle hooks）。</td>
+</tr>
+<tr>
+<td><code>subagents</code></td>
+<td><code>List[CompiledSubAgent]</code></td>
+<td>否</td>
+<td>预定义可供主 Agent 调用的子 Agent 列表。</td>
+</tr>
+<tr>
+<td><code>backend</code></td>
+<td><code>FilesystemBackend</code></td>
+<td>否</td>
+<td>配置文件系统后端。默认为内存态，可设置为本地磁盘同步或 LangGraph 持久化存储。</td>
+</tr>
+</tbody></table>
+<h4 id="2-内置工具集（开箱即用）"><a href="#2-内置工具集（开箱即用）" class="headerlink" title="2. 内置工具集（开箱即用）"></a>2. 内置工具集（开箱即用）</h4><p>只要你使用 <code>create_deep_agent</code>，以下工具会自动挂载到 Agent 身上，无需手动编写：</p>
+<ul>
+<li><p>**<code>write_todos</code>/ <code>read_todos</code>**：任务白板，让 Agent 学会做项目管理。</p>
+</li>
+<li><p>**<code>read_file</code>/ <code>write_file</code>/ <code>edit_file</code>**：文件读写，解决长文本存储问题。</p>
+</li>
+<li><p>**<code>glob</code>/ <code>grep</code>**：代码库检索，让 Agent 具备类似程序员的全局搜索能力。</p>
+</li>
+<li><p>**<code>execute</code>**：在沙盒环境中执行系统命令（需配合特定 Backend 开启）。</p>
+</li>
+</ul>
+<hr>
+<h3 id="进阶玩法"><a href="#进阶玩法" class="headerlink" title="进阶玩法"></a>进阶玩法</h3><ol>
+<li><p><strong>🌊 流式输出 (Streaming)</strong></p>
+<p>Deep Agents 底层基于 LangGraph，原生支持流式事件。只需将 <code>.invoke()</code>替换为 <code>.stream()</code>，即可在终端实时看到 Agent 的思考过程和工具调用详情。</p>
+</li>
+<li><p><strong>🧩 MCP (Model Context Protocol) 集成</strong></p>
+<p>可以通过 <code>langchain-mcp-adapters</code>库，一行代码接入任何支持 MCP 协议的标准化工具服务器，瞬间拓展 Agent 能力边界（如连接本地数据库、Slack、Notion 等）。</p>
+</li>
+<li><p><strong>💻 Deep Agents CLI（终端利器）</strong></p>
+<p>该框架还附带了一个开箱即用的 Terminal UI 编码助手（类似 Claude Code 或 Cursor 终端版）。安装后直接在命令行输入 <code>deepagents</code>，就能拥有一个带富文本流式输出、联网搜索和代码执行能力的终端 Copilot</p>
+</li>
+</ol>
+<p><strong>DeepAgent 项目</strong>：就像是给这个员工配上了一整套办公软件（规划本、文件夹、能委派任务的通讯录），让他能<strong>独立自主地完成复杂的长周期项目</strong>。</p>
+<p><strong>多模态 RAG</strong>：就像是给这个员工接入了一个<strong>庞大的多媒体图书馆</strong>（里面有文字、图片、视频），并教会他如何快速查资料来<strong>辅助解答老板的疑问</strong>。</p>
+<p><strong>微调项目 (Fine-tuning)<strong>：这不是教员工怎么用工具，而是直接让他</strong>回炉重造，去攻读一个特定的专业学位</strong>（比如法学博士或医学博士），使他本身的脑子就具备某一领域的专家级直觉</p>
+<pre class=" language-mermaid"><code class="language-mermaid">graph LR
+    %% 定义三个子图
+    subgraph DA [DeepAgent]
+        A1[核心目标: 解决怎么做]
+        A2[核心能力: 规划/委派/工具调用]
+        A3[数据流向: 动态执行链路]
+    end
+
+    subgraph RAG [多模态 RAG]
+        B1[核心目标: 解决不知道]
+        B2[核心能力: 跨模态检索/证据溯源]
+        B3[数据流向: 检索到增强到生成]
+    end
+
+    subgraph FT [微调 Fine-tuning]
+        C1[核心目标: 解决不专业]
+        C2[核心能力: 风格迁移/术语内化]
+        C3[数据流向: 静态权重更新]
+    end
+
+    %% 定义连接关系
+    DA ---|依赖| RAG
+    DA ---|依赖| FT
+    RAG -.->|提供事实| DA
+    FT -.->|提供大脑| DA
+</code></pre>
+<h3 id="一、-DeepAgent-项目（以-LangChain-Deep-Agents-为例）"><a href="#一、-DeepAgent-项目（以-LangChain-Deep-Agents-为例）" class="headerlink" title="一、 DeepAgent 项目（以 LangChain Deep Agents 为例）"></a>一、 DeepAgent 项目（以 LangChain Deep Agents 为例）</h3><p>DeepAgent 是一类专注于解决<strong>复杂、多步骤、长周期任务</strong>的智能体（Agent）框架。以 LangChain 最新开源的 Deep Agents 为例，它不再仅仅是简单的“一问一答”或单次工具调用，而是一个自带“方法论”的智能体脚手架（Agent Harness）。</p>
+<h4 id="1-核心特点"><a href="#1-核心特点" class="headerlink" title="1. 核心特点"></a>1. 核心特点</h4><ul>
+<li><p><strong>自带“任务拆解”能力（规划）</strong>：内置 TodoList 工具，接到复杂指令后，它会自动将大任务拆解为具体的待办事项，步步为营。</p>
+</li>
+<li><p><strong>虚拟文件系统（上下文管理）</strong>：这是它最亮眼的设计。它能把大量的搜索结果或长文本存进“虚拟文件”里，避免大模型“内存溢出”（Context Window 超限），极大降低了 Token 消耗和成本。</p>
+</li>
+<li><p><strong>子智能体委派（Multi-Agent）</strong>：遇到特别专精的子任务，主 Agent 可以像领导一样，把任务派发给临时生成的“子 Agent”去独立完成，隔离上下文，互不干扰。</p>
+</li>
+<li><p><strong>高可控与可干预</strong>：支持人工介入审批（HITL），对于高风险操作可以设置人工确认；同时支持中途恢复，断点续跑。</p>
+</li>
+</ul>
+<h4 id="2-主要用途"><a href="#2-主要用途" class="headerlink" title="2. 主要用途"></a>2. 主要用途</h4><ul>
+<li><p><strong>深度自动化研究</strong>：给定一个主题，自动上网搜索、阅读多篇网页、交叉验证信息，最后输出一份详实的 Markdown 调研报告。</p>
+</li>
+<li><p><strong>全自动编程与调试</strong>：接收需求文档，自动拆解开发任务，编写代码，甚至在沙盒环境中运行测试，根据报错自动修复（Self-Debugging）。</p>
+</li>
+<li><p><strong>复杂的客户旅程模拟</strong>：模拟用户进行多轮对话，执行一连串的系统操作。</p>
+</li>
+</ul>
+<h4 id="3-实现步骤"><a href="#3-实现步骤" class="headerlink" title="3. 实现步骤"></a>3. 实现步骤</h4><p>以使用 LangChain Deep Agents 为例：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 1. 安装依赖</span>
+pip install deepagents langchain<span class="token operator">-</span>openai
+
+<span class="token comment" spellcheck="true"># 2. 编写极简代码</span>
+<span class="token keyword">from</span> deepagents <span class="token keyword">import</span> create_deep_agent
+<span class="token keyword">from</span> langchain_openai <span class="token keyword">import</span> ChatOpenAI
+
+<span class="token comment" spellcheck="true"># 3. 配置模型并挂载工具（甚至可以留空，使用内置的规划与文件工具）</span>
+llm <span class="token operator">=</span> ChatOpenAI<span class="token punctuation">(</span>model<span class="token operator">=</span><span class="token string">"gpt-4o"</span><span class="token punctuation">)</span>
+agent <span class="token operator">=</span> create_deep_agent<span class="token punctuation">(</span>model<span class="token operator">=</span>llm<span class="token punctuation">,</span> tools<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 4. 抛出复杂任务，让它自行拆解和执行</span>
+result <span class="token operator">=</span> agent<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"messages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"帮我调研一下竞品最近的营销策略，输出一份对比报告"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token string">"messages"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h3 id="二、-多模态-RAG（Multimodal-Retrieval-Augmented-Generation）"><a href="#二、-多模态-RAG（Multimodal-Retrieval-Augmented-Generation）" class="headerlink" title="二、 多模态 RAG（Multimodal Retrieval-Augmented Generation）"></a>二、 多模态 RAG（Multimodal Retrieval-Augmented Generation）</h3><p>传统 RAG 主要处理纯文本，而<strong>多模态 RAG</strong> 将检索和生成的边界拓展到了<strong>图片、表格、音频甚至视频</strong>。它让大模型能够“看图说话”，利用外部的多媒体知识库来回答问题时，不仅依据文字，还能看懂图表和截图。</p>
+<h4 id="1-核心特点-1"><a href="#1-核心特点-1" class="headerlink" title="1. 核心特点"></a>1. 核心特点</h4><ul>
+<li><p><strong>跨模态对齐（Cross-modal Alignment）</strong>：通过如 CLIP 这样的多模态编码器，将图片和文本映射到同一个高维向量空间中，实现“用文字搜图片”或“用图片搜文字”。</p>
+</li>
+<li><p><strong>多路召回机制</strong>：查询时，系统会并行发起对文本向量、图片向量、表格向量的检索，最后合并去重交由大模型生成。</p>
+</li>
+<li><p><strong>证据溯源能力</strong>：生成的答案可以精准追溯到具体的图文块，减少了大模型“自由发挥”（幻觉）的空间。</p>
+</li>
+</ul>
+<h4 id="2-主要用途-1"><a href="#2-主要用途-1" class="headerlink" title="2. 主要用途"></a>2. 主要用途</h4><ul>
+<li><p><strong>企业级智能知识库</strong>：员工上传含有大量架构图、数据报表的 PDF 产品手册，系统能直接根据图纸回答配置问题。</p>
+</li>
+<li><p><strong>视觉问答（VQA）与电商导购</strong>：用户拍一张衣服的照片问“这件衣服配什么裤子好看”，系统检索相似的穿搭图文并给出建议。</p>
+</li>
+<li><p><strong>医疗影像报告生成</strong>：结合患者的 X 光片（图）和既往病历（文），自动生成初步诊断报告。</p>
+</li>
+</ul>
+<h4 id="3-实现步骤-1"><a href="#3-实现步骤-1" class="headerlink" title="3. 实现步骤"></a>3. 实现步骤</h4><p>构建一个多模态 RAG 通常包含以下几个核心阶段：</p>
+<ol>
+<li><p><strong>多模态数据预处理</strong>：使用 OCR 提取文档中的文字，使用视觉模型（如 ViT）提取图片特征，使用 ASR 转录音频。</p>
+</li>
+<li><p><strong>统一向量化与存储</strong>：使用多模态 Embedding 模型（如 CLIP）将上述不同模态的数据转化为向量，一并存入支持混合检索的向量数据库（如 Milvus、FAISS）。</p>
+</li>
+<li><p><strong>多路召回与重排（Rerank）</strong>：用户提问后，并行在文本、图片等索引中检索 Top-K 个相似项，然后通过一个 Reranker 模型统一打分，筛选出最相关的图文证据。</p>
+</li>
+<li><p><strong>多模态大模型生成</strong>：将原始问题连同检索到的文本片段和图片 URL 一起喂给多模态大模型（如 GPT-4V、Gemini Pro），生成最终回答。</p>
+</li>
+</ol>
+<hr>
+<h3 id="三、-大模型微调项目（Fine-tuning）"><a href="#三、-大模型微调项目（Fine-tuning）" class="headerlink" title="三、 大模型微调项目（Fine-tuning）"></a>三、 大模型微调项目（Fine-tuning）</h3><p>微调是指在保留了大模型通用能力的基础上，使用<strong>特定领域的高质量数据集</strong>对模型的部分或全部参数进行二次训练。如果说 RAG 是给模型发了一本“考试时的参考书”，那微调就是利用闭关修炼，把知识彻底“刻进 DNA 里”。</p>
+<h4 id="1-核心特点-2"><a href="#1-核心特点-2" class="headerlink" title="1. 核心特点"></a>1. 核心特点</h4><ul>
+<li><p><strong>领域深度适配</strong>：能够让通用模型迅速掌握生涩的行业术语、特定的代码规范或品牌的特有文风。</p>
+</li>
+<li><p><strong>降低幻觉与提升遵从度</strong>：通过大量的指令-响应对（Instruction Tuning），模型会更严格地按照要求的格式和逻辑输出，减少乱扯的概率。</p>
+</li>
+<li><p><strong>参数高效微调（PEFT）技术普及</strong>：借助 LoRA 或 QLoRA 等技术，现在只需训练极小部分新增参数（不到全量的 1%），单张消费级显卡（如 RTX 3090）就能微调几十亿参数的大模型，大幅降低了门槛。</p>
+</li>
+</ul>
+<h4 id="2-主要用途-2"><a href="#2-主要用途-2" class="headerlink" title="2. 主要用途"></a>2. 主要用途</h4><ul>
+<li><p><strong>垂直领域专家模型</strong>：使用医学论文和病例微调，得到医疗问诊专家；使用法条和判决书微调，得到法律服务助手。</p>
+</li>
+<li><p><strong>特定代码库的开发助理</strong>：用公司内部庞大的私有代码库微调，让模型补齐的代码完美契合内部的函数命名和架构习惯。</p>
+</li>
+<li><p><strong>角色扮演与特定语气生成</strong>：微调一个只会用“互联网黑话”写周报的模型，或者一个极具亲和力的心理咨询模型。</p>
+</li>
+</ul>
+<h4 id="3-实现步骤-2"><a href="#3-实现步骤-2" class="headerlink" title="3. 实现步骤"></a>3. 实现步骤</h4><p>一个标准的企业级微调流程如下：</p>
+<ol>
+<li><p><strong>需求拆解与数据准备</strong>：明确业务目标，收集几千到几万条高质量的“输入-输出”配对数据。数据质量直接决定微调成败，通常需要大量的人工清洗和标注。</p>
+</li>
+<li><p><strong>基座模型选型</strong>：根据算力预算选择底座（如 Qwen、Llama、ChatGLM）。</p>
+</li>
+<li><p><strong>训练策略配置</strong>：决定是全参数微调（算力要求极高）还是 LoRA 微调。设置学习率（Learning Rate）、批次大小（Batch Size）等超参数。</p>
+</li>
+<li><p><strong>启动训练与监控</strong>：在 GPU 集群上启动训练，实时监控 Loss 曲线，防止过拟合。</p>
+</li>
+<li><p><strong>评估与部署</strong>：使用测试集验证微调效果，导出模型权重，通过推理加速框架（如 vLLM）部署上线提供服务。</p>
+</li>
+</ol>
+<hr>
+<h3 id="💡-核心区别总结"><a href="#💡-核心区别总结" class="headerlink" title="💡 核心区别总结"></a>💡 核心区别总结</h3><p>为了帮您在不同场景下做技术选型，我们可以看下它们的核心区别：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>DeepAgent</th>
+<th>多模态 RAG</th>
+<th>微调 (Fine-tuning)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>解决痛点</strong></td>
+<td>解决<strong>“怎么做”</strong>的问题（任务执行与自动化）</td>
+<td>解决<strong>“不知道”</strong>的问题（拓展知识边界与查缺补漏）</td>
+<td>解决<strong>“不专业/不会做”</strong>的问题（改变模型内在能力与风格）</td>
+</tr>
+<tr>
+<td><strong>知识新鲜度</strong></td>
+<td>可通过工具实时获取最新信息</td>
+<td>依赖知识库更新，可做到准实时/实时</td>
+<td>固化在模型参数中，更新知识需要重新训练</td>
+</tr>
+<tr>
+<td><strong>运维成本</strong></td>
+<td>需维护工具链路、沙盒环境与中间件</td>
+<td>需维护向量数据库、Embedding 模型及检索链路</td>
+<td>训练成本高，但推理成本通常低于其他两者</td>
+</tr>
+<tr>
+<td><strong>典型代表</strong></td>
+<td>LangChain Deep Agents, AutoGen</td>
+<td>LlamaIndex Multimodal, LangChain + Milvus</td>
+<td>PEFT/LoRA, Hugging Face SFTTrainer</td>
+</tr>
+</tbody></table>
+<p><strong>最佳实践往往是“组合拳”</strong>：</p>
+<p>用<strong>微调</strong>打底，塑造模型的基础性格和专业术语理解能力；</p>
+<p>在此之上构建<strong>多模态 RAG</strong> 层，提供企业最新的私有图文数据支持；</p>
+<p>最外层套上 <strong>DeepAgent</strong> 框架，赋予其规划、拆解和调用工具去解决实际业务问题的能力</p>
+<pre class=" language-mermaid"><code class="language-mermaid">flowchart TB
+    Start(开始项目) --> Choice{技术选型}
+
+    Choice -->|复杂自动化任务| Step_A[DeepAgent 实现]
+    Step_A --> A1[1. 定义 System Prompt]
+    A1 --> A2[2. 挂载 Tools 工具]
+    A2 --> A3[3. 配置 Middleware 中间件]
+    A3 --> A4[4. 编译并 invoke 执行]
+
+    Choice -->|私有知识/图文检索| Step_B[多模态 RAG 实现]
+    Step_B --> B1[1. 数据清洗: OCR/特征提取]
+    B1 --> B2[2. 向量化: CLIP 嵌入]
+    B2 --> B3[3. 入库: 向量数据库]
+    B3 --> B4[4. 检索与重排 Rerank]
+
+    Choice -->|特定风格/专业术语| Step_C[微调 实现]
+    Step_C --> C1[1. 数据构建: SFT 数据集]
+    C1 --> C2[2. 基座选择: Qwen/Llama]
+    C2 --> C3[3. 训练: LoRA/QLoRA]
+    C3 --> C4[4. 评估与合并权重]
+
+    A4 --> End(项目上线)
+    B4 --> End
+    C4 --> End
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2026/05/21/21627.html">https://bigworldxld.github.io/2026/05/21/21627.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/LangChain/">
+                                    <span class="chip bg-color">LangChain</span>
+                                </a>
+                            
+                                <a href="/tags/LangGraph/">
+                                    <span class="chip bg-color">LangGraph</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/05/23/47080.html">
+                    <div class="card-image">
+                        
+                        <img src="https://github.com/langchain-ai/deepagents/raw/main/.github/images/logo-light.svg" class="responsive-img" alt="LangGraph使用">
+                        
+                        <span class="card-title">LangGraph使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LangChain/">
+                        <span class="chip bg-color">LangChain</span>
+                    </a>
+                    
+                    <a href="/tags/LangGraph/">
+                        <span class="chip bg-color">LangGraph</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/05/05/17432.html">
+                    <div class="card-image">
+                        
+                        <img src="https://mediaarea.net/images/7eea6c8-339d5d7.png" class="responsive-img" alt="读取视频参数工具">
+                        
+                        <span class="card-title">读取视频参数工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MediaInfo/">
+                        <span class="chip bg-color">MediaInfo</span>
+                    </a>
+                    
+                    <a href="/tags/LosslessCut/">
+                        <span class="chip bg-color">LosslessCut</span>
+                    </a>
+                    
+                    <a href="/tags/FFmpeg-Batch-Converter/">
+                        <span class="chip bg-color">FFmpeg Batch Converter</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Author&nbsp;<a href="https://blog.bigworldxld.dpdns.org/" target="_blank">bigworldxld</a>
+            |&nbsp;Dailylife&nbsp;<a href="https://bigworldxld.github.io/duxu-dailylife/" target="_blank">blog</a>
+			|&nbsp;Desktop&nbsp;<a href="https://bigworldxld.github.io/desktop/" target="_blank">desktop</a>
+            <br>
+			
+            
+            
+            
+                
+
+            
+
+			 
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span class="white-color">8783</span><span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span class="white-color">125</span><span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<!- <div class="progress-bar"></div>->
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303710785278710"
+     crossorigin="anonymous"></script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>
