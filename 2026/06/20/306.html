@@ -691,14 +691,14 @@ Google Play（Android）：在 Play 商店搜 Pocket">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    698
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -774,6 +774,42 @@ Google Play（Android）：在 Play 商店搜 Pocket">
 <p>👉 **7B/8B Q4_K_M 是你这台机最推荐的”顶配实用上限”**，流畅度和质量平衡最好。</p>
 </blockquote>
 <hr>
+<h3 id="页面参数"><a href="#页面参数" class="headerlink" title="页面参数"></a>页面参数</h3><p><strong>chat generatioin ssettings</strong></p>
+<ol>
+<li>N predict:单次对话最多生成的token数。unlimited不限制、custom手动写值。日常聊天：unlimited、写短文/问答：512-1024、超长文案：unlimited</li>
+<li>include thinkgin in context:前面ai思考推理内容加入上下文。开启/关闭</li>
+<li>temperature：温度，0-0.3严谨，适合答题，代码，查事实；0.5-0.7日常聊天；0.9-1.2创意写作，文案，故事</li>
+<li>top k:每次选词保留概率最高的前k个。聊天：30-50；严谨问答：20-30；创意写作：50-80</li>
+<li>top p:核采样，动态候选池，只保留累计概率到p值的一批词,接近1创意更强，偏低输出更规整。通用搭配：top p=0.9 ,top k=40,temperature=07</li>
+<li>min p:选词不低于最高候选词概率*min_p ,过滤冷门词；0.02-0.08，防止幻觉且不限制表达</li>
+<li>xtc threshold &amp; xtc probability:xtc是激进去重采样器，xtc threshold&gt;0.5会直接关闭xtc, xtc probability=0完全关闭xtc功能；普通聊天保持关闭，如果ai反复复读同一句话，probability改为0.2-0.3开启轻度去重</li>
+<li>typical p:典型采样，优先选择语义通顺的词，1=完全关闭，当句子语序怪异，改为0.9-0.95</li>
+<li>penalty last_n:向后检查历史token来判断重复。32-64都没问题，64适合长段落写作</li>
+<li>penalty repeat:重复惩罚，词语重复出现，抑制重复：日常会话：1-1.05；长文频繁复读：1.1-1.25，不超过1.3，否则词深硬</li>
+<li>penalty freq :频率惩罚：惩罚高频出现的词汇。0=关闭</li>
+<li>penalty present：存在惩罚：已经出现过的主题，观点，鼓励新思路。聊天：0</li>
+<li>mirostat:实现动态调节随机性，off关闭，v1/v2:自动控制文本混乱度，v2更顺滑</li>
+<li>seed:随机种子,固定种子后，相同问题，相同参数，ai每次输出的几乎一摸一样，用来复现结果。聊天：-1完全随机，填数字，锁定随机结果</li>
+<li>BOS/EOS：对话开始标记、结束标记</li>
+<li>add gegneration prompt:添加系统提示词</li>
+<li>stop words停止词，ai生成到这些字符，立刻终止输出。<end_of_turn><eos>&lt;|im_end&gt;</eos></end_of_turn></li>
+</ol>
+<p><strong>大模型的属性</strong></p>
+<ol>
+<li>参数量与量化精度</li>
+</ol>
+<ul>
+<li>参数量：单位：B(十亿)越大越聪明</li>
+<li>量化精度：fp16,int8,int4,越低，模型占用内存越小速度越快</li>
+</ul>
+<ol start="2">
+<li>最大上下文长度。整个多轮对话的上下文长度。 日常聊天4k/8k；总结长篇文档32k/128k</li>
+<li>架构：文本生成任务，选decoder-only架构的模型；中文模型（qwen\chatglm）;英文模型（llama）</li>
+<li>峰值内存占用：峰值内存+系统预设内存小于设备的总内存，否则会OOM</li>
+<li>生成速度（TGTOK/S:每秒生成token数、PP TOK/S预处理输入文本速度，决定模型开始思考的快慢）</li>
+<li>首字延迟TTFT：用户体验</li>
+<li>推理与是靠能力：</li>
+</ol>
 <h3 id="⚠️-极限档（能加载但偏慢）"><a href="#⚠️-极限档（能加载但偏慢）" class="headerlink" title="⚠️ 极限档（能加载但偏慢）"></a>⚠️ 极限档（能加载但偏慢）</h3><table>
 <thead>
 <tr>
@@ -810,6 +846,27 @@ Google Play（Android）：在 Play 商店搜 Pocket">
 <li>32B+ 任何量化 → 必 OOM 或严重卡死</li>
 <li>FP16 原版 → 不可能</li>
 </ul>
+<p>PocketPal AI <strong>不能选两个文件分别加载</strong>，必须把这两个分片<strong>合并成一个完整的 <code>.gguf</code>文件</strong>后才能导入。</p>
+<hr>
+<p>✅ 正确做法：先合并，再导入</p>
+<p>一、在 Termux 中合并（假设你已 <code>termux-setup-storage</code>）</p>
+<p>进入存放这两个文件的目录（比如在 Download）：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> ~/storage/downloads
+</code></pre>
+<p>合并两个分片：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cat</span> qwen2.5-7b-instruct-q5_k_m-00001-of-00002.gguf \
+    qwen2.5-7b-instruct-q5_k_m-00002-of-00002.gguf \
+    <span class="token operator">></span> qwen2.5-7b-instruct-q5_k_m.gguf
+</code></pre>
+<p>验证大小（应约 <strong>5.3~5.4 GB</strong>）：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ls</span> -lh qwen2.5-7b-instruct-q5_k_m.gguf
+</code></pre>
+<blockquote>
+<p>⚠️ 合并完原两个分片可删掉节省空间：</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">rm</span> qwen2.5-7b-instruct-q5_k_m-00001-of-00002.gguf
+<span class="token function">rm</span> qwen2.5-7b-instruct-q5_k_m-00002-of-00002.gguf
+</code></pre>
 <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p><strong>Ollama 下载的 DeepSeek 模型在哪？</strong><br>Termux 中 Ollama 模型默认存于：<br>$HOME/.ollama/models/<br>即完整路径是：<br>/data/data/com.termux/files/home/.ollama/models/<br>但实际权重文件是以 SHA256 哈希命名的 blob，存在：<br>/data/data/com.termux/files/home/.ollama/models/blobs/<br>文件名类似 sha256-a1b2c3d4…，不是明文 .gguf 文件名，无法直接被 PocketPal AI 识别。<br>查看模型 manifest（含对应 blob 引用）：<br>cat ~/.ollama/models/manifests/registry.ollama.ai/library/deepseek-r1/1.5b<br>⚠️ Ollama 不存为独立 .gguf文件，不能直接被 PocketPal AI 加载。<br><strong>给 PocketPal AI 用——需单独准备 .gguf 文件</strong><br>PocketPal AI 只认标准 .gguf 格式文件，不能读 Ollama 的 blob。做法：<br>方法 A：从 HuggingFace 直接下载 GGUF（推荐）<br>手机浏览器或电脑下载，比如 DeepSeek-R1-Distill-Qwen-1.5B Q4_K_M：<br><a target="_blank" rel="noopener" href="https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-1.5B-GGUF">https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-1.5B-GGUF</a><br>把 .gguf文件放入手机：<br>内部存储/Download/<br>或 Termux 共享目录（先执行 termux-setup-storage）：<br>cp xxx.Q4_K_M.gguf ~/storage/downloads/<br>方法 B：从 Ollama blob 手动改名（不推荐，易出错）<br>找出最大那个 blob（即权重），复制改名：<br>ls -lh ~/.ollama/models/blobs/<br>cp ~/.ollama/models/blobs/sha256-&lt;最大那个&gt; ~/storage/downloads/deepseek-r1-1.5b.Q4_K_M.gguf<br>需确认 blob 确实是 GGUF（头部含 GGUF），否则加载会失败。</p>
 
                 
