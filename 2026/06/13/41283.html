@@ -775,8 +775,8 @@
 <p>作用：让所有 HF 下载都走国内镜像，速度从几十KB → 30–80MB/s。</p>
 <p>三、开始高速下载（命令直接复制）</p>
 <p>示例：下载  lmsys/vicuna-7b-v1.5 </p>
-<p>bash</p>
-<p>./hfd.sh lmsys/vicuna-7b-v1.5 –tool aria2c -x 16</p>
+<pre class=" language-bash"><code class="language-bash">./hfd.sh lmsys/vicuna-7b-v1.5 --tool aria2c -x 16
+</code></pre>
 <ul>
 <li> –tool aria2c ：用多线程下载</li>
 <li> -x 16 ：开 16 线程（一般 8–16 最佳）</li>
