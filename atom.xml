@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-07-05T09:26:04.310Z</updated>
+  <updated>2026-07-19T08:43:14.934Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -18,10 +18,37 @@
   
   <entry>
     <title>本地电脑部署大模型</title>
+    <link href="https://bigworldxld.github.io/2026/07/19/52558.html"/>
+    <id>https://bigworldxld.github.io/2026/07/19/52558.html</id>
+    <published>2026-07-19T14:24:02.000Z</published>
+    <updated>2026-07-19T08:43:14.934Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="https://bigworldxld.github.io/categories/tools/"/>
+    
+    
+    <category term="adb" scheme="https://bigworldxld.github.io/tags/adb/"/>
+    
+    <category term="sqlite" scheme="https://bigworldxld.github.io/tags/sqlite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地电脑部署大模型</title>
     <link href="https://bigworldxld.github.io/2026/07/04/52557.html"/>
     <id>https://bigworldxld.github.io/2026/07/04/52557.html</id>
     <published>2026-07-04T14:24:02.000Z</published>
-    <updated>2026-07-05T09:26:04.310Z</updated>
+    <updated>2026-07-05T09:29:17.595Z</updated>
     
     
       
