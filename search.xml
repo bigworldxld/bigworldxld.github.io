@@ -33,6 +33,35 @@
     
     
     <entry>
+      <title>WireGuard和Warp推荐</title>
+      <link href="/2026/08/07/7578.html"/>
+      <url>/2026/08/07/7578.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Warp-推荐！不限流量，长期使用"><a href="#Warp-推荐！不限流量，长期使用" class="headerlink" title="Warp 推荐！不限流量，长期使用"></a>Warp 推荐！不限流量，长期使用</h1><p><strong>第一种方案：官方原版客户端</strong></p><p>1.下载 Warp 最新官方客户端：【<a href="https://one.one.one.one/"><strong>点击下载</strong></a>】</p><p><strong>注意：</strong>，缺点是无法获取无限流量的套餐！</p><p><strong>第二种方案：（不限制流量）极力推荐！</strong></p><p>1.免费获取WARP +无限流量，无需注册。 【**<a href="https://github.com/ViRb3/wgcf">点击获取</a>**】生成密钥</p><p>下载后解压到桌面，然后在其根目录下输入CMD进入命令提示符，将执行程序重命名为：wgcf .exe 接着通过下面的2个命令注册新号并创建配置文件</p><p>注册新号：</p><pre class=" language-bash"><code class="language-bash">wgcf register</code></pre><p>创建配置文件：</p><pre class=" language-bash"><code class="language-bash">wgcf generate</code></pre><p>它就会自动生成可以直接使用的配置文件wgcf-profile.conf，创建后的文件放在执行程序对应的根目录下。</p><p>2.下载 WireGuard 全平台使用的客户端 【**<a href="https://www.wireguard.com/install/">点击下载</a>**】</p><p>3.导入在第二步获取到的配置文件</p><p>下载 Warp 【IP优选工具】 ：【**<a href="https://pan.quark.cn/s/2ad1a0107605">点击下载</a>**】</p><p>执行warp-yxip.bat会生成优选的ip列表：result.csv</p><p><strong>注意：</strong>特殊用户需要修改接入点Endpoint：engage.cloudflareclient.com:2408 为你的优选IP地址才可以！</p><p><strong>Mac</strong> 用户需要在Warp 上 优选的 ip的化，请按下面的步骤来操作</p><p>1.请把下面的命令另存为 warp-yxip-mac.sh 脚本</p><pre class=" language-sh"><code class="language-sh">#!/bin/bashexport LANG=en_US.UTF-8RED="\033[31m"GREEN="\033[32m"YELLOW="\033[33m"PLAIN='\033[0m'red() {    echo -e "\033[31m\033[01m$1\033[0m"}green() {    echo -e "\033[32m\033[01m$1\033[0m"}yellow() {    echo -e "\033[33m\033[01m$1\033[0m"}# 选择客户端 CPU 架构archAffix(){    case "$(uname -m)" in        x86_64 | amd64 ) echo 'amd64' ;;        armv8 | arm64 | aarch64 ) echo 'arm64' ;;        * ) red "不支持的CPU架构!" && exit 1 ;;    esac}endpointyx(){    # 删除之前的优选结果文件，以避免出错    rm -f result.csv    wget https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-darwin-$(archAffix) -O warp    # 取消 Linux 自带的线程限制，以便生成优选 Endpoint IP    ulimit -n 102400    # 启动 WARP Endpoint IP 优选工具    chmod +x warp    if [[ $1 == 6 ]]; then        ./warp -ipv6    else        ./warp    fi    # 显示前十个优选 Endpoint IP 及使用方法    green "当前最优 Endpoint IP 结果如下，并已保存至 result.csv 中："    cat result.csv | awk -F, '$3!="timeout ms" {print} ' | sort -t, -nk2 -nk3 | uniq | head -11 | awk -F, '{print "端点 "$1" 丢包率 "$2" 平均延迟 "$3}'    echo ""    yellow "优选 IP 使用方法如下："    yellow "1. 将 WARP 的 WireGuard 节点的默认的 Endpoint IP：engage.cloudflareclient.com:2408 替换成本地网络最优的 Endpoint IP"    echo "设置方法命令行执行:warp-cli tunnel endpoint set 优选IP+端口"    best_ip=`awk -F, 'NR==2{print $1}' result.csv`    Organization=`warp-cli settings|grep Organization|wc -l`    if [ $Organization -eq 1 ];then       sudo warp-cli tunnel endpoint set $best_ip       echo "已经成功自动设置为第一个最优IP"    else    warp-cli tunnel endpoint set $best_ip        echo "已经成功自动设置为第一个最优IP"    fi    # 删除 WARP Endpoint IP 优选工具及其附属文件    rm -f warp}menu(){    echo "#############################################################"    echo -e "#               ${RED}WARP Endpoint IP 一键优选脚本${PLAIN}               #"    echo "#############################################################"    echo ""    echo -e " ${GREEN}1.${PLAIN} WARP IPv4 Endpoint IP 优选 ${YELLOW}(默认)${PLAIN}"    echo -e " ${GREEN}2.${PLAIN} WARP IPv6 Endpoint IP 优选"    echo " -------------"    echo -e " ${GREEN}0.${PLAIN} 退出脚本"    echo ""    read -rp "请输入选项 [0-2]: " menuInput    case $menuInput in        2 ) endpointyx 6 ;;        0 ) exit 1 ;;        * ) endpointyx ;;    esac}menu</code></pre><p>在终端执行</p><pre class=" language-bash"><code class="language-bash">sh warp-yxip-mac.sh </code></pre><p>运行后优选ip会保存在 result.csv文件中，脚本中自动设置 为第一个优选ip。</p><p>如果你需要设置别的 ip，就执行下方命令，【注意替换优选 ip和端口】</p><pre class=" language-bash"><code class="language-bash">warp-cli tunnel endpoint <span class="token keyword">set</span> 优选ip:端口号 或者 <span class="token function">sudo</span> warp-cli tunnel endpoint <span class="token keyword">set</span> 优选ip优选ip:端口号</code></pre><p>恢复默认设置，执行下面命令</p><pre class=" language-bash"><code class="language-bash">warp-cli tunnel endpoint reset</code></pre><p>安卓机安装apk<a href="https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone">1.1.1.1</a></p><p><strong>比如你需要做跨境电商那么接下来这几个检测IP质量和纯净度的网站一定要知道</strong></p><p> 纯净度：确保IP来源真实、未被滥用</p><p> 稳定性：IP在线率超过99.99%，适合长期挂机</p><p> 适配性：适用于TikTok、爬虫、电商站群等多场景</p><p>IP信息：<a href="https://whoer.net/zh">https://whoer.net/zh</a></p><p>IP评分：<a href="https://www.ip-score.com/">https://www.ip-score.com/</a></p><p>IP纯净度：<a href="https://ping0.cc/">https://ping0.cc/</a> （也就是原生IP检测）</p><p>IP风险测试：<a href="https://scamalytics.com/ip">https://scamalytics.com/ip</a> （检测IP是否曾经被由于诈骗、做违规内容之类的）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WireGuard </tag>
+            
+            <tag> Cloudflare One Client </tag>
+            
+            <tag> IP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>入门DeepEval框架</title>
       <link href="/2026/07/26/1222.html"/>
       <url>/2026/07/26/1222.html</url>
