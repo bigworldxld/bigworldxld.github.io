@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-08-08T06:46:10.954Z</updated>
+  <updated>2026-08-16T07:46:06.561Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>现代agent入门一</title>
+    <link href="https://bigworldxld.github.io/2026/08/16/5064.html"/>
+    <id>https://bigworldxld.github.io/2026/08/16/5064.html</id>
+    <published>2026-08-16T04:24:02.000Z</published>
+    <updated>2026-08-16T07:46:06.561Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="book" scheme="https://bigworldxld.github.io/categories/book/"/>
+    
+    
+    <category term="LLM" scheme="https://bigworldxld.github.io/tags/LLM/"/>
+    
+    <category term="agent" scheme="https://bigworldxld.github.io/tags/agent/"/>
+    
+    <category term="context" scheme="https://bigworldxld.github.io/tags/context/"/>
+    
+    <category term="tool" scheme="https://bigworldxld.github.io/tags/tool/"/>
+    
+  </entry>
   
   <entry>
     <title>鸿蒙HDC</title>
