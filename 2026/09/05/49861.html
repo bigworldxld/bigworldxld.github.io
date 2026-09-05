@@ -33,10 +33,10 @@ GitHub 源码：https://github.com/comfyanonymous">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -536,7 +536,7 @@ GitHub 源码：https://github.com/comfyanonymous">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/Comfy-Org/workflow_templates/blob/main/docs/pictures/controlnet-output-match-thumbnail.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?w=1100&fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5d9cee59ce80d28cddbe56b6dcfc999a')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -695,7 +695,7 @@ GitHub 源码：https://github.com/comfyanonymous">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.4k
                 </div>
                 
 
@@ -944,8 +944,8 @@ T2V 双专家 MODEL + CLIP + VAE（同 T2V）
 SERVER <span class="token operator">=</span> <span class="token string">"127.0.0.1:8188"</span>
 
 <span class="token keyword">def</span> <span class="token function">queue_prompt</span><span class="token punctuation">(</span>prompt<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"prompt"</span><span class="token punctuation">:</span> prompt<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>f<span class="token string">"http://{SERVER}/prompt"</span><span class="token punctuation">,</span> data<span class="token operator">=</span>body<span class="token punctuation">)</span>
+    body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"prompt": prompt&amp;#125;).encode()</span>
+    req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>f<span class="token string">"http://&amp;#123;SERVER&amp;#125;/prompt"</span><span class="token punctuation">,</span> data<span class="token operator">=</span>body<span class="token punctuation">)</span>
     <span class="token keyword">return</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"workflow_api.json"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
@@ -965,12 +965,12 @@ SERVER <span class="token operator">=</span> <span class="token string">"127.0.0
 client_id <span class="token operator">=</span> str<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token keyword">def</span> <span class="token function">queue</span><span class="token punctuation">(</span>prompt<span class="token punctuation">,</span> pid<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"prompt"</span><span class="token punctuation">:</span> prompt<span class="token punctuation">,</span> <span class="token string">"client_id"</span><span class="token punctuation">:</span> client_id<span class="token punctuation">,</span> <span class="token string">"prompt_id"</span><span class="token punctuation">:</span> pid<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>f<span class="token string">"http://{SERVER}/prompt"</span><span class="token punctuation">,</span> data<span class="token operator">=</span>body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    body <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"prompt": prompt, "client_id": client_id, "prompt_id": pid&amp;#125;).encode()</span>
+    urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>f<span class="token string">"http://&amp;#123;SERVER&amp;#125;/prompt"</span><span class="token punctuation">,</span> data<span class="token operator">=</span>body<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token keyword">def</span> <span class="token function">get_image</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> sub<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    q <span class="token operator">=</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"filename"</span><span class="token punctuation">:</span> fn<span class="token punctuation">,</span> <span class="token string">"subfolder"</span><span class="token punctuation">:</span> sub<span class="token punctuation">,</span> <span class="token string">"type"</span><span class="token punctuation">:</span> t<span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>f<span class="token string">"http://{SERVER}/view?{q}"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    q <span class="token operator">=</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"filename": fn, "subfolder": sub, "type": t&amp;#125;)</span>
+    <span class="token keyword">return</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>f<span class="token string">"http://&amp;#123;SERVER&amp;#125;/view?&amp;#123;q&amp;#125;"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"workflow_api.json"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     wf <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
@@ -978,14 +978,14 @@ pid <span class="token operator">=</span> str<span class="token punctuation">(</
 queue<span class="token punctuation">(</span>wf<span class="token punctuation">,</span> pid<span class="token punctuation">)</span>
 
 ws <span class="token operator">=</span> websocket<span class="token punctuation">.</span>WebSocket<span class="token punctuation">(</span><span class="token punctuation">)</span>
-ws<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>f<span class="token string">"ws://{SERVER}/ws?clientId={client_id}"</span><span class="token punctuation">)</span>
+ws<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>f<span class="token string">"ws://&amp;#123;SERVER&amp;#125;/ws?clientId=&amp;#123;client_id&amp;#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     msg <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>ws<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> msg<span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"executing"</span> <span class="token operator">and</span> msg<span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"node"</span><span class="token punctuation">]</span> <span class="token keyword">is</span> None <span class="token operator">and</span> msg<span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"prompt_id"</span><span class="token punctuation">]</span> <span class="token operator">==</span> pid<span class="token punctuation">:</span>
         <span class="token keyword">break</span>
 ws<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-hist <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>f<span class="token string">"http://{SERVER}/history/{pid}"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span>pid<span class="token punctuation">]</span>
+hist <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>f<span class="token string">"http://&amp;#123;SERVER&amp;#125;/history/&amp;#123;pid&amp;#125;"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span>pid<span class="token punctuation">]</span>
 <span class="token keyword">for</span> node_id<span class="token punctuation">,</span> out <span class="token keyword">in</span> hist<span class="token punctuation">[</span><span class="token string">"outputs"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> img <span class="token keyword">in</span> out<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"images"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         data <span class="token operator">=</span> get_image<span class="token punctuation">(</span>img<span class="token punctuation">[</span><span class="token string">"filename"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img<span class="token punctuation">[</span><span class="token string">"subfolder"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img<span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -1318,7 +1318,7 @@ hist <span class="token operator">=</span> json<span class="token punctuation">.
                 <a href="/2026/09/05/49861.html">
                     <div class="card-image">
                         
-                        <img src="https://github.com/Comfy-Org/workflow_templates/blob/main/docs/pictures/controlnet-output-match-thumbnail.png" class="responsive-img" alt="ComfyUI做ai视频">
+                        <img src="https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?w=1100&fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5d9cee59ce80d28cddbe56b6dcfc999a" class="responsive-img" alt="ComfyUI做ai视频">
                         
                         <span class="card-title">ComfyUI做ai视频</span>
                     </div>
