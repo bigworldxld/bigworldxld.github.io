@@ -1,0 +1,1816 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ComfyUI启动参数配置, blogs,互联网,测试,大数据,生活,记录">
+    <meta name="description" content="ComfyUI 默认就是「优先占满 GPU 显存，不够自动卸载权重/激活到 CPU RAM」，你要做的是别开 --gpu-only，并配好动态卸载。
+一、核心原理先搞清楚
+GPU优先：模型加载、采样、attention 优先在 CUDA 执">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>ComfyUI启动参数配置 | 读序</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="读序" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">读序</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-hourglass-half" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pdf">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>PDF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sql">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SQL</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/desktop">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Desktop</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/my_nav">
+          
+          <i class="fas fa-search" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Nav</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duxu-dailylife">
+          
+          <i class="fas fa-pen" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>blog</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/books" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/videos">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>videos</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">读序</div>
+        <div class="logo-desc">
+            
+            我们每一个人都因为生存而充满焦虑，我们真实的存在被不真实的存在所笼罩。而实际上，真正的我们并不会受到不真实存在的威胁。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-hourglass-half" style="position: absolute;left:28px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/pdf " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:28px" ></i>
+			      
+		          <span>PDF</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/sql " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:28px" ></i>
+			      
+		          <span>SQL</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/desktop " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Desktop</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/my_nav " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-search" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Nav</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/duxu-dailylife " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-pen" style="position: absolute;left:28px" ></i>
+			      
+		          <span>blog</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/videos " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>videos</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bigworldxld/bigworldxld.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请使用开启大门的钥匙')).toString(CryptoJS.enc.Hex)) {
+                alert('密钥错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?w=1100&fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5d9cee59ce80d28cddbe56b6dcfc999a')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">ComfyUI启动参数配置</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tool/">
+                                <span class="chip bg-color">tool</span>
+                            </a>
+                        
+                            <a href="/tags/comfyui/">
+                                <span class="chip bg-color">comfyui</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tool/" class="post-category">
+                                tool
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+				
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>ComfyUI 默认就是「<strong>优先占满 GPU 显存，不够自动卸载权重/激活到 CPU RAM</strong>」，你要做的是别开 <code>--gpu-only</code>，并配好动态卸载。</p>
+<h2 id="一、核心原理先搞清楚"><a href="#一、核心原理先搞清楚" class="headerlink" title="一、核心原理先搞清楚"></a>一、核心原理先搞清楚</h2><ul>
+<li><strong>GPU优先</strong>：模型加载、采样、attention 优先在 CUDA 执行。</li>
+<li><strong>自动卸载</strong>：Dynamic VRAM 开启时，显存快满就把部分层/权重搬 RAM，用时搬回。</li>
+<li><strong>CPU兜底</strong>：<code>--cpu-vae</code>、<code>--lowvram</code> 让 VAE / 文本编码器常驻 CPU。</li>
+<li><strong>不是无缝</strong>：卸载会掉速，但<strong>不会 OOM 崩</strong>；<code>--gpu-only</code> 才会纯显存、爆了就报错。</li>
+</ul>
+<h2 id="二、ComfyUI侧怎么配"><a href="#二、ComfyUI侧怎么配" class="headerlink" title="二、ComfyUI侧怎么配"></a>二、ComfyUI侧怎么配</h2><h3 id="1-启动参数（改bat-json）"><a href="#1-启动参数（改bat-json）" class="headerlink" title="1. 启动参数（改bat/json）"></a>1. 启动参数（改bat/json）</h3><ul>
+<li><strong>12GB卡（你这种）</strong>：<code>main.py --medvram --reserve-vram 1.5 --async-offload --cpu-vae</code>。</li>
+<li><strong>8–10GB卡</strong>：<code>--lowvram --reserve-vram 1.5 --cpu-vae --fp16-unet</code>。</li>
+<li><strong>6GB↓</strong>：<code>--lowvram --novram --reserve-vram 1 --cpu-vae --fp8_e4m3fn-unet</code>。</li>
+<li><strong>16GB+想快</strong>：<code>--highvram</code>（常驻显存，不自动卸）。</li>
+<li><strong>千万别加</strong>：<code>--gpu-only</code>（禁止卸CPU，必爆）。</li>
+<li><strong>Wan视频专用</strong>：上面 <code>--medvram</code> 版再加 <code>--fp8_e4m3fn-text-enc</code>。</li>
+</ul>
+<h3 id="2-便携版改法"><a href="#2-便携版改法" class="headerlink" title="2. 便携版改法"></a>2. 便携版改法</h3><ul>
+<li><strong>找脚本</strong>：ComfyUI 目录 <code>run_nvidia_gpu.bat</code>（秋叶/官方便携包）。</li>
+<li><strong>改内容</strong>：原行 <code>.\python_embeded\python.exe -s ComfyUI\main.py</code> → 末尾加参。</li>
+<li><strong>示例</strong>：<code>...\python.exe -s ComfyUI\main.py --medvram --reserve-vram 1.5 --async-offload --cpu-vae</code>。</li>
+<li><strong>保存</strong>：存盘双击启动，<code>nvidia-smi</code> 看占用曲线。</li>
+</ul>
+<h3 id="3-启动器-桌面版"><a href="#3-启动器-桌面版" class="headerlink" title="3. 启动器/桌面版"></a>3. 启动器/桌面版</h3><ul>
+<li><strong>ComfyUI-Desktop</strong>：Settings → Launch Flags 填 <code>--medvram --reserve-vram 1.5 --cpu-vae</code>。</li>
+<li><strong>pinokio/comfy-cli</strong>：<code>comfy launch -- --medvram --reserve-vram 1.5</code>。</li>
+<li><strong>comfy.settings.json</strong>：加 <code>"vram_management": "medvram"</code>（部分构建支持）。</li>
+</ul>
+<h3 id="4-界面Settings辅助"><a href="#4-界面Settings辅助" class="headerlink" title="4. 界面Settings辅助"></a>4. 界面Settings辅助</h3><ul>
+<li><strong>VRAM management</strong>：选 <code>Auto</code> 或 <code>Medium</code>（别选 Full/GPU-only）。</li>
+<li><strong>Reserve VRAM</strong>：填 <code>1.5</code>。</li>
+<li><strong>Preview</strong>：<code>None</code> / <code>Latent</code>（别开 taesd）。</li>
+<li><strong>Cache</strong>：开 <code>cache-lru 100</code> 或 <code>--cache-ram 6.0</code>。</li>
+</ul>
+<h2 id="三、Win11系统侧怎么设"><a href="#三、Win11系统侧怎么设" class="headerlink" title="三、Win11系统侧怎么设"></a>三、Win11系统侧怎么设</h2><h3 id="1-绑定独显运行"><a href="#1-绑定独显运行" class="headerlink" title="1. 绑定独显运行"></a>1. 绑定独显运行</h3><ul>
+<li><strong>路径</strong>：设置 → 系统 → 显示 → 图形 → 添加桌面应用。</li>
+<li><strong>选文件</strong>：选 <code>ComfyUI\python_embeded\python.exe</code>（或 <code>run_nvidia_gpu.bat</code> 不行就选 python.exe）。</li>
+<li><strong>设首选</strong>：选项 → <strong>高性能</strong>（独显），保存。</li>
+<li><strong>笔记本必做</strong>：防核显偷跑。</li>
+</ul>
+<h3 id="2-虚拟内存（CPU卸载的命根子）"><a href="#2-虚拟内存（CPU卸载的命根子）" class="headerlink" title="2. 虚拟内存（CPU卸载的命根子）"></a>2. 虚拟内存（CPU卸载的命根子）</h3><ul>
+<li><strong>入口</strong>：此电脑→属性→高级系统设置→性能→高级→虚拟内存→更改。</li>
+<li><strong>设置</strong>：取消自动管理；选 <strong>SSD 盘</strong>；自定义大小。</li>
+<li><strong>参考值</strong>：16GB RAM→初始 24576 / 最大 65536 MB；32GB→16384 / 32768。</li>
+<li><strong>生效</strong>：点设置→确定→<strong>重启PC</strong>。</li>
+</ul>
+<h3 id="3-关硬件加速GPU调度"><a href="#3-关硬件加速GPU调度" class="headerlink" title="3. 关硬件加速GPU调度"></a>3. 关硬件加速GPU调度</h3><ul>
+<li><strong>路径</strong>：设置→系统→显示→图形→更改默认图形设置。</li>
+<li><strong>操作</strong>：<strong>关</strong>「硬件加速 GPU 调度」。</li>
+<li><strong>原因</strong>：Win11 HAGS 会多占 0.5–1GB 显存，小卡跑 Wan 建议关。</li>
+</ul>
+<h3 id="4-NVIDIA控制面板"><a href="#4-NVIDIA控制面板" class="headerlink" title="4. NVIDIA控制面板"></a>4. NVIDIA控制面板</h3><ul>
+<li><strong>程序设置</strong>：添加 <code>python.exe</code> → 首选处理器「高性能 NVIDIA」。</li>
+<li><strong>电源模式</strong>：最高性能优先。</li>
+<li><strong>关项</strong>：图像缩放、DSR、低延迟模式设「关」。</li>
+<li><strong>着色器缓存</strong>：开 10GB（模型重载快）。</li>
+</ul>
+<h3 id="5-电源与后台"><a href="#5-电源与后台" class="headerlink" title="5. 电源与后台"></a>5. 电源与后台</h3><ul>
+<li><strong>电源计划</strong>：Win 电源→「最佳性能」/ 插电。</li>
+<li><strong>关后台</strong>：Discord GPU 加速、浏览器硬件加速、Wallpaper Engine、OBS。</li>
+<li><strong>BIOS</strong>：独显机 UMA 共享显存设 64MB–256MB，别给 4GB+。</li>
+</ul>
+<h2 id="四、直接抄作业配置"><a href="#四、直接抄作业配置" class="headerlink" title="四、直接抄作业配置"></a>四、直接抄作业配置</h2><h3 id="1-启动bat示例"><a href="#1-启动bat示例" class="headerlink" title="1. 启动bat示例"></a>1. 启动bat示例</h3><pre><code>@echo off
+cd /d D:\ComfyUI\ComfyUI-Installs\ComfyUI
+.\python_embeded\python.exe -s ComfyUI\main.py ^
+  --medvram ^
+  --reserve-vram 1.5 ^
+  --async-offload ^
+  --cpu-vae ^
+  --fp16-unet ^
+  --preview-method none
+pause
+</code></pre>
+<h3 id="2-Win11动作清单"><a href="#2-Win11动作清单" class="headerlink" title="2. Win11动作清单"></a>2. Win11动作清单</h3><ul>
+<li>图形设置绑 <code>python.exe</code>=高性能。</li>
+<li>虚拟内存 SSD 24–64GB，重启。</li>
+<li>关 HAGS。</li>
+<li>N卡面板：高性能+最高性能电源。</li>
+<li>关 Discord/浏览器 GPU 加速。</li>
+</ul>
+<h3 id="3-验证是否生效"><a href="#3-验证是否生效" class="headerlink" title="3. 验证是否生效"></a>3. 验证是否生效</h3><ul>
+<li>启动看日志：<code>DynamicVRAM enabled</code> / <code>medvram mode</code>。</li>
+<li><code>nvidia-smi</code>：采样时显存到 ~10–11GB 后<strong>不报 OOM</strong>，RAM 占用涨→说明卸到 CPU。</li>
+<li>跑原 Wan 工作流：帧数≤16、480P，不崩即成功。</li>
+</ul>
+<h2 id="五、常见误区"><a href="#五、常见误区" class="headerlink" title="五、常见误区"></a>五、常见误区</h2><ul>
+<li><strong>「设个开关让显存不够自动用CPU算」</strong>：ComfyUI 是<strong>卸载权重到 RAM</strong>，计算仍在 GPU；真·全 CPU 只有 <code>--cpu</code>（极慢）。</li>
+<li><strong>开 <code>--gpu-only</code> 再指望卸CPU</strong>：矛盾，必 OOM。</li>
+<li><strong>Win 共享显存=免费显存</strong>：那是核显/UMA 概念，独显 OOM 不靠系统共享救。</li>
+<li><strong>虚拟内存设太小</strong>：低显存跑 Wan + <code>--cpu-vae</code>，RAM 爆会转页面文件，太小直接卡死。</li>
+<li><strong>HAGS 开着更顺</strong>：小显存反向，关了省显存。</li>
+</ul>
+<p>按上面 bat + Win11 四项设完，就是「GPU 优先、爆了自动卸 RAM、VAE 走 CPU」的最稳态。要我按你具体显卡（如 3060 12G / 4070 12G）微调 <code>--reserve-vram</code> 数值吗？</p>
+<p>你这张图是 <strong>RTX 5070 Ti Laptop GPU，专用显存 12GB，系统内存 32GB，Windows 显示共享 GPU 内存上限 15.9GB</strong>。当前专用显存用了 <strong>7.8/12GB</strong>，共享 <strong>0.1/15.9GB</strong>，这是正常的。</p>
+<h2 id="1）任务管理器里这三项分别是什么"><a href="#1）任务管理器里这三项分别是什么" class="headerlink" title="1）任务管理器里这三项分别是什么"></a>1）任务管理器里这三项分别是什么</h2><ul>
+<li><strong>专用 GPU 内存 = 真正显存 VRAM</strong><br>你这张卡是 <strong>12GB GDDR/GDDR7 显存</strong>，带宽很高，GPU 直接访问最快。</li>
+<li><strong>共享 GPU 内存 = Windows 从系统 RAM 划出来可给 GPU 借用的额度</strong><br>通常不是真占用了，而是“上限/可借额度”。你 32GB 内存，Windows 大约按一半显示可用共享 GPU 内存，所以显示 <strong>15.9GB</strong>。<br>它不是额外硬件显存，速度走系统内存 + PCIe，远慢于专用显存。</li>
+<li><strong>GPU 内存 = 专用 + 共享的合计显示值</strong><br>你这里 7.9/27.9GB 是统计口径合计，不代表真有 28GB 高速显存。</li>
+</ul>
+<p>底层机制在 CUDA 侧叫 <strong>Unified Memory / 可迁移内存（Pascal 及以后支持页面迁移、显存超额订阅）</strong>；在 Windows 侧是 WDDM 管理的共享内存/溢出机制。正常优先用 VRAM，压力/映射需要时才会走系统内存。</p>
+<h2 id="2）ComfyUI-PyTorch-CUDA-怎么用“共享-GPU-内存”"><a href="#2）ComfyUI-PyTorch-CUDA-怎么用“共享-GPU-内存”" class="headerlink" title="2）ComfyUI/PyTorch/CUDA 怎么用“共享 GPU 内存”"></a>2）ComfyUI/PyTorch/CUDA 怎么用“共享 GPU 内存”</h2><p>要分清两个概念：</p>
+<h3 id="A-ComfyUI-主动-CPU-offload"><a href="#A-ComfyUI-主动-CPU-offload" class="headerlink" title="A. ComfyUI 主动 CPU offload"></a>A. ComfyUI 主动 CPU offload</h3><p>你加 <code>--medvram / --lowvram / --cpu-vae / --async-offload</code> 时，ComfyUI/PyTorch 是把模型权重/激活/VAE 放到 <strong>CPU RAM</strong>，计算前再搬回 GPU。任务管理器里通常不一定表现为“共享 GPU 内存”上涨，而是系统内存/RAM 和 PCIe 拷贝活动增加，GPU 专用显存下降或波动。</p>
+<h3 id="B-CUDA-Windows-透明走共享内存-统一内存"><a href="#B-CUDA-Windows-透明走共享内存-统一内存" class="headerlink" title="B. CUDA/Windows 透明走共享内存/统一内存"></a>B. CUDA/Windows 透明走共享内存/统一内存</h3><p>当 CUDA 分配或访问触发 Unified Memory / WDDM 共享表面时，数据可能在系统内存里，GPU 通过 PCIe 按需访问/迁移。比如某些 CUDA 分配、图形互操作、页面迁移、显存压力兜底时会用到。任务管理器“共享 GPU 内存”才会动。</p>
+<p>但 PyTorch/ComfyUI 正常训练/推理路径一般更倾向：</p>
+<p><strong>尽量 cudaMalloc 在 VRAM；不够就报错 OOM，或靠 ComfyUI 自己的 CPU offload/模型搬移</strong>。不是简单“专用显存满了就自动安静转共享跑”，否则会极慢且容易卡/崩。</p>
+<p>你当前 7.8/12GB，离满还远，所以共享几乎不用，完全正常。</p>
+<h2 id="3）哪些场景会用到共享-GPU-内存"><a href="#3）哪些场景会用到共享-GPU-内存" class="headerlink" title="3）哪些场景会用到共享 GPU 内存"></a>3）哪些场景会用到共享 GPU 内存</h2><p>常见场景：</p>
+<ol>
+<li><strong>显存真的快满/某些分配走统一内存或 WDDM 共享资源</strong><br>例如大分辨率、视频模型 Wan/AnimateDiff、FLUX fp16、多 ControlNet/IPAdapter/LoRA、预览/TAESD、图形队列等。</li>
+<li><strong>Windows 桌面/合成/浏览器硬件加速/DirectX 表面共享</strong><br>窗口、浏览器、视频播放、WSL/GPU 调度等可能走共享内存路径。</li>
+<li><strong>CUDA Unified Memory 迁移/溢出场景</strong><br>程序显式或运行时走 managed memory，或某些扩展/插件内部分配路径。</li>
+<li><strong>核显/混合显卡场景更明显</strong><br>但你这是独显笔记本 GPU，共享只是兜底，不是主算力内存。</li>
+<li><strong>某些视频编解码/预览/显示相关资源</strong><br>你图里 Video Encode/Decode 0%，说明当前没走硬编解码。</li>
+</ol>
+<p>对 ComfyUI 来说，更常见的“省显存”是：模型放 CPU RAM、VAE 放 CPU、分层 offload、FP8/FP16、Tiled VAE/注意力/TEACache/WaveSpeed 等，不是依赖任务管理器那个共享 GPU 内存。</p>
+<h2 id="4）你这张卡建议怎么跑-ComfyUI"><a href="#4）你这张卡建议怎么跑-ComfyUI" class="headerlink" title="4）你这张卡建议怎么跑 ComfyUI"></a>4）你这张卡建议怎么跑 ComfyUI</h2><p>RTX 5070 Ti Laptop 12GB + 32GB RAM，挺强。一般不必刻意追求共享内存。</p>
+<ul>
+<li><p>普通 SDXL/FLUX fp8：可不加或轻量</p>
+<pre><code>python main.py --fp8_e4m3fn-unet --fp8_e4m3fn-text-enc
+</code></pre>
+<p>或默认/ </p>
+<pre><code>--highvram
+</code></pre>
+<p> 如果只想常驻更快；但跑重工作流建议：</p>
+<pre><code>python main.py --medvram --reserve-vram 1.2 --cpu-vae --async-offload
+</code></pre>
+</li>
+<li><p>Wan 视频/高帧高分辨率：</p>
+<pre><code>python main.py --medvram --reserve-vram 1.5 --cpu-vae --async-offload --fp8_e4m3fn-unet --fp8_e4m3fn-text-enc
+</code></pre>
+<p>配合 WaveSpeed/TeaCache、Tiled VAE、低帧数/480P~720P。</p>
+</li>
+<li><p>不要加 <code>--gpu-only</code>，否则不自动卸 CPU，显存不够直接 OOM。</p>
+</li>
+</ul>
+<p>Win11 侧：虚拟内存保持足够，比如 16–32GB 页面文件；图形设置里 python.exe 高性能；HAGS 可按稳定性选择，跑 AI 有时关更稳。</p>
+<h2 id="5）重点结论"><a href="#5）重点结论" class="headerlink" title="5）重点结论"></a>5）重点结论</h2><ul>
+<li>共享 GPU 内存不是“可扩展显存”，是 <strong>系统 RAM 给 GPU 的兜底/共享额度</strong>，慢很多。</li>
+<li>你现在 7.8/12GB 专用，没用共享是正常的。</li>
+<li>ComfyUI 省显存主要靠 <strong>CPU offload/精度/分块/FP8/Tiled/节点策略</strong>，不是靠 Windows 共享 GPU 内存。</li>
+<li>只有接近/触发 CUDA 内存压力、统一内存/图形共享/某些分配路径时，共享才会明显被用。</li>
+</ul>
+<p>ComfyUI 参数加在 <code>python main.py</code> 或 <code>run_nvidia_gpu.bat</code> 后面。官方源码以 <code>comfy/cli_args.py</code> 为准。</p>
+<h2 id="一、显存与内存管理"><a href="#一、显存与内存管理" class="headerlink" title="一、显存与内存管理"></a>一、显存与内存管理</h2><h3 id="1-显存模式切换"><a href="#1-显存模式切换" class="headerlink" title="1. 显存模式切换"></a>1. 显存模式切换</h3><ul>
+<li>**<code>--gpu-only</code>**：CLIP/文本编码器/VAE/UNet 全留 GPU，不卸 CPU；≥24GB 才用。</li>
+<li>**<code>--highvram</code>**：用后不卸载模型，常驻显存；12–24GB 多轮出图快。</li>
+<li>**<code>--normalvram</code>**：强制默认平衡模式，覆盖自动 lowvram。</li>
+<li>**<code>--medvram</code>**：中等卸载，分层搬 CPU↔GPU；6–12GB 常用。</li>
+<li>**<code>--lowvram</code>**：UNet 分块执行，文本编码器走 CPU；4–8GB。</li>
+<li>**<code>--novram</code>**：比 lowvram 更激进，权重基本在 CPU；2–4GB 救急。</li>
+<li>**<code>--cpu</code>**：全 CPU 推理，无 GPU 时用，极慢。</li>
+</ul>
+<h3 id="2-精细显存控制"><a href="#2-精细显存控制" class="headerlink" title="2. 精细显存控制"></a>2. 精细显存控制</h3><ul>
+<li>**<code>--reserve-vram 1.5</code>**：给 Win 桌面/驱动留 1.5GB，不超物理显存。</li>
+<li>**<code>--vram-headroom 1</code>**：DynamicVRAM 额外空出 1GB 不用。</li>
+<li>**<code>--async-offload [N]</code>**：N 条 CUDA 流异步搬权重（N卡默认2）。</li>
+<li>**<code>--disable-async-offload</code>**：关异步，回退同步。</li>
+<li>**<code>--disable-dynamic-vram</code>**：关动态管理，回退估算加载。</li>
+<li>**<code>--enable-dynamic-vram</code>**：非默认平台强开动态 VRAM。</li>
+<li>**<code>--disable-smart-memory</code>**：不缓存模型层，用就搬走，稳但慢。</li>
+<li>**<code>--disable-pinned-memory</code>**：关锁页内存，部分 APU/老卡避坑。</li>
+</ul>
+<h2 id="二、精度与数据类型"><a href="#二、精度与数据类型" class="headerlink" title="二、精度与数据类型"></a>二、精度与数据类型</h2><h3 id="1-全局强制"><a href="#1-全局强制" class="headerlink" title="1. 全局强制"></a>1. 全局强制</h3><ul>
+<li>**<code>--force-fp32</code>**：全模型 FP32，最稳最费显存。</li>
+<li>**<code>--force-fp16</code>**：全模型 FP16，老卡黑图时别用。</li>
+</ul>
+<h3 id="2-UNet-扩散模型"><a href="#2-UNet-扩散模型" class="headerlink" title="2. UNet/扩散模型"></a>2. UNet/扩散模型</h3><ul>
+<li>**<code>--fp32-unet</code> / <code>--fp64-unet</code>**：高精度，慢，调试用。</li>
+<li>**<code>--fp16-unet</code>**：半精度，8–16GB 常用。</li>
+<li>**<code>--bf16-unet</code>**：Ampere+ 推荐，比 fp16 不易溢出。</li>
+<li>**<code>--fp8_e4m3fn-unet</code>**：FP8 权重，显存骤降；需 SM89+（40/30系）。</li>
+<li>**<code>--fp8_e5m2-unet</code> / <code>--fp8_e8m0fnu-unet</code>**：其他 FP8 变体。</li>
+</ul>
+<h3 id="3-VAE-相关"><a href="#3-VAE-相关" class="headerlink" title="3. VAE 相关"></a>3. VAE 相关</h3><ul>
+<li>**<code>--cpu-vae</code>**：VAE 解码放 CPU，降显存峰值首选。</li>
+<li>**<code>--fp16-vae</code>**：省显存，部分模型黑图。</li>
+<li>**<code>--fp32-vae</code>**：默认，最稳。</li>
+<li>**<code>--bf16-vae</code>**：N卡 Ampere+ 平衡选。</li>
+</ul>
+<h3 id="4-文本编码器"><a href="#4-文本编码器" class="headerlink" title="4. 文本编码器"></a>4. 文本编码器</h3><ul>
+<li>**<code>--fp8_e4m3fn-text-enc</code>**：CLIP/T5 量化，Wan/FLUX 省显存。</li>
+<li>**<code>--fp16-text-enc</code> / <code>--bf16-text-enc</code> / <code>--fp32-text-enc</code>**：手动指定精度。</li>
+</ul>
+<h3 id="5-注意力精度"><a href="#5-注意力精度" class="headerlink" title="5. 注意力精度"></a>5. 注意力精度</h3><ul>
+<li>**<code>--force-upcast-attention</code>**：修黑图/噪点。</li>
+<li>**<code>--dont-upcast-attention</code>**：禁升位，省显存但易翻车。</li>
+</ul>
+<h2 id="三、注意力与计算加速"><a href="#三、注意力与计算加速" class="headerlink" title="三、注意力与计算加速"></a>三、注意力与计算加速</h2><ul>
+<li>**<code>--use-pytorch-cross-attention</code>**：PyTorch SDPA，现代卡默认推荐。</li>
+<li>**<code>--use-sage-attention</code>**：SageAttention，需装包，快且省。</li>
+<li>**<code>--use-flash-attention</code>**：FlashAttn，兼容时最快。</li>
+<li>**<code>--use-split-cross-attention</code>**：老卡/无 xformers 兜底。</li>
+<li>**<code>--use-quad-cross-attention</code>**：子二次注意力，省显存。</li>
+<li>**<code>--disable-xformers</code>**：冲突时禁用。</li>
+<li>**<code>--force-channels-last</code>**：NHWC 布局，张量核利用率高。</li>
+<li>**<code>--fast [opt]</code>**：实验优化（<code>fp16_accumulation</code>/<code>fp8_matrix_mult</code>）。</li>
+<li>**<code>--cuda-malloc</code> / <code>--disable-cuda-malloc</code>**：切 cudaMallocAsync。</li>
+</ul>
+<h2 id="四、缓存与执行策略"><a href="#四、缓存与执行策略" class="headerlink" title="四、缓存与执行策略"></a>四、缓存与执行策略</h2><ul>
+<li>**<code>--cache-lru N</code>**：缓存最近 N 个节点结果，吃 RAM 省重算。</li>
+<li>**<code>--cache-classic</code>**：旧版激进缓存。</li>
+<li>**<code>--cache-none</code>**：不缓存，最省内存。</li>
+<li>**<code>--cache-ram 6.0</code>**：限制 RAM 缓存上限 GB。</li>
+<li>**<code>--preview-method none|auto|latent2rgb|taesd</code>**：出图预览，<code>none</code> 最省。</li>
+<li>**<code>--preview-size 512</code>**：预览图最大边。</li>
+<li>**<code>--deterministic</code>**：可复现但慢。</li>
+<li>**<code>--high-ram</code>**：大内存时禁 RAM 限制。</li>
+</ul>
+<h2 id="五、网络与服务访问"><a href="#五、网络与服务访问" class="headerlink" title="五、网络与服务访问"></a>五、网络与服务访问</h2><ul>
+<li>**<code>--listen [IP]</code>**：不填=0.0.0.0，填IP限绑；局域网/API 用。</li>
+<li>**<code>--port 8188</code>**：改端口。</li>
+<li>**<code>--tls-keyfile</code> + <code>--tls-certfile</code>**：启用 HTTPS。</li>
+<li>**<code>--enable-cors-header [\*]</code>**：API 跨域。</li>
+<li>**<code>--max-upload-size 500</code>**：上传模型/图上限 MB。</li>
+<li>**<code>--auto-launch</code> / <code>--disable-auto-launch</code>**：开/禁自动开浏览器。</li>
+<li>**<code>--multi-user</code>**：按用户隔离存储。</li>
+</ul>
+<h2 id="六、路径与多设备"><a href="#六、路径与多设备" class="headerlink" title="六、路径与多设备"></a>六、路径与多设备</h2><ul>
+<li>**<code>--base-directory D:</code>**：重定位 models/custom_nodes/output。</li>
+<li>**<code>--extra-model-paths-config a.yaml</code>**：挂额外模型盘。</li>
+<li>**<code>--output-directory</code> / <code>--input-directory</code> / <code>--temp-directory</code>**：分目录覆盖。</li>
+<li>**<code>--user-directory</code>**：多用户配置隔离。</li>
+<li>**<code>--cuda-device 1</code>**：多卡指定第2张。</li>
+<li>**<code>--directml [id]</code>**：AMD/Intel 走 DirectML。</li>
+<li>**<code>--oneapi-device-selector</code>**：Intel XPU。</li>
+</ul>
+<h2 id="七、调试与其他杂项"><a href="#七、调试与其他杂项" class="headerlink" title="七、调试与其他杂项"></a>七、调试与其他杂项</h2><ul>
+<li>**<code>--disable-all-custom-nodes</code>**：排错节点冲突。</li>
+<li>**<code>--disable-metadata</code>**：出图不写 prompt 元数据。</li>
+<li>**<code>--verbose DEBUG</code>**：日志级别。</li>
+<li>**<code>--default-hashing-function sha256</code>**：模型去重哈希。</li>
+<li>**<code>--front-end-version owner/repo@ver</code>**：切前端版本。</li>
+<li>**<code>--windows-standalone-build</code>**：便携版开便捷特性。</li>
+<li>**<code>--mmap-torch-files</code> / <code>--disable-mmap</code>**：控制模型映射加载。</li>
+</ul>
+<h2 id="八、按显卡抄作业"><a href="#八、按显卡抄作业" class="headerlink" title="八、按显卡抄作业"></a>八、按显卡抄作业</h2><ul>
+<li><strong>2–4GB（MX/Mobile）</strong>：<code>--novram --cpu-vae --preview-method none --reserve-vram 0.8</code>（仅小图）。</li>
+<li><strong>6–8GB（3060 6G）</strong>：<code>--lowvram --reserve-vram 1 --cpu-vae --fp16-unet</code>。</li>
+<li><strong>12GB（3060/4070）</strong>：<code>--medvram --reserve-vram 1.5 --async-offload --cpu-vae</code>（Wan 加 <code>--fp8_e4m3fn-unet --fp8_e4m3fn-text-enc</code>）。</li>
+<li><strong>16–24GB</strong>：<code>--highvram --fp16-unet --preview-method taesd</code>。</li>
+<li>**24GB+**：<code>--gpu-only --fast</code>。</li>
+<li><strong>无独显/纯 CPU</strong>：<code>--cpu --preview-method none --cache-lru 50</code>。</li>
+</ul>
+<h2 id="九、改参实操与避坑"><a href="#九、改参实操与避坑" class="headerlink" title="九、改参实操与避坑"></a>九、改参实操与避坑</h2><h3 id="1-便携版改法"><a href="#1-便携版改法" class="headerlink" title="1. 便携版改法"></a>1. 便携版改法</h3><p>编辑 <code>run_nvidia_gpu.bat</code>：<code>python.exe -s ComfyUI\main.py --medvram --reserve-vram 1.5 --cpu-vae</code>。</p>
+<h3 id="2-手动版"><a href="#2-手动版" class="headerlink" title="2. 手动版"></a>2. 手动版</h3><p><code>python main.py --lowvram --cpu-vae --reserve-vram 1</code>。</p>
+<h3 id="3-comfy-cli"><a href="#3-comfy-cli" class="headerlink" title="3. comfy-cli"></a>3. comfy-cli</h3><p><code>comfy launch -- --medvram --reserve-vram 1.5</code>。</p>
+<h3 id="4-常见避坑"><a href="#4-常见避坑" class="headerlink" title="4. 常见避坑"></a>4. 常见避坑</h3><ul>
+<li>显存模式<strong>只选一个</strong>，别 <code>--highvram --lowvram</code> 同开。</li>
+<li><code>--reserve-vram</code> 别大于物理显存×70%。</li>
+<li>FP8 老卡（10系/16系）不支持会报 kernel 错。</li>
+<li><code>--fast</code> 可能降质，生产别开。</li>
+<li>改完<strong>重启 ComfyUI</strong>，看启动日志确认 <code>DynamicVRAM</code>/<code>medvram</code> 生效。</li>
+</ul>
+<p>参数以 <code>python main.py -h</code> 或对应版本 <code>cli_args.py</code> 为准。要我按你显卡型号拼一条可直接粘贴的 bat 启动行吗？</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">读序</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigworldxld.github.io/2026/09/13/59441.html">https://bigworldxld.github.io/2026/09/13/59441.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">读序</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/tool/">
+                                    <span class="chip bg-color">tool</span>
+                                </a>
+                            
+                                <a href="/tags/comfyui/">
+                                    <span class="chip bg-color">comfyui</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/09/13/59441.html">
+                    <div class="card-image">
+                        
+                        <img src="https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?w=1100&fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5d9cee59ce80d28cddbe56b6dcfc999a" class="responsive-img" alt="ComfyUI启动参数配置">
+                        
+                        <span class="card-title">ComfyUI启动参数配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tool/" class="post-category">
+                                    tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tool/">
+                        <span class="chip bg-color">tool</span>
+                    </a>
+                    
+                    <a href="/tags/comfyui/">
+                        <span class="chip bg-color">comfyui</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/09/05/49861.html">
+                    <div class="card-image">
+                        
+                        <img src="https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?w=1100&fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5d9cee59ce80d28cddbe56b6dcfc999a" class="responsive-img" alt="ComfyUI做ai视频">
+                        
+                        <span class="card-title">ComfyUI做ai视频</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tool/" class="post-category">
+                                    tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tool/">
+                        <span class="chip bg-color">tool</span>
+                    </a>
+                    
+                    <a href="/tags/comfyui/">
+                        <span class="chip bg-color">comfyui</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <a href="/about" target="_blank">读序</a>
+            |&nbsp;Author&nbsp;<a href="https://blog.bigworldxld.dpdns.org/" target="_blank">bigworldxld</a>
+            |&nbsp;Dailylife&nbsp;<a href="https://bigworldxld.github.io/duxu-dailylife/" target="_blank">blog</a>
+			|&nbsp;Desktop&nbsp;<a href="https://bigworldxld.github.io/desktop/" target="_blank">desktop</a>
+            <br>
+			
+            
+            
+            
+                
+
+            
+
+			 
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+				<i class="fa fa-heart-o"></i>
+			本站总访问量 <span class="white-color">8783</span><span id="busuanzi_value_site_pv" class="white-color"></span>
+
+			
+
+			
+				<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span class="white-color">125</span><span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+
+			
+
+			
+            <br>
+		
+
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "30";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+    <a href="https://github.com/bigworldxld/bigworldxld.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2117376396@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2117376396" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2117376396" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<!- <div class="progress-bar"></div>->
+<span id="sitetime"></span>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+		let time = new Date().toLocaleString();
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2021, 12, 30, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); 
+		document.getElementById("sitetime").innerHTML = "当前时间为"+ time +"<br/>本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+    siteTime(); 
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303710785278710"
+     crossorigin="anonymous"></script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/javascript">
+    var OriginTitile = document.title,
+        st;
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? (document.title = "๑•̀ㅂ•́) ✧看不见～看不见～", clearTimeout(st)) : (document.title =
+            "(๑•̀ㅂ•́) ✧看见～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+    })
+</script>
+
+</body>
+
+</html>
