@@ -6,7 +6,7 @@
   <link href="https://bigworldxld.github.io/atom.xml" rel="self"/>
   
   <link href="https://bigworldxld.github.io/"/>
-  <updated>2026-09-13T10:44:56.024Z</updated>
+  <updated>2026-09-26T03:46:31.488Z</updated>
   <id>https://bigworldxld.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>现代agent入门六</title>
+    <link href="https://bigworldxld.github.io/2026/09/26/24137.html"/>
+    <id>https://bigworldxld.github.io/2026/09/26/24137.html</id>
+    <published>2026-09-26T04:24:02.000Z</published>
+    <updated>2026-09-26T03:46:31.488Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="book" scheme="https://bigworldxld.github.io/categories/book/"/>
+    
+    
+    <category term="ASR" scheme="https://bigworldxld.github.io/tags/ASR/"/>
+    
+    <category term="tool" scheme="https://bigworldxld.github.io/tags/tool/"/>
+    
+    <category term="GUI" scheme="https://bigworldxld.github.io/tags/GUI/"/>
+    
+    <category term="VAD" scheme="https://bigworldxld.github.io/tags/VAD/"/>
+    
+    <category term="TTS" scheme="https://bigworldxld.github.io/tags/TTS/"/>
+    
+  </entry>
   
   <entry>
     <title>ComfyUI启动参数配置</title>
